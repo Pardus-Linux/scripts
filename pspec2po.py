@@ -157,6 +157,10 @@ def find_pspecs(path):
     return paks
 
 def extract_pspecs(path, language, old_messages = []):
+    # otherwise, reference gets an extra / prefix
+    # and update_pspecs does a os.path.join('/...', '/...', '...')
+    if not path.endswith('/'):
+        path += '/'
     messages = []
     paks = find_pspecs(path)
     for pak in paks:

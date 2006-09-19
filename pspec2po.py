@@ -14,7 +14,7 @@ import sys
 import re
 import piksemel as iks
 
-po_header = """# SOME DESCRIPTIVE TITLE.
+po_header_tmpl = """# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
@@ -33,12 +33,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\\n"
 """
 
-po_entry = """
-#: %(ref)s
-msgid %(id)s
-msgstr %(str)s
-"""
-
 class Message:
     def __init__(self):
         self.reference = None
@@ -48,66 +42,69 @@ class Message:
 
 
 class Po:
-    def __init__(self, messages = None):
-        self.messages = []
-        if messages:
-            self.messages = messages
-    
+    def __init__(self, messages = None, header = None):
+        self.messages = messages or []
+        self.header = header or po_header_tmpl
+
     def _escape(self, str):
         if not str:
             return '""'
-        
+
         str = re.sub('"', '\\"', str)
-        
+
         parts = str.split("\n")
-        
+
         if len(parts) == 1:
             return '"%s"' % parts[0]
-        
+
         if str.endswith("\n"):
             parts = parts[:-1]
-        
+
         ret = '""' + "".join(map(lambda x: '\n"%s\\n"' % x, parts))
-        
+
         return ret
-    
+
     def save(self, filename):
         f = file(filename, "w")
-        f.write(po_header)
+        f.write(self.header)
         for msg in self.messages:
-            dict = {}
-            dict["ref"] = msg.reference
-            dict["id"] = self._escape(msg.msgid)
-            dict["str"] = self._escape(msg.msgstr)
-            f.write(po_entry % dict)
+            po_entry = "\n#: %s\n" % msg.reference
+            if msg.flags:
+                po_entry += "#, " + ", ".join(msg.flags) + "\n"
+            po_entry += "msgid %s\n" % self._escape(msg.msgid)
+            po_entry += "msgstr %s\n" % self._escape(msg.msgstr)
+            f.write(po_entry)
         f.close()
-    
+
     def _unescape(self, str):
         str = re.sub('\\\\"', '"', str)
         str = re.sub('\\\\n', '\n', str)
         return str
-    
+
     def load(self, filename):
         sHeader, sSkip, sComment, sId, sMsg = range(5)
         self.messages = []
+        self.header = ""
         msg = None
         state = sHeader
         # Silly state machines are easier to code than dealing with regexps
         for line in file(filename):
             line = line.rstrip("\n")
-            
+
             if state == sHeader:
                 if len(line.split()) == 0:
                     state = sSkip
+                else:
+                    self.header += line + "\n"
                 continue
-            
+
             if state == sSkip:
                 if len(line.split()) != 0:
                     msg = Message()
                     state = sComment
                 else:
                     continue
-            
+
             if state == sComment:
                 if line.startswith("#: "):
                     msg.reference = line[3:]
@@ -119,7 +116,7 @@ class Po:
                     state = sId
                 else:
                     continue
-            
+
             if state == sId:
                 if line.startswith("msgstr "):
                     state = sMsg
@@ -129,7 +126,7 @@ class Po:
                     if not msg.msgid:
                         msg.msgid = ""
                     msg.msgid += line[line.find('"')+1:line.rfind('"')]
-            
+
             if state == sMsg:
                 if len(line.split()) == 0:
                     msg.msgid = self._unescape(msg.msgid)
@@ -142,7 +139,7 @@ class Po:
                     if line == 'msgstr ""':
                         continue
                     msg.msgstr += line[line.find('"')+1:line.rfind('"')]
-        
+
         if msg:
             msg.msgid = self._unescape(msg.msgid)
             msg.msgstr = self._unescape(msg.msgstr)
@@ -159,40 +156,32 @@ def find_pspecs(path):
             dirs.remove(".svn")
     return paks
 
-def extract_pspecs(path, language):
+def extract_pspecs(path, language, old_messages = []):
     messages = []
     paks = find_pspecs(path)
     for pak in paks:
-        msg = Message()
-        msg.reference = pak[len(path):] + ":summary"
-        doc = iks.parse(pak + "/pspec.xml")
-        source = doc.getTag("Source")
-        for item in source.tags("Summary"):
-            lang = item.getAttribute("xml:lang")
-            if not lang or lang == "en":
-                msg.msgid = item.firstChild().data()
-            elif lang == language:
-                msg.msgstr = item.firstChild().data()
-        messages.append(msg)
-        
-        msg = Message()
-        msg.reference = pak[len(path):] + ":description"
-        doc = iks.parse(pak + "/pspec.xml")
-        source = doc.getTag("Source")
-        for item in source.tags("Description"):
-            lang = item.getAttribute("xml:lang")
-            if not lang or lang == "en":
-                msg.msgid = item.firstChild().data()
-            elif lang == language:
-                msg.msgstr = item.firstChild().data()
-        messages.append(msg)
-    
-    return messages
+        for tag in ["Summary", "Description"]:
+            msg = Message()
+            msg.reference = pak[len(path):] + ":" + tag.lower()
+            doc = iks.parse(pak + "/pspec.xml")
+            source = doc.getTag("Source")
+            for item in source.tags(tag):
+                lang = item.getAttribute("xml:lang")
+                if not lang or lang == "en":
+                    msg.msgid = item.firstChild().data()
+                elif lang == language:
+                    msg.msgstr = item.firstChild().data()
 
-pspec_header = """<?xml version="1.0" ?>
-<!DOCTYPE PISI
-  SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
-"""
+            for old_msg in old_messages:
+                if old_msg.reference == msg.reference:
+                    if old_msg.msgstr == msg.msgstr:
+                        if ('fuzzy' in old_msg.flags) or (old_msg.msgid != msg.msgid):
+                            msg.flags.append("fuzzy")
+                            break
+
+            messages.append(msg)
+
+    return messages
 
 def update_pspecs(path, language, po):
     for msg in po.messages:
@@ -200,15 +189,15 @@ def update_pspecs(path, language, po):
             continue
         if "fuzzy" in msg.flags:
             continue
-        
+
         done = 0
-        
+
         name, tag = msg.reference.split(':')
         name = os.path.join(path, name, "pspec.xml")
         tag = tag.title()
         tag_start = "<%s" % tag
         tag_end = "</%s>" % tag
-        
+
         data = file(name).read()
         data2 = []
         inseek = 0
@@ -240,28 +229,35 @@ def update_pspecs(path, language, po):
                     data2[-1] += line[i:]
             if useline == 1:
                 data2.append(line[:])
-        
+
         data2 = "\n".join(data2)
         if data != data2:
             done = 1
             data = data2
-        
+
         if done == 0:
             pos = data.find("<Archive")
             if not pos:
                 print "Problem in", name
             else:
                 data = data[:pos] + '<%s xml:lang="%s">%s</%s>\n        ' % (tag, language, msg.msgstr, tag) + data[pos:]
-        
+
         f = file(name, "w")
         f.write(data)
         f.close()
 
 
 def extract(path, language, pofile):
-    po = Po()
-    po.messages = extract_pspecs(path, language)
-    po.save(pofile)
+    if os.path.exists(pofile):
+        old_po = Po()
+        old_po.load(pofile)
+        po = Po(header = old_po.header)
+        po.messages = extract_pspecs(path, language, old_po.messages)
+        po.save(pofile)
+    else:
+        po = Po()
+        po.messages = extract_pspecs(path, language)
+        po.save(pofile)
 
 def update(path, language, pofile):
     po = Po()
@@ -277,12 +273,12 @@ def usage():
 if __name__ == "__main__":
     if len(sys.argv) == 1 or sys.argv[1] == "help":
         usage()
-    
+
     elif len(sys.argv) == 5 and sys.argv[1] == "extract":
         extract(sys.argv[2], sys.argv[3], sys.argv[4])
-    
+
     elif len(sys.argv) == 5 and sys.argv[1] == "update":
         update(sys.argv[2], sys.argv[3], sys.argv[4])
-    
+
     else:
         usage()

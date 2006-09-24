@@ -1,10 +1,4 @@
-#!/bin/bash
-
-VERSION="xorg-video-7.1"
-MIRROR="http://ftp.gwdg.de/pub/x11/x.org/pub/individual/driver/"
-
-# xf86-video-impact is mips only
-PACKAGES="xf86-video-apm-1.1.1.tar.bz2
+xf86-video-apm-1.1.1.tar.bz2
 xf86-video-ark-0.6.0.tar.bz2
 xf86-video-ast-0.81.0.tar.bz2
 xf86-video-ati-6.6.2.tar.bz2
@@ -46,18 +40,4 @@ xf86-video-vesa-1.2.1.tar.bz2
 xf86-video-vga-4.1.0.tar.bz2
 xf86-video-via-0.2.1.tar.bz2
 xf86-video-vmware-10.13.0.tar.bz2
-xf86-video-voodoo-1.1.0.tar.bz2"
-
-mkdir $VERSION/
-cd $VERSION
-
-for i in $PACKAGES
-do
-    wget $MIRROR"/"$i
-    tar jxvf $i
-    rm -f $i
-done
-
-cd ..
-tar cjvf $VERSION.tar.bz2 $VERSION/
-rm -rf $VERSION/
+xf86-video-voodoo-1.1.0.tar.bz2

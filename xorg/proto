@@ -1,9 +1,4 @@
-#!/bin/bash
-
-VERSION="xorg-proto-7.1"
-MIRROR="http://ftp.gwdg.de/pub/x11/x.org/pub/individual/proto/"
-
-PACKAGES="applewmproto-1.0.3.tar.bz2
+applewmproto-1.0.3.tar.bz2
 bigreqsproto-1.0.2.tar.bz2
 compositeproto-0.3.tar.bz2
 damageproto-1.0.3.tar.bz2
@@ -34,18 +29,4 @@ xf86rushproto-1.1.2.tar.bz2
 xf86vidmodeproto-2.2.2.tar.bz2
 xineramaproto-1.1.2.tar.bz2
 xproto-7.0.7.tar.bz2
-xproxymanagementprotocol-1.0.2.tar.bz2"
-
-mkdir $VERSION/
-cd $VERSION
-
-for i in $PACKAGES
-do
-    wget $MIRROR"/"$i
-    tar jxvf $i
-    rm -f $i
-done
-
-cd ..
-tar cjvf $VERSION.tar.bz2 $VERSION/
-rm -rf $VERSION/
+xproxymanagementprotocol-1.0.2.tar.bz2

@@ -1,0 +1,9 @@
+./pack.sh --package=xorg-app --filelist=app --mirror=http://ftp.gwdg.de/pub/x11/x.org/pub/individual/app
+./pack.sh --package=xorg-data --filelist=data --mirror=http://ftp.gwdg.de/pub/x11/x.org/pub/individual/data
+./pack.sh --package=xorg-doc --filelist=doc --mirror=http://ftp.gwdg.de/pub/x11/x.org/pub/individual/doc
+./pack.sh --package=xorg-font --filelist=font --mirror=http://ftp.gwdg.de/pub/x11/x.org/pub/individual/font
+./pack.sh --package=xorg-input --filelist=input --mirror=http://ftp.gwdg.de/pub/x11/x.org/pub/individual/driver
+./pack.sh --package=xorg-proto --filelist=proto --mirror=http://ftp.gwdg.de/pub/x11/x.org/pub/individual/proto
+./pack.sh --package=xorg-util --filelist=util --mirror=http://ftp.gwdg.de/pub/x11/x.org/pub/individual/util
+./pack.sh --package=xorg-video --filelist=video --mirror=http://ftp.gwdg.de/pub/x11/x.org/pub/individual/driver
+

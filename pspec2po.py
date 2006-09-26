@@ -195,10 +195,14 @@ def update_pspecs(path, language, po):
         if "fuzzy" in msg.flags:
             continue
 
-        done = 0
-
         name, tag = msg.reference.split(':')
         name = os.path.join(path, name, "pspec.xml")
+
+        if not os.path.exists(name):
+            continue
+
+        done = 0
+
         tag = tag.title()
         tag_start = "<%s" % tag
         tag_end = "</%s>" % tag

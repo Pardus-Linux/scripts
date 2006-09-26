@@ -181,7 +181,8 @@ def extract_pspecs(path, language, old_messages = []):
                     if old_msg.msgstr == msg.msgstr:
                         if ('fuzzy' in old_msg.flags) or (old_msg.msgid != msg.msgid):
                             msg.flags.append("fuzzy")
-                            break
+                    if (old_msg.msgid == msg.msgid) and (old_msg.msgstr != msg.msgstr):
+                        msg.msgstr = old_msg.msgstr
 
             messages.append(msg)
 

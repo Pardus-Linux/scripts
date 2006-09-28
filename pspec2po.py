@@ -221,7 +221,7 @@ def update_pspecs(path, language, po):
         if "fuzzy" in msg.flags:
             continue
 
-        name, i, tag = msg.reference.split(':')
+        name, type_flag, tag = msg.reference.split(':')
         tag = tag.title()
         name = os.path.join(path, name, "pspec.xml")
 
@@ -231,16 +231,23 @@ def update_pspecs(path, language, po):
         tag_start = "<%s>" % tag
         tag_end = "</%s>" % tag
 
-        if not i:
+        if not type_flag:
             block = "Source"
             block_start, block_end = "<%s>" % block, "</%s>" % block
         else:
             block = "Package"
-            block_start, block_end, package_name = "<%s>" % block, "</%s>" % block, i
+            block_start, block_end, package_name = "<%s>" % block, "</%s>" % block, type_flag
 
         data = file(name).readlines()
 
-        in_block = 0
+        def check_l(l, block_end):
+            if data[l].find('xml:lang="%s"' % language) != -1:
+                return 1
+            if data[l].find(block_end) != -1:
+                return 0
+            check_l(l+1, block_end)
+
+        in_block, checked = 0, 0
 
         for lnum in range(0, len(data)):
             if block == "Source":
@@ -248,10 +255,14 @@ def update_pspecs(path, language, po):
                     in_block = 1
 
                 if in_block and data[lnum].find(block_end) != -1:
-                    in_block = 0
+                    in_block, checked = 0, 0
                     continue
 
                 if in_block and data[lnum].find(tag) != -1:
+                    if (not checked) and (not check_l(lnum, block_end)):
+                        data[lnum] += '        <%s xml:lang="%s">%s</%s>\n' % (tag, language, msg.msgstr, tag)
+                        checked = 1
+                        continue
                     if data[lnum].find('xml:lang="%s"' % language) != -1 and data[lnum][data[lnum].find(">") + 1:data[lnum].rfind("<")] != msg.msgstr:
                         data[lnum] = data[lnum][:data[lnum].find(">") + 1] + msg.msgstr + data[lnum][data[lnum].rfind("<"):]
 
@@ -260,14 +271,18 @@ def update_pspecs(path, language, po):
                     in_block = 1
 
                 if in_block and data[lnum].find(block_end) != -1:
-                    in_block = 0
+                    in_block, checked = 0, 0
                     continue
 
                 if in_block and data[lnum].find("<Name>") != -1 and data[lnum].strip()[6:-7] != package_name:
-                    in_block = 0
+                    in_block, checked = 0, 0
                     continue
 
                 if in_block and data[lnum].find(tag) != -1:
+                    if (not checked) and (not check_l(lnum, block_end)):
+                        data[lnum] += '        <%s xml:lang="%s">%s</%s>\n' % (tag, language, msg.msgstr, tag)
+                        checked = 1
+                        continue
                     if data[lnum].find('xml:lang="%s"' % language) != -1 and data[lnum][data[lnum].find(">") + 1:data[lnum].rfind("<")] != msg.msgstr:
                         data[lnum] = data[lnum][:data[lnum].find(">") + 1] + msg.msgstr + data[lnum][data[lnum].rfind("<"):]
 

@@ -13,7 +13,6 @@ import os
 import sys
 import re
 import piksemel as iks
-import xml.dom.minidom as mdom
 
 po_header_tmpl = """# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER

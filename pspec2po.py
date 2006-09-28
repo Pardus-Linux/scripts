@@ -13,6 +13,7 @@ import os
 import sys
 import re
 import piksemel as iks
+import xml.dom.minidom as mdom
 
 po_header_tmpl = """# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
@@ -164,11 +165,11 @@ def extract_pspecs(path, language, old_messages = []):
     messages = []
     paks = find_pspecs(path)
     for pak in paks:
+        doc = iks.parse(pak + "/pspec.xml")
         for tag in ["Summary", "Description"]:
             msg = Message()
-            msg.reference = pak[len(path):] + ":" + tag.lower()
-            doc = iks.parse(pak + "/pspec.xml")
             source = doc.getTag("Source")
+            msg.reference = pak[len(path):] + "::" + tag.lower()
             for item in source.tags(tag):
                 lang = item.getAttribute("xml:lang")
                 if not lang or lang == "en":
@@ -186,75 +187,96 @@ def extract_pspecs(path, language, old_messages = []):
 
             messages.append(msg)
 
+        # I know. I'll clean this mess..
+        for package in doc.tags("Package"):
+            msg = Message()
+            for tag in ["Summary", "Description"]:
+                for item in package.tags(tag):
+                    lang = item.getAttribute("xml:lang")
+                    if not lang or lang == "en":
+                        msg.msgid = item.firstChild().data()
+                    elif lang == language:
+                        msg.msgstr = item.firstChild().data()
+                    msg.reference = pak[len(path):] + ":" + package.getTagData("Name") + ":" + tag.lower()
+
+            for old_msg in old_messages:
+               if old_msg.reference == msg.reference:
+                   if old_msg.msgstr == msg.msgstr:
+                       if ('fuzzy' in old_msg.flags) or (old_msg.msgid != msg.msgid):
+                           msg.flags.append("fuzzy")
+                   if (old_msg.msgid == msg.msgid) and (old_msg.msgstr != msg.msgstr):
+                       msg.msgstr = old_msg.msgstr
+
+                       msg.msgstr = item.firstChild().data()
+
+            if msg.msgid:
+                messages.append(msg)
+
     return messages
 
 def update_pspecs(path, language, po):
+    """a small tribute to CSLParser"""
     for msg in po.messages:
         if not msg.msgstr:
             continue
         if "fuzzy" in msg.flags:
             continue
 
-        name, tag = msg.reference.split(':')
+        name, i, tag = msg.reference.split(':')
+        tag = tag.title()
         name = os.path.join(path, name, "pspec.xml")
 
         if not os.path.exists(name):
             continue
 
-        done = 0
-
-        tag = tag.title()
-        tag_start = "<%s" % tag
+        tag_start = "<%s>" % tag
         tag_end = "</%s>" % tag
 
-        data = file(name).read()
-        data2 = []
-        inseek = 0
-        for line in data.split('\n'):
-            useline = 1
-            if inseek == 0:
-                i = line.find(tag_start)
-                if i != -1:
-                    j = line.find("xml:lang=", i + len(tag_start))
-                    if j != -1:
-                        lang = line[j + 10:]
-                        if lang.startswith(language):
-                            k = line.find(">", j + 10)
-                            m = line.find(tag_end, k + 1)
-                            useline = 0
-                            done = 1
-                            if m != -1:
-                                data2.append(line[:k+1] + msg.msgstr + line[m:])
-                            else:
-                                inseek = 1
-                                data2.append(line[:k+1] + msg.msgstr)
-            else:
-                useline = 0
-                i = line.find(tag_end)
-                if i != -1:
-                    inseek = 0
-                    if data2[-1].endswith("\n"):
-                        data2[-1] = data2[-1][:-1]
-                    data2[-1] += line[i:]
-            if useline == 1:
-                data2.append(line[:])
+        if not i:
+            block = "Source"
+            block_start, block_end = "<%s>" % block, "</%s>" % block
+        else:
+            block = "Package"
+            block_start, block_end, package_name = "<%s>" % block, "</%s>" % block, i
 
-        data2 = "\n".join(data2)
-        if data != data2:
-            done = 1
-            data = data2
+        data = file(name).readlines()
 
-        if done == 0:
-            pos = data.find("<Archive")
-            if not pos:
-                print "Problem in", name
-            else:
-                data = data[:pos] + '<%s xml:lang="%s">%s</%s>\n        ' % (tag, language, msg.msgstr, tag) + data[pos:]
+        in_block = 0
+
+        for lnum in range(0, len(data)):
+            if block == "Source":
+                if data[lnum].find(block_start) != -1:
+                    in_block = 1
+
+                if in_block and data[lnum].find(block_end) != -1:
+                    in_block = 0
+                    continue
+
+                if in_block and data[lnum].find(tag) != -1:
+                    if data[lnum].find('xml:lang="%s"' % language) != -1 and data[lnum][data[lnum].find(">") + 1:data[lnum].rfind("<")] != msg.msgstr:
+                        data[lnum] = data[lnum][:data[lnum].find(">") + 1] + msg.msgstr + data[lnum][data[lnum].rfind("<"):]
+                        print data[lnum]
+
+            if block == "Package":
+                if data[lnum].find(block_start) != -1:
+                    in_block = 1
+
+                if in_block and data[lnum].find(block_end) != -1:
+                    in_block = 0
+                    continue
+
+                if in_block and data[lnum].find("<Name>") != -1 and data[lnum].strip()[6:-7] != package_name:
+                    in_block = 0
+                    continue
+
+                if in_block and data[lnum].find(tag) != -1:
+                    if data[lnum].find('xml:lang="%s"' % language) != -1 and data[lnum][data[lnum].find(">") + 1:data[lnum].rfind("<")] != msg.msgstr:
+                        data[lnum] = data[lnum][:data[lnum].find(">") + 1] + msg.msgstr + data[lnum][data[lnum].rfind("<"):]
 
         f = file(name, "w")
-        f.write(data)
+        for l in data:
+            f.writelines(l)
         f.close()
-
 
 def extract(path, language, pofile):
     if os.path.exists(pofile):

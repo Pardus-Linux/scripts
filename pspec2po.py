@@ -254,7 +254,6 @@ def update_pspecs(path, language, po):
                 if in_block and data[lnum].find(tag) != -1:
                     if data[lnum].find('xml:lang="%s"' % language) != -1 and data[lnum][data[lnum].find(">") + 1:data[lnum].rfind("<")] != msg.msgstr:
                         data[lnum] = data[lnum][:data[lnum].find(">") + 1] + msg.msgstr + data[lnum][data[lnum].rfind("<"):]
-                        print data[lnum]
 
             if block == "Package":
                 if data[lnum].find(block_start) != -1:

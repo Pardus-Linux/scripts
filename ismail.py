@@ -136,7 +136,7 @@ class Pspec:
                 "IsA": self.optional,
                 "PartOf": self.optional,
                 "Summary": self.one_or_more,
-                "Description": self.one_or_more,
+                "Description": self.optional,
                 "Archive": (self.once, self.validate_source_archive),
                 "Patches": (self.optional_once, self.validate_source_patches),
                 "BuildDependencies": (self.optional_once, self.validate_source_build_deps),

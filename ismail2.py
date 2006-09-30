@@ -9,6 +9,18 @@
 # option) any later version. Please read the COPYING file.
 #
 
+#
+# TODO:
+# * tagları da setattr ile değişkenlerine yaz
+# * hatalarda /a/b/c şeklinde tam tag path göster
+# * component tanımları, component.xml check
+# * lalas/lala şeklinde taglar için başka şekil lazım
+# * class_ çirkin duruyor
+# * default attr çalışsın
+# * tarih vs gibi ince kontrolleri koy
+# * başka?
+#
+
 import piksemel
 import inspect
 
@@ -244,7 +256,6 @@ class SpecFile(AutoPiksemel):
     source   =             tag("Source", class_=Source)
     packages = one_or_more_tag("Package", class_=Package)
     history  = one_or_more_tag("History/Update", class_=Update)
-
 
 
 #

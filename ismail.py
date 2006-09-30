@@ -15,14 +15,13 @@ import parser
 import piksemel
 import pisi.version
 
+once, one_or_more, optional, optional_once = range(4)
 
 #
 # PSPEC Validator
 #
 
 class Pspec:
-    once, one_or_more, optional, optional_once = range(4)
-    
     def __init__(self):
         self.errors = []
     
@@ -42,15 +41,15 @@ class Pspec:
             if isinstance(mode, tuple):
                 mode = mode[0]
             count = counts.get(name, 0)
-            if mode == self.once:
+            if mode == once:
                 if count == 0:
                     self.error(node, "missing tag <%s>" % name)
                 elif count > 1:
                     self.error(node, "tag <%s> should not appear more than once" % name)
-            elif mode == self.one_or_more:
+            elif mode == one_or_more:
                 if count == 0:
                     self.error(node, "tag <%s> should appear at least once" % name)
-            elif mode == self.optional_once:
+            elif mode == optional_once:
                 if count > 1:
                     self.error(node, "optional tag <%s> should not appear more than once" % name)
         # recurse for child funcs
@@ -59,7 +58,7 @@ class Pspec:
             if isinstance(arg, tuple):
                 mode = arg[0]
                 func = arg[1]
-                if mode == self.once or mode == self.optional_once:
+                if mode == once or mode == optional_once:
                     tag = node.getTag(name)
                     if tag:
                         func(tag)
@@ -77,7 +76,7 @@ class Pspec:
             if isinstance(mode, tuple):
                 mode, vals = mode
             val = node.getAttribute(attr)
-            if mode == self.once and val == None:
+            if mode == once and val == None:
                 self.error(node, "missing attribute '%s'" % attr)
             if val and vals and not val in vals:
                 self.error(node, "keyword '%s' is not accepted for attribute '%s'" % (val, attr))
@@ -85,68 +84,68 @@ class Pspec:
     def validate_dependency(self, node):
         self.check_attr(
             node, {
-                "versionFrom": self.optional_once,
-                "versionTo": self.optional_once,
-                "version": self.optional_once,
-                "releaseFrom": self.optional_once,
-                "releaseTo": self.optional_once,
-                "release": self.optional_once,
+                "versionFrom": optional_once,
+                "versionTo": optional_once,
+                "version": optional_once,
+                "releaseFrom": optional_once,
+                "releaseTo": optional_once,
+                "release": optional_once,
             }
         )
     
     def validate_source_archive(self, node):
         self.check_attr(
             node, {
-                "sha1sum": self.once,
-                "type": self.once,
+                "sha1sum": once,
+                "type": once,
             }
         )
     
     def validate_source_patch(self, node):
         self.check_attr(
             node, {
-                "compressionType": self.optional_once,
-                "level": self.optional_once,
-                "target": self.optional_once,
+                "compressionType": optional_once,
+                "level": optional_once,
+                "target": optional_once,
             }
         )
     
     def validate_source_patches(self, node):
         self.check(
             node, {
-                "Patch": (self.optional, self.validate_source_patch),
+                "Patch": (optional, self.validate_source_patch),
             }
         )
     
     def validate_source_build_deps(self, node):
         self.check(
             node, {
-                "Dependency": (self.optional, self.validate_dependency),
+                "Dependency": (optional, self.validate_dependency),
             }
         )
     
     def validate_source(self, node):
         self.check(
             node, {
-                "Name": self.once,
-                "Homepage": self.once,
-                "Icon": self.optional_once,
-                "Packager": self.once,
-                "License": self.one_or_more,
-                "IsA": self.optional,
-                "PartOf": self.optional,
-                "Summary": self.one_or_more,
-                "Description": self.optional,
-                "Archive": (self.once, self.validate_source_archive),
-                "Patches": (self.optional_once, self.validate_source_patches),
-                "BuildDependencies": (self.optional_once, self.validate_source_build_deps),
+                "Name": once,
+                "Homepage": once,
+                "Icon": optional_once,
+                "Packager": once,
+                "License": one_or_more,
+                "IsA": optional,
+                "PartOf": optional,
+                "Summary": one_or_more,
+                "Description": optional,
+                "Archive": (once, self.validate_source_archive),
+                "Patches": (optional_once, self.validate_source_patches),
+                "BuildDependencies": (optional_once, self.validate_source_build_deps),
             }
         )
     
     def validate_package_files_path(self, node):
         self.check_attr(
             node, {
-                "fileType": (self.once, (
+                "fileType": (once, (
                     "executable",
                     "library",
                     "data",
@@ -157,100 +156,100 @@ class Pspec:
                     "localedata",
                     "header",
                 )),
-                "permanent": (self.optional_once, ( "true", "false" ))
+                "permanent": (optional_once, ( "true", "false" ))
             }
         )
     
     def validate_package_runtime_deps(self, node):
         self.check(
             node, {
-                "Dependency": (self.optional, self.validate_dependency),
+                "Dependency": (optional, self.validate_dependency),
             }
         )
     
     def validate_package_files(self, node):
         self.check(
             node, {
-                "Path": (self.one_or_more, self.validate_package_files_path),
+                "Path": (one_or_more, self.validate_package_files_path),
             }
         )
     
     def validate_additional_file(self, node):
         self.check_attr(
             node, {
-                "owner": self.optional_once,
-                "permission": self.optional_once,
-                "target": self.once,
+                "owner": optional_once,
+                "permission": optional_once,
+                "target": once,
             }
         )
     
     def validate_additional_files(self, node):
         self.check(
             node, {
-                "AdditionalFile": (self.optional, self.validate_additional_file),
+                "AdditionalFile": (optional, self.validate_additional_file),
             }
         )
     
     def validate_package_conflicts(self, node):
         self.check(
             node, {
-                "Package": self.optional,
+                "Package": optional,
             }
         )
     
     def validate_package_provides_comar(self, node):
         self.check_attr(
             node, {
-                "script": self.once,
+                "script": once,
             }
         )
     
     def validate_package_provides(self, node):
         self.check(
             node, {
-                "COMAR": (self.optional, self.validate_package_provides_comar),
+                "COMAR": (optional, self.validate_package_provides_comar),
             }
         )
     
     def validate_package(self, node):
         self.check(
             node, {
-                "Name": self.once,
-                "License": self.optional,
-                "IsA": self.optional,
-                "PartOf": self.optional_once,
-                "Summary": self.optional,
-                "Description": self.optional,
-                "RuntimeDependencies": (self.optional_once, self.validate_package_runtime_deps),
-                "Files": (self.once, self.validate_package_files),
-                "Conflicts": (self.optional_once, self.validate_package_conflicts),
-                "AdditionalFiles": (self.optional_once, self.validate_additional_files),
-                "Provides": (self.optional_once, self.validate_package_provides),
+                "Name": once,
+                "License": optional,
+                "IsA": optional,
+                "PartOf": optional_once,
+                "Summary": optional,
+                "Description": optional,
+                "RuntimeDependencies": (optional_once, self.validate_package_runtime_deps),
+                "Files": (once, self.validate_package_files),
+                "Conflicts": (optional_once, self.validate_package_conflicts),
+                "AdditionalFiles": (optional_once, self.validate_additional_files),
+                "Provides": (optional_once, self.validate_package_provides),
             }
         )
     
     def validate_history_update(self, node):
         self.check_attr(
             node, {
-                "release": self.once,
-                "type": (self.optional_once, ( "security", "enhancement", "bug" )),
+                "release": once,
+                "type": (optional_once, ( "security", "enhancement", "bug" )),
             }
         )
         
         self.check(
             node, {
-                "Date": self.once,
-                "Version": self.once,
-                "Comment": self.once,
-                "Name": self.once,
-                "Email": self.once,
+                "Date": once,
+                "Version": once,
+                "Comment": once,
+                "Name": once,
+                "Email": once,
             }
         )
     
     def validate_history(self, node):
         self.check(
             node, {
-                "Update": (self.one_or_more, self.validate_history_update)
+                "Update": (one_or_more, self.validate_history_update)
             }
         )
         
@@ -290,9 +289,9 @@ class Pspec:
         
         self.check(
             doc, {
-                "Source": (self.once, self.validate_source),
-                "Package": (self.one_or_more, self.validate_package),
-                "History": (self.once, self.validate_history),
+                "Source": (once, self.validate_source),
+                "Package": (one_or_more, self.validate_package),
+                "History": (once, self.validate_history),
             }
         )
 

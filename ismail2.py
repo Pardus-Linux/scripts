@@ -12,7 +12,8 @@
 #
 # TODO:
 # * tagları da setattr ile değişkenlerine yaz
-# * hatalarda /a/b/c şeklinde tam tag path göster
+# * tag datayı check ve setattr et
+# * tag birden fazla kontrollerini ilk döngü içine al
 # * component tanımları, component.xml check
 # * class_ çirkin duruyor
 # * default attr çalışsın
@@ -63,6 +64,13 @@ def zero_or_more_tag(name, class_=None):
 def one_or_more_tag(name, class_=None):
     return AutoPiksemelType("tag", name, True, True, class_, None, None, None)
 
+def piksError(doc, errors, msg):
+    path = []
+    while doc:
+        path.append(doc.name())
+        doc = doc.parent()
+    path.reverse()
+    errors.append("%s: %s" % ("/".join(path), msg))
 
 class AutoPiksemel:
     def __init__(self, path=None, xmlstring=None):
@@ -95,14 +103,14 @@ class AutoPiksemel:
         # Check attributes
         for key in doc.attributes():
             if not attributes.has_key(key):
-                errors.append("unknown attribute '%s'" % key)
+                piksError(doc, errors, "unknown attribute '%s'" % key)
         for key in attributes:
             obj = attributes[key]
             value = doc.getAttribute(key)
             if obj.is_mandatory and value == None:
-                errors.append("required attribute '%s' is missing" % key)
+                piksError(doc, errors, "required attribute '%s' is missing" % key)
             if value and obj.choices and not value in obj.choices:
-                errors.append("keyword '%s' is not accepted for attribute '%s'" % (value, key))
+                piksError(doc, errors, "keyword '%s' is not accepted for attribute '%s'" % (value, key))
             setattr(self, key, value)
         # Check tags
         counts = {}
@@ -120,18 +128,18 @@ class AutoPiksemel:
                     c = obj.class_()
                     c._autoPiks(tag, errors)
             else:
-                errors.append("unknown tag <%s>" % name)
+                piksError(doc, errors, "unknown tag <%s>" % name)
         for name in tags:
             obj = tags[name]
             count = counts.get(name, 0)
             if obj.is_mandatory:
                 if count == 0:
-                    errors.append("missing tag <%s>" % name)
+                    piksError(doc, errors, "missing tag <%s>" % name)
                 if not obj.is_multiple and count > 1:
-                    errors.append("tag <%s> should not appear more than once" % name)
+                    piksError(doc, errors, "tag <%s> should not appear more than once" % name)
             else:
                 if not obj.is_multiple and count > 1:
-                    errors.append("optional tag <%s> should not appear more than once" % name)
+                    piksError(doc, errors, "optional tag <%s> should not appear more than once" % name)
 
 
 #

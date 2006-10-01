@@ -30,7 +30,7 @@ class InvalidDocument(Exception):
 
 
 class AutoPiksemelType:
-    def __init__(self, type, name, is_multiple, is_mandatory, class_, default, choices):
+    def __init__(self, type, name, is_multiple, is_mandatory, class_, default, choices, contains):
         self.type = type
         self.name = name
         self.is_multiple = is_multiple
@@ -38,32 +38,29 @@ class AutoPiksemelType:
         self.class_ = class_
         self.default = default
         self.choices = choices
-        if type == "tag" and "/" in name:
-            self.name, self.subname = name.split("/", 1)
-        else:
-            self.subname = None
+        self.contains = contains
 
 
 def tag_data():
-    return AutoPiksemelType("data", None, None, None, None, None, None)
+    return AutoPiksemelType("data", None, None, None, None, None, None, None)
 
 def attribute(name, default=None, choices=None):
-    return AutoPiksemelType("attr", name, None, True, None, default, choices)
+    return AutoPiksemelType("attr", name, None, True, None, default, choices, None)
 
 def optional_attribute(name, default=None, choices=None):
-    return AutoPiksemelType("attr", name, None, False, None, default, choices)
+    return AutoPiksemelType("attr", name, None, False, None, default, choices, None)
 
-def tag(name, class_=None):
-    return AutoPiksemelType("tag", name, False, True, class_, None, None)
+def tag(name, class_=None, contains=None):
+    return AutoPiksemelType("tag", name, False, True, class_, None, None, contains)
 
-def optional_tag(name, class_=None):
-    return AutoPiksemelType("tag", name, False, False, class_, None, None)
+def optional_tag(name, class_=None, contains=None):
+    return AutoPiksemelType("tag", name, False, False, class_, None, None, contains)
 
 def zero_or_more_tag(name, class_=None):
-    return AutoPiksemelType("tag", name, True, False, class_, None, None)
+    return AutoPiksemelType("tag", name, True, False, class_, None, None, None)
 
 def one_or_more_tag(name, class_=None):
-    return AutoPiksemelType("tag", name, True, True, class_, None, None)
+    return AutoPiksemelType("tag", name, True, True, class_, None, None, None)
 
 
 class AutoPiksemel:
@@ -113,15 +110,14 @@ class AutoPiksemel:
             obj = tags.get(name, None)
             if obj:
                 counts[name] = counts.get(name, 0) + 1
-                if obj.class_:
-                    # Recurse into sub classes
-                    if obj.subname:
-                        for subtag in tag.tags(obj.subname):
-                            c = obj.class_()
+                if obj.contains:
+                    for subtag in tag.tags(obj.contains.name):
+                        if obj.contains.class_:
+                            c = obj.contains.class_()
                             c._autoPiks(subtag, errors)
-                    else:
-                        c = obj.class_()
-                        c._autoPiks(tag, errors)
+                elif obj.class_:
+                    c = obj.class_()
+                    c._autoPiks(tag, errors)
             else:
                 errors.append("unknown tag <%s>" % name)
         for name in tags:
@@ -212,14 +208,15 @@ class Source(AutoPiksemel):
     homepage    =              tag("Homepage")
     packager    =              tag("Packager", class_=Packager)
     summary     =  one_or_more_tag("Summary")
-    description =  one_or_more_tag("Description")
+    description = zero_or_more_tag("Description")
     isa         = zero_or_more_tag("IsA")
     partof      =     optional_tag("PartOf")
     icon        =     optional_tag("Icon")
     license     =  one_or_more_tag("License")
     archive     =              tag("Archive", class_=Archive)
-    patches     = zero_or_more_tag("Patches/Patch", class_=Patch)
-    build_deps  = zero_or_more_tag("BuildDependencies/Dependency", class_=Dependency)
+    patches     =     optional_tag("Patches", contains=one_or_more_tag("Patch", class_=Patch))
+    build_deps  =     optional_tag("BuildDependencies",
+                                  contains=one_or_more_tag("Dependency", class_=Dependency))
     # Following are found in the index, not in pspecs
     version     =     optional_tag("Version")
     release     =     optional_tag("Release")
@@ -244,19 +241,23 @@ class Package(AutoPiksemel):
     partof                =     optional_tag("PartOf")
     icon                  =     optional_tag("Icon")
     license               = zero_or_more_tag("License")
-    packageDependencies   = zero_or_more_tag("RuntimeDependencies/Dependency", class_=Dependency)
-    componentDependencies = zero_or_more_tag("RuntimeDependencies/Component", class_=Component)
-    files                 =  one_or_more_tag("Files/Path", class_=Path)
-    conflicts             = zero_or_more_tag("Conflicts/Package")
-    provides              = zero_or_more_tag("Provides/COMAR", class_=ComarProvide)
-    additionals           = zero_or_more_tag("AdditionalFiles/AdditionalFile", class_=AdditionalFile)
-    history               = zero_or_more_tag("History/Update", class_=Update)
+    packageDependencies   =     optional_tag("RuntimeDependencies",
+                                            contains=one_or_more_tag("Dependency", class_=Dependency))
+    componentDependencies =     optional_tag("RuntimeDependencies",
+                                            contains=one_or_more_tag("Component", class_=Component))
+    files                 =              tag("Files", contains=one_or_more_tag("Path", class_=Path))
+    conflicts             =     optional_tag("Conflicts", contains=one_or_more_tag("Package"))
+    provides              =     optional_tag("Provides",
+                                            contains=one_or_more_tag("COMAR", class_=ComarProvide))
+    additionals           =     optional_tag("AdditionalFiles",
+                                            contains=one_or_more_tag("AdditionalFile", class_=AdditionalFile))
+    history               =     optional_tag("History", contains=one_or_more_tag("Update", class_=Update))
 
 
 class SpecFile(AutoPiksemel):
     source   =             tag("Source", class_=Source)
     packages = one_or_more_tag("Package", class_=Package)
-    history  = one_or_more_tag("History/Update", class_=Update)
+    history  =             tag("History", contains=one_or_more_tag("Update", class_=Update))
 
 
 #

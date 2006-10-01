@@ -184,7 +184,8 @@ def extract_pspecs(path, language, old_messages = []):
                     if (old_msg.msgid == msg.msgid) and (old_msg.msgstr != msg.msgstr):
                         msg.msgstr = old_msg.msgstr
 
-            messages.append(msg)
+            if msg.msgid:
+                messages.append(msg)
 
         # I know. I'll clean this mess..
         for package in doc.tags("Package"):

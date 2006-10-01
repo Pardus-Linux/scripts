@@ -246,7 +246,7 @@ def update_pspecs(path, language, po):
                 return 1
             if data[l].find(block_end) != -1:
                 return 0
-            check_l(l+1, block_end)
+            return check_l(l+1, block_end)
 
         in_block, checked = 0, 0
 
@@ -261,7 +261,7 @@ def update_pspecs(path, language, po):
 
                 if in_block and data[lnum].find(tag) != -1:
                     if (not checked) and (not check_l(lnum, block_end)):
-                        data[lnum] += '        <%s xml:lang="%s">%s</%s>\n' % (tag, language, msg.msgstr, tag)
+                        data.insert(lnum, '        <%s xml:lang="%s">%s</%s>\n' % (tag, language, msg.msgstr, tag))
                         checked = 1
                         continue
                     if data[lnum].find('xml:lang="%s"' % language) != -1 and data[lnum][data[lnum].find(">") + 1:data[lnum].rfind("<")] != msg.msgstr:

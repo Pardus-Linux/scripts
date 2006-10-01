@@ -115,11 +115,12 @@ class AutoPiksemel:
                 counts[name] = counts.get(name, 0) + 1
                 if obj.class_:
                     # Recurse into sub classes
-                    c = obj.class_()
                     if obj.subname:
                         for subtag in tag.tags(obj.subname):
+                            c = obj.class_()
                             c._autoPiks(subtag, errors)
                     else:
+                        c = obj.class_()
                         c._autoPiks(tag, errors)
             else:
                 errors.append("unknown tag <%s>" % name)
@@ -270,7 +271,7 @@ def main(args):
                 try:
                     spec = SpecFile(pspec_path)
                 except InvalidDocument, e:
-                    print pspec_path
+                    print "----- %s -----" % pspec_path[len(args[0]):]
                     print e
             # dont walk into the versioned stuff
             if ".svn" in dirs:

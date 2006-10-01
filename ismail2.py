@@ -14,7 +14,6 @@
 # * tagları da setattr ile değişkenlerine yaz
 # * hatalarda /a/b/c şeklinde tam tag path göster
 # * component tanımları, component.xml check
-# * lalas/lala şeklinde taglar için başka şekil lazım
 # * class_ çirkin duruyor
 # * default attr çalışsın
 # * tarih vs gibi ince kontrolleri koy
@@ -31,6 +30,8 @@ class InvalidDocument(Exception):
 
 class AutoPiksemelType:
     def __init__(self, type, name, is_multiple, is_mandatory, class_, default, choices, contains):
+        if class_ and contains:
+            raise TypeError("Using both class_ and contains is not supported")
         self.type = type
         self.name = name
         self.is_multiple = is_multiple
@@ -68,7 +69,7 @@ class AutoPiksemel:
         doc = None
         if path:
             if xmlstring:
-                raise ValueError("Dont use both path and xmlstring in AutoPiksemel()")
+                raise TypeError("Dont use both path and xmlstring in AutoPiksemel()")
             doc = piksemel.parse(path)
         elif xmlstring:
             doc = piksemel.parseString(xmlstring)

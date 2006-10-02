@@ -11,11 +11,12 @@
 
 #
 # TODO:
-# * tagları da setattr ile değişkenlerine yaz
+# * contains düzeltmeleri
 # * component tanımları, component.xml check
 # * class_ çirkin duruyor
 # * default attr çalışsın
-# * tarih vs gibi ince kontrolleri koy
+# * tarih, release vs gibi ince kontrolleri koy
+# * objeden xml çıktıyı vermeyi de ekle
 # * başka?
 #
 
@@ -126,10 +127,11 @@ class AutoPiksemel:
             name = tag.name()
             obj = tags.get(name, None)
             if obj:
-                count = counts.get(name, 0) + 1
-                if not obj.is_multiple and count > 1:
+                counts[name] = counts.get(name, 0) + 1
+                if not obj.is_multiple and counts[name] > 1:
                     piksError(doc, errors, "tag <%s> should not appear more than once" % name)
-                counts[name] = count
+                    # No need to examine or collect unwanted tags
+                    continue
                 if obj.contains:
                     for subtag in tag.tags(obj.contains.name):
                         if obj.contains.class_:
@@ -138,6 +140,25 @@ class AutoPiksemel:
                 elif obj.class_:
                     c = obj.class_()
                     c._autoPiks(tag, errors)
+                    if obj.is_multiple:
+                        tmp = getattr(self, obj.varname, None)
+                        if isinstance(tmp, AutoPiksemelType) or tmp == None:
+                            tmp = []
+                        setattr(self, obj.varname, tmp.append(c))
+                    else:
+                        setattr(self, obj.varname, c)
+                else:
+                    node = tag.firstChild()
+                    if node.type() != piksemel.DATA or node.next() != None:
+                        piksError(doc, errors, "this tag should only contain character data")
+                    if obj.is_multiple:
+                        tmp = getattr(self, obj.varname, None)
+                        if isinstance(tmp, AutoPiksemelType) or tmp == None:
+                            tmp = []
+                        tmp.append(node.data())
+                        setattr(self, obj.varname, tmp)
+                    else:
+                        setattr(self, obj.varname, node.data())
             else:
                 piksError(doc, errors, "unknown tag <%s>" % name)
         for name in tags:
@@ -280,6 +301,7 @@ class SpecFile(AutoPiksemel):
 
 def main(args):
     if os.path.isdir(args[0]):
+        has_errors = False
         for root, dirs, files in os.walk(args[0]):
             if "pspec.xml" in files:
                 pspec_path = os.path.join(root, "pspec.xml")
@@ -288,14 +310,18 @@ def main(args):
                 except InvalidDocument, e:
                     print "----- %s -----" % pspec_path[len(args[0]):]
                     print e
+                    has_errors = True
             # dont walk into the versioned stuff
             if ".svn" in dirs:
                 dirs.remove(".svn")
+        if has_errors:
+            sys.exit(1)
     else:
         try:
             spec = SpecFile(args[0])
         except InvalidDocument, e:
             print e
+            sys.exit(1)
 
 if __name__ == "__main__":
     main(sys.argv[1:])

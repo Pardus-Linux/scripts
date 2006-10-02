@@ -13,7 +13,6 @@
 # TODO:
 # * tagları da setattr ile değişkenlerine yaz
 # * tag datayı check ve setattr et
-# * tag birden fazla kontrollerini ilk döngü içine al
 # * component tanımları, component.xml check
 # * class_ çirkin duruyor
 # * default attr çalışsın
@@ -72,6 +71,7 @@ def piksError(doc, errors, msg):
     path.reverse()
     errors.append("%s: %s" % ("/".join(path), msg))
 
+
 class AutoPiksemel:
     def __init__(self, path=None, xmlstring=None):
         doc = None
@@ -118,7 +118,10 @@ class AutoPiksemel:
             name = tag.name()
             obj = tags.get(name, None)
             if obj:
-                counts[name] = counts.get(name, 0) + 1
+                count = counts.get(name, 0) + 1
+                if not obj.is_multiple and count > 1:
+                    piksError(doc, errors, "tag <%s> should not appear more than once" % name)
+                counts[name] = count
                 if obj.contains:
                     for subtag in tag.tags(obj.contains.name):
                         if obj.contains.class_:
@@ -132,14 +135,8 @@ class AutoPiksemel:
         for name in tags:
             obj = tags[name]
             count = counts.get(name, 0)
-            if obj.is_mandatory:
-                if count == 0:
-                    piksError(doc, errors, "missing tag <%s>" % name)
-                if not obj.is_multiple and count > 1:
-                    piksError(doc, errors, "tag <%s> should not appear more than once" % name)
-            else:
-                if not obj.is_multiple and count > 1:
-                    piksError(doc, errors, "optional tag <%s> should not appear more than once" % name)
+            if obj.is_mandatory and count == 0:
+                piksError(doc, errors, "missing tag <%s>" % name)
 
 
 #

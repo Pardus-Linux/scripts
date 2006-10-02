@@ -98,6 +98,11 @@ class AutoPiksemel:
                 data = obj
             elif obj.type == "tag":
                 tags[obj.name] = obj
+                if obj.is_multiple or obj.contains:
+                    tmp = []
+                else:
+                    tmp = None
+                setattr(self, name, tmp)
             else:
                 attributes[obj.name] = obj
         # Check character data
@@ -141,10 +146,9 @@ class AutoPiksemel:
                     c = obj.class_()
                     c._autoPiks(tag, errors)
                     if obj.is_multiple:
-                        tmp = getattr(self, obj.varname, None)
-                        if isinstance(tmp, AutoPiksemelType) or tmp == None:
-                            tmp = []
-                        setattr(self, obj.varname, tmp.append(c))
+                        tmp = getattr(self, obj.varname)
+                        tmp.append(c)
+                        setattr(self, obj.varname, tmp)
                     else:
                         setattr(self, obj.varname, c)
                 else:
@@ -152,9 +156,7 @@ class AutoPiksemel:
                     if node.type() != piksemel.DATA or node.next() != None:
                         piksError(doc, errors, "this tag should only contain character data")
                     if obj.is_multiple:
-                        tmp = getattr(self, obj.varname, None)
-                        if isinstance(tmp, AutoPiksemelType) or tmp == None:
-                            tmp = []
+                        tmp = getattr(self, obj.varname)
                         tmp.append(node.data())
                         setattr(self, obj.varname, tmp)
                     else:
@@ -166,14 +168,6 @@ class AutoPiksemel:
             count = counts.get(name, 0)
             if obj.is_mandatory and count == 0:
                 piksError(doc, errors, "missing tag <%s>" % name)
-            if not obj.is_mandatory:
-                tmp = getattr(self, obj.varname, None)
-                if isinstance(tmp, AutoPiksemelType):
-                    if obj.is_multiple:
-                        tmp = []
-                    else:
-                        tmp = None
-                    setattr(self, obj.varname, tmp)
 
 
 #

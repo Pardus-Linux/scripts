@@ -166,6 +166,14 @@ class AutoPiksemel:
             count = counts.get(name, 0)
             if obj.is_mandatory and count == 0:
                 piksError(doc, errors, "missing tag <%s>" % name)
+            if not obj.is_mandatory:
+                tmp = getattr(self, obj.varname, None)
+                if isinstance(tmp, AutoPiksemelType):
+                    if obj.is_multiple:
+                        tmp = []
+                    else:
+                        tmp = None
+                    setattr(self, obj.varname, tmp)
 
 
 #

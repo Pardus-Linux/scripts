@@ -12,7 +12,6 @@
 #
 # TODO:
 # * tagları da setattr ile değişkenlerine yaz
-# * tag datayı check ve setattr et
 # * component tanımları, component.xml check
 # * class_ çirkin duruyor
 # * default attr çalışsın
@@ -100,6 +99,15 @@ class AutoPiksemel:
                 tags[obj.name] = obj
             else:
                 attributes[obj.name] = obj
+        # Check character data
+        if data:
+            if len(tags) > 0:
+                raise TypeError("Class %s defined both tag_data() and tag()s" % self.__class__)
+            node = doc.firstChild()
+            if node.type() != piksemel.DATA or node.next() != None:
+                piksError(doc, errors, "this tag should only contain character data")
+            else:
+                setattr(self, data.varname, node.data())
         # Check attributes
         for key in doc.attributes():
             if not attributes.has_key(key):
@@ -111,7 +119,7 @@ class AutoPiksemel:
                 piksError(doc, errors, "required attribute '%s' is missing" % key)
             if value and obj.choices and not value in obj.choices:
                 piksError(doc, errors, "keyword '%s' is not accepted for attribute '%s'" % (value, key))
-            setattr(self, key, value)
+            setattr(self, obj.varname, value)
         # Check tags
         counts = {}
         for tag in doc.tags():
@@ -284,7 +292,10 @@ def main(args):
             if ".svn" in dirs:
                 dirs.remove(".svn")
     else:
-        spec = SpecFile(args[0])
+        try:
+            spec = SpecFile(args[0])
+        except InvalidDocument, e:
+            print e
 
 if __name__ == "__main__":
     main(sys.argv[1:])

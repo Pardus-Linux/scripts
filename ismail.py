@@ -38,6 +38,8 @@ class AutoPiksemelType:
         self.default = default
         self.choices = choices
         self.contains = contains
+        if contains and not contains.is_multiple:
+            raise TypeError("Container should have multiple entries")
 
 
 def tag_data():

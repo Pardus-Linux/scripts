@@ -11,7 +11,6 @@
 
 #
 # TODO:
-# * contains düzeltmeleri
 # * component tanımları, component.xml check
 # * class_ çirkin duruyor
 # * default attr çalışsın
@@ -138,10 +137,23 @@ class AutoPiksemel:
                     # No need to examine or collect unwanted tags
                     continue
                 if obj.contains:
-                    for subtag in tag.tags(obj.contains.name):
-                        if obj.contains.class_:
-                            c = obj.contains.class_()
+                    subobj = obj.contains
+                    temp = []
+                    for subtag in tag.tags():
+                        if subtag.name() != subobj.name:
+                            piksError(tag, errors, "this is a collection of <%s> tags, not <%s>" % (subobj.name, subtag.name()))
+                        if subobj.class_:
+                            c = subobj.class_()
                             c._autoPiks(subtag, errors)
+                            temp.append(c)
+                        else:
+                            node = subtag.firstChild()
+                            if node.type() != piksemel.DATA or node.next() != None:
+                                piksError(doc, errors, "this tag should only contain character data")
+                            temp.append(node.data())
+                    if subobj.is_mandatory and len(temp) == 0:
+                        piksError(tag, errors, "should have at least one <%s> child" % subobj.name)
+                    setattr(self, obj.varname, temp)
                 elif obj.class_:
                     c = obj.class_()
                     c._autoPiks(tag, errors)

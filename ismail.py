@@ -9,321 +9,336 @@
 # option) any later version. Please read the COPYING file.
 #
 
+#
+# TODO:
+# * component tanımları, component.xml check
+# * class_ çirkin duruyor
+# * default attr çalışsın
+# * objeden xml çıktıyı vermeyi de ekle
+# * başka?
+#
+
+import piksemel
+import inspect
+
+
+class InvalidDocument(Exception):
+    pass
+
+
+class AutoPiksemelType:
+    def __init__(self, type, name, is_multiple, is_mandatory, class_, default, choices, contains):
+        if class_ and contains:
+            raise TypeError("Using both class_ and contains is not supported")
+        self.type = type
+        self.name = name
+        self.is_multiple = is_multiple
+        self.is_mandatory = is_mandatory
+        self.class_ = class_
+        self.default = default
+        self.choices = choices
+        self.contains = contains
+
+
+def tag_data():
+    return AutoPiksemelType("data", None, None, None, None, None, None, None)
+
+def attribute(name, default=None, choices=None):
+    return AutoPiksemelType("attr", name, None, True, None, default, choices, None)
+
+def optional_attribute(name, default=None, choices=None):
+    return AutoPiksemelType("attr", name, None, False, None, default, choices, None)
+
+def tag(name, class_=None, contains=None):
+    return AutoPiksemelType("tag", name, False, True, class_, None, None, contains)
+
+def optional_tag(name, class_=None, contains=None):
+    return AutoPiksemelType("tag", name, False, False, class_, None, None, contains)
+
+def zero_or_more_tag(name, class_=None):
+    return AutoPiksemelType("tag", name, True, False, class_, None, None, None)
+
+def one_or_more_tag(name, class_=None):
+    return AutoPiksemelType("tag", name, True, True, class_, None, None, None)
+
+def piksError(doc, errors, msg):
+    path = []
+    while doc:
+        path.append(doc.name())
+        doc = doc.parent()
+    path.reverse()
+    errors.append("%s: %s" % ("/".join(path), msg))
+
+
+class AutoPiksemel:
+    def __init__(self, path=None, xmlstring=None):
+        doc = None
+        if path:
+            if xmlstring:
+                raise TypeError("Dont use both path and xmlstring in AutoPiksemel()")
+            doc = piksemel.parse(path)
+        elif xmlstring:
+            doc = piksemel.parseString(xmlstring)
+        if doc:
+            errors = []
+            self._autoPiks(doc, errors)
+            if len(errors) > 0:
+                raise InvalidDocument("\n".join(errors))
+    
+    def _autoPiks(self, doc, errors):
+        data = None
+        tags = {}
+        attributes = {}
+        # Collect validation info
+        for name, obj in inspect.getmembers(self, lambda x: isinstance(x, AutoPiksemelType)):
+            obj.varname = name
+            if obj.type == "data":
+                data = obj
+            elif obj.type == "tag":
+                tags[obj.name] = obj
+                if obj.is_multiple or obj.contains:
+                    tmp = []
+                else:
+                    tmp = None
+                setattr(self, name, tmp)
+            else:
+                attributes[obj.name] = obj
+        # Check character data
+        if data:
+            if len(tags) > 0:
+                raise TypeError("Class %s defined both tag_data() and tag()s" % self.__class__)
+            node = doc.firstChild()
+            if node.type() != piksemel.DATA or node.next() != None:
+                piksError(doc, errors, "this tag should only contain character data")
+            else:
+                setattr(self, data.varname, node.data())
+        # Check attributes
+        for key in doc.attributes():
+            if not attributes.has_key(key):
+                piksError(doc, errors, "unknown attribute '%s'" % key)
+        for key in attributes:
+            obj = attributes[key]
+            value = doc.getAttribute(key)
+            if obj.is_mandatory and value == None:
+                piksError(doc, errors, "required attribute '%s' is missing" % key)
+            if value and obj.choices and not value in obj.choices:
+                piksError(doc, errors, "keyword '%s' is not accepted for attribute '%s'" % (value, key))
+            setattr(self, obj.varname, value)
+        # Check tags
+        counts = {}
+        for tag in doc.tags():
+            name = tag.name()
+            obj = tags.get(name, None)
+            if obj:
+                counts[name] = counts.get(name, 0) + 1
+                if not obj.is_multiple and counts[name] > 1:
+                    piksError(doc, errors, "tag <%s> should not appear more than once" % name)
+                    # No need to examine or collect unwanted tags
+                    continue
+                if obj.contains:
+                    subobj = obj.contains
+                    temp = []
+                    for subtag in tag.tags():
+                        if subtag.name() != subobj.name:
+                            piksError(tag, errors, "this is a collection of <%s> tags, not <%s>" % (subobj.name, subtag.name()))
+                        if subobj.class_:
+                            c = subobj.class_()
+                            c._autoPiks(subtag, errors)
+                            temp.append(c)
+                        else:
+                            node = subtag.firstChild()
+                            if node.type() != piksemel.DATA or node.next() != None:
+                                piksError(doc, errors, "this tag should only contain character data")
+                            temp.append(node.data())
+                    if subobj.is_mandatory and len(temp) == 0:
+                        piksError(tag, errors, "should have at least one <%s> child" % subobj.name)
+                    setattr(self, obj.varname, temp)
+                elif obj.class_:
+                    c = obj.class_()
+                    c._autoPiks(tag, errors)
+                    if obj.is_multiple:
+                        tmp = getattr(self, obj.varname)
+                        tmp.append(c)
+                        setattr(self, obj.varname, tmp)
+                    else:
+                        setattr(self, obj.varname, c)
+                else:
+                    node = tag.firstChild()
+                    if node.type() != piksemel.DATA or node.next() != None:
+                        piksError(doc, errors, "this tag should only contain character data")
+                    if obj.is_multiple:
+                        tmp = getattr(self, obj.varname)
+                        tmp.append(node.data())
+                        setattr(self, obj.varname, tmp)
+                    else:
+                        setattr(self, obj.varname, node.data())
+            else:
+                piksError(doc, errors, "unknown tag <%s>" % name)
+        for name in tags:
+            obj = tags[name]
+            count = counts.get(name, 0)
+            if obj.is_mandatory and count == 0:
+                piksError(doc, errors, "missing tag <%s>" % name)
+        # Custom validation
+        if len(errors) == 0:
+            # Since validater functions access members without checking
+            # we dont call them if there is already an error.
+            validater = None
+            try:
+                validater = self.validate
+            except AttributeError:
+                pass
+            if validater:
+                validater(doc, errors)
+
+
+#
+# Real part of ismail.py, above code will be in 'import autopiksemel'
+# Not much stuff below as you see, interestingly there isn't much stuff above either :p
+#
+
 import sys
 import os
-import parser
-import piksemel
 import pisi.version
 
-once, one_or_more, optional, optional_once = range(4)
 
-#
-# PSPEC Validator
-#
+class Packager(AutoPiksemel):
+    name  = tag("Name")
+    email = tag("Email")
 
-class Pspec:
-    def __init__(self):
-        self.errors = []
+
+class Patch(AutoPiksemel):
+    filename    =           tag_data()
+    compression = optional_attribute("compressionType")
+    level       = optional_attribute("level", default="0")
+    target      = optional_attribute("target")
+
+
+class Dependency(AutoPiksemel):
+    package     =           tag_data()
+    version     = optional_attribute("version")
+    versionFrom = optional_attribute("versionFrom")
+    versionTo   = optional_attribute("versionTo")
+    release     = optional_attribute("release")
+    releaseFrom = optional_attribute("releaseFrom")
+    releaseTo   = optional_attribute("releaseTo")
+
+
+class Archive(AutoPiksemel):
+    uri     =  tag_data()
+    type    = attribute("type")
+    sha1sum = attribute("sha1sum")
+
+
+class Path(AutoPiksemel):
+    filetypes = (
+        "executable",
+        "library",
+        "data",
+        "config",
+        "doc",
+        "man",
+        "info",
+        "localedata",
+        "header",
+    )
+    path      =           tag_data()
+    filetype  =          attribute("fileType", choices=filetypes)
+    permanent = optional_attribute("permanent", choices=("true", "false"))
+
+
+class AdditionalFile(AutoPiksemel):
+    filename   =           tag_data()
+    target     =          attribute("target")
+    owner      = optional_attribute("owner")
+    permission = optional_attribute("permission")
+
+
+class ComarProvide(AutoPiksemel):
+    om     =  tag_data()
+    script = attribute("script")
+
+
+class Component(AutoPiksemel):
+    name = tag("Name")
+
+
+class Source(AutoPiksemel):
+    name        =              tag("Name")
+    homepage    =              tag("Homepage")
+    packager    =              tag("Packager", class_=Packager)
+    summary     =  one_or_more_tag("Summary")
+    description = zero_or_more_tag("Description")
+    isa         = zero_or_more_tag("IsA")
+    partof      =     optional_tag("PartOf")
+    icon        =     optional_tag("Icon")
+    license     =  one_or_more_tag("License")
+    archive     =              tag("Archive", class_=Archive)
+    patches     =     optional_tag("Patches", contains=one_or_more_tag("Patch", class_=Patch))
+    build_deps  =     optional_tag("BuildDependencies",
+                                  contains=one_or_more_tag("Dependency", class_=Dependency))
+    # Following are found in the index, not in pspecs
+    version     =     optional_tag("Version")
+    release     =     optional_tag("Release")
+    sourceuri   =     optional_tag("SourceURI")
+
+
+class Update(AutoPiksemel):
+    release =          attribute("release")
+    type    = optional_attribute("type", choices=("security", "bug"))
+    date    =                tag("Date")
+    version =                tag("Version")
+    name    =                tag("Name")
+    email   =                tag("Email")
+    comment =                tag("Comment")
     
-    def error(self, node, msg):
-        self.errors.append("%s: %s" % (node.name(), msg))
-    
-    def check(self, node, childs):
-        counts = {}
-        for tag in node.tags():
-            name = tag.name()
-            if childs.has_key(name):
-                counts[name] = counts.get(name, 0) + 1
-            else:
-                self.error(node, "unknown tag <%s>" % name)
-        for name in childs:
-            mode = childs[name]
-            if isinstance(mode, tuple):
-                mode = mode[0]
-            count = counts.get(name, 0)
-            if mode == once:
-                if count == 0:
-                    self.error(node, "missing tag <%s>" % name)
-                elif count > 1:
-                    self.error(node, "tag <%s> should not appear more than once" % name)
-            elif mode == one_or_more:
-                if count == 0:
-                    self.error(node, "tag <%s> should appear at least once" % name)
-            elif mode == optional_once:
-                if count > 1:
-                    self.error(node, "optional tag <%s> should not appear more than once" % name)
-        # recurse for child funcs
-        for name in childs:
-            arg = childs[name]
-            if isinstance(arg, tuple):
-                mode = arg[0]
-                func = arg[1]
-                if mode == once or mode == optional_once:
-                    tag = node.getTag(name)
-                    if tag:
-                        func(tag)
-                else:
-                    for tag in node.tags(name):
-                        func(tag)
-    
-    def check_attr(self, node, attrs):
-        for attr in node.attributes():
-            if not attrs.has_key(attr):
-                self.error(node, "unknown attribute '%s'" % attr)
-        for attr in attrs:
-            mode = attrs[attr]
-            vals = None
-            if isinstance(mode, tuple):
-                mode, vals = mode
-            val = node.getAttribute(attr)
-            if mode == once and val == None:
-                self.error(node, "missing attribute '%s'" % attr)
-            if val and vals and not val in vals:
-                self.error(node, "keyword '%s' is not accepted for attribute '%s'" % (val, attr))
-    
-    def validate_dependency(self, node):
-        self.check_attr(
-            node, {
-                "versionFrom": optional_once,
-                "versionTo": optional_once,
-                "version": optional_once,
-                "releaseFrom": optional_once,
-                "releaseTo": optional_once,
-                "release": optional_once,
-            }
-        )
-    
-    def validate_source_archive(self, node):
-        self.check_attr(
-            node, {
-                "sha1sum": once,
-                "type": once,
-            }
-        )
-    
-    def validate_source_patch(self, node):
-        self.check_attr(
-            node, {
-                "compressionType": optional_once,
-                "level": optional_once,
-                "target": optional_once,
-            }
-        )
-    
-    def validate_source_patches(self, node):
-        self.check(
-            node, {
-                "Patch": (optional, self.validate_source_patch),
-            }
-        )
-    
-    def validate_source_build_deps(self, node):
-        self.check(
-            node, {
-                "Dependency": (optional, self.validate_dependency),
-            }
-        )
-    
-    def validate_source(self, node):
-        self.check(
-            node, {
-                "Name": once,
-                "Homepage": once,
-                "Icon": optional_once,
-                "Packager": once,
-                "License": one_or_more,
-                "IsA": optional,
-                "PartOf": optional,
-                "Summary": one_or_more,
-                "Description": optional,
-                "Archive": (once, self.validate_source_archive),
-                "Patches": (optional_once, self.validate_source_patches),
-                "BuildDependencies": (optional_once, self.validate_source_build_deps),
-            }
-        )
-    
-    def validate_package_files_path(self, node):
-        self.check_attr(
-            node, {
-                "fileType": (once, (
-                    "executable",
-                    "library",
-                    "data",
-                    "config",
-                    "doc",
-                    "man",
-                    "info",
-                    "localedata",
-                    "header",
-                )),
-                "permanent": (optional_once, ( "true", "false" ))
-            }
-        )
-    
-    def validate_package_runtime_deps(self, node):
-        self.check(
-            node, {
-                "Dependency": (optional, self.validate_dependency),
-            }
-        )
-    
-    def validate_package_files(self, node):
-        self.check(
-            node, {
-                "Path": (one_or_more, self.validate_package_files_path),
-            }
-        )
-    
-    def validate_additional_file(self, node):
-        self.check_attr(
-            node, {
-                "owner": optional_once,
-                "permission": optional_once,
-                "target": once,
-            }
-        )
-    
-    def validate_additional_files(self, node):
-        self.check(
-            node, {
-                "AdditionalFile": (optional, self.validate_additional_file),
-            }
-        )
-    
-    def validate_package_conflicts(self, node):
-        self.check(
-            node, {
-                "Package": optional,
-            }
-        )
-    
-    def validate_package_provides_comar(self, node):
-        self.check_attr(
-            node, {
-                "script": once,
-            }
-        )
-    
-    def validate_package_provides(self, node):
-        self.check(
-            node, {
-                "COMAR": (optional, self.validate_package_provides_comar),
-            }
-        )
-    
-    def validate_package(self, node):
-        self.check(
-            node, {
-                "Name": once,
-                "License": optional,
-                "IsA": optional,
-                "PartOf": optional_once,
-                "Summary": optional,
-                "Description": optional,
-                "RuntimeDependencies": (optional_once, self.validate_package_runtime_deps),
-                "Files": (once, self.validate_package_files),
-                "Conflicts": (optional_once, self.validate_package_conflicts),
-                "AdditionalFiles": (optional_once, self.validate_additional_files),
-                "Provides": (optional_once, self.validate_package_provides),
-            }
-        )
-    
-    def validate_history_update(self, node):
-        self.check_attr(
-            node, {
-                "release": once,
-                "type": (optional_once, ( "security", "enhancement", "bug" )),
-            }
-        )
-        
-        self.check(
-            node, {
-                "Date": once,
-                "Version": once,
-                "Comment": once,
-                "Name": once,
-                "Email": once,
-            }
-        )
-    
-    def validate_history(self, node):
-        self.check(
-            node, {
-                "Update": (one_or_more, self.validate_history_update)
-            }
-        )
-        
-        prev = None
-        for tag in node.tags("Update"):
-            ver = tag.getTagData("Version")
-            if ver:
-                try:
-                    pisi.version.Version(ver)
-                except Exception, e:
-                    self.error(node, "invalid version '%s': %s" % (ver, e))
-            rel = tag.getAttribute("release")
-            if rel:
-                try:
-                    rel = int(rel)
-                except:
-                    self.error(node, "bad release number '%s'" % rel)
-                    rel = None
-                if rel:
-                    if prev:
-                        prev -= 1
-                        if rel != prev:
-                            self.error(node, "unsorted release numbers")
-                    prev = rel
-        if prev != 1:
-            self.error(node, "bad release numbers")
-    
-    def validate(self, path):
+    def validate(self, doc, errors):
         try:
-            doc = piksemel.parse(path)
-        except piksemel.ParseError:
-            self.errors.append("Invalid XML")
-            return
-        
-        if doc.name() != "PISI":
-            self.error(node, "wrong top level tag")
-        
-        self.check(
-            doc, {
-                "Source": (once, self.validate_source),
-                "Package": (one_or_more, self.validate_package),
-                "History": (once, self.validate_history),
-            }
-        )
+            pisi.version.Version(self.version)
+        except Exception, e:
+            piksError(doc, errors, "invalid version '%s': %s" % (self.version, e))
+        try:
+            self.release = int(self.release)
+        except:
+            piksError(doc, errors, "bad release number '%s'" % self.release)
 
 
-#
-# Source Repo Validator
-#
+class Package(AutoPiksemel):
+    name                  =              tag("Name")
+    summary               = zero_or_more_tag("Summary")
+    description           = zero_or_more_tag("Description")
+    isa                   = zero_or_more_tag("IsA")
+    partof                =     optional_tag("PartOf")
+    icon                  =     optional_tag("Icon")
+    license               = zero_or_more_tag("License")
+    packageDependencies   =     optional_tag("RuntimeDependencies",
+                                            contains=one_or_more_tag("Dependency", class_=Dependency))
+    componentDependencies =     optional_tag("RuntimeDependencies",
+                                            contains=one_or_more_tag("Component", class_=Component))
+    files                 =              tag("Files", contains=one_or_more_tag("Path", class_=Path))
+    conflicts             =     optional_tag("Conflicts", contains=one_or_more_tag("Package"))
+    provides              =     optional_tag("Provides",
+                                            contains=one_or_more_tag("COMAR", class_=ComarProvide))
+    additionals           =     optional_tag("AdditionalFiles",
+                                            contains=one_or_more_tag("AdditionalFile", class_=AdditionalFile))
+    history               =     optional_tag("History", contains=one_or_more_tag("Update", class_=Update))
 
-class SourceRepo:
-    def validate(self, path):
-        nr = 0
-        nr_errors = 0
-        for root, dirs, files in os.walk(path):
-            if "pspec.xml" in files:
-                pspec_path = os.path.join(root, "pspec.xml")
-                spec = Pspec()
-                spec.validate(pspec_path)
-                if len(spec.errors) > 0:
-                    nr_errors += 1
-                    print "----- %s -----" % pspec_path
-                    for err in spec.errors:
-                        print "  %s" % err
-                else:
-                    nr += 1
-            # dont walk into the versioned stuff
-            if ".svn" in dirs:
-                dirs.remove(".svn")
-        if nr_errors:
-            print "-----"
-            print "%d packages failed to validate" % nr_errors
-            sys.exit(1)
-        print "%d source packages validated" % nr
+
+class SpecFile(AutoPiksemel):
+    source   =             tag("Source", class_=Source)
+    packages = one_or_more_tag("Package", class_=Package)
+    history  =             tag("History", contains=one_or_more_tag("Update", class_=Update))
+    
+    def validate(self, doc, errors):
+        prev = None
+        for update in self.history:
+            if prev:
+                prev -= 1
+                if update.release != prev:
+                    piksError(doc.getTag("History"), errors, "out of order release numbers")
+            prev = update.release
+        if prev != 1:
+            piksError(doc.getTag("History"), errors, "missing release numbers")
 
 
 #
@@ -332,14 +347,26 @@ class SourceRepo:
 
 def main(args):
     if os.path.isdir(args[0]):
-        repo = SourceRepo()
-        repo.validate(args[0])
+        has_errors = False
+        for root, dirs, files in os.walk(args[0]):
+            if "pspec.xml" in files:
+                pspec_path = os.path.join(root, "pspec.xml")
+                try:
+                    spec = SpecFile(pspec_path)
+                except InvalidDocument, e:
+                    print "----- %s -----" % pspec_path[len(args[0]):]
+                    print e
+                    has_errors = True
+            # dont walk into the versioned stuff
+            if ".svn" in dirs:
+                dirs.remove(".svn")
+        if has_errors:
+            sys.exit(1)
     else:
-        spec = Pspec()
-        spec.validate(args[0])
-        if len(spec.errors) > 0:
-            for err in spec.errors:
-                print err
+        try:
+            spec = SpecFile(args[0])
+        except InvalidDocument, e:
+            print e
             sys.exit(1)
 
 if __name__ == "__main__":

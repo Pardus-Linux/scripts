@@ -163,54 +163,44 @@ def extract_pspecs(path, language, old_messages = []):
         path += '/'
     messages = []
     paks = find_pspecs(path)
+
+    def strp(msg):
+        if msg:
+            return msg.strip()
+        return ""
+
+    def set_fuzzy_flag(msg):
+        for old_msg in old_messages:
+            if old_msg.reference == msg.reference:
+                if old_msg.msgstr == msg.msgstr:
+                    if ('fuzzy' in old_msg.flags) or (strp(old_msg.msgid) != strp(msg.msgid)):
+                        msg.flags.append("fuzzy")
+                if (old_msg.msgid == msg.msgid) and (strp(old_msg.msgstr) != strp(msg.msgstr)):
+                        msg.msgstr = old_msg.msgstr
+        return msg
+
     for pak in paks:
         doc = iks.parse(pak + "/pspec.xml")
-        for tag in ["Summary", "Description"]:
-            msg = Message()
-            source = doc.getTag("Source")
-            msg.reference = pak[len(path):] + "::" + tag.lower()
-            for item in source.tags(tag):
-                lang = item.getAttribute("xml:lang")
-                if not lang or lang == "en":
-                    msg.msgid = item.firstChild().data()
-                elif lang == language:
-                    msg.msgstr = item.firstChild().data()
+        for section in ["Package", "Source"]:
+            for node in doc.tags(section):
+                msg = Message()
+                for tag in ["Summary", "Description"]:
+                    for item in node.tags(tag):
+                        lang = item.getAttribute("xml:lang")
+                        if not lang or lang == "en":
+                            msg.msgid = item.firstChild().data()
+                        elif lang == language:
+                            msg.msgstr = item.firstChild().data()
 
-            for old_msg in old_messages:
-                if old_msg.reference == msg.reference:
-                    if old_msg.msgstr == msg.msgstr:
-                        if ('fuzzy' in old_msg.flags) or (old_msg.msgid != msg.msgid):
-                            msg.flags.append("fuzzy")
-                    if (old_msg.msgid == msg.msgid) and (old_msg.msgstr != msg.msgstr):
-                        msg.msgstr = old_msg.msgstr
+                        if section == "Package":
+                            msg.reference = pak[len(path):] + ":" + node.getTagData("Name") + ":" + tag.lower()
+                        else:
+                            msg.reference = pak[len(path):] + "::" + tag.lower()
 
-            if msg.msgid:
-                messages.append(msg)
+                msg = set_fuzzy_flag(msg)
 
-        # I know. I'll clean this mess..
-        for package in doc.tags("Package"):
-            msg = Message()
-            for tag in ["Summary", "Description"]:
-                for item in package.tags(tag):
-                    lang = item.getAttribute("xml:lang")
-                    if not lang or lang == "en":
-                        msg.msgid = item.firstChild().data()
-                    elif lang == language:
-                        msg.msgstr = item.firstChild().data()
-                    msg.reference = pak[len(path):] + ":" + package.getTagData("Name") + ":" + tag.lower()
-
-            for old_msg in old_messages:
-               if old_msg.reference == msg.reference:
-                   if old_msg.msgstr == msg.msgstr:
-                       if ('fuzzy' in old_msg.flags) or (old_msg.msgid != msg.msgid):
-                           msg.flags.append("fuzzy")
-                   if (old_msg.msgid == msg.msgid) and (old_msg.msgstr != msg.msgstr):
-                       msg.msgstr = old_msg.msgstr
-
-                       msg.msgstr = item.firstChild().data()
-
-            if msg.msgid:
-                messages.append(msg)
+                if msg.msgid:
+                    messages.append(msg)
 
     return messages
 

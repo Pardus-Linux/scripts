@@ -25,10 +25,11 @@ def main():
         print 'Usage: %s specfile version url' % sys.argv[0]
         return FAIL
 
+    specfile = sys.argv[1]
     try:
-        doc = piksemel.parse(sys.argv[1])
+        doc = piksemel.parse(specfile)
     except:
-        print 'Can\'t parse: %s' % shortpath
+        print 'Can\'t parse: %s' % specfile
         return FAIL
 
     source = doc.getTag('Source')
@@ -44,11 +45,11 @@ def main():
         return FAIL
 
     type = ''
-    if sys.argv[3].endswith('bz2'):
+    if url.endswith('bz2'):
         type = 'tarbz2'
-    elif sys.argv[3].endswith('gz'):
+    elif url.endswith('gz'):
         type = 'targz'
-    elif sys.argv[3].endswith('zip'):
+    elif url.endswith('zip'):
         type = 'zip'
 
     old_archive = source.getTag('Archive')
@@ -74,6 +75,8 @@ def main():
     f = open(sys.argv[1], 'w')
     f.write(spec)
     f.close()
+
+    print '%s updated.' % specfile
 
     return SUCCESS
 

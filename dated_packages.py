@@ -5,8 +5,7 @@ import os.path
 import sys
 import time
 
-import piksemel
-
+from pisi.specfile import SpecFile
 
 SUCCESS, FAIL = xrange(2)
 
@@ -52,12 +51,9 @@ def main():
     errors = []
     for packagedir in getSpecs(repopath):
         shortpath = '%s/pspec.xml' % packagedir[len(repopath):]
-        try:
-            doc = piksemel.parse(os.path.join(packagedir, 'pspec.xml'))
-            date = doc.getTag('History').getTag('Update').getTagData('Date')
-        except:
-            errors.append('Can\'t parse: %s' % shortpath)
-            continue
+
+        specfile = SpecFile(os.path.join(packagedir, 'pspec.xml'))
+        date = specfile.history[0].date
 
         try:
             expired = isExpired(date, days)
@@ -66,7 +62,7 @@ def main():
             continue
 
         if (not revert and expired) or (revert and not expired):
-            print '%s %s' % (shortpath.ljust(70), date)
+            print '%s %s' % (date, shortpath)
 
     if len(errors):
         print

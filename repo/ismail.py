@@ -379,6 +379,7 @@ def main(args):
                 except InvalidDocument, e:
                     print "----- %s -----" % pspec_path[len(args[0]):]
                     print e
+                    print
                     has_errors = True
             # dont walk into the versioned stuff
             if ".svn" in dirs:

@@ -303,6 +303,19 @@ class Update(AutoPiksemel):
             self.release = int(self.release)
         except:
             piksError(doc, errors, "bad release number '%s'" % self.release)
+        
+        date = self.date
+        if len(date) != 10 or date[4] != "-" or date[7] != "-":
+            piksError(doc, errors, "invalid date '%s'" % date)
+        else:
+            year, month, day = date.split("-", 2)
+            try:
+                year, month, day = int(year), int(month), int(day)
+            except:
+                piksError(doc, errors, "invalid date '%s'" % date)
+                return
+            if year < 2003 or month > 12 or day > 31:
+                piksError(doc, errors, "invalid date '%s'" % date)
 
 
 class Package(AutoPiksemel):
@@ -333,12 +346,20 @@ class SpecFile(AutoPiksemel):
     
     def validate(self, doc, errors):
         prev = None
+        prev_date = None
         for update in self.history:
+            if prev_date:
+                date = map(int, update.date.split("-"))
+                date = date[0] * 10000 + date[1] * 100 + date[2]
+                if prev_date < date:
+                    piksError(doc.getTag("History"), errors, "out of order date at release %d" % update.release)
             if prev:
                 prev -= 1
                 if update.release != prev:
                     piksError(doc.getTag("History"), errors, "out of order release numbers")
             prev = update.release
+            prev_date = map(int, update.date.split("-"))
+            prev_date = prev_date[0] * 10000 + prev_date[1] * 100 + prev_date[2]
         if prev != 1:
             piksError(doc.getTag("History"), errors, "missing release numbers")
 

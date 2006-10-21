@@ -202,6 +202,7 @@ class AutoPiksemel:
 import sys
 import os
 import pisi.version
+import fnmatch
 
 
 class Packager(AutoPiksemel):
@@ -344,6 +345,12 @@ class SpecFile(AutoPiksemel):
     packages = one_or_more_tag("Package", class_=Package)
     history  =             tag("History", contains=one_or_more_tag("Update", class_=Update))
     
+    def all_deps(self):
+        deps = self.source.build_deps[:]
+        for pak in self.packages:
+            deps.extend(pak.packageDependencies)
+        return deps
+    
     def validate(self, doc, errors):
         prev = None
         prev_date = None
@@ -364,27 +371,61 @@ class SpecFile(AutoPiksemel):
             piksError(doc.getTag("History"), errors, "missing release numbers")
 
 
+def all_pspecs(path):
+    for root, dirs, files in os.walk(path):
+        if "pspec.xml" in files:
+            yield os.path.join(root, "pspec.xml")
+        # dont walk into the versioned stuff
+        if ".svn" in dirs:
+            dirs.remove(".svn")
+
+
+class Repository:
+    def __init__(self, path):
+        self.path = path
+    
+    def validate(self):
+        no_errors = True
+        packages = {}
+        
+        for pspec in all_pspecs(self.path):
+            try:
+                spec = SpecFile(pspec)
+                for pak in spec.packages:
+                    packages[pak.name] = "ok"
+                for dep in spec.all_deps():
+                    want = packages.get(dep.package, [])
+                    if want != "ok":
+                        if not spec.source.name in want:
+                            want.append(spec.source.name)
+                            packages[dep.package] = want
+            except InvalidDocument, e:
+                print "----- %s -----" % pspec[len(self.path):]
+                print e
+                print
+                no_errors = False
+        
+        missing = {}
+        for pak in packages:
+            if packages[pak] != "ok":
+                missing[pak] = packages[pak]
+        if len(missing) > 0:
+            no_errors = False
+            print "----- Missing dependencies -----"
+            for pak in missing:
+                print "%s depends on missing package '%s'" % (", ".join(missing[pak]), pak)
+        
+        return no_errors
+
+
 #
 # Command line driver
 #
 
 def main(args):
     if os.path.isdir(args[0]):
-        has_errors = False
-        for root, dirs, files in os.walk(args[0]):
-            if "pspec.xml" in files:
-                pspec_path = os.path.join(root, "pspec.xml")
-                try:
-                    spec = SpecFile(pspec_path)
-                except InvalidDocument, e:
-                    print "----- %s -----" % pspec_path[len(args[0]):]
-                    print e
-                    print
-                    has_errors = True
-            # dont walk into the versioned stuff
-            if ".svn" in dirs:
-                dirs.remove(".svn")
-        if has_errors:
+        repo = Repository(args[0])
+        if not repo.validate():
             sys.exit(1)
     else:
         try:

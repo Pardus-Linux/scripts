@@ -202,7 +202,6 @@ class AutoPiksemel:
 import sys
 import os
 import pisi.version
-import fnmatch
 
 
 class Packager(AutoPiksemel):

@@ -19,7 +19,6 @@ po_header_tmpl = """# SOME DESCRIPTIVE TITLE.
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\\n"
@@ -180,6 +179,7 @@ def extract_pspecs(path, language, old_messages = []):
         return msg
 
     for pak in paks:
+        print pak
         doc = iks.parse(pak + "/pspec.xml")
         for section in ["Package", "Source"]:
             for node in doc.tags(section):

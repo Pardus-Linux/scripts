@@ -66,7 +66,8 @@ def listLatest(target, proto = "http"):
     list = findLatest(now)
     list.sort()
     for f in list:
-        print "%s://%s/%s.%s" % (proto, addr, f, prefix)
+        # print "%s://%s/%s.%s" % (proto, addr, f, prefix)
+        print "%s.%s" % (f, prefix)
 
 def usage(msg):
     print """

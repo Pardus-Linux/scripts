@@ -295,6 +295,10 @@ class Update(AutoPiksemel):
     comment =                tag("Comment")
     
     def validate(self, doc, errors):
+        #NOTE: this should be in pisi.version.Version, but situation is
+        # a bit hairy there
+        if "-" in self.version:
+            piksError(doc, errors, "invalid version '%s': no '-' allowed" % self.version)
         try:
             pisi.version.Version(self.version)
         except Exception, e:

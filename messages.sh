@@ -14,6 +14,12 @@
 # for yourself and help me to improve this script, thanks
 # (tnagyemail-mail tat yahoo d0tt fr)
 
+##########################################################################
+#
+# Needs xgettext from http://cekirdek.pardus.org.tr/~ismail/hacks/xgettext
+#
+#########################################################################
+
 SRCDIR=. # srcdir is the directory containing the source code
 #TIPSDIR=$SRCDIR # tipsdir is the directory containing the tips
 

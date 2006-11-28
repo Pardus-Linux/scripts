@@ -5,4 +5,5 @@
 ./pspec2po.py extract ../../../../pardus/devel tr tr.po
 ./pspec2po.py extract ../../../../pardus/devel de de.po
 ./pspec2po.py extract ../../../../pardus/devel nl nl.po
+./pspec2po.py extract ../../../../pardus/devel es es.po
 

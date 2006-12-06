@@ -253,6 +253,7 @@ class AdditionalFile(AutoPiksemel):
     filename   =           tag_data()
     target     =          attribute("target")
     owner      = optional_attribute("owner")
+    group      = optional_attribute("group")
     permission = optional_attribute("permission")
 
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="7.2_rc1"
+VERSION="7.2_rc3"
 
 for option in $*; do
     case $option in

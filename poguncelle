@@ -1,0 +1,55 @@
+#!/bin/bash
+#
+# checkout sources with this
+# svn co svn://anonsvn.kde.org/home/kde/trunk/l10n/tr/messages/
+
+if [ $# -lt 2 ]; then
+    echo "Kullanim sekli: `basename $0` <yeni_messages_dizini> <mevcut_messages_dizini> [mo_hedef_dizini]"
+    echo "                mo dosyalarinin olusturulmasi tercihe birakilmistir."
+    exit 1
+fi
+
+CVSDEN=$1
+MEVCUT=$2
+MO=$3
+GECICI=`mktemp`
+# YENI="k3b k3bsetup"
+YENI=""
+
+# for PO in `find $MEVCUT -name "*.po" -printf "%f "`
+for PO in `find $MEVCUT -name "*.po"|sed 's/.*\/messages\//\/messages\//'`
+do
+    echo "$PO dosyasi guncelleniyor"
+    if [ -e $CVSDEN/$PO ]; then
+
+        # yeni ve eski ceviri dosyalari birlestiriliyor
+        # msgcat --use-first --no-wrap -o $GECICI $CVSDEN/$PO $MEVCUT/$PO
+        msgcat --use-first -o $GECICI $CVSDEN/$PO $MEVCUT/$PO
+
+        # mevcut kataloga gore yeni po dosyasi olusturuluyor
+        msgmerge --no-wrap --backup=off -U $GECICI $MEVCUT/$PO
+
+        # po dosyasindaki artiklar ayiklaniyor
+        sed -e '/^#~/d' $GECICI > $MEVCUT/$PO
+
+        # istenmis ise mo dosyasi olusturuluyor
+        if [ $3 -a -d $MO ]; then
+            msgfmt $MEVCUT/$PO -o $MO/`echo $PO|sed 's/.po$/.mo/'`
+        fi
+    else
+        echo "$CVSDEN/$PO bulunamadi, $PO islenmiyor"
+    fi
+
+done
+
+# Daha once hic po dosyasi olmayan ancak yeni eklenmis dosyalar icin
+if [ $3 -a -d $MO ]; then
+    for file in $YENI
+    do
+        echo "$file dosyasi olusturuluyor"
+        msgfmt $CVSDEN/$file.po -o $MO/$file.mo
+    done
+fi
+
+rm -f $GECICI
+

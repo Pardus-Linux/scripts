@@ -9,9 +9,9 @@ msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2006-12-03 19:38+0200\n"
-"Last-Translator: Willem Gielen <w.gielen@gmail.com>\n"
-"Language-Team: Nederlands <Pardus-translation-nl@pardus.org.tr>\n"
+"PO-Revision-Date: 2006-12-14 14:39+0200\n"
+"Last-Translator: Jan Gnodde <info@gnodde.com>\n"
+"Language-Team: Nederlands\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -51,7 +51,7 @@ msgstr "Firmware voor USB modems"
 
 #: kernel/firmware/alsa-firmware::summary
 msgid "Advanced Linux Sound Architecture firmware"
-msgstr "Firmeware voor ALSA (Advanced Linux Sound Architecture)"
+msgstr "Firmware voor ALSA (Advanced Linux Sound Architecture)"
 
 #: kernel/firmware/bluez-firmware::summary
 msgid "Firmware for Broadcom BCM203x Blutonium devices"
@@ -243,7 +243,7 @@ msgstr "Het Revision Control Sytem (RCS) regelt het omgaan met verschillende ver
 
 #: programming/tools/cvs::description
 msgid "The Concurrent Versions System (CVS), also known as the Concurrent Versioning System, implements a version control system: it keeps track of all work and all changes in a set of files, typically the implementation of a software project, and allows several (potentially widely separated) developers to collaborate."
-msgstr "Het Concurrent Versions System (CVS), ook wel bekend als het Concurrent Versioning System, implementeert een versie controle systeem: het houdt alle werk en de veranderingen daarin bij (meestal betreft het een sofware-project), en zorgt ervoor, dat verscheidene (soms wijd verspreide) ontwikkelaars kunnen er samen aan kunnen werken."
+msgstr "Het Concurrent Versions System (CVS), ook wel bekend als het Concurrent Versioning System, implementeert een versie controle systeem: het houdt alle werk en de veranderingen daarin bij (meestal betreft het een sofware-project), en zorgt ervoor, dat verscheidene (soms wijd verspreide) ontwikkelaars er samen aan kunnen werken."
 
 #: programming/tools/gdb::description
 msgid "GDB, the GNU Project debugger, allows you to see what is going on `inside' another program while it executes -- or what another program was doing at the moment it crashed."
@@ -263,7 +263,7 @@ msgstr "Lsof is een Unix-specifiek diagnostisch gereedschap. De naam betekent \"
 
 #: programming/tools/gperf::description
 msgid "GNU gperf is a perfect hash function generator. For a given list of strings, it produces a hash function and hash table, in form of C or C++ code, for looking up a value depending on the input string. The hash function is perfect, which means that the hash table has no collisions, and the hash table lookup needs a single string comparison only."
-msgstr "GNU gperf is een perfecte mengelmoes functie generator. Voor een gegevenslijst van reeksen produceert het een mengelmoes functie en mengelmoes tabel, in de vorm van C of C + + code, voor het opzoeken van een waarde afhankelijk van de invoerreeks. De mengelmoes functie is perfect, wat betekent dat de mengelmoes tabel geen botsingen heeft en de mengelmoes tabel opzoeken heeft selchts een enkele reeks vergelijking nodig. "
+msgstr "GNU gperf is een 'perfect hash function generator'. Het produceert aan de hand van een opsomming van tekenreeksen een hash-functie en hash-tabel in de vorm van C- of C++-code, waarmee u een waarde afhankelijk van de invoertekenreeks kunt opzoeken. De hash-functie is perfect. Dit betekent dat de hash-tabel geen conflicten kent en het doorzoeken van de hash-tabel alleen een enkelvoudige tekenreeksvergelijking vergt."
 
 #: programming/tools/diffstat::description
 msgid "Diffstat reads the output of the diff command and displays a histogram of the insertions, deletions, and modifications in each file.Diffstat is commonly used to provide a summary of the changes in large, complex patch files."
@@ -355,7 +355,7 @@ msgstr "Een library om platte-tekst documenten om te zetten in een bruikbaar for
 
 #: programming/languages/python/notify-python::description
 msgid " Galago is a desktop presence framework, designed to transmit presence information between programs. To put it in simpler terms, it takes information on who is online and their away/idle states from an instant messenger (such as gaim) or other similar programs and lets other programs (such as Evolution) to make use of it."
-msgstr "Gagago is een desktop aanwezigheids detector, bedoeld om informatie over de aanwezigheid tussen programma's door te geven. Eenvoudiger gezegd: het stelt informatie over wie er online is, en hun away/idle-status van een messenger (zoals gaim) of soortgelijke programma's,beschikbaar aan andere programma's (zoals Evolution) om daar gebruik van te maken."
+msgstr "Galago is een desktop aanwezigheids detector, bedoeld om informatie over de aanwezigheid tussen programma's door te geven. Eenvoudiger gezegd: het stelt informatie over wie er online is, en hun away/idle-status van een messenger (zoals gaim) of soortgelijke programma's,beschikbaar aan andere programma's (zoals Evolution) om daar gebruik van te maken."
 
 #: programming/languages/python/pycrypto::description
 msgid "Python Cryptography Toolkit is a collection of cryptographic algorithms and protocols, implemented for use from Python."
@@ -363,7 +363,7 @@ msgstr "Python Cryptography Toolkit is een verzameling cryptografische algoritme
 
 #: programming/languages/python/pydelicious::description
 msgid "pydelicious allows you to access the web service of del.icio.us via it's API through python."
-msgstr "pydelicious maakt het mogelijk de webservice van del.icio.us te benaderen via zijn API door Python."
+msgstr "pydelicious maakt het mogelijk met Python de webservice van del.icio.us te benaderen via zijn API."
 
 #: programming/languages/python/python-imaging::description
 msgid "The Python Imaging Library (PIL) adds image processing capabilities to your Python interpreter. This library supports many file formats, and provides powerful image processing and graphics capabilities."
@@ -635,7 +635,7 @@ msgstr "Net::DNS is een verzameling Perl modules, die optreedt als DNS-resolver.
 
 #: programming/languages/perl/Mail-SPF-Query::description
 msgid "The SPF protocol relies on sender domains to describe their designated outbound mailers in DNS. Given an email address, Mail::SPF::Query determines the legitimacy of an SMTP client IP."
-msgstr ""
+msgstr "Mail::SPF::Query maakt gebruik van het SPF-protocol om te controleren of de afzender van een email de echte afzender is door te kijken of het IP klopt."
 
 #: programming/languages/perl/Date-Calc::description
 msgid "Date-Calc package consists of a C library and a Perl module (which uses the C library, internally) for all kinds of date calculations based on the Gregorian calendar (the one used in all western countries today), thereby complying with all relevant norms and standards: ISO/R 2015-1971, DIN 1355 and, to some extent, ISO 8601 (where applicable)."
@@ -655,7 +655,7 @@ msgstr "Date::Manip is een set routines om elke normale datum/tijd-bewerking een
 
 #: programming/languages/perl/Parse-Yapp::description
 msgid "Parse::Yapp is a collection of modules that let you generate and use yacc like thread safe parsers with perl object oriented interface."
-msgstr ""
+msgstr "Parse::Yapp is en verzameling modules, waarmee het mogelijk is \"yacc-achtige\" parsers te maken en gebruiken met Perl object georienteerde interface."
 
 #: programming/languages/perl/libxml-perl::description
 msgid "libxml-perl isa collection of Perl modules, scripts, and documents for working with XML in Perl. It works in combination with XML::Parser, PerlSAX, XML::DOM, XML::Grove, and others."
@@ -719,7 +719,7 @@ msgstr "Perl SAX is een parser interface voor XML-parsers. Het maakt het mogelij
 
 #: programming/languages/perl/Unicode-MapUTF8::description
 msgid "A Perl module provides an adapter layer between core routines for converting to and from UTF8 and other encodings"
-msgstr ""
+msgstr "Een Perl module, die een laag vormt tussen standaard routines, om te converteren van/naar UTF8 en andere codes."
 
 #: programming/languages/tcl::description
 msgid "Tcl provides a powerful platform for creating integration applications that tie together diverse applications, protocols, devices, and frameworks."
@@ -975,7 +975,7 @@ msgstr "SWH eklemtileri zijn een set audio plugins voor het LADSPA plugin systee
 
 #: programming/libs/boehm-gc::description
 msgid "The Boehm-Demers-Weiser conservative garbage collector can be used as a garbage collecting replacement for C malloc or C++ new.The collector automatically recycles memory when it determines that it can no longer be otherwise accessed."
-msgstr ""
+msgstr "De Boehm-Demers-Weiser is een \"opruimer\", die gebruikt kan worden om (bv. door C malloc of C++ new toegewezen) geheugen vrij te maken, als dat niet meer op een andere manier gebruikt kan worden."
 
 #: programming/libs/hdf5::description
 msgid "HDF5 is a general purpose library and file format for storing scientific data."
@@ -1039,7 +1039,7 @@ msgstr "libdvdcss is een bibliotheek, die het mogelijk maakt DVD's als een blok-
 
 #: programming/libs/openslp::description
 msgid "Service Location Protocol is an IETF standards track protocol that provides a framework to allow networking applications to discover the existence, location, and configuration of networked services in enterprise networks."
-msgstr ""
+msgstr "Service Location Protocol is een \"IETF standards track\" protocol, dat een raamwerk biedt aan netwerk-toepassingen om het bestaan, de plaats en de configuratie van netwerk-services in bedrijfsnetwerken te ontdekken."
 
 #: programming/libs/openexr::description
 msgid "OpenEXR is a high dynamic-range (HDR) image file format  for use in computer imaging applications. OpenEXR's features include: Higher dynamic range and color precision than existing 8- and 10-bit image file formats; support for 16-bit floating-point, 32-bit floating-point, and 32-bit integer pixels; multiple lossless image compression algorithms; extensibility."
@@ -1247,11 +1247,11 @@ msgstr "MPEG-1 and MPEG-4 video encoding bibliotheek"
 
 #: programming/libs/libmal::summary
 msgid "Convenience library of the functions malsync distribution"
-msgstr ""
+msgstr "Bibliotheek met malsync functies."
 
 #: programming/libs/sdl-image::summary
 msgid "SDL image file loading library"
-msgstr "\"SDL image file loading\" bibliotheek"
+msgstr "SDL bibliotheek voor afbeeldingsbestanden."
 
 #: programming/libs/tap-plugins::description
 msgid "TAP LADSPA plugins package which contains DeEsser, Dynamics, Equalizer, Reverb, Stereo Echo, Tremolo"
@@ -1391,7 +1391,7 @@ msgstr "TLS ondersteuning voor TCL"
 
 #: programming/libs/libogg::summary
 msgid "The Ogg media file format library"
-msgstr ""
+msgstr "De Ogg media bestandsformaat bibliotheek"
 
 #: programming/libs/sdl-gfx::description
 msgid "The SDL_gfx library evolved out of the SDL_gfxPrimitives code which provided basic drawing routines such as lines, circles or polygons and SDL_rotozoom which implemented a interpolating rotozoomer for SDL surfaces."
@@ -1583,7 +1583,7 @@ msgstr "Pakket configuratie systeem, dat de compile/link vlaggen voor bibliothek
 
 #: system/devel/icecream::description
 msgid "Icecream is a program for distributed compiling of C/C++ code across several machines based on ideas and code by distcc."
-msgstr ""
+msgstr "Icecream is een programma voor het gedistribueerd compileren van C/C++ code over verscheidene computers, gebaseerd op de ideeen en de code van distcc."
 
 #: system/devel/bison::description
 msgid "A yacc-compatible parser generator. Once you are proficient with Bison, you can use it to develop a wide range of language parsers, from those used in simple desk calculators to complex programming languages"
@@ -1769,7 +1769,7 @@ msgstr "E2fsprogs leveren de bestandsysteem utilities voor gebruik met het ext2 
 
 #: system/base/usbutils::description
 msgid "Usbutils provides some usb enumeration utilities."
-msgstr ""
+msgstr "Usbutils biedt een aantal usb opsommings utilities."
 
 #: system/base/man::description
 msgid "Man package consists of programs which is used to read most of the documentation available in linux system. For example, you can write \"man nameoftheprogram\" into the konsole or \"man:nameoftheprogram\" into the konqueror to get a detailed usage information for many programs."
@@ -2066,7 +2066,7 @@ msgstr "gzip (gnu zip) is een populair data compressie programma, geschreven voo
 
 #: system/base/gdbm::description
 msgid "GNU dbm is a set of database routines that use extensible hashing. It works similar to the standard UNIX dbm routines."
-msgstr ""
+msgstr "GNU dbm is een set database routines, dat gebruik maakt van \"extensible hasing\". Het werkt ongeveer zoals de standaard UNIX dbm routines."
 
 #: system/base/libpng::description
 msgid "The Portable Network Graphics (PNG) format was designed to replace the older and simpler GIF format and, to some extent, the much more complex TIFF format. Project's main aim is to concentrate on two major uses: the World Wide Web (WWW) and image-editing."
@@ -2226,7 +2226,7 @@ msgstr "Tail programma met uitbreidingen, zoals syntax highlighting en meerdere 
 
 #: applications/admin/acct::summary
 msgid "System resource accounting utilities"
-msgstr ""
+msgstr "Utilities voor het bijhouden van de systeembronnen."
 
 #: applications/admin/acct/xxx::description
 msgid "An application"
@@ -2910,7 +2910,7 @@ msgstr "Crack Attack! is een snel puzzel spel, geinspireerd op het klassieke Tet
 
 #: applications/games/bass::description
 msgid "Beneath a Steel Sky: a science fiction thriller set in a bleak vision of the future"
-msgstr ""
+msgstr "Beneath a Steel Sky: een science fiction thriller, geplaatst in een vage toekomstvisie."
 
 #: applications/games/chromium-data::description
 msgid "Chromium arcade game data package"
@@ -3086,7 +3086,7 @@ msgstr "Geluid ondersteuning voor Freeciv."
 
 #: applications/games/Ri-li::description
 msgid "Drive the toy to find all the coaches to finish the levels"
-msgstr ""
+msgstr "Bestuur het speelgoed om alle coaches te vinden, om alle levels te doorlopen."
 
 #: applications/games/queen::description
 msgid "2D point-and-click adventure game set in the 1940"
@@ -3214,7 +3214,7 @@ msgstr "Een mix van Sokoban en Kula-world in 3D. Je bestuurt een nanobot om de b
 
 #: applications/games/vdrift::description
 msgid "A driving simulation with drift racing in mind"
-msgstr ""
+msgstr "Een race simulator met drift-racing in gedachte."
 
 #: applications/games/vdrift-data-full::description
 msgid "Vdrift data files"
@@ -3326,7 +3326,7 @@ msgstr "Utility om de parameters van scsi devices uit te lezen of te veranderen,
 
 #: applications/hardware/sg3_utils::summary
 msgid "Applications for querying the sg SCSI interface"
-msgstr ""
+msgstr "Toepassingen om de sg SCSI interface te benaderen."
 
 #: applications/hardware/acpi4asus::description
 msgid "For Asus laptops to use all the functionality of their computers such as special keys, special LEDs, brightness control"
@@ -3398,7 +3398,7 @@ msgstr "Help2man is een tool, die een man-page genereert vanuit de helptekst van
 
 #: applications/doc/aiksaurus::description
 msgid "Aiksaurus is a set of libraries and applications which provide a thesaurus using native GUI on several platforms"
-msgstr ""
+msgstr "Aiksaurus is een set bibliotheken en toepassingen, die een woordenlijst/databank bieden, gebruik makend van systeem-eigen GUI op diverse platforms."
 
 #: applications/doc/djvu::description
 msgid "Web-centric format and software platform for distributing documents and images"
@@ -5083,4 +5083,5 @@ msgstr "Terminus font is ontworpen voor het langdurig (>8 uur) werken met de com
 #: desktop/freedesktop/hal-info::summary
 msgid "Hardware Abstraction Layer's Informatin Files"
 msgstr "Hardware Abstraction Layer's (HAL) informatie bestanden."
+
 

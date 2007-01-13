@@ -202,6 +202,7 @@ class AutoPiksemel:
 import sys
 import os
 import pisi.version
+import time
 
 
 class Packager(AutoPiksemel):
@@ -309,18 +310,15 @@ class Update(AutoPiksemel):
         except:
             piksError(doc, errors, "bad release number '%s'" % self.release)
         
-        date = self.date
-        if len(date) != 10 or date[4] != "-" or date[7] != "-":
-            piksError(doc, errors, "invalid date '%s'" % date)
-        else:
-            year, month, day = date.split("-", 2)
-            try:
-                year, month, day = int(year), int(month), int(day)
-            except:
-                piksError(doc, errors, "invalid date '%s'" % date)
-                return
-            if year < 2003 or month > 12 or day > 31:
-                piksError(doc, errors, "invalid date '%s'" % date)
+        if len(self.date) != 10:
+            piksError(doc, errors, "invalid date '%s'" % self.date)
+        
+        try:
+            date = time.strptime(self.date, "%Y-%m-%d")
+            if date[0] < 2003:
+                piksError(doc, errors, "invalid date '%s'" % self.date)
+        except Exception, e:
+            piksError(doc, errors, "invalid date '%s': %s" % (self.date, e))
 
 
 class Package(AutoPiksemel):

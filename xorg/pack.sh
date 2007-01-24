@@ -46,7 +46,7 @@ do
     if [ ! -e $i ]; then
         wget $MIRROR"/"$i
     fi
-    tar jxvf $i -C ../$PACKAGE-$VERSION
+    tar xvf $i -C ../$PACKAGE-$VERSION
 done
 
 cd ..

@@ -340,6 +340,17 @@ class Package(AutoPiksemel):
     additionals           =     optional_tag("AdditionalFiles",
                                             contains=one_or_more_tag("AdditionalFile", class_=AdditionalFile))
     history               =     optional_tag("History", contains=one_or_more_tag("Update", class_=Update))
+    
+    def validate(self, doc, errors):
+        for additional in self.additionals:
+            filename = additional.target
+            flag = False
+            for path in self.files:
+                if filename.startswith(path.path):
+                    flag = True
+                    break
+            if not flag:
+                piksError(doc, errors, "additional file '%s' not included in package %s" % (filename, self.name))
 
 
 class SpecFile(AutoPiksemel):

@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2006, TUBITAK/UEKAE
+# Copyright (C) 2006-2007, TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the
@@ -285,6 +285,19 @@ class Source(AutoPiksemel):
     version     =     optional_tag("Version")
     release     =     optional_tag("Release")
     sourceuri   =     optional_tag("SourceURI")
+    
+    def validate(self, doc, errors):
+        valid_isas = (
+            "app", "app:console", "app:gui", "app:web",
+            "library", "service", "kernel", "driver",
+            "data", "data:doc", "data:font",
+            "locale", "locale:tr", "locale:en", "locale:es", "locale:nl",
+            "locale:de", "locale:it", "locale:fr"
+        )
+        
+        for isa in self.isa:
+            if isa not in valid_isas:
+                piksError(doc, errors, "invalid IsA value '%s'" % isa)
 
 
 class Update(AutoPiksemel):

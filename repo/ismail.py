@@ -478,6 +478,10 @@ class Repository:
                 print "%s depends on missing package '%s'" % (", ".join(missing[pak]), pak)
         
         return self.no_errors
+    
+    def validate_another(self, path):
+        self.path = path
+        return self.validate()
 
 
 #
@@ -489,6 +493,10 @@ def main(args):
         repo = Repository(args[0])
         if not repo.validate():
             sys.exit(1)
+        if len(args) > 1:
+            for arg in args[1:]:
+                if not repo.validate_another(arg):
+                    sys.exit(1)
     else:
         try:
             spec = SpecFile(args[0])

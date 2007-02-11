@@ -409,39 +409,75 @@ def all_pspecs(path):
 class Repository:
     def __init__(self, path):
         self.path = path
+        self.paker_names = {}
+        self.paker_mails = {}
+        self.sources = {}
+        self.binaries = {}
+        self.depends = {}
+        self.no_errors = True
+    
+    def error(self, pspec, msg):
+        print "----- %s -----" % pspec[len(self.path):]
+        print msg
+        print
+        self.no_errors = False
+    
+    def validate_pspec(self, pspec):
+        try:
+            spec = SpecFile(pspec)
+        except InvalidDocument, e:
+            self.error(pspec, e)
+            return
+        
+        name, email = spec.source.packager.name, spec.source.packager.email
+        if self.paker_names.has_key(name):
+            if email != self.paker_names[name]:
+                self.error(pspec, "Packager '%s' has email '%s', but used '%s' here" %
+                    (name, self.paker_names[name], email))
+        else:
+            self.paker_names[name] = email
+        if self.paker_mails.has_key(email):
+            if name != self.paker_mails[email]:
+                self.error(pspec, "Email '%s' is used by both '%s' and '%s'" %
+                    (email, self.paker_mails[email], name))
+        else:
+            self.paker_mails[email] = name
+        
+        if self.sources.has_key(spec.source.name):
+            self.error(pspec, "This is a duplicate source package of '%s'" % self.sources[spec.source.name])
+        else:
+            self.sources[spec.source.name] = pspec
+        
+        for pak in spec.packages:
+            if self.binaries.has_key(pak.name):
+                self.error(pspec, "This source has duplicate binary package '%s' also in '%s'" %
+                    (pak.name, self.binaries[pak.name]))
+            else:
+                self.binaries[pak.name] = pspec
+            self.depends[pak.name] = "ok"
+        
+        for dep in spec.all_deps():
+            want = self.depends.get(dep.package, [])
+            if want != "ok":
+                if not spec.source.name in want:
+                    want.append(spec.source.name)
+                    self.depends[dep.package] = want
     
     def validate(self):
-        no_errors = True
-        packages = {}
-        
         for pspec in all_pspecs(self.path):
-            try:
-                spec = SpecFile(pspec)
-                for pak in spec.packages:
-                    packages[pak.name] = "ok"
-                for dep in spec.all_deps():
-                    want = packages.get(dep.package, [])
-                    if want != "ok":
-                        if not spec.source.name in want:
-                            want.append(spec.source.name)
-                            packages[dep.package] = want
-            except InvalidDocument, e:
-                print "----- %s -----" % pspec[len(self.path):]
-                print e
-                print
-                no_errors = False
+            self.validate_pspec(pspec)
         
         missing = {}
-        for pak in packages:
-            if packages[pak] != "ok":
-                missing[pak] = packages[pak]
+        for pak in self.depends:
+            if self.depends[pak] != "ok":
+                missing[pak] = self.depends[pak]
         if len(missing) > 0:
-            no_errors = False
+            self.no_errors = False
             print "----- Missing dependencies -----"
             for pak in missing:
                 print "%s depends on missing package '%s'" % (", ".join(missing[pak]), pak)
         
-        return no_errors
+        return self.no_errors
 
 
 #

@@ -1,19 +1,20 @@
-# SOME DESCRIPTIVE TITLE.
+# Translation of pt_BR.po to Brazillian Portuguese
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Pedro Leite <pedro.leite@gmail.com>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: pt_BR\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2007-02-18 21:04-0300\n"
+"Last-Translator: Pedro Leite <pedro.leite@gmail.com>\n"
+"Language-Team: Brazillian Portuguese <http://liste.uludag.org.tr/mailman/listinfo/pardus-translation-ptbr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #: kernel-xen/dom0/kernel-dom0:kernel-dom0-source:description
 msgid "Xen enabled Pardus Linux kernel source (dom0)"
@@ -6033,3 +6034,4 @@ msgstr ""
 #: server/samba::description
 msgid "Samba is a free software implementation of Microsoft's networking protocol released under the GNU General Public License. As of version 3, Samba not only provides file and print services for various Microsoft Windows clients but can also integrate with a Windows Server domain, either as a Primary Domain Controller (PDC) or as a Domain Member. It can also be part of an Active Directory domain."
 msgstr ""
+

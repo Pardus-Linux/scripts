@@ -2691,6 +2691,10 @@ msgstr ""
 msgid "Library for MPEG TS/DVB PSI tables decoding and generation"
 msgstr ""
 
+#: programming/libs/libfwbuilder::description
+msgid "Firewall Builder 2.0 API library and compiler framework"
+msgstr ""
+
 #: programming/libs/librsync::description
 msgid "librsync implements the rolling-checksum algorithm of remote file synchronization that was popularized by the rsync utility and is used in rproxy. This algorithm transfers the differences between 2 files without needing both files on the same system."
 msgstr ""
@@ -3727,6 +3731,10 @@ msgstr ""
 msgid "Perl modules to handle various Unicode issues"
 msgstr ""
 
+#: programming/languages/perl/Error::summary
+msgid "Error/exception handling in an OO-ish way"
+msgstr ""
+
 #: programming/languages/perl/Compress-Zlib::description
 msgid "This module provides a Perl interface to most of the zlib compression library."
 msgstr ""
@@ -3857,6 +3865,10 @@ msgstr ""
 
 #: programming/languages/perl/libnet-perl::description
 msgid "libnet is a collection of Perl modules which provides a simple and consistent programming interface (API) to the client side of various protocols used in the internet community."
+msgstr ""
+
+#: programming/languages/perl/Crypt-SSLeay::summary
+msgid "Crypt::SSLeay module for perl"
 msgstr ""
 
 #: programming/languages/perl/Log-Log4perl::summary
@@ -4883,6 +4895,10 @@ msgstr ""
 msgid "Pinentry is a collection of simple PIN or passphrase entry dialogs which utilize the Assuan protocol as described by the aegypten project."
 msgstr ""
 
+#: applications/security/fwbuilder::description
+msgid "GUI and set of policy compilers for various firewall platforms"
+msgstr ""
+
 #: applications/security/apparmor-profiles::description
 msgid "AppArmor profiles."
 msgstr ""
@@ -5183,6 +5199,10 @@ msgstr ""
 msgid "QtEmu is a graphical user interface for QEMU written in Qt4. It has the ability to run virtual operating systems on native systems. This way you can easily test a new operating system or try a Live CD on your system without any troubles and dangers."
 msgstr ""
 
+#: applications/emulators/virtualbox-guestadditions::summary
+msgid "Additional Video/Mouse drivers for VirtualBox for optimized performance"
+msgstr ""
+
 #: applications/games/pingus::description
 msgid "Pingus is a free Lemmings clone for GNU/Linux and Windows covered under the GNU GPL. Pingus uses ClanLib  and libxml and might also be usable on some other OSs like FreeBSD, but hasn't been tested there. Pingus is mainly developed under GNU/Linux."
 msgstr ""
@@ -5309,6 +5329,14 @@ msgstr ""
 
 #: applications/games/loosecannon::description
 msgid "3D space action adventure game where you are stuck in your ship, cleaning out the aliens in randomly generated levels."
+msgstr ""
+
+#: applications/games/scourge-data::description
+msgid "Game play data files including sounds, maps, etc. for Scourge"
+msgstr ""
+
+#: applications/games/scourge::description
+msgid "S.C.O.U.R.G.E. NetHack ve Moria geleneğinden gelen rogue benzeri bir macera oyunudur. glHack yada Falcon's Eye benzeri grafiksel ön yüz desteklemektedir."
 msgstr ""
 
 #: applications/games/magicor::description
@@ -6034,4 +6062,3 @@ msgstr ""
 #: server/samba::description
 msgid "Samba is a free software implementation of Microsoft's networking protocol released under the GNU General Public License. As of version 3, Samba not only provides file and print services for various Microsoft Windows clients but can also integrate with a Windows Server domain, either as a Primary Domain Controller (PDC) or as a Domain Member. It can also be part of an Active Directory domain."
 msgstr ""
-

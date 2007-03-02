@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2007-03-02 01:48+0100\n"
+"Last-Translator: Gökhan Akca <goekhanakca_ed_web.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,23 +17,23 @@ msgstr ""
 
 #: kernel-xen/dom0/kernel-dom0:kernel-dom0-source:description
 msgid "Xen enabled Pardus Linux kernel source (dom0)"
-msgstr ""
+msgstr "Pardus mit aktiviertem XEN Linux kernel source (dom0)"
 
 #: kernel-xen/dom0/kernel-dom0::description
 msgid "Dom0 Xen-enabled kernel allows Pardus to work as a privileged virtual machine on Xen. The dom0 kernel boots as the first virtual machine and has direct access to hardware. Others operating system that will run on Xen will be started from dom0"
-msgstr ""
+msgstr "Dom0 mit XEN aktiviertem Kernel erlaubt es Pardus als privilegierte virtuelle Maschine auf XEN zu laufen. Der Dom0 Kernel bootet als die erste virtuelle Maschine und hat direkten Zugang zur Hardware. Andere Betriebssysteme, die mit XEN laufen sollen, werden vom Dom0 aus gestartet."
 
 #: kernel-xen/dom0/drivers/alsa-driver-dom0::description
 msgid "ALSA (Advanced Linux Sound Architecture) drivers for the dom0 Xen-enabled kernel allows Pardus running on Xen to have direct access to the sound system."
-msgstr ""
+msgstr "ALSA (Advanced Linux Sound Architecture) Treiber für Dom0 mit Xen aktiviertem Kernel erlauben dem auf Xen laufendem Pardus direkten Zugriff auf das Sound System."
 
 #: kernel-xen/dom0/firmware/ipw2200-firmware-dom0::summary
 msgid "Xen enabled firmware for the Intel PRO/Wireless 2200BG/2915ABG miniPCI and 2225BG PCI adapters (domO)"
-msgstr ""
+msgstr "Xen fähige Firmware für Intel PRO/Wireless 2200BG/2915ABG miniPCI und 2225BG PCI Adapter (domO)"
 
 #: kernel-xen/domU/kernel-domU:kernel-domU-source:description
 msgid "Xen enabled Pardus Linux kernel source (domU)"
-msgstr ""
+msgstr "Xen fähiger Pardus Linux kernel source (domU)"
 
 #: kernel-xen/domU/kernel-domU::description
 msgid "User domain Xen-enabled kernel allows Pardus to run on the Xen virtual machine's user domain. This kernel cannot be booted as the first operating system on Xen, it must be booted from domain 0 and does not have direct access to hardware, but it's smaller than the domain 0 kernel."
@@ -41,23 +41,23 @@ msgstr ""
 
 #: system/base/debianutils::summary
 msgid "A selection of tools from Debian"
-msgstr ""
+msgstr "Eine Auswahl an Werkzeugen aus Debian"
 
 #: system/base/psmisc::description
 msgid "PSmisc is a collection of small utilities using /proc file system, and providing the system administrator with some help in common tasks."
-msgstr ""
+msgstr "PSmisc ist eine Sammlung von kleinen Anwendungen, die das /proc Dateisystem verwenden und dem System Administrator Hilfe für gängige Aufgaben bieten."
 
 #: system/base/less::summary
 msgid "Excellent text file viewer"
-msgstr ""
+msgstr "Ausgezeichneter Textbetrachter"
 
 #: system/base/openssl::description
 msgid "OpenSSL is a cryptography toolkit implementing the Secure Sockets Layer (SSL v2/v3) and Transport Layer Security (TLS v1) network protocols and related cryptography standards required by them."
-msgstr ""
+msgstr "OpenSSL ist ein Kryptographie Werkzeug, das die Netzwerkprotokolle Secure Sockets Layer (SSL v2/v3) und Transport Layer Security (TLS v1) sowie deren erforderliche zugehörige Kryptographie Standards implementiert."
 
 #: system/base/db4::summary
 msgid "Fourth version of Berkeley DB"
-msgstr ""
+msgstr "Virte Version der Berkeley DB"
 
 #: system/base/sed::description
 msgid "Sed is a stream editor. A stream editor is used to perform basic text transformations on an input stream (a file or input from a pipeline)."
@@ -68,16 +68,17 @@ msgid "which , Locates a program file in the user's path."
 msgstr ""
 
 #: system/base/bzip2::description
+#, fuzzy
 msgid "bzip2 is high-quality data compressor. It typically compresses files to within 10% to 15% of the best available techniques (the PPM family of statistical compressors), whilst being around twice as fast at compression and six times faster at decompression."
-msgstr ""
+msgstr "bzip2 ist ein hochwertiger Daten-Kompressor. Es komprimiert Dateien üblicherweise auf 10% bis 15% der bestmöglichen Techniken (die PPM Familie der statistischen Kompressoren), während es ungefähr doppelt so schnell komprimiert und sechsfach schneller extrahiert"
 
 #: system/base/db3::summary
 msgid "Third version of Berkeley DB"
-msgstr ""
+msgstr "Dritte Version der Berkeley DB"
 
 #: system/base/udev::description
 msgid "udev allows Linux users to have a dynamic /dev directory and it provides the ability to have persistent device names."
-msgstr ""
+msgstr "udev ermöglicht Linux Benutzern ein dynamisches /dev Verzeichnis und beständige Gerätenamen"
 
 #: system/base/dmidecode::description
 msgid "Dmidecode reports information about your system's hardware as described in your system BIOS. This information typically includes system manufacturer, model name, serial number, BIOS version, asset tag as well as a lot of other details of varying level of interest and reliability depending on the manufacturer."
@@ -85,15 +86,15 @@ msgstr ""
 
 #: system/base/coolplug::description
 msgid "A small utility that inserts necessary kernel modules and creates device nodes"
-msgstr ""
+msgstr "Eine kleine Anwendung, die benötigte Kernel Module lädt und Geräteknoten erzeugt"
 
 #: system/base/python-bsddb3::description
 msgid "The new version of the python adaptor library for berkeley db"
-msgstr ""
+msgstr "Die neue Version der Python Adapter Bibliothek für Berkeley DB"
 
 #: system/base/terminus-font::description
 msgid "Terminus font is designed for long (8 and more per day) work with computers."
-msgstr ""
+msgstr "Die Terminus Schrift ist für lange Arbeitszeiten (8 Stunden und mehr pro Tag) ausgelegt"
 
 #: system/base/libpng::description
 msgid "The Portable Network Graphics (PNG) format was designed to replace the older and simpler GIF format and, to some extent, the much more complex TIFF format. Project's main aim is to concentrate on two major uses: the World Wide Web (WWW) and image-editing."
@@ -105,19 +106,19 @@ msgstr ""
 
 #: system/base/curl::summary
 msgid "A Client that groks URLs"
-msgstr ""
+msgstr "Ein Client, der URLs versteht"
 
 #: system/base/groff::summary
 msgid "Text formatter used for man pages"
-msgstr ""
+msgstr "Text Formatierer für man pages"
 
 #: system/base/jpeg::description
 msgid "jpeg is the library to load, handle and manipulate images in the JPEG format. It is used by many programs that operates on JPEG files."
-msgstr ""
+msgstr "jpeg ist eine Bibliothek, um Bilder im JPEG Format zu laden, zu verarbeiten und zu verändern. Sie wird von vielen Anwendungen, die JPEG Bilder verarbeiten verwendet"
 
 #: system/base/comar::description
 msgid "Pardus programs are packaged with small scripts which configures them to entegrate with system and each other. Çomar is the tool which manages and executes these scripts."
-msgstr ""
+msgstr "Pardus Programme werden mit einem kleinen Skript paketiert, welches sie konfiguriert, um die Integrität mit dem System und anderen Programmen sicherzustellen. Comar ist das Werkzeug, das diese Skripte verwaltet und ausführt."
 
 #: system/base/tar::description
 msgid "The Tar program provides the ability to create tar archives, as well as various other kinds of manipulation. For example, you can use Tar on previously created archives to extract files, to store additional files, or to update or list files which were already stored."
@@ -145,11 +146,11 @@ msgstr ""
 
 #: system/base/db1::summary
 msgid "Berkeley database version 1"
-msgstr ""
+msgstr "Berkeley Datenbank Version 1"
 
 #: system/base/lzma::summary
 msgid "LZMA utils for Unix."
-msgstr ""
+msgstr "LZMA Werkzeuge für Unix"
 
 #: system/base/gdbm::description
 msgid "GNU dbm is a set of database routines that use extensible hashing. It works similar to the standard UNIX dbm routines."
@@ -6061,3 +6062,4 @@ msgstr ""
 #: server/samba::description
 msgid "Samba is a free software implementation of Microsoft's networking protocol released under the GNU General Public License. As of version 3, Samba not only provides file and print services for various Microsoft Windows clients but can also integrate with a Windows Server domain, either as a Primary Domain Controller (PDC) or as a Domain Member. It can also be part of an Active Directory domain."
 msgstr ""
+

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2007-03-02 01:48+0100\n"
+"PO-Revision-Date: 2007-03-02 02:16+0100\n"
 "Last-Translator: Gökhan Akca <goekhanakca_ed_web.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -65,7 +65,7 @@ msgstr ""
 
 #: system/base/which::description
 msgid "which , Locates a program file in the user's path."
-msgstr ""
+msgstr "which, findet eine Anwendungsdatei im Benutzerverzeichnis"
 
 #: system/base/bzip2::description
 #, fuzzy
@@ -186,11 +186,11 @@ msgstr ""
 
 #: system/base/expat::summary
 msgid "XML parsing libraries"
-msgstr ""
+msgstr "XML Parser Bibliotheken"
 
 #: system/base/gettext::description
 msgid "gettext is GNU internationalization library."
-msgstr ""
+msgstr "gettext ist eine GNU Bibliothek für Internationalisierung"
 
 #: system/base/libusb::description
 msgid "Project's main aim is to create a library for use by user level applications to access USB devices regardless of OS."
@@ -274,11 +274,11 @@ msgstr ""
 
 #: system/base/miscfiles::summary
 msgid "Miscellaneous files"
-msgstr ""
+msgstr "Verschiedene Dateien"
 
 #: system/base/splash-theme::description
 msgid "You see this theme everytime Pardus starts, if your do not change it of course."
-msgstr ""
+msgstr "Sie sehen dieses Theme jedesmal, wenn Pardus startet, sofern Sie es natürlich nicht ändern"
 
 #: system/base/nano::description
 msgid "Nano is a small, free and friendly editor which aims to replace Pico, the default editor included in the non-free Pine package. Rather than just copying Pico's look and feel, nano also implements some missing (or disabled by default) features in Pico, such as \"search and replace\" and \"go to line number\"."
@@ -290,7 +290,7 @@ msgstr ""
 
 #: system/base/sysklogd::summary
 msgid "Standard log daemons"
-msgstr ""
+msgstr "Standard Log Daemons"
 
 #: system/base/parted::summary
 msgid "Create, destroy, resize, check, copy partitions and file systems"
@@ -306,7 +306,7 @@ msgstr ""
 
 #: system/base/perl::description
 msgid "Perl is a stable, cross platform programming language."
-msgstr ""
+msgstr "Perl ist eine stabile, plattformunabhängige Programmiersprache"
 
 #: system/base/pisi::description
 msgid ""
@@ -337,7 +337,7 @@ msgstr ""
 
 #: system/base/cracklib::summary
 msgid "Password Checking Library"
-msgstr ""
+msgstr "Bibliothek, um Passwörter zu prüfen"
 
 #: system/base/fbgrab::description
 msgid "FBGrab is a framebuffer screenshot program, capturing the linux frambuffer and converting it to a png-picture."
@@ -345,11 +345,11 @@ msgstr ""
 
 #: system/base/groff-utf8::summary
 msgid "UTF-8 support for groff"
-msgstr ""
+msgstr "UTF-8 Unterstützung für groff"
 
 #: system/base/pcmciautils::summary
 msgid "Various utilities dealing with the PCMCIA bus"
-msgstr ""
+msgstr "Verschiedene Werkzeuge, um mit dem PCMCIA Bus umzugehen"
 
 #: system/base/splashutils-misc::summary
 msgid "Extra Framebuffer splash utilities."
@@ -369,15 +369,15 @@ msgstr ""
 
 #: system/base/sysvinit::summary
 msgid "/sbin/init - parent of all processes"
-msgstr ""
+msgstr "/sbin/init - Vater aller Prozesse"
 
 #: system/base/texinfo::summary
 msgid "The GNU info program and utilities"
-msgstr ""
+msgstr "GNU Info Prgramm und Werkzeuge"
 
 #: system/base/ncompress::summary
 msgid "Another uncompressor for compatibility"
-msgstr ""
+msgstr "Ein weiterer Nichtkompressor zu Kompatibilitätszwecken"
 
 #: system/base/memtest86::description
 msgid "Memory tester for x86 and x86_64 devices for x86 and 64bit x86 compatible computers. It should be started from boot menu."
@@ -1885,7 +1885,7 @@ msgstr ""
 
 #: desktop/freedesktop/inputmethods/skim:skim:summary
 msgid "Core of Skim for users."
-msgstr ""
+msgstr "Skim Kern für Benutzer"
 
 #: desktop/freedesktop/inputmethods/skim::description
 msgid "Scim is an Input Method framework including server, libraries, etc. Skim is the KDE Panel and utilities package, which includes the Language toolbar, KDE/Qt based Lookup tables, Setup UIs, etc."
@@ -1893,7 +1893,7 @@ msgstr ""
 
 #: desktop/freedesktop/inputmethods/scim:scim-core:summary
 msgid "Core of SCIM for users."
-msgstr ""
+msgstr "Skim Kern für Benutzer"
 
 #: desktop/freedesktop/inputmethods/scim:scim-lib-dev:summary
 msgid "Includes and pkgconfig for scim development"
@@ -1929,247 +1929,247 @@ msgstr ""
 
 #: desktop/freedesktop/xorg/lib/libXdmcp::summary
 msgid "X.Org Xdmcp library"
-msgstr ""
+msgstr "X.Org Xdmcp Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXinerama::summary
 msgid "X.Org Xinerama library"
-msgstr ""
+msgstr "X.Org Xinerama Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libX11::summary
 msgid "X.Org X11 library"
-msgstr ""
+msgstr "X.Org X11 Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXfontcache::summary
 msgid "X.Org Xfontcache library"
-msgstr ""
+msgstr "X.Org Xfontcache Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/xtrans::summary
 msgid "X.Org trans library"
-msgstr ""
+msgstr "X.Org trans Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libFS::summary
 msgid "X.Org FS library"
-msgstr ""
+msgstr "X.Org FS Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXxf86dga::summary
 msgid "X.Org Xxf86dga library"
-msgstr ""
+msgstr "X.Org Xxf86dga Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXvMC::summary
 msgid "X.Org XvMC library"
-msgstr ""
+msgstr "X.Org XvMC Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXTrap::summary
 msgid "X.Org Xtrap library"
-msgstr ""
+msgstr "X.Org Xtrap Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXt::summary
 msgid "X.Org Xt library"
-msgstr ""
+msgstr "X.Org Xt Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libICE::description
 msgid "X.Org ICE utility"
-msgstr ""
+msgstr "X.Org ICE Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXdamage::description
 msgid "X.Org damege library"
-msgstr ""
+msgstr "X.Org damege Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXfont::summary
 msgid "X.Org Xfont library"
-msgstr ""
+msgstr "X.Org Xfont Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libfontenc::summary
 msgid "X.Org fontenc library"
-msgstr ""
+msgstr "X.Org fontenc Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libdmx::summary
 msgid "X.Org dmx library"
-msgstr ""
+msgstr "X.Org dmx Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXxf86vm::summary
 msgid "X.Org Xxf86vm library"
-msgstr ""
+msgstr "X.Org Xxf86vm Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXtst::summary
 msgid "X.Org Xtst library"
-msgstr ""
+msgstr "X.Org Xtst Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXv::summary
 msgid "X.Org Xv library"
-msgstr ""
+msgstr "X.Org Xv Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXScrnSaver::summary
 msgid "X.Org XScrnSaver library"
-msgstr ""
+msgstr "X.Org XScrnSaver Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXft::summary
 msgid "X.Org Xft library"
-msgstr ""
+msgstr "X.Org Xft Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXres::summary
 msgid "X.Org Xres library"
-msgstr ""
+msgstr "X.Org Xres Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXfixes::summary
 msgid "X.Org Xfixes library"
-msgstr ""
+msgstr "X.Org Xfixes Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXevie::summary
 msgid "X.Org Xevie library"
-msgstr ""
+msgstr "X.Org Xevie Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libWindowsWM::summary
 msgid "X.Org WindowsWM library"
-msgstr ""
+msgstr "X.Org WindowsWM Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/liblbxutil::summary
 msgid "X.Org lbxutil library"
-msgstr ""
+msgstr "X.Org lbxutil Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXpm::summary
 msgid "X.Org Xpm library"
-msgstr ""
+msgstr "X.Org Xpm Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXi::summary
 msgid "X.Org Xi library"
-msgstr ""
+msgstr "X.Org Xi Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXxf86misc::summary
 msgid "X.Org Xxf86misc library"
-msgstr ""
+msgstr "X.Org Xxf86misc Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libxkbui::summary
 msgid "X.Org xkbui library"
-msgstr ""
+msgstr "X.Org xkbui Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXext::summary
 msgid "X.Org Xext library"
-msgstr ""
+msgstr "X.Org Xext Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXp::summary
 msgid "X.Org Xp library"
-msgstr ""
+msgstr "X.Org Xp Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libxcb::summary
 msgid "X.Org XCB library"
-msgstr ""
+msgstr "X.Org XCB Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXcomposite::summary
 msgid "X.Org composite library"
-msgstr ""
+msgstr "X.Org composite Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/liboldX::summary
 msgid "X.Org oldX library"
-msgstr ""
+msgstr "X.Org oldX Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXcursor::summary
 msgid "X.Org Xcursor library"
-msgstr ""
+msgstr "X.Org Xcursor Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXrandr::description
 msgid "X.Org Xrand library"
-msgstr ""
+msgstr "X.Org Xrand Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libxkbfile::summary
 msgid "X.Org xkbfile library"
-msgstr ""
+msgstr "X.Org xkbfile Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXprintAppUtil::summary
 msgid "X.Org XprintAppUtil library"
-msgstr ""
+msgstr "X.Org XprintAppUtil Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXprintUtil::summary
 msgid "X.Org XprintUtil library"
-msgstr ""
+msgstr "X.Org XprintUtil Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libSM::summary
 msgid "X.Org SM library"
-msgstr ""
+msgstr "X.Org SM Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libAppleWM::description
 msgid "X.org libAppleWM library."
-msgstr ""
+msgstr "X.org libAppleWM Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXau::summary
 msgid "X.Org Au library"
-msgstr ""
+msgstr "X.Org Au Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXmu::summary
 msgid "X.Org Xmu library"
-msgstr ""
+msgstr "X.Org Xmu Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXrender::summary
 msgid "X.Org Xrender library"
-msgstr ""
+msgstr "X.Org Xrender Bibliothek"
 
 #: desktop/freedesktop/xorg/lib/libXaw::summary
 msgid "X.Org Xaw library"
-msgstr ""
+msgstr "X.Org Xaw Bibliothek"
 
 #: desktop/freedesktop/xorg/xbitmaps::summary
 msgid "X.Org xbitmaps utility"
-msgstr ""
+msgstr "X.Org xbitmaps Werkzeug"
 
 #: desktop/freedesktop/xorg/xorg-proto::summary
 msgid "X.Org Protocol Headers"
-msgstr ""
+msgstr "X.Org Protokoll Header"
 
 #: desktop/freedesktop/xorg/font-util::summary
 msgid "X.Org font utilities"
-msgstr ""
+msgstr "X.Org Schrift Werkzeuge"
 
 #: desktop/freedesktop/xorg/libdrm::summary
 msgid "X.Org libdrm library"
-msgstr ""
+msgstr "X.Org libdrm Bibliothek"
 
 #: desktop/freedesktop/xorg/util-macros::summary
 msgid "X.org macros used for X.org compiliation"
-msgstr ""
+msgstr "X.org Makros zum Kompilieren von X.org"
 
 #: desktop/freedesktop/xorg/xcb-proto::summary
 msgid "X.Org XCB header files"
-msgstr ""
+msgstr "X.Org XCB header Dateien"
 
 #: desktop/freedesktop/xorg/xorg-font::summary
 msgid "Graphical screen (X.Org) font files"
-msgstr ""
+msgstr "Grafische Oberfläche (X.Org) Schrift Dateien"
 
 #: desktop/freedesktop/xorg/xorg-server::summary
 msgid "X.Org X Server"
-msgstr ""
+msgstr "X.Org X Server"
 
 #: desktop/freedesktop/xorg/xorg-video::summary
 msgid "X.Org video files"
-msgstr ""
+msgstr "X.Org Video Dateien"
 
 #: desktop/freedesktop/xorg/xorg-doc::summary
 msgid "X.Org documentations"
-msgstr ""
+msgstr "X.Org Dokumentationen"
 
 #: desktop/freedesktop/xorg/libpthread-stubs::summary
 msgid "X.Org libpthread-stubs library"
-msgstr ""
+msgstr "X.Org libpthread-stubs Bibliothek"
 
 #: desktop/freedesktop/xorg/xorg-data::summary
 msgid "X.Org data files"
-msgstr ""
+msgstr "X.Org Datendateien"
 
 #: desktop/freedesktop/xorg/xorg-util::summary
 msgid "X.Org utilities"
-msgstr ""
+msgstr "X.Org Werkzeuge"
 
 #: desktop/freedesktop/xorg/xorg-app::summary
 msgid "X.Org applications"
-msgstr ""
+msgstr "X.Org Anwendungen"
 
 #: desktop/freedesktop/xorg/xorg-input::summary
 msgid "X.Org input files"
-msgstr ""
+msgstr "X.Org Eingabedateien"
 
 #: desktop/freedesktop/notification-daemon::description
 msgid "This package includes the notification daemon of Galago project."
-msgstr ""
+msgstr "Dieses Paket beinhaltet den Benachrichtigungsdienst für das Galago Projekt"
 
 #: desktop/freedesktop/xosd::description
 msgid "XOSD displays text on your screen, sounds simple right? The difference is it is unmanaged and shaped, so it appears transparent. This gives the effect of an On Screen Display, like your TV/VCR etc."
@@ -2181,15 +2181,15 @@ msgstr ""
 
 #: programming/libs/libupnp::summary
 msgid "UPnP library"
-msgstr ""
+msgstr "UPnP Bibliothek"
 
 #: programming/libs/clanlib::description
 msgid "Multiplatform game developement library"
-msgstr ""
+msgstr "Multiplattform Spieleentwicklungsbibliothek"
 
 #: programming/libs/freealut::summary
 msgid "The OpenAL Utility Toolkit"
-msgstr ""
+msgstr "Die OpenAL Werkzeugsammlung"
 
 #: programming/libs/live555::summary
 msgid "Live555 is a set of C++ libraries for multimedia streaming, using open standard protocols (RTP/RTCP, RTSP, SIP)"
@@ -2377,7 +2377,7 @@ msgstr ""
 
 #: programming/libs/libid3tag::summary
 msgid "The MAD id3tag library"
-msgstr ""
+msgstr "Die MAD id3tag Bibliothek"
 
 #: programming/libs/libvisual::description
 msgid "Libvisual is an abstraction library that comes between applications and audio visualisation plugins."
@@ -2429,7 +2429,7 @@ msgstr ""
 
 #: programming/libs/libsdl::summary
 msgid "Simple Direct Media Layer"
-msgstr ""
+msgstr "Einfachee direkte Medien-Schicht"
 
 #: programming/libs/libpcap::description
 msgid "libpcap (Packet CAPture) provides a portable framework for low-level network monitoring. Applications include network statistics collection, security monitoring, network debugging, etc."
@@ -2469,19 +2469,19 @@ msgstr ""
 
 #: programming/libs/stlport::summary
 msgid "C++ STL Library"
-msgstr ""
+msgstr "C++ STL Bibliothek"
 
 #: programming/libs/libtheora::summary
 msgid "The Theora Video Compression Codec"
-msgstr ""
+msgstr "Der Theora Video Kompressions-Codec"
 
 #: programming/libs/libpqxx::summary
 msgid "C++ client API for PostgreSQL"
-msgstr ""
+msgstr "C++ client API für PostgreSQL"
 
 #: programming/libs/hexter::summary
 msgid "Yamaha DX7 modeller plugin"
-msgstr ""
+msgstr "Yamaha DX7 Modellierer Plugin"
 
 #: programming/libs/openobex::description
 msgid "The overall goal of this project is to make an open source implementation of the Object Exchange (OBEX) protocol. OBEX is a session protocol and can best be described as a binary HTTP protocol."
@@ -2489,7 +2489,7 @@ msgstr ""
 
 #: programming/libs/egenix-mx-base::description
 msgid "Egenix utils for Python."
-msgstr ""
+msgstr "Egenix Werkzeuge für Python."
 
 #: programming/libs/libqgs::description
 msgid "The Qt wrapper around the Ghostscript shared library (libqgs) relieves you from having to use special tricks to use Ghostscript in your Qt application. You do not have to care about starting it, parsing its output, or doing weird tricks to receive the rendered pages."
@@ -2541,7 +2541,7 @@ msgstr ""
 
 #: programming/libs/id3lib::summary
 msgid "Id3 library for C/C++"
-msgstr ""
+msgstr "Id3 Bibliothek für C/C++"
 
 #: programming/libs/aalib:aalib:summary
 msgid "A ASCII-Graphics Library"
@@ -2553,7 +2553,7 @@ msgstr ""
 
 #: programming/libs/tls::description
 msgid "TLS support for TCL."
-msgstr ""
+msgstr "TLS Unterstützung für TCL."
 
 #: programming/libs/unixodbc::description
 msgid "The unixODBC Project goals are to develop and promote unixODBC to be the definitive standard for ODBC on non MS Windows platforms. This is to include GUI support for both KDE and GNOME."

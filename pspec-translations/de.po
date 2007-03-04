@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# FIRST AUTHOR Gökhan Akca <goekhanakca_ed_web.de>, 2007.
 #
 msgid ""
 msgstr ""
@@ -68,7 +68,6 @@ msgid "which , Locates a program file in the user's path."
 msgstr "which, findet eine Anwendungsdatei im Benutzerverzeichnis"
 
 #: system/base/bzip2::description
-#, fuzzy
 msgid "bzip2 is high-quality data compressor. It typically compresses files to within 10% to 15% of the best available techniques (the PPM family of statistical compressors), whilst being around twice as fast at compression and six times faster at decompression."
 msgstr "bzip2 ist ein hochwertiger Daten-Kompressor. Es komprimiert Dateien üblicherweise auf 10% bis 15% der bestmöglichen Techniken (die PPM Familie der statistischen Kompressoren), während es ungefähr doppelt so schnell komprimiert und sechsfach schneller extrahiert"
 

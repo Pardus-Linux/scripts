@@ -1,19 +1,20 @@
-# SOME DESCRIPTIVE TITLE.
+# translation of tr_ozerkavak.po to
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: tr_ozerkavak\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2007-03-07 10:53+0200\n"
+"Last-Translator: ozer kavak\n"
+"Language-Team:  <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #: kernel-xen/dom0/kernel-dom0:kernel-dom0-source:description
 msgid "Xen enabled Pardus Linux kernel source (dom0)"
@@ -149,7 +150,7 @@ msgstr "Berkeley veritabanı 1. sürümü"
 
 #: system/base/lzma::summary
 msgid "LZMA utils for Unix."
-msgstr ""
+msgstr "Unix için , LZMA (Lempel-Ziv-Markov chain-Algorithm) sıkıştırma yöntemi araçları."
 
 #: system/base/gdbm::description
 msgid "GNU dbm is a set of database routines that use extensible hashing. It works similar to the standard UNIX dbm routines."
@@ -451,7 +452,7 @@ msgstr "Man paketi Linux ile ilgili yazılmış dökümanların büyük çoğunl
 
 #: system/base/shadow:shadow:summary
 msgid "Utilities to deal with user accounts"
-msgstr ""
+msgstr "Kullanıcı hesaplarını düzenlemek için araçlar."
 
 #: system/base/shadow::description
 msgid "The Shadow password file utilities package includes programs necessary to convert traditional V7 *NIX password files to the SVR4 shadow password format, and additional tools to maintain password and group files (that work with both shadow and non-shadow passwords)."
@@ -619,11 +620,11 @@ msgstr "YALI: Pardus kurulum yazılımı."
 
 #: kernel/kernel:kernel-source:summary
 msgid "Pardus Linux kernel source"
-msgstr ""
+msgstr "Pardus Linux için çekirdeğe ait kaynak"
 
 #: kernel/kernel:kernel-headers:summary
 msgid "Pardus Linux kernel headers"
-msgstr ""
+msgstr "Pardus Linux için çekirdek başlıkları."
 
 #: kernel/kernel::summary
 msgid "Uniprocessor Linux kernel for Pardus Linux"
@@ -631,7 +632,7 @@ msgstr "Pardus için Linux çekirdeği"
 
 #: kernel/kernel-debug:kernel-debug-source:description
 msgid "Debug enabled Pardus Linux kernel source"
-msgstr ""
+msgstr "Pardus Linux çekirdeği için, hata ayıklaması yapılabilir durumda kaynak."
 
 #: kernel/kernel-debug::summary
 msgid "Debug enabled Uniprocessor Linux kernel for Pardus Linux"
@@ -751,7 +752,7 @@ msgstr ""
 
 #: kernel/drivers/nvidia-old:nvidia-tools-old:description
 msgid "GUI tool nvidia-settings for nVIDIA cards [For TNT2 and such older cards]."
-msgstr ""
+msgstr "nVIDIA Ekran kartlarına için, GUI Araçları nVIDIA ayarları."
 
 #: kernel/drivers/nvidia-old::description
 msgid "nVIDIA kernel and glx drivers giving optimized 2d/3d performance on Linux for old nVidia cards"
@@ -763,7 +764,7 @@ msgstr "QEMU hızlandırma modülü"
 
 #: kernel/drivers/pwc::description
 msgid "Free Philips USB Webcam driver for Linux that supports VGA resolution, newer kernels and replaces the old pwcx module."
-msgstr ""
+msgstr "Linux için Ücretsiz, Philips USB kamera sürücüsü. Ekran çözünürlüğü ve yeni çekirdek sürümleri desteğini, ayrıca eski sürüm pwcx modülün dönüşümünü sağlar."
 
 #: kernel/drivers/rt2570::description
 msgid "Driver for the RaLink RT2570 wireless chipset"
@@ -779,7 +780,7 @@ msgstr "Conexant HCF entegreli modemler için Linuxant sürücüleri"
 
 #: kernel/drivers/acerhk::summary
 msgid "Hotkey driver for some Acer and Acer-like laptops"
-msgstr ""
+msgstr "Bazı Acer ve Acer benzeri dizüstü bilgisayarlar için geçiş tuşu (Hotkey) sürücüsü."
 
 #: kernel/drivers/rt61::description
 msgid "Driver for the RaLink RT2600 (RT61) wireless chipset"
@@ -819,7 +820,7 @@ msgstr "Intel PRO/Wireless 3945 miniPCI için bellenim (firmware)"
 
 #: kernel/firmware/alsa-firmware::summary
 msgid "Advanced Linux Sound Architecture firmware"
-msgstr ""
+msgstr "Linux için, gelişmiş ses mimarisi ürün bilgisi (firmware)"
 
 #: kernel/firmware/accessrunner-firmware::summary
 msgid "Accessrunner USB ADSL modem driver firmware"
@@ -971,7 +972,7 @@ msgstr "KDE sanatsal işler paketi"
 
 #: desktop/kde/base/artwork::summary
 msgid "KDE artwork"
-msgstr ""
+msgstr "KDE sanatsal işler"
 
 #: desktop/kde/base/kdesdk::summary
 msgid "KDE SDK: Cervisia, KBabel, KCachegrind, Kompare, Umbrello,..."
@@ -1395,7 +1396,7 @@ msgstr "KDE Bluetooth Altyapısı Linux'un Bluetooth protokol yığını üzerin
 
 #: desktop/kde/gwenview-i18n::summary
 msgid "Gwenview locale package."
-msgstr ""
+msgstr "Gwenview yerel çeviriler paketi."
 
 #: desktop/kde/qca::description
 msgid "QCA aims to provide a straightforward and cross-platform crypto API, using Qt datatypes and conventions. QCA separates the API from the implementation, using plugins known as Providers."
@@ -1527,7 +1528,7 @@ msgstr "MetaMonitor, syslog veya metalog günlük dosyalarını izleyen, yeni bi
 
 #: desktop/kde/aspell-nl::description
 msgid "You can do spell-checking in Dutch using Aspell program with this dictionary."
-msgstr ""
+msgstr "Bu sözlüğü, Aspell yazılımı ile kullanarak, flemenkçe yazım denetimi yapabilirsiniz."
 
 #: desktop/kde/PyQt::description
 msgid "PyQt contains the Python bindings to the Qt C++ GUI toolkit. You can easily create complex multi platform GUI programs using RAD technologies. PyQt supports Linux and various flavours of Unix, MacOS X and Windows."
@@ -1935,187 +1936,187 @@ msgstr "X yapılandırma araçları, monitör ve ekran kartı veritabanları"
 
 #: desktop/freedesktop/xorg/lib/libXdmcp::summary
 msgid "X.Org Xdmcp library"
-msgstr ""
+msgstr "X.Org Xdmcp kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libXinerama::summary
 msgid "X.Org Xinerama library"
-msgstr ""
+msgstr "X.Org Xinerama kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libX11::summary
 msgid "X.Org X11 library"
-msgstr ""
+msgstr "X.Org X11 kitaplığı"
 
 #: desktop/freedesktop/xorg/lib/libXfontcache::summary
 msgid "X.Org Xfontcache library"
-msgstr ""
+msgstr "X.Org Xfontcache kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/xtrans::summary
 msgid "X.Org trans library"
-msgstr ""
+msgstr "X.Org trans kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libFS::summary
 msgid "X.Org FS library"
-msgstr ""
+msgstr "X.Org FS kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libXxf86dga::summary
 msgid "X.Org Xxf86dga library"
-msgstr ""
+msgstr "X.Org Xxf86dga kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libXvMC::summary
 msgid "X.Org XvMC library"
-msgstr ""
+msgstr "X.Org XvMC kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libXTrap::summary
 msgid "X.Org Xtrap library"
-msgstr ""
+msgstr "X.Org Xtrap kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libXt::summary
 msgid "X.Org Xt library"
-msgstr ""
+msgstr "X.Org Xt kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libICE::description
 msgid "X.Org ICE utility"
-msgstr ""
+msgstr "X.Org ICE aracı."
 
 #: desktop/freedesktop/xorg/lib/libXdamage::description
 msgid "X.Org damege library"
-msgstr ""
+msgstr "X.Org damege kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libXfont::summary
 msgid "X.Org Xfont library"
-msgstr ""
+msgstr "X.Org Xfont kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libfontenc::summary
 msgid "X.Org fontenc library"
-msgstr ""
+msgstr "X.Org fontenc kitaplığı"
 
 #: desktop/freedesktop/xorg/lib/libdmx::summary
 msgid "X.Org dmx library"
-msgstr ""
+msgstr "X.Org dmx kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libXxf86vm::summary
 msgid "X.Org Xxf86vm library"
-msgstr ""
+msgstr "X.Org Xxf86vm kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libXtst::summary
 msgid "X.Org Xtst library"
-msgstr ""
+msgstr "X.Org Xtst kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libXv::summary
 msgid "X.Org Xv library"
-msgstr ""
+msgstr "X.Org Xv kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libXScrnSaver::summary
 msgid "X.Org XScrnSaver library"
-msgstr ""
+msgstr "X.Org XScrnSaver kitaplığı"
 
 #: desktop/freedesktop/xorg/lib/libXft::summary
 msgid "X.Org Xft library"
-msgstr ""
+msgstr "X.Org Xft kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libXres::summary
 msgid "X.Org Xres library"
-msgstr ""
+msgstr "X.Org Xres kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libXfixes::summary
 msgid "X.Org Xfixes library"
-msgstr ""
+msgstr "X.Org Xfixes kitaplığ"
 
 #: desktop/freedesktop/xorg/lib/libXevie::summary
 msgid "X.Org Xevie library"
-msgstr ""
+msgstr "X.Org Xevie kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libWindowsWM::summary
 msgid "X.Org WindowsWM library"
-msgstr ""
+msgstr "X.Org WindowsWM kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/liblbxutil::summary
 msgid "X.Org lbxutil library"
-msgstr ""
+msgstr "X.Org lbxutil kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libXpm::summary
 msgid "X.Org Xpm library"
-msgstr ""
+msgstr "X.Org Xpm kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libXi::summary
 msgid "X.Org Xi library"
-msgstr ""
+msgstr "X.Org Xi kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libXxf86misc::summary
 msgid "X.Org Xxf86misc library"
-msgstr ""
+msgstr "X.Org Xxf86misc kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libxkbui::summary
 msgid "X.Org xkbui library"
-msgstr ""
+msgstr "X.Org xkbui kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libXext::summary
 msgid "X.Org Xext library"
-msgstr ""
+msgstr "X.Org Xext kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libXp::summary
 msgid "X.Org Xp library"
-msgstr ""
+msgstr "X.Org Xp kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libxcb::summary
 msgid "X.Org XCB library"
-msgstr ""
+msgstr "X.Org XCB kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libXcomposite::summary
 msgid "X.Org composite library"
-msgstr ""
+msgstr "X.Org composite kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/liboldX::summary
 msgid "X.Org oldX library"
-msgstr ""
+msgstr "X.Org oldX kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libXcursor::summary
 msgid "X.Org Xcursor library"
-msgstr ""
+msgstr "X.Org Xcursor kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libXrandr::description
 msgid "X.Org Xrand library"
-msgstr ""
+msgstr "X.Org Xrand kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libxkbfile::summary
 msgid "X.Org xkbfile library"
-msgstr ""
+msgstr "X.Org xkbfile kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libXprintAppUtil::summary
 msgid "X.Org XprintAppUtil library"
-msgstr ""
+msgstr "X.Org XprintAppUtil kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libXprintUtil::summary
 msgid "X.Org XprintUtil library"
-msgstr ""
+msgstr "X.Org XprintUtil kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libSM::summary
 msgid "X.Org SM library"
-msgstr ""
+msgstr "X.Org SM kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libAppleWM::description
 msgid "X.org libAppleWM library."
-msgstr ""
+msgstr "X.org libAppleWM  kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libXau::summary
 msgid "X.Org Au library"
-msgstr ""
+msgstr "X.Org Au kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libXmu::summary
 msgid "X.Org Xmu library"
-msgstr ""
+msgstr "X.Org Xmu kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libXrender::summary
 msgid "X.Org Xrender library"
-msgstr ""
+msgstr "X.Org Xrender kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libXaw::summary
 msgid "X.Org Xaw library"
-msgstr ""
+msgstr "X.Org Xaw kitaplığı."
 
 #: desktop/freedesktop/xorg/xbitmaps::summary
 msgid "X.Org xbitmaps utility"
-msgstr ""
+msgstr "X.Org xbitmaps aracı."
 
 #: desktop/freedesktop/xorg/xorg-proto::summary
 msgid "X.Org Protocol Headers"
@@ -2123,11 +2124,11 @@ msgstr ""
 
 #: desktop/freedesktop/xorg/font-util::summary
 msgid "X.Org font utilities"
-msgstr ""
+msgstr "X.Org font araçları."
 
 #: desktop/freedesktop/xorg/libdrm::summary
 msgid "X.Org libdrm library"
-msgstr ""
+msgstr "X.Org libdrm kitaplığı."
 
 #: desktop/freedesktop/xorg/util-macros::summary
 msgid "X.org macros used for X.org compiliation"
@@ -2143,7 +2144,7 @@ msgstr "Grafik ekran (X.Org) yazıtipleri"
 
 #: desktop/freedesktop/xorg/xorg-server::summary
 msgid "X.Org X Server"
-msgstr ""
+msgstr "X.Org X Sunucu."
 
 #: desktop/freedesktop/xorg/xorg-video::summary
 msgid "X.Org video files"
@@ -2151,7 +2152,7 @@ msgstr "X.Org video dosyaları"
 
 #: desktop/freedesktop/xorg/xorg-doc::summary
 msgid "X.Org documentations"
-msgstr ""
+msgstr "X.Org belgeleri."
 
 #: desktop/freedesktop/xorg/libpthread-stubs::summary
 msgid "X.Org libpthread-stubs library"
@@ -2159,15 +2160,15 @@ msgstr ""
 
 #: desktop/freedesktop/xorg/xorg-data::summary
 msgid "X.Org data files"
-msgstr ""
+msgstr "X.Org veri dosyaları."
 
 #: desktop/freedesktop/xorg/xorg-util::summary
 msgid "X.Org utilities"
-msgstr ""
+msgstr "X.Org araçları."
 
 #: desktop/freedesktop/xorg/xorg-app::summary
 msgid "X.Org applications"
-msgstr ""
+msgstr "X.Org uygulamaları."
 
 #: desktop/freedesktop/xorg/xorg-input::summary
 msgid "X.Org input files"
@@ -6068,3 +6069,4 @@ msgstr "IP adresi atanmasi ve TCP/IP  bilgilerinin yapilandirilmasini DHCP Sunuc
 #: server/samba::description
 msgid "Samba is a free software implementation of Microsoft's networking protocol released under the GNU General Public License. As of version 3, Samba not only provides file and print services for various Microsoft Windows clients but can also integrate with a Windows Server domain, either as a Primary Domain Controller (PDC) or as a Domain Member. It can also be part of an Active Directory domain."
 msgstr "Samba, Linux ve Unix işletim sistemleri ile Windows NT ve Windows 9x işletim sistemleri arasındaki iletişimi sağlayan bir ağ sunucusu uygulamasıdır. Samba yalnızca Linux ve windows makinaların birbirlerini görmelerini sağlamaz aynı zamanda Linux çalıştıran bilgisayarların windows ağında yazıcı sunucusu gibi işlevleri edinmesi içinde kullanılır. Ayrıca Active Directory ile de uyumludur."
+

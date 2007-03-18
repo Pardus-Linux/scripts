@@ -1,139 +1,140 @@
-# SOME DESCRIPTIVE TITLE.
+# translation of fr.po to french
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Amine Chadly <amine.chadly@gmail.com>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2007-03-18 15:58+0200\n"
+"Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
+"Language-Team: french <pardus-translators@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #: kernel-xen/dom0/kernel-dom0:kernel-dom0-source:description
 msgid "Xen enabled Pardus Linux kernel source (dom0)"
-msgstr ""
+msgstr "Source du noyau Linux Pardus avec Xen activé (dom0)"
 
 #: kernel-xen/dom0/kernel-dom0::description
 msgid "Dom0 Xen-enabled kernel allows Pardus to work as a privileged virtual machine on Xen. The dom0 kernel boots as the first virtual machine and has direct access to hardware. Others operating system that will run on Xen will be started from dom0"
-msgstr ""
+msgstr "Le noyau Dom0 Xen permet à Pardus de tourner en tant que machine virtuelle privilégiée sur Xen. Le noyau dom0 démarre comme la première machine virtuelle et a un accès direct aux périphériques. Les autres systèmes d'exploitation lancés ensuite sur Xen seront démarrés depuis dom0"
 
 #: kernel-xen/dom0/drivers/alsa-driver-dom0::description
 msgid "ALSA (Advanced Linux Sound Architecture) drivers for the dom0 Xen-enabled kernel allows Pardus running on Xen to have direct access to the sound system."
-msgstr ""
+msgstr "pilotes ALSA (Architecture Avancées de Son sous Linux) pour les noyaux avec dom0 Xen activé permettent au Pardus tournant sur Xen d'avoir un accès direct au système de son du système."
 
 #: kernel-xen/dom0/firmware/ipw2200-firmware-dom0::summary
 msgid "Xen enabled firmware for the Intel PRO/Wireless 2200BG/2915ABG miniPCI and 2225BG PCI adapters (domO)"
-msgstr ""
+msgstr "Firmware avec Xen activé pour les miniPCI 2200BG/291ABG Intel PRO/Wireless et les adaptateurs 2225BG PCI (dom0)"
 
 #: kernel-xen/domU/kernel-domU:kernel-domU-source:description
 msgid "Xen enabled Pardus Linux kernel source (domU)"
-msgstr ""
+msgstr "Source du noyau Linux Pardus avec Xen activé (domU)"
 
 #: kernel-xen/domU/kernel-domU::description
 msgid "User domain Xen-enabled kernel allows Pardus to run on the Xen virtual machine's user domain. This kernel cannot be booted as the first operating system on Xen, it must be booted from domain 0 and does not have direct access to hardware, but it's smaller than the domain 0 kernel."
-msgstr ""
+msgstr "noyau avec Xen activé pour le domaine utilisateur permet à Pardus de pouvoir tourner dans le domaine utilisateur de la machine virtuelle Xen. Ce noyau ne peut pas être lancé comme le premier système d'exploitation sur Xen, il doit être démarré depuis le domaine 0 et n'a pas un accès direct aux périphériques, mais il est plus petit que le noyau du domaine 0."
 
 #: system/base/debianutils::summary
 msgid "A selection of tools from Debian"
-msgstr ""
+msgstr "Une sélection d'outils en provenance de Debian"
 
 #: system/base/psmisc::description
 msgid "PSmisc is a collection of small utilities using /proc file system, and providing the system administrator with some help in common tasks."
-msgstr ""
+msgstr "PSmisc est une collection de petits utilitaires utilisant le système de fichier /proc, et assiste l'administrateur système dans ses tâches habituelles."
 
 #: system/base/less::summary
 msgid "Excellent text file viewer"
-msgstr ""
+msgstr "Excellent lecteur de fichier texte"
 
 #: system/base/openssl::description
 msgid "OpenSSL is a cryptography toolkit implementing the Secure Sockets Layer (SSL v2/v3) and Transport Layer Security (TLS v1) network protocols and related cryptography standards required by them."
-msgstr ""
+msgstr "OpenSSL est un outil cryptographique implémentant une couche de communication sécurisée (SSL v2/v3) et une couche de transport sécurisée (TLS v1) "
 
 #: system/base/db4::summary
 msgid "Fourth version of Berkeley DB"
-msgstr ""
+msgstr "Quatrième version de Berkeley DB"
 
 #: system/base/sed::description
 msgid "Sed is a stream editor. A stream editor is used to perform basic text transformations on an input stream (a file or input from a pipeline)."
-msgstr ""
+msgstr "Sed est un éditeur de flux. Un éditeur de flux est utilisé pour réaliser des opérations basiques de modification de texte sur un flux d'entrée (un fichier ou un tuyau unix)."
 
 #: system/base/which::description
 msgid "which , Locates a program file in the user's path."
-msgstr ""
+msgstr "which, localise un programme dans le chemin de l'utilisateur."
 
 #: system/base/bzip2::description
 msgid "bzip2 is high-quality data compressor. It typically compresses files to within 10% to 15% of the best available techniques (the PPM family of statistical compressors), whilst being around twice as fast at compression and six times faster at decompression."
-msgstr ""
+msgstr "bzip2 est un compresseur de données de très grand qualité. Il compresse typiquement les fichiers à un ratio entre 10 et 15% des meilleurs techniques disponibles (la famille des compresseurs statistiques de famille PPM) tout en étant environ deux fois plus rapide à la compression et six fois plus rapide à la décompression."
 
 #: system/base/db3::summary
 msgid "Third version of Berkeley DB"
-msgstr ""
+msgstr "Troisième version de Berkeley DB."
 
 #: system/base/udev::description
 msgid "udev allows Linux users to have a dynamic /dev directory and it provides the ability to have persistent device names."
-msgstr ""
+msgstr "udev permet aux utilisateurs Linux d'avoir un répertoire /dev dynamique et donne la possibilité d'avoir des noms de périphériques persistants."
 
 #: system/base/dmidecode::description
 msgid "Dmidecode reports information about your system's hardware as described in your system BIOS. This information typically includes system manufacturer, model name, serial number, BIOS version, asset tag as well as a lot of other details of varying level of interest and reliability depending on the manufacturer."
-msgstr ""
+msgstr "Dmidecode rapporte des informations à propos du matériel composant votre système tel qu'il est décrit dans votre BIOS. Cette information comprends typiquement le fabricant du système, le nom du modèle, le numéro de série, la version du BIOS, balises de traçabilité ainsi que beaucoup d'autres détails plus ou moins intéressants et fiables en fonction du fabricant."
 
 #: system/base/coolplug::description
 msgid "A small utility that inserts necessary kernel modules and creates device nodes"
-msgstr ""
+msgstr "Un petit utilitaire se chargeant d'insérer les modules du noyau nécessaires et créer les noeuds de périphériques"
 
 #: system/base/python-bsddb3::description
 msgid "The new version of the python adaptor library for berkeley db"
-msgstr ""
+msgstr "La nouvelle version de l'adaptateur python pour berkeley db"
 
 #: system/base/terminus-font::description
 msgid "Terminus font is designed for long (8 and more per day) work with computers."
-msgstr ""
+msgstr "La fonte Terminus est conçue pour travailler longtemps (8 heures ou plus par jour) devant l'ordinateur."
 
 #: system/base/libpng::description
 msgid "The Portable Network Graphics (PNG) format was designed to replace the older and simpler GIF format and, to some extent, the much more complex TIFF format. Project's main aim is to concentrate on two major uses: the World Wide Web (WWW) and image-editing."
-msgstr ""
+msgstr "Le format de Graphique Réseau Portable (Portable Network Graphics - PNG) a été conçu pour remplacer le format GIF plus simple et vieillissant ainsi que, d'une certaine manière, le format TIFF beaucoup plus complexe. L'objectif principal du projet est de se concentrer sur deux aspects majeurs : La toile mondiale (World Wide Web - WWW) et l'édition d'image."
 
 #: system/base/pwdb::description
 msgid "The pwdb package contains libpwdb, the password database library. Libpwdb is a library which implements a generic user information database. Libpwdb was specifically designed to work with Linux s PAM (Pluggable Authentication Modules). Libpwdb allows configurable access to and management of security tools like /etc/passwd, /etc/shadow and network authentication systems including NIS and Radius."
-msgstr ""
+msgstr "Le paquet pwdb contient libpwdb, la librairie de base de données de mots de passe. Libpwdb est une librairie qui implémente une base de données générique d'information utilisateur. Libpwdb est spécifiquement conçue pour fonctionner avec le PAM (Module d'Authentification Modulable) Linux. Libpwdb permet de configurer les accès et la gestion d'outils de sécurité tels que /etc/password et /etc/shadow ainsi que des système d'authentification réseau tels que NIS et Raduis."
 
 #: system/base/curl::summary
 msgid "A Client that groks URLs"
-msgstr ""
+msgstr "Un client qui maîtrise tout ce qui concerne les URLs"
 
 #: system/base/groff::summary
 msgid "Text formatter used for man pages"
-msgstr ""
+msgstr "S'occupe de la mise en forme de texte utilisé pour les pages de manuel"
 
 #: system/base/jpeg::description
 msgid "jpeg is the library to load, handle and manipulate images in the JPEG format. It is used by many programs that operates on JPEG files."
-msgstr ""
+msgstr "jpeg est une librairie permettant de charger, gérer et manipuler les images au format JPEG. Il est utilisé par de nombreux programmes qui utilisent les fichiers JPEG."
 
 #: system/base/comar::description
 msgid "Pardus programs are packaged with small scripts which configures them to entegrate with system and each other. Çomar is the tool which manages and executes these scripts."
-msgstr ""
+msgstr "Les programmes Pardus sont mis sous forme de paquets à l'aide de petits scripts. Ces derniers les configure afin qu'ils s'intègrent entre eux et avec le système. Çomar est l'outil qui gère et exécute ces scripts."
 
 #: system/base/tar::description
 msgid "The Tar program provides the ability to create tar archives, as well as various other kinds of manipulation. For example, you can use Tar on previously created archives to extract files, to store additional files, or to update or list files which were already stored."
-msgstr ""
+msgstr "Le programme Tar  fourni la possibilité de manipuler des archives de type tar. Vous pouvez l'utiliser pour créer ou extraires des archives. Ajouter des fichiers à des archives existantes, les mettre à jour ou tout simplement lister leur contenu."
 
 #: system/base/wireless-tools::description
 msgid "The Wireless Tools (WT) is a set of tools allowing to manipulate the Wireless Extensions, a generic application programming interface allowing a driver to expose to the user space configuration and statistics specific to common Wireless LANs. They use a textual interface and are rather crude, but aim to support the full Wireless Extension."
-msgstr ""
+msgstr "Les outils sans fil (Wireless Tools ou WT) est un ensemble d'outils permettant de manipuler les extensions sans fil, c'est une interface de programmation d'application (API) générique permettant à un pilote d'exposer à l'espace utilisateur la configuration ainsi que des statistiques spécifiques aux LANs sans fil communs. Ils utilisent une interface textuelle assez rugueuse, mais ont pour objectif de couvrir la totalité de l'extension sans fil."
 
 #: system/base/e2fsprogs::description
 msgid "E2fsprogs provides the filesystem utilities for use with the ext2 filesystem. It also supports the ext3 filesystem with journaling support."
-msgstr ""
+msgstr "E2frprogs fournit les outils de système de fichier à utiliser avec les systèmes de fichier de type ext2. Il prend également en charge les système de fichier de type ext3 avec support de la journalisation."
 
 #: system/base/gawk::description
 msgid "The awk utility interprets a special-purpose programming language that makes it possible to handle simple data-reformatting jobs with just a few lines of code. It helps you to make changes in various text files wherever certain patterns appear, or extract data from parts of certain lines while discarding the rest. Gawk is the GNU implementation of awk."
-msgstr ""
+msgstr "L'outil awk interprète un langage de programmation spécifique permettant d'effectuer les tâches de modifications simples de données en quelques lignes de code. Il vous permet de faire des changements dans différents fichiers texte lorsqu'un certain patron apparaît ou d'extraire des données de fragments de lignes tout en laissant de côté le reste. Gawk est l'implémentation GNU d'awk."
 
 #: system/base/bc::description
 msgid "bc is an arbitrary precision numeric processing language and can be used as a calculator. Syntax is similar to C, but differs in many substantial areas. For example, it supports interactive execution of statements."
@@ -6061,3 +6062,4 @@ msgstr ""
 #: server/samba::description
 msgid "Samba is a free software implementation of Microsoft's networking protocol released under the GNU General Public License. As of version 3, Samba not only provides file and print services for various Microsoft Windows clients but can also integrate with a Windows Server domain, either as a Primary Domain Controller (PDC) or as a Domain Member. It can also be part of an Active Directory domain."
 msgstr ""
+

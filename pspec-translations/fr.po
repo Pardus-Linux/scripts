@@ -1,4 +1,4 @@
-# translation of fr.po to french
+# translation of fr.po to French
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2007-03-18 15:58+0200\n"
+"PO-Revision-Date: 2007-03-18 23:55+0200\n"
 "Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
-"Language-Team: french <pardus-translators@pardus.org.tr>\n"
+"Language-Team: French <pardus-translators@liste.pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -138,47 +138,47 @@ msgstr "L'outil awk interprète un langage de programmation spécifique permetta
 
 #: system/base/bc::description
 msgid "bc is an arbitrary precision numeric processing language and can be used as a calculator. Syntax is similar to C, but differs in many substantial areas. For example, it supports interactive execution of statements."
-msgstr ""
+msgstr "bc est un langage de calcul numérique à précision arbitraire qui peut être utilisé comme calculatrice. La syntaxe est similaire au C, avec quelques différences notables. Il supporte par exemple l'exécution interactive de commandes."
 
 #: system/base/acl::summary
 msgid "Access control list utilities, libraries and headers"
-msgstr ""
+msgstr "Utilitaires, librairies et fichiers d'entête de liste de contrôle d'accès."
 
 #: system/base/db1::summary
 msgid "Berkeley database version 1"
-msgstr ""
+msgstr "Première version de Berkeley db"
 
 #: system/base/lzma::summary
 msgid "LZMA utils for Unix."
-msgstr ""
+msgstr "utilitaires LZMA pour Unix."
 
 #: system/base/gdbm::description
 msgid "GNU dbm is a set of database routines that use extensible hashing. It works similar to the standard UNIX dbm routines."
-msgstr ""
+msgstr "GNU dbm est un ensemble de routines de base de données utilisant extensivement les dictionnaires (hashing). Il fonctionne de manière similaire aux routines dbm UNIX standards."
 
 #: system/base/kbd::description
 msgid "The kbd package contains keytable files and keyboard utilities compatible with kernel version 1.1.54 and later."
-msgstr ""
+msgstr "Le paquet kbd contient les fichiers de configuration de touches ainsi que divers utilitaires pour claviers compatible avec le noyau 1.1.54 et suivants."
 
 #: system/base/comar-api::description
 msgid "Generic utility library for common Comar script operations."
-msgstr ""
+msgstr "Librairie utilitaire générique pour les opérations communes de scripts Comar."
 
 #: system/base/python-fchksum::description
 msgid "fchksum is a Python module to find the checksum of files. Currently it supports md5, crc32, cksum, bsd-style sum, and sysv-style sum."
-msgstr ""
+msgstr "fchksum est un module Python de calcul de sommes de contrôle de fichier. Actuellement il supporte les sommes md5, crc32, cksum, de type bsd et de type sysv."
 
 #: system/base/pam::summary
 msgid "Pluggable Authentication Modules"
-msgstr ""
+msgstr "Modules d'Authentification en Greffon (Pluggable Authentication Modules)"
 
 #: system/base/klibc::description
 msgid "klibc, or \"early userspace\", is library part of an effort which tries to move as much initialization code in Linux as possible out of the kernel."
-msgstr ""
+msgstr "klibc ou \"espace utilisateur tôt\", est une librairie résultante de l'effort pour transférer autant de code d'initialisation de Linux que possible hors du noyau."
 
 #: system/base/python::description
 msgid "Python is a dynamic object-oriented programming language that can be used for many kinds of software development. It offers strong support for integration with other languages and tools, comes with extensive standard libraries, and can be learned in a few days."
-msgstr ""
+msgstr "Python est un langage de programmation dynamique orienté objet pouvant être utilisé pour différents types de développements logiciels. Il offre une intégration renforcée aussi bien avec les autres langages qu'avec des outils. Il est livré avec des librairies standards couvrant un large périmètre et peut être appris en quelques jours."
 
 #: system/base/popt::description
 msgid "The popt library exists essentially for parsing command line options with advantages such as there are no global variables, ability to parse an arbitrary array of argv-style elements, to exec external option filters, and automatic generation of help and usage messages, a standard method of option aliasing."

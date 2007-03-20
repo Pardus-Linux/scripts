@@ -1,4 +1,4 @@
-# translation of fr.po to French
+# translation of fr.po to french
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2007-03-18 23:55+0200\n"
+"PO-Revision-Date: 2007-03-20 23:54+0200\n"
 "Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
-"Language-Team: French <pardus-translators@liste.pardus.org.tr>\n"
+"Language-Team: french <pardus-translators@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -182,131 +182,131 @@ msgstr "Python est un langage de programmation dynamique orienté objet pouvant 
 
 #: system/base/popt::description
 msgid "The popt library exists essentially for parsing command line options with advantages such as there are no global variables, ability to parse an arbitrary array of argv-style elements, to exec external option filters, and automatic generation of help and usage messages, a standard method of option aliasing."
-msgstr ""
+msgstr "La librairie popt existe essentiellement pour analyser des options de ligne de commande. Elle procure de nombreux avantages tels que l'absence de variables globales, la possibilité d'analyser un tableau arbitraire d'éléments de type argv, d'exécuter des filtres d'options extérieurs, la génération automaituqe des messages d'aide et d'utilisation ainsi qu'un méthode standard pour synonymes d'options."
 
 #: system/base/expat::summary
 msgid "XML parsing libraries"
-msgstr ""
+msgstr "librairies d'analyse XML"
 
 #: system/base/gettext::description
 msgid "gettext is GNU internationalization library."
-msgstr ""
+msgstr "gettext est une librairie d'internationalisation GNU."
 
 #: system/base/libusb::description
 msgid "Project's main aim is to create a library for use by user level applications to access USB devices regardless of OS."
-msgstr ""
+msgstr "Ce projet a pour objectif de créer une librairie d'accès aux périphérique USB indépendamment du SE (Système d'exploiation - OS) pour les applications utilisateurs."
 
 #: system/base/pyparted::description
 msgid "pyparted is the python module which enables to use GNU Parted package from python. Using python with this module, programmers can create, destroy, resize, check and copy partitions, and the file systems on them."
-msgstr ""
+msgstr "pyparted est un module python permettant d'utiliser le paquet GNU Parted depuis python. À l'aide de ce module, les programmeurs peuvent depuis python détruire, re-dimensionner, vérifier et copier des partitions et les systèmes de fichier présents dessus."
 
 #: system/base/lib-compat::summary
 msgid "Compatibility C++ and libc5 and libc6 libraries for programs new and old"
-msgstr ""
+msgstr "Compatibilité C++ avec les librairies libc5 et libc6 en prime pour les programmes neufs et anciens"
 
 #: system/base/freetype::description
 msgid "FreeType 2 is a software font engine that is designed to be small, efficient, highly customizable, and portable while capable of producing high-quality output. It can be used in graphics libraries, display servers, font conversion tools, text image generation tools, and many other products as well."
-msgstr ""
+msgstr "FreeType2 est un moteur logiciel de fontes conçu pour être petit, efficace, très flexible et portable tout en étant capable de produire une sortie de très haute qualité. Il peut être utilisé dans les librairies graphiques, les serveurs d'affichage, les outils de conversion, les outils de génération d'images textuelles, ainsi que beaucoup d'autres produits."
 
 #: system/base/usbutils::description
 msgid "Usbutils provides some usb enumeration utilities."
-msgstr ""
+msgstr "Usbutils fournit des utilitaires d'énumération usb."
 
 #: system/base/net-tools::description
 msgid "net-tools is a collection of programs that form the base set of the networking tools for the Linux operating system. It includes arp, hostname, ifconfig, ipmaddr, iptunnel, mii-tool, nameif, netstat, plipconfig, rarp, route and slattach."
-msgstr ""
+msgstr "net-tools est une collection de programmes représentant les outils réseau de base du système d'exploitation Linux. S'y trouvent arp, hostname, ifconfig, ipmaddr, iptunnel, mii-tool, nameif, netstat, plipconfig, rarp, route et slattach."
 
 #: system/base/mingetty::description
 msgid "mingetty, is a lightweight, minimalist getty for use on virtual consoles only."
-msgstr ""
+msgstr "mingetty, est getty poids plume minimaliste à utiliser exclusivement sur les consoles virtuelles."
 
 #: system/base/cpio::description
 msgid "GNU cpio copies files into or out of a cpio or tar archive. The archive can be another file on the disk, a magnetic tape, or a pipe. GNU cpio supports the following archive formats: binary, old ASCII, new ASCII, crc, HPUX binary, HPUX old ASCII, old tar, and POSIX.1 tar."
-msgstr ""
+msgstr "GNU cpio permet de copier des fichiers du système dans une archive cpio ou tar et vice-versa. L'archive peut être un simple fichier sur le disque, une cassette magnétique, ou un tuyau unix (pipe). GNU cpio gère les formats d'archive suivant : binaire, ASCII ancien, ASCII nouveau, crc, binaire HPUX, ASCII ancien HPUX, tar ancien et tar POSIX.1."
 
 #: system/base/nss-mdns::description
 msgid "Name Service Switch module for Multicast DNS."
-msgstr ""
+msgstr "Module d'échange de service de nom pour le DNS Multicast."
 
 #: system/base/grub::description
 msgid "GNU GRUB is a Multiboot boot loader. It was derived from GRUB, GRand Unified Bootloader, which was originally designed and implemented by Erich Stefan Boleyn. Briefly, boot loader is the first software program that runs when a computer starts. It is responsible for loading and transferring control to the operating system kernel software (such as the Hurd,Windows or the Linux). The kernel, in turn, initializes the rest of the operating system."
-msgstr ""
+msgstr "GNU GRUB est un chargeur de démarrages multiples. Il s'agit d'un dérivé de GRUB,GRand Unified Bootloader, conçu et implémenté par Eich Stefan Boleyn à l'origine. Brièvement, le chargeur de démarrage est le premier logiciel exécuté lors du démarrage d'un ordinateur. Il est responsable du chargement et du transfert de contôle au noyau du système d'exploitation (comme Hurd, Windows ou Linux). Le noyau, ensuite, initialise le reste du système d'exploitation."
 
 #: system/base/glib2::summary
 msgid "The GLib2 library of C routines"
-msgstr ""
+msgstr "La librairie GLib2 de routines C."
 
 #: system/base/coreutils::description
 msgid "Standard GNU file utilities (chmod, cp, dd, dir, ls...), text utilities (sort, tr, head, wc..), and shell utilities (whoami, who,...)"
-msgstr ""
+msgstr "Utilitaires standards GNU pour fichiers (chmod, cp, dd, dir, ls...), utilitaires texte (sort, tr, head, wc...) et utilitaires d'interpréteur de commande (shell) (whoami, who...)"
 
 #: system/base/findutils::description
 msgid "The GNU Find Utilities are the basic directory searching utilities of the GNU operating system. These programs are typically used in conjunction with other programs to provide modular and powerful directory search and file locating capabilities to other commands."
-msgstr ""
+msgstr "Les utilitaires de recherche GNU sont les utilitaire de recherche de répertoire basique du système d'exploitation GNU. Ces programmes sont typiquement associés à d'autres programmes pour leur fournir une capacité de recherche de fichier et de répertoire puissante et modulaire à d'autres commandes."
 
 #: system/base/vixie-cron::description
 msgid "Vixie cron (Cron is a daemon that runs scheduled tasks.) is a full featured cron implementation based on SysV cron. Each user has his own crontab ( Crontab (CRON TABle) is a file which contains the schedule of cron) and is allowed to specify environment variables within that crontab."
-msgstr ""
+msgstr "Vixie cron (Cron est un daemon qui lance des tâches planifiées) est une implémentation riche basée sur le cron SysV. Chaque utilisateur possède sa propre table de planification (ou crontab - la CRON TABle de Crontab) est un fichier qui contient le planning de cron) et a la possibilité de spécifier des variables d'environnement au sein de la table."
 
 #: system/base/slang::description
 msgid "S-Lang is a multi-platform programmer's library designed to allow a developer to create robust multi-platform software. It provides facilities required by interactive applications such as display/screen management, keyboard input, keymaps, and so on. The most exciting feature of the library is the slang interpreter that may be easily embedded into a program to make it extensible."
-msgstr ""
+msgstr "S-Lang est une librarie de programmation multi-plateforme conçue pour permettre aux développeur de développer des logiciels robustes et portables. Elle fournit les mécanismes requis pour développer une application interactive telle que la gestion d'affichages/écrans, entrées clavier, disposition de touches et ainsi de suite. La fonctionnalité la plus attractive de cette librairie reste l'interpréteur slang qui peut être embarqué au sein même d'un programme pour le rendre extensible."
 
 #: system/base/gzip::description
 msgid "gzip (GNU zip) is a popular data compression program written for the GNU project."
-msgstr ""
+msgstr "gzip (GNU zip) est un programme populaire de compression de donnée écrit pour le projet GNU."
 
 #: system/base/file::description
 msgid "Program to identify a file's format by scanning binary data for patterns."
-msgstr ""
+msgstr "Programme servant à identifiant le format d'un fichier en analysant les données binaires en cherchant des patrons connus."
 
 #: system/base/piksemel::description
 msgid "A simple, fast, small and robust XML parser for Python, based on iksemel."
-msgstr ""
+msgstr "Un analyseur XML simple, rapide, petit et robuste pour Python basé sur iksemel."
 
 #: system/base/sysfsutils::description
 msgid "These are a set of utilites built upon sysfs, a new virtual filesystem in Linux kernel versions 2.5+ that exposes a system's device tree."
-msgstr ""
+msgstr "Ceci est un ensemble d'utilitaires se basant sur sysfsm un nouveau système de fichier virtuel des noyaux Linux 2.5 et + exposant l'arbre des périphériques du système."
 
 #: system/base/iputils::description
 msgid "Iputils contains network monitoring tools including ping and ping6."
-msgstr ""
+msgstr "Iputils contient les outils de surveillance réseau incluant ping et ping6."
 
 #: system/base/miscfiles::summary
 msgid "Miscellaneous files"
-msgstr ""
+msgstr "Fichiers divers."
 
 #: system/base/splash-theme::description
 msgid "You see this theme everytime Pardus starts, if your do not change it of course."
-msgstr ""
+msgstr "Vous verez ce thème à chaque démarrage de Pardus sauf dans le cas où vous le changez bien sûr."
 
 #: system/base/nano::description
 msgid "Nano is a small, free and friendly editor which aims to replace Pico, the default editor included in the non-free Pine package. Rather than just copying Pico's look and feel, nano also implements some missing (or disabled by default) features in Pico, such as \"search and replace\" and \"go to line number\"."
-msgstr ""
+msgstr "Nano est un petit éditeur libre et convivial qui a pour but de remplacer Pico, l'éditeur par défaut inclus dans le paquet non-libre Pine. Plutôt que juste copier l'apparence et le ressenti de Pico, nan implémente également certaines fonctionnalité manquantes (ou désactivées par défaut), tel que \"rechercher et remplacer\" ou \"allez à la ligne numéro\"."
 
 #: system/base/dhcpcd::description
 msgid "An RFC2131 and RFC1541 compliant DHCP client daemon. dhcpcd gets an IP address and other information from a corresponding DHCP server, configures the network interface automatically, and tries to renew the lease time according to RFC2131 or RFC1541 depending on the command line option."
-msgstr ""
+msgstr "Un client daemon DHCP conforme aux RFC2131 et RFC1541. dhcpcd obtient une adresse IP ainsi que d'autres informations depuis le serveur DHCP correspondant, configure l'interface réseau automatiquement et essaie de renouveler le bail selont les RFC2131 et EFC1541 en fonction des options de la ligne de commande."
 
 #: system/base/sysklogd::summary
 msgid "Standard log daemons"
-msgstr ""
+msgstr "Daemons standard d'archivage (log)."
 
 #: system/base/parted::summary
 msgid "Create, destroy, resize, check, copy partitions and file systems"
-msgstr ""
+msgstr "Crée, supprime, modifie les dimensions, vérifie et copie partitions et systèmes de fichiers."
 
 #: system/base/glibc::description
 msgid "The GNU C library is used as the C library in the GNU system and most systems with the Linux kernel. It defines the system calls and other basic C programming language facilities."
-msgstr ""
+msgstr "La librairie GNU X est utilisée comme la librairie C dans le système GNU et la plupart des système utilisant le noyau Linux. Elle définit les appels système et autres fonctionnalités du langage de programmation C."
 
 #: system/base/splashutils::summary
 msgid "Framebuffer splash utilities."
-msgstr ""
+msgstr "Utilitaires d'écran de démarrage du Framebuffer."
 
 #: system/base/perl::description
 msgid "Perl is a stable, cross platform programming language."
-msgstr ""
+msgstr "Perl est un langage de programmation multi-plateforme stable."
 
 #: system/base/pisi::description
 msgid ""
@@ -318,66 +318,73 @@ msgid ""
 "  - Integrates low-level and high-level package management features\n"
 "        \n"
 msgstr ""
+"PISI est gestionnaire de paquets moderne implémenté en Python.\n"
+"Ces principales fonctionnalités sont les suivantes :\n"
+"  - Les paquets sources sont écrits en XML et en python\n"
+"  - Utilse Berkeley DB pour conserver les informations de paquets.\n"
+"  - Implemente tout les fonctions à travers une API simple d'utilisation\n"
+"  - Intègre aussi bien les fonctionnalités de bas niveaux que de haut niveau de gestion de paquets.\n"
+"        \n"
 
 #: system/base/mudur::description
 msgid "Handles mounting of the filesystems, loading of the device drivers, starting of the system services, and other jobs during the Pardus boot and shutdown sequences."
-msgstr ""
+msgstr "Gère le montage de systèmes de fichier, le chargement de pilotes de périphérique, le démarrage des services système et d'autres tâches pendant les séquences de démarrage et d'arrêt de Pardus."
 
 #: system/base/ncurses::description
 msgid "The NCurses is a library of functions that manage an application's display on character-cell terminals. The NCurses library defines many functions such as moving mouse and cursor, keyboard mapping and dispaying in color."
-msgstr ""
+msgstr "NCurses est une librairie de fonction gérant l'affichage des applications pour terminaux en mode caractères. La libraries NCurses défini de nombreuses fonctionalités telles le mouvement de la souris et du curseur, la disposition du clavier et l'affichage en couleur."
 
 #: system/base/libidn::description
 msgid "GNU Libidn is an implementation of the Stringprep, Punycode and IDNA specifications defined by the IETF Internationalized Domain Names (IDN) working group, used for internationalized domain names. The C library is available under the GNU Lesser General Public License."
-msgstr ""
+msgstr "GNU Libidn est une implémentation de Stringprep, Punycode et des spécifications IDNA définies par le groupe de travail Internationalized Domain Names (IDN) de l'IETF servant pour les noms de domaines internationalisés. La librairie C est disponible sous la Licence Publique Générale Lesser."
 
 #: system/base/hdparm::description
 msgid "hdparm packet has some useful utilities that allows you to get/set hard disk parameters for Linux IDE drives in runtime."
-msgstr ""
+msgstr "le paquet hdparm dispose d'outils utiles permettant d'obtenir/établir les paramètres de disques durs IDE sous Linux en cours d'éxécution."
 
 #: system/base/cracklib::summary
 msgid "Password Checking Library"
-msgstr ""
+msgstr "Librairie de vérification de mot de passe."
 
 #: system/base/fbgrab::description
 msgid "FBGrab is a framebuffer screenshot program, capturing the linux frambuffer and converting it to a png-picture."
-msgstr ""
+msgstr "FNGrab est un programme de capture d'écran framebuffer. Il permet de capturer le framebuffer linux et de le convertir en image png."
 
 #: system/base/groff-utf8::summary
 msgid "UTF-8 support for groff"
-msgstr ""
+msgstr "support de l'UTF-8 pour groff."
 
 #: system/base/pcmciautils::summary
 msgid "Various utilities dealing with the PCMCIA bus"
-msgstr ""
+msgstr "Utilitaires divers concernant le bus PCMCIA."
 
 #: system/base/splashutils-misc::summary
 msgid "Extra Framebuffer splash utilities."
-msgstr ""
+msgstr "Utilitaires supplémentaire de page d'accueil Framebuffer."
 
 #: system/base/bash::description
 msgid "Bash is the GNU Project's Bourne Again SHell, a complete implementation of the IEEE POSIX and Open Group shell specification with interactive command line editing, csh-like features such as history substitution."
-msgstr ""
+msgstr "Bash est le Bourne Again SHell du projet GNU, une implémentation complête du POSIX IEEE et des spécifications d'interprétation de commande (shell) de l'Open Group, avec édition interactive de ligne de commande et des fonctionnalités à la csh tels que la substitution dans l'historique de commande."
 
 #: system/base/tcp-wrappers::description
 msgid "With this package you can monitor and filter incoming requests for the SYSTAT, FINGER, FTP, TELNET, RLOGIN, RSH, EXEC, TFTP, TALK, and other network services. It supports both 4.3BSD-style sockets and System V.4-style TLI."
-msgstr ""
+msgstr "Avec ce paquet, vous pouvez surveiller et filtrer les requêtes entrante pour les services réseaux SYSTAT, FINGER, FTP, TELNET, RLOGIN, RSH, EXEC, TFTP, TALK et autres. Il supporte à la fois les canaux de communication (sockets) de type 4.3BSD et TLI de type System V.4."
 
 #: system/base/diffutils::description
 msgid "You can use the diff command to show differences between two files, or each corresponding file in two directories. diff outputs differences between files line by line in any of several formats, selectable by command line options."
-msgstr ""
+msgstr "Vous pouvez utiliser la commande diff pour voir les différences entre deux fichiers en particulier, ou les différences entre deux répertoires fichiers par fichier. Diff peut afficher les différences entre fichiers ligne par ligne dans différents formats pouvant être choisis avec les options de la ligne de commande."
 
 #: system/base/sysvinit::summary
 msgid "/sbin/init - parent of all processes"
-msgstr ""
+msgstr "/sbin/init - parent de tous les process."
 
 #: system/base/texinfo::summary
 msgid "The GNU info program and utilities"
-msgstr ""
+msgstr "programme et utilitaires GNU info."
 
 #: system/base/ncompress::summary
 msgid "Another uncompressor for compatibility"
-msgstr ""
+msgstr "Un autre dé-compresseur pour compatibilité"
 
 #: system/base/memtest86::description
 msgid "Memory tester for x86 and x86_64 devices for x86 and 64bit x86 compatible computers. It should be started from boot menu."

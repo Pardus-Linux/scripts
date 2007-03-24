@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2007-03-24 01:52+0200\n"
+"PO-Revision-Date: 2007-03-24 23:01+0200\n"
 "Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
 "Language-Team: french <pardus-translators@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -652,359 +652,359 @@ msgstr "Pilote pour le chipset sans-fil RaLink RT2700 (RT73)."
 
 #: kernel/drivers/acx100::summary
 msgid "Driver for Texas Instruments ACX100/ACX111 wireless network chips"
-msgstr ""
+msgstr "Pilote pour les puces réseau sans fil  Texas Instruments ACX100/ACX111."
 
 #: kernel/drivers/ov51x-jpeg::description
 msgid "Driver for omnivision based webcams, forked, rewritten and using jpeg support."
-msgstr ""
+msgstr "Pilote pour les webcam basées sur omnivision, réécrit en utilisant le support jpeg après un schisme (fork)."
 
 #: kernel/drivers/hsfmodem::description
 msgid "Linuxant's modem driver for Conexant HSF chipset"
-msgstr ""
+msgstr "Pilote des modems Linuxant pour les chipsets HSF Conexant."
 
 #: kernel/drivers/sc92031::description
 msgid "Driver for Silan SC92031 chip based ethernet cards."
-msgstr ""
+msgstr "Pilote pour les cartes réseau ethernet basées sur des puces Silan SC92031."
 
 #: kernel/drivers/fuse::summary
 msgid "An interface for filesystems implemented in userspace"
-msgstr ""
+msgstr "Interface implémentée dans l'environnement utilisateur (userpace) pour les systèmes de fichier."
 
 #: kernel/drivers/ndiswrapper::description
 msgid "Ndiswrapper allows you to use windows XP drivers for that WLAN card without proper Linux drivers."
-msgstr ""
+msgstr "Mdiswrapper permet d'utiliser les pilotes  Windows XP pour les cartes réseau sans-fil sans pilote adéquat sous Linux."
 
 #: kernel/drivers/alsa-driver::description
 msgid " The Advanced Linux Sound Architecture (ALSA) provides audio and MIDI functionality to the Linux operating system. ALSA has significant features like efficient support for all types of audio interfaces, fully modularized sound drivers, SMP and thread-safe design, user space library and support for the older OSS API."
-msgstr ""
+msgstr "L'Architecture de Son Avancée pour Linux (ALSA) fourni les fonctionnalités MIDI et audio au système d'exploitation Linux. ALSA a des propriétés significatives  commet un support pour tous les types d'interfaces audio, des pilots audio totallement modulaires, une conception gérant le multithread et les SMP (architectures à processeurs multiples), une librairie dans l'environnement utilisateur et supporte l'ancienne API OSS."
 
 #: kernel/drivers/ungrab-winmodem::description
 msgid "A dirty workaround for Smartlink Modems to bypass \"device is already grabbed\" errors "
-msgstr ""
+msgstr "Une manière sale de contourner en passant outreles erreurs \"device is already grabbed\" (le périphérique est déjà pris) de modems Smartlink."
 
 #: kernel/drivers/lmpcm_usb::description
 msgid "You can use Logitech MediaPlay Cordless Mouse's multimedia buttons with this driver."
-msgstr ""
+msgstr "Vous pouvez utiliser les boutons multimédia de la souris sans fil MediaPlay Logitech avec ce pilote."
 
 #: kernel/drivers/ov511::description
 msgid "Driver for omnivision based webcams, with OVFX2 support for webcams like Orangemicro iBot2."
-msgstr ""
+msgstr "Pilote pour les webcams basées sur omnivision, avec support pour OVFX2 pour les webcams comme Orangemicro iBot2."
 
 #: kernel/drivers/unionfs::summary
 msgid "Stackable unification file system, which can appear to merge the contents of several directories"
-msgstr ""
+msgstr "Stackable unification file system (un système de fichier d'unification empilable), qui peut apparaître comme ayant fusionné le contenu de plusieurs répertoire tout en gardant leur contenu physique séparé."
 
 #: kernel/drivers/gspca::description
 msgid "Driver for more than 200 webcams from manufacturers like Creative, Logitech, Mustek etc. using chips like Conexant, Etoms, Mars-Semi, Pixart, Sonix, Sunplus, Transvision, Vimicro, Microdia."
-msgstr ""
+msgstr "Pilote pour plus de 200 webcams de fabricants comme Creative, Logitech, Mustek etc. utilisant les puces tels Conexant, Etoms, Mars-Semi, Pixart, Sonix, Sunplus, Transvision, Vimicro, Microdia."
 
 #: kernel/drivers/qc-usb-messenger::summary
 msgid "Logitech QuickCam USB Video Camera driver"
-msgstr ""
+msgstr "Pilote pour la caméra vidéo USB Logitech QuickCam."
 
 #: kernel/drivers/slmodem::description
 msgid " This is the driver of Smart Link Modem for Linux. It provides full-featured 56K Voice Fax Modem."
-msgstr ""
+msgstr "Pilote Linux du Modem Smart Link. Il permet d'utiliser toutes les fonctionnalités d'un Modem Fax 56K."
 
 #: kernel/drivers/linux-uvc::description
 msgid "Webcam driver using Linux USB Video Class."
-msgstr ""
+msgstr "Pilote de webcam utilisant la Classes Vidéo USB Linux."
 
 #: kernel/drivers/nvidia:nvidia-kernel:description
 msgid "nVIDIA kernel driver for low level infrastracture."
-msgstr ""
+msgstr "pilote noyau nVIDIA pour l'infrastructure bas niveau."
 
 #: kernel/drivers/nvidia:nvidia-glx:description
 msgid "nVIDIA glx module for X.org for optimized 2d/3d performance."
-msgstr ""
+msgstr "module glx nVIDIA pour X.org optimisé pour les performances 2d/3d."
 
 #: kernel/drivers/nvidia:nvidia-tools:description
 msgid "GUI tool nvidia-settings for nVIDIA cards and a command line tool named nvidia-xconfig for X.org configuration"
-msgstr ""
+msgstr "outil graphique nvidia-settings et outil en ligne de commande nvidia-xconfig pour la configuration de X.org pour cartes nVIDIA."
 
 #: kernel/drivers/nvidia::description
 msgid "nVIDIA kernel and glx drivers giving optimized 2d/3d performance on Linux"
-msgstr ""
+msgstr "noyau et pilotes glx nVIDIA donnant des performances 2d/3d optimisées sous Linux."
 
 #: kernel/drivers/ati-drivers::description
 msgid "ATI Proprietary Linux x86 Display Driver"
-msgstr ""
+msgstr "Pilote d'affichage propriétaire ATI pour plateformes x86 sous Linux."
 
 #: kernel/drivers/ltmodem::description
 msgid "Linux driver for so called Winmodems with Lucent Apollo (ISA) and Mars (PCI) chipsets."
-msgstr ""
+msgstr "Pilote Linux pour les soit disant winmodems avec chipsets Lucent Apollo (ISA) ou Mars (PCI)."
 
 #: kernel/drivers/qc-usb::summary
 msgid "Logitech USB Quickcam Express Linux Driver Modules"
-msgstr ""
+msgstr "Modules pilotes Linux pour les Logithech Quickcam Express USB."
 
 #: kernel/drivers/madwifi-ng::summary
 msgid "Wireless driver for Atheros chipset a/b/g cards"
-msgstr ""
+msgstr "Pilote sans-fil pour cartes a/b/g à chipset Atheros."
 
 #: kernel/drivers/nvidia-old:nvidia-kernel-old:description
 msgid "nVIDIA kernel driver for low level infrastracture [For TNT2 and such older cards]."
-msgstr ""
+msgstr "pilote noyau nVIDIA pour infrastructure bas niveau [pour les vieilles cartes telles la TNT2]."
 
 #: kernel/drivers/nvidia-old:nvidia-glx-old:description
 msgid "nVIDIA glx module for X.org for optimized 2d/3d performance [For TNT2 and such older cards]."
-msgstr ""
+msgstr "module glx nVIDIA pour X.org afin d'optimiser les performances 2d/3d [Pour vieilles cartes tels la TNT2]."
 
 #: kernel/drivers/nvidia-old:nvidia-tools-old:description
 msgid "GUI tool nvidia-settings for nVIDIA cards [For TNT2 and such older cards]."
-msgstr ""
+msgstr "Outil graphique nvidia-settings pour cartes nVIDIA [pour les vieilles cartes telles que la TNT2]."
 
 #: kernel/drivers/nvidia-old::description
 msgid "nVIDIA kernel and glx drivers giving optimized 2d/3d performance on Linux for old nVidia cards"
-msgstr ""
+msgstr "noyau et pilote glx nVIDIA donnant des performances 2d/3d optimisées sous Linux pour vielles cartes nVidia."
 
 #: kernel/drivers/kqemu::summary
 msgid "QEMU Accelerator Module"
-msgstr ""
+msgstr "Module Accélérateur de QEMU."
 
 #: kernel/drivers/pwc::description
 msgid "Free Philips USB Webcam driver for Linux that supports VGA resolution, newer kernels and replaces the old pwcx module."
-msgstr ""
+msgstr "pilote libre pour Linux des webcams USB Phillips. Il supporte la résolution VGA, les noyaux récents et remplace le vieux module pwcx."
 
 #: kernel/drivers/rt2570::description
 msgid "Driver for the RaLink RT2570 wireless chipset"
-msgstr ""
+msgstr "Pilote pour le chipset sans fil RaLink RT2570."
 
 #: kernel/drivers/rt2500::description
 msgid "Driver for the RaLink RT2500 wireless chipset"
-msgstr ""
+msgstr "Pilote pour le chipset sans fil RaLink RT2500."
 
 #: kernel/drivers/hcfpcimodem::description
 msgid "Linuxant's modem driver for Connexant HCF chipset"
-msgstr ""
+msgstr "Pilote pour modems Linuxant au chipset Connexant HCF."
 
 #: kernel/drivers/acerhk::summary
 msgid "Hotkey driver for some Acer and Acer-like laptops"
-msgstr ""
+msgstr "Pilote pour les hotkey (touches multimédia ) de portables Acer et semblables."
 
 #: kernel/drivers/rt61::description
 msgid "Driver for the RaLink RT2600 (RT61) wireless chipset"
-msgstr ""
+msgstr "Pilote pour le chipset sans fil RaLink RT2600 (RT61)."
 
 #: kernel/drivers/acpi4asus::description
 msgid "For Asus laptops to use all the functionality of their computers such as special keys, special LEDs, brightness control"
-msgstr ""
+msgstr "Pour portables Asus afin de pouvoir toutes les fonctionnalités de l'ordinateur tels les touches et les DELs spéciales ainsi que le contrôle du contraste."
 
 #: kernel/drivers/eciadsl::description
 msgid " Linux driver for ECI HiFocus ADSL USB and Globespan based modems. EciAdsl is a free Linux driver for connecting your computer to the internet, if you have a Globespan based ADSL USB modem."
-msgstr ""
+msgstr "pilote Linux pour le modem ADSL USB ECI HiFocus ainsi que les modems basés sur Globespan. EciAdsl est un pilote Linux libre pour connecter votre ordinateur à internet si vous avez un modem ADSL USB basé sur Globespan."
 
 #: kernel/drivers/rt2400::description
 msgid "Driver for the RaLink RT2400 wireless chipset"
-msgstr ""
+msgstr "Pilote pour le chipset sans-fil RaLink RT2400."
 
 #: kernel/firmware/eagle-firmware::summary
 msgid "Firmware for USB modems"
-msgstr ""
+msgstr "Firmware (logiciel interne) pour modems USB."
 
 #: kernel/firmware/atmel-firmware::summary
 msgid "Firmware for atmel and atmel_cs wlan drivers"
-msgstr ""
+msgstr "Firmware (logiciel interne) pour pilotes réseau sans fil atmel et atmel_cs."
 
 #: kernel/firmware/ipw2100-firmware::summary
 msgid "Firmware for the Intel PRO/Wireless 2100 3B miniPCI adapter"
-msgstr ""
+msgstr "Firmware (logiciel interne) pour l'adaptateur miniPCI Intel PRO/Wireless 2100 3B."
 
 #: kernel/firmware/bcm43xx-firmware::description
 msgid "Firmware for Broadcom wireless network chips"
-msgstr ""
+msgstr "Firmware (logiciel interne) pour puces réseau sans-fil Broadcom."
 
 #: kernel/firmware/ipw3945-firmware::summary
 msgid "Firmware for the Intel PRO/Wireless 3945 miniPCI adapters"
-msgstr ""
+msgstr "Firmware (logiciel interne) pour l'adaptateur miniPCI Intel PRO/Wireless 3945."
 
 #: kernel/firmware/alsa-firmware::summary
 msgid "Advanced Linux Sound Architecture firmware"
-msgstr ""
+msgstr "firmware (logiciel interne) pour l'Architecture Son Linux Avancée (ALSA)."
 
 #: kernel/firmware/accessrunner-firmware::summary
 msgid "Accessrunner USB ADSL modem driver firmware"
-msgstr ""
+msgstr "firmware (logiciel interne) pour le pilote de modem ADSL USB accessrunner."
 
 #: kernel/firmware/acx100-firmware::summary
 msgid "Firmware for Texas Instruments' ACX100/ACX111 wireless network chips"
-msgstr ""
+msgstr "Firmware (logiciel interne) pour puces réseau sans-fil Texas Instruments ACX100/ACX111."
 
 #: kernel/firmware/speedtouch-firmware::summary
 msgid "ALCATEL SpeedTouch USB ADSL modem user-space driver firmware"
-msgstr ""
+msgstr "firmware (logiciel interne) pour pilote d'environnement utilisateur moderne du modem USB ADSL ALCATEL SpeedTouch."
 
 #: kernel/firmware/zd1211-firmware::summary
 msgid "Firmware for ZD1211 based devices"
-msgstr ""
+msgstr "Firmware (logiciel interne) pour périphériques basés sur ZD1211."
 
 #: kernel/firmware/bluez-firmware::summary
 msgid "Firmware for Broadcom BCM203x Blutonium devices"
-msgstr ""
+msgstr "Firmware (logiciel interne) pour périphériques Broadcom BCM203x."
 
 #: kernel/firmware/ipw3945-daemon::summary
 msgid "Regulatory daemon for the Intel PRO/Wireless 3945 miniPCI adapters"
-msgstr ""
+msgstr "Daemon de régulation pour adapteurs miniPCI Intel PRO/Wireless 3945."
 
 #: kernel/firmware/zd1201-firmware::summary
 msgid "Firmware for ZD1201 based devices"
-msgstr ""
+msgstr "Firmware (logiciel interne) pour périphériques basés sur ZD1201."
 
 #: kernel/firmware/ipw2200-firmware::summary
 msgid "Firmware for the Intel PRO/Wireless 2200BG/2915ABG miniPCI and 2225BG PCI adapters"
-msgstr ""
+msgstr "Firmware (logiciel interne) pour adaptateurs PCI 2225BG et miniPCI Intel PRO/Wireless 2200BG/2915ABG."
 
 #: desktop/kde/basket::description
 msgid "A set of baskets to keep a full range of data on hand."
-msgstr ""
+msgstr "Un ensembles de paniers pour garder tous types d'informations à portée de main."
 
 #: desktop/kde/gwenview::description
 msgid " Gwenview is a fast and easy to use image viewer for KDE"
-msgstr ""
+msgstr "Gwenview est un logiciel pour KDE rapide et facile à utiliser servant à visionner des images."
 
 #: desktop/kde/qscintilla::description
 msgid "QScintilla is a port to Qt of Neil Hodgson's Scintilla C++ editor class."
-msgstr ""
+msgstr "QSintilla est un port sous Qt de la classe C++ éditeur Scintilla de Neil Hodgson."
 
 #: desktop/kde/ksubtitleripper::description
 msgid "A KDE GUI for subtitleripper, to convert DVD subtitles to text subtitles."
-msgstr ""
+msgstr "Interface graphique KDE pour subtitleripper pour convertir les sous-titres de DVD en sous-titres textuels."
 
 #: desktop/kde/filelight::summary
 msgid "Filelight creates an interactive map of concentric segmented-rings that helps visualise disk usage on your computer."
-msgstr ""
+msgstr "Filelight crée une carte interactive de portions de disques concentriques permettant de visualiser l'usage du disque de votre ordinateur."
 
 #: desktop/kde/zpspell::description
 msgid "Zemberek-Pardus spell checker interface uses zemberek-server."
-msgstr ""
+msgstr "L'interface du vérificateur d'orthographe Zemberek-Pardus utilise zemberek-server."
 
 #: desktop/kde/kmplayer::description
 msgid "KMPlayer can play online or offline media files using MPlayer, Xine or GStreamer. You can also play the video and audio files on Konqueror and it has support for recording."
-msgstr ""
+msgstr "KMPlayer peut jouer les fichiers média en-ligne ou hors-ligne en utilisant MPlayer, Xine ou GStreamer. Il permet également de jouer des fichiers audio et video sur Konqueror et supporte l'enregistrement."
 
 #: desktop/kde/ksubtile::description
 msgid "Utility to edit subtitles in SRT format."
-msgstr ""
+msgstr "Utilitaire pour éditer les sous-titres au format SRT."
 
 #: desktop/kde/konversation::description
 msgid "Konversation is a graphical Internet Relay Chat (IRC) client. Along with standard IRC features it supports SSL, bookmarking, DCC transfers, automatic UTF-8 detection, per channel encoding etc. You can connect to multiple servers and join multiple channels in a single windows and have multiple identities for different servers."
-msgstr ""
+msgstr "Konversation est un client graphique IRC (Internet Relay Chat -- Relais de discution Internet). En plus des fonctionnalités IRC standards, il supporte SSL, les favoris, les transferts DCC, la detection automatiques d'UTF-8, l'encodage par canal etc. Vous pouvez vous connecter à de multiples serveurs et rejoindre différents canaux au sein d'une même fenêtre ainsi que d'avoir de multiples identités pour différents serveurs."
 
 #: desktop/kde/KTrafficAnalyzer::summary
 msgid "This is a mod of the plastik style with inverted gradients for an ActiveHeart look. There are many other changes..."
-msgstr ""
+msgstr "Ceci est une modification du style plastik avec notamment des gradients inversés pour un style ActiveHeart. Il y a de nombreux autres changement..."
 
 #: desktop/kde/autostart::description
 msgid "Control Center module for editing your ~/.kde/Autostart entries"
-msgstr ""
+msgstr "Module du Centre de Contrôle pour l'édition des entrées du fichier ~/.kde/Autostart."
 
 #: desktop/kde/kdetv::description
 msgid "Kdetv is a KDE  application that allows you to watch television on your GNU/Linux box running KDE."
-msgstr ""
+msgstr "Kdetv est une application KDE permettant de regarder la télévision sur votre machine GNU/Linux utilisant KDE."
 
 #: desktop/kde/kxmame::description
 msgid "Xmame is the KDE frontend for mame, which can emulate retro games for arcade machies."
-msgstr ""
+msgstr "Xmame est la façade KDE pour mame, un émulateur de jeux rétro sur bornes d'arcade."
 
 #: desktop/kde/polyester::description
 msgid "Polyester includes a widget style and a kwin decoration.It features a high degree of configurability; you can change the color of scrollbars, the button style, and the degree of animation."
-msgstr ""
+msgstr "Polyester inclus un style de widget et une décoration kwin. Il est hautement configurable : vous pouvez changer les couleurs des barres de défilement, le style des boutons et le degré d'animation."
 
 #: desktop/kde/base/kdegames::summary
 msgid "KDE games (not just solitaire ;-)"
-msgstr ""
+msgstr "Jeux KDE (et pas seulement le solitaire ;-)"
 
 #: desktop/kde/base/kdeaddons::summary
 msgid "KDE addon modules: plugins for konqueror, noatun etc"
-msgstr ""
+msgstr "Modules Supplémentaires KDE : plugins pour konqueror, noatun etc."
 
 #: desktop/kde/base/kdeedu::summary
 msgid "KDE educational apps"
-msgstr ""
+msgstr "Applications d'éducation KDE."
 
 #: desktop/kde/base/kdewebdev::summary
 msgid "KDE web development - Quanta"
-msgstr ""
+msgstr "Développement web KDE - Quanta."
 
 #: desktop/kde/base/arts::summary
 msgid "aRts, the KDE sound (and all-around multimedia) server/output manager"
-msgstr ""
+msgstr "aRts, le gestionnaire de serveur/sortie pour le son (et tout ce qui a trait au multimédia) pour KDE,"
 
 #: desktop/kde/base/kdeadmin::summary
 msgid "KDE administration tools (user manager, etc.)"
-msgstr ""
+msgstr "Outils d'administration de KDE (gestion d'utilisateurs, etc.)"
 
 #: desktop/kde/base/kdepim::summary
 msgid "KDE PIM (Personal Information Management) apps: korganizer, kmail, knode..."
-msgstr ""
+msgstr "Application KDE PIM (Personal Information Management - Gestion d'Information Personnelle) : korganizer, kmail, knode..."
 
 #: desktop/kde/base/kdemultimedia::summary
 msgid "KDE multimedia apps: kscd, juk..."
-msgstr ""
+msgstr "Applications multimedia KDE : kscd, juk..."
 
 #: desktop/kde/base/kdegraphics::summary
 msgid "KDE graphics-related apps"
-msgstr ""
+msgstr "Applications KDE liées à tout ce qui est graphique."
 
 #: desktop/kde/base/kdebase::summary
 msgid "KDE base packages: the desktop, panel, window manager, konqueror..."
-msgstr ""
+msgstr "Paquet de base KDE : Le bureau, le panneau, le gestionnaire de fenêtre, konqueror..."
 
 #: desktop/kde/base/kdenetwork::summary
 msgid "KDE network apps: kopete, kppp, kget..."
-msgstr ""
+msgstr "Applications Réseau KDE : kopete, kppp, kget..."
 
 #: desktop/kde/base/kdelibs::summary
 msgid "KDE libraries needed by all kde programs"
-msgstr ""
+msgstr "Librairies KDE nécessaires à tous les programmes kde."
 
 #: desktop/kde/base/kdetoys::summary
 msgid "KDE toys"
-msgstr ""
+msgstr "Jouets KDE."
 
 #: desktop/kde/base/kdeaccessibility::summary
 msgid "KDE accessibility module"
-msgstr ""
+msgstr "module d'accessibilité KDE."
 
 #: desktop/kde/base/kdeartwork::summary
 msgid "KDE artwork package"
-msgstr ""
+msgstr "paquet de travail artistique KDE."
 
 #: desktop/kde/base/artwork::summary
 msgid "KDE artwork"
-msgstr ""
+msgstr "travail artistique KDE."
 
 #: desktop/kde/base/kdesdk::summary
 msgid "KDE SDK: Cervisia, KBabel, KCachegrind, Kompare, Umbrello,..."
-msgstr ""
+msgstr "SDK KDE : Cervisia, Kbabel, KCacheGrind, Kompare, Umbrello..."
 
 #: desktop/kde/base/qt::summary
 msgid "The Qt toolkit is a comprehensive C++ application development framework."
-msgstr ""
+msgstr "La boîte à outils Qt fourni un cadre de développement riche et complet de développement d'applications en c++."
 
 #: desktop/kde/base/kdeutils::summary
 msgid "KDE utilities"
-msgstr ""
+msgstr "Utilitaires KDE."
 
 #: desktop/kde/base/kdebindings::summary
 msgid "KDE bindings"
-msgstr ""
+msgstr "liens (bindings) KDE."
 
 #: desktop/kde/aspell-en::description
 msgid "You can do spell-checking in English using Aspell program with this dictionary."
-msgstr ""
+msgstr "Avec ce dictionnaire.vous pouvez vérifier l'orthographe en anglais en utilisant le programme Aspell."
 
 #: desktop/kde/k3b::description
 msgid "K3b is an easy-to-use CD and DVD burning software"
-msgstr ""
+msgstr "K3b est un logiciel de gravure de CD et de DVD facile d'emploi."
 
 #: desktop/kde/tulliana::description
 msgid "Tulliana is a KDE desktop iconset developed for Pardus Linux."
-msgstr ""
+msgstr "Tulliana est un ensemble d'icônes KDE développées pour Pardus Linux."
 
 #: desktop/kde/ktorrent::description
 msgid "KTorrent is a BitTorrent P2P file distribution protocol program for KDE."
-msgstr ""
+msgstr "KTorrent est le programme KDE permettant de distribuer de fichier P2P en utilisant le protocol BitTorrent."
 
 #: desktop/kde/kdenlive::description
 msgid "Kdenlive provides dual video monitors, a multi-track timeline and clip list. Other features include customizable layout support, basic effects and transitions."
@@ -1012,427 +1012,427 @@ msgstr ""
 
 #: desktop/kde/kile::description
 msgid "Kile is a user friendly TeX/LaTeX editor for the KDE desktop environment"
-msgstr ""
+msgstr "Kile est un éditeur Tex/LaTex convivial pour l'environnement de bureau KDE."
 
 #: desktop/kde/akode::description
 msgid "AKode is a simple audio-decoding frame-work that provides a uniform interface to decode the most common audio-formats. It also has a direct playback option for a number of audio-outputs."
-msgstr ""
+msgstr "AKode est framework (cadre de développement) simple de décodage audio fournissant une interface uniforme de décodage des formats audio les plus communs. Il offre également la possibilité pouvoir de jouer directement pour un grand nombre de sorties audio."
 
 #: desktop/kde/kchmviewer::description
 msgid "KchmViewer is a chm (MS HTML help file format) viewer, written in C++."
-msgstr ""
+msgstr "KchmViewer est un visionneur de fichier chm (format MS HTML des fichiers d'aide) écrit en C++."
 
 #: desktop/kde/PyWireless::description
 msgid "This program will help you to view wireless network activity in the systray."
-msgstr ""
+msgstr "Ce programme vous aidera a voir l'activité réseau sans-fil dans la boîte à miniatures."
 
 #: desktop/kde/kipi-plugins::description
 msgid "Kipi plugins for KDE graphic applications."
-msgstr ""
+msgstr "plugins Kipi pour les applications graphiques KDE."
 
 #: desktop/kde/ktranslator::description
 msgid "KTranslator is a program to translate words from one language to another. It comes with a plugin system, to ease the addition of new dictionaries."
-msgstr ""
+msgstr "KTranslator est un programme permettant de traduire les mots d'un langage à un autre. Il est doté d'un système de plugin (greffons), simplifiant l'ajout de nouveaux dictionnaires."
 
 #: desktop/kde/k3b-i18n:k3b-i18n-tr:summary
 msgid "K3b translation files for Turkish"
-msgstr ""
+msgstr "Fichiers de traduction en turc pour K3b."
 
 #: desktop/kde/k3b-i18n:k3b-i18n-others:summary
 msgid "K3b translation files for other languages"
-msgstr ""
+msgstr "Fichiers de traductions de K3b en d'autres langues."
 
 #: desktop/kde/k3b-i18n::description
 msgid "These are the internationalization files for K3B CD/DVD burning program."
-msgstr ""
+msgstr "Il s'agit des fichiers d'internationalisation du programme de gravure de CD/DVD K3b."
 
 #: desktop/kde/user-manager::description
 msgid "The User Manager can add a new user to Pardus or modify other users. You can add, modify or delete a user, add a new group, add users to groups or delete groups and you can allow or restrict user to do certain tasks such as using the CD drive, playing audio or having super user privileges."
-msgstr ""
+msgstr "Le gestionnaire d'utilisateur permet d'ajouter un nouvel utilisateur ou modifier ceux qui existent déjà. Vous pouvez ajouter, modifier ou supprimer un utilisateur, ajouter un nouveau groupe, intégrer des utilisateurs à des groupes ou supprimer des groupes. Vous pouvez également autoriser ou restreindre un utilisateur à effectuer certaines tâches telles que utiliser le lecteur CD, jouer un fichier audio ou avoir les privilèges de super utilisateur."
 
 #: desktop/kde/klamav::description
 msgid "KlamAV is an anti-virus manager for KDE using ClamAV. It is a front-end to ClamAV that makes it more appropriate for easy usage."
-msgstr ""
+msgstr "KlamAV est un gestionnaire d'anti-virus pour KDE utilisant ClamAV. C'est une façade à ClamAV le rendant plus approprié pour une utilisation facile."
 
 #: desktop/kde/i18n/kde-i18n-cs::description
 msgid "KDE internationalization package provides Czech translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en tchèque."
 
 #: desktop/kde/i18n/kde-i18n-ko::description
 msgid "KDE internationalization package provides Korean translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en coréen."
 
 #: desktop/kde/i18n/kde-i18n-mn::description
 msgid "KDE internationalization package provides Mongolian translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en mongol."
 
 #: desktop/kde/i18n/kde-i18n-pa::description
 msgid "KDE internationalization package provides Punjabi translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en panjabi."
 
 #: desktop/kde/i18n/kde-i18n-fr::description
 msgid "KDE internationalization package provides French translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en français."
 
 #: desktop/kde/i18n/kde-i18n-ms::description
 msgid "KDE internationalization package provides Malay translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en malais."
 
 #: desktop/kde/i18n/kde-i18n-tr::description
 msgid "KDE internationalization package provides Turkish translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en turc."
 
 #: desktop/kde/i18n/kde-i18n-es::description
 msgid "KDE internationalization package provides Spanish translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en espagnol."
 
 #: desktop/kde/i18n/kde-i18n-az::description
 msgid "KDE internationalization package provides Azerbaijani translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en azéri."
 
 #: desktop/kde/i18n/kde-i18n-nn::description
 msgid "KDE internationalization package provides Norwegian Nynorsk translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en néo-norvégien."
 
 #: desktop/kde/i18n/kde-i18n-uz::description
 msgid "KDE internationalization package provides Uzbek translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en ouzbek."
 
 #: desktop/kde/i18n/kde-i18n-ga::description
 msgid "KDE internationalization package provides Irish Gaelic translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en gaelique irlandais."
 
 #: desktop/kde/i18n/kde-i18n-bn::description
 msgid "KDE internationalization package provides Bengali translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en bengali."
 
 #: desktop/kde/i18n/kde-i18n-lt::description
 msgid "KDE internationalization package provides Lithuanian translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en lituanien."
 
 #: desktop/kde/i18n/kde-i18n-fa::description
 msgid "KDE internationalization package provides Farsi (Persian) translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en farsi (Perse)."
 
 #: desktop/kde/i18n/kde-i18n-bs::description
 msgid "KDE internationalization package provides Bosnian translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en bosnien."
 
 #: desktop/kde/i18n/kde-i18n-tg::description
 msgid "KDE internationalization package provides Tajik translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en tadjik."
 
 #: desktop/kde/i18n/kde-i18n-et::description
 msgid "KDE internationalization package provides Estonian translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en estonien."
 
 #: desktop/kde/i18n/kde-i18n-fy::description
 msgid "KDE internationalization package provides Frisian translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en frison."
 
 #: desktop/kde/i18n/kde-i18n-it::description
 msgid "KDE internationalization package provides Italian translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en italien."
 
 #: desktop/kde/i18n/kde-i18n-bg::description
 msgid "KDE internationalization package provides Bulgarian translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en bulgare."
 
 #: desktop/kde/i18n/kde-i18n-he::description
 msgid "KDE internationalization package provides Hebrew translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en hébreu."
 
 #: desktop/kde/i18n/kde-i18n-ss::description
 msgid "KDE internationalization package provides Swati translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en siswati."
 
 #: desktop/kde/i18n/kde-i18n-da::description
 msgid "KDE internationalization package provides Danish translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en danois."
 
 #: desktop/kde/i18n/kde-i18n-pl::description
 msgid "KDE internationalization package provides Polish translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en polonais."
 
 #: desktop/kde/i18n/kde-i18n-pt::description
 msgid "KDE internationalization package provides Portuguese translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en portugais."
 
 #: desktop/kde/i18n/kde-i18n-ta::description
 msgid "KDE internationalization package provides Tamil translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en tamil."
 
 #: desktop/kde/i18n/kde-i18n-gl::description
 msgid "KDE internationalization package provides Galician translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en galicien."
 
 #: desktop/kde/i18n/kde-i18n-km::description
 msgid "KDE internationalization package provides Khmer translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en khmer."
 
 #: desktop/kde/i18n/kde-i18n-sk::description
 msgid "KDE internationalization package provides Slovak translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en slovaque."
 
 #: desktop/kde/i18n/kde-i18n-zh_CN::description
 msgid "KDE internationalization package provides Chinese Simplified translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en chinois simplifié."
 
 #: desktop/kde/i18n/kde-i18n-vi::description
 msgid "KDE internationalization package provides Vietnamese translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en vietnamien."
 
 #: desktop/kde/i18n/kde-i18n-af::description
 msgid "KDE internationalization package provides Afrikaans translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en afrikaans."
 
 #: desktop/kde/i18n/kde-i18n-fi::description
 msgid "KDE internationalization package provides Finnish translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en finnois."
 
 #: desktop/kde/i18n/kde-i18n-sr::description
 msgid "KDE internationalization package provides Serbian translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en serbe."
 
 #: desktop/kde/i18n/kde-i18n-pt_BR::description
 msgid "KDE internationalization package provides Brazilian Portuguese translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en portugais brésilien."
 
 #: desktop/kde/i18n/kde-i18n-hi::description
 msgid "KDE internationalization package provides Hindi translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en hindi."
 
 #: desktop/kde/i18n/kde-i18n-rw::description
 msgid "KDE internationalization package provides Kinyarwanda translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en kinyarwanda."
 
 #: desktop/kde/i18n/kde-i18n-sl::description
 msgid "KDE internationalization package provides Slovenian translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en slovène."
 
 #: desktop/kde/i18n/kde-i18n-hu::description
 msgid "KDE internationalization package provides Hungarian translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en hongrois."
 
 #: desktop/kde/i18n/kde-i18n-uk::description
 msgid "KDE internationalization package provides Ukrainian translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en ukrainien."
 
 #: desktop/kde/i18n/kde-i18n-ca::description
 msgid "KDE internationalization package provides Catalan translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en catalan."
 
 #: desktop/kde/i18n/kde-i18n-eu::description
 msgid "KDE internationalization package provides Basque translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en basque."
 
 #: desktop/kde/i18n/kde-i18n-ar::description
 msgid "KDE internationalization package provides Arabic translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en arabe."
 
 #: desktop/kde/i18n/kde-i18n-ro::description
 msgid "KDE internationalization package provides Romanian translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en roumain."
 
 #: desktop/kde/i18n/kde-i18n-nb::description
 msgid "KDE internationalization package provides Norwegian Bookmal translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en bokmål (norvégien classique)."
 
 #: desktop/kde/i18n/kde-i18n-zh_TW::description
 msgid "KDE internationalization package provides Chinese Traditional translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en chinois traditionnel."
 
 #: desktop/kde/i18n/kde-i18n-sr@Latn::description
 msgid "KDE internationalization package provides Serbian Latin translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en serbe latin."
 
 #: desktop/kde/i18n/kde-i18n-eo::description
 msgid "KDE internationalization package provides Esperanto translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en espéranto."
 
 #: desktop/kde/i18n/kde-i18n-lv::description
 msgid "KDE internationalization package provides Latvian translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en letton."
 
 #: desktop/kde/i18n/kde-i18n-se::description
 msgid "KDE internationalization package provides Northern Sami translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en same du nord."
 
 #: desktop/kde/i18n/kde-i18n-ru::description
 msgid "KDE internationalization package provides Russian translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en russe."
 
 #: desktop/kde/i18n/kde-i18n-ja::description
 msgid "KDE internationalization package provides Japanese translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en japonais."
 
 #: desktop/kde/i18n/kde-i18n-mk::description
 msgid "KDE internationalization package provides Macedonian translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en macédonien."
 
 #: desktop/kde/i18n/kde-i18n-sv::description
 msgid "KDE internationalization package provides Swedish translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en suédois."
 
 #: desktop/kde/i18n/kde-i18n-de::description
 msgid "KDE internationalization package provides German translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en allemand."
 
 #: desktop/kde/i18n/kde-i18n-hr::description
 msgid "KDE internationalization package provides Croatian translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en croate."
 
 #: desktop/kde/i18n/kde-i18n-cy::description
 msgid "KDE internationalization package provides Welsh translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en gallois."
 
 #: desktop/kde/i18n/kde-i18n-en_GB::description
 msgid "KDE internationalization package provides British English translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en anglais britannique."
 
 #: desktop/kde/i18n/kde-i18n-is::description
 msgid "KDE internationalization package provides Icelandic translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en islandais."
 
 #: desktop/kde/i18n/kde-i18n-nl::description
 msgid "KDE internationalization package provides Dutch translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en néerlandais."
 
 #: desktop/kde/i18n/kde-i18n-el::description
 msgid "KDE internationalization package provides Greek translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en grec."
 
 #: desktop/kde/i18n/kde-i18n-kk::description
 msgid "KDE internationalization package provides Kazakh translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en kazakh."
 
 #: desktop/kde/i18n/kde-i18n-nds::description
 msgid "KDE internationalization package provides Low Saxon translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en bas saxon."
 
 #: desktop/kde/i18n/kde-i18n-br::description
 msgid "KDE internationalization package provides Breton translations for KDE applications."
-msgstr ""
+msgstr "Paquet d'internationalisation des applications KDE en breton."
 
 #: desktop/kde/transKode::description
 msgid "transKode is a KDE/QT frontend for various audio transcoding tools. It also contains a script for use within Amarok."
-msgstr ""
+msgstr "transKode est une façade (frontend) KDE/QT pour différents outils de transcodage audio. Il contien également un script utilisable au sein d'Amarok."
 
 #: desktop/kde/amarok::description
 msgid "Feature-rich audio player for KDE system"
-msgstr ""
+msgstr "Lecteur audio riche en fonctionnalité pour le système KDE."
 
 #: desktop/kde/kflickr::description
 msgid "Kflickr is an easy to use photo uploader for flickr written for KDE."
-msgstr ""
+msgstr "Kflickr est un logiciel écrit pour KDE permettant de remonter facilement des photos sur flickr."
 
 #: desktop/kde/kio-slp::description
 msgid "With kio_slp it is possible to browse your SLP (Service Location Protocol) network, redirect to the real services or view the service attributes."
-msgstr ""
+msgstr "Avec kio_slp il est possible de naviguer votre réseau SLP (Service Location Protocol - Protocole de Localisation de Service), se rediriger vers le service réel ou voir les attributs du service."
 
 #: desktop/kde/rkward::description
 msgid "RKWard aims to provide an easily extensible, easy to use IDE/GUI for the R-project. RKWard tries to combine the power of the R-language with the (relative) ease of use of commercial statistics tools."
-msgstr ""
+msgstr "RKWard essaie de fournir une manière facile et extensible d'utiliser une EDI/IHM (IDE/GUI) pour le projet R. RKWar essaie de combiner la puissance du langage R avec la (relative) facilité d'utilisation des outils commerciaux de statistique."
 
 #: desktop/kde/PyKDEeXtensions::description
 msgid "PyKDE is a set of Python bindings for the KDE desktop environment. With these bindings you can use the KDE libraries in your Python programs."
-msgstr ""
+msgstr "PyKDE est un ensemble de bindings (liens) Pythons pour l'environnement de bureau KDE. Avec ces bindings, vous pouvez utiliser les librairies KDE dans vos programmes Python."
 
 #: desktop/kde/firewall-config::description
 msgid "Firewall configuration interface for Pardus Linux"
-msgstr ""
+msgstr "Interface de configuration du pare-feu (firewall) pour Pardus Linux."
 
 #: desktop/kde/kdissert::description
 msgid "Kdissert is a mindmapping-like tool to help students to produce complicated documents very quickly and efficiently : presentations, dissertations, thesis, reports."
-msgstr ""
+msgstr "Kdissert est une outil de cartographie de l'esprit (mindmapping) pour aider les étudiants à produire des documents compliqués de manière rapide et efficace : présentations, dissertations, thèses, rapports."
 
 #: desktop/kde/gtk-qt-engine::description
 msgid "This engine is for use by GTK applications running in KDE. It applies all Qt settings to the GTK application and uses Qt style plugins directly."
-msgstr ""
+msgstr "Ce moteur est utilisé par les application GTK exécutée dans KDE. Il applique tous les paramétrages QT aux applications GTK et utilise les plugins (greffons) de style Qt directement."
 
 #: desktop/kde/taglib::description
 msgid "TagLib is a library for reading and editing the meta data of several popular audio formats."
-msgstr ""
+msgstr "TagLib est une librairie pour lire et éditer les méta-données de nombreux formats audio populaires."
 
 #: desktop/kde/sysinfo::description
 msgid "Sysinfo is a KDE applet that shows information about your computer. You can access your directories, view information about your operating system, discs, cpu and memory."
-msgstr ""
+msgstr "Sysinfo est une applet KDE montrant diverses informations à propos de votre ordinateur. Vous pouvez accéder à vos répertoires, voir les informations concernant votre système d'exploitations, les disques, la processeur et la mémoire."
 
 #: desktop/kde/kdm-pardus-theme::description
 msgid "This is a special theme for KDE's login screen, special to Pardus."
-msgstr ""
+msgstr "Il s'agit d'un thème particulier d'écran d'authentification KDE, spécial pour Pardus."
 
 #: desktop/kde/poster::description
 msgid "Poster printing utility."
-msgstr ""
+msgstr "Utilitaire d'impression de poster."
 
 #: desktop/kde/network-manager::description
 msgid "This software is developed for Pardus. It supports ethernet, wireless and modem configuration settings."
-msgstr ""
+msgstr "Ce logiciel fut développé pour Pardus. Il permet de configurer le paramétrage ethernet, sans fil et des modems."
 
 #: desktop/kde/kio-beagle::description
 msgid "KDE KIO extension for Beagle"
-msgstr ""
+msgstr "KIO extension de KDE pour Beagle."
 
 #: desktop/kde/kbarcode::description
 msgid "Kbarcode is a very powerful and flexible tool for printing labels and barcodes. Its a powerful link between all kind of labels and a database."
-msgstr ""
+msgstr "Kbarcode est un outil puissant extensible d'impression de labels et de codes barre. C'est un lien puissant entre différents types de labels et une base de données."
 
 #: desktop/kde/kid3::description
 msgid "A simple tool to manage id3 tags of your files."
-msgstr ""
+msgstr "Un outil simple de gestion de balises (tags) id3 pour vos fichiers."
 
 #: desktop/kde/kerry::description
 msgid "Kerry is a KDE user interface for Beagle desktop search tool"
-msgstr ""
+msgstr "Kerry est une interface utilisateur KDE pour l'outil de recherche bureautique Beagle."
 
 #: desktop/kde/pardus-support::summary
 msgid "Pardus functions to extend Qt libraries"
-msgstr ""
+msgstr "Fonction Pardus d'extension des librairies QT."
 
 #: desktop/kde/kdebluetooth::description
 msgid "The KDE Bluetooth Framework is a set of tools built on top of Linux' Bluetooth stack BlueZ. It provides easy access to the most common Bluetooth profiles and can make data exchange with Bluetooth enabled phones and PDAs."
-msgstr ""
+msgstr "Le framework (cadre de développement) Bluetooth KDE est un ensemble d'outils construits à partir la pile Bluetooth Linux BlueZ. Il fourni un accès facile aux profils Bluetooth les plus communs et permet d'échanger des données avec le téléphones et ADP (PDA - Assistants Digitaux Personnels) ayant le Bluetooth."
 
 #: desktop/kde/gwenview-i18n::summary
 msgid "Gwenview locale package."
-msgstr ""
+msgstr "Paquet contenant la locale de Gwenview."
 
 #: desktop/kde/qca::description
 msgid "QCA aims to provide a straightforward and cross-platform crypto API, using Qt datatypes and conventions. QCA separates the API from the implementation, using plugins known as Providers."
-msgstr ""
+msgstr "QCA essaie de fournir une API (Interface de Programmation d'Application) sans fioritures et multi-plateforme de cryptographie, utilisant les types de données et les conventions Qt. QCA sépare l'API de l'implémentation en utilisant des plugins (greffons) nommés Providers (fournisseurs)."
 
 #: desktop/kde/k3bmonkeyaudioplugin::description
 msgid "K3b monkey's audio (ape) encoder and decoder plugin."
-msgstr ""
+msgstr "Plugin (greffon) d'encodage et de décodage audio simiesque (ape) de K3b."
 
 #: desktop/kde/lipstik::description
 msgid "Lipstik is a fast clean style for KDE with many options to tune your desktop look."
-msgstr ""
+msgstr "Lipstik est un style KDE propre et rapide avec de nombreuses options pour personnaliser l'apparence de votre bureau."
 
 #: desktop/kde/knazar::description
 msgid "Knazar is an application specially designed to do nothing. KNazar to protect you and your Pardus Linux from harmfull looks."
-msgstr ""
+msgstr "Knazar est une application spécialement conçue pour ne rien faire. KNazar vous protège vous ainsi que votre Pardus Linux du mauvais oeil."
 
 #: desktop/kde/kaptan::description
 msgid "Pardus Kaptan lets you configure your desktop on first login"
-msgstr ""
+msgstr "Kaptan Pardus vous permet de configurer votre bureau lors de votre première connexion (login)."
 
 #: desktop/kde/nas::description
 msgid "The Network Audio System is a network transparent, client/server audio transport system. It can be described as the audio equivalent of an X server. It is support Lots of audio file and data formats."
-msgstr ""
+msgstr "Network Audio Système (Système Audio Réseau) est un système de transport audio client/serveur transparent pour le réseau. Il peut être décrit comme l'équivalent d'un serveur X pour audio. Il support un grand nombre de fichiers audio et de formats de données."
 
 #: desktop/kde/keep::description
 msgid "Keep is a simple backup system for KDE. It has a nice and simple interface and a very easy-to-use back-up principle."
-msgstr ""
+msgstr "Keep est un système de copie de sauvegarde pour KDE. Il dispose d'une interface graphique simple et belle ainsi qu'un système de sauvegarde très facile à utiliser."
 
 #: desktop/kde/kio-to-local::description
 msgid "This tool converts any Kio (KDE Input/Output Library) address to a local address."
-msgstr ""
+msgstr "Cet outil converti toute adresse Kio (KDE Input/Output Library - Librairie d'Entrée/Sortie KDE) en adresse locale."
 
 #: desktop/kde/katapult::description
 msgid "Katapult is an application designed to allow faster access to applications, bookmarks, and other items"
-msgstr ""
+msgstr "Katapult est une application conçue pour permettre d'accéder plus rapidement aux logiciels, aux favoris et autres items."
 
 #: desktop/kde/tuneroid::description
 msgid "tuneroid is a tuner for variety of musical instruments.It is designed to tune musical instruments on PC using a microphone or directly connecting the instrument to the PC's sound card."

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2007-03-20 23:54+0200\n"
+"PO-Revision-Date: 2007-03-24 01:52+0200\n"
 "Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
 "Language-Team: french <pardus-translators@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -384,271 +384,271 @@ msgstr "programme et utilitaires GNU info."
 
 #: system/base/ncompress::summary
 msgid "Another uncompressor for compatibility"
-msgstr "Un autre dé-compresseur pour compatibilité"
+msgstr "Un autre outil de décompression de données pour compatibilité"
 
 #: system/base/memtest86::description
 msgid "Memory tester for x86 and x86_64 devices for x86 and 64bit x86 compatible computers. It should be started from boot menu."
-msgstr ""
+msgstr "Testeur de mémoire pour architecture x86 et x86_64 pour ordinateurs x86 et 64 bit x86 compatibles. Il doit être lancer depuis le menu de démarrage."
 
 #: system/base/module-init-tools::description
 msgid "The module-init-tools are a set of programs for loading, inserting, and removing Kernel Modules for Linux (versions 2.5.48 and above).It serves the same function that the modutils package serves for Linux 2.4.They are necessary because starting with 2.5.51, modules are handled differently."
-msgstr ""
+msgstr "Le modules init-tools est un ensemble de programmes servant à charger, insérer et supprimer des modules du noyau dans Linux (pour les version 2.5.48 et ultérieures). Il a la même fonction que le paquet modutils pour Linux 2.4. Ces programmes sont obligatoires car à partir de la version 2.5.51 les modules sont gérés différemment."
 
 #: system/base/openssh::description
 msgid "OpenSSH is a FREE version of the SSH connectivity tools that technical users of the Internet rely on. Users of telnet, rlogin, and ftp may not realize that their password is transmitted across the Internet unencrypted, but it is. OpenSSH encrypts all traffic (including passwords) to effectively eliminate eavesdropping, connection hijacking, and other attacks."
-msgstr ""
+msgstr "OpenSSH est une version libre des outils de connexion SSH sur lesquels les utilisateurs techniquement chevronnés s'appuient. Les utilisateurs de telnet, rlogin et ftp ne se rendent peut être pas compte que les mots de passe sont transmis sur internet en clair. OpenSSH crypte tout le trafic (y compris les mots de passe) pour éliminer les écoutes passives, les détournements de connexion et autres attaques."
 
 #: system/base/flex::description
 msgid "Flex is a tool for generating scanners. A scanner, sometimes called a tokenizer, is a program which recognizes lexical patterns in text"
-msgstr ""
+msgstr "Flex est un outil de génération d'analyseur (scanner). Un analyseur (également appelé tokenizer en anglais) est un programme qui repère les motifs lexicaux (ou lexème) dans du texte. "
 
 #: system/base/libpcre::description
 msgid "The PCRE (Perl Compatible Regular Expressions) library is a set of functions that implement regular expression pattern matching using the same syntax and semantics as Perl 5."
-msgstr ""
+msgstr "La librairie PCRE (Expressions Régulières Compatible avec Perl) est un ensemble de fonctions implémentant la recherche de motifs de texte à l'aide d'expressions régulières utilisant la même syntaxe et la même sémantique que Perl5."
 
 #: system/base/pciutils::description
 msgid "The PCI Utilities are a collection of programs for inspecting and manipulating configuration of PCI devices."
-msgstr ""
+msgstr "Les utilitaires PCI sont une collection de programmes d'inspection et de manipulation de la configuration des périphériques PCI."
 
 #: system/base/baselayout::description
 msgid "This package creates the Pardus Linux main filesystem hierarchy."
-msgstr ""
+msgstr "Ce paquet crée la hiérarchie du système de fichier principal de Pardus Linux."
 
 #: system/base/attr::description
 msgid "These kernel patches enable extended attributes and access control list support to the nfs file system. It also contains a few patches for user tools."
-msgstr ""
+msgstr "Ces patches du noyau permettent d'avoir le support d'attributs étendus et des listes de contrôle d'accès pour les systèmes de fichier nfs. Il contient également quelques patches pour les outils utilisateurs."
 
 #: system/base/zip::description
 msgid "Zip is a compression and file packaging/archive utility. Zip is useful for packaging a set of files for distribution, for archiving files, and for saving disk space by temporarily compressing unused files or directories."
-msgstr ""
+msgstr "Zip est un outil de compression et d'archivage/packaging. Zip est utile pour distribuer un ensemble de fichier sous forme de paquets, et pour sauvegarder de l'espace disque en compressant temporairement les fichiers et répertoires inutilisés."
 
 #: system/base/grep::description
 msgid "The grep command searches one or more input files for lines containing a match to a specified pattern. By default, grep prints the matching lines."
-msgstr ""
+msgstr "La commande grep recherche dans un ou plusieurs fichiers les lignes correspondant à un motif défini. Par défaut grep affiche les lignes éligibles."
 
 #: system/base/man-pages::summary
 msgid "A somewhat comprehensive collection of Linux man pages"
-msgstr ""
+msgstr "Une collection de pages de manuel Linux compréhensibles d'une certaine manière."
 
 #: system/base/procps::description
 msgid "procps is the package that has a bunch of small useful utilities that give information about processes using the /proc filesystem. The package includes the programs ps, top, vmstat, w, kill, free, slabtop, and skill."
-msgstr ""
+msgstr "procps est un paquet regroupant une multitude de petits utilitaires utiles donnant des informations concernant les process en utilisant le système de fichier /proc. Le paquet inclus les programmes ps, top, vmstat, w, kill, free, slabtop et skill."
 
 #: system/base/ddcxinfos::description
 msgid "A program to probe DDC info of a monitor"
-msgstr ""
+msgstr "Un programme pour calculer l'information DDC d'un moniteur"
 
 #: system/base/readline::description
 msgid "The GNU Readline library provides a set of functions for use by applications that allow users to edit command lines as they are typed in. Both Emacs and vi editing modes are available. The Readline library includes additional functions to maintain a list of previously-entered command lines, to recall and perhaps reedit those lines, and perform csh-like history expansion on previous commands."
-msgstr ""
+msgstr "La librairie GNU Readline fourni un ensemble de fonctions utilisables par des applications permettant aux utilisateurs d'éditer les lignes de commandes en cours de frappe. Les modes d'éditions Emacs et vi sont disponibles. La librairie Readline inclus des fonctions supplémentaires de mémorisation de la liste de commandes entrées précédemment, afin de le rappeler et éventuellement les rééditer, ainsi que l'expansion d'historiques de commandes précédentes à la mode csh."
 
 #: system/base/unzip::description
 msgid "UnZip enables us to extract archives compressed in .zip format (also called \"zipfiles\")."
-msgstr ""
+msgstr "Unzip nous permet d'extraires des archives compressées aux format .zip (également appelées \"fichiers zip\")."
 
 #: system/base/man::description
 msgid "Man package consists of programs which is used to read most of the documentation available in linux system. For example, you can write \"man nameoftheprogram\" into the konsole or \"man:nameoftheprogram\" into the konqueror to get a detailed usage information for many programs."
-msgstr ""
+msgstr "Le paquet Man regroupe les programmes utilisés pour lire la plus grande partie de la documentation disponibles sur les systèmes linux. Vous pouvez par exemple taper \"man nomDuProgramme\" dans la konsole ou \"man:nomDuProgramme\" dans konqueror pour obtenir une information détaillé sur l'utilisation du programme et ce pour de nombreux logiciels."
 
 #: system/base/shadow:shadow:summary
 msgid "Utilities to deal with user accounts"
-msgstr ""
+msgstr "Utilitaires pour gérer les comptes utilisateurs"
 
 #: system/base/shadow::description
 msgid "The Shadow password file utilities package includes programs necessary to convert traditional V7 *NIX password files to the SVR4 shadow password format, and additional tools to maintain password and group files (that work with both shadow and non-shadow passwords)."
-msgstr ""
+msgstr "Le paquet des utilitaires pour le fichier de mot de passe Shadow regroupe les programmes nécessaires à convertir les fichiers de mots de passe traditionnels V7*NIX au format de mot passe shadow SVR4 ainsi que d'autres outils destinés à la gestion des fichiers des groupes et de mots de passe (qui fonctionnent aussi bien pour les mots de passe shadow que non-shadow)."
 
 #: system/base/zlib::summary
 msgid "Standard (de)compression library"
-msgstr ""
+msgstr "Librairie de compression/extraction standard"
 
 #: system/base/util-linux::summary
 msgid "Various useful Linux utilities"
-msgstr ""
+msgstr "Divers utilitaires Linux utiles."
 
 #: system/base/mkinitramfs::description
 msgid "A tool to create the initramfs imag"
-msgstr ""
+msgstr "Un outil pour créer les images initramfs"
 
 #: system/devel/automake1_8::description
 msgid "This package contains Automake 1.8, an older version of Automake. You should install it if you need to run automake in a project that has not yet been updated to work with newer versions of Automake."
-msgstr ""
+msgstr "Ce paquet contient une ancienne version d'Automake : Automake 1.8, Il est utile  si vous devez lancer automake pour un projet n'ayant pas encors été mis à jour pour fonctionner avec une version d'Automake plus récente."
 
 #: system/devel/dejagnu::summary
 msgid "Framework for testing other programs"
-msgstr ""
+msgstr "Cadre de développement (Framework) de test d'autres programmes."
 
 #: system/devel/ccache::description
 msgid "fast compiler cache"
-msgstr ""
+msgstr "Cache de Compilation rapide"
 
 #: system/devel/automake1_4::description
 msgid "This package contains Automake 1.4, an older version of Automake. You should install it if you need to run automake in a project that has not yet been updated to work with newer versions of Automake"
-msgstr ""
+msgstr "Ce paquet contient une ancienne version d'Automake : Automake 1.4, Il est utile  si vous devez lancer automake pour un projet n'ayant pas encors été mis à jour pour fonctionner avec une version d'Automake plus récente."
 
 #: system/devel/icecream::description
 msgid "Icecream is a program for distributed compiling of C/C++ code across several machines based on ideas and code by distcc."
-msgstr ""
+msgstr "Icecream est un programme de compilation de code C/C++ distribuée sur plusieurs machines basé sur le code et les idées directrices de distcc."
 
 #: system/devel/apr-util1::description
 msgid "Apache portable runtime utils (APR-Util) contains additional utility interfaces for APR; including support for XML, LDAP, database interfaces, URI parsing and more."
-msgstr ""
+msgstr "Les utilitaires d'exécution Apache portables (APR-Util) contiennent des interfaces supplémentaires pour APR, incluant le support d'XML, LDAP, des interfaces aux bases de données, analyse d'URI et plus encore."
 
 #: system/devel/nasm::description
 msgid "NASM is the Netwide Assembler, a free portable assembler for the Intel 80x86 microprocessor series"
-msgstr ""
+msgstr "NASM est l'assembleur Netwide, un assembleur libre et portable pour les processeurs des séries Intel 80x86 "
 
 #: system/devel/make::description
 msgid "Standard tool to compile source trees. Make gets its knowledge of how to build your program from a file called the makefile. When you write a program, you should write a makefile for it, so that it is possible to use Make to build and install the program"
-msgstr ""
+msgstr "Outil standard de compilation de hiérarchie de sources. Make détermine ce qu'il faut faire pour construire votre programme à partir d'un fichier appelé makefile. Une fois votre programme écrit, il suffit d'éditer un makefile pour lui afin de pouvoir utiliser Make pour le compiler et l'installer."
 
 #: system/devel/apr1::description
 msgid "The mission of the Apache portable runtime (APR) is to provide a free library of C data structures and routines. The major number of the version starts with 1."
-msgstr ""
+msgstr "L'Apache Portable Runtime (APR) a pour mission de fournir une librairie libre C de structures de donnés et de routines. Le numéro de version majeur commence par un 1."
 
 #: system/devel/patch::description
 msgid "Takes a patch file generated by diff command, and applies it to the original files, thus producing patched files."
-msgstr ""
+msgstr "Permet d'appliquer un patch générer par la commande diff aux fichiers originels, obtenant ainsi les fichiers patchés."
 
 #: system/devel/automake1_9::description
 msgid "Automake is a tool for automatically generating Makefiles compliant with the GNU Coding Standards. you will also need to install GNU's Autoconf package"
-msgstr ""
+msgstr "Automake est un outil de génération automatique de Makefiles compatibles avec les standards de Codage GNU. Vous aurez également besoin d'installer le paquet GNU AutoConf"
 
 #: system/devel/libtool::description
 msgid "Libtool is a shared library tool for developers."
-msgstr ""
+msgstr "Libtool est une librairie utilitaire partagée pour développeurs."
 
 #: system/devel/gcc:libgcc:description
 msgid "Contains a shared library of support routines used by GCC's runtime, and thus by every program on the system"
-msgstr ""
+msgstr "Contient une librairie partagée de routines de support utilisées par GCC à l'exécution, et donc par tous les systèmes présents sur le système"
 
 #: system/devel/gcc::description
 msgid "The GNU Compiler Collection includes front ends for C, C++, Objective-C, Fortran, Java, and Ada, as well as libraries for these languages (libstdc++, libgcj,...)"
-msgstr ""
+msgstr "La collection de compilateurs GNU inclus des façades pour le C, C++, Objective-C, Fortran, hava et Ada ainsi que des librairies pour ces langages (libstdc++, libgcj...)"
 
 #: system/devel/bison::description
 msgid "A yacc-compatible parser generator. Once you are proficient with Bison, you can use it to develop a wide range of language parsers, from those used in simple desk calculators to complex programming languages"
-msgstr ""
+msgstr "Un générateur d'analyseur syntaxique compatible avec yacc. Une fois que vous maîtrisez Bison, vous pouvez l'utiliser pour développer des analyseur léxicaux pour un grand nombres de langages, de ceux qui sont utilisés dans les simples calculatrices de bureau aux complexes langages de programmation."
 
 #: system/devel/expect::summary
 msgid "Tool for automating interactive applications"
-msgstr ""
+msgstr "Outil pour automatiser les applications interactives"
 
 #: system/devel/unifdef::description
 msgid "The unifdef utility selectively processes conditional cpp(1) directives. It removes from a file both the directives and any additional text that they specify should be removed, while otherwise leaving the file alone."
-msgstr ""
+msgstr "L'utilitaire unifdef traite sélectivement les directives conditionnelles cpp(1). Il supprime d'un fichier les directives ainsi que le texte additionnel qu'elles indiquent comme à supprimer tout en laissant le reste du fichier intact."
 
 #: system/devel/m4::description
 msgid "The m4 utility is a macro processor that shall read one or more text files, process them according to their included macro statements, and write the results to standard output"
-msgstr ""
+msgstr "L'utilitaire m4 est processeur de macro permettant de lire un ou plusieurs fichiers, les traiter en fonction leurs directives macro puis écrire le résultat dans la sortie standard."
 
 #: system/devel/autoconf-wrapper::description
 msgid "wrapper for autoconf to manage multiple autoconf versions"
-msgstr ""
+msgstr "enrobe autoconf pour gérer des versions multiples du paquet."
 
 #: system/devel/automake1_5::description
 msgid "This package contains Automake 1.5, an older version of Automake. You should install it if you need to run automake in a project that has not yet been updated to work with newer versions of Automake."
-msgstr ""
+msgstr "Ce paquet contient une ancienne version d'Automake : Automake 1.5, Il est utile  si vous devez lancer automake pour un projet n'ayant pas encors été mis à jour pour fonctionner avec une version d'Automake plus récente."
 
 #: system/devel/automake-wrapper::description
 msgid "A wrapper for automake to manage multiple automake versions."
-msgstr ""
+msgstr "Enrobe automaque pour gérer des versions multiple du paquet."
 
 #: system/devel/gnuconfig::description
 msgid "Updated config.sub and config.guess file from GNU"
-msgstr ""
+msgstr "fichiers GNU config.sub et config.guess mis à jour."
 
 #: system/devel/autoconf2_13::description
 msgid "Used to create autoconfiguration files, Autoconf is an extensible package of m4 macros that produce shell scripts to automatically configure software source code packages."
-msgstr ""
+msgstr "Utilisé pour créer des fichiers d'autoconfiguration. Autoconf est un paquet extensible de macros m4 pour produire les scripts pour l'interpréteur de commande servant à configurer automatiquement les paquets de code source de logiciels."
 
 #: system/devel/swig::description
 msgid "Simplified Wrapper and Interface Generator, SWIG is a software development tool that connects programs written in C and C++ with a variety of high-level programming languages. SWIG is used with different types of languages including common scripting languages such as Perl, PHP, Python, Tcl, Ruby and PHP"
-msgstr ""
+msgstr "Simplified Wrapper and Interface Generator (Générateur d'interface de scripts d'enrobage simplifié), SWIG est un outil de développement qui connecte des programmes écrits en C et C++ avec divers langages de programmation de haut niveau. SWIG est utilisé avec différents type de langages incluant les langages de script habituels tels que Perl, PHP, Python, Tcl, Ruby."
 
 #: system/devel/subversion::description
 msgid "SVN is a version controlling system to store files and control their change history in a repository."
-msgstr ""
+msgstr "SVN est un gestionnaire de configuration permettant de stocker des fichiers et de contrôler leur historique de changement dans un dépôt."
 
 #: system/devel/yacc::description
 msgid "Yacc provides a general tool for describing the input to a computer program. The Yacc user specifies the structures of his input, together with code to be invoked as each such structure is recognized. Yacc turns such a specification into a subroutine that handles the input process"
-msgstr ""
+msgstr "Yacc fourni un outil général de description d'entrée pour un logiciel. L'utilisateur de Yacc spécifie la structure de l'entrée avec le code à invoquer lorsque de tels structures sont reconnues. Yacc transforme ce qui a été spécifié en sous-routine gérant le processus d'entrée."
 
 #: system/devel/binutils::description
 msgid "Contains commands like as, ld, nm, objdump, ar, ranlib for compiling assembly code to the machine language, and for linking and manipulating the binary object files."
-msgstr ""
+msgstr "Contient des commandes telles que as, ld, nm, objdump, ar, ranlib pour compiler du code assembleur en langage machine ainsi que pour chaîner (link) et manipuler les fichiers binaires objets."
 
 #: system/devel/cmake::description
 msgid "CMake, the cross-platform, open-source make system. CMake is used to control the software compilation process using simple platform and compiler independent configuration files. CMake generates native makefiles and workspaces that can be used in the compiler environment of your choice."
-msgstr ""
+msgstr "CMake, système make open-source et multi-plateforme. CMake est utilisé pour contrôler le processus de compilation de logiciel en utilisant une plate-forme de fichiers de configuration simple et indépendante de compilateur. CMake génère des makefiles et un environnement de travail natifs pouvant être utilisés dans l'environnement du compilateur de votre choix."
 
 #: system/devel/pkgconfig::description
 msgid "Package Config system that manages compile/link flags for libraries. It helps you insert the correct compiler options on the command line"
-msgstr ""
+msgstr "Paquet de configuration système qui gère les fanions (flags) de compilation et chaînage (link) pour les librairies. Il aide à insérer les options adéquates dans la ligne de commande d'appel au compilateur."
 
 #: system/devel/automake1_6::description
 msgid "This package contains Automake 1.6, an older version of Automake. You should install it if you need to run automake in a project that has not yet been updated to work with newer versions of Automake."
-msgstr ""
+msgstr "Ce paquet contient une ancienne version d'Automake : Automake 1.6, Il est utile  si vous devez lancer automake pour un projet n'ayant pas encors été mis à jour pour fonctionner avec une version d'Automake plus récente."
 
 #: system/devel/intltool::description
 msgid "Scripts for extracting translatable strings from various sourcefiles."
-msgstr ""
+msgstr "Scripts d'extraction depuis divers fichiers sources de chaînes traduisibles."
 
 #: system/devel/autoconf2_59::description
 msgid "Used to create autoconfiguration files, Autoconf is an extensible package of m4 macros that produce shell scripts to automatically configure software source code packages. Its version number is 2.59."
-msgstr ""
+msgstr "Utilisé pour créer des fichiers d'autoconfiguration. Autoconf est un paquet extensible de macros m4 pour produire les scripts pour l'interpréteur de commande servant à configurer automatiquement les paquets de code source de logiciels. Le numéro de version est 2.59."
 
 #: system/devel/scons::description
 msgid "Extensible python-based build utility. Think of SCons as an improved, cross-platform substitute for the classic Make utility with integrated functionality similar to autoconf/automake and compiler caches such as ccache"
-msgstr ""
+msgstr "Utilitaire extensible écrit en python. On peut considérer SCons comme un substitut amélioré multi-plateforme de Make intégrant des fonctionnalités similaires à celles d'autoconf/automake et un gestionnaire de cache de compilateur tel ccache."
 
 #: system/devel/apr-util::description
 msgid "Apache portable runtime utils (APR-Util) contains additional utility interfaces for APR; including support for XML, LDAP, database interfaces, URI parsing and more. The major number of the version starts with 0"
-msgstr ""
+msgstr "L'Apache Portable Runtime Utils (APR-Utils) contient des interfaces utilitaires supplémentaires pour APR fournissant un support pour, XML, LDAP,des interfaces pour les bases de données, d'analyse d'URI, et plus encore. La numéro de version majeur commence par un 1."
 
 #: system/devel/apr::description
 msgid "The mission of the Apache portable runtime (APR) is to provide a free library of C data structures and routines. The major number of the version starts with 0."
-msgstr ""
+msgstr "L'Apache Portable Runtime (APR) a pour mission de fournir une librairie libre C de structures de donnés et de routines. Le numéro de version majeur commence par un 0."
 
 #: system/devel/automake1_7::description
 msgid "This package contains Automake 1.7, an older version of Automake. You should install it if you need to run automake in a project that has not yet been updated to work with newer versions of Automake."
-msgstr ""
+msgstr "Ce paquet contient une ancienne version d'Automake : Automake 1.7, Il est utile  si vous devez lancer automake pour un projet n'ayant pas encors été mis à jour pour fonctionner avec une version d'Automake plus récente."
 
 #: system/yali::description
 msgid "YALI: Yet Another Linux Installer."
-msgstr ""
+msgstr "YALI: Yet Another Linux Installer (encore un nouvel installateur Linux)."
 
 #: kernel/kernel:kernel-source:summary
 msgid "Pardus Linux kernel source"
-msgstr ""
+msgstr "Source du noyau Pardus Linux."
 
 #: kernel/kernel:kernel-headers:summary
 msgid "Pardus Linux kernel headers"
-msgstr ""
+msgstr "Fichiers d'entête du noyau Linux Pardus."
 
 #: kernel/kernel::summary
 msgid "Uniprocessor Linux kernel for Pardus Linux"
-msgstr ""
+msgstr "Noyau Linux Pardus pour machine monoprocesseur."
 
 #: kernel/kernel-debug:kernel-debug-source:description
 msgid "Debug enabled Pardus Linux kernel source"
-msgstr ""
+msgstr "Noyau Linux Pardus contenant les informations de déverminage."
 
 #: kernel/kernel-debug::summary
 msgid "Debug enabled Uniprocessor Linux kernel for Pardus Linux"
-msgstr ""
+msgstr "Noyau Linux Pardus pour machine monoprocesseur contenant les information de déverminage."
 
 #: kernel/drivers/lirc::summary
 msgid "LIRC is a package that allows you to decode and send infra-red signals of many (but not all) commonly used remote controls."
-msgstr ""
+msgstr "LIRC est un paquet permettant de décoder et d'envoyer des signaux par infrarouges pour de nombreuses télécommandes usuelles (mais pas toutes)."
 
 #: kernel/drivers/ipw3945::summary
 msgid "Driver for Intel IPW3945 wireless network chips"
-msgstr ""
+msgstr "Pilote pour les puces réseau sans-fil Intel IPW3945."
 
 #: kernel/drivers/rt73::description
 msgid "Driver for the RaLink RT2700 (RT73) wireless chipset"
-msgstr ""
+msgstr "Pilote pour le chipset sans-fil RaLink RT2700 (RT73)."
 
 #: kernel/drivers/acx100::summary
 msgid "Driver for Texas Instruments ACX100/ACX111 wireless network chips"

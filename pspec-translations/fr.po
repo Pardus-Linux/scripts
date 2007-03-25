@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2007-03-24 23:01+0200\n"
+"PO-Revision-Date: 2007-03-25 23:10+0300\n"
 "Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
 "Language-Team: french <pardus-translators@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -1336,7 +1336,7 @@ msgstr "RKWard essaie de fournir une manière facile et extensible d'utiliser un
 
 #: desktop/kde/PyKDEeXtensions::description
 msgid "PyKDE is a set of Python bindings for the KDE desktop environment. With these bindings you can use the KDE libraries in your Python programs."
-msgstr "PyKDE est un ensemble de bindings (liens) Pythons pour l'environnement de bureau KDE. Avec ces bindings, vous pouvez utiliser les librairies KDE dans vos programmes Python."
+msgstr "PyKDE est un ensemble de bindings (liens) Python avec l'environnement de bureau KDE. Avec ces bindings, vous pouvez utiliser les librairies KDE dans vos programmes Python."
 
 #: desktop/kde/firewall-config::description
 msgid "Firewall configuration interface for Pardus Linux"
@@ -1436,219 +1436,219 @@ msgstr "Katapult est une application conçue pour permettre d'accéder plus rapi
 
 #: desktop/kde/tuneroid::description
 msgid "tuneroid is a tuner for variety of musical instruments.It is designed to tune musical instruments on PC using a microphone or directly connecting the instrument to the PC's sound card."
-msgstr ""
+msgstr "tuneroid est un tuner (accordeur) pour un grand nombre d'instrument de musique. Il est conçu pour accorder des instruments de musique sur PC en utilisant un microphone ou en connectant directement l'instrument sur la carte son du PC."
 
 #: desktop/kde/tasma::description
 msgid "TASMA is a graphical configuration interface that you can edit the pardus system by requirements, manage and show the modules."
-msgstr ""
+msgstr "TASMA est une interface graphique de configuration vous permettant d'éditer le système Pardus par pré-requis, gérer et montrer les modules."
 
 #: desktop/kde/feedback::description
 msgid "A tool for sending your messages to Pardus developers"
-msgstr ""
+msgstr "Un outil pour envoyer des messages à l'équipe de développement de Pardus."
 
 #: desktop/kde/aspell::description
 msgid "The program that you can also easily check documents in UTF-8 without having to use a special dictionary."
-msgstr ""
+msgstr "Ce programme rend possible de vérifier facilement les documents en UTF-8 sans avoir à utiliser un dictionnaire spécial."
 
 #: desktop/kde/kftpgrabber::description
 msgid "KFTPgrabber is a graphical FTP client for the K Desktop Environment. It implements many features required for usable FTP interaction."
-msgstr ""
+msgstr "KFTPgrabber est un client FTP graphique pour le K Desktop Environment (Environnement de Bureautique K). Il implémente de nombreuses fonctionnalités requises pour une interaction FTP utilisable."
 
 #: desktop/kde/rsibreak::description
 msgid "A small utility which bothers you at certain intervals. The interval and duration can be configured. You can use the breaks to stretch out or do the dishes. Future versions will include animated examples of simple excersises you can do during the breaks."
-msgstr ""
+msgstr "Un petit utilitaire qui vous embêtera à intervals réguliers. Les intervals ainsi que les durées sont configurables. Vous pouvez utiliser les pauses pour vous étirer ou pour aller faire la vaisselle. Les versions à venir incluront des exemples animés d'exercices simples que vous pouvez faire pendant les pauses."
 
 #: desktop/kde/ipodslave::description
 msgid "This ioslave enables KIO aware apps like Konqueror or Amarok to access the Music stored on an Apple iPod. It further allows you to organize playlists."
-msgstr ""
+msgstr "Ce ioslave (Esclave d'entrée/sortie) permet les applications gérant KIO comme Konqueror ou Amarok d'accéder à la musique stockée dans un iPod d'Apple. Il vous permet également de gérer vos listes de lecture."
 
 #: desktop/kde/digikam::description
 msgid "DigiKam is an advanced digital photo management application for KDE, which makes importing and organizing digital photos a \"snap\". The photos can be organized in albums which can be sorted chronologically, by directory layout or by custom collections."
-msgstr ""
+msgstr "DigiKam est un gestionnaire avancé de photos digitales pour KDE. Il permet d'importer et d'organiser les photos digitales en un clin d'oeil. Les photos peuvent être organisées dans des albums pouvant être classés chronologiquement, par disposition des répertoires ou par des collections personnalisées."
 
 #: desktop/kde/kaffeine::description
 msgid "Kaffeine is a full featured Multimedia-Player for KDE using xine as backend"
-msgstr ""
+msgstr "Kaffeine est un Lecteur Multimédia complet pour KDE utilisant xine en arrière plan."
 
 #: desktop/kde/krename::description
 msgid "KRename is a powerful batch renamer for KDE. It allows you to easily rename hundreds or even more files in one go. The filenames can be created by parts of the original filename, numbering the files or accessing hundreds of informations about the file, like creation date or Exif informations of an image."
-msgstr ""
+msgstr "KRename est un puissant outil KDE permettant de renommer en série. Il vous permet de renommer facilement des centaines de fichiers voire même plus en une seule fois. Les noms de fichiers peuvent être générés à partir des noms d'origines, en numérotant les fichier ou en accédant à des centaines de données concernant le fichier renommé, tels que la date de création ou l'information Exif d'une image."
 
 #: desktop/kde/ksynaptics::description
 msgid "KSynaptics is a control center module that enables users to take full advantage of their mobiles' synaptics touch pad."
-msgstr ""
+msgstr "KSynaptics est un module du centre de contrôle permettant aux utilisateurs de profiter pleinement des pavés tactiles de leur ordinateur portable."
 
 #: desktop/kde/kshutdown::description
 msgid "An advanced shut down utility for KDE"
-msgstr ""
+msgstr "Un utilitaire avancé d'extinction pour KDE."
 
 #: desktop/kde/service-manager::description
 msgid "Service manager is used to administer the services running on Pardus"
-msgstr ""
+msgstr "Le gestionnaire de Service est utilisé pour administrer les services lancés dans Pardus."
 
 #: desktop/kde/ksystemlog::description
 msgid "KSystemLog is a system log viewer tool for KDE. It is useful for finding information about your system and viewing logfiles quickly and easily. You can view system logs, X logs, kernel logs, boot logs, authentication logs, cups, postfix, apache and samba logs and more."
-msgstr ""
+msgstr "KSystemLog est un lecteur de traces (log) système pour KDE. Il est très utile pour trouver des informations concernant votre système et parcourir rapidement et facilement les fichiers de traces. Vous pouvez l'utiliser pour les traces système, les traces liées au serveur X, les traces du noyau, les traces de démarrage, les traces d'authentifications, les traces cups, postfix, apache, samba et bien d'autres encore."
 
 #: desktop/kde/tulliana2::description
 msgid "Pardus's default icon theme which developed for Pardus 2007"
-msgstr ""
+msgstr "Thème d'icônes par défaut de Pardus qui fût développé pour Pardus 2007."
 
 #: desktop/kde/digikamimageplugins::summary
 msgid "Image editing plugins for Digikam"
-msgstr ""
+msgstr "Plugin (greffon) d'édition d'image pour Digikam."
 
 #: desktop/kde/disk-manager::description
 msgid "Disk manager is used to administer disks on Pardus"
-msgstr ""
+msgstr "Le gestionnaire de disque dur est utile pour administrer les disques sur Pardus."
 
 #: desktop/kde/yakuake::description
 msgid "YaKuake is a KDE terminal emulator."
-msgstr ""
+msgstr "YaKuake est un émulateur de terminal pour KDE."
 
 #: desktop/kde/koffice::description
 msgid "KOffice is a free, integrated office suite for KDE. The application suite consists of a word-processor, spread-sheet, presentation application, organizer and more."
-msgstr ""
+msgstr "KOffice est une suite bureautique intégrée et libre pour KDE. Cette suite d'applications consiste en un éditeur de texte, un tableur, une application de présentation, un emploi du temps et plus encore."
 
 #: desktop/kde/package-manager::description
 msgid "PiSi graphical user interface that makes it possible to do the PiSi's package installation, removal and upgrade operations from a graphical environment."
-msgstr ""
+msgstr "PiSi est une interface graphique permettant d'effectuer l'installation, la suppression et la mise à jour de paquet PiSi depuis un environnement graphique."
 
 #: desktop/kde/kpogre::summary
 msgid "Graphical administration tool for PostgreSQL database system for KDE"
-msgstr ""
+msgstr "Outil KDE graphique d'administration de systèmes de gestion de base de données PostgreSQL."
 
 #: desktop/kde/knetstats::description
 msgid "KNetStats is a simple KDE network monitor that shows rx/tx LEDs or numeric information about the transfer rate of any network interface in a system tray icon. It allows you to see network activity, transfer rate, speed chart, IP address, MAC address, etc of any network interface and see simple statistics like packets and bytes recieved and transmitted. It has support for multiple network interfaces."
-msgstr ""
+msgstr "KNetStats est un surveillant réseau simple pour KDE montrant les DELs rx/tx ou des informations numériques à propos du taux de transfert des interfaces réseau dans la boîte à icônes. il permet de voir l'activité réseau, les taux de transfert, des diagrammes d'évolution de la vitesse, l'adresse IP, l'adresse MAC, et ainsi de suite pour chacune des interfaces réseau. Il supporte de multiples interfaces réseaux et permet de voir des statistiques simples telles le nombre de paquets et d'octets reçus et transmis."
 
 #: desktop/kde/metamonitor::description
 msgid "MetaMonitor is a simple program written for KDE, which watches the syslog's or metalog's log file and pops up the window whenever the new message comes. You can specify the file to watch and a regular expression for parsing the log line, so you can watch other than log files too."
-msgstr ""
+msgstr "MetaMonitor est un programme simple écrit pour KDE qui surveille les traces systèmes ou les traces des méta-traces et affiche une fenêtre à l'écran pour signifier l'arrivée d'un nouveau message. Vous pouvez spécifier le fichier à surveiller ainsi qu'une expression régulière pour l'analyse de la ligne de trace. Ainsi vous pouvez vous en servir pour surveiller d'autres types de fichier."
 
 #: desktop/kde/aspell-nl::description
 msgid "You can do spell-checking in Dutch using Aspell program with this dictionary."
-msgstr ""
+msgstr "Vous pouvez faire de la vérification orthographique en néerlandais à l'aide du programme Aspell en utilisant ce dictionnaire."
 
 #: desktop/kde/PyQt::description
 msgid "PyQt contains the Python bindings to the Qt C++ GUI toolkit. You can easily create complex multi platform GUI programs using RAD technologies. PyQt supports Linux and various flavours of Unix, MacOS X and Windows."
-msgstr ""
+msgstr "PyQt contient les bindings (liens) Python avec la boîte à outil d'IHM C++ Qt. Vous pouvez facilement construire des programmes complexes multi-plateformes dotées d'IHM en utilisant les technologies RAD. PyQt est disponible sur Linux, de nombreuses diversités d'Unix, MacOS X et Windows."
 
 #: desktop/kde/libkipi::description
 msgid "Its aim is to share image plugins among graphic applications."
-msgstr ""
+msgstr "Son objectif est de partager des plugins (greffons) graphiques au sein d'applications graphiques."
 
 #: desktop/kde/freetts::description
 msgid "FreeTTS is a speech synthesis program written completely in the Java programming language. It supports male and female voices in US English and allows you to import FastVox and MBROLA voices."
-msgstr ""
+msgstr "FreeTTS est un programme de synthèse vocale entièrement écrit dans le langage de programmation Java. Il fournit des vois masculines et féminines en Anglais US et permet d'importer des voix de FastVox et MBROLA."
 
 #: desktop/kde/libkexif::description
 msgid "A KDE library for loss-less EXIF operations"
-msgstr ""
+msgstr "Une librairie KDE pour des opérations EXIF sans perte."
 
 #: desktop/kde/kradio::description
 msgid "Radio application with features like remote control, MP3/OGG recording and station search"
-msgstr ""
+msgstr "Une application radio avec des fonctionnalités telles que la télécommande, l'enregistrement en MP3/OGG ainsi que la recherche de stations."
 
 #: desktop/kde/sip::description
 msgid "SIP is a tool for generating bindings for C and C++ libraries so that they can be used by Python. It takes any C or C++ libraries and converts them into Python extension modules."
-msgstr ""
+msgstr "SIP est un outil de génération de bindings (liens) pour librairies C et C++ afin de les rendre utilisables depuis Python. Il prend n'importe quelle librairie C ou C++ et la convertit en module d'extension Python."
 
 #: desktop/kde/kompose::description
 msgid "Kompose offers a great new way to manage a big number of windows on different Virtual Desktops. It creates a fullscreen view where every window is represented by a scaled screenshot of its own."
-msgstr ""
+msgstr "Kompose offre une nouvelle manière géniale de gérer un grand nombre de fenêtres situées dans différents bureaux virtuels. Il crée une vue plein écran où chacune des fenêtres est représentée par une copie d'écran à l'echelle."
 
 #: desktop/kde/nuvola::description
 msgid "NUVOLA is an SVG based icon theme.  This mean that all icons where designed with a vector graphics software and then exported to SVG."
-msgstr ""
+msgstr "NUVOLA est un thème d'icônes basé sur SVG. Cela signifie que toutes les icônes furent conçues à l'aide d'un logiciel de dessin vectoriel puis exportées au format SVG."
 
 #: desktop/kde/qca-tls::description
 msgid "QCA-TLS is a plugin to provide SSL/TLS capability to programs that utilize the Qt Cryptographic Architecture (QCA)."
-msgstr ""
+msgstr "QCA-TLS est un plugin (greffon) fournissant les capacités SSL/TLS aux programmes utilisant l'Architecture Cryptographique Qt (QCA)."
 
 #: desktop/kde/PyKDE::description
 msgid "PyKDE is a set of Python bindings for the KDE desktop environment."
-msgstr ""
+msgstr "PyKDE est un ensemble de bindings (liens) Python avec l'environnement de bureau KDE."
 
 #: desktop/kde/musicbrainz::description
 msgid "MusicBrainz is a project that aims to create an open content music encyclopedia. It is an online database of information about recorded music. MusicBrainz client library captures information about artists, the album title, track titles,the length of each track and many more."
-msgstr ""
+msgstr "MusicBrainz est un projet tentant de créer une encyclopédie de musique au contenu ouvert. C'est une base de données en ligne contenant des informations concernant les musiques enregistrées. La librairie client MusicBrainz capture les informations concernant les artistes, le nom de l'album, les titres des chansons, leur longueur et beaucoup d'autres données encore."
 
 #: desktop/kde/smb4k::description
 msgid "Smb4k is a graphical bowser for SMB/CIFS shares in KDE."
-msgstr ""
+msgstr "Smb4k est un navigateur graphique KDE de partages SMB/CIFS."
 
 #: desktop/kde/plastique::description
 msgid "Polymer (formerly known as Plastique) is a port of KDE style Plastik, which does not depend on any KDE libraries. It makes your QT applications look as if you had KDE installed."
-msgstr ""
+msgstr "Polymer (précédemment connu sous le nom de Plastique) est un port du style KDE Plastik qui ne dépend d'aucune des librairies KDE. Il donne à vos applications Qt une apparence similaire à celle qu'elle aurait avec KDE installé."
 
 #: desktop/kde/crystal::description
 msgid "KDE native window decoration with transparent titlebar, buttons and borders"
-msgstr ""
+msgstr "Décoration KDE native des fenêtres avec barres de titres, bouton et bords transparents."
 
 #: desktop/kde/apollon::description
 msgid "Apollon is a peer-to-peer file-sharing program using the GiFT core. You can connect to OpenFT, Gnutella, FastTrack networks and plugins for SoulSeek and OpenNap are about to come. It can connect to, search and download from multiple networks at the same time."
-msgstr ""
+msgstr "Apollon est un programme de partage de fichier pair-à-pair (peer-to-peer) utilisant GIFT core. Vous pouvez vous connecter aux réseaux OpenFT, Gnutella, FastTrack et des plugins (greffons) pour SoulSeek et OpenNap sont imminents. Il permet de se connecter, rechercher et télécharger depuis de nombreux réseaux à la fois."
 
 #: desktop/gnome/libxslt::description
 msgid "Libxslt is the XSLT C library developed for the GNOME project. XSLT itself is a an XML language to define transformation for XML."
-msgstr ""
+msgstr "Libxslt est la librairie XSLT C développée pour le projet GNOME. XSLT étant lui-même un langage XML permettant de définir une transformation de contenu XML."
 
 #: desktop/gnome/vte::summary
 msgid "Xft powered terminal widget"
-msgstr ""
+msgstr "Widget terminal utilisant Xft."
 
 #: desktop/gnome/gst-plugins-good::summary
 msgid "A set of good-quality plug-ins under gstreamer's preferred license"
-msgstr ""
+msgstr "Ensemble de plug-ins (greffons) de bonne qualité sous la licence préférée de gstreamer."
 
 #: desktop/gnome/cairo::summary
 msgid "Cairo is a 2D graphics library with support for multiple output devices."
-msgstr ""
+msgstr "Cairo est une librairie graphique 2D supportant de nombreux périphériques de sortie."
 
 #: desktop/gnome/gimp:gimp-devel:summary
 msgid "Development header and documents for GIMP"
-msgstr ""
+msgstr "Documents et entêtes de développement pour GIMP."
 
 #: desktop/gnome/gimp:gimp-i18n:summary
 msgid "GIMP translations for languages other than English and Turkish"
-msgstr ""
+msgstr "Traduction pour GIMP pour les langues autres que le turc et l'anglais."
 
 #: desktop/gnome/gimp::description
 msgid "GNU Image Manipulation Program"
-msgstr ""
+msgstr "Programme de Manipulation d'Image GNU."
 
 #: desktop/gnome/libwnck::description
 msgid "This package contains the static libraries and header files needed for developing applications using libwnck."
-msgstr ""
+msgstr "Ce paquet contient les librairies statiques et les fichier d'entête nécessaires pour développer des applications utilisant libwnck."
 
 #: desktop/gnome/glibmm::description
 msgid "Glibmm is the official C++ interface for the popular GUI library GTK+. Highlights include typesafe callbacks, and a comprehensive set of widgets that are easily extensible via inheritance."
-msgstr ""
+msgstr "Glibmm est l'interface officielle C++ pour la librairie IHM populaire GTK+. Au menu des callbacks (rappels) typesafe (avec vérification de type à la compilation) ainsi qu'un ensemble large et complet de widgets (objets graphiques) facilement extensible via héritage."
 
 #: desktop/gnome/atk::description
 msgid "These libraries provide tools for making software for people with disabilities."
-msgstr ""
+msgstr "Ces librairies fournissent des outils pour faire des logiciels pour personnes handicapées."
 
 #: desktop/gnome/cairomm::summary
 msgid "C++ binding for Cairo"
-msgstr ""
+msgstr "Bindings (liens) C++ pour Cairo."
 
 #: desktop/gnome/libsvg-cairo::description
 msgid "libsvg-cairo provides the ability to render SVG content from files or buffers. All rendering is performed using the cairo rendering library."
-msgstr ""
+msgstr "libsvg-cairo fournit la possibilité d afficher le contenu SVG de fichiers ou de buffers (tampons). Tout le rendu est réalisé en utilisant la librairie de rendu cairo."
 
 #: desktop/gnome/librsvg::description
 msgid "librsvg is a component used within software applications to enable support for SVG-format scalable graphics."
-msgstr ""
+msgstr "librsvg est un composant utilisé au sein de logiciels pour gérer les graphismes vectoriels au format SVG."
 
 #: desktop/gnome/pycairo::summary
 msgid "Python wrapper for cairo vector graphics library"
-msgstr ""
+msgstr "wrapper (version enrobée) Python de la librairie de graphisme vectoriel cairo."
 
 #: desktop/gnome/gst-plugins-base::description
 msgid "GStreamer Base Plug-ins is a well-groomed and well-maintained collection of GStreamer plug-ins and elements, spanning the range of possible types of elements one would want to write for GStreamer. It also contains helper libraries and base classes useful for writing elements. A wide range of video and audio decoders, encoders, and filters are included."
-msgstr ""
+msgstr "Les plug-ins (greffons) de base GStreamer est une collection bien peaufinée et bien maintenues de plug-ins et d'éléments GStreamer, couvrant l'éventail des types d'éléments que quelqu'un pourrait vouloir écrire pour GStreamer. Il contient également des librairies d'aide ainsi que les classes de bases utiles pour l'écriture d'éléments. Un grand nombre de décodeurs, d'encodeurs et de filtres audio et vidéos sont également inclus."
 
 #: desktop/gnome/gst-plugins-ugly::description
 msgid "GStreamer Ugly Plug-ins is a set of plug-ins that have good quality and correct functionality, but distributing them might pose problems. The license on either the plug-ins or the supporting libraries might not be how we'd like. The code might be widely known to present patent problems."

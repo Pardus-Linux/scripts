@@ -4,6 +4,5 @@
 
 for i in tr de nl es pt_BR fr it ca
 do
-./pspec2po.py import ../../../../pardus/devel $i $i.po
+./pspec2po.py update ../../../../pardus/devel $i $i.po
 done
-=

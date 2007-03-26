@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2007-03-25 23:10+0300\n"
+"PO-Revision-Date: 2007-03-26 23:26+0200\n"
 "Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
 "Language-Team: french <pardus-translators@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -1652,115 +1652,115 @@ msgstr "Les plug-ins (greffons) de base GStreamer est une collection bien peaufi
 
 #: desktop/gnome/gst-plugins-ugly::description
 msgid "GStreamer Ugly Plug-ins is a set of plug-ins that have good quality and correct functionality, but distributing them might pose problems. The license on either the plug-ins or the supporting libraries might not be how we'd like. The code might be widely known to present patent problems."
-msgstr ""
+msgstr "les Plug-ins (greffons) Ugly (horribles) de GStreamer est un ensemble de plug-ins de bonne qualité et fonctionnant correctement, mais dont la distribution pose problème. La licence du plug-in ou de librairies nécessaires au plug-in n'est pas forcément tel que  l'on aimerait qu'elle soit. Le code peut également être notoirement connu pour présenter un problème patent."
 
 #: desktop/gnome/libglade2::description
 msgid "Libglade is a library that performs a similar job to the C source output routines in the GLADE user interface builder. Whereas GLADE's output routines create C code that can then be compiled, libglade builds the interface from an XML file (GLADE's save format) at runtime. This way you can change the look of a program without needing to recompile."
-msgstr ""
+msgstr "Libglade est une librairie effectuant un travail similaire aux routines de génération de source C dans le constructeur d'interface graphique GLADE. Là ou les routines de génération de GLADE génerent du code C à compiler, libglade construit l interface depuis un fichier XML (le format de sauvegarde de GLADE) à l'exécution. De cette manière, vous pouvez changer l'apparence de votre programme sans avoir à le recompiler."
 
 #: desktop/gnome/pygtk::description
 msgid "GTK+2 bindings for Python."
-msgstr ""
+msgstr "Bindings (liens) GTK+2 pour Python."
 
 #: desktop/gnome/libsexy::description
 msgid "libsexy is a collection of GTK+ widgets that extend the functionality of such standard widgets as GtkEntry and GtkLabel by subclassing them and working around the limitations of the widgets."
-msgstr ""
+msgstr "libsexy est une collections de widgets (objets graphiques) GTK+ étendant les fonctionnalités des widgets standards tels que GtkEntry et GtkLabel via des sous classes et contournant leurs limitations."
 
 #: desktop/gnome/gtk-engines::description
 msgid "gtk-engines is a collection of GTK+ 2.x engine written in C that transforms your GNOME/XFCE desktop into a modern looking environment. It is fast and easy on the eyes."
-msgstr ""
+msgstr "gtk-engines est une collection de moteurs GTK+ 2.x écrits en C qui transforme votre bureau GNOME/XFCE en environnement à l'apparence moderne. Il est rapide et facile pour les yeux."
 
 #: desktop/gnome/gtk2::description
 msgid "GTK+ is a multi-platform toolkit for creating graphical user interfaces. Offering a complete set of widgets, GTK+ is suitable for projects ranging from small one-off projects to complete application suites."
-msgstr ""
+msgstr "GTK+ est une boîte à outil multi-plateforme servant à créer des interfaces graphiques. Offrant un ensemble complet de widgets (objets graphiques), GTK+ convient aussi bien pour les petits projets que pour les suites complètes d'applications."
 
 #: desktop/gnome/gtkmm::description
 msgid "gtkmm is the official C++ interface for the popular GUI library GTK+. Highlights include typesafe callbacks, and a comprehensive set of widgets that are easily extensible via inheritance."
-msgstr ""
+msgstr "gtkmm est l'interface C++ officiel de la librairie d'IHM GTK+. Au menu des callbacks (rappels) typesafe (avec vérification de type à la compilation) ainsi qu'un ensemble large et complet de widgets (objets graphiques) facilement extensible via héritage."
 
 #: desktop/gnome/gstreamer::description
 msgid "GStreamer is the core library. It contains the headers, core library files, and core elements."
-msgstr ""
+msgstr "GStreamer est la librairies principale. Elle contient les entêtes, les fichiers et les éléments centraux."
 
 #: desktop/gnome/libsvg::description
 msgid "libsvg is a generic library for parsing SVG documents. libsvg cannot render SVG documents alone, but requires an external rendering engine to be provided via a callback-based interface."
-msgstr ""
+msgstr "libsvg est une librairie générique d'analyse de documents SVG. libsvg ne peut pas faire de rendu de documents SVG par elle-même, mais requiert à cet effet un moteur de rendu externe pouvant être fourni via une interface basée sur des fonctions rappel (callbacks)."
 
 #: desktop/gnome/beagle::description
 msgid "Beagle is a search tool that ransacks your personal information space to find whatever you're looking for. Beagle can search in many different domains."
-msgstr ""
+msgstr "Beagle est un outil de recherche qui aspire votre espace personnel d'information pour trouver tout ce que vous pourrez rechercher. Beagle peut être utiliser pour effectuer des recherches dans de nombreux différents domaines."
 
 #: desktop/gnome/pango::summary
 msgid "Text rendering and layout library"
-msgstr ""
+msgstr "Outil de positionnement et de rendu de texte."
 
 #: desktop/gnome/libxml2::description
 msgid "Libxml2 is the XML C parser and toolkit developed for the Gnome project (but usable outside of the Gnome platform)."
-msgstr ""
+msgstr "Libxml2 est l'analyseur et la boîte à outils XML écrit en C pour le projet Gnome (mais utilisable en dehors de la plateforme Gnome)."
 
 #: desktop/gnome/pygobject::summary
 msgid "GNOME 2 bindings for Python"
-msgstr ""
+msgstr "Bindings (liens) GNOME 2 pour Python."
 
 #: desktop/gnome/libcroco::summary
 msgid "Generic Cascading Style Sheet (CSS) parsing and manipulation toolkit"
-msgstr ""
+msgstr "Boîte à outils générique d'analyse et de manipulation de Cascading Style Sheet (CSS - feuilles de style)."
 
 #: desktop/freedesktop/915resolution::description
 msgid "Utility to patch VBIOS of Intel 855 / 865 / 915 / 945 chipsets"
-msgstr ""
+msgstr "Utilitaire pour patcher les chipsets Intel 855/865/915/945."
 
 #: desktop/freedesktop/fribidi::description
 msgid "GNU FriBidi is the Free Implementation of the Unicode Bidirectional Algorithm."
-msgstr ""
+msgstr "GNU FriBidi est l'implémentation libre de l'algorithme bidirectionnel Unicode."
 
 #: desktop/freedesktop/startup-notification::description
 msgid "startup-notification is a sample implementation of startup notification (telling the desktop environment when an app is done starting up)."
-msgstr ""
+msgstr "startup-notification est un exemple d'implémentation de notification de démarrage (indiquant à l'environnement bureautique qu'une application a fini de démarrer)."
 
 #: desktop/freedesktop/ttmkfdir::description
 msgid "This application reads TrueType fonts and creates a suitable fonts.scale file for use with the X font server."
-msgstr ""
+msgstr "Cette application lit les fontes TrueType et crée des fichiers fonts.scale qu'il est possible d'utiliser depuis le serveur de fontes X."
 
 #: desktop/freedesktop/dejavu-fonts::description
 msgid "DejaVu fonts based on Bitstream fonts with improvements"
-msgstr ""
+msgstr "Les fontes DejaVu basées sur des fontes Bitstream avec des améliorations."
 
 #: desktop/freedesktop/grounation-xcursor::description
 msgid "This package contains moshi's Grounation cursors."
-msgstr ""
+msgstr "Ce paquet contient les curseurs Grounation de moshi."
 
 #: desktop/freedesktop/x2x::description
 msgid "x2x allows the keyboard, mouse on one X display to be used to control another X display. It also shares X clipboards between the displays."
-msgstr ""
+msgstr "x2x permet à un clavier et à une souris d'un écran X d'être utilisés pour contrôler un autre écran X. Il permet également de partager les clipboards entre écrans."
 
 #: desktop/freedesktop/shared-mime-info::description
 msgid "shared-mime-info is a package containing a large number of common MIME types, created by converting the existing KDE and GNOME databases to the new format and merging them together, and software for updating the database based on the share-mime-info specification."
-msgstr ""
+msgstr "shared-mim-info est un paquet contenant un grand nombre de types MIME communs, créés en fusionnant les bases de données KDE et GNOME existantes et en les convertissant au nouveau format, ainsi qu'un logiciel pour mettre à jour cette base en fonction des spécifications de share-mime-info."
 
 #: desktop/freedesktop/tv-fonts::description
 msgid "This package includes some X11 bitmap fonts for TV applications: large fonts frequently used in on-screen displays, teletext font, etc."
-msgstr ""
+msgstr "Ce paquet inclus quelques fontes bitmaps X11 pour applications TV : des fontes larges fréquemment utilisées dans des affichages sur écran, fontes télétexte. etc."
 
 #: desktop/freedesktop/synaptics::description
 msgid "This is a driver for the Synaptics TouchPad for XOrg/XFree86 4.x. A Synaptics touchpad by default operates in compatibility mode by emulating a standard mouse. However, by using a dedicated driver, more advanced features of the touchpad becomes available."
-msgstr ""
+msgstr "Ceci est un pilote pour le pavé tactile Synaptics pour XOrg/XFree86 4.x. Un pavé tactile Synaptics fonctionne par défaut en mode de compatibilité en émulant une souris standard. Toutefois, en utilisant un pilote dédié, les fonctionnalités plus avancées du pavé tactile deviennent alors disponibles."
 
 #: desktop/freedesktop/glitz::description
 msgid "glitz is an OpenGL 2D graphics library and a backend for gl output in cairo."
-msgstr ""
+msgstr "glitz est une librairie graphique 2D OpenGL et une backend (connexion) pour le rendu gl dans cairo."
 
 #: desktop/freedesktop/855resolution::description
 msgid "Utility to patch VBIOS of Intel 855 / 865 / 915 chipsets"
-msgstr ""
+msgstr "Utilitaire pour patcher le VBIOS des chipsets Intel 855/865/915"
 
 #: desktop/freedesktop/aquafont::description
 msgid "This package contains Japanese fonts that are required to view Japanese text."
-msgstr ""
+msgstr "Ce paquet contient les fontes japonaises requises pour voir du texte en japonais."
 
 #: desktop/freedesktop/gnu-gs-fonts-std::description
 msgid "These fonts were made from the free URW fonts distributed with ghostcript. There are NO changes in the latin part of them."
-msgstr ""
+msgstr "Ces fontes ont été construites à partir des fontes URW distribuées avec ghostcript. Il n'y AUCUN changemen dans leur partie latine."
 
 #: desktop/freedesktop/jimmac-xcursor::description
 msgid "jimmac-xcursor is an X11 mouse theme based on Jimmac's cursors."

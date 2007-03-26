@@ -309,22 +309,8 @@ msgid "Perl is a stable, cross platform programming language."
 msgstr "Perl kararlı, platform bağımsız programlama dilidir."
 
 #: system/base/pisi::description
-msgid ""
-"PISI is a modern package management system implemented in Python.\n"
-"Some of its main features are:\n"
-"  - Package sources are written in XML and python\n"
-"  - Uses Berkeley DB for storing package information\n"
-"  - Implements all functions through a simple-to-use API\n"
-"  - Integrates low-level and high-level package management features\n"
-"        \n"
-msgstr ""
-"PİSİ Python'da yazılmış modern bir paket yöneticisidir.\n"
-"Bazı ana özellikleri:\n"
-"   - Paket kaynakları XML ve python kullanılarak yazılır\n"
-"   - Paket bilgisini saklamak için Berkeley DB kullanır\n"
-"   - Bütün işlevleri kullanması kolay bir API ile sağlar\n"
-"   - Düşük ve yüksek seviyeli paket yönetim işlevlerini birleştirir\n"
-"        \n"
+msgid "PISI is a modern package management system implemented in Python. Some of its main features are: package sources are written in XML and python, uses Berkeley DB for storing package information, implements all functions through a simple-to-use API, integrates low-level and high-level package management features."
+msgstr "PİSİ Python'da yazılmış modern bir paket yöneticisidir. Bazı ana özellikleri: Paket kaynakları XML ve python kullanılarak yazılır, paket bilgisini saklamak için Berkeley DB kullanır, bütün işlevleri kullanması kolay bir API ile sağlar ve düşük ve yüksek seviyeli paket yönetim işlevlerini birleştirir. "
 
 #: system/base/mudur::description
 msgid "Handles mounting of the filesystems, loading of the device drivers, starting of the system services, and other jobs during the Pardus boot and shutdown sequences."
@@ -486,6 +472,10 @@ msgstr "Hızlı derleme arabelleği"
 msgid "This package contains Automake 1.4, an older version of Automake. You should install it if you need to run automake in a project that has not yet been updated to work with newer versions of Automake"
 msgstr "Güncellenmemiş yazılımlar için Automake paketinin geriye dönük uyumluluğunu sağlamak amacı ile hazırlanmış sürümü."
 
+#: system/devel/icecream:icecream-scheduler:summary
+msgid "Icecream scheduler which should only run on the master icecream node"
+msgstr ""
+
 #: system/devel/icecream::description
 msgid "Icecream is a program for distributed compiling of C/C++ code across several machines based on ideas and code by distcc."
 msgstr "Icecream; C/C++ kaynak kodunun, birden fazla makinede dağıtık olarak derlenmesi fikrine dayanan, \"distcc\" kodu temelinde yazılmış bir uygulamadır."
@@ -619,15 +609,16 @@ msgid "YALI: Yet Another Linux Installer."
 msgstr "YALI: Pardus kurulum yazılımı."
 
 #: kernel/kernel:kernel-source:summary
-msgid "Pardus Linux kernel source"
+#, fuzzy
+msgid "Source files for the Linux kernel used by Pardus"
 msgstr "Pardus Linux için çekirdeğe ait kaynak"
 
-#: kernel/kernel:kernel-headers:summary
-msgid "Pardus Linux kernel headers"
+#: kernel/kernel:kernel-headers:description
+msgid "Kernel-headers includes the C header files that specify the interface between the Linux kernel and userspace libraries and programs. The header files define structures and constants that are needed for building most standard programs and are also needed for rebuilding the glibc package."
 msgstr "Pardus Linux için çekirdek başlıkları."
 
-#: kernel/kernel::summary
-msgid "Uniprocessor Linux kernel for Pardus Linux"
+#: kernel/kernel::description
+msgid "The kernel package contains the Linux kernel, the core of any Linux operating system. The kernel handles the basic functions of the operating system: memory allocation, process allocation, device input and output, etc."
 msgstr "Pardus için Linux çekirdeği"
 
 #: kernel/kernel-debug:kernel-debug-source:description
@@ -694,6 +685,22 @@ msgstr "Omnivision entegreli Orangemicro iBot2 vb. web kameraları için OVFX2 d
 msgid "Stackable unification file system, which can appear to merge the contents of several directories"
 msgstr ""
 
+#: kernel/drivers/nvidia-new:nvidia-kernel-new:description
+msgid "nVIDIA kernel driver for low level infrastracture."
+msgstr ""
+
+#: kernel/drivers/nvidia-new:nvidia-glx-new:description
+msgid "nVIDIA glx module for X.org for optimized 2d/3d performance."
+msgstr ""
+
+#: kernel/drivers/nvidia-new:nvidia-tools-new:description
+msgid "GUI tool nvidia-settings for nVIDIA cards and a command line tool named nvidia-xconfig for X.org configuration"
+msgstr ""
+
+#: kernel/drivers/nvidia-new::description
+msgid "nVIDIA kernel and glx drivers giving optimized 2d/3d performance on Linux (For NV3X or better). Don't use this driver if your card's name doesn't contain the word FX."
+msgstr "2B/3B başarımı için gerekli nVIDIA sürücüleri (NV3X ve daha yenileri için). Kartınızın ismi içerisinde FX yoksa bu sürücüyü kullanmayın."
+
 #: kernel/drivers/gspca::description
 msgid "Driver for more than 200 webcams from manufacturers like Creative, Logitech, Mustek etc. using chips like Conexant, Etoms, Mars-Semi, Pixart, Sonix, Sunplus, Transvision, Vimicro, Microdia."
 msgstr "Conexant, Etoms, Mars-Semi, Pixart, Sonix, Sunplus, Transvision, Vimicro, Microdia ve benzeri yongalı, Creative, Mustek ve Logitech gibi üreticilerin ürettiği 200 den fazla kamera için sürücü pakedi."
@@ -729,6 +736,10 @@ msgstr "2B/3B başarımı için gerekli nVIDIA sürücüleri"
 #: kernel/drivers/ati-drivers::description
 msgid "ATI Proprietary Linux x86 Display Driver"
 msgstr "ATI ekran kartı sürücüleri"
+
+#: kernel/drivers/r5u870::summary
+msgid "Driver for Ricoh R5U870 webcams"
+msgstr "Ricoh R5U870 yongasetli kameralar için sürücü"
 
 #: kernel/drivers/ltmodem::description
 msgid "Linux driver for so called Winmodems with Lucent Apollo (ISA) and Mars (PCI) chipsets."
@@ -781,6 +792,10 @@ msgstr "Conexant HCF entegreli modemler için Linuxant sürücüleri"
 #: kernel/drivers/acerhk::summary
 msgid "Hotkey driver for some Acer and Acer-like laptops"
 msgstr "Bazı Acer ve Acer benzeri dizüstü bilgisayarlar için geçiş tuşu (Hotkey) sürücüsü."
+
+#: kernel/drivers/tpm-emulator::summary
+msgid "The project aims to create a fully working Trusted Platform Module (TPM) emulator follwing the specifications of the Trusted Computing Group"
+msgstr ""
 
 #: kernel/drivers/rt61::description
 msgid "Driver for the RaLink RT2600 (RT61) wireless chipset"
@@ -870,9 +885,9 @@ msgstr "QScintilla, Neil Hodgson'un Scintilla C++ editör sınıfının bir Qt u
 msgid "A KDE GUI for subtitleripper, to convert DVD subtitles to text subtitles."
 msgstr "DVD altyazıları dönüştürmek için kullanılan bir program"
 
-#: desktop/kde/filelight::summary
-msgid "Filelight creates an interactive map of concentric segmented-rings that helps visualise disk usage on your computer."
-msgstr ""
+#: desktop/kde/filelight::description
+msgid "Filelight an interactive map of concentric segmented-rings that helps visualise disk usage on your computer."
+msgstr "Filelight, grafiksel bir ortamda disk kullanımını etkileşimli bir şekilde görüntülemek için kullanılır."
 
 #: desktop/kde/zpspell::description
 msgid "Zemberek-Pardus spell checker interface uses zemberek-server."
@@ -990,10 +1005,6 @@ msgstr "KDE yardımcı uygulamaları"
 msgid "KDE bindings"
 msgstr "KDE bağlayıcıları"
 
-#: desktop/kde/aspell-en::description
-msgid "You can do spell-checking in English using Aspell program with this dictionary."
-msgstr "Bu sözlük ile Aspell programını kullanarak İngilizce imla denetlemesi yapabilirsiniz."
-
 #: desktop/kde/k3b::description
 msgid "K3b is an easy-to-use CD and DVD burning software"
 msgstr "CD ve DVD'leri yazdırmak için kullanılabilecek kolay bir program"
@@ -1054,6 +1065,10 @@ msgstr "Kullanıcı yöneticisiyle yeni bir kullanıcı ekleyebilir, mevcut kull
 msgid "KlamAV is an anti-virus manager for KDE using ClamAV. It is a front-end to ClamAV that makes it more appropriate for easy usage."
 msgstr "KlamAV KDE için ClamAV programını kullanan bir anti-virüs yöneticisidir. ClamAV'a bir arayüz oluşturarak daha kolay kullanılmasını sağlar."
 
+#: desktop/kde/i18n/koffice-l10n-el::description
+msgid "Localization package that provides Greek translations for KOffice applications."
+msgstr "KOffice uygulamaları için Yunanca çevirileri içeren yerelleştirme paketi."
+
 #: desktop/kde/i18n/kde-i18n-cs::description
 msgid "KDE internationalization package provides Czech translations for KDE applications."
 msgstr "KDE uygulamalarının Çekçe çevirilerini içeren uluslararasılaştırma paketi."
@@ -1074,6 +1089,10 @@ msgstr "KDE uygulamalarının Pencapça çevirilerini içeren uluslararasılaşt
 msgid "KDE internationalization package provides French translations for KDE applications."
 msgstr "KDE uygulamalarının Fransızca çevirilerini içeren uluslararasılaştırma paketi."
 
+#: desktop/kde/i18n/koffice-l10n-es::description
+msgid "Localization package that provides Spanish translations for KOffice applications."
+msgstr "KOffice uygulamaları için İspanyolca çevirileri içeren yerelleştirme paketi."
+
 #: desktop/kde/i18n/kde-i18n-ms::description
 msgid "KDE internationalization package provides Malay translations for KDE applications."
 msgstr "KDE uygulamalarının Malayca çevirilerini içeren uluslararasılaştırma paketi."
@@ -1082,13 +1101,25 @@ msgstr "KDE uygulamalarının Malayca çevirilerini içeren uluslararasılaştı
 msgid "KDE internationalization package provides Turkish translations for KDE applications."
 msgstr "KDE uygulamalarının Türkçe çevirilerini içeren uluslararasılaştırma paketi"
 
+#: desktop/kde/i18n/koffice-l10n-pt::description
+msgid "Localization package that provides Portuguese translations for KOffice applications."
+msgstr "KOffice uygulamaları için Portekizce çevirileri içeren yerelleştirme paketi."
+
 #: desktop/kde/i18n/kde-i18n-es::description
 msgid "KDE internationalization package provides Spanish translations for KDE applications."
 msgstr "KDE uygulamalarının İspanyolca çevirilerini içeren uluslararasılaştırma paketi."
 
+#: desktop/kde/i18n/koffice-l10n-en_GB::description
+msgid "Localization package that provides British English translations for KOffice applications."
+msgstr "KOffice uygulamaları için İngiliz İngilizcesi çevirilerini içeren yerelleştirme paketi."
+
 #: desktop/kde/i18n/kde-i18n-az::description
 msgid "KDE internationalization package provides Azerbaijani translations for KDE applications."
 msgstr "KDE uygulamalarının Azerice çevirilerini içeren uluslararasılaştırma paketi."
+
+#: desktop/kde/i18n/koffice-l10n-gl::description
+msgid "Localization package that provides Galician translations for KOffice applications."
+msgstr "KOffice uygulamaları için Galiçya dili çevirilerini içeren yerelleştirme paketi."
 
 #: desktop/kde/i18n/kde-i18n-nn::description
 msgid "KDE internationalization package provides Norwegian Nynorsk translations for KDE applications."
@@ -1101,6 +1132,18 @@ msgstr "KDE uygulamalarının Özbekçe çevirilerini içeren uluslararasılaşt
 #: desktop/kde/i18n/kde-i18n-ga::description
 msgid "KDE internationalization package provides Irish Gaelic translations for KDE applications."
 msgstr "KDE uygulamalarının İrlanda Gal dili çevirilerini içeren uluslararasılaştırma paketi."
+
+#: desktop/kde/i18n/koffice-l10n-it::description
+msgid "Localization package that provides Italian translations for KOffice applications."
+msgstr "KOffice uygulamaları için İtalyanca çevirileri içeren yerelleştirme paketi."
+
+#: desktop/kde/i18n/koffice-l10n-fa::description
+msgid "Localization package that provides Farsi (Persian) translations for KOffice applications."
+msgstr "KOffice uygulamaları için Farsça çevirileri içeren yerelleştirme paketi."
+
+#: desktop/kde/i18n/koffice-l10n-sr::description
+msgid "Localization package that provides Serbian translations for KOffice applications."
+msgstr "KOffice uygulamaları için Sırpça çevirileri içeren yerelleştirme paketi."
 
 #: desktop/kde/i18n/kde-i18n-bn::description
 msgid "KDE internationalization package provides Bengali translations for KDE applications."
@@ -1117,6 +1160,10 @@ msgstr "KDE uygulamalarının Farsça çevirilerini içeren uluslararasılaştı
 #: desktop/kde/i18n/kde-i18n-bs::description
 msgid "KDE internationalization package provides Bosnian translations for KDE applications."
 msgstr "KDE uygulamalarının Boşnakça çevirilerini içeren uluslararasılaştırma paketi."
+
+#: desktop/kde/i18n/koffice-l10n-eu::description
+msgid "Localization package that provides Basque translations for KOffice applications."
+msgstr "KOffice uygulamaları için Baskça çevirileri içeren yerelleştirme paketi."
 
 #: desktop/kde/i18n/kde-i18n-tg::description
 msgid "KDE internationalization package provides Tajik translations for KDE applications."
@@ -1146,9 +1193,21 @@ msgstr "KDE uygulamalarının İbranice çevirilerini içeren uluslararasılaşt
 msgid "KDE internationalization package provides Swati translations for KDE applications."
 msgstr "KDE uygulamalarının Swati dili çevirilerini içeren uluslararasılaştırma paketi."
 
+#: desktop/kde/i18n/koffice-l10n-de::description
+msgid "Localization package that provides German translations for KOffice applications."
+msgstr "KOffice uygulamaları için Almanca çevirileri içeren yerelleştirme paketi."
+
 #: desktop/kde/i18n/kde-i18n-da::description
 msgid "KDE internationalization package provides Danish translations for KDE applications."
 msgstr "KDE uygulamalarının Danca çevirilerini içeren uluslararasılaştırma paketi."
+
+#: desktop/kde/i18n/koffice-l10n-tr::description
+msgid "Localization package that provides Turkish translations for KOffice applications."
+msgstr "KOffice uygulamaları için Türkçe çevirileri içeren yerelleştirme paketi."
+
+#: desktop/kde/i18n/koffice-l10n-ms::description
+msgid "Localization package that provides Malay translations for KOffice applications."
+msgstr "KOffice uygulamaları için Malayca çevirileri içeren yerelleştirme paketi."
 
 #: desktop/kde/i18n/kde-i18n-pl::description
 msgid "KDE internationalization package provides Polish translations for KDE applications."
@@ -1157,6 +1216,14 @@ msgstr "KDE uygulamalarının Polonya dili çevirilerini içeren uluslararasıla
 #: desktop/kde/i18n/kde-i18n-pt::description
 msgid "KDE internationalization package provides Portuguese translations for KDE applications."
 msgstr "KDE uygulamalarının Portekizce çevirilerini içeren uluslararasılaştırma paketi."
+
+#: desktop/kde/i18n/koffice-l10n-ga::description
+msgid "Localization package that provides Irish translations for KOffice applications."
+msgstr "KOffice uygulamaları için İrlanda çevirileri içeren yerelleştirme paketi."
+
+#: desktop/kde/i18n/koffice-l10n-fi::description
+msgid "Localization package that provides Finnish translations for KOffice applications."
+msgstr "KOffice uygulamaları için Fince çevirileri içeren yerelleştirme paketi."
 
 #: desktop/kde/i18n/kde-i18n-ta::description
 msgid "KDE internationalization package provides Tamil translations for KDE applications."
@@ -1170,13 +1237,33 @@ msgstr "KDE uygulamalarının Galiçya dili çevirilerini içeren uluslararasıl
 msgid "KDE internationalization package provides Khmer translations for KDE applications."
 msgstr "KDE uygulamalarının Kmer dili çevirilerini içeren uluslararasılaştırma paketi."
 
+#: desktop/kde/i18n/koffice-l10n-zh_CN::description
+msgid "Localization package that provides Chinese Simplified translations for KOffice applications."
+msgstr "KOffice uygulamaları için Basitleştirilmiş Çince çevirilerini içeren yerelleştirme paketi."
+
 #: desktop/kde/i18n/kde-i18n-sk::description
 msgid "KDE internationalization package provides Slovak translations for KDE applications."
 msgstr "KDE uygulamalarının Slovak çevirilerini içeren uluslararasılaştırma paketi."
 
+#: desktop/kde/i18n/koffice-l10n-ca::description
+msgid "Localization package that provides Catalan translations for KOffice applications."
+msgstr "KOffice uygulamaları için Katalanca çevirileri içeren yerelleştirme paketi."
+
 #: desktop/kde/i18n/kde-i18n-zh_CN::description
 msgid "KDE internationalization package provides Chinese Simplified translations for KDE applications."
 msgstr "KDE uygulamalarının Basitleştirilmiş Çince çevirilerini içeren uluslararasılaştırma paketi."
+
+#: desktop/kde/i18n/koffice-l10n-da::description
+msgid "Localization package that provides Danish translations for KOffice applications."
+msgstr "KOffice uygulamaları için Danca çevirileri içeren yerelleştirme paketi."
+
+#: desktop/kde/i18n/koffice-l10n-sk::description
+msgid "Localization package that provides Slovak translations for KOffice applications."
+msgstr "KOffice uygulamaları için Slovakça çevirileri içeren yerelleştirme paketi."
+
+#: desktop/kde/i18n/koffice-l10n-sl::description
+msgid "Localization package that provides Slovenian translations for KOffice applications."
+msgstr "KOffice uygulamaları için Slovence çevirileri içeren yerelleştirme paketi."
 
 #: desktop/kde/i18n/kde-i18n-vi::description
 msgid "KDE internationalization package provides Vietnamese translations for KDE applications."
@@ -1190,13 +1277,29 @@ msgstr "KDE uygulamalarının Afrika dilleri çevirilerini içeren uluslararası
 msgid "KDE internationalization package provides Finnish translations for KDE applications."
 msgstr "KDE uygulamalarının Fince çevirilerini içeren uluslararasılaştırma paketi."
 
+#: desktop/kde/i18n/koffice-l10n-zh_TW::description
+msgid "Localization package that provides Chinese Traditional translations for KOffice applications."
+msgstr "KOffice uygulamaları için Geleneksel Çince çevirileri içeren yerelleştirme paketi."
+
+#: desktop/kde/i18n/koffice-l10n-ja::description
+msgid "Localization package that provides Japanese translations for KOffice applications."
+msgstr "KOffice uygulamaları için Japonca çevirileri içeren yerelleştirme paketi."
+
 #: desktop/kde/i18n/kde-i18n-sr::description
 msgid "KDE internationalization package provides Serbian translations for KDE applications."
 msgstr "KDE uygulamalarının Sırpça çevirilerini içeren uluslararasılaştırma paketi."
 
+#: desktop/kde/i18n/koffice-l10n-et::description
+msgid "Localization package that provides Estonian translations for KOffice applications."
+msgstr "KOffice uygulamaları için Estonyaca çevirileri içeren yerelleştirme paketi."
+
 #: desktop/kde/i18n/kde-i18n-pt_BR::description
 msgid "KDE internationalization package provides Brazilian Portuguese translations for KDE applications."
 msgstr "KDE masaüstü ve uygulamaları için Brezilya Portekizcesi desteği."
+
+#: desktop/kde/i18n/koffice-l10n-cs::description
+msgid "Localization package that provides Czech translations for KOffice applications."
+msgstr "KOffice uygulamaları için Çekçe çevirileri içeren yerelleştirme paketi."
 
 #: desktop/kde/i18n/kde-i18n-hi::description
 msgid "KDE internationalization package provides Hindi translations for KDE applications."
@@ -1206,6 +1309,10 @@ msgstr "KDE uygulamalarının Hintçe çevirilerini içeren uluslararasılaştı
 msgid "KDE internationalization package provides Kinyarwanda translations for KDE applications."
 msgstr "KDE uygulamalarının Kinyarwanda dili çevirilerini içeren uluslararasılaştırma paketi."
 
+#: desktop/kde/i18n/koffice-l10n-pt_BR::description
+msgid "Localization package that provides Brazilian Portuguese translations for KOffice applications."
+msgstr "KOffice uygulamaları için Brezilya Portekizcesi çevirilerini içeren yerelleştirme paketi."
+
 #: desktop/kde/i18n/kde-i18n-sl::description
 msgid "KDE internationalization package provides Slovenian translations for KDE applications."
 msgstr "KDE uygulamalarının Slovence çevirilerini içeren uluslararasılaştırma paketi."
@@ -1214,9 +1321,17 @@ msgstr "KDE uygulamalarının Slovence çevirilerini içeren uluslararasılaşt�
 msgid "KDE internationalization package provides Hungarian translations for KDE applications."
 msgstr "KDE uygulamalarının Macarca çevirilerini içeren uluslararasılaştırma paketi."
 
+#: desktop/kde/i18n/kde-i18n-sr_Latn::description
+msgid "KDE internationalization package provides Serbian Latin translations for KDE applications."
+msgstr "KDE uygulamalarının Sırpça Latin çevirilerini içeren uluslararasılaştırma paketi."
+
 #: desktop/kde/i18n/kde-i18n-uk::description
 msgid "KDE internationalization package provides Ukrainian translations for KDE applications."
 msgstr "KDE uygulamalarının Ukraynaca çevirilerini içeren uluslararasılaştırma paketi."
+
+#: desktop/kde/i18n/koffice-l10n-sr_Latn::description
+msgid "Localization package that provides Serbian Latin translations for KOffice applications."
+msgstr "KOffice uygulamaları için Sırpça Latin çevirileri içeren yerelleştirme paketi."
 
 #: desktop/kde/i18n/kde-i18n-ca::description
 msgid "KDE internationalization package provides Catalan translations for KDE applications."
@@ -1238,17 +1353,33 @@ msgstr "KDE uygulamalarının Romence çevirilerini içeren uluslararasılaştı
 msgid "KDE internationalization package provides Norwegian Bookmal translations for KDE applications."
 msgstr "KDE uygulamalarının Norveç Bokmal dili çevirilerini içeren uluslararasılaştırma paketi."
 
+#: desktop/kde/i18n/koffice-l10n-fr::description
+msgid "Localization package that provides French translations for KOffice applications."
+msgstr "KOffice uygulamaları için Fransızca çevirileri içeren yerelleştirme paketi."
+
 #: desktop/kde/i18n/kde-i18n-zh_TW::description
 msgid "KDE internationalization package provides Chinese Traditional translations for KDE applications."
 msgstr "KDE uygulamalarının Geleneksel Çince çevirilerini içeren uluslararasılaştırma paketi."
 
-#: desktop/kde/i18n/kde-i18n-sr@Latn::description
-msgid "KDE internationalization package provides Serbian Latin translations for KDE applications."
-msgstr "KDE uygulamalarının Sırpça Latin çevirilerini içeren uluslararasılaştırma paketi."
+#: desktop/kde/i18n/koffice-l10n-cy::description
+msgid "Localization package that provides Welsh translations for KOffice applications."
+msgstr "KOffice uygulamaları için Galce çevirileri içeren yerelleştirme paketi."
+
+#: desktop/kde/i18n/koffice-l10n-km::description
+msgid "Localization package that provides Khmer translations for KOffice applications."
+msgstr "KOffice uygulamaları için Kmer çevirileri içeren yerelleştirme paketi."
+
+#: desktop/kde/i18n/koffice-l10n-nl::description
+msgid "Localization package that provides Dutch translations for KOffice applications."
+msgstr "KOffice uygulamaları için Flamanca çevirileri içeren yerelleştirme paketi."
 
 #: desktop/kde/i18n/kde-i18n-eo::description
 msgid "KDE internationalization package provides Esperanto translations for KDE applications."
 msgstr "KDE uygulamalarının Esperanto dili çevirilerini içeren uluslararasılaştırma paketi."
+
+#: desktop/kde/i18n/koffice-l10n-lv::description
+msgid "Localization package that provides Latvian translations for KOffice applications."
+msgstr "KOffice uygulamaları için Leton çevirileri içeren yerelleştirme paketi."
 
 #: desktop/kde/i18n/kde-i18n-lv::description
 msgid "KDE internationalization package provides Latvian translations for KDE applications."
@@ -1257,6 +1388,14 @@ msgstr "KDE uygulamalarının Leton dili çevirilerini içeren uluslararasılaş
 #: desktop/kde/i18n/kde-i18n-se::description
 msgid "KDE internationalization package provides Northern Sami translations for KDE applications."
 msgstr "KDE uygulamalarının Kuzey Sami dili çevirilerini içeren uluslararasılaştırma paketi."
+
+#: desktop/kde/i18n/koffice-l10n-ru::description
+msgid "Localization package that provides Russian translations for KOffice applications."
+msgstr "KOffice uygulamaları için Rusça çevirileri içeren yerelleştirme paketi."
+
+#: desktop/kde/i18n/koffice-l10n-sv::description
+msgid "Localization package that provides Swedish translations for KOffice applications."
+msgstr "KOffice uygulamaları için İsveççe çevirileri içeren yerelleştirme paketi."
 
 #: desktop/kde/i18n/kde-i18n-ru::description
 msgid "KDE internationalization package provides Russian translations for KDE applications."
@@ -1278,6 +1417,14 @@ msgstr "KDE uygulamalarının İsveççe çevirilerini içeren uluslararasılaş
 msgid "KDE internationalization package provides German translations for KDE applications."
 msgstr "KDE uygulamalarının Almanca çevirilerini içeren uluslararasılaştırma paketi."
 
+#: desktop/kde/i18n/koffice-l10n-pl::description
+msgid "Localization package that provides Polish translations for KOffice applications."
+msgstr "KOffice uygulamaları için Polonya çevirileri içeren yerelleştirme paketi."
+
+#: desktop/kde/i18n/koffice-l10n-uk::description
+msgid "Localization package that provides Ukrainian translations for KOffice applications."
+msgstr "KOffice uygulamaları için Ukraynaca çevirileri içeren yerelleştirme paketi."
+
 #: desktop/kde/i18n/kde-i18n-hr::description
 msgid "KDE internationalization package provides Croatian translations for KDE applications."
 msgstr "KDE uygulamalarının Hırvatça çevirilerini içeren uluslararasılaştırma paketi."
@@ -1285,6 +1432,10 @@ msgstr "KDE uygulamalarının Hırvatça çevirilerini içeren uluslararasılaş
 #: desktop/kde/i18n/kde-i18n-cy::description
 msgid "KDE internationalization package provides Welsh translations for KDE applications."
 msgstr "KDE uygulamalarının Galce çevirilerini içeren uluslararasılaştırma paketi."
+
+#: desktop/kde/i18n/koffice-l10n-hu::description
+msgid "Localization package that provides Hungarian translations for KOffice applications."
+msgstr "KOffice uygulamaları için Macarca çevirileri içeren yerelleştirme paketi."
 
 #: desktop/kde/i18n/kde-i18n-en_GB::description
 msgid "KDE internationalization package provides British English translations for KDE applications."
@@ -1297,6 +1448,10 @@ msgstr "KDE uygulamalarının İzlanda dili çevirilerini içeren uluslararasıl
 #: desktop/kde/i18n/kde-i18n-nl::description
 msgid "KDE internationalization package provides Dutch translations for KDE applications."
 msgstr "Bu paket, KDE'ye Flamanca dil desteği sağlar."
+
+#: desktop/kde/i18n/koffice-l10n-nb::description
+msgid "Localization package that provides Norwegian translations for KOffice applications."
+msgstr "KOffice uygulamaları için Norveç çevirileri içeren yerelleştirme paketi."
 
 #: desktop/kde/i18n/kde-i18n-el::description
 msgid "KDE internationalization package provides Greek translations for KDE applications."
@@ -1418,6 +1573,10 @@ msgstr "Knazar hiçbirşey yapmamak için özellikle tasarlanmış bir programd�
 msgid "Pardus Kaptan lets you configure your desktop on first login"
 msgstr "Pardus Kaptan, bilgisayarınız ilk defa açıldığında size yol gösterir"
 
+#: desktop/kde/pardusman::summary
+msgid "Pardus distribution media maker"
+msgstr "Pardus dağıtım oluşturucu"
+
 #: desktop/kde/nas::description
 msgid "The Network Audio System is a network transparent, client/server audio transport system. It can be described as the audio equivalent of an X server. It is support Lots of audio file and data formats."
 msgstr "Nas, ağda ses dosyalarının taşınması için kullanılır. X sunucusunun sesteki karşılığıdır. Pek çok formatı destekler."
@@ -1445,10 +1604,6 @@ msgstr "TASMA, Pardus İşletim Sistemi için bir yapılandırma arayüzüdür. 
 #: desktop/kde/feedback::description
 msgid "A tool for sending your messages to Pardus developers"
 msgstr "Pardus geliştiricilerine mesajlarınızı göndermek için kullanabileceğiniz bir araç"
-
-#: desktop/kde/aspell::description
-msgid "The program that you can also easily check documents in UTF-8 without having to use a special dictionary."
-msgstr "Özel bir sözlük kullanmadan yazım kontrolü yapabileceğiniz programdır."
 
 #: desktop/kde/kftpgrabber::description
 msgid "KFTPgrabber is a graphical FTP client for the K Desktop Environment. It implements many features required for usable FTP interaction."
@@ -1502,9 +1657,65 @@ msgstr "Digikam için resim düzenleme eklentisi"
 msgid "Disk manager is used to administer disks on Pardus"
 msgstr "Disk yöneticisi, Pardus'ta bulunan disklerin yönetilmesi için kullanılır"
 
+#: desktop/kde/kvpnc::description
+msgid "Kvpnc is a KDE frontend for various VPN (virtual private network) clients."
+msgstr "Kvpnc, değişik sanal özel ağ (VPN) istemcileri için KDE arabirimidir."
+
 #: desktop/kde/yakuake::description
 msgid "YaKuake is a KDE terminal emulator."
 msgstr "YaKuake bir KDE konsol emülasyonudur."
+
+#: desktop/kde/koffice:koffice:summary
+msgid "KOffice core applications"
+msgstr "KOffice temel uygulamaları"
+
+#: desktop/kde/koffice:koffice-devel:summary
+msgid "Development files for KOffice"
+msgstr "KOffice için geliştirme dosyaları"
+
+#: desktop/kde/koffice:koffice-karbon:summary
+msgid "KOffice vector drawing application"
+msgstr "KOffice vektör çizim uygulaması"
+
+#: desktop/kde/koffice:koffice-kchart:summary
+msgid "KOffice integrated graph and chart drawing tool"
+msgstr "KOffice tümleşik grafik ve çizelge çizim aracı"
+
+#: desktop/kde/koffice:koffice-kexi:summary
+msgid "KOffice integrated environment for database management"
+msgstr "KOffice tümleşik veritabanı yönetim ortamı"
+
+#: desktop/kde/koffice:koffice-kformula:summary
+msgid "KOffice formula editor"
+msgstr "KOffice formül düzenleyici"
+
+#: desktop/kde/koffice:koffice-kivio:summary
+msgid "KOffice flowchart and diagram tool"
+msgstr "KOffice akış çizelgesi ve diyagram aracı"
+
+#: desktop/kde/koffice:koffice-kplato:summary
+msgid "KOffice project management application"
+msgstr "KOffice proje yönetimi uygulaması"
+
+#: desktop/kde/koffice:koffice-kpresenter:summary
+msgid "KOffice presentation program"
+msgstr "KOffice sunum programı"
+
+#: desktop/kde/koffice:koffice-krita:summary
+msgid "KOffice image manipulation program"
+msgstr "KOffice resim işleme programı"
+
+#: desktop/kde/koffice:koffice-kspread:summary
+msgid "KOffice spreadsheet application"
+msgstr "KOffice hesap çizelgesi uygulaması"
+
+#: desktop/kde/koffice:koffice-kugar:summary
+msgid "KOffice report viewer and generator"
+msgstr "KOffice rapor görüntüleyici ve oluşturucu"
+
+#: desktop/kde/koffice:koffice-kword:summary
+msgid "KOffice word processor"
+msgstr "KOffice kelime işlemci"
 
 #: desktop/kde/koffice::description
 msgid "KOffice is a free, integrated office suite for KDE. The application suite consists of a word-processor, spread-sheet, presentation application, organizer and more."
@@ -1525,10 +1736,6 @@ msgstr "KNetStats, herhangi bir ağ arayüzünün aktarma hızı hakkında sayı
 #: desktop/kde/metamonitor::description
 msgid "MetaMonitor is a simple program written for KDE, which watches the syslog's or metalog's log file and pops up the window whenever the new message comes. You can specify the file to watch and a regular expression for parsing the log line, so you can watch other than log files too."
 msgstr "MetaMonitor, syslog veya metalog günlük dosyalarını izleyen, yeni bir ileti geldiğinde uyarı penceresi açarak görüntüleyen bir KDE uygulamasıdır."
-
-#: desktop/kde/aspell-nl::description
-msgid "You can do spell-checking in Dutch using Aspell program with this dictionary."
-msgstr "Bu sözlüğü, Aspell yazılımı ile kullanarak, flemenkçe yazım denetimi yapabilirsiniz."
 
 #: desktop/kde/PyQt::description
 msgid "PyQt contains the Python bindings to the Qt C++ GUI toolkit. You can easily create complex multi platform GUI programs using RAD technologies. PyQt supports Linux and various flavours of Unix, MacOS X and Windows."
@@ -1626,6 +1833,10 @@ msgstr "Bu pakette libwnck ile yazılım geliştirmek için gerekli olan statik 
 msgid "Glibmm is the official C++ interface for the popular GUI library GTK+. Highlights include typesafe callbacks, and a comprehensive set of widgets that are easily extensible via inheritance."
 msgstr "Glibmm, ünlü GUI kütüphanesi GTK' için resmi C++ arayüzüdür. Önemli özelliklerinin arasında tip bağımsız çağırmalar ve miras ile genişleyebilen uyumlu parçacıklar vardır."
 
+#: desktop/gnome/gst-ffmpeg::summary
+msgid "FFmpeg support for gstreamer"
+msgstr "Gstreamer için FFmpeg desteği"
+
 #: desktop/gnome/atk::description
 msgid "These libraries provide tools for making software for people with disabilities."
 msgstr "Bu kütüphaneler engelli insanlar için yapılan programlarda kullanılabilecek araçları içerir."
@@ -1706,6 +1917,38 @@ msgstr "GNOME 2 için Python bağlayıcıları"
 msgid "Generic Cascading Style Sheet (CSS) parsing and manipulation toolkit"
 msgstr "Genel CSS kütüphanesi"
 
+#: desktop/fonts/Charis::summary
+msgid "A font similar to Bitstream Charter"
+msgstr ""
+
+#: desktop/fonts/dejavu-fonts::description
+msgid "DejaVu fonts based on Bitstream fonts with improvements"
+msgstr "DejaVu yazıtipleri"
+
+#: desktop/fonts/tv-fonts::description
+msgid "This package includes some X11 bitmap fonts for TV applications: large fonts frequently used in on-screen displays, teletext font, etc."
+msgstr "Bu pakette, TV uygulamaları için bazı X11 biteşlem yazıtipleri bulunur: Ekran üstü göstergelerde kullanılan büyük yazı tipleri, teletext yazı tipi, vb."
+
+#: desktop/fonts/aquafont::description
+msgid "This package contains Japanese fonts that are required to view Japanese text."
+msgstr "Bu pakette Japonca yazıları görüntülemek için gerekli yazıtipleri bulunur."
+
+#: desktop/fonts/Doulos::summary
+msgid "A font similar to Times/Times New Roman with only regular face"
+msgstr ""
+
+#: desktop/fonts/Libertine::summary
+msgid "A font similar to Times Roman"
+msgstr ""
+
+#: desktop/fonts/gentium::description
+msgid "Gentium is a typeface family designed to enable the diverse ethnic groups around the world who use the Latin script to produce readable, high-quality publications. It supports a wide range of Latin-based alphabets and includes glyphs that correspond to all the Latin ranges of Unicode."
+msgstr "Unicode desteğine sahip TTF yazıtipi"
+
+#: desktop/fonts/Inconsolata::summary
+msgid "A font similar to The Sans Mono"
+msgstr ""
+
 #: desktop/freedesktop/915resolution::description
 msgid "Utility to patch VBIOS of Intel 855 / 865 / 915 / 945 chipsets"
 msgstr "Intel 855 / 865 / 915 / 945 yongasetli ekran kartlarının video BIOS'larının yamalanması için gereken bir araç"
@@ -1714,6 +1957,10 @@ msgstr "Intel 855 / 865 / 915 / 945 yongasetli ekran kartlarının video BIOS'la
 msgid "GNU FriBidi is the Free Implementation of the Unicode Bidirectional Algorithm."
 msgstr "GNU FriBidi, Çift Yönlü Unicode Algoritması'nın özgür uygulamasıdır."
 
+#: desktop/freedesktop/dbus-glib::summary
+msgid "Qt3 bindings of a message bus system (D-BUS)"
+msgstr ""
+
 #: desktop/freedesktop/startup-notification::description
 msgid "startup-notification is a sample implementation of startup notification (telling the desktop environment when an app is done starting up)."
 msgstr "startup-notification, bir program başlatıldığında bunu masaüstü ortamına bildirir."
@@ -1721,10 +1968,6 @@ msgstr "startup-notification, bir program başlatıldığında bunu masaüstü o
 #: desktop/freedesktop/ttmkfdir::description
 msgid "This application reads TrueType fonts and creates a suitable fonts.scale file for use with the X font server."
 msgstr "Bu uygulama, TrueType yazıtiplerini okuyup, X yazıtipi sunucusunda kullanmak için uygun olan fants.scale dosyasını oluşturur."
-
-#: desktop/freedesktop/dejavu-fonts::description
-msgid "DejaVu fonts based on Bitstream fonts with improvements"
-msgstr "DejaVu yazıtipleri"
 
 #: desktop/freedesktop/grounation-xcursor::description
 msgid "This package contains moshi's Grounation cursors."
@@ -1738,10 +1981,6 @@ msgstr ""
 msgid "shared-mime-info is a package containing a large number of common MIME types, created by converting the existing KDE and GNOME databases to the new format and merging them together, and software for updating the database based on the share-mime-info specification."
 msgstr "Bu pakette büyük miktarda dosya türü bilgisi bulunur. Bu bilgiler mevcut KDE ve GNOME veritabanlarının yeni biçime dönüştürülerek birleştirilmesinden oluşmuştur. Ayrıca, pakette bu veritabanını güncelleyen bir uygulama da bulunmaktadır."
 
-#: desktop/freedesktop/tv-fonts::description
-msgid "This package includes some X11 bitmap fonts for TV applications: large fonts frequently used in on-screen displays, teletext font, etc."
-msgstr "Bu pakette, TV uygulamaları için bazı X11 biteşlem yazıtipleri bulunur: Ekran üstü göstergelerde kullanılan büyük yazı tipleri, teletext yazı tipi, vb."
-
 #: desktop/freedesktop/synaptics::description
 msgid "This is a driver for the Synaptics TouchPad for XOrg/XFree86 4.x. A Synaptics touchpad by default operates in compatibility mode by emulating a standard mouse. However, by using a dedicated driver, more advanced features of the touchpad becomes available."
 msgstr "XOrg/XFree86 4.x için Synaptics TouchPad sürücüleri sayesinde, öntanımlı olarak geleneksel fareler ile uyumluluk kipinde çalışan dokunma alanınızı daha gelişkin özellikler ile donatmanız mümkün olacaktır."
@@ -1753,10 +1992,6 @@ msgstr "glitz, iki boyutlu bir OpenGL çizim kütüphanesidir. Aynı zamanda cai
 #: desktop/freedesktop/855resolution::description
 msgid "Utility to patch VBIOS of Intel 855 / 865 / 915 chipsets"
 msgstr "Intel 855 / 865 / 915 yongasetli anakartların video BIOS'larının yamalanması için gereken bir araç"
-
-#: desktop/freedesktop/aquafont::description
-msgid "This package contains Japanese fonts that are required to view Japanese text."
-msgstr "Bu pakette Japonca yazıları görüntülemek için gerekli yazıtipleri bulunur."
 
 #: desktop/freedesktop/gnu-gs-fonts-std::description
 msgid "These fonts were made from the free URW fonts distributed with ghostcript. There are NO changes in the latin part of them."
@@ -1789,10 +2024,6 @@ msgstr ""
 #: desktop/freedesktop/rxvt-unicode::description
 msgid "A terminal application with graphical user interface having XVT and unicode support"
 msgstr "Grafiksel arayüzde bir kabuk çalıştırmaya yarayan, XFT ve unikod destekli terminal aracı"
-
-#: desktop/freedesktop/gentium::description
-msgid "Gentium is a typeface family designed to enable the diverse ethnic groups around the world who use the Latin script to produce readable, high-quality publications. It supports a wide range of Latin-based alphabets and includes glyphs that correspond to all the Latin ranges of Unicode."
-msgstr "Unicode desteğine sahip TTF yazıtipi"
 
 #: desktop/freedesktop/xdg-utils::summary
 msgid "Common desktop utilities"
@@ -1922,6 +2153,10 @@ msgstr "HAL, donanım soyutlama katmanının belirtim ve uygulamasıdır."
 msgid "Commandline utility to set Xvideo extension properties."
 msgstr "Xvideo sistemi ayarlarını değiştirmek için komut satırı aracı."
 
+#: desktop/freedesktop/poppler:poppler-qt4:summary
+msgid "Qt4 bindings for Poppler"
+msgstr "Poppler için Qt4 bağlayıcıları"
+
 #: desktop/freedesktop/poppler::description
 msgid "Poppler is a PDF rendering library based on the xpdf-3.0 code base."
 msgstr "Poppler, xpdf koduna dayanan bir PDF kütüphanesidir. PDF dosyaları görüntülemek için kullanılır."
@@ -1929,6 +2164,10 @@ msgstr "Poppler, xpdf koduna dayanan bir PDF kütüphanesidir. PDF dosyaları g�
 #: desktop/freedesktop/dbus::description
 msgid "D-Bus supplies both a system daemon (for events such as \"new hardware device added\" or \"printer queue changed\") and a per-user-login-session daemon (for general IPC needs among user applications). Also, the message bus is built on top of a general one-to-one message passing framework, which can be used by any two apps to communicate directly (without going through the message bus daemon). Currently the communicating applications are on one computer, but TCP/IP option is available and remote support planned."
 msgstr "D-Bus, sistem ve kullanıcılar için olmak üzere iki tane artalan süreci (daemon) sunar. Mesaj yolu, bire bir mesaj geçiş araçları üzerine inşa edilmiştir. Bu sayede iki program birbiriyle bir mesaj yolu artalan süreci kullanmadan, direkt olarak haberleşebilir. Şu an için haberleşme araçları aynı bilgisayar üzerinde çalışabilmektedir, fakat TCP/IP ile uzaktan haberleşme de planlanmaktadır."
+
+#: desktop/freedesktop/dbus-qt3::summary
+msgid "Qt3 bindings of a message bus system (D-BUS)"
+msgstr ""
 
 #: desktop/freedesktop/zorg::description
 msgid "X configuration tools, monitor and display adapter database files"
@@ -2174,6 +2413,14 @@ msgstr "X.Org uygulamaları."
 msgid "X.Org input files"
 msgstr "X.Org girdi dosyaları"
 
+#: desktop/freedesktop/xorg/xcb-util::summary
+msgid "The xcb-util module provides a number of libraries which sit on top of libxcb"
+msgstr ""
+
+#: desktop/freedesktop/dbus-python::summary
+msgid "Python bindings of a message bus system (D-BUS)"
+msgstr ""
+
 #: desktop/freedesktop/notification-daemon::description
 msgid "This package includes the notification daemon of Galago project."
 msgstr "Bu pakette Galago projesinin bilgilendirme sunucusu bulunur."
@@ -2198,6 +2445,10 @@ msgstr "Pek çok platformda kullanılabilen oyun geliştirme kütüphanesi"
 msgid "The OpenAL Utility Toolkit"
 msgstr "Açık ses kütüphanesi Openal aletleri"
 
+#: programming/libs/libwpd::summary
+msgid "A C++ library designed to help process WordPerfect documents"
+msgstr ""
+
 #: programming/libs/live555::summary
 msgid "Live555 is a set of C++ libraries for multimedia streaming, using open standard protocols (RTP/RTCP, RTSP, SIP)"
 msgstr "Live555, açık standart protokolleri kullanan (RTP/RTCP, RTSP, SIP) çoklu ortam duraksız işlemleri (streaming) için C++ kütüphaneleridir."
@@ -2221,6 +2472,10 @@ msgstr "GnuTLS, erişilebilir bir gönderim katmanı üzerinde güvenli katman o
 #: programming/libs/qt4::description
 msgid "Qt is a cross platform GUI toolkit."
 msgstr "Qt bir çok platformda çalışabilen ve grafiksel kullanıcı arayüzü (GUI) oluşturmaya yaran bir araç takımıdır."
+
+#: programming/libs/miniupnp::summary
+msgid "Mini UPnP library"
+msgstr "Mini UPnP kitaplığı"
 
 #: programming/libs/libxmlpp::summary
 msgid "C++ wrapper for the libxml XML parser library"
@@ -2310,6 +2565,10 @@ msgstr ""
 msgid "Library is intended to be used by applications that need to communicate with (or at least identify) devices that are attached via a parallel port."
 msgstr "Paralel portlar aracılığı ile bağlanmış araçlarla iletişimi (en azından tanımlanmasını) gerçekleştiren uygulamalar için gerekli olan kütüphanedir."
 
+#: programming/libs/mhash::summary
+msgid "A uniform interface to several hash algorithms"
+msgstr ""
+
 #: programming/libs/soundtouch::description
 msgid "open-source audio processing library for changing the Tempo, Pitch and Playback Rates of audio streams or file"
 msgstr ""
@@ -2327,7 +2586,8 @@ msgid "A portable threads library for Unix platforms-It provides non-preemptive 
 msgstr "Pth Unix platformları için derlenmiş taşınabilir kütüphanedir. Bir çok iç sunucu uygulamalarının yerine getirilmesi işlerinin öncelikli olmayan planlamasını yapar."
 
 #: programming/libs/atlas::description
-msgid " The ATLAS (Automatically Tuned Linear Algebra Software) project is an ongoing research effort focusing on applying empirical techniques in order to provide portable performance.It's main job is to provide optimized libraries."
+#, fuzzy
+msgid "The ATLAS (Automatically Tuned Linear Algebra Software) project is an ongoing research effort focusing on applying empirical techniques in order to provide portable performance.It's main job is to provide optimized libraries."
 msgstr "The ATLAS (Automatically Tuned Linear Algebra Software – Otomatik Ayarlanmış Doğrusal Cebir Yazılım) projesi, aktarılabilir başarım temini için deneysel teknikler uygulamaya odaklı devamlı bir araştırma çabasıdır. Temel görevi, en iyi hale getirilmiş kütüphaneler temin etmektir."
 
 #: programming/libs/jpeg-mmx::description
@@ -2382,6 +2642,14 @@ msgstr "C++ dili için bir günlük tutma kütüphanesi."
 msgid "C++ wrapper for the libxml XML parser library."
 msgstr "libxml XML kütüphanesi için bir C++ arabirimi"
 
+#: programming/libs/tre::summary
+msgid "A lightweight, robust, and efficient POSIX compliant regexp matching library"
+msgstr ""
+
+#: programming/libs/libkexiv2::summary
+msgid "KDE interface Library for parsing, editing, and saving EXIF data"
+msgstr "EXIF verilerini düzenlemek için KDE kitaplığı"
+
 #: programming/libs/libid3tag::summary
 msgid "The MAD id3tag library"
 msgstr "MAD id3tag kütüphanesi"
@@ -2414,9 +2682,17 @@ msgstr "UCL, ANSI'de yazılmış, taşınabilir kayıpsız data sıkıştırma k
 msgid "\"M\"peg \"A\"udio \"D\"ecoder library"
 msgstr "Yüksek kaliteli MPEG ses çözücü kütüphanesi"
 
+#: programming/libs/xmlrpc-epi::summary
+msgid "An implementation of the xmlrpc protocol in C"
+msgstr "xmlrpc protokolünün C dilinde bir implimentasyonu"
+
 #: programming/libs/chmlib::description
 msgid "Chmlib is a library for dealing with Microsoft ITSS/CHM format files. Right now, it is a very simple library, but sufficient for dealing with all of the .chm files."
 msgstr "Chmlib, Microsoft ITSS/CHM tipindeki dosyalar için gereken bir kütüphanedir. Şimdilik çok basit bir kütüphanedir ancak tüm .chm dosyalarına erişmek konusunda başarılıdır."
+
+#: programming/libs/ftgl::summary
+msgid "Font rendering library for OpenGL"
+msgstr ""
 
 #: programming/libs/gle::description
 msgid "The GLE Tubing and Extrusion Library is a graphics application programming interface (API). The library consists of a number of \"C\" language subroutines for drawing tubing and extrusions."
@@ -2514,6 +2790,10 @@ msgstr "CD-ROM okuma ve kontrol kütüphanesinin küçültülmüş sürümü"
 msgid "CLN, a class library (C++) for numbers"
 msgstr "CLN, sayılar için bir C++ kütüphanesi"
 
+#: programming/libs/libgsf::summary
+msgid "Gnome Structured File library"
+msgstr ""
+
 #: programming/libs/wxGTK:wxPython:summary
 msgid "Python bindings for wxGTK."
 msgstr "wxGTK için Python bağımlılıkları."
@@ -2565,6 +2845,10 @@ msgstr "TCL için TLS desteği."
 #: programming/libs/unixodbc::description
 msgid "The unixODBC Project goals are to develop and promote unixODBC to be the definitive standard for ODBC on non MS Windows platforms. This is to include GUI support for both KDE and GNOME."
 msgstr "unixODBC Projesinin amacı, unixODBC'yi geliştirip ilerleterek MS Windows harici platformlarda ODBC için kesin bir standart haline getirmektir. KDE ve GNOME için grafik arayüzü de içerir."
+
+#: programming/libs/libmcrypt::summary
+msgid "A thread-safe encryption library"
+msgstr ""
 
 #: programming/libs/ode::description
 msgid "Open Dynamics Engine SDK"
@@ -2738,6 +3022,10 @@ msgstr "Quasar DV codec (libdv), DV video için çözümleyicidir. Bu dosya biç
 msgid "The SDL_gfx library evolved out of the SDL_gfxPrimitives code which provided basic drawing routines such as lines, circles or polygons and SDL_rotozoom which implemented a interpolating rotozoomer for SDL surfaces."
 msgstr "Çizgi, çember ve poligon çizmekte kullanılan bir SDL kütüphanesi"
 
+#: programming/libs/openjpeg::summary
+msgid "JPEG2000 decoding library"
+msgstr "JPEG2000 çözme kütüphanesi"
+
 #: programming/libs/boehm-gc::description
 msgid "The Boehm-Demers-Weiser conservative garbage collector can be used as a garbage collecting replacement for C malloc or C++ new.The collector automatically recycles memory when it determines that it can no longer be otherwise accessed."
 msgstr "Boehm-Demers-Weiser çöp toplayıcısı C malloc veya C++ new fonksiyonları için çöp toplamaya yönelik bir alternatif olarak kullanılabilir. Toplayıcı başka bir erişimi olmayan bellekleri tanımlayarak otomatik olarak geri iade eder."
@@ -2750,6 +3038,10 @@ msgstr "Genellikle simulasyon oyunları tarafından kullanılan bir kütüphanes
 msgid "Multimedia and 3D library used mostly by games"
 msgstr "Genellikle oyunlar tarafından kullanılan multimedya ve 3B kütüphanesi"
 
+#: programming/libs/qwt::description
+msgid "The Qwt library contains GUI Components and utility classes which are primarily useful for programs with a technical background. Beside a 2D plot widget it provides scales, sliders, dials, compasses, thermometers, wheels and knobs to control or display values, arrays, or ranges of type double."
+msgstr "Qwt kütüphanesi programlar için kullanışlı arayüz sınıflarını içerir."
+
 #: programming/libs/libebml::summary
 msgid "Extensible binary format library (kinda like XML)"
 msgstr "Genişletilebilir ikilik biçimlendirme kütüphanesi"
@@ -2761,6 +3053,10 @@ msgstr ""
 #: programming/libs/libmpcdec::description
 msgid "Portable Musepack decoder library."
 msgstr "Taşınabilir Musepack kodlama kütüphanesi."
+
+#: programming/libs/pcre++::summary
+msgid "C++ interface for PCRE library"
+msgstr "PCRE kitaplığı için C++ arayüzü"
 
 #: programming/libs/libexif::summary
 msgid "Library for parsing, editing, and saving EXIF data"
@@ -2842,6 +3138,10 @@ msgstr "NFSv4 ID isim haritalandırma (mapping) kütüphanesi"
 msgid "This python 2.2+ extension module allows you to manipulate the POSIX.1e Access Control Lists present in some os/filesystem combinations."
 msgstr "Bu python 2.2+ eklentisi sayesinde bazı işletim sistemi/dosya sistemi kombinasyonlarındaki POSIX.1e Erişim Kontrol Listeleri işlenebilir."
 
+#: programming/libs/qwtplot3d::summary
+msgid "QwtPlot3D is not a  program, but a feature-rich Qt/OpenGL-based C++ programming library, providing essentially a  bunch of 3D-widgets for programmers."
+msgstr ""
+
 #: programming/libs/openslp::description
 msgid "Service Location Protocol is an IETF standards track protocol that provides a framework to allow networking applications to discover the existence, location, and configuration of networked services in enterprise networks."
 msgstr "SLP (Service Location Protocol – Hizmet Yer Protokolu), ağlaraa bağlı hizmetlerin bulunabilmesi için gereken altyapıyı sağlar."
@@ -2877,6 +3177,10 @@ msgstr "Özgür Ogg Vorbis ses dosyası biçimi kitaplığı"
 #: programming/libs/tap-plugins::description
 msgid "TAP LADSPA plugins package which contains DeEsser, Dynamics, Equalizer, Reverb, Stereo Echo, Tremolo"
 msgstr ""
+
+#: programming/languages/php/php::description
+msgid "PHP5 is an HTML-embedded scripting language. Much of its syntax is borrowed from C, Java and Perl with a couple of unique PHP-specific features thrown in. The goal of the language is to allow web developers to write dynamically generated pages quickly."
+msgstr "PHP5, dinamik HTML sayfaları oluşturmak için kullanılan bir programlama dilidir. Dil yapısının önemli bir kısmı C, Java ve Perl'den alınmıştır. Bu dilin amacı, web geliştiricilerinin kısa zamanda dinamik sayfalar oluşturmasına imkan vermektir."
 
 #: programming/languages/php/PEAR/PEAR-MDB2_Driver_oci8::summary
 msgid "oci8 MDB2 driver"
@@ -3066,6 +3370,10 @@ msgstr "POP3 sunucusuna erişim sağlamak için POP3 sınıfı"
 msgid "Checks if a given Host or URL is listed on an DNS-based Blackhole List"
 msgstr "Verilen sunucu ya da URL'nin DNS tabanlı kara listede olup olmamasına bakar"
 
+#: programming/languages/php/PEAR/PEAR-HTML_AJAX::summary
+msgid "PHP and JavaScript AJAX library"
+msgstr "PHP ve Javascript AJAX kütüphanesi"
+
 #: programming/languages/php/PEAR/PEAR-Net_IMAP::summary
 msgid "Provides an implementation of the IMAP protocol"
 msgstr "IMAP protokolünün kullanımını sağlar"
@@ -3226,10 +3534,6 @@ msgstr "Çoklu HTTP istekleri gerçekleştirmek ve sonuçlarını işlemek için
 msgid "An implementation of Integrated Templates API with template 'compilation' added"
 msgstr ""
 
-#: programming/languages/php/PEAR/PEAR-HTML-AJAX::summary
-msgid "PHP and JavaScript AJAX library"
-msgstr "PHP ve Javascript AJAX kütüphanesi"
-
 #: programming/languages/php/PEAR/PEAR-Math_Stats::summary
 msgid "Classes to calculate statistical parameters"
 msgstr "İstatistiksel parametreleri hesaplamak için sınıflar"
@@ -3286,10 +3590,6 @@ msgstr "Uluslararasılaştırma"
 msgid "Smarty is a template engine written in PHP. Smarty separates PHP from HTML and is primarily used for the generation of dynamic HTML content."
 msgstr ""
 
-#: programming/languages/php/suhosin::description
-msgid "Suhosin was designed to protect servers and users from known and unknown flaws in PHP applications and the PHP core."
-msgstr ""
-
 #: programming/languages/hugs98::description
 msgid "Hugs 98 is a functional programming system based on Haskell 98."
 msgstr "Hugs 98, Haskell 98 tabanlı bir işlevsel programlama sistemidir."
@@ -3334,9 +3634,25 @@ msgstr "Django, hızlı geliştirme ve temiz, pratik dizaynı teşvik eden yüks
 msgid "Interfaces are objects that specify (document) the external behavior of objects that provide them."
 msgstr "Arayüzler, kendilerini sağlayan nesnelerin dış davranışını bildiren (anlatan) nesnelerdir."
 
+#: programming/languages/python/simplejson::summary
+msgid "Simple, fast, extensible JSON encoder/decoder for Python."
+msgstr "Python için basit, hızlı, genişletilebilir JSON dönüştürücü."
+
+#: programming/languages/python/python-xlib::description
+msgid "X client library Python modules."
+msgstr "Python için X istemci kütüphanesi modülleri."
+
+#: programming/languages/python/pcapy::summary
+msgid "Python interface for pcap library"
+msgstr ""
+
 #: programming/languages/python/pyopenssl::description
 msgid "This module is a rather thin wrapper around (a subset of) the OpenSSL library. A lot of the object methods do nothing more than calling a corresponding function in the OpenSSL library."
 msgstr "Bu modül aslında OpenSSL kütüphanesi için bir sarıcıdır (wrapper). Bir çok metod OpenSSL kütüphanesindeki ilgili fonksiyonu çağırmaktan başka bir iş yapmaz."
+
+#: programming/languages/python/PyICU::summary
+msgid "Python interface for ICU library"
+msgstr "ICU kitaplığı için Python arayüzü"
 
 #: programming/languages/python/pychecker::description
 msgid " PyChecker is a tool for finding bugs in python source code. It finds problems that are typically caught by a compiler for less dynamic languages, like C and C++"
@@ -3345,6 +3661,10 @@ msgstr " PyChecker python kaynak kodundaki hataları bulmaya yarayan bir araçt
 #: programming/languages/python/python-iptables::summary
 msgid "IPTables configuration module for Python"
 msgstr ""
+
+#: programming/languages/python/tagpy::description
+msgid "TagPy is a set of python bindings for taglib. It supports ID3 v1/v2, ogg/vorbis/flac comments, ape tags etc. in many formats like mp2/mp3/flac/mpc/ogg/musepack."
+msgstr "mp2/mp3/flac/mpc/ogg/musepack gibi pek çok format için ID3 v1/v2, ogg/vorbis/flac yorumları, ape tagları vb. bilgilerle çalışmayı sağlayan taglib için python eklentileri."
 
 #: programming/languages/python/python-docs::description
 msgid "Python documentation files include tutorials for beginners, global module index, library reference, Machintosh library modules, languange reference, tutorials for C/C++ programmers and other concepts about Pyhton."
@@ -3361,6 +3681,10 @@ msgstr ""
 #: programming/languages/python/fpconst::description
 msgid "Fpconst is a python module implementing constants and functions for working with IEEE754 double-precision special values. It provides constants for Not-a-Number (NaN), Positive Infinity (Inf), and Negative Infinity (-Inf), as well as functions to test for these values."
 msgstr ""
+
+#: programming/languages/python/pyalsaaudio::description
+msgid "A Python wrapper for the ALSA API"
+msgstr "ALSA API'sı için python modülü"
 
 #: programming/languages/python/numeric::description
 msgid "Numerical Python adds a fast, compact, multidimensional array language facility to Python"
@@ -3382,9 +3706,17 @@ msgstr " pysqlite, SQLite için bir DB-API 2.0 uyumlu veri tabanı ara yüzüd�
 msgid "Platform independent python bindings for the LZMA compression library."
 msgstr ""
 
+#: programming/languages/python/PyX::summary
+msgid "A Python package for the creation of PostScript and PDF files"
+msgstr ""
+
 #: programming/languages/python/pysvn::description
 msgid " Python SVN Extension and WorkBench GUI. The pysvn project's goal is to enable Tools to be written in Python that use Subversion."
 msgstr " Python SVN Uzantısı ve Çalışma Alanı Arayüzü. pysvn projesinin amacı Subversion (SVN) kullanan araçların python ile yazılmasını sağlamaktır."
+
+#: programming/languages/python/feedparser::summary
+msgid "RSS/ATOM feed parser in Python"
+msgstr ""
 
 #: programming/languages/python/pyPdf::description
 msgid "A Pure-Python library built as a PDF toolkit. It is capable of:extracting document information (title, author, ...),splitting documents page by page,merging documents page by page,cropping pages,merging multiple pages into a single page."
@@ -3394,6 +3726,10 @@ msgstr ""
 msgid "Aspect-Oriented Development modules for Python."
 msgstr "Python için Aspect-Oriented kitaplığı."
 
+#: programming/languages/python/gnuplot-py::summary
+msgid "Python interface to gnuplot"
+msgstr ""
+
 #: programming/languages/python/psyco::description
 msgid "Psyco is a Python extension module which can massively speed up the execution of any Python code."
 msgstr ""
@@ -3402,13 +3738,41 @@ msgstr ""
 msgid "SOAPpy is a full-featured SOAP library for Python that is very simple to use and that fully supports dynamic interaction between clients and servers."
 msgstr ""
 
+#: programming/languages/python/InlineEgg::summary
+msgid "A Python module that provides the user with a toolbox of classes for writing small assembly programs"
+msgstr ""
+
+#: programming/languages/python/pyosd::description
+msgid "PyOSD is a python module for displaying text on your X display, much like the 'On Screen Displays' used on TVs and some monitors."
+msgstr "Televizyon ve monitörlerdeki gibi ekran üstü görüntüleri X ortamında oluşturmaya yarayan python modülü."
+
+#: programming/languages/python/PyXML::description
+msgid "The PyXML package is a collection of libraries to process XML with Python."
+msgstr "Python programlama dili için XML kütüphaneleri."
+
+#: programming/languages/python/Impacket::summary
+msgid "A collection of Python classes focused on providing access to network packets"
+msgstr ""
+
 #: programming/languages/python/paramiko::description
 msgid "paramiko is a module for python 2.2 (or higher) that implements the SSH2 protocol for secure (encrypted and authenticated) connections to remote machines."
+msgstr ""
+
+#: programming/languages/python/pyv4l::description
+msgid "V4L (Video for Linux) modules for Python."
+msgstr "Python için V4L (Video for Linux) modülleri. "
+
+#: programming/languages/python/chardet::summary
+msgid "Character encoding auto-detection in Python"
 msgstr ""
 
 #: programming/languages/python/pyrex::description
 msgid "Pyrex is a language specially designed for writing Python extension modules. It's designed to bridge the gap between the nice, high-level, easy-to-use world of Python and the messy, low-level world of C."
 msgstr "Pyrex, python genişleme modülleri yazmak için özel olarak tasarlanmış bir dildir. Amacı Python'un güzel, yüksek seviyeli, kolay dünyasıyla C'nin düşük seviyeli dünyası arasında bir köprü oluşturmaktır."
+
+#: programming/languages/python/pardus-python::description
+msgid "Python modules for Pardus provides functions for common task, with the aim of easing development."
+msgstr "Pardus için Python modülleri genel işler için fonksiyonlar sunarak geliştirme işini kolaylaştırmayı amaçlamaktadır."
 
 #: programming/languages/python/setuptools::description
 msgid " setuptools is a collection of enhancements to the Python distutils that allow you to more easily build and distribute Python packages, especially ones that have dependencies on other packages."
@@ -3422,6 +3786,10 @@ msgstr ""
 msgid "MySQL module for Python in order to connect to MySQL database"
 msgstr "Python için MySQL modülü. Bu modül, Python dili yardımıyla MySQL veritabanına bağlantı kurmak için kullanılır."
 
+#: programming/languages/python/pycallgraph::summary
+msgid "A library that creates call graphs for Python programs."
+msgstr "Python programları için çağrı grafiği olşturan bir kütüphane."
+
 #: programming/languages/python/docutils::description
 msgid "A library for processing plaintext documentation into useful formats, such as HTML, XML, and LaTeX."
 msgstr ""
@@ -3434,8 +3802,28 @@ msgstr "CherrPy, geliştiricilerin herhangi bir nesne yönelimli Python program�
 msgid "Matplotlib is a python 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments across platforms. matplotlib can be used in python scripts."
 msgstr ""
 
+#: programming/languages/python/pyvorbis::description
+msgid "Python bindings for the ogg.vorbis library."
+msgstr "Ogg.vorbis kütüphanesi için python eklentileri."
+
+#: programming/languages/python/pyogg::description
+msgid "Python bindings for the ogg library."
+msgstr "Ogg kütüphanesi için python eklentileri."
+
+#: programming/languages/python/FormEncode::summary
+msgid "FormEncode is a validation and form generation package for Python"
+msgstr "FromEncode Python için bir form doğrulama ve oluşturma paketidir"
+
+#: programming/languages/python/urwid::description
+msgid "Console user interface library for Python, with many features like UTF-8 support and HTML screenshot."
+msgstr "UTF-8 desteği ve HTML ekran görüntüsü yakalama gibi ilginç özelliklere sahip, konsol kullanıcı arabirimleri için kullanılan PYthon kütüphanesi."
+
 #: programming/languages/python/aggdraw::description
 msgid "The aggdraw module implements high-quality drawing, with anti-aliasing and alpha compositing."
+msgstr ""
+
+#: programming/languages/python/scapy::summary
+msgid "Powerful interactive packet manipulation program"
 msgstr ""
 
 #: programming/languages/python/numpy::description
@@ -3446,9 +3834,25 @@ msgstr ""
 msgid "The Python Imaging Library (PIL) adds image processing capabilities to your Python interpreter. This library supports many file formats, and provides powerful image processing and graphics capabilities."
 msgstr ""
 
+#: programming/languages/python/pyao::description
+msgid "Python bindings for libao audio library."
+msgstr "Python için libao ses kütüphanesi eklentileri."
+
 #: programming/languages/python/Twisted::description
 msgid "Twisted is an event-driven networking framework written in Python and licensed under the MIT license. Twisted projects variously support TCP, UDP, SSL/TLS, multicast, Unix sockets, a large number of protocols (including HTTP, NNTP, IMAP, SSH, IRC, FTP, and others), and much more."
 msgstr ""
+
+#: programming/languages/python/SQLObject::description
+msgid "SQLObject is an object-relational mapper for Python programming language. It allows you to translate RDBMS table rows into Python objects, and manipulate those objects to transparently manipulate the database."
+msgstr "SQLObject Python programlama dili için bir ORM (object-relational mapper) sistemidir. RDBMS tablo satırlarını Python nesnelerine dönüştürerek kullanmanıza olanak verir."
+
+#: programming/languages/python/pyparsing::summary
+msgid "Python module for creating and executing simple grammars."
+msgstr "Basit dilbilgisi oluşturma ve işlemeye yarayan Python modülü."
+
+#: programming/languages/python/pyid3lib::description
+msgid "Python modules to read and manipulate ID3 tags."
+msgstr "ID3 etiketlerini okuma ve değiştirmek için Python modülleri."
 
 #: programming/languages/gambas/gambas:gambas-runtime:summary
 msgid "Runtime environment for gambas"
@@ -3526,6 +3930,10 @@ msgstr "xml için gambas bileşen paketi"
 msgid "Gambas is a free development environment based on a Basic interpreter with object extensions."
 msgstr "Gambas, nesne eklentileri ile birlikte Basic yorumlayıcısı tabanlı özgür bir geliştirme ortamıdır."
 
+#: programming/languages/perl/Email-MIME-Modifier::summary
+msgid "Modify Email::MIME Objects Easily"
+msgstr ""
+
 #: programming/languages/perl/DBD-mysql::description
 msgid "DBD::mysql is an interface between the Perl programming language and the MySQL programming API that comes with the MySQL relational database management system. Most functions provided by this programming API are supported."
 msgstr "DBD::mysql, MySQL ilişkisel veritabanıyla birlikte gelen programlama API'siyle Perl arasında bir arayüz oluşturur. Bu API'nin sağladığı fonksiyonların çoğu desteklenmektedir."
@@ -3534,12 +3942,40 @@ msgstr "DBD::mysql, MySQL ilişkisel veritabanıyla birlikte gelen programlama A
 msgid "Automated accessor generation"
 msgstr ""
 
+#: programming/languages/perl/Email-MIME-Attachment-Stripper::summary
+msgid "Perl module for stripping the attachments from a mail"
+msgstr ""
+
 #: programming/languages/perl/Pod-Escapes::summary
 msgid "For resolving Pod escape sequences"
 msgstr ""
 
+#: programming/languages/perl/HTML-Scrubber::summary
+msgid "Perl extension for scrubbing/sanitizing html"
+msgstr ""
+
+#: programming/languages/perl/Email-Reply::summary
+msgid "Perl module for replying to a message"
+msgstr ""
+
+#: programming/languages/perl/Module-Pluggable::summary
+msgid "Automatically give your module the ability to have plugins"
+msgstr ""
+
+#: programming/languages/perl/File-HomeDir::summary
+msgid "Perl module for finding home directories on any platform"
+msgstr ""
+
+#: programming/languages/perl/Email-MIME-Encodings::summary
+msgid "A unified interface to MIME encoding and decoding"
+msgstr ""
+
 #: programming/languages/perl/ExtUtils-ParseXS::description
 msgid "ExtUtils::ParseXS will compile XS code into C code by embedding the constructs necessary to let C functions manipulate Perl values and creates the glue necessary to let Perl access those functions."
+msgstr ""
+
+#: programming/languages/perl/Time-Piece::summary
+msgid "Object Oriented time objects"
 msgstr ""
 
 #: programming/languages/perl/File-Tail::description
@@ -3570,6 +4006,10 @@ msgstr "Bu modül NIST SHA-1 mesaj özetleme algoritmasını Perl programlarınd
 msgid "Handling hierarchical structures with Perl"
 msgstr "Hİyerarşik yapıları perl ile yöntemek için bir modül."
 
+#: programming/languages/perl/Email-Abstract::summary
+msgid "Unified interface to mail representations"
+msgstr ""
+
 #: programming/languages/perl/Path-Class::summary
 msgid "Cross-platform path specification manipulation"
 msgstr ""
@@ -3577,6 +4017,10 @@ msgstr ""
 #: programming/languages/perl/Class-MethodMaker::description
 msgid "This module solves the problem of having to continually write accessor methods for your objects that perform standard tasks."
 msgstr "Bu modül, nesneler için standart erişim metodlarını (accessor) her seferinde yazma sorununu çözer."
+
+#: programming/languages/perl/Chart::summary
+msgid "A series of charting modules for Perl"
+msgstr ""
 
 #: programming/languages/perl/XML-SAX-Writer::description
 msgid "Perl SAX is a common parser interface for XML parsers. It allows to write applications that use XML parsers"
@@ -3614,6 +4058,14 @@ msgstr "Bu modül, çoklu dil desteğini sağlayan gettext() ailesine Perl üzer
 msgid "Provide the stuff missing in List::Util"
 msgstr ""
 
+#: programming/languages/perl/IO-stringy::summary
+msgid "I/O on in-core objects like strings and arrays"
+msgstr ""
+
+#: programming/languages/perl/Math-Complex::summary
+msgid "Complex numbers and associated mathematical functions"
+msgstr ""
+
 #: programming/languages/perl/IP-Country::description
 msgid "This module comes bundled with a database of countries where various IP addresses have been assigned."
 msgstr "Bu modül çeşitli IP adreslerinin atandığı ülkeleri barındıran bir veritabanıyla birlikte gelir."
@@ -3638,9 +4090,17 @@ msgstr ""
 msgid "IO::Socket::INET6 provides an object interface to creating and using sockets in either AF_INET or AF_INET6 domains. It is built upon the IO::Socket interface and inherits all the methods defined by IO::Socket."
 msgstr ""
 
+#: programming/languages/perl/Email-MessageID::summary
+msgid "Perl module for generating world unique message-ids"
+msgstr ""
+
 #: programming/languages/perl/IO-Zlib::description
 msgid "IO::Zlib provides an IO:: style interface to Compress::Zlib and hence to gzip/zlib compressed files. It provides many of the same methods as the IO::Handle interface."
 msgstr "Bu modül Compress::Zlib modülüne IO:: biçeminde bir arayüz sağlar. IO::Handle arayüzünün metodlarının çoğunun benzeri bulunur."
+
+#: programming/languages/perl/MIME-Lite::summary
+msgid "Low-calorie MIME generator"
+msgstr ""
 
 #: programming/languages/perl/version::summary
 msgid "Perl extension for Version Objects"
@@ -3650,12 +4110,24 @@ msgstr ""
 msgid "Perl extension for generating Globally/Universally Unique Identifiers "
 msgstr ""
 
+#: programming/languages/perl/Email-Address::summary
+msgid "RFC 2822 Address Parsing and Creation"
+msgstr ""
+
 #: programming/languages/perl/Archive-Zip::description
 msgid "The Archive::Zip module allows a Perl program to create, manipulate, read, and write Zip archive files. This module uses the Compress::Zlib library to read and write the compressed streams inside the files."
 msgstr "Bu modül, Perl programlarının Zip arşiv dosyalarını oluşturmasını, düzenlemesini ve okumasını sağlar. Dosyaların içindeki akımları okumak ve yazmak için Compress:Zlib kütüphanesini kullanır."
 
+#: programming/languages/perl/MailTools::summary
+msgid "A set of perl modules related to mail applications"
+msgstr ""
+
 #: programming/languages/perl/SVN-Simple::summary
 msgid "A simple interface for SVN"
+msgstr ""
+
+#: programming/languages/perl/SOAP-Lite::summary
+msgid "A collection of Perl modules which provides a simple and lightweight interface to the Simple Object Access Protocol"
 msgstr ""
 
 #: programming/languages/perl/Digest-MD4::description
@@ -3664,6 +4136,14 @@ msgstr "Digest Perl MD4, Ron Rivests MD4 Algoritmasının Perl uygulamasıdır. 
 
 #: programming/languages/perl/App-CLI::summary
 msgid "Dispatcher module for command line interface programs"
+msgstr ""
+
+#: programming/languages/perl/Email-Simple-Creator::summary
+msgid "Perl module providing a constructor to Email::Simple for creating messages from scratch"
+msgstr ""
+
+#: programming/languages/perl/GSSAPI::summary
+msgid "Perl extension providing access to the GSSAPIv2 library"
 msgstr ""
 
 #: programming/languages/perl/Unicode-Map8::description
@@ -3698,6 +4178,10 @@ msgstr "Perl modülü Locale::Maketext::Lexicon için basit bir arayüz"
 msgid "Perl extension interface to convert Japanese text"
 msgstr ""
 
+#: programming/languages/perl/GDGraph::summary
+msgid "Perl module for graph plotting"
+msgstr ""
+
 #: programming/languages/perl/XML-Parser::description
 msgid "This module provides an interface to James Clark's XML parser, expat. As in expat, a single instance of the parser can only parse one document. Calls to parsestring after the first for a given instance will die."
 msgstr "Bu modül James Clark'ın XML ayrıştırıcısı expat için bir arayüz sağlar. Expat'ta olduğu gibi ayrıştırıcıdan türetilen her nesne sadece bir dosyayı ayrıştırabilir."
@@ -3709,6 +4193,10 @@ msgstr ""
 #: programming/languages/perl/SDL-Perl::description
 msgid "With this interface, you can write SDL applications in Perl."
 msgstr "Bu modül Perl dilini kullanarak SDL uygulamaları yazabilmenizi sağlar."
+
+#: programming/languages/perl/XML-Twig::summary
+msgid "A perl module for processing huge XML documents in tree mode"
+msgstr ""
 
 #: programming/languages/perl/Net-SSLeay::description
 msgid "Net::SMPP is an implementation of Short Message Peer to Peer protocol over TCP. This protocol is frequently used in the telecoms and mobile operator world to pass short messages between systems that implement the short message service (SMS)."
@@ -3722,9 +4210,21 @@ msgstr ""
 msgid "Low-Level Interface to zlib compression library for perl"
 msgstr "Perl için düşük seviyeli bir zlib sıkıştırma kütüphanesi"
 
+#: programming/languages/perl/AppConfig::summary
+msgid "Perl module for reading configuration files and parsing command line arguments"
+msgstr ""
+
 #: programming/languages/perl/HTML-Parser::description
 msgid "The HTML-Parser distribution is a collection of modules that parse and extract information from HTML documents."
 msgstr "HTML-Parser yazılımı, HTML dökümanlarından bilgi ayrıştıran ve seçip çıkaran bir modüller kolleksiyonudur."
+
+#: programming/languages/perl/Template-Toolkit::summary
+msgid "Perl Template Toolkit"
+msgstr ""
+
+#: programming/languages/perl/Curses::summary
+msgid "Curses interface modules for Perl"
+msgstr "Perl için curses arabirim modülü"
 
 #: programming/languages/perl/URI::description
 msgid "A Uniform Resource Identifier is a compact string of characters that identifies an abstract or physical resource. A Uniform Resource Identifier can be further classified as either a Uniform Resource Locator (URL) or a Uniform Resource Name (URN)."
@@ -3734,8 +4234,16 @@ msgstr "Bir URI (Uniform Resource Identifiers- Tektip Kaynak Belirleyicileri), s
 msgid "The Digest:: modules calculate digests, also called \"fingerprints\" or \"hashes\", of some data, called a message. The digest is (usually) some small/fixed size string. The actual size of the digest depend of the algorithm used. The message is simply a sequence of arbitrary bytes or bits."
 msgstr "Digest:: modülleri özet hesaplamada kullanılırlar. Özet, (genelde) küçük ve belli uzunlukta olan karakter kümesinden oluşur. Bir özetin boyutu kullanılan algoritmayla alakalı olarak değişir."
 
+#: programming/languages/perl/Email-Send::summary
+msgid "Simply Sending Email"
+msgstr ""
+
 #: programming/languages/perl/Unicode-String::description
 msgid "Perl modules to handle various Unicode issues"
+msgstr ""
+
+#: programming/languages/perl/mod_perl::summary
+msgid "Perl Module for Apache"
 msgstr ""
 
 #: programming/languages/perl/Error::summary
@@ -3754,12 +4262,20 @@ msgstr "SASL, ağ protokolleri tarafından kullanılan genel bir kimlik doğrula
 msgid "Convert::ASN1 encodes and decodes ASN.1 data structures using BER/DER rules."
 msgstr "Convert::ASN1, ASN1 veri yapılarını BER/DER kurallarını kullanarak kodlar ve çözer."
 
+#: programming/languages/perl/Email-MIME::summary
+msgid "Easy MIME message parsing"
+msgstr ""
+
 #: programming/languages/perl/libxml-perl::description
 msgid "libxml-perl isa collection of Perl modules, scripts, and documents for working with XML in Perl. It works in combination with XML::Parser, PerlSAX, XML::DOM, XML::Grove, and others."
 msgstr ""
 
 #: programming/languages/perl/UNIVERSAL-require::summary
 msgid "Require modules from a variable"
+msgstr ""
+
+#: programming/languages/perl/MIME-tools::summary
+msgid "Modules for parsing and creating MIME entities"
 msgstr ""
 
 #: programming/languages/perl/PerlIO-eol::description
@@ -3788,6 +4304,14 @@ msgstr "Net::DNS, bir DNS (Domain Name System -Alan Adı Sistemi) çözücüsü 
 
 #: programming/languages/perl/PerlIO-via-symlink::summary
 msgid "PerlIO layers for creating symlinks"
+msgstr ""
+
+#: programming/languages/perl/Email-MIME-Creator::summary
+msgid "A perl module for creating a Email::MIME constructor for starting anew"
+msgstr ""
+
+#: programming/languages/perl/Class-ISA::summary
+msgid "Perl module for reporting the search path for a class's ISA tree"
 msgstr ""
 
 #: programming/languages/perl/DBD-SQLite::description
@@ -3842,6 +4366,18 @@ msgstr ""
 msgid "Socket6 module provides glue routines to the various IPv6 functions"
 msgstr ""
 
+#: programming/languages/perl/MIME-Types::summary
+msgid "Definition of MIME types"
+msgstr ""
+
+#: programming/languages/perl/Email-Simple::summary
+msgid "Simple parsing of RFC2822 message format and headers"
+msgstr ""
+
+#: programming/languages/perl/Perl-Tk::summary
+msgid "A Perl module for Tkinter"
+msgstr "Tkinter için bir Perl modülü"
+
 #: programming/languages/perl/FreezeThaw::description
 msgid "Converting Perl structures to strings and back"
 msgstr "Perl yapıları ve karakter katarları arasında dönüşüm yapar"
@@ -3858,6 +4394,10 @@ msgstr ""
 msgid "Contains regular expressions for the following XML tokens: BaseChar, Ideographic, Letter, Digit, Extender, CombiningChar, NameChar, EntityRef, CharRef, Reference, Name, NmToken, and AttValue"
 msgstr "Düzenli ifadeleri bulundurulan XML işaretleri: BaseChar, Ideographic, Letter, Digit, Extender, CombiningChar, NameChar, EntityRef, CharRef, Reference, Name, NmToken, and AttValue"
 
+#: programming/languages/perl/Apache-DBI::summary
+msgid "Perl module for initiating a persistent database connection"
+msgstr ""
+
 #: programming/languages/perl/IO-Digest::summary
 msgid "Calculate digests while reading or writing"
 msgstr ""
@@ -3870,6 +4410,10 @@ msgstr "Magic sistemini kullanarak dosya tipini tanımak için Perl modülü"
 msgid "This module offers a simple way to process namespaced XML names (unames) from within any application that may need them"
 msgstr ""
 
+#: programming/languages/perl/PatchReader::summary
+msgid "Utilities to read and manipulate patches and CVS"
+msgstr ""
+
 #: programming/languages/perl/libnet-perl::description
 msgid "libnet is a collection of Perl modules which provides a simple and consistent programming interface (API) to the client side of various protocols used in the internet community."
 msgstr "Libnet, internet topluluğunda kullanılan çeşitli protokollerin istemci tarafına basit ve devamlı bir programlama arayüzü (API) temin eden Perl modülünün bir koleksiyonudur."
@@ -3880,6 +4424,10 @@ msgstr "Perl için Crypt::SSLeay modülü"
 
 #: programming/languages/perl/Log-Log4perl::summary
 msgid "Log4j implementation for Perl"
+msgstr ""
+
+#: programming/languages/perl/Email-Date::summary
+msgid "Perl module for finding and formatting email date headers"
 msgstr ""
 
 #: programming/languages/perl/Bit-Vector::description
@@ -3906,9 +4454,25 @@ msgstr ""
 msgid "Shell-like regular expressions"
 msgstr ""
 
+#: programming/languages/perl/Email-MIME-ContentType::summary
+msgid "Perl module for parsing a MIME Content-Type header"
+msgstr ""
+
+#: programming/languages/perl/Perl-GD::summary
+msgid "Interface to Gd Graphics Library"
+msgstr ""
+
 #: programming/languages/perl/File-chdir::description
 msgid "Perl module for changing directories"
 msgstr "Dizin değiştirmek için bir Perl modülü."
+
+#: programming/languages/perl/Time-Local::summary
+msgid "Perl module for efficiently computing time from local and GMT time"
+msgstr ""
+
+#: programming/languages/perl/Return-Value::summary
+msgid "Polymorphic Return Values"
+msgstr ""
 
 #: programming/languages/perl/Class-Autouse::description
 msgid "A perl module for loading a class the first time you call a method in it"
@@ -3920,6 +4484,10 @@ msgstr ""
 
 #: programming/languages/perl/Clone::summary
 msgid "Recursively copy Perl datatypes"
+msgstr ""
+
+#: programming/languages/perl/GDTextUtil::summary
+msgid "Text utilities for use with GD"
 msgstr ""
 
 #: programming/languages/perl/Net-IP::description
@@ -3942,6 +4510,10 @@ msgstr "Bu modül sayesinde perlde farklı işletim sistemlerinin (mac, windows,
 msgid "The Net::CIDR package contains functions that manipulate lists of IP netblocks expressed in CIDR notation. The Net::CIDR functions handle both IPv4 and IPv6 addresses."
 msgstr "Bu paket, CIDR gösterimiyle ifade edilmiş IP netblock listelerini düzenlemeye yarayan fonksiyonlar içerir. Net:CIDR fonksiyonları hem IPv4 hem de IPv6 uyumludur."
 
+#: programming/languages/perl/Template-GD::summary
+msgid "GD plugin for the Template Toolkit"
+msgstr ""
+
 #: programming/languages/perl/Digest-MD5::description
 msgid "Digest::MD5 - Perl interface to the MD5 Algorithm. The Digest::MD5 module allows you to use the RSA Data Security Inc. MD5 Message Digest algorithm from within Perl programs."
 msgstr "Digest::MD5 MD5 Algoritması için bir Perl arayüzüdür. Bu modül, size RSA Data Security Inc. MD5 Message Digest (Rivest, Shamir Adleman – Veri Güvenliği A.Ş. MD5) algoritmasını Perl programları içinden kullanmanıza izin verir."
@@ -3958,9 +4530,13 @@ msgstr "Bir sürü özellik içeren, hafif ama güçlü bir programlama dili"
 msgid "A fast modern type-inferring functional programming language descended from the ML (Meta Language) family"
 msgstr "OcaML, ML dilinin soyundan gelen fonksiyonel bir programlama dilidir"
 
-#: programming/languages/tcl::description
+#: programming/languages/tcl/tcl::description
 msgid "Tcl provides a powerful platform for creating integration applications that tie together diverse applications, protocols, devices, and frameworks."
 msgstr "Tcl, çeşitli uygulamalar geliştirmek için kullanılabilen bir programlama dilidir. "
+
+#: programming/languages/tcl/snack::summary
+msgid "The Snack Sound Toolkit"
+msgstr ""
 
 #: programming/languages/java/sun-java::description
 msgid "Java Platform, Standard Edition (also known as Java 2 Platform) lets you develop and deploy Java applications on desktops and servers, as well as today's demanding Embedded and Real-Time environments."
@@ -4001,10 +4577,6 @@ msgstr "Doxygen C++, C, Java, Objective-C, Python, IDL (Corba ve Microsoft ile i
 #: programming/tools/gdb::description
 msgid "GDB, the GNU Project debugger, allows you to see what is going on `inside' another program while it executes -- or what another program was doing at the moment it crashed."
 msgstr "GDB, GNU Proje hata ayıklama aracı, çalışır durumdaki başka bir programın `içinde' olan biteni görmenizi, veya başka bir programın çöktüğü anda ne yapıyor olduğunu bilmenizi sağlar."
-
-#: programming/tools/bzr-svn::summary
-msgid "Bazaar-SVN plugin"
-msgstr ""
 
 #: programming/tools/rcs::description
 msgid "The Revision Control System (RCS) manages multiple revisions of files. RCS automates the storing, retrieval, logging, identification, and merging of revisions. RCS is useful for text that is revised frequently, including source code, programs, documentation, graphics, papers, and form letters."
@@ -4098,10 +4670,6 @@ msgstr ""
 msgid "Helper applications for translations"
 msgstr "Çeviri için yardımcı programlar"
 
-#: programming/tools/bzr::description
-msgid "Bazaar gives you fast, distributed revision control that \"Just Works\", supporting renames of files and directories smoothly. Bazaar supports flexible work models: centralized like cvs or svn, commit offline, enforced code review when desired, and automatic regression testing. Decentralized."
-msgstr ""
-
 #: programming/tools/mercurial::description
 msgid "A fast, lightweight Source Control Management system designed for efficient handling of very large distributed projects."
 msgstr "Çok büyük dağıtık projelerin verimli bir şekilde idare edilmesi amacıyla geliştirilmiş hızlı, hafif bir kaynak kod kontrol yönetimi sistemi"
@@ -4117,10 +4685,6 @@ msgstr "Python programlama dili için kapsamlı bir geliştirme ortamı"
 #: programming/environments/kdevelop::description
 msgid "Integrated Development Enviroment for Unix, supporting KDE/Qt, C/C++ and a many other languages"
 msgstr "C/C++ ve diğer bir çok programlama dili ile uygulama geliştirmeye olanak veren bir grafik geliştirme ortamıdır"
-
-#: programming/environments/eclipse/eclipse-sdk-binary::summary
-msgid "Eclipse is an open source community whose projects are focused on providing an extensible development platform and application frameworks for building software. This package include whole platform"
-msgstr "Eclipse, genel amaçlı, genişletilebilir bir uygulama geliştirme ortamı oluşturmak için başlatılmış açık kaynak kodlu bir projedir."
 
 #: programming/environments/eclipse/eclipse-cdt-binary::summary
 msgid "C/C++ Development Tools (CDT) for Eclipse"
@@ -4150,17 +4714,9 @@ msgstr "Bir yazılım geliştirme ortamı"
 msgid "DrScheme Programming Environment"
 msgstr "DrScheme Programlama Ortamı"
 
-#: applications/doc/asciidoc::description
-msgid "AsciiDoc is a text document format for writing short documents, articles, books and UNIX man pages. AsciiDoc files can be translated to HTML and DocBook markups using the asciidoc command."
-msgstr "AsciiDoc, kısa belge, makale, kitap ve kılavuz sayfalarını yazmak ve bunları HTML/Docbook'a dönüştürmek için kullanılır."
-
-#: applications/doc/opensp::description
-msgid "OpenSP is a free, object-oriented toolkit for Standard Generalized Markup Language (SGML) parsing and entity management maintained by the OpenJade project."
-msgstr "OpenSP OpenJade projesi tarafından tasarlanmış SGML sözdizimsel analiz ve içerik yönetimi için nesne-odaklı kullanım aracıdır."
-
-#: applications/doc/openjade::description
-msgid "OpenJade is an implementation of Document Style Semantics and Specification Language (DSSSL), a style language to format Standard Generalized Markup Language (SGML) or Extensible Markup Language (XML) documents."
-msgstr "OpenJade SGML ya da XML belgelerinin biçimlendirilmesine yarayan bir tarz lisanı olan DSSSL uygulamasıdır."
+#: applications/doc/yodl::summary
+msgid "Your Own Documentation Language"
+msgstr ""
 
 #: applications/doc/help2man::description
 msgid "Help2man is a tool which generate man page from help text of programs."
@@ -4194,10 +4750,6 @@ msgstr "This tool can be used to convert Microsoft doc and rtf files to an open 
 msgid "Aiksaurus is a set of libraries and applications which provide a thesaurus using native GUI on several platforms"
 msgstr "Aiksaurus birçok platformda yerel GUI kullananarak kavramlar dizini sağlayan kütüphaneler ve uygulamalar dizisidir."
 
-#: applications/doc/sgml-common::description
-msgid "Sgml-common is a collection of entities and document type definitions (dtds) that are useful for SGML processing."
-msgstr "Sgml-common SGML uygulamaları için kullanışlı olan içerikler ve belge tipi açıklamalar topluluğudur."
-
 #: applications/doc/djvu::description
 msgid "Web-centric format and software platform for distributing documents and images"
 msgstr "Belgeleri, kitapları bilinen formatlardan çok daha yüksek sıkıştırma oranlarında sıkıştıran DjVu formatı ekipmanları"
@@ -4205,6 +4757,90 @@ msgstr "Belgeleri, kitapları bilinen formatlardan çok daha yüksek sıkıştı
 #: applications/doc/texi2html::description
 msgid "A Perl script which converts Texinfo source files to HTML output."
 msgstr "Texinfo kaynak dosyalarını HTML dosyalarına dönüştüren bir Perl betiği."
+
+#: applications/doc/docbook/docbook-dsssl::summary
+msgid "Docbook DSSSL Stylesheets"
+msgstr ""
+
+#: applications/doc/docbook/docbook-sgml4_4::summary
+msgid "Docbook SGML DTD 4.4"
+msgstr ""
+
+#: applications/doc/docbook/asciidoc::description
+msgid "AsciiDoc is a text document format for writing short documents, articles, books and UNIX man pages. AsciiDoc files can be translated to HTML and DocBook markups using the asciidoc command."
+msgstr "AsciiDoc, kısa belge, makale, kitap ve kılavuz sayfalarını yazmak ve bunları HTML/Docbook'a dönüştürmek için kullanılır."
+
+#: applications/doc/docbook/docbook-utils::summary
+msgid "A set of utilities for Docbook processing"
+msgstr ""
+
+#: applications/doc/docbook/opensp::description
+msgid "OpenSP is a free, object-oriented toolkit for Standard Generalized Markup Language (SGML) parsing and entity management maintained by the OpenJade project."
+msgstr "OpenSP OpenJade projesi tarafından tasarlanmış SGML sözdizimsel analiz ve içerik yönetimi için nesne-odaklı kullanım aracıdır."
+
+#: applications/doc/docbook/docbook-xml4_2::summary
+msgid "Docbook DTD for XML"
+msgstr "XML için Docbook DTD"
+
+#: applications/doc/docbook/docbook-xsl::summary
+msgid "XSL Stylesheets for Docbook"
+msgstr "Docbook için XSL Stylesheets (Biçem yaprakları)"
+
+#: applications/doc/docbook/docbook-xml4_1_2::summary
+msgid "Docbook DTD for XML"
+msgstr "XML için Docbook DTD"
+
+#: applications/doc/docbook/openjade::description
+msgid "OpenJade is an implementation of Document Style Semantics and Specification Language (DSSSL), a style language to format Standard Generalized Markup Language (SGML) or Extensible Markup Language (XML) documents."
+msgstr "OpenJade SGML ya da XML belgelerinin biçimlendirilmesine yarayan bir tarz lisanı olan DSSSL uygulamasıdır."
+
+#: applications/doc/docbook/docbook-sgml4_2::summary
+msgid "Docbook SGML DTD 4.2"
+msgstr ""
+
+#: applications/doc/docbook/docbook-sgml4_5::summary
+msgid "Docbook SGML DTD 4.5"
+msgstr ""
+
+#: applications/doc/docbook/SGMLSpm::summary
+msgid "Class for postprocessing the output from the sgmls and nsgmls parsers"
+msgstr ""
+
+#: applications/doc/docbook/build-docbook-catalog::summary
+msgid "A script for building docbook catalog"
+msgstr "Docbook kataloğu oluşturmak için bir uygulama"
+
+#: applications/doc/docbook/jadetex::summary
+msgid "TeX macros used by Jade TeX output"
+msgstr ""
+
+#: applications/doc/docbook/docbook-xml4_4::summary
+msgid "Docbook DTD for XML"
+msgstr "XML için Docbook DTD"
+
+#: applications/doc/docbook/docbook-sgml4_1::summary
+msgid "Docbook SGML DTD 4.1"
+msgstr ""
+
+#: applications/doc/docbook/sgml-common::description
+msgid "Sgml-common is a collection of entities and document type definitions (dtds) that are useful for SGML processing."
+msgstr "Sgml-common SGML uygulamaları için kullanışlı olan içerikler ve belge tipi açıklamalar topluluğudur."
+
+#: applications/doc/docbook/xmlto::summary
+msgid "A bash script for converting XML and DocBook"
+msgstr "XML ve DocBook için dönüşüm aracı"
+
+#: applications/doc/docbook/docbook-sgml3_1::summary
+msgid "Docbook SGML DTD 3.1"
+msgstr ""
+
+#: applications/doc/docbook/docbook-xml4_5::summary
+msgid "Docbook DTD for XML"
+msgstr "XML için Docbook DTD"
+
+#: applications/doc/Reportlab::summary
+msgid "PDF generator library"
+msgstr "PDF üretim kitaplığı"
 
 #: applications/doc/mftrace::summary
 msgid "Generates scalable fonts for TeX"
@@ -4249,6 +4885,10 @@ msgstr "prelink uygulamaların başlangıç sürelerini azaltarak sistemin perfo
 #: applications/util/nrg2iso::description
 msgid "Nrg2Iso is a linux utils for converting CD (or DVD) image generated by Nero Burning Rom to ISO format."
 msgstr "Nrg2Iso - Nero Burning Rom tarafından oluşturulan NRG dosyasını Iso dosya formatına çevirmeye yarayan bir linux aracıdır."
+
+#: applications/util/lxsplit::description
+msgid "Lxsplit is a hjsplit compatible command-line file splitter/joiner."
+msgstr "Lxsplit, hjsplit uyumlu bir komut satırı dosya bölücü/birleştiricidir."
 
 #: applications/util/screen::description
 msgid "GNU Screen is a free terminal multiplexer developed by the GNU Project. It allows a user to access multiple separate terminal sessions inside a single terminal window or remote terminal session."
@@ -4366,13 +5006,25 @@ msgstr "Hp Deskjet 710, 712, 720, 722, 820, 1000 serisi yazıcı sürücüleri i
 msgid "The Common Unix Printing System"
 msgstr "Unix Ortak Yazdırma Sistemi"
 
+#: applications/printing/min12xxw::description
+msgid "Driver for Minolta PagePro 12xx/13xx/14xx W printers."
+msgstr "Minolta PagePro 12xx/13xx/14xx W yazıcılar için sürücüler."
+
 #: applications/archive/unarj::description
 msgid "Extracts ARJ archive files."
 msgstr "ARJ biçiminde arşivlenmiş dosyaları açar."
 
+#: applications/archive/xdelta3::summary
+msgid "Computes changes between binary or text files and creates deltas (version 3)"
+msgstr "İkili veya metin dosyalar arasındaki değişiklikleri hesaplar ve farklarını oluşturur (versiyon 3)"
+
 #: applications/archive/unrar::description
 msgid "Uncompress rar files"
 msgstr "RAR formatında sıkıştırılmış dosyaların açılmasında kullanılan bir sıkıştırma programıdır"
+
+#: applications/archive/rzip::summary
+msgid "A compression program taking advantage long distance redundencies in files"
+msgstr ""
 
 #: applications/archive/p7zip::description
 msgid "Port of 7-Zip archiver for Unix Supported formats Packing-unpacking: 7z, ZIP, GZIP, BZIP2 and TAR. Unpacking only: RAR, CAB, ISO, ARJ, LZH, CHM, Z, CPIO, RPM, DEB and NSIS"
@@ -4414,9 +5066,41 @@ msgstr "GNU Shar, e-posta ile göndermek için dosyalardan kabuk arşivleri yara
 msgid "An extremely fast compression and decompression library"
 msgstr "Çok hızlı bir sıkıştırma/açma kütüphanesi. Açma işleminde bellek kullanımı düşüktür ve oldukça hızlıdır."
 
+#: applications/dictionaries/aspell/aspell-fr::description
+msgid "You can do spell-checking in French using Aspell program with this dictionary."
+msgstr ""
+
+#: applications/dictionaries/aspell/aspell-en::description
+msgid "You can do spell-checking in English using Aspell program with this dictionary."
+msgstr "Bu sözlük ile Aspell programını kullanarak İngilizce imla denetlemesi yapabilirsiniz."
+
+#: applications/dictionaries/aspell/aspell-it::description
+msgid "You can do spell-checking in Italian using Aspell program with this dictionary."
+msgstr ""
+
+#: applications/dictionaries/aspell/aspell::description
+msgid "The program that you can also easily check documents in UTF-8 without having to use a special dictionary."
+msgstr "Özel bir sözlük kullanmadan yazım kontrolü yapabileceğiniz programdır."
+
+#: applications/dictionaries/aspell/aspell-de::description
+msgid "You can do spell-checking in German using Aspell program with this dictionary."
+msgstr ""
+
+#: applications/dictionaries/aspell/aspell-nl::description
+msgid "You can do spell-checking in Dutch using Aspell program with this dictionary."
+msgstr "Bu sözlüğü, Aspell yazılımı ile kullanarak, flemenkçe yazım denetimi yapabilirsiniz."
+
+#: applications/multimedia/ogmtools::summary
+msgid "Tools that allow information about (ogminfo) or extraction from (ogmdemux) or creation of (ogmmerge) OGG media stream"
+msgstr ""
+
 #: applications/multimedia/emovix::description
 msgid "eMoviX is a 'live-CD' micro-distro able to boot and play all the audio/video content you stored in the CD you burned it on."
 msgstr "eMoviX bilgisayarınızı çalıştırabileceğiniz ve aynı ortama yazdığınız tüm ses/video içeriklerini oynatabileceğiniz bir \"çalışan CD'dir\"."
+
+#: applications/multimedia/AtomicParsley::summary
+msgid "A lightweight command line program for reading, parsing and setting metadata into MPEG-4 files"
+msgstr ""
 
 #: applications/multimedia/XaraXtreme::description
 msgid "Free software version of the Xara Xtreme. Very fast and powerful vector editing program with clean user interface. Supports XAR, EPS, AI (Adobe Illustrator), and many bitmap formats."
@@ -4574,10 +5258,6 @@ msgstr ""
 msgid "A simple set of tools to help you author a DVD"
 msgstr "DVD yaratmak icin basit bir araç"
 
-#: applications/multimedia/flake::summary
-msgid "FLAC encoder"
-msgstr "FLAC kodlayıcı"
-
 #: applications/multimedia/icns2png::description
 msgid "Converts icns files to png"
 msgstr "icns dosyalarını png formatına çevririr"
@@ -4677,6 +5357,10 @@ msgstr "Netpbm vb. gibi formatlar arasında dönüşüm yapan araçlar serisi"
 #: applications/multimedia/normalize::summary
 msgid "Audio file volume normalizer"
 msgstr "Ses dosyalarının ses düzeyini normalleştirir"
+
+#: applications/multimedia/mkvtoolnix::summary
+msgid "A set of tools to create, alter and inspect Matroska files"
+msgstr ""
 
 #: applications/multimedia/aften::description
 msgid "A simple AC3-compatible audio encoder based on FFmpeg."
@@ -4822,10 +5506,6 @@ msgstr "Kayıt dosyaları gibi metin dosyalarında değişiklikleri görmek içi
 msgid "Allows certain users/groups to run commands as root user priviligies"
 msgstr "Belirli kullanıcıların ya da kullanıcı gruplarının yönetici (root) komutlarını çalıştırmasına izin verir. Böylelikle, hazırladığınız veya kullandığınız bir program, düzgün çalışabilmesi için kök kullanıcı haklarına ihtiyaç duyuyorsa ve bu program root kullanıcısı dışındaki kullanıcılar tarafından da kullanılacaksa, sözkonusu programın düzgün çalışabilmesi sağlanmış olur"
 
-#: applications/admin/tcsh::description
-msgid "Tcsh is an enhanced, but completely compatible version of the Berkeley UNIX C shell (csh). It is a command language interpreter usable both as an interactive login shell and a shell script command processor. It includes a command-line editor, programmable word completion, spelling correction, a history mechanism, job control and a C-like syntax."
-msgstr ""
-
 #: applications/admin/squashfs-tools::description
 msgid "Squashfs is a highly compressed read-only filesystem for Linux.  This package contains the utilities for manipulating squashfs filesystems"
 msgstr "Squashfs, Linux için şıkıştırılmış salt-okunur dosya sistemidir. Bu paket de bu tür bir sistem ile kullanılabilecek araçları içerir"
@@ -4890,6 +5570,10 @@ msgstr "Keychain güvenlik ve sayısal imzalar için güçlü şifreleme sistemi
 msgid "GnuPG allows to encrypt and sign your data and communication, features a versatile key managment system as well as access modules for all kind of public key directories."
 msgstr "GnuPG verilerinizin ve iletişimlerinizin şifrelenmesi ve imzalanmmasını sağlar, her tür genel anahtar dizinleri için  modullere erişiminde olduğu gibi çok yönlü anahtar yönetim sistemi avantajı vardır."
 
+#: applications/security/audit::summary
+msgid "The audit package contains the dynamic libraries needed for applications to use the audit framework."
+msgstr ""
+
 #: applications/security/nmap::description
 msgid "Nmap is a free open source utility for network exploration or security auditing."
 msgstr "Ağa gözatmak ya da güvenlik denetlemeleri yapmak için kullanılan bir araçtır. Konsoldan yapacağınız sorgulamalarla ağınızda hangi makinaların açık/erişilebilir olduğunu, makinalarda hangi portlarda hangi hizmet protokollerinin ve uygulamaların çalıştığını, karşı makinada hangi işletim sisteminin yüklü olduğunu ve bağlantının hangi aygıt ile gerçekleştiğini öğrenebilirsiniz."
@@ -4901,6 +5585,10 @@ msgstr ""
 #: applications/security/pinentry::description
 msgid "Pinentry is a collection of simple PIN or passphrase entry dialogs which utilize the Assuan protocol as described by the aegypten project."
 msgstr "Pinetry Aegypten projesi tarafından tanımlanan Assuan protokolünden faydalanan basit PIN veya şifre girme diaologları derlemesidir."
+
+#: applications/security/mcrypt::summary
+msgid "A simple encryption program, intended to be replacement for the old unix crypt(1)"
+msgstr ""
 
 #: applications/security/fwbuilder::description
 msgid "GUI and set of policy compilers for various firewall platforms"
@@ -4986,6 +5674,14 @@ msgstr ""
 msgid "Icecast/Shoutcast stream ripper software for console."
 msgstr "Icecast ve Shoutcast ile yayın yapan internet radyolarından mp3 oluşturan bir konsol uygulaması."
 
+#: applications/network/crm114::summary
+msgid "A system to examine incoming e-mail, system log streams, data files or other data streams"
+msgstr ""
+
+#: applications/network/iftop::description
+msgid "iftop does for network usage what top(1) does for CPU usage. It listens to network traffic on a named interface and displays a table of current bandwidth usage by pairs of hosts. Handy for answering the question why is our ADSL link so slow?"
+msgstr ""
+
 #: applications/network/amsn::description
 msgid "aMSN is a free open source MSN Messenger clone, with features such as: conferencing support, full-speed file transfers, webcam support etc"
 msgstr "MSN Messenger ağlarına bağlantı kurmak için bir yazılım"
@@ -5037,6 +5733,10 @@ msgstr "Uzaktaki dosyaları senkronize tutan bir dosya transfer programı."
 #: applications/network/nicotine::description
 msgid "A Soulseek client for GTK+2"
 msgstr "Soulseek ağına bağlanan bir GTK uygulaması."
+
+#: applications/network/efax-gtk::description
+msgid "Efax-gtk is a GUI front end for the 'efax' fax program.It can be used to send and receive faxes with a fax modem, and to view, print and manage faxes received.   It also has a socket interface to provide a \"virtual printer\" for sending faxes from word processors and similar programs, and can automatically e-mail a received fax to a designated user, and automatically print a received fax."
+msgstr "Efax-gtk, 'efax' faks programının grafik arayüzüdür. Bir modem üzerinden faks göndermek, almak, gelen faksları görüntülemek ve yazdırmak için kulllanılır. Ayrıca \"sanal yazıcı\" hizmeti sağlamak için bir soket arayüzüne sahiptir.Bu sayede bir kelime işlemciden, yada benzer bir programdan, faks göndermek mümkündür. Bunu yanında gelen faksları otomatik olarak bir epostaya gönderebilir yada otomatik olarak yazdırabilir.Efax tek kullanıcılı sistemler için güzel ve basit bir programdır."
 
 #: applications/network/rdate::description
 msgid "Rdate displays and sets the local date and time from the host name or address given as the argument."
@@ -5106,6 +5806,10 @@ msgstr ""
 msgid "A Tool for network monitoring and data acquisition"
 msgstr "Ağı izlemek için kullanılan bir araç"
 
+#: applications/network/aircrack-ng::summary
+msgid "Aircrack is an 802.11 WEP and WPA-PSK keys cracking program that can recover keys once enough data packets have been captured"
+msgstr "Aircrack 802.11 WEP ve WPA-PSK anahtarlarını yeterince paket topladıktan sonra getirebilen bir yazılımdır"
+
 #: applications/network/mozilla/mplayerplug-in::summary
 msgid "mplayer plug-in for Gecko based browsers"
 msgstr "Gecko tabanlı web tarayıcıları için mplayer eklentisi"
@@ -5126,13 +5830,13 @@ msgstr "Internette gezinmek daha güvenli ve hızlı. İki cümle ile anlatılam
 msgid "Iptables firewall, NAT and packet mangling tools."
 msgstr "Iptables kural tabanlı gelişmiş güvenlik duvarı uygulamasıdır."
 
-#: applications/network/kvpnc::description
-msgid "Kvpnc is a KDE frontend for various VPN (virtual private network) clients."
-msgstr "Kvpnc, değişik sanal özel ağ (VPN) istemcileri için KDE arabirimidir."
-
 #: applications/network/whois::description
 msgid "This is a new whois (RFC 3912) client rewritten from scratch. It is inspired from and compatible with the usual BSD and RIPE whois(1) programs. It is intelligent and can automatically select the appropriate whois server for most queries."
 msgstr "Otomatik olarak uygun whois sunucularını seçebilen akıllı bir whois istemcisidir."
+
+#: applications/network/youtube-dl::summary
+msgid "A small command-line program to download videos from YouTube.com"
+msgstr ""
 
 #: applications/network/gift::description
 msgid "giFT is a collection of various software components  geared towards improving the overall usability of a multitude of peer-to-peer file-sharing networks."
@@ -5169,6 +5873,14 @@ msgstr "giFT birçok farklı yazılım bileşenini bir araya getirerek dosya pay
 #: applications/network/skype-avatars::description
 msgid "Skype-avatars is an icon set for Skype, whichis a software that allows you to make calls, make video calls, send text messages from your computer."
 msgstr "Skype-avatars sesli, görüntülü aramalar yapmanızı sağlayan Skype için simge setidir."
+
+#: applications/shells/zsh::summary
+msgid "Powerful command line shell"
+msgstr ""
+
+#: applications/shells/tcsh::description
+msgid "Tcsh is an enhanced, but completely compatible version of the Berkeley UNIX C shell (csh). It is a command language interpreter usable both as an interactive login shell and a shell script command processor. It includes a command-line editor, programmable word completion, spelling correction, a history mechanism, job control and a C-like syntax."
+msgstr ""
 
 #: applications/zemberek-openoffice::summary
 msgid "Zemberek integration package for OpenOffice.org office suite"
@@ -5210,6 +5922,10 @@ msgstr "QtEmu, QEMU için Qt4 ile yazılmış bir arayüzdür. Bu araçla QEMU'y
 msgid "Additional Video/Mouse drivers for VirtualBox for optimized performance"
 msgstr ""
 
+#: applications/emulators/stratagus::description
+msgid "It includes support for playing over the internet/LAN, or playing a computer opponent. The engine is configurable and can be used to create games with a wide-range of features specific to your needs."
+msgstr "İnternet/LAN üzerinden veya bilgisayara karşı oyun oynayabilmenizi sağlmakatadır. Stratagus, kolaylıkla yapılandırılabilir ve ihtiyaçlarınıza göre bir çok özelliğe sahip oyunlar yaratabilirsiniz."
+
 #: applications/games/pingus::description
 msgid "Pingus is a free Lemmings clone for GNU/Linux and Windows covered under the GNU GPL. Pingus uses ClanLib  and libxml and might also be usable on some other OSs like FreeBSD, but hasn't been tested there. Pingus is mainly developed under GNU/Linux."
 msgstr "Pingus, GNU GPL olarak yayınlanan GNU/Linux ve Windows ortamında çalışan özgür Lemmings klonudur. Pingus, ClanLib ve libxml i kullanır. Hem de FreeBSD gibi diğer işletim sistemlerinde kullanılabilir ama buralarda test edilmemiştir. Pingus genel olarak GNU/Linux altında geliştirilmektedir."
@@ -5250,6 +5966,10 @@ msgstr "I Have No Tomatoes oyunu veri dosyaları"
 msgid "Deathmatch FPS based on Darkplaces, and advanced Quake1 engine"
 msgstr "Gelişmiş Quake motoru Darkplaces kullanan ve ağ üzerinden oynanabilen FPS oyunu"
 
+#: applications/games/blobby::summary
+msgid "Blobby Volley is one of the most popular volleyball game"
+msgstr "Blobby Volley, en popüler voleybol oyunlarından biri."
+
 #: applications/games/enigma::description
 msgid "Enigma is a puzzle game inspired by Oxyd on the Atari ST and Rock'n'Roll on the Amiga. The object of the game is to find uncover pairs of identically colored Oxyd stones. Simple? Yes. Easy? Certainly not! Hidden traps, vast mazes, laser beams, and, most of all, countless hairy puzzles usually block your direct way to the Oxyd stones"
 msgstr "Atari ST lerin 0xyd oyunu ve Amiga'larda ki Rock'n'Roll oyunu benzeri bir oyun. Oyunun amacı benzer renklerde 0xyd taşlarını bulmak, ancak bu pek kolay olmayacak. Gizli tuzaklar, labirentler, lazerler ve bir sürü kafa karıştırıcı bulmacalar 0xyd taşlarına giden yollarda sizi bekliyor"
@@ -5257,6 +5977,10 @@ msgstr "Atari ST lerin 0xyd oyunu ve Amiga'larda ki Rock'n'Roll oyunu benzeri bi
 #: applications/games/wesnoth::description
 msgid "The Battle for Wesnoth is a turn-based strategy game with a fantasy theme.Build up a great army, gradually turning raw recruits into hardened veterans. In later games, recall your toughest warriors and form a deadly host against whom none can stand! Choose units from a large pool of specialists, and hand-pick a force with the right strengths to fight well on different terrains against all manner of opposition."
 msgstr "The Battle for Wesnoth;sıra tabanlı,fantezi konulu,strateji oyunudur.Büyük ordular oluşturup, derece derece acemi askerleri kıdemli birliklere dahil eder. Sonraki oyunda en dayanıklı savaşçı askerlerinizi önünde hiç kimsenin duramayacağı öldürücü bir güce dönüştürür. Birliklerinizi profesyonellerin olduğu ekip içinden seçip, farklı savaş alanlarında her türlü düşman kuvvetlerine karşı savaşacak doğru güçteki birliklerinizi oluşturun."
+
+#: applications/games/trigger::description
+msgid "Free OpenGL rally car racing game."
+msgstr "Özgür OpenGL Ralli Araba yarışı oyunu."
 
 #: applications/games/knights::description
 msgid "Knights aims to be the ultimate chess resource on your computer. Written for the K Desktop Environment, it's designed to be both friendly to new chess players and functional for Grand Masters."
@@ -5342,6 +6066,14 @@ msgstr "Rastgele oluşturulan haritalarda uzaylılarla savaşılan 3B macera oyu
 msgid "Game play data files including sounds, maps, etc. for Scourge"
 msgstr "Scourge oyununun oynanması için gerekli ses, harita, v.b. veri dosyaları"
 
+#: applications/games/openarena::description
+msgid "Open-source replacement content for Quake 3 Arena, effectively creating a free stand-alone game"
+msgstr ""
+
+#: applications/games/lincity-ng::description
+msgid "A city management simulation game based on a complete 3D isometric engine and a modern GUI."
+msgstr "Modern kullanıcı arabirimli, 3B izometrik grafik motoru üzerinde çalışan şehir yönetimi simulasyonu."
+
 #: applications/games/scourge::description
 msgid "S.C.O.U.R.G.E. NetHack ve Moria geleneğinden gelen rogue benzeri bir macera oyunudur. glHack yada Falcon's Eye benzeri grafiksel ön yüz desteklemektedir."
 msgstr "Rogue benzeri, grafiksel macera oyunu"
@@ -5361,6 +6093,14 @@ msgstr "Beneath a Steel Sky: karanlık gelecek dönemlerde geçen bir macera oyu
 #: applications/games/gnuchess::description
 msgid "GNU Chess lets most modern computers play a full game of chess. It has a plain terminal interface but supports visual interfaces such as X-Windows xboard."
 msgstr "Konsol tabanlı bir satranç programı"
+
+#: applications/games/xmoto-edit::description
+msgid "Level editor for X-moto game"
+msgstr "X-moto oyunu için bölüm düzenleyici"
+
+#: applications/games/scorched3d::description
+msgid "Multiplayer tank battle in 3D (OpenGL)"
+msgstr "Çok oyuncu ile oynanabilen 3B (OpenGL) destekli tank savaşı oyunu."
 
 #: applications/games/gmult::description
 msgid "Multiplication Puzzle is a simple GTK+ 2 game that emulates the multiplication game found in Emacs. Basically, a multiplication problem is shown with all digits replaced by letters. Your job is to guess which letter represents which number."
@@ -5390,6 +6130,10 @@ msgstr "Freeciv oyunu için ses desteği."
 msgid "2D point-and-click adventure game set in the 1940"
 msgstr "1940 yılında geçen macera oyunu"
 
+#: applications/games/uqm_3domusic::summary
+msgid "Music files for The Ur-Quan Masters"
+msgstr "The Ur-Quan Masters için müzik dosyaları"
+
 #: applications/games/pathological::description
 msgid "Clone of the game \"Logical\" by Rainbow Arts. To solve a level, fill each wheel with four marbles of matching color. Various board elements such as teleporters, switches, filters, etc., make the game interesting and challenging. New levels can be created using your favorite text editor."
 msgstr "Rainbow Arts'ın Logical oyununun benzeri. Teleport noktaları, düğmeler, filtreler ve benzeri bir çok aracı kullanarak her tekerleği eş renk toplarla doldurun"
@@ -5405,10 +6149,6 @@ msgstr "Super Mario benzeri penguenli platform oyunu"
 #: applications/games/ActionCube-maps::description
 msgid "Extra maps for ActionCube."
 msgstr "ActionCube için ek haritalar."
-
-#: applications/games/uqm-3domusic::summary
-msgid "Music files for The Ur-Quan Masters"
-msgstr "The Ur-Quan Masters için müzik dosyaları"
 
 #: applications/games/kiki-extra::description
 msgid "Additional files for kiki, like title song."
@@ -5426,13 +6166,13 @@ msgstr "Dreamchess kendi satranç motoruna sahip üç boyutlu bir satranç oyunu
 msgid "LTris as a tetris clone which means you have a bowl with blocks falling down. By rotating and moving the blocks you try to assemble whole lines which then disappear. LTris has three modes for this: Classic is the classical one where you play until the bowl becomes filled, Figures resets the bowl contents to a new figure for each level and adds suddenly appearing tiles and lines later on and Multiplayer where up to three players either controlled by human or CPU(!) compete and send completed lines to each other."
 msgstr "LTris ekrana yukarıdan aşağıya düşen bloklardan oluşan bir tetris oyununun klonudur. Blokları döndürerek ve hareket etirerek tümünü bir sırada toplayıp ortadan kaybolmasını deneriz. LTris 3 seçeneği vardır: Klasik olan ekranın tamamının doluncaya kadar oynanan klasik olanıdır. Her bir seviyede şekiller ve ekran içeriği yenilenir ve birdenbire görünen bloklar ve çizgiler eklenir."
 
-#: applications/games/freedroidrpg:freedroidrpg-data:description
-msgid "Game play data files including sounds, maps, speeches, etc. for FreedroidRPG"
-msgstr "FreedroidRPG oyununun oynanması için gerekli ses, harita, konuşma v.b. veri dosyaları"
-
 #: applications/games/freedroidrpg::description
 msgid "The premise of the game is that the robots of this universe have revolted in an event called \"The Great Assault\". Only a few droids running an alternative operating system have stayed loyal to the human race."
 msgstr "Oyun, Büyük Saldırı denen bir olay ile ayaklanan gezegendeki robotlar ile farklı işletim sistemi kullandıkları için insan ırkına sadık kalan droidler arasındaki savaşı konu almaktadır"
+
+#: applications/games/boswars::description
+msgid "Bos Wars is a futuristic real-time strategy game. You can play Bos Wars against human opponents over LAN, internet, or against the computer."
+msgstr "Bos Wars, modern ve gerçek zamanlı strateji oyunudur. Bos Wars oyununu, internet veya LAN üzerinden insanlara karşı ya da bilgisayara karşı oynayablirsiniz."
 
 #: applications/games/neverball::description
 msgid "3D puzzle and action game where you roll the ball by tilting the table"
@@ -5465,6 +6205,10 @@ msgstr "Ur-Quan Masters, modern kişisel bilgisayarlar için bir Star Control II
 #: applications/games/flightgear::description
 msgid "Opensource multiplatform flight simulator project"
 msgstr "Açıkkodlu çoklu platform destekli uçuş simulasyonu"
+
+#: applications/games/trigger-data::description
+msgid "Data files for OpenGL rally car racing game, Trigger."
+msgstr "Trigger OpenGL ralli oyunu için veri dosyaları"
 
 #: applications/games/egoboo-extra::description
 msgid "Extra levels, characters, objects and tools for egoboo. There are also some unfinished levels"
@@ -5538,6 +6282,10 @@ msgstr "UFO: ALIEN INVASION dünyaya gizlice sızmaya çalışan yabancı düşm
 msgid "SDLjump is a clone of the simple yet addictive game Xjump, adding new features like multiplaying, unlimited FPS, smooth floor falling, themable graphics etc."
 msgstr ""
 
+#: applications/games/openarena-data::description
+msgid "Data files for Openarena."
+msgstr "Openarena için veri dosyaları."
+
 #: applications/games/crack-attack-music::description
 msgid "Additional files for Crack Attack game to add music support"
 msgstr "Crack Attack oyunu müzik dosyaları"
@@ -5567,8 +6315,8 @@ msgid "Command the brave army of globs in a realtime strategy game, where units 
 msgstr "Ünitelere otomatik olarak görev atanabilen bu gerçekzamanlı strateji oyununda glob adındaki yaratıkları yönetiyorsunuz."
 
 #: applications/games/funnyboat::description
-msgid "The game is side scrolling arcade shooter game on a steamboat equipped with a cannon and the ability to jump"
-msgstr "Top ve zıplama yeteneğiyle buharlı gemi sizin kontrolünüzde"
+msgid "The game is side scrolling arcade shooter game on a steamboat equipped with a cannon and the ability to jump."
+msgstr "Güllesiyle ateş etme ve zıplama yeteneğiyle buharlı geminizi kullanarak denizlerde yüzün."
 
 #: applications/games/bzflag::description
 msgid "BZFlag is a free multiplayer multiplatform 3D tank battle game. The name stands for Battle Zone capture Flag. It runs on Irix, Linux, *BSD, Windows, Mac OS X and other platforms. It's one of the most popular games ever on Silicon Graphics machines."
@@ -5673,6 +6421,18 @@ msgstr ""
 #: applications/powermanagement/apmd::description
 msgid "Advanced Power Management Daemon"
 msgstr "Gelişmiş güç yönetim sistemi apmd, APM BIOS sürücüsü tarafından rapor edilen olayları kullanır. Eski sistemlerde kullanılır ve yerini acpid'e bırakmak üzeredir"
+
+#: applications/crypto/tpmmanager::summary
+msgid "The goal this project is the development of a TPM management software providing an easy to use graphical user interface. The TPM Manager will be developed under Linux, but later releases should be usable with all operating systems providing a TSS API."
+msgstr ""
+
+#: applications/crypto/trousers::description
+msgid "An open-source TCG Software Stack (TSS) v1.1 implementation"
+msgstr "An open-source TCG Software Stack (TSS) v1.1 implementation"
+
+#: applications/crypto/tpm-tools::description
+msgid "TrouSerS' support tools for the Trusted Platform Modules"
+msgstr ""
 
 #: applications/openoffice:openoffice-dicts:summary
 msgid "OpenOffice.org dictionaries"
@@ -5781,6 +6541,10 @@ msgstr "Donanım durumunu değiştiren gerçek kipli video BIOS kodudur. Video B
 #: applications/hardware/setserial::description
 msgid "Setserial is a program designed to set and/or report the configuration information associated with a serial port."
 msgstr "Setserial bir seri portun konfigürasyon işlerini yapmaya olanak sağlar."
+
+#: applications/hardware/pmtools::summary
+msgid "This is a small collection of power management test and investigation tools"
+msgstr "Güç koruma sistemini test etmek ve hatalarını bulmak için araç seti"
 
 #: applications/hardware/acpica::description
 msgid "Advanced Configuration and Power Interface (ACPI) is an open industry specification co-developed by Compaq*, Intel, Microsoft*, Phoenix*, and Toshiba*. It establishes industry-standard interfaces for OS-directed configuration and power management on laptops, desktops, and servers."
@@ -5966,10 +6730,6 @@ msgstr "PostgreSQL, açık kaynak kodlu, güçlü bir ilişkisel veritabanıdır
 msgid "PostgreSQL ODBC driver"
 msgstr "PostgreSQL ODBC sürücüsü"
 
-#: server/www/mod_php::description
-msgid "PHP5 is an HTML-embedded scripting language. Much of its syntax is borrowed from C, Java and Perl with a couple of unique PHP-specific features thrown in. The goal of the language is to allow web developers to write dynamically generated pages quickly."
-msgstr "PHP5, dinamik HTML sayfaları oluşturmak için kullanılan bir programlama dilidir. Dil yapısının önemli bir kısmı C, Java ve Perl'den alınmıştır. Bu dilin amacı, web geliştiricilerinin kısa zamanda dinamik sayfalar oluşturmasına imkan vermektir."
-
 #: server/www/mrtg::description
 msgid "A tool to monitor the traffic load on network-links"
 msgstr ""
@@ -6042,6 +6802,14 @@ msgstr ""
 msgid "OpenLDAP is an open-source suite of LDAP (Lightweight Directory Access Protocol) applications and development tools"
 msgstr "LDAP hizmeti için gereken uygulamalar ve geliştirme araçlarını içerir"
 
+#: server/proxy/dansguardian::description
+msgid "Content filter uses multiple methods, including URL and domain filtering, content phrase filtering, PICS filtering, MIME filtering, file extension filtering, POST filtering"
+msgstr ""
+
+#: server/proxy/squid::description
+msgid "Squid is a high-performance proxy caching server for Web clients, supporting FTP, gopher, and HTTP data objects"
+msgstr ""
+
 #: server/hylafax::description
 msgid "HylaFAX is an enterprise-class system for sending and receiving facsimiles as well as for sending alpha-numeric pages."
 msgstr "Hylafax birden fazla kullanıcının bir modem üzerinden faks gönderip almasini sağlayan faks sunucusudur."
@@ -6058,6 +6826,10 @@ msgstr "Verilen alan adlarını (www.pardus.org.tr gibi) ip adresleri (193.140.1
 msgid "DNS server"
 msgstr "DNS sunucusu"
 
+#: server/ltsp/ltsp-utils::summary
+msgid "LTSP utils for Pardus Linux"
+msgstr "Pardus için LTSP araçları"
+
 #: server/tftp::description
 msgid "port of the OpenBSD Trivial File Transfer Protocol server"
 msgstr "Genellikle disksiz iş istasyonlar için kullanılan TFTP (Trivial File Transfer Protocol) sunucusu"
@@ -6069,4 +6841,3 @@ msgstr "IP adresi atanmasi ve TCP/IP  bilgilerinin yapilandirilmasini DHCP Sunuc
 #: server/samba::description
 msgid "Samba is a free software implementation of Microsoft's networking protocol released under the GNU General Public License. As of version 3, Samba not only provides file and print services for various Microsoft Windows clients but can also integrate with a Windows Server domain, either as a Primary Domain Controller (PDC) or as a Domain Member. It can also be part of an Active Directory domain."
 msgstr "Samba, Linux ve Unix işletim sistemleri ile Windows NT ve Windows 9x işletim sistemleri arasındaki iletişimi sağlayan bir ağ sunucusu uygulamasıdır. Samba yalnızca Linux ve windows makinaların birbirlerini görmelerini sağlamaz aynı zamanda Linux çalıştıran bilgisayarların windows ağında yazıcı sunucusu gibi işlevleri edinmesi içinde kullanılır. Ayrıca Active Directory ile de uyumludur."
-

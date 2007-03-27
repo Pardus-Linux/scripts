@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2007-03-26 23:26+0200\n"
+"PO-Revision-Date: 2007-03-28 00:21+0200\n"
 "Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
 "Language-Team: french <pardus-translators@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -1764,135 +1764,135 @@ msgstr "Ces fontes ont été construites à partir des fontes URW distribuées a
 
 #: desktop/freedesktop/jimmac-xcursor::description
 msgid "jimmac-xcursor is an X11 mouse theme based on Jimmac's cursors."
-msgstr ""
+msgstr "jimmac-xcursors est un thème de souris X11 basé sur les curseurs de Jimmac."
 
 #: desktop/freedesktop/fontconfig::description
 msgid "Fontconfig is a library designed to provide system-wide font configuration, customization and application access."
-msgstr ""
+msgstr "Fontconfig est un librairie conçue pour fournir à tout le système accès à la possibilité de configurer, personnaliser et appliquer des fontes."
 
 #: desktop/freedesktop/tiff::description
 msgid "This software provides support for the Tag Image File Format (TIFF), a widely used format for storing image data."
-msgstr ""
+msgstr "Ce logiciel fournit le support pour le format \"Tag Image File Format\" (TIFF), un format très employé pour stocker des informations d'image."
 
 #: desktop/freedesktop/PolicyKit::description
 msgid "PolicyKit is a framework for defining policy for system-wide components and for desktop pieces to configure it. It is used by HAL."
-msgstr ""
+msgstr "PolicyKit est un cadre de développement (framework) pour définir des politiques à appliquer à des composants du système ainsi que fournir à des parties du bureau la possibilité de les configurer. Il est utilisé par HAL."
 
 #: desktop/freedesktop/Xaw3d::description
 msgid "Xaw3d is a general-purpose replacement for the Athena toolkit which adds a 3D appearance and support for XPM images."
-msgstr ""
+msgstr "Xaw3d est globalement le remplaçant de la boîte à outils Athena. Il ajoute une apparence 3D ainsi que le support des images XMP."
 
 #: desktop/freedesktop/hal-info::summary
 msgid "Hardware Abstraction Layer's Informatin Files"
-msgstr ""
+msgstr "Fichiers d'informations de la Couche d'Abstraction Matérielle (Hardware Abstraction Layer)."
 
 #: desktop/freedesktop/rxvt-unicode::description
 msgid "A terminal application with graphical user interface having XVT and unicode support"
-msgstr ""
+msgstr "Une implémentation de terminal avec une interface graphique et le support pour XVT et l'unicode."
 
 #: desktop/freedesktop/gentium::description
 msgid "Gentium is a typeface family designed to enable the diverse ethnic groups around the world who use the Latin script to produce readable, high-quality publications. It supports a wide range of Latin-based alphabets and includes glyphs that correspond to all the Latin ranges of Unicode."
-msgstr ""
+msgstr "Gentium "
 
 #: desktop/freedesktop/xdg-utils::summary
 msgid "Common desktop utilities"
-msgstr ""
+msgstr "Utilitaires de bureaux communs."
 
 #: desktop/freedesktop/giflib::description
 msgid "libungif is a library for reading and writing gif images. The save functionality uses an uncompressed gif algorithm to avoid the Unisys LZW patent. giflib is an API and ABI compatible replacement for use in countries where LZW is not patented."
-msgstr ""
+msgstr "libungif est une librairies de lecture et d'écriture d'images gif. La fonctionnalité de sauvegarde utilise un algorithme gif non compressé pour éviter le brevet Unisys LZW. giflib est un remplaçant de cette dernière compatible aussi bien au niveau de l'interface de programmation (API) qu'au niveau binaire (ABI) pour les pays où LZW n'est pas breveté."
 
 #: desktop/freedesktop/liblazy::description
 msgid "Liblazy is a simple and easy to use library that provides convenient functions for sending messages over the D-Bus daemon, querying information from HAL or asking PolicyKit for a privilege."
-msgstr ""
+msgstr "Liblaze est une librairie simple et facile à utiliser fournissant des fonctions pratique pour envoyer des messages à traver le daemon D-Bus, requérir des informations de HAL ou demander des privilèges à PolicyKit."
 
 #: desktop/freedesktop/xscreensaver::description
 msgid "XScreenSaver is the standard screen saver collection shipped on most Linux and Unix systems running the X11 Window System. The first version in was released in 1992."
-msgstr ""
+msgstr "XScreenSaver est la collection standard d'économiseurs d'écran livrée dans la plupart des Systèmes d'exploitation Unix et Linux utilisant le Système de fenêtrage X11. La troisième version fut livrée en 1992."
 
 #: desktop/freedesktop/inputmethods/scim-tables:scim-tables:summary
 msgid "Table IME Module for Scim."
-msgstr ""
+msgstr "Module IME à tables  pour Scim."
 
 #: desktop/freedesktop/inputmethods/scim-tables:scim-tables-amharic:summary
 msgid "Table IME Module for Amharic language"
-msgstr ""
+msgstr "Module IME à base de tables pour l'amharique."
 
 #: desktop/freedesktop/inputmethods/scim-tables:scim-tables-arabic:summary
 msgid "Table IME Module for Arabic language"
-msgstr ""
+msgstr "Module IME à base de tables pour l'arabe."
 
 #: desktop/freedesktop/inputmethods/scim-tables:scim-tables-bengali:summary
 msgid "Table IME Module for Bengali language"
-msgstr ""
+msgstr "Module IME à base de table pour le bengalî."
 
 #: desktop/freedesktop/inputmethods/scim-tables:scim-tables-hindi:summary
 msgid "Table IME Module for Hindi language"
-msgstr ""
+msgstr "Module IME à base de tables pour le hindi."
 
 #: desktop/freedesktop/inputmethods/scim-tables:scim-tables-gujarati:summary
 msgid "Table IME Module for Gujarati language"
-msgstr ""
+msgstr "Module IME  à base de tables pour le gujarâtî."
 
 #: desktop/freedesktop/inputmethods/scim-tables:scim-tables-japanese:summary
 msgid "Table IME Module for Japanese language"
-msgstr ""
+msgstr "Module IME à bases de tables pour le japonais."
 
 #: desktop/freedesktop/inputmethods/scim-tables:scim-tables-kannada:summary
 msgid "Table IME Module for Kannada language"
-msgstr ""
+msgstr "Module IME à base de tables pour le kannada."
 
 #: desktop/freedesktop/inputmethods/scim-tables:scim-tables-korean:summary
 msgid "Table IME Module for Korean language"
-msgstr ""
+msgstr "Module IME à base de tables pour le coréen."
 
 #: desktop/freedesktop/inputmethods/scim-tables:scim-tables-malayalam:summary
 msgid "Table IME Module for Malayalam language"
-msgstr ""
+msgstr "Module IME à base de tables pour le malayâlam."
 
 #: desktop/freedesktop/inputmethods/scim-tables:scim-tables-nepali:summary
 msgid "Table IME Module for Nepali language"
-msgstr ""
+msgstr "Module IME de table pour le népalais."
 
 #: desktop/freedesktop/inputmethods/scim-tables:scim-tables-punjabi:summary
 msgid "Table IME Module for Punjabi language"
-msgstr ""
+msgstr "Module IME à base de tables pour le panjâbî."
 
 #: desktop/freedesktop/inputmethods/scim-tables:scim-tables-russian:summary
 msgid "Table IME Module for Russian language"
-msgstr ""
+msgstr "Module IME à base de tables pour le russe."
 
 #: desktop/freedesktop/inputmethods/scim-tables:scim-tables-tamil:summary
 msgid "Table IME Module for Tamil language"
-msgstr ""
+msgstr "Module IME à base de tables pour le tamil."
 
 #: desktop/freedesktop/inputmethods/scim-tables:scim-tables-telugu:summary
 msgid "Table IME Module for Telugu language"
-msgstr ""
+msgstr "Module IME de table pour le télougou."
 
 #: desktop/freedesktop/inputmethods/scim-tables:scim-tables-thai:summary
 msgid "Table IME Module for Thai language"
-msgstr ""
+msgstr "Module IME de table pour le thaï."
 
 #: desktop/freedesktop/inputmethods/scim-tables:scim-tables-vietnamese:summary
 msgid "Table IME Module for Vietnamese language"
-msgstr ""
+msgstr "Module IME à base de tables pour le vietnamien."
 
 #: desktop/freedesktop/inputmethods/scim-tables:scim-tables-chinese:summary
 msgid "Table IME Module for Chinese language"
-msgstr ""
+msgstr "Module IME à base de tables pour le chinois."
 
 #: desktop/freedesktop/inputmethods/scim-tables:scim-tables-additional:summary
 msgid "Table IME Module for Additional language"
-msgstr ""
+msgstr "Module IME à base de tables pour une langue additionnelle."
 
 #: desktop/freedesktop/inputmethods/scim-tables::description
 msgid "Scim is an Input Method framework including server, libraries, etc. Scim table module is a Scim module that allows the use and authoring of table based IMEs. A Table IME is one where the developer can specify a table of conversions between input character sequence and output character sequence."
-msgstr ""
+msgstr "Scim est un framework (cadre de développement) de méthode d'entrée incluant un serveur, des librairies et bien d'autres choses encore. Un module à base de tables Scim est un module Scim permettant d'utiliser et de concevoir des IME basé sur des tables. Une IME à base de table est un moteur de méthodes d'entrée (Input Method Engine) où le développeur peut spécifier une table de conversion entre une séquence de caractères d'entrée et une séquence de caractères de sortie."
 
 #: desktop/freedesktop/inputmethods/skim:skim:summary
 msgid "Core of Skim for users."
-msgstr ""
+msgstr "Coeur de Skim pour les utilisateurs."
 
 #: desktop/freedesktop/inputmethods/skim::description
 msgid "Scim is an Input Method framework including server, libraries, etc. Skim is the KDE Panel and utilities package, which includes the Language toolbar, KDE/Qt based Lookup tables, Setup UIs, etc."

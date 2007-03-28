@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2007-03-28 00:21+0200\n"
+"PO-Revision-Date: 2007-03-28 20:03+0200\n"
 "Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
 "Language-Team: french <pardus-translators@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -1896,311 +1896,311 @@ msgstr "Coeur de Skim pour les utilisateurs."
 
 #: desktop/freedesktop/inputmethods/skim::description
 msgid "Scim is an Input Method framework including server, libraries, etc. Skim is the KDE Panel and utilities package, which includes the Language toolbar, KDE/Qt based Lookup tables, Setup UIs, etc."
-msgstr ""
+msgstr "Scim est un framework (cadre de développement) de méthode d'entrée incluant un serveur, des librairies, etc. Skim est le paquet pour le panneau et les utilitaires KDE, incluant le la barre d'outil de langage, les tables de recherche basée sur KDE/QT, Les IHM de paramétrage, etc."
 
 #: desktop/freedesktop/inputmethods/scim:scim-core:summary
 msgid "Core of SCIM for users."
-msgstr ""
+msgstr "Coeur de SCIM pour les utilisateurs."
 
 #: desktop/freedesktop/inputmethods/scim:scim-lib-dev:summary
 msgid "Includes and pkgconfig for scim development"
-msgstr ""
+msgstr "Entêtes et pkgconfig pour le développement de scim."
 
 #: desktop/freedesktop/inputmethods/scim:scim-immodule-gtk:summary
 msgid "IM Module for GTK applications"
-msgstr ""
+msgstr "Module IM pour applications GTK."
 
 #: desktop/freedesktop/inputmethods/scim::description
 msgid "Smart Common Input Method (SCIM) is a framework for Input Methods. It is a modular and flexible approach for authoring and using Input Methods for X11 platform."
-msgstr ""
+msgstr "Smart Common Input Method (SCIM - Méthode commune intelligente d'entrée) est un framework (cadre de développement) pour méthodes d'entrée. Il s'agit d'une approche modulaire et flexible pour créer ou utiliser des méthodes d'entrée pour la plateforme X11."
 
 #: desktop/freedesktop/hal::description
 msgid "HAL is a specification and an implementation of a hardware abstraction layer."
-msgstr ""
+msgstr "HAL est une spécification et une implémentation d'unc couche d'abstraction matérielle."
 
 #: desktop/freedesktop/xvattr::description
 msgid "Commandline utility to set Xvideo extension properties."
-msgstr ""
+msgstr "Utilitaire en ligne de commande permettant d'établir les propriétés des extensions Xvideo."
 
 #: desktop/freedesktop/poppler::description
 msgid "Poppler is a PDF rendering library based on the xpdf-3.0 code base."
-msgstr ""
+msgstr "Poppler est une librairie de rendu PDF basée sur le code source de xpdf-3.0."
 
 #: desktop/freedesktop/dbus::description
 msgid "D-Bus supplies both a system daemon (for events such as \"new hardware device added\" or \"printer queue changed\") and a per-user-login-session daemon (for general IPC needs among user applications). Also, the message bus is built on top of a general one-to-one message passing framework, which can be used by any two apps to communicate directly (without going through the message bus daemon). Currently the communicating applications are on one computer, but TCP/IP option is available and remote support planned."
-msgstr ""
+msgstr "D-Bus fourni à la fois un daemon système (pour les événements els que l'\"ajout d'un nouveau périphérique\" ou \"file d'impression changée\") et un daemon propre à chaque session utilisateur (pour les besoins généraux de communication entre processus utilisateurs). De plus, le bus de message est construit en se basant sur un framework (cadre de développement) de passage de message de un-vers-un pouvant être utilisé par n'importe quelles applications pour communiquer directement (sans passer par le daemon de bus de message). Pour l'instant les applications pouvant communiquer doivent être situées sur le même ordinateur, mais l'option TCP/IP est disponible et le support de processus distant est prévu."
 
 #: desktop/freedesktop/zorg::description
 msgid "X configuration tools, monitor and display adapter database files"
-msgstr ""
+msgstr "outils de configuration de X, fichiers de base de données des écrans et des cartes vidéo."
 
 #: desktop/freedesktop/xorg/lib/libXdmcp::summary
 msgid "X.Org Xdmcp library"
-msgstr ""
+msgstr "Librairie Xdmcp de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXinerama::summary
 msgid "X.Org Xinerama library"
-msgstr ""
+msgstr "librairie Xinerama de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libX11::summary
 msgid "X.Org X11 library"
-msgstr ""
+msgstr "Librairie X11 de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXfontcache::summary
 msgid "X.Org Xfontcache library"
-msgstr ""
+msgstr "Librairie Xfontcache de X.Org."
 
 #: desktop/freedesktop/xorg/lib/xtrans::summary
 msgid "X.Org trans library"
-msgstr ""
+msgstr "Librairie trans de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libFS::summary
 msgid "X.Org FS library"
-msgstr ""
+msgstr "Librairie FS de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXxf86dga::summary
 msgid "X.Org Xxf86dga library"
-msgstr ""
+msgstr "Librairie Xxf86dga de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXvMC::summary
 msgid "X.Org XvMC library"
-msgstr ""
+msgstr "Librairie XvMC de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXTrap::summary
 msgid "X.Org Xtrap library"
-msgstr ""
+msgstr "Librairie Xtrap de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXt::summary
 msgid "X.Org Xt library"
-msgstr ""
+msgstr "Librairie Xt de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libICE::description
 msgid "X.Org ICE utility"
-msgstr ""
+msgstr "Utilitaire ICE de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXdamage::description
 msgid "X.Org damege library"
-msgstr ""
+msgstr "Librairie damege de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXfont::summary
 msgid "X.Org Xfont library"
-msgstr ""
+msgstr "Librairie Xfont de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libfontenc::summary
 msgid "X.Org fontenc library"
-msgstr ""
+msgstr "Librairie fontenc de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libdmx::summary
 msgid "X.Org dmx library"
-msgstr ""
+msgstr "Librairie dmx de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXxf86vm::summary
 msgid "X.Org Xxf86vm library"
-msgstr ""
+msgstr "Librairie Xxf86vm de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXtst::summary
 msgid "X.Org Xtst library"
-msgstr ""
+msgstr "Librairie Xtst de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXv::summary
 msgid "X.Org Xv library"
-msgstr ""
+msgstr "Librairie Xv de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXScrnSaver::summary
 msgid "X.Org XScrnSaver library"
-msgstr ""
+msgstr "Librairie XScrnSaver de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXft::summary
 msgid "X.Org Xft library"
-msgstr ""
+msgstr "Librairie Xft de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXres::summary
 msgid "X.Org Xres library"
-msgstr ""
+msgstr "Librairie Xres de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXfixes::summary
 msgid "X.Org Xfixes library"
-msgstr ""
+msgstr "Librairie Xfixes de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXevie::summary
 msgid "X.Org Xevie library"
-msgstr ""
+msgstr "Librairie Xevie de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libWindowsWM::summary
 msgid "X.Org WindowsWM library"
-msgstr ""
+msgstr "Librairie WindowsWM de X.Org."
 
 #: desktop/freedesktop/xorg/lib/liblbxutil::summary
 msgid "X.Org lbxutil library"
-msgstr ""
+msgstr "Librairie lbxutil de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXpm::summary
 msgid "X.Org Xpm library"
-msgstr ""
+msgstr "Librairie Xpm de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXi::summary
 msgid "X.Org Xi library"
-msgstr ""
+msgstr "Librairie Xi de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXxf86misc::summary
 msgid "X.Org Xxf86misc library"
-msgstr ""
+msgstr "Librairie Xxf86misc de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libxkbui::summary
 msgid "X.Org xkbui library"
-msgstr ""
+msgstr "Librairie xkbui de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXext::summary
 msgid "X.Org Xext library"
-msgstr ""
+msgstr "Librairie Xext de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXp::summary
 msgid "X.Org Xp library"
-msgstr ""
+msgstr "Librairie Xp de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libxcb::summary
 msgid "X.Org XCB library"
-msgstr ""
+msgstr "Librairie XCB de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXcomposite::summary
 msgid "X.Org composite library"
-msgstr ""
+msgstr "Librairie composite X.Org."
 
 #: desktop/freedesktop/xorg/lib/liboldX::summary
 msgid "X.Org oldX library"
-msgstr ""
+msgstr "Librairie oldX de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXcursor::summary
 msgid "X.Org Xcursor library"
-msgstr ""
+msgstr "Librairie Xcursor de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXrandr::description
 msgid "X.Org Xrand library"
-msgstr ""
+msgstr "Librairie Xrand de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libxkbfile::summary
 msgid "X.Org xkbfile library"
-msgstr ""
+msgstr "Librairie xkbfile de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXprintAppUtil::summary
 msgid "X.Org XprintAppUtil library"
-msgstr ""
+msgstr "Librairie XprintAppUtil de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXprintUtil::summary
 msgid "X.Org XprintUtil library"
-msgstr ""
+msgstr "Librairie XprintUtil de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libSM::summary
 msgid "X.Org SM library"
-msgstr ""
+msgstr "Librairie SM de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libAppleWM::description
 msgid "X.org libAppleWM library."
-msgstr ""
+msgstr "Librairie libAppleWM de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXau::summary
 msgid "X.Org Au library"
-msgstr ""
+msgstr "Librairie Au de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXmu::summary
 msgid "X.Org Xmu library"
-msgstr ""
+msgstr "Librairie Xmu de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXrender::summary
 msgid "X.Org Xrender library"
-msgstr ""
+msgstr "Librairie Xrender de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libXaw::summary
 msgid "X.Org Xaw library"
-msgstr ""
+msgstr "Librairie Xaw de X.Org."
 
 #: desktop/freedesktop/xorg/xbitmaps::summary
 msgid "X.Org xbitmaps utility"
-msgstr ""
+msgstr "Utilitaire Xbitmaps de X.Org."
 
 #: desktop/freedesktop/xorg/xorg-proto::summary
 msgid "X.Org Protocol Headers"
-msgstr ""
+msgstr "Entêtes de protocole de X.Org."
 
 #: desktop/freedesktop/xorg/font-util::summary
 msgid "X.Org font utilities"
-msgstr ""
+msgstr "Utilitaires de fontes de X.Org."
 
 #: desktop/freedesktop/xorg/libdrm::summary
 msgid "X.Org libdrm library"
-msgstr ""
+msgstr "Librairie libdrm de X.Org."
 
 #: desktop/freedesktop/xorg/util-macros::summary
 msgid "X.org macros used for X.org compiliation"
-msgstr ""
+msgstr "Macros X.org utilisées pour compiler X.Org."
 
 #: desktop/freedesktop/xorg/xcb-proto::summary
 msgid "X.Org XCB header files"
-msgstr ""
+msgstr "Fichiers d'entête XCB de X.Oeg."
 
 #: desktop/freedesktop/xorg/xorg-font::summary
 msgid "Graphical screen (X.Org) font files"
-msgstr ""
+msgstr "Fichiers de fontes d'écrans graphiques (X.Org)."
 
 #: desktop/freedesktop/xorg/xorg-server::summary
 msgid "X.Org X Server"
-msgstr ""
+msgstr "Serveur X X.Org."
 
 #: desktop/freedesktop/xorg/xorg-video::summary
 msgid "X.Org video files"
-msgstr ""
+msgstr "Fichiers vidéos de X.Org."
 
 #: desktop/freedesktop/xorg/xorg-doc::summary
 msgid "X.Org documentations"
-msgstr ""
+msgstr "Documentations de X.Org."
 
 #: desktop/freedesktop/xorg/libpthread-stubs::summary
 msgid "X.Org libpthread-stubs library"
-msgstr ""
+msgstr "Librairie de squelettes (stubs) libpthread de X.Org."
 
 #: desktop/freedesktop/xorg/xorg-data::summary
 msgid "X.Org data files"
-msgstr ""
+msgstr "Fichiers de donnés de X.Org."
 
 #: desktop/freedesktop/xorg/xorg-util::summary
 msgid "X.Org utilities"
-msgstr ""
+msgstr "Utilitaires de X.Org."
 
 #: desktop/freedesktop/xorg/xorg-app::summary
 msgid "X.Org applications"
-msgstr ""
+msgstr "Applications de X.Org."
 
 #: desktop/freedesktop/xorg/xorg-input::summary
 msgid "X.Org input files"
-msgstr ""
+msgstr "Fichiers d'entrée de X.Org."
 
 #: desktop/freedesktop/notification-daemon::description
 msgid "This package includes the notification daemon of Galago project."
-msgstr ""
+msgstr "Ce paquet contient le daemon de notification du projet Galago."
 
 #: desktop/freedesktop/xosd::description
 msgid "XOSD displays text on your screen, sounds simple right? The difference is it is unmanaged and shaped, so it appears transparent. This gives the effect of an On Screen Display, like your TV/VCR etc."
-msgstr ""
+msgstr "XOSD affiche du texte sur votre écran, cela semble simple n'est ce pas ? La différence réside c'est que le texte est non géré et formé (unmanaged and shaped), du coup il apparaît transparent. Cela donne l'apparence d'une sur-impression sur l'écran, tels que s'affichent les menus d'écrans etc."
 
 #: programming/libs/boost::description
 msgid "Boost provides free portable peer-reviewed C++ libraries. The emphasis is on portable libraries which work well with the C++ Standard Library."
-msgstr ""
+msgstr "Boost propose des librairies C++ gratuites, portables et relues en comité. L'accent est porté sur les librairies portables qui fonctionnent bien avec la Librairie Standard C++."
 
 #: programming/libs/libupnp::summary
 msgid "UPnP library"
-msgstr ""
+msgstr "Librairie UPnP."
 
 #: programming/libs/clanlib::description
 msgid "Multiplatform game developement library"
-msgstr ""
+msgstr "Librairie de développement de jeux multi-plateforme."
 
 #: programming/libs/freealut::summary
 msgid "The OpenAL Utility Toolkit"
-msgstr ""
+msgstr "Boîte à outils utilitaire d'OpenAL."
 
 #: programming/libs/live555::summary
 msgid "Live555 is a set of C++ libraries for multimedia streaming, using open standard protocols (RTP/RTCP, RTSP, SIP)"
-msgstr ""
+msgstr "Live555 est un ensemble de librairies C++ pour le streaming (diffusion numérique) multimédia utilisant les protocoles de standards ouverts (RTP/RTCP, RTSP, SIP)."
 
 #: programming/libs/xerces-c::description
 msgid "Xerces-C++ is a validating XML parser written in a portable subset of C++."

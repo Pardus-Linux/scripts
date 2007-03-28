@@ -12,6 +12,7 @@
 
 import os
 import os.path
+import magic
 
 import pisi.api as api
 import pisi.context as ctx
@@ -22,8 +23,10 @@ class InstallDirError(Exception):
     pass
 
 def isBinary(_file):
-    ret = os.popen("/usr/bin/file -b %s" % _file).read()
-    return ret.startswith("ELF")
+    ms = magic.open(magic.MAGIC_NONE)
+    ms.load()
+    type = ms.file(_file)
+    return type.startswith("ELF")
 
 def getLinks(_file):
     links = []

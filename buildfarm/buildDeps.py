@@ -14,6 +14,8 @@ import os
 import os.path
 import magic
 
+import piksemel
+
 import pisi.api as api
 import pisi.context as ctx
 
@@ -38,7 +40,7 @@ def getLinks(_file):
                 links.append(fn)
     return links
 
-def getBuildDependencies(folder, base=False):
+def getBuildDependencies(folder):
     links = []
     for root, dirs, files in os.walk(folder):
         for _file in files:
@@ -66,31 +68,68 @@ def getBuildDependencies(folder, base=False):
             unowned.append(_file)
             continue
         if package not in packages:
-            if getPackageComponent(package) == "system.base":
-                if base:
-                    packages.append(package)
-            else:
-                packages.append(package)
+            packages.append(package)
     
     api.finalize()
     return packages
 
-def findMissingDependencies(_file, base=False):
-    sf = SpecFile(_file)
-    installDir = "/var/pisi/%s-%s-%s/install" % (sf.source.name, sf.getSourceVersion(), sf.getSourceRelease())
+def getSourceIndex(indexfile):
+    if indexfile.endswith(".bz2"):
+        import bz2
+        data = file(indexfile).read()
+        data = bz2.decompress(data)
+        doc = piksemel.parseString(data)
+    else:
+        doc = piksemel.parse(indexfile)
+    sources = {}
+    base = []
+    for tag in doc.tags("SpecFile"):
+        name = tag.getTag("Source").getTagData("Name")
+        sources[name] = {}
+        version = tag.getTag('History').getTag('Update').getTagData('Version')
+        release = tag.getTag('History').getTag('Update').getAttribute('release')
+        sources[name]["version"] = "%s-%s" % (version, release)
+        sources[name]["deps"] = []
+        deps = tag.getTag("BuildDependencies")
+        if deps:
+            sources[name]["deps"] = map(lambda x: x.firstChild().data(), deps.tags('Dependency'))
+        if tag.getTag("Source").getTagData("PartOf") in ["system.base", "system.devel"]:
+            base.append(name)
+    sources["__base__"] = base
+    return sources
+
+def getAllDependencies(source_index, package_name):
+    deps = set()
+    deps.add(package_name)
+    def collect(name):
+        p = source_index[name]
+        for item in p["deps"]:
+            deps.add(item)
+            collect(item)
+    collect(package_name)
+    deps.update(source_index["__base__"])
+    return deps
+
+def findMissingDependencies(source_index, package_name):
+    installDir = "/var/pisi/%s-%s/install" % (package_name, source_index[package_name]["version"])
     if not os.path.isdir(installDir):
         raise InstallDirError, "Install directory does not exist."
-    s1 = map(lambda x: x.package, sf.source.buildDependencies)
-    s2 = getBuildDependencies(installDir, base)
+    s1 = getAllDependencies(source_index, package_name)
+    s2 = getBuildDependencies(installDir)
     return list(set(s2) - set(s1))
 
 def main(args):
-    if len(args) < 2:
-        print "Usage: %s path/to/pspec.xml"
+    if len(args) < 3:
+        print "Usage: %s package path/to/pisi-index.xml"
         return 1
     
+    package_name = args[1]
+    indexfile = args[2]
+    
+    source_index = getSourceIndex(indexfile)
+    
     try:
-        deps = findMissingDependencies(args[1])
+        deps = findMissingDependencies(source_index, package_name)
     except InstallDirError:
         print "Install directory does not exist."
         return 1

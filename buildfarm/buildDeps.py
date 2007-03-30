@@ -12,7 +12,6 @@
 
 import os
 import os.path
-import magic
 
 import piksemel
 
@@ -25,10 +24,8 @@ class InstallDirError(Exception):
     pass
 
 def isBinary(_file):
-    ms = magic.open(magic.MAGIC_NONE)
-    ms.load()
-    type = ms.file(_file)
-    return type.startswith("ELF")
+    ret = os.popen("/usr/bin/file -b %s" % _file).read()
+    return ret.startswith("ELF")
 
 def getLinks(_file):
     links = []

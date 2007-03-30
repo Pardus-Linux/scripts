@@ -90,9 +90,9 @@ def getSourceIndex(indexfile):
         release = tag.getTag('History').getTag('Update').getAttribute('release')
         sources[name]["version"] = "%s-%s" % (version, release)
         sources[name]["deps"] = []
-        deps = tag.getTag("BuildDependencies")
+        deps = tag.getTag("Source").getTag("BuildDependencies")
         if deps:
-            sources[name]["deps"] = map(lambda x: x.firstChild().data(), deps.tags('Dependency'))
+            sources[name]["deps"] = map(lambda x: x.firstChild().data(), deps.tags("Dependency"))
         if tag.getTag("Source").getTagData("PartOf") in ["system.base", "system.devel"]:
             base.append(name)
     sources["__base__"] = base
@@ -102,10 +102,14 @@ def getAllDependencies(source_index, package_name):
     deps = set()
     deps.add(package_name)
     def collect(name):
-        p = source_index[name]
-        for item in p["deps"]:
-            deps.add(item)
-            collect(item)
+        try:
+            p = source_index[name]
+        except KeyError:
+            pass
+        else:
+            for item in p["deps"]:
+                deps.add(item)
+                collect(item)
     collect(package_name)
     deps.update(source_index["__base__"])
     return deps
@@ -127,7 +131,7 @@ def main(args):
     indexfile = args[2]
     
     source_index = getSourceIndex(indexfile)
-    
+
     try:
         deps = findMissingDependencies(source_index, package_name)
     except InstallDirError:

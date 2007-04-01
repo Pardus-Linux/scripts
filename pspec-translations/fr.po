@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2007-04-01 17:46+0200\n"
+"PO-Revision-Date: 2007-04-01 23:34+0200\n"
 "Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
 "Language-Team: french <pardus-translators@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -1008,7 +1008,7 @@ msgstr "KTorrent est le programme KDE permettant de distribuer de fichier P2P en
 
 #: desktop/kde/kdenlive::description
 msgid "Kdenlive provides dual video monitors, a multi-track timeline and clip list. Other features include customizable layout support, basic effects and transitions."
-msgstr ""
+msgstr "Kdenlive est multi-piste, gère une liste de clips et gère les doubles moniteurs vidéos. Il fournit également entre autres un support de couches personnalisables ainsi que des effets et des transitions de base."
 
 #: desktop/kde/kile::description
 msgid "Kile is a user friendly TeX/LaTeX editor for the KDE desktop environment"
@@ -2292,131 +2292,131 @@ msgstr "libgpod est une librairie partagée permettant d'accéder au contenu d'u
 
 #: programming/libs/libquicktime::description
 msgid "Libquicktime is based on the great quicktime4linux library with several enhancements. All 3rd-party libraries were removed from the sourcetree. Instead, the systemwide installed libraries are detected by the configure script. All original codecs were moved into dynamically loadable modules, and new codecs are in development."
-msgstr ""
+msgstr "Libquicktime est basée sur l'excellente librairie quicktime4linux en y apportant de multiples améliorations. Toutes les librairies externes ont été supprimées du source. En échange, les librairies disponibles sur les systèmes sont détectées par le script configure. Tous les codecs (codeur/décodeur) d'origine ont été déménagés dans des modules que l'on peut charger dynamiquement, et de nouveaux codecs sont en développement."
 
 #: programming/libs/mpeg2vidcodec::description
 msgid "This package contains an implementation of an ISO/IEC DIS 13818-2 codec. It converts uncompressed video frames into MPEG-1 and MPEG-2 video coded bitstream sequences, and vice versa."
-msgstr ""
+msgstr "Ce paquet contient une implémentation d'un codec (codeur/décodeur) ISO/IEC DIS 13818-2. Il convertit les images vidéos non compressées en séquences binaires codées en MPEG-1 et MPEG-2 et vice-versa."
 
 #: programming/libs/liboil::description
 msgid "Liboil is a library of simple functions that are optimized for various CPUs. These functions are generally loops implementing simple algorithms, such as converting an array of N integers to floating-point numbers or multiplying and summing an array of N numbers."
-msgstr ""
+msgstr "Liboil est une librairie de fonctions simples optimisées pour différents processeurs. Ces fonction sont en général des boucles implémentant des algorithmes simples, tel que convertir un tableau de N entiers en nombres à virgule flottante ou multiplier et additionner un tableau de N nombres."
 
 #: programming/libs/liblzf::summary
 msgid "LibLZF is a very small data compression library."
-msgstr ""
+msgstr "LibLZF est une librairie de compression extrêmement petite."
 
 #: programming/libs/libieee1284::description
 msgid "Library is intended to be used by applications that need to communicate with (or at least identify) devices that are attached via a parallel port."
-msgstr ""
+msgstr "Cette librairie est à destination des applications qui ont besoins de communiquer avec (ou au moins identifier) des périphériques liés au système par le port parallèle."
 
 #: programming/libs/soundtouch::description
 msgid "open-source audio processing library for changing the Tempo, Pitch and Playback Rates of audio streams or file"
-msgstr ""
+msgstr "Librairie de traitement audio open-source (libre) pour changer le Tempo, le Pitch et la vitesse de lecture de flux audio ou de fichiers."
 
 #: programming/libs/lesstif::description
 msgid "An OSF/Motif(R) clone."
-msgstr ""
+msgstr "un clone d'OSF/Motif(R)."
 
 #: programming/libs/4suite::description
 msgid "4Suite allows users to take advantage of standard XML technologies rapidly and to develop and integrate Web-based applications. It also puts practical technologies for knowledge management projects in the hands of developers. It is implemented in Python with C extensions."
-msgstr ""
+msgstr "4Suite permet aux utilisateurs d'utiliser à leur avantage les technologies standards XML rapidement ainsi que développer et intégrer des applications basées sur le web. Elle met également les technologies concrètes entre les mains des développeurs pour les projets de gestion de connaissance. Elle est implémentée en Python avec des extensions en C."
 
 #: programming/libs/pth::description
 msgid "A portable threads library for Unix platforms-It provides non-preemptive scheduling for multiple threads of execution (\"multithreading\") inside server applications."
-msgstr ""
+msgstr "Un librairie de threads portable pour les plateformes Unix. Elle permet la synchronisation non-préemptive pour l'exécution de threads (\"multithreading\") au sein d'applications serveur."
 
 #: programming/libs/atlas::description
 msgid " The ATLAS (Automatically Tuned Linear Algebra Software) project is an ongoing research effort focusing on applying empirical techniques in order to provide portable performance.It's main job is to provide optimized libraries."
-msgstr ""
+msgstr "Le projet ATLAS (Automatically Tuned Linear Algebra Software - Logiciel d'Algèbre Linéaire Automatiquement Réglé) est un projet de recherche toujours actif se concentrant sur l'application de techniques empiriques a fin de fournir des performances portables. Son objectif principal est de fournir des librairies optimisées."
 
 #: programming/libs/jpeg-mmx::description
 msgid "JPEG library with mmx enhancements"
-msgstr ""
+msgstr "Librairie JPEG avec des améliorations mmx."
 
 #: programming/libs/hdf5::description
 msgid "HDF5 is a general purpose library and file format for storing scientific data."
-msgstr ""
+msgstr "HDF5 est une librairie généraliste ainsi qu'un format de fichier pour stocker des informations scientifiques."
 
 #: programming/libs/ladspa-sdk::description
 msgid "The Linux Audio Developer's Simple Plugin API (LADSPA) attempts to give programmers the ability to write simple `plugin' audio processors in C/C++ and link them dynamically against a range of host applications"
-msgstr ""
+msgstr "La Linux Audio Developer's Simple Plugin API (LADSPA - L'API de plugin (greffon) simple pour développeurs linux audio) tente de donner aux programmeurs la possibilité d'écrire en C/C++ des processeurs audio simples sous forme de plugin' et les lier dynamiquement à différentes applications hôte."
 
 #: programming/libs/xalan-c::description
 msgid "XSLT processor for transforming XML documents into HTML, text, or other XML document types"
-msgstr ""
+msgstr "processeur XSLT pour transformer les documents XML en HTML, texte et autres types de documents XML."
 
 #: programming/libs/zvbi::description
 msgid "Zapping is a TV viewer for the Gnome desktop. With Zapping and a TV card you can watch TV, take screenshots, and record video and audio. Zapping supports Closed Caption and Teletext subtitles."
-msgstr ""
+msgstr "Zapping est un lecteur TV pour le bureau Gnome. Avec Zapping et une carte TV vous pouvez, voir la télévision, faire des copies d'écran et effectuer des enregistrements audio et vidéo. Zapping gère les sous-titres et le télétexte."
 
 #: programming/libs/openal::description
 msgid "OpenAL is a cross-platform 3D audio API appropriate for use with gaming applications and many other types of audio applications. The basic OpenAL objects are a Listener, a Source, and a Buffer."
-msgstr ""
+msgstr "OpenAL est une API audio 3D multi-plateforme utilisable pour les jeux et beaucoup d'autre types d'application audio. Les objets de base d'OpenAL sont le Listener (auditeur), a Source (source), et le Buffer (tampon)."
 
 #: programming/libs/fftw3::description
 msgid "FFTW v3 is a C subroutine library for computing the discrete Fourier transform (DFT) in one or more dimensions, of arbitrary input size, and of both real and complex data (as well as of even/odd data, i.e. the discrete cosine/sine transforms or DCT/DST)."
-msgstr ""
+msgstr "FFTW v3 est une librairie sous-routine C pour le calcul discret de transformation de Fourier (DFT) dans une ou plusieurs dimensions, pour une entrée de taille arbitraire, aussi bien pour des données réeles ou complexes (ainsi que les données paires/impaires, i.e. la transformation discrète cosinus/sinus ou DCT/DST)."
 
 #: programming/libs/ladspa-cmt::description
 msgid "CMT (computer music toolkit) Lasdpa library plugins"
-msgstr ""
+msgstr "Plugins (greffons) de la librairie Lapsda CMT (computer music toolkit - boîte à outil de musique sur ordinateur)"
 
 #: programming/libs/libmpeg3::description
 msgid "LibMPEG3 decodes several MPEG standards into uncompressed data suitable for editing and playback and supports advanced editing and manipulation of MPEG streams."
-msgstr ""
+msgstr "LibMPEG3 décode de nombreux standards MPEG en données décompressées utilisable pour l'édition et la lecture. Elle fournit des options avancées d'édition et de manipulation de flux MPEG."
 
 #: programming/libs/swh-plugins::description
 msgid "SWH eklemtileri are a set of audio plugins for the LADSPA plugin system."
-msgstr ""
+msgstr "SWH eklemtileri est un ensemble de plugins (greffons) audio pour le système de plugin LADSPA."
 
 #: programming/libs/libksba::summary
 msgid "makes X.509 certificates and CMS easily accessible to applications"
-msgstr ""
+msgstr "rends les certificats X.509 et le CMS facilement accessible aux applications."
 
 #: programming/libs/rlog::description
 msgid "A C++ logging library."
-msgstr ""
+msgstr "Une librairie c++ de génération de traces (logging)."
 
 #: programming/libs/libxmlpp2::description
 msgid "C++ wrapper for the libxml XML parser library."
-msgstr ""
+msgstr "enrobage en C++ de la librairie d'analyse XML libxml."
 
 #: programming/libs/libid3tag::summary
 msgid "The MAD id3tag library"
-msgstr ""
+msgstr "La librairie id3tag MAD."
 
 #: programming/libs/libvisual::description
 msgid "Libvisual is an abstraction library that comes between applications and audio visualisation plugins."
-msgstr ""
+msgstr "Libvisual est une librairie d'abstraction venant entre les applications et les plugins (greffons) de visualisation audio."
 
 #: programming/libs/libcap::summary
 msgid "POSIX 1003.1e capabilities"
-msgstr ""
+msgstr "capacités POSIX 1003.1e."
 
 #: programming/libs/dssi::description
 msgid "DSSI (pronounced \"dizzy\") is an API for audio processing plugins, particularly useful for software synthesis plugins with user interfaces. Although designed for synthesis plugins, it can also be used for effects."
-msgstr ""
+msgstr "DSSI (prononcées \"dizzy\") est une API pour les plugins (greffons) de traitement audio particulièrement utile pour les plugin de logiciels de synthèse avec interfaces graphiques. Même si elle est conçue pour les plugins de synthèse, elle peut également être utilisé pour des effets."
 
 #: programming/libs/pyxattr::summary
 msgid "Python extension for extended file attributes"
-msgstr ""
+msgstr "Extension Python pour les attributs étendus de fichiers."
 
 #: programming/libs/libraw1394::description
 msgid "IEEE 1394 is a standard defining a high speed serial bus. This bus is also named FireWire by Apple or i.Link by Sony."
-msgstr ""
+msgstr "IEEE 1394 est un standard définissant un bus de série très rapide. Ce bus est également appelé FireWire par Apple ou i.Link par Sony."
 
 #: programming/libs/ucl::description
 msgid "UCL is a portable lossless data compression library written in ANSI C."
-msgstr ""
+msgstr "UCL est une librairie portable écrite en C ANSI de compression de données sans perte."
 
 #: programming/libs/libmad::summary
 msgid "\"M\"peg \"A\"udio \"D\"ecoder library"
-msgstr ""
+msgstr "Librairie de \"D\"écompression \"A\"udio \"M\"peg (\"M\"peg \"A\"udio \"D\"ecoder\")"
 
 #: programming/libs/chmlib::description
 msgid "Chmlib is a library for dealing with Microsoft ITSS/CHM format files. Right now, it is a very simple library, but sufficient for dealing with all of the .chm files."
-msgstr ""
+msgstr "Chmlib est une librairie s'occupant des formats de fichiers Microsoft ITSS/CHM. Pour l'instant, il s'agit d'une librairie toute simple, mais suffisante pour gérer tout les fichiers .chm."
 
 #: programming/libs/gle::description
 msgid "The GLE Tubing and Extrusion Library is a graphics application programming interface (API). The library consists of a number of \"C\" language subroutines for drawing tubing and extrusions."

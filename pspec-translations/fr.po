@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2007-03-28 20:03+0200\n"
+"PO-Revision-Date: 2007-04-01 17:46+0200\n"
 "Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
 "Language-Team: french <pardus-translators@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -2204,91 +2204,91 @@ msgstr "Live555 est un ensemble de librairies C++ pour le streaming (diffusion n
 
 #: programming/libs/xerces-c::description
 msgid "Xerces-C++ is a validating XML parser written in a portable subset of C++."
-msgstr ""
+msgstr "Xerces-C++ est un analyseur XML validant écrit dans un sous-ensemble portable du C++."
 
 #: programming/libs/imlib2::description
 msgid "Imlib 2 is the successor to Imlib. It is not just a newer version - it is a completely new library. Imlib2 can be installed alongside Imlib 1.x without any problems since they are effectively different libraries - but they Have very similar functionality."
-msgstr ""
+msgstr "Imlib 2 est le successeur de Imlib. Il ne s'agit pas là juste d'une version plus récente d'imlib 1, mais vraiment d'une librairie complètement différente. S'agissant effectivement d'une différente librairie - même si elles ont des fonctionnalités similaires, Imlib2 peut être installée aux côtés de Imlib1.x sans aucun problème."
 
 #: programming/libs/glut::description
 msgid "GLUT is the OpenGL Utility Toolkit, a window system independent toolkit for writing OpenGL programs. It implements a simple windowing application programming interface (API) for OpenGL. GLUT makes it considerably easier to learn about and explore OpenGL Programming."
-msgstr ""
+msgstr "GLUT est la boîte à outils utilitaire d'OpenGL, une boîte à outils indépendante du système de fenêtrage pour écrire des programmes OpenGL. Il implémente une Interface de Programmation d'Application (API) de fenêtrage pour OpenGL. GLUT facilite considérablement l'apprentissage et l'exploration de la programmation en OpenGL."
 
 #: programming/libs/gnutls::description
 msgid "GnuTLS is a project that aims to develop a library which provides a secure layer, over a reliable transport layer. Currently the GnuTLS library implements the proposed standards by the IETF's TLS working group."
-msgstr ""
+msgstr "GnuTLS est un projet dont l'objectif est de développer une librairie fournissant une couche de sécurité au dessus d'une couche de transport fiable. Actuellement la librairie GnuTLS implémente les standards proposés par le groupe de travail TLs de l'IETF."
 
 #: programming/libs/qt4::description
 msgid "Qt is a cross platform GUI toolkit."
-msgstr ""
+msgstr "Qt est une boîte à outils graphique multi-plateforme."
 
 #: programming/libs/libxmlpp::summary
 msgid "C++ wrapper for the libxml XML parser library"
-msgstr ""
+msgstr "wrapper (enrobe en) C++ la librairie d'analyse XML libxml."
 
 #: programming/libs/PyQt4::description
 msgid "Qt is a set of C++ libraries and development tools that includes platform independent abstractions for graphical user interfaces, networking, threads, Unicode, regular expressions, SQL databases, SVG, OpenGL, XML, and user and application settings. PyQt implements 440 of these classes as a set of Python modules."
-msgstr ""
+msgstr "Qt est un ensemble de librairies C++ et d'outils de développement. On y trouve des abstractions indépendante de la plateforme utilisée pour les interfaces graphiques, le réseau, les threads, Unicode, les expressions régulières, les bases de données SQL, SVG, OpenGL, XML, la gestion des paramètres utilisateurs. PyQT implémente 440 de ces classes en tant que modules Python."
 
 #: programming/libs/libcaca::description
 msgid "libcaca is a graphics library that outputs text instead of pixels, so that it can work on older video cards or text terminals"
-msgstr ""
+msgstr "libcaca est une librairie graphique qui génère du texte au lieu de pixels afin de pouvoir fonctionner sur de vieilles cartes graphique ou sur des terminaux texte."
 
 #: programming/libs/glpk::description
 msgid "The GLPK (GNU Linear Programming Kit) package is intended for solving large-scale linear programming (LP), mixed integer programming (MIP), and other related problems. It is a set of routines written in ANSI C and organized in the form of a callable library."
-msgstr ""
+msgstr "Le paquet GLPK (GNU Linear Programming Kit - Kit de Programmation Linéaire) a pour objectif de résoudre le problème de programmation linéaire (LP) de grande envergure, la programmation d'entiers mixés (MIP), et autres problèmes de la sorte. Il s'agit d'un ensemble de routines écrites en C ANSI et organisées de manière à former une librairie que l'on peut appeler."
 
 #: programming/libs/libdvdnav::description
 msgid "libdvdnav is a library for developers of multimedia applications. It allows easy use of sophisticated DVD navigation features such as DVD menus, multiangle playback and even interactive DVD games."
-msgstr ""
+msgstr "libdvdnav est une librairie pour les développeur d'applications multimédia. Elle permet l'utilisation de fonctionnalités sophistiquées de navigation DVD tels que les menus DVD, la lecture multi-angle et même des jeux interactifs DVD."
 
 #: programming/libs/libart_lgpl::description
 msgid " Libart is a library for high-performance 2D graphics. It is currently being used as the antialiased rendering engine for the Gnome Canvas. Libart supports a very powerful imaging model, basically the same as SVG and the Java 2D API."
-msgstr ""
+msgstr "Libart est une librairie pour graphiques 2D à hautes performances. Elle est actuellement utilisé comme moteur de rendu anti-aliassé pour le Canvas Gnome. Libart fournit le support pour un modèle image très puissant, simplement le même que SVG et l'API (Interface de Programmation d'Application) Java 2D."
 
 #: programming/libs/liblo::description
 msgid "Lightweight OSC (Open Sound Control) implementation"
-msgstr ""
+msgstr "Implémentation légère d'OSC (Open Sound Control - Contrôle de Son Ouvert)."
 
 #: programming/libs/sdl-sound::description
 msgid "SDL library handling decoding of sound formats"
-msgstr ""
+msgstr "Librairie SDL de gestion de décodage des formats de son."
 
 #: programming/libs/c-ares::description
 msgid "c-ares is a C library that performs DNS requests and name resolves asynchronously. c-ares is a fork of the library named 'ares', written by Greg Hudson at MIT."
-msgstr ""
+msgstr "c-ares est une librairie qui effectue des requête DNS et les résolutions de nom de manière asynchrone. c-ares est issue d'un schisme de la librairie 'ares' écrite par Greg Hudson au MIT."
 
 #: programming/libs/raptor::description
 msgid "Raptor is the RDF Parser Toolkit for Redland that provides a set of Resource Description Framework (RDF) parsers and serializers"
-msgstr ""
+msgstr "Raptor est une boîte à outils d'analyse RDF pour Redland fournissant un ensemble d'analyseurs et de sérialiseurs (serializers)  pour Resource Description Framework (RDF - Cadre de Développement pour description de ressource)."
 
 #: programming/libs/tcltk::summary
 msgid "Tk is an X11 toolkit implemented with the Tcl scripting language"
-msgstr ""
+msgstr "Tk est une boîte à outils X11 implémentée avec le langage de script Tcl."
 
 #: programming/libs/FusionSound::description
 msgid "Sound library part of the DirectFB project"
-msgstr ""
+msgstr "Librairie de son faisant partie du projet DirectFB."
 
 #: programming/libs/gpgme::description
 msgid "GPGME is a library designed to make access to GnuPG easier for applications. It provides a high-Level Crypto application programming interface (API) for encryption, decryption, signing, signature verification and key management."
-msgstr ""
+msgstr "GPGME est une librairie conçue pour donner aux applications un accès plus facile à GnuPG. Elle fournit une interface de programmation d'application (API) de haut niveau pour la cryptographie permettant de crypter, décrypter, signer, vérifier les signatures et la gestion de clefs."
 
 #: programming/libs/ilbc::description
 msgid "iLBC (internet Low Bitrate Codec) is a FREE speech codec suitable for robust voice communication over IP. The codec is designed for narrow band speech and results in a payload bit rate of 13.33 kbit/s with an encoding frame length of 30 ms and 15.20 kbps with an encoding length of 20 ms."
-msgstr ""
+msgstr "iLBC (internet low Bitrate Codec) est un codec (compresseur/décompresseur) LIBRE du parlé utile pour une communication orale robuste sur IP. Ce codec est conçu pour les bandes passantes étroites et résulte en un débit binaire utile de 13.33 kbit/s avec une fenêtre d'encodage de 30 ms et 15.20 kbps avec une longueur d'encodage de 20 ms."
 
 #: programming/libs/cdk::description
 msgid "Though similar in style to dialog, it is different, being a library of curses widgets which can be linked into your application. Widgets are objects whose appearance and behavior can be customized."
-msgstr ""
+msgstr "Quoique similaires à dialog du point de vue du style, elle en diffère sur le fait que ce soit une librairie de widgets curses qui peut être liée à votre application. Les widgets sont des objets dont l'apparence et le comportement peuvent être personnalisés."
 
 #: programming/libs/libdvdread::description
 msgid "A DVD player for the Solaris, Linux and BSD environments released under the GNU Public License (GPL).  It is includes bookmarks, time skipping, multichannel audio, SPDIF output, crop and zoom video. It supports DVD menus and navigation, reads from mounted, unmounted DVDs and hard drive and reads encrypted and unencrypted DVDs using libdvdread/libdvdcss."
-msgstr ""
+msgstr "Un lecteur DVD pour les environnements Solaris, Linux et BSD publié sous la licence publique GNU (GPL). Il gère les signets, les sauts dans le temps, les sorties audio sur plusieurs canaux, sortie SPDIF, le zoom et le crop (vision exclusive d'une zone) vidéo. Il gère également les menus DVD et la navigation, permet de lire depuis les DVD montés ou non montés, depuis un disque dur. Il peut lire les DVDs cryptés et non cryptés grâce à libdvdread/libdvdcss."
 
 #: programming/libs/libgpod::description
 msgid "libgpod is a shared library to access the contents of an iPod. This library is based on code used in the gtkpod project."
-msgstr ""
+msgstr "libgpod est une librairie partagée permettant d'accéder au contenu d'un iPod. Cette librairie est basée sur le code du projet gtkpod."
 
 #: programming/libs/libquicktime::description
 msgid "Libquicktime is based on the great quicktime4linux library with several enhancements. All 3rd-party libraries were removed from the sourcetree. Instead, the systemwide installed libraries are detected by the configure script. All original codecs were moved into dynamically loadable modules, and new codecs are in development."

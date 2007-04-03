@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2007-04-01 23:34+0200\n"
+"PO-Revision-Date: 2007-04-04 00:48+0200\n"
 "Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
 "Language-Team: french <pardus-translators@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -2420,115 +2420,115 @@ msgstr "Chmlib est une librairie s'occupant des formats de fichiers Microsoft IT
 
 #: programming/libs/gle::description
 msgid "The GLE Tubing and Extrusion Library is a graphics application programming interface (API). The library consists of a number of \"C\" language subroutines for drawing tubing and extrusions."
-msgstr ""
+msgstr "La librairie pour tube et d'extrusion GLE est une interface de programmation d'application (API) graphique,. Cette librairie regroupe un certain nombre de routines en langage \"C\" pour dessiner des tubes et des extrusions."
 
 #: programming/libs/compface::description
 msgid "Utilities and library to convert to/from X-Face format"
-msgstr ""
+msgstr "Utilitaires et librairie pour convertir de/vers le format X-Face."
 
 #: programming/libs/libnotify::description
 msgid "Sends desktop notifications to a notification daemon"
-msgstr ""
+msgstr "Envoie les notifications bureautiques à un daemon de notification."
 
 #: programming/libs/iksemel::description
 msgid "iksemel is an XML (eXtensible Markup Language) parser library designed for Jabber applications"
-msgstr ""
+msgstr "iksemel est une librairie d'analyse XML (eXtensible Markup Language) conçue pour les applications Jabber."
 
 #: programming/libs/libsdl::summary
 msgid "Simple Direct Media Layer"
-msgstr ""
+msgstr "Simple Direct Media Layer (Couche Média Simple et Directe)."
 
 #: programming/libs/libpcap::description
 msgid "libpcap (Packet CAPture) provides a portable framework for low-level network monitoring. Applications include network statistics collection, security monitoring, network debugging, etc."
-msgstr ""
+msgstr "libpcap (Packet CAPture) fourni un cadre de développement portable pour la surveillance réseau de bas niveau. On peut l'utiliser pour collecter des statistiques réseau, surveiller la sécurité, corriger le réseau, etc."
 
 #: programming/libs/libdc1394::description
 msgid "libdc1394 is a library that is intended to provide a high level programming interface for application developers who wish to control IEEE 1394 based cameras that conform to the 1394-based Digital Camera Specification (found at http://www.1394ta.org/)."
-msgstr ""
+msgstr "libdc1394 est une librairie dont l'objectif est de fournir une interface de programmation d'application de haut niveau pour les développeur désirant contrôler les caméras basées sur le IEEE 1394 se conformant aux spécifications des Caméras Digitales basées sur 1394 (que l'on trouve sur http://www.1394ta.org/)."
 
 #: programming/libs/libwww::description
 msgid "Libwww is a highly modular, general-purpose client side Web API written in C for Unix and Windows (Win32)."
-msgstr ""
+msgstr "Libwww est une API Web cliente généraliste hautement modulaire écrite en C pour Unix et Windows (Win32)."
 
 #: programming/libs/fftw2::description
 msgid "FFTW v2 is a C subroutine library for computing the discrete Fourier transform (DFT) in one or more dimensions, of arbitrary input size, and of both real and complex data (as well as of even/odd data, i.e. the discrete cosine/sine transforms or DCT/DST)."
-msgstr ""
+msgstr "FFTW v2 est une librairie sous-routine C pour le calcul discret de transformation de Fourier (DFT) dans une ou plusieurs dimensions, pour une entrée de taille arbitraire, aussi bien pour des données réeles ou complexes (ainsi que les données paires/impaires, i.e. la transformation discrète cosinus/sinus ou DCT/DST)."
 
 #: programming/libs/libmovtar::description
 msgid "Movtar tools and library for MJPEG video"
-msgstr ""
+msgstr "Outils et librairie Movtar pour vidéo MJPEG."
 
 #: programming/libs/xine-lib::summary
 msgid "Core libraries for Xine movie player"
-msgstr ""
+msgstr "Librairies centrales pour le lecteur vidéo Xine."
 
 #: programming/libs/hermes::description
 msgid "Library for fast colorspace conversion and other graphics routines"
-msgstr ""
+msgstr "Librairies pour des conversions rapide de l'espace de couleur et autres routines graphiques."
 
 #: programming/libs/t1lib::description
 msgid "t1lib is a library written in the C programming language allowing a programmer to generate bitmaps from Adobe (TM) Type 1 fonts quite easily. These bitmaps are returned in a data structure with type GLYPH. This special GLYPH-type is also used in the X11 window system to describe character bitmaps. It contains the bitmap data as well as some metric information. But t1lib is in itself entirely independent of the X11-system or any other graphical user interface."
-msgstr ""
+msgstr "t1lib est une librairie écrite en langage C permettant à un programmeur de générer des bitmaps de fontes Adobe (TM) Type 1 assez facilement. Ces bitmaps sont retournés sous la forme d'une structure de données de type GLYPH. Ce type spécial GLYPH est également utilisé dans le système de fenêtrage X11 pour décrire les bitmaps caractères. Il contien les données bitmap en plus de quelques informations métriques. t1lib est toutefois totalement indépendante du système X11 ou tout autre interface graphique."
 
 #: programming/libs/nss::description
 msgid "Network Security Services (NSS) is a set of libraries designed to support cross-platform development of security-enabled client and server applications. Applications built with NSS can support SSL v2 and v3, TLS, PKCS #5, PKCS #7, PKCS #11, PKCS #12, S/MIME, X.509 v3 certificates, and other security standards."
-msgstr ""
+msgstr "Network Security Services (NSS) est un ensemble de librairies conçues pour faciliter le développement multi-plateforme d'applications client et serveur sécurisées. Les applications ocnstruite avec NSS peuvent gérer SSL v2 et v3, TLS, PKCS #5, PKCS #7, PKCS #11, PKCS #12, S/MIME, les certificats X.509 v3 et d'autres standards de sécurité."
 
 #: programming/libs/stlport::summary
 msgid "C++ STL Library"
-msgstr ""
+msgstr "Librairie STL C++."
 
 #: programming/libs/libtheora::summary
 msgid "The Theora Video Compression Codec"
-msgstr ""
+msgstr "Le codec (compresseur / décompresseur) de compression vidéo Theora."
 
 #: programming/libs/libpqxx::summary
 msgid "C++ client API for PostgreSQL"
-msgstr ""
+msgstr "API cliente C++ pour PostgreSQL."
 
 #: programming/libs/hexter::summary
 msgid "Yamaha DX7 modeller plugin"
-msgstr ""
+msgstr "plugin de modeller Yamaha DX7."
 
 #: programming/libs/openobex::description
 msgid "The overall goal of this project is to make an open source implementation of the Object Exchange (OBEX) protocol. OBEX is a session protocol and can best be described as a binary HTTP protocol."
-msgstr ""
+msgstr "L'objectif global de ce projet est d'obtenir une implémentation open source (libre) du protocole d'échange d'objet (OBEX). OBEX est un protocole à session et peut être considéré comme un protocole HTTP binaire."
 
 #: programming/libs/egenix-mx-base::description
 msgid "Egenix utils for Python."
-msgstr ""
+msgstr "Utilitaires Egenix pour Python."
 
 #: programming/libs/libqgs::description
 msgid "The Qt wrapper around the Ghostscript shared library (libqgs) relieves you from having to use special tricks to use Ghostscript in your Qt application. You do not have to care about starting it, parsing its output, or doing weird tricks to receive the rendered pages."
-msgstr ""
+msgstr "La librairie partagée Qt enrobant Ghostscript (libqgs) vous épargne d'avoir à utiliser des astuces spécifiques pour utiliser Ghostscript dans votre application Qt. Vous n'avez pas à vous occuper de le démarrer, d'analyser sa sortie et de faire d'étranges tours de passe-passe pour recevoir le rendu des pages."
 
 #: programming/libs/gtk+extra::description
 msgid "Useful additional GTK+ widgets."
-msgstr ""
+msgstr "Widgets GTK+ additionnels utiles."
 
 #: programming/libs/libcdio::summary
 msgid "A library to encapsulate CD-ROM reading and control"
-msgstr ""
+msgstr "Un librairie encapsulant la lecture et le controle du lecteur CD-ROM."
 
 #: programming/libs/cln::summary
 msgid "CLN, a class library (C++) for numbers"
-msgstr ""
+msgstr "CLN, une librairie de classes (C++) pour les nombres."
 
 #: programming/libs/wxGTK:wxPython:summary
 msgid "Python bindings for wxGTK."
-msgstr ""
+msgstr "Bindings (liens) Python pour wxGTK."
 
 #: programming/libs/wxGTK::description
 msgid "wxWidgets/GTK2 is the GTK2 port of the C++ cross-platform wxWidgets GUI library, offering classes for all common GUI controls as well as a comprehensive set of helper classes for most common application tasks, ranging from networking to HTML display and image manipulation."
-msgstr ""
+msgstr "wxWidgets/GTK2 est le port GTK2 de la librairie graphique multi-plateforme wxWidgets, offrant des classes pour les contrôles IHM communs ainsi qu'un ensemble complet de classes d'aides pour les tâches applicatives habituelles, allant du réseau à l'affichage HTML en passant par la manipulation d'images."
 
 #: programming/libs/sdl-image::summary
 msgid "SDL image file loading library"
-msgstr ""
+msgstr "Librairie SDL de chargement de fichier d'image."
 
 #: programming/libs/libdvdcss::description
 msgid "libdvdcss is a simple and library portable abstraction library designed for accessing DVDs like a block device without having to bother about the decryption. A DVD player can be built around the libdvdcss API using no more than 4 or 5 library calls."
-msgstr ""
+msgstr "libdvdcss est une librairie simple et portable d'abstraction conçue pour accéder auxDVDs comme des périphériques par blocs sans avoir à se soucier du décodage. On peut construire un lecteur DVD à partir de l'API de libdvdcss en 4 ou 5 appels."
 
 #: programming/libs/metis::description
 msgid "METIS is a family of programs for partitioning unstructured graphs and hypergraphs and computing fill-reducing orderings of sparse matrices."
@@ -2536,95 +2536,95 @@ msgstr ""
 
 #: programming/libs/libsamplerate::summary
 msgid "Secret Rabbit Code (aka libsamplerate) is a Sample Rate Converter for audio"
-msgstr ""
+msgstr "Secret Rabbit Code (alias libsamplerate) est un convertisseur audio de taux de Sample (Sample Rate Converter)."
 
 #: programming/libs/netcdf::summary
 msgid "Scientific library and interface for array oriented data access"
-msgstr ""
+msgstr "Librairie scientifique et interface pour l'accès aux données orientées tableaux."
 
 #: programming/libs/libaio::summary
 msgid "Asynchronous input/output library that uses the kernels native interface"
-msgstr ""
+msgstr "Librairie d'entrée/sortie asynchrone utilisant l'interface native du noyau."
 
 #: programming/libs/id3lib::summary
 msgid "Id3 library for C/C++"
-msgstr ""
+msgstr "Librairie Id3 pour C/C++."
 
 #: programming/libs/aalib:aalib:summary
 msgid "A ASCII-Graphics Library"
-msgstr ""
+msgstr "Une librairie de graphiques ASCII."
 
 #: programming/libs/aalib::description
 msgid "Aalib is an ASCII-graphics Library generating ASCII character outputs."
-msgstr ""
+msgstr "Aalib est une librairie de graphiques ASCII générant des sorties en caractères ASCII."
 
 #: programming/libs/tls::description
 msgid "TLS support for TCL."
-msgstr ""
+msgstr "Gestion de TLS pour TCL."
 
 #: programming/libs/unixodbc::description
 msgid "The unixODBC Project goals are to develop and promote unixODBC to be the definitive standard for ODBC on non MS Windows platforms. This is to include GUI support for both KDE and GNOME."
-msgstr ""
+msgstr "Les objectifs du projet unixODBC sont de développer et promouvoir unixODBC pour en faire le standard définitif pour ODBC sur les plateformes non MS Windows. Il devrait inclure une interface graphique pour KDE et GNOME."
 
 #: programming/libs/ode::description
 msgid "Open Dynamics Engine SDK"
-msgstr ""
+msgstr "SDK (kit de développement) du moteur Open Dynamics."
 
 #: programming/libs/lcms::summary
 msgid "A lightweight, speed optimized color management engine"
-msgstr ""
+msgstr "Moteur de gestion de couleurs léger et optimisé pour la vitesse."
 
 #: programming/libs/xmlsec::description
 msgid "XML Security Library is a C library based on LibXML2. The library supports major XML security standards."
-msgstr ""
+msgstr "XML Security Librairie (Librairie de Sécurité XML) est une librairie C basée sur LibXML2. Cette librairie gère les standards majeurs de sécurité XML."
 
 #: programming/libs/libvisual-plugins::description
 msgid "Libvisual is an audio visualisation library that acts as a middle layer between audio visualisation plugins and applications."
-msgstr ""
+msgstr "Libvisual est une librairie de visualisation audio agissant en tant que couche intermédiaire entre les plugins (greffons) de visualisation audio et les applications."
 
 #: programming/libs/xsynth-dssi::description
 msgid "Xsynth-DSSI plugin, a classic-analog (VCOs-VCF-VCA) style software synthesizer with an editor GUI"
-msgstr ""
+msgstr "Le plugin (greffon) Xsynth DSSI, un synthétiseur logiciel classique analogique (VCOs-VCF-VCA) avec éditeur graphique."
 
 #: programming/libs/gsm::description
 msgid "Gsm is an implementation of the final draft GSM 06.10 standard for full-rate speech transcoding"
-msgstr ""
+msgstr "Gsm est une implémentation du brouillon final du standard GSM 06.10 pour un transcodage audio à plein régime."
 
 #: programming/libs/tunepimp::description
 msgid "Client library to create MusicBrainz enabled tagging applications"
-msgstr ""
+msgstr "Librairie cliente pour créer des applications gérant le balisage (tagging) MusicBrainz."
 
 #: programming/libs/libassuan::summary
 msgid "Standalone IPC library used by gpg, gpgme and newpg"
-msgstr ""
+msgstr "Librairie IPC (communication inter-processus)  auto-suffisante utilisée par gpg, gpgme et newpg."
 
 #: programming/libs/gmp::description
 msgid "GMP is a free library for arbitrary precision arithmetic, operating on signed integers, rational numbers, and floating point numbers. There is no practical limit to the precision except the ones implied by the available memory in the machine GMP runs on. GMP has a rich set of functions, and the functions have a regular interface."
-msgstr ""
+msgstr "GMP est une librairie libre pour l'arithmétique à précision arbitraire, opérant sur : les entiers signés, les nombres rationnels et les nombres à virgule flottante. Il n'y a aucune limite pratique sur la précision des calculs exceptée celle impliquée par la mémoire présente sur la machine exécutant GMP. GMP est dotée d'un large panel de fonctions, dotées d'interfaces régulières."
 
 #: programming/libs/libungif::description
 msgid "A library for reading and writing GIF images without LZW compression"
-msgstr ""
+msgstr "Une librairie pour lire et écrire des images GIF sans compression LZW."
 
 #: programming/libs/libnjb::description
 msgid "libnjb is a C library and API for communicating with the Creative Nomad JukeBox and Dell DJ digital audio players. The protocol these devices use is presumably called PDE (Portable Digital Entertainment protocol) at Creative."
-msgstr ""
+msgstr "libnjb est une librairie et une API C pour communiquer avec les lecteurs audio Creative Nomade JukeBox ainsi que les Dell DJ. Le protocole utilisé par ces périphériques est supposé être appelé PDE (Portable Digital Entertainment protocol) chez Creative."
 
 #: programming/libs/exiv2::description
 msgid "Exiv2 is a C++ library and a command line utility to access image metadata. Exiv2 is available as free software and with a commercial license, and is used in a growing number of projects."
-msgstr ""
+msgstr "Exiv2 est une librairie C++ ainsi qu'un utilitaire en ligne de commande pour accéder aux méta-données d'images. Exiv2 est disponible en tant que logiciel libre ou avec une licence commerciale et est utilisée par un nombre croissant de projets."
 
 #: programming/libs/sqlite::description
 msgid "SQLite is a small C library that implements a self-contained, embeddable, zero-configuration SQL database engine. Supports databases up to 2 terabytes in size."
-msgstr ""
+msgstr "SQLite est une petite librairie C implémentant un moteur de base de données SQL auto-configurée, auto-suffisante, pouvant être embarquée. Gère des bases de données de tailles allant jusqu'à 2 téraOctets."
 
 #: programming/libs/sqlite2::summary
 msgid "Embeddable SQL Database Engine (Old Version)"
-msgstr ""
+msgstr "Moteur SQL pouvant être embarqué (Vieille Version)"
 
 #: programming/libs/SuiteSparse::description
 msgid "Sparse matrix library."
-msgstr ""
+msgstr "Librairie de matrices Sparse."
 
 #: programming/libs/openmpi::description
 msgid "Open MPI is a project combining technologies and resources from several other projects (FT-MPI, LA-MPI, LAM/MPI, and PACX-MPI) in order to build the best MPI library available. A completely new MPI-2 compliant implementation, Open MPI offers advantages for system and software vendors, application developers and computer science researchers."

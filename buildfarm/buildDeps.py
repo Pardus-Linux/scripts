@@ -99,14 +99,10 @@ def getAllDependencies(source_index, package_name):
     deps = set()
     deps.add(package_name)
     def collect(name):
-        try:
-            p = source_index[name]
-        except KeyError:
-            pass
-        else:
-            for item in p["deps"]:
-                deps.add(item)
-                collect(item)
+        p = source_index[name]
+        for item in p["deps"]:
+            deps.add(item)
+            collect(item)
     collect(package_name)
     deps.update(source_index["__base__"])
     return deps

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2007-04-04 00:48+0200\n"
+"PO-Revision-Date: 2007-04-06 10:31+0200\n"
 "Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
 "Language-Team: french <pardus-translators@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -2628,35 +2628,35 @@ msgstr "Librairie de matrices Sparse."
 
 #: programming/libs/openmpi::description
 msgid "Open MPI is a project combining technologies and resources from several other projects (FT-MPI, LA-MPI, LAM/MPI, and PACX-MPI) in order to build the best MPI library available. A completely new MPI-2 compliant implementation, Open MPI offers advantages for system and software vendors, application developers and computer science researchers."
-msgstr ""
+msgstr "Open MPI est un projet combinant les technologies et les ressources de plusieurs autres projets (FT-MPI, LA-MPI, LAM/MPI et PACX-MPI) afin de construire la meilleure librairie MPI disponible. Une implémentation totalement neuve conforme au MPI-2. Open MPI offre des avantages aux vendeurs de systèmes et de logiciels, au développeurs d'applications ainsi qu'aux chercheur en génie logiciel."
 
 #: programming/libs/libIDL::summary
 msgid "CORBA tree builder"
-msgstr ""
+msgstr "Constructeur d'arbre CORBA."
 
 #: programming/libs/libqalculate::summary
 msgid "Qalculate! is a multi-purpose desktop calculator for GNU/Linux"
-msgstr ""
+msgstr "Qalculate ! est une calculatrice de bureau multi-usage pour GNU/Linux."
 
 #: programming/libs/physfs::description
 msgid "Abstraction layer for filesystems, usually used by games"
-msgstr ""
+msgstr "Couche d'abstraction pour les systèmes de fichier, généralement utilisée par les jeux."
 
 #: programming/libs/gsl::description
 msgid "The GNU Scientific Library (GSL) is a numerical library for C and C++ programmers."
-msgstr ""
+msgstr "La librairie scientifique GNU (GSL) est une librairie numérique pour programmes C et C++."
 
 #: programming/libs/openexr::description
 msgid "OpenEXR is a high dynamic-range (HDR) image file format  for use in computer imaging applications. OpenEXR's features include: Higher dynamic range and color precision than existing 8- and 10-bit image file formats; support for 16-bit floating-point, 32-bit floating-point, and 32-bit integer pixels; multiple lossless image compression algorithms; extensibility."
-msgstr ""
+msgstr "OpenEXR est un formation de fichier d'image à haut rang dynamique (HDR - High Dynamic Range) utilisable pour les applications d'imagerie sur ordinateur. OpenEXR inclus notamment : Un rang dynamique plus grand que les formats d'image existants de 8 et 10 bit; le support pour pixel de 16 bit à virgule flottante, 32 bit à virgule flottante et d'entiers à 32 bit; de nombreux algorithmes de compression d'image sans perte, le fait d'être extensible."
 
 #: programming/libs/libsigc++::summary
 msgid "Typesafe callback system for C++"
-msgstr ""
+msgstr "Système de rappels à types sûrs (typesafe callback) pour C++."
 
 #: programming/libs/libcddb::description
 msgid "A library for accessing a CDDB server"
-msgstr ""
+msgstr "Une librairie pour accéder aux serveurs CDDB."
 
 #: programming/libs/spidermonkey::description
 msgid "Spidermonkey is Mozilla's C implementation of JavaScript."

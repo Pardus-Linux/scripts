@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2007-04-06 10:31+0200\n"
+"PO-Revision-Date: 2007-04-12 00:34+0200\n"
 "Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
 "Language-Team: french <pardus-translators@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -2660,99 +2660,99 @@ msgstr "Une librairie pour accéder aux serveurs CDDB."
 
 #: programming/libs/spidermonkey::description
 msgid "Spidermonkey is Mozilla's C implementation of JavaScript."
-msgstr ""
+msgstr "Spidermonkey est l'Implémentation C de Javascript par Mozilla."
 
 #: programming/libs/icu4c::description
 msgid "ICU is a mature, widely used set of C/C++ and Java libraries for Unicode support, software internationalization and globalization (i18n/g11n). This package contains the C/C++ libraries."
-msgstr ""
+msgstr "ICU est un ensemble mature de librairies C/C++ et Java pour le support de l'Unicode, l'internationalisation et la globalisation de logiciel (i18n/g11n). Ce paquet contient les librairies C/C++."
 
 #: programming/libs/gd::summary
 msgid "A fast library for creating graphic images"
-msgstr ""
+msgstr "Une librairie rapide pour créer des graphiques en images."
 
 #: programming/libs/libwmf::description
 msgid "Library for converting WMF files"
-msgstr ""
+msgstr "Librairie pour convertir les fichiers WMF."
 
 #: programming/libs/libgphoto2::description
 msgid "Libgphoto2 is the core library designed to allow access to digital camera by external programs."
-msgstr ""
+msgstr "Libgphoto2 est une librairie centrale conçue pour permettre aux programmes extérieurs d'accéder aux appareils photos numériques."
 
 #: programming/libs/sdl-pango::summary
 msgid "SDL Pango library"
-msgstr ""
+msgstr "Librairie Pango SDL."
 
 #: programming/libs/libfame::summary
 msgid "MPEG-1 and MPEG-4 video encoding library"
-msgstr ""
+msgstr "Librairie d'encodage vidéo MPEG-1 et MPEG-4."
 
 #: programming/libs/libevent::summary
 msgid "A library to execute a function when a specific event occurs on a file descriptor"
-msgstr ""
+msgstr "Une librairie pour exécuter une fonction lorsqu'un événement spécifique a lieu sur un descripteur (descriptor) de fichier."
 
 #: programming/libs/libmpeg2::description
 msgid "libmpeg2 is a free library for decoding mpeg-2 and mpeg-1 video streams. ibmpeg2 is able to decode all mpeg streams that conform to certain restrictions: \"constrained parameters\" for mpeg-1, and \"main profile\" for mpeg-2."
-msgstr ""
+msgstr "libmpeg2 est une librairie libre pour décoder les flux vidéos mpeg-2 et mpeg-1. libmpeg2 est capable de décoder tous les flux vidéos se conformant à certaines restrictions : \"paramètres contraints (constrained parameters)\" pour mpeg-1 et \"profil principal (main profile)\" pour mpeg-2."
 
 #: programming/libs/libdvbpsi::summary
 msgid "Library for MPEG TS/DVB PSI tables decoding and generation"
-msgstr ""
+msgstr "Librairie pour la génération et le décodage des tables PSI TS/DVB MPEG."
 
 #: programming/libs/libfwbuilder::description
 msgid "Firewall Builder 2.0 API library and compiler framework"
-msgstr ""
+msgstr "Librairie et compilateur pour l'API 2.0 du framework (cadre de développement) Firewall Builder."
 
 #: programming/libs/librsync::description
 msgid "librsync implements the rolling-checksum algorithm of remote file synchronization that was popularized by the rsync utility and is used in rproxy. This algorithm transfers the differences between 2 files without needing both files on the same system."
-msgstr ""
+msgstr "librsync implémente l'algorithme de la somme de contrôle tournante (rolling-checksum) pour la synchronisation rendue populaire par l'utilitaire rsync et utilisée par rproxy. Cet algorithme transfert les différences entre 2 fichiers sans nécessiter la présence des fichiers sur le même système."
 
 #: programming/libs/libgcrypt::summary
 msgid "general purpose crypto library based on the code used in GnuPG"
-msgstr ""
+msgstr "Librairie générale de cryptographie basée sur le code utilisé dans GnuPG."
 
 #: programming/libs/sdl-mixer::summary
 msgid "SDL mixer library"
-msgstr ""
+msgstr "Librairie du mixer SDL."
 
 #: programming/libs/portaudio::description
 msgid "An open-source cross platform audio API"
-msgstr ""
+msgstr "Une API audio multi-plateforme libre."
 
 #: programming/libs/libuninameslist::summary
 msgid "Library of unicode annotation data"
-msgstr ""
+msgstr "Librairie de données d'annotation d'unicode."
 
 #: programming/libs/fltk::description
 msgid "FLTK provides modern GUI functionality without the bloat and supports 3D graphics via OpenGL and its built-in GLUT emulation. FLTK is designed to be small and modular enough to be statically linked, but works fine as a shared library. FLTK also includes an excellent UI builder called FLUID that can be used to create applications in minutes."
-msgstr ""
+msgstr "FLTK fournit les fonctionnalités IHM sans fioritures et supporte les graphiques 3D via OpenGL et son émulation GLUT intégrée. FLTK est conçue pour être petite et suffisamment modulaire pour être associée statiquement, tout en restant parfaitement utilisable en tant que librairie partagée. FLTK inclus également un excellent constructeur d'IHM appelé FLUID pouvant être utilisé pour créer des applications en quelques minutes."
 
 #: programming/libs/libmatroska::summary
 msgid "Extensible multimedia container format based on EBML"
-msgstr ""
+msgstr "Format de conteneur multimédia extensible basé sur EBML."
 
 #: programming/libs/libdv::description
 msgid "The Quasar DV codec (libdv) is a software codec for DV video, the encoding format used by most digital camcorders, typically those that support the IEEE 1394 (a.k.a. FireWire or i.Link) interface. Libdv was developed according to the official standards for DV video: IEC 61834 and SMPTE 314M."
-msgstr ""
+msgstr "Le codec Quasar DV (libdv) est un codec logiciel pour la vidéo DV, le format d'encodage utilisé par la plupart des caméras numériques, typiquement celles gérant l'interface IEEE 1394 (a.k.a. FireWire ou i.Link). Libdv a été développé selon les standards officiels pour la vidéo DV : IEC 61834 et SMPTE 314M."
 
 #: programming/libs/sdl-gfx::description
 msgid "The SDL_gfx library evolved out of the SDL_gfxPrimitives code which provided basic drawing routines such as lines, circles or polygons and SDL_rotozoom which implemented a interpolating rotozoomer for SDL surfaces."
-msgstr ""
+msgstr "La librairie SDL_gfx a évolué en dehors du code des SDL_gfxPrimitives fournissant les routines de dessin de base tels que les lignes, les cercles, les polygones et SDL_rorozoom qui implémentait un rotozoomer d'interpolation de surfaces SDL."
 
 #: programming/libs/boehm-gc::description
 msgid "The Boehm-Demers-Weiser conservative garbage collector can be used as a garbage collecting replacement for C malloc or C++ new.The collector automatically recycles memory when it determines that it can no longer be otherwise accessed."
-msgstr ""
+msgstr "Le ramasse-miettes conservateur Boehm-Demers-Weiser peut être utilisé comme un remplacement ramasseur de miettes pour le malloc du C et le new du C++. Le ramasse-miettes recycle automatiquement la mémoire lorsqu'il détecte qu'elle ne peut plus être accédée que par lui."
 
 #: programming/libs/simgear::description
 msgid "Developement library for simulation games"
-msgstr ""
+msgstr "Librairie de développement pour jeux de simulation."
 
 #: programming/libs/plib::description
 msgid "Multimedia and 3D library used mostly by games"
-msgstr ""
+msgstr "Librairie multimédia et 3D principalement utilisée par les jeux."
 
 #: programming/libs/libebml::summary
 msgid "Extensible binary format library (kinda like XML)"
-msgstr ""
+msgstr "Librairie de format binaire extensible (un peu comme XML)."
 
 #: programming/libs/mpfr::description
 msgid "The MPFR library is a C library for multiple-precision floating-point computations with exact rounding (also called correct rounding). It is based on the GMP multiple-precision library."

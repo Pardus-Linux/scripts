@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2007-04-12 00:34+0200\n"
+"PO-Revision-Date: 2007-04-13 01:00+0200\n"
 "Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
 "Language-Team: french <pardus-translators@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -2756,35 +2756,35 @@ msgstr "Librairie de format binaire extensible (un peu comme XML)."
 
 #: programming/libs/mpfr::description
 msgid "The MPFR library is a C library for multiple-precision floating-point computations with exact rounding (also called correct rounding). It is based on the GMP multiple-precision library."
-msgstr ""
+msgstr "La librairie MPFR est une librairie C pour les calculs à virgules flottantes à précisions multiples à arrondi exact (également appelé arrondi correct). Elle est basée sur la librairie à précision multiple GMP."
 
 #: programming/libs/libmpcdec::description
 msgid "Portable Musepack decoder library."
-msgstr ""
+msgstr "Librairie de décodage portable Musepack."
 
 #: programming/libs/libexif::summary
 msgid "Library for parsing, editing, and saving EXIF data"
-msgstr ""
+msgstr "Librairie pour analyser, éditer et sauvegarder des données EXIF."
 
 #: programming/libs/libao::summary
 msgid "The audio output library"
-msgstr ""
+msgstr "La librairie de rendu (sortie) audio."
 
 #: programming/libs/libgpg-error::summary
 msgid "Contains error handling functions used by GnuPG software"
-msgstr ""
+msgstr "Contient les fonctions de gestion d'erreur utilisées par le logiciel GnuPG."
 
 #: programming/libs/libmtp::description
 msgid "libmtp is an implementation of Microsoft's Media Transfer Protocol (MTP) in the form of a library suitable primarily for POSIX compliant operating systems."
-msgstr ""
+msgstr "libmtp est une implémentation du Media Transfer Protocol (MTP) de Microsoft sous la forme d'une librairie principalement adéquate pour les systèmes d'exploitation conformes à POSIX."
 
 #: programming/libs/libmal::summary
 msgid "Convenience library of the functions malsync distribution"
-msgstr ""
+msgstr "Librairie pratique des fonctions de la distribution malsync."
 
 #: programming/libs/liblrdf::description
 msgid "A lightweight RDF library with special support for LADSPA plugins."
-msgstr ""
+msgstr "Une librairie RDF légère avec un support spécial pour les plugins (greffons) LADSPA."
 
 #: programming/libs/libavc1394::summary
 msgid "library for the 1394 Trade Association AV/C (Audio/Video Control) Digital Interface Command Set"

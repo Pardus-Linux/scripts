@@ -1,4 +1,4 @@
-# translation of fr.po to french
+# translation of fr.po to French
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2007-04-13 01:00+0200\n"
+"PO-Revision-Date: 2007-04-14 19:23+0200\n"
 "Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
-"Language-Team: french <pardus-translators@pardus.org.tr>\n"
+"Language-Team: French <pardus-translators@liste.pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2532,7 +2532,7 @@ msgstr "libdvdcss est une librairie simple et portable d'abstraction conçue pou
 
 #: programming/libs/metis::description
 msgid "METIS is a family of programs for partitioning unstructured graphs and hypergraphs and computing fill-reducing orderings of sparse matrices."
-msgstr ""
+msgstr "METIS est une famille de programmes pour partitionner des graphes non structurés, des hypergraphes et calculer la renumérotation de matrice pour réduire son remplissage."
 
 #: programming/libs/libsamplerate::summary
 msgid "Secret Rabbit Code (aka libsamplerate) is a Sample Rate Converter for audio"
@@ -2788,83 +2788,83 @@ msgstr "Une librairie RDF légère avec un support spécial pour les plugins (gr
 
 #: programming/libs/libavc1394::summary
 msgid "library for the 1394 Trade Association AV/C (Audio/Video Control) Digital Interface Command Set"
-msgstr ""
+msgstr "Librairie pour l'ensemble de commande de l'interface digitale AV/C (Audio/Vidéo Control) de l'association pour le commerce 1394 (1394 Trade Association)."
 
 #: programming/libs/libmodplug::summary
 msgid "Library for playing MOD-like music files"
-msgstr ""
+msgstr "Librairie pour jouer les fichiers son de type MOD."
 
 #: programming/libs/libiec61883::description
 msgid "This library provides third generation media reception and transmission for DV, MPEG2-TS, and AMDTP (audio and music) using only raw1394 and not the complicated setup and maintenance of other kernel modules and their /dev nodes."
-msgstr ""
+msgstr "Cette librairie fournit aux les médias de troisième génération la réception et la transmission pour DV, MPEG2-TS et AMDTP (audio et musique) en n'utilisant que raw1394 sans nécessiter une configuration et une maintenance compliquées d'autres modules du noyau et de leurs nodes dans /dev."
 
 #: programming/libs/sdl-net::summary
 msgid "SDL network library"
-msgstr ""
+msgstr "Librairie réseau de SDL."
 
 #: programming/libs/libsndfile::description
 msgid "Libsndfile is a C library for reading and writing files containing sampled sound (such as MS Windows WAV and the Apple/SGI AIFF format) through one standard library interface."
-msgstr ""
+msgstr "Libsndfile est une librairie C pour lire et écrire des fichiers contenant des échantillons sonores (tels que les fichiers aux formats MS Windows WAV et Apple/SGI AIFF) à travers une seule interface de librairie standard."
 
 #: programming/libs/libogg::summary
 msgid "The Ogg media file format library"
-msgstr ""
+msgstr "La librairie pour fichiers au format média Ogg."
 
 #: programming/libs/libsigsegv::summary
 msgid "A library for handling page faults in user mode"
-msgstr ""
+msgstr "Une librairie pour gérer les erreurs de pagination en mode utilisateur."
 
 #: programming/libs/sdl-ttf::description
 msgid "SDL_ttf is a TrueType font rendering library that is used with the SDL library, and almost as portable."
-msgstr ""
+msgstr "SDL_ttf est une librairie de rendu de fontes TrueType utilisée avec la librairie SDL et quasiment aussi portable qu'elle."
 
 #: programming/libs/libdts::description
 msgid "libdts is a free library for decoding DTS Coherent Acoustics streams."
-msgstr ""
+msgstr "libdts est une librairie libre pour décoder les flux DTS Coherent Acoustics."
 
 #: programming/libs/libstdc++::description
 msgid "The GNU Standard C++ Library. It Contains standard classes and functions such as string, vector, iostreams, and algorithms"
-msgstr ""
+msgstr "La librairie standard C++ GNU. Elle contient les classes et les fonctions standards telles que string, vector, iostreams et des algorithmes."
 
 #: programming/libs/ortp::description
 msgid "Ortp is a LGPL licensed C library implementing the RTP protocol (rfc1889)."
-msgstr ""
+msgstr "Ortp est une librairie C sous licence LGPL implémentant le protocole RTP (rfc 1889)."
 
 #: programming/libs/nspr::description
 msgid "Netscape Portable Runtime (NSPR) provides a platform-neutral API for system level and libc like functions. The API is used in the Mozilla client, many of Netscape/AOL/iPlanet's and other software offerings."
-msgstr ""
+msgstr "Netscape Portable Runtime (NSPR -- Exécutable Portable Netscape) fourni une API neutre au sens de la plate-forme pour les fonctions de niveau système ou de type libc. Cette API est utilisée au sein du client Mozilla ainsi que de nombreuses solutions logicielles de Netscape/AOL/iPlanet."
 
 #: programming/libs/libnfsidmap::summary
 msgid "NFSv4 ID name mapping library"
-msgstr ""
+msgstr "Librairie de mapping (lien) d'ID nom de NFSv4."
 
 #: programming/libs/pylibacl::description
 msgid "This python 2.2+ extension module allows you to manipulate the POSIX.1e Access Control Lists present in some os/filesystem combinations."
-msgstr ""
+msgstr "Ce module d'extension de python 2.2+ permet de manipuler les Listes de Contrôle d'Accès POSIX.1e présentes dans certaines combinaisons de systèmes d'exploitations/systèmes de fichiers."
 
 #: programming/libs/openslp::description
 msgid "Service Location Protocol is an IETF standards track protocol that provides a framework to allow networking applications to discover the existence, location, and configuration of networked services in enterprise networks."
-msgstr ""
+msgstr "Le Service Location Protocol (Protocole de Localisation de Service) est un protocole standard de recherche de l'IETF fournissant un framework (cadre de développement) pour permettre aux application résau de découvrir l'existence, la localisation et la configuration de services réseaux au sein des réseaux d'entreprises."
 
 #: programming/libs/neon::summary
 msgid "HTTP and WebDAV client library"
-msgstr ""
+msgstr "Librairie cliente HTTP et WebDAV."
 
 #: programming/libs/dmapi::summary
 msgid "XFS data management API library"
-msgstr ""
+msgstr "Librairie de l'API de gestion de données XFS."
 
 #: programming/libs/agg::description
 msgid "Agg is a high quality rendering engine for C++."
-msgstr ""
+msgstr "Agg est un moteur de rendu de haute qualité pour C++."
 
 #: programming/libs/libmng::description
 msgid "Libmng -The reference library for reading, displaying, writing and examining Multiple-Image Network Graphics. MNG is the animation extension to the popular PNG image-format."
-msgstr ""
+msgstr "Libmng - La librairie de référence pour lire, afficher, écrire et examiner des Multiple-Image Network Graphics (graphiques orientés réseaux composés d'images multiples). MNG est l'extension d'animation pour le format d'image populaire PNG."
 
 #: programming/libs/libmikmod::description
 msgid "libmikmod is a portable sound library, which used to be packaged with the MikMod module player, but is now released independentely. It is capable of playing samples as well as module files, using the OSS driver for output, as well as Alsa and EsounD. Supported module format include mod, s3m, xm, it, med, mtm and 669, to name a few."
-msgstr ""
+msgstr "libmikmod est une librairie son portable, qui était habituellement emballée avec le lecteur de module MikMod, mais qui est maintenant livrée de manière indépendante. Elle est capable de jouer des échantillons ainsi que des fichiers modules, utilisant aussi bien le pilote OSS, Alsa ou EsounD pour la sortie. Les formats de module gérés comprennent entre autres mod, s3m, xm, it, med, mtm et 669."
 
 #: programming/libs/libmp4v2::description
 msgid "MPEG4 library extracted from MPEG4IP, usually used in 3D sound systems."

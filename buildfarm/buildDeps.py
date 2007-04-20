@@ -29,7 +29,7 @@ def isBinary(_file):
 
 def getLinks(_file):
     links = []
-    for link in os.popen("/usr/bin/ldd %s" % _file):
+    for link in os.popen("/usr/bin/ldd \"%s\"" % _file):
         link = link.strip()
         if "=>" in link:
             fn = link.split("=>")[1].split()[0]

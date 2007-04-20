@@ -79,6 +79,7 @@ def getSourceIndex(indexfile):
     else:
         doc = piksemel.parse(indexfile)
     sources = {}
+    packages = {}
     base = []
     for tag in doc.tags("SpecFile"):
         name = tag.getTag("Source").getTagData("Name")
@@ -87,35 +88,38 @@ def getSourceIndex(indexfile):
         release = tag.getTag('History').getTag('Update').getAttribute('release')
         sources[name]["version"] = "%s-%s" % (version, release)
         sources[name]["deps"] = []
+        sources[name]["packages"] = []
+        for pak in tag.tags("Package"):
+            packages[pak.getTagData("Name")] = name
+            sources[name]["packages"].append(pak.getTagData("Name"))
         deps = tag.getTag("Source").getTag("BuildDependencies")
         if deps:
-            sources[name]["deps"] = map(lambda x: x.firstChild().data(), deps.tags("Dependency"))
+            sources[name]["deps"] = []
+            for dep in deps.tags("Dependency"):
+                sources[name]["deps"].append(dep.firstChild().data())
         if tag.getTag("Source").getTagData("PartOf") in ["system.base", "system.devel"]:
-            base.append(name)
-    sources["__base__"] = base
-    return sources
+            base.extend(sources[name]["packages"])
+    return sources, packages, base
 
-def getAllDependencies(source_index, package_name):
+def getAllDependencies(source_index, package_index, source_name):
     deps = set()
-    deps.add(package_name)
     def collect(name):
-        try:
-            p = source_index[name]
-        except KeyError:
-            pass
-        else:
-            for item in p["deps"]:
-                deps.add(item)
-                collect(item)
-    collect(package_name)
-    deps.update(source_index["__base__"])
+        if name in deps:
+            return
+        deps.add(name)
+        src = source_index[package_index[name]]
+        for item in src["deps"]:
+            collect(item)
+    for p in source_index[source_name]["packages"]:
+        collect(p)
     return deps
 
-def findMissingDependencies(source_index, package_name):
-    installDir = "/var/pisi/%s-%s/install" % (package_name, source_index[package_name]["version"])
+def findMissingDependencies(source_index, package_index, base_index, source_name):
+    installDir = "/var/pisi/%s-%s/install" % (source_name, source_index[source_name]["version"])
     if not os.path.isdir(installDir):
         raise InstallDirError, "Install directory does not exist."
-    s1 = getAllDependencies(source_index, package_name)
+    s1 = getAllDependencies(source_index, package_index, source_name)
+    s1.update(base_index)
     s2 = getBuildDependencies(installDir)
     return list(set(s2) - set(s1))
 
@@ -124,14 +128,19 @@ def main(args):
         print "Usage: %s package path/to/pisi-index.xml path/to/pisi-index.xml" % args[0]
         return 1
     
-    package_name = args[1]
+    source_name = args[1]
     
     source_index = {}
+    package_index = {}
+    base_index = []
     for i in args[2:]:
-        source_index.update(getSourceIndex(i))
-
+        sources, packages, base = getSourceIndex(i)
+        source_index.update(sources)
+        package_index.update(packages)
+        base_index.extend(base)
+    
     try:
-        deps = findMissingDependencies(source_index, package_name)
+        deps = findMissingDependencies(source_index, package_index, base_index, source_name)
     except InstallDirError:
         print "Install directory does not exist."
         return 1

@@ -24,7 +24,7 @@ class InstallDirError(Exception):
     pass
 
 def isBinary(_file):
-    ret = os.popen("/usr/bin/file -b %s" % _file).read()
+    ret = os.popen("/usr/bin/file -b \"%s\"" % _file).read()
     return ret.startswith("ELF")
 
 def getLinks(_file):

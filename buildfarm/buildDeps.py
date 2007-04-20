@@ -99,10 +99,14 @@ def getAllDependencies(source_index, package_name):
     deps = set()
     deps.add(package_name)
     def collect(name):
-        p = source_index[name]
-        for item in p["deps"]:
-            deps.add(item)
-            collect(item)
+        try:
+            p = source_index[name]
+        except KeyError:
+            pass
+        else:
+            for item in p["deps"]:
+                deps.add(item)
+                collect(item)
     collect(package_name)
     deps.update(source_index["__base__"])
     return deps
@@ -122,9 +126,9 @@ def main(args):
     
     package_name = args[1]
     
-    source_index = []
+    source_index = {}
     for i in args[2:]:
-        source_index.append(getSourceIndex(i))
+        source_index.update(getSourceIndex(i))
 
     try:
         deps = findMissingDependencies(source_index, package_name)

@@ -117,13 +117,14 @@ def findMissingDependencies(source_index, package_name):
 
 def main(args):
     if len(args) < 3:
-        print "Usage: %s package path/to/pisi-index.xml" % args[0]
+        print "Usage: %s package path/to/pisi-index.xml path/to/pisi-index.xml" % args[0]
         return 1
     
     package_name = args[1]
-    indexfile = args[2]
     
-    source_index = getSourceIndex(indexfile)
+    source_index = []
+    for i in args[2:]:
+        source_index.append(getSourceIndex(i))
 
     try:
         deps = findMissingDependencies(source_index, package_name)

@@ -990,7 +990,7 @@ msgstr "Utilitaires KDE."
 msgid "KDE bindings"
 msgstr "liens (bindings) KDE."
 
-#: desktop/kde/aspell-en::description
+#: applications/dictionaries/aspell/aspell-en::description
 msgid "You can do spell-checking in English using Aspell program with this dictionary."
 msgstr "Avec ce dictionnaire.vous pouvez vérifier l'orthographe en anglais en utilisant le programme Aspell."
 
@@ -1242,7 +1242,7 @@ msgstr "Paquet d'internationalisation des applications KDE en bokmål (norvégie
 msgid "KDE internationalization package provides Chinese Traditional translations for KDE applications."
 msgstr "Paquet d'internationalisation des applications KDE en chinois traditionnel."
 
-#: desktop/kde/i18n/kde-i18n-sr@Latn::description
+#: desktop/kde/i18n/kde-i18n-sr_Latn::description
 msgid "KDE internationalization package provides Serbian Latin translations for KDE applications."
 msgstr "Paquet d'internationalisation des applications KDE en serbe latin."
 
@@ -1446,7 +1446,7 @@ msgstr "TASMA est une interface graphique de configuration vous permettant d'éd
 msgid "A tool for sending your messages to Pardus developers"
 msgstr "Un outil pour envoyer des messages à l'équipe de développement de Pardus."
 
-#: desktop/kde/aspell::description
+#: applications/dictionaries/aspell/aspell::description
 msgid "The program that you can also easily check documents in UTF-8 without having to use a special dictionary."
 msgstr "Ce programme rend possible de vérifier facilement les documents en UTF-8 sans avoir à utiliser un dictionnaire spécial."
 
@@ -1526,11 +1526,11 @@ msgstr "KNetStats est un surveillant réseau simple pour KDE montrant les DELs r
 msgid "MetaMonitor is a simple program written for KDE, which watches the syslog's or metalog's log file and pops up the window whenever the new message comes. You can specify the file to watch and a regular expression for parsing the log line, so you can watch other than log files too."
 msgstr "MetaMonitor est un programme simple écrit pour KDE qui surveille les traces systèmes ou les traces des méta-traces et affiche une fenêtre à l'écran pour signifier l'arrivée d'un nouveau message. Vous pouvez spécifier le fichier à surveiller ainsi qu'une expression régulière pour l'analyse de la ligne de trace. Ainsi vous pouvez vous en servir pour surveiller d'autres types de fichier."
 
-#: desktop/kde/aspell-nl::description
+#: applications/dictionaries/aspell/aspell-nl::description
 msgid "You can do spell-checking in Dutch using Aspell program with this dictionary."
 msgstr "Vous pouvez faire de la vérification orthographique en néerlandais à l'aide du programme Aspell en utilisant ce dictionnaire."
 
-#: desktop/kde/PyQt::description
+#: programming/languages/python/PyQt::description
 msgid "PyQt contains the Python bindings to the Qt C++ GUI toolkit. You can easily create complex multi platform GUI programs using RAD technologies. PyQt supports Linux and various flavours of Unix, MacOS X and Windows."
 msgstr "PyQt contient les bindings (liens) Python avec la boîte à outil d'IHM C++ Qt. Vous pouvez facilement construire des programmes complexes multi-plateformes dotées d'IHM en utilisant les technologies RAD. PyQt est disponible sur Linux, de nombreuses diversités d'Unix, MacOS X et Windows."
 
@@ -1550,7 +1550,7 @@ msgstr "Une librairie KDE pour des opérations EXIF sans perte."
 msgid "Radio application with features like remote control, MP3/OGG recording and station search"
 msgstr "Une application radio avec des fonctionnalités telles que la télécommande, l'enregistrement en MP3/OGG ainsi que la recherche de stations."
 
-#: desktop/kde/sip::description
+#: programming/languages/python/sip::description
 msgid "SIP is a tool for generating bindings for C and C++ libraries so that they can be used by Python. It takes any C or C++ libraries and converts them into Python extension modules."
 msgstr "SIP est un outil de génération de bindings (liens) pour librairies C et C++ afin de les rendre utilisables depuis Python. Il prend n'importe quelle librairie C ou C++ et la convertit en module d'extension Python."
 
@@ -1722,7 +1722,7 @@ msgstr "startup-notification est un exemple d'implémentation de notification de
 msgid "This application reads TrueType fonts and creates a suitable fonts.scale file for use with the X font server."
 msgstr "Cette application lit les fontes TrueType et crée des fichiers fonts.scale qu'il est possible d'utiliser depuis le serveur de fontes X."
 
-#: desktop/freedesktop/dejavu-fonts::description
+#: desktop/fonts/dejavu-fonts::description
 msgid "DejaVu fonts based on Bitstream fonts with improvements"
 msgstr "Les fontes DejaVu basées sur des fontes Bitstream avec des améliorations."
 
@@ -1738,7 +1738,7 @@ msgstr "x2x permet à un clavier et à une souris d'un écran X d'être utilisé
 msgid "shared-mime-info is a package containing a large number of common MIME types, created by converting the existing KDE and GNOME databases to the new format and merging them together, and software for updating the database based on the share-mime-info specification."
 msgstr "shared-mim-info est un paquet contenant un grand nombre de types MIME communs, créés en fusionnant les bases de données KDE et GNOME existantes et en les convertissant au nouveau format, ainsi qu'un logiciel pour mettre à jour cette base en fonction des spécifications de share-mime-info."
 
-#: desktop/freedesktop/tv-fonts::description
+#: desktop/fonts/tv-fonts::description
 msgid "This package includes some X11 bitmap fonts for TV applications: large fonts frequently used in on-screen displays, teletext font, etc."
 msgstr "Ce paquet inclus quelques fontes bitmaps X11 pour applications TV : des fontes larges fréquemment utilisées dans des affichages sur écran, fontes télétexte. etc."
 
@@ -1754,7 +1754,7 @@ msgstr "glitz est une librairie graphique 2D OpenGL et une backend (connexion) p
 msgid "Utility to patch VBIOS of Intel 855 / 865 / 915 chipsets"
 msgstr "Utilitaire pour patcher le VBIOS des chipsets Intel 855/865/915"
 
-#: desktop/freedesktop/aquafont::description
+#: desktop/fonts/aquafont::description
 msgid "This package contains Japanese fonts that are required to view Japanese text."
 msgstr "Ce paquet contient les fontes japonaises requises pour voir du texte en japonais."
 
@@ -1790,7 +1790,7 @@ msgstr "Fichiers d'informations de la Couche d'Abstraction Matérielle (Hardware
 msgid "A terminal application with graphical user interface having XVT and unicode support"
 msgstr "Une implémentation de terminal avec une interface graphique et le support pour XVT et l'unicode."
 
-#: desktop/freedesktop/gentium::description
+#: desktop/fonts/gentium::description
 msgid "Gentium is a typeface family designed to enable the diverse ethnic groups around the world who use the Latin script to produce readable, high-quality publications. It supports a wide range of Latin-based alphabets and includes glyphs that correspond to all the Latin ranges of Unicode."
 msgstr "Gentium "
 
@@ -3226,10 +3226,6 @@ msgstr "Manière simple d'effectuer de multiples requêtes HTTP et traiter leurs
 msgid "An implementation of Integrated Templates API with template 'compilation' added"
 msgstr "Implémente l'API Integrated Templates (Modèles intégrés) avec l'ajout de la 'compilation' de modèles."
 
-#: programming/languages/php/PEAR/PEAR-HTML-AJAX::summary
-msgid "PHP and JavaScript AJAX library"
-msgstr "Librairie AJAX PHP et JavaScript."
-
 #: programming/languages/php/PEAR/PEAR-Math_Stats::summary
 msgid "Classes to calculate statistical parameters"
 msgstr "Classe de calcul de paramètres statistiques."
@@ -3285,10 +3281,6 @@ msgstr "Internationalisation."
 #: programming/languages/php/Smarty::description
 msgid "Smarty is a template engine written in PHP. Smarty separates PHP from HTML and is primarily used for the generation of dynamic HTML content."
 msgstr "Smarty est moteur de modèles (templates) écrit en PHP. Smarty sépare le PHP de l'HTML et sert principalement pour la génération de contenu HTML dynamique."
-
-#: programming/languages/php/suhosin::description
-msgid "Suhosin was designed to protect servers and users from known and unknown flaws in PHP applications and the PHP core."
-msgstr "Suhosin a été conçu pour protéger les serveurs et les utilisateurs de défauts connus du noyau et des applications PHP."
 
 #: programming/languages/hugs98::description
 msgid "Hugs 98 is a functional programming system based on Haskell 98."

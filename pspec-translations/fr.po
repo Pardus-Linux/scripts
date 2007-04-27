@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2007-04-20 00:27+0200\n"
+"PO-Revision-Date: 2007-04-20 09:04+0200\n"
 "Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
 "Language-Team: french <pardus-translators@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -3340,55 +3340,55 @@ msgstr "Ce module enrobe (wrap) de manière plutôt fine un sous-ensemble de la 
 
 #: programming/languages/python/pychecker::description
 msgid " PyChecker is a tool for finding bugs in python source code. It finds problems that are typically caught by a compiler for less dynamic languages, like C and C++"
-msgstr ""
+msgstr "PyChecker est un outil pour trouver des bugs dans les codes sources Python. Il trouve les problèmes classiquement détectés par les compilateurs pour les langages de nature moins dynamique, tels que le C et le C++."
 
 #: programming/languages/python/python-iptables::summary
 msgid "IPTables configuration module for Python"
-msgstr ""
+msgstr "Module pour Python de configuration d'IPTables."
 
 #: programming/languages/python/python-docs::description
 msgid "Python documentation files include tutorials for beginners, global module index, library reference, Machintosh library modules, languange reference, tutorials for C/C++ programmers and other concepts about Pyhton."
-msgstr ""
+msgstr "Les fichiers de documentation de Python comprennent des exemples détaillés (tutorials) pour débutant, un index globale de module, la référence de la librairie, les modules de la librairie Machintosh, la référence du langage, des exemples guidés plus spécifiques pour programmeurs C/C++ et à propos d'autres concepts à propos de Python."
 
 #: programming/languages/python/pygame::description
 msgid "Python bindings to sdl and other libs that facilitate game production"
-msgstr ""
+msgstr "Liens (bindings) Python pour dsl et autres librairies facilitant la création de jeux."
 
 #: programming/languages/python/cheetah::description
 msgid "An advanced templating module for Python"
-msgstr ""
+msgstr "Un module avancé de génération de modèles (templating) pour Python."
 
 #: programming/languages/python/fpconst::description
 msgid "Fpconst is a python module implementing constants and functions for working with IEEE754 double-precision special values. It provides constants for Not-a-Number (NaN), Positive Infinity (Inf), and Negative Infinity (-Inf), as well as functions to test for these values."
-msgstr ""
+msgstr "Fpconst est un module python qui implémente les constantes et les fonctions permettant de travailler avec les valeurs spéciales à double-précision IEEE754. Il fournin les constantes pour Not-a-Number (NaN - Pas un nombre), Positive Infinity (Inf -- Plus l'infini) et Negative Infinity (-Inf -- Moins l'infini) ainsi que des fonctions pour testes ces valeurs."
 
 #: programming/languages/python/numeric::description
 msgid "Numerical Python adds a fast, compact, multidimensional array language facility to Python"
-msgstr ""
+msgstr "Numerical Python ajoute la faculté de manipuler des tableaux à multiples dimensions de manière rapide et compacte au langage Python."
 
 #: programming/languages/python/notify-python::description
 msgid " Galago is a desktop presence framework, designed to transmit presence information between programs. To put it in simpler terms, it takes information on who is online and their away/idle states from an instant messenger (such as gaim) or other similar programs and lets other programs (such as Evolution) to make use of it."
-msgstr ""
+msgstr "Galago est un framework (cadre de développement) de présence bureautique, conçu pour transmettre des informations de présences entre programmes. Pour faire simple, il recense les présents et agrège les informations concernant leur état depuis un logiciel de messagerie instantannée (tel que gaim) ou de programmes similaires et permet à d'autre logiciels (tels que Evolution) d'avoir accès à cette information."
 
 #: programming/languages/python/pycrypto::description
 msgid "Python Cryptography Toolkit is a collection of cryptographic algorithms and protocols, implemented for use from Python."
-msgstr ""
+msgstr "La boîte à outil de cryptographie Python (Python Cryptography Toolkit) est une collection d'algorithmes et de protocoles de cryptographie, implémentés pour être utilisés depuis Python."
 
 #: programming/languages/python/pysqlite::description
 msgid " pysqlite is a DB-API 2.0-compliant database interface for SQLite. pysqlite makes the powerful embedded SQL engine SQLite available to Python programmers. It stays compatible with the Python database API specification 2.0 as much as possible, but also exposes most of SQLite's native API, so that it is for example possible to create user-defined SQL functions and aggregates in Python."
-msgstr ""
+msgstr "pysqlite est une interface pour bases de données SQLite conforme à DB-API 2.0. pysqlite rend le puissant moteur embarqué SQL SQLite disponible pour les programmeurs Python. Elle demeure aussi compatible que possible avec les spécifications de l'API de bases de données 2.0, mais expose également une large partie de l'API native de SQLite, afin qu'il soit par exemple possible de créer des fonctions et des agrégats (aggregates) SQL utilisateur depuis Python."
 
 #: programming/languages/python/pylzma::description
 msgid "Platform independent python bindings for the LZMA compression library."
-msgstr ""
+msgstr "Liens (bindings) python indépendant de la plate-forme cible pour la librairie de compression LZMA."
 
 #: programming/languages/python/pysvn::description
 msgid " Python SVN Extension and WorkBench GUI. The pysvn project's goal is to enable Tools to be written in Python that use Subversion."
-msgstr ""
+msgstr "Extensions SVN Python et IHM WorkBench. L'objectif du projet pysvn est de permettre l'écriture d'outils utilisant Subversion en Python."
 
 #: programming/languages/python/pyPdf::description
 msgid "A Pure-Python library built as a PDF toolkit. It is capable of:extracting document information (title, author, ...),splitting documents page by page,merging documents page by page,cropping pages,merging multiple pages into a single page."
-msgstr ""
+msgstr "Une librairie en pur Python construite comme une boîte à outils PDF. Elle est capable d'extraire les informations de documents (titre, auteur, etc.), découper le document page par page, fusionner des documents page par page, cropping ?, fusionner plusieurs page en une."
 
 #: programming/languages/python/pyaspects::description
 msgid "Aspect-Oriented Development modules for Python."

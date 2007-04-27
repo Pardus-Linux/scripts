@@ -7,12 +7,11 @@
 # under the terms of the GNU General Public License as published by the
 # Free Software Foundation; either version 2 of the License, or (at your
 # option) any later version. Please read the COPYING file.
-#
 
 import os
 import sys
 import re
-import piksemel as iks
+import xml.dom.minidom as dom
 
 po_header_tmpl = """# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
@@ -155,6 +154,8 @@ def find_pspecs(path):
             dirs.remove(".svn")
     return paks
 
+getDataByTagName = lambda x, y: x.getElementsByTagName(y)[0].firstChild.data
+
 def extract_pspecs(path, language, old_messages = []):
     # otherwise, reference gets an extra / prefix
     # and update_pspecs does a os.path.join('/...', '/...', '...')
@@ -179,108 +180,176 @@ def extract_pspecs(path, language, old_messages = []):
         return msg
 
     for pak in paks:
-        print pak
-        doc = iks.parse(pak + "/pspec.xml")
+        def get_translation(section, tag, name):
+            if not os.path.exists(pak + "/translations.xml"):
+                return ""
+            translations = dom.parse(pak + "/translations.xml")
+            for t_node in translations.getElementsByTagName(section):
+                if getDataByTagName(t_node, "Name") == name:
+                    for t_item in t_node.getElementsByTagName(tag):
+                        t_lang = t_item.getAttribute("xml:lang")
+                        if t_lang == language:
+                            return t_item.firstChild.data
+                    return ""
+        spec = dom.parse(pak + "/pspec.xml")
         for section in ["Package", "Source"]:
-            for node in doc.tags(section):
-                msg = Message()
+            for node in spec.getElementsByTagName(section):
                 for tag in ["Summary", "Description"]:
-                    for item in node.tags(tag):
+                    msg = Message()
+                    for item in node.getElementsByTagName(tag):
                         lang = item.getAttribute("xml:lang")
                         if not lang or lang == "en":
-                            msg.msgid = item.firstChild().data()
-                        elif lang == language:
-                            msg.msgstr = item.firstChild().data()
+                            msg.msgid = item.firstChild.data
+                        msg.msgstr = get_translation(section, tag, getDataByTagName(node, "Name"))
 
                         if section == "Package":
-                            msg.reference = pak[len(path):] + ":" + node.getTagData("Name") + ":" + tag.lower()
+                            msg.reference = pak[len(path):] + ":" + getDataByTagName(node, "Name") + ":" + tag.lower()
                         else:
                             msg.reference = pak[len(path):] + "::" + tag.lower()
 
+                    if msg.msgid:
+                        messages.append(msg)
                 msg = set_fuzzy_flag(msg)
-
-                if msg.msgid:
-                    messages.append(msg)
 
     return messages
 
+
 def update_pspecs(path, language, po):
-    """a small tribute to CSLParser"""
+
+    finished_packages = []
+
+    def get_sourcepackage(type, name):
+        source_node = Element(type)
+        name_node = Element("Name")
+        name_txt = Text(name)
+        name_node.appendChild(name_txt)
+        source_node.appendChild(name_node)
+        return source_node
+
+    def get_sumdesc(type, content):
+        node = Element(type)
+        node.setAttribute("xml:lang", language)
+        cnt = Text(content)
+        node.appendChild(cnt)
+        return node
+
+    def has_item(doc, item, package_name):
+        if len(doc.getElementsByTagName(item)) == 0:
+            return False
+        for i in doc.getElementsByTagName(item):
+            if getDataByTagName(i, "Name") == package_name:
+                return True
+        return False
+
+    def has_lang(item, tag, language):
+        for s in item.getElementsByTagName(tag):
+            if s.getAttribute("xml:lang") == language:
+                return True
+        return False
+
+    Element = lambda x: dom.Document().createElement(x)
+    Text = lambda x: dom.Document().createTextNode(x)
+
     for msg in po.messages:
         if not msg.msgstr:
             continue
         if "fuzzy" in msg.flags:
             continue
 
-        name, type_flag, tag = msg.reference.split(':')
+        current_name, type_flag, tag = msg.reference.split(':')
         tag = tag.title()
-        name = os.path.join(path, name, "pspec.xml")
 
-        if not os.path.exists(name):
+        if current_name in finished_packages:
             continue
-
-        tag_start = "<%s>" % tag
-        tag_end = "</%s>" % tag
-
-        if not type_flag:
-            block = "Source"
-            block_start, block_end = "<%s>" % block, "</%s>" % block
         else:
-            block = "Package"
-            block_start, block_end, package_name = "<%s>" % block, "</%s>" % block, type_flag
+            finished_packages.append(current_name)
 
-        data = file(name).readlines()
+        translations = os.path.join(path, current_name, "translations.xml")
+        if os.path.exists(translations):
+            doc = dom.parse(translations)
+            pisi = doc.getElementsByTagName("PISI")[0]
+        else:
+            doc = dom.Document()
+            pisi = Element("PISI")
 
-        def check_l(l, block_end):
-            if data[l].find('xml:lang="%s"' % language) != -1:
-                return 1
-            if data[l].find(block_end) != -1:
-                return 0
-            return check_l(l+1, block_end)
+        for msg in po.messages:
+            if not msg.msgstr:
+                continue
+            if "fuzzy" in msg.flags:
+                continue
 
-        in_block, checked = 0, 0
+            name, type_flag, tag = msg.reference.split(':')
+            tag = tag.title()
 
-        for lnum in range(0, len(data)):
-            if block == "Source":
-                if data[lnum].find(block_start) != -1:
-                    in_block = 1
+            if name != current_name:
+                continue
 
-                if in_block and data[lnum].find(block_end) != -1:
-                    in_block, checked = 0, 0
-                    continue
+            if not type_flag:
+                item = "Source"
+                package_name = os.path.basename(name)
+            else:
+                item = "Package"
+                package_name = type_flag
 
-                if in_block and data[lnum].find(tag) != -1:
-                    if (not checked) and (not check_l(lnum, block_end)):
-                        data.insert(lnum + 1, '        <%s xml:lang="%s">%s</%s>\n' % (tag, language, msg.msgstr, tag))
-                        checked = 1
-                        continue
-                    if data[lnum].find('xml:lang="%s"' % language) != -1 and data[lnum][data[lnum].find(">") + 1:data[lnum].rfind("<")] != msg.msgstr:
-                        data[lnum] = data[lnum][:data[lnum].find(">") + 1] + msg.msgstr + data[lnum][data[lnum].rfind("<"):]
+            if os.path.exists(translations):
+                # if not, we need to create one, with fabricated content
+                if has_item(doc, item, package_name):
+                    # if not, it means there is no entry for 'item' in translations.xml
+                    # we're gonna need to create that entry first
+                    for i in doc.getElementsByTagName(item):
+                        if getDataByTagName(i, "Name") == package_name:
+                            if has_lang(i, tag, language):
+                                # if not, it means we have item with the correct package
+                                # name, but we need to insert a new 'tag' into the item node
+                                # with the correct language attribute instead of changing
+                                # the existing one.
+                                for s in i.getElementsByTagName(tag):
+                                    if s.getAttribute("xml:lang") == language:
+                                        s.firstChild.data = msg.msgstr
+                            else:
+                                sumdesc = get_sumdesc(tag, msg.msgstr)
+                                i.appendChild(sumdesc)
+                else:
+                    entry = get_sourcepackage(item, package_name)
+                    sumdesc = get_sumdesc(tag, msg.msgstr)
+                    entry.appendChild(sumdesc)
+                    pisi.appendChild(entry)
+            else:
+                entry = get_sourcepackage(item, package_name)
+                sumdesc = get_sumdesc(tag, msg.msgstr)
+                entry.appendChild(sumdesc)
+                pisi.appendChild(entry)
+                doc.appendChild(pisi)
 
-            if block == "Package":
-                if data[lnum].find(block_start) != -1:
-                    in_block = 1
 
-                if in_block and data[lnum].find(block_end) != -1:
-                    in_block, checked = 0, 0
-                    continue
+        # we can't use .toprettyxml() here. Because it also adds newlines and tabs
+        # before and after of sum/desc data. Result looks like this:
+        #
+        # (...)
+        # <Description xml:lang="mi">
+        #     Lorem ipsum dolor sit amet..
+        # </Description>
+        # (...)
+        #
+        # and we don't want that.
+        xml = doc.toxml()
+        xml = xml.replace("\n    <", "<")
+        xml = xml.replace("\n\n    <", "<")
+        xml = xml.replace("\n        <", "<")
+        xml = xml.replace("\n        <", "<")
+        xml = xml.replace("\n<", "<")
+        xml = xml.replace("\n\n<", "<")
+        xml = xml.replace("<PISI>", "\n<PISI>")
+        xml = xml.replace("</PISI>", "\n</PISI>")
+        xml = xml.replace("<Source>", "\n    <Source>")
+        xml = xml.replace("<Package>", "\n\n    <Package>")
+        xml = xml.replace("</Source>", "\n    </Source>")
+        xml = xml.replace("</Package>", "\n    </Package>")
+        xml = xml.replace("<Name>", "\n        <Name>")
+        xml = xml.replace("<Description ", "\n        <Description ")
+        xml = xml.replace("<Summary ", "\n        <Summary ")
+        open(translations, "w").write(xml)
 
-                if in_block and data[lnum].find("<Name>") != -1 and data[lnum].strip()[6:-7] != package_name:
-                    in_block, checked = 0, 0
-                    continue
-
-                if in_block and data[lnum].find(tag) != -1:
-                    if (not checked) and (not check_l(lnum, block_end)):
-                        data[lnum] += '        <%s xml:lang="%s">%s</%s>\n' % (tag, language, msg.msgstr, tag)
-                        checked = 1
-                        continue
-                    if data[lnum].find('xml:lang="%s"' % language) != -1 and data[lnum][data[lnum].find(">") + 1:data[lnum].rfind("<")] != msg.msgstr:
-                        data[lnum] = data[lnum][:data[lnum].find(">") + 1] + msg.msgstr + data[lnum][data[lnum].rfind("<"):]
-
-        f = file(name, "w")
-        for l in data:
-            f.writelines(l)
-        f.close()
 
 def extract(path, language, pofile):
     if os.path.exists(pofile):

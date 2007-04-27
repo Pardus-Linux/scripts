@@ -1737,7 +1737,7 @@ msgstr "KNetStats, herhangi bir ağ arayüzünün aktarma hızı hakkında sayı
 msgid "MetaMonitor is a simple program written for KDE, which watches the syslog's or metalog's log file and pops up the window whenever the new message comes. You can specify the file to watch and a regular expression for parsing the log line, so you can watch other than log files too."
 msgstr "MetaMonitor, syslog veya metalog günlük dosyalarını izleyen, yeni bir ileti geldiğinde uyarı penceresi açarak görüntüleyen bir KDE uygulamasıdır."
 
-#: desktop/kde/PyQt::description
+#: programming/languages/python/PyQt::description
 msgid "PyQt contains the Python bindings to the Qt C++ GUI toolkit. You can easily create complex multi platform GUI programs using RAD technologies. PyQt supports Linux and various flavours of Unix, MacOS X and Windows."
 msgstr "PyQt, Qt C++ GUI araçları için Python bağlayıcıları içerir. RAD teknolojilerini kullanarak, kolayca birden fazla ortamda çalışabilen karmaşık GUI programları oluşturabilirsiniz. PyQt, linux MacOS X ve Mirosoft Windows'u destekler."
 
@@ -1757,7 +1757,7 @@ msgstr "EXIF üzerinde yapılacak kayıpsız veri işlemleri için kullanılan b
 msgid "Radio application with features like remote control, MP3/OGG recording and station search"
 msgstr "Uzaktan kumanda, istasyon tarama, MP3/OGG kaydı gibi gelişmiş özellikleri olan radyo dinleme programı"
 
-#: desktop/kde/sip::description
+#: programming/languages/python/sip::description
 msgid "SIP is a tool for generating bindings for C and C++ libraries so that they can be used by Python. It takes any C or C++ libraries and converts them into Python extension modules."
 msgstr "SIP C ve C++ kütüphanelerini Python'da kullanabilmek için bağlayıcılar oluşturan bir araçtır. Herhangi bir C veya C++ kütüphanesini Python genişletme modülüne dönüştürür."
 
@@ -4618,10 +4618,6 @@ msgstr "A human-suitable interface for GIT"
 msgid " The indent program can be used to make code easier to read. It can also convert from one style of writing C to another."
 msgstr "Indent programı kaynak dosyalarını okumayı kolaylaştıran bir uygulamadır. Ayrıca bir stildeki C kodunu başka bir stile çevirebilir."
 
-#: programming/tools/icc::description
-msgid "Intel C++ Compiler. You need a license from Intel to run this software available at https://registrationcenter.intel.com/RegCenter/NComForm.aspx?ProductID=404"
-msgstr "Intel C++ derleyici. Çalıştırmak için https://registrationcenter.intel.com/RegCenter/NComForm.aspx?ProductID=404 adresinden ücretsiz bir lisans alınması gerekmektedir."
-
 #: programming/tools/svk::description
 msgid "It supports repository mirroring, disconnected operation, history-sensitive merging, and integrates with other version control systems, as well as popular visual merge tools."
 msgstr ""
@@ -5114,7 +5110,7 @@ msgstr "Dcraw, RAW fotoğrafları işlemek için kullanılan bir komut satırı 
 msgid "Burn CDs in disk-at-once mode -- with optional GUI frontend"
 msgstr "CDlerinizi DAO modunda yazar"
 
-#: applications/multimedia/transfig::description
+#: applications/tex/transfig::description
 msgid "TransFig is a set of tools for creating TeX documents with graphics"
 msgstr "Transfig resimli Tex dosyaları oluşturan bir araçlar dizisi"
 
@@ -5154,7 +5150,7 @@ msgstr "Hydrogen GNU/Linux için gelişmiş bir drum machine yazılımıdır. Pr
 msgid "Converts Bitmaps to vector-graphics"
 msgstr ""
 
-#: applications/multimedia/xfig::description
+#: applications/tex/xfig::description
 msgid "Xfig is an interactive drawing tool which runs under X Window System. In xfig, figures may be drawn using objects such as circles, boxes, lines, spline curves, text, etc. It is also possible to import images in formats such as GIF, JPEG, EPSF (PostScript), etc."
 msgstr "Xfig X Pencere Sistemi altında çalışan etkileşimli bir çizim aracıdır. Xfig ile daireler, kutular, çizgiler, eğriler, yazı vb. gibi nesneler kullanılarak çizim yapılabilir. Ayrıca xfig ile .gif, .jpeg, .epsf vb. uzantılı resimler de kullanılabilir."
 
@@ -5170,7 +5166,7 @@ msgstr "FFmpeg ses ve görüntü dosyalarını kaydedebilen,dönüştürebilen v
 msgid "Digital Video (DV) grabber for GNU/Linux."
 msgstr "GNU/Linux için djital video (DV) yakalayıcı."
 
-#: applications/multimedia/xvid::description
+#: programming/libs/xvid::description
 msgid "Xvid is a codec which makes it possible to compress movies too much while still maintaining the original image quality."
 msgstr "Xvid videoları kalite kaybına neden olmadan yüksek oranlarda sıkıştırabilmeye olanak tanıyan bir kodlayıcıdır."
 
@@ -6462,10 +6458,6 @@ msgstr "Ed,satır tabanlı bir metin düzenleyicisidir. Etkileşimli ve shell be
 msgid "nXML mode is an addon for GNU Emacs, which makes GNU Emacs into a powerful XML editor."
 msgstr "Emacs için oldukça yetenekli bir XML modülü."
 
-#: applications/editors/emacs/emacs-cvs::description
-msgid "Emacs is the extensible, customizable, self-documenting real-time display editor."
-msgstr "Emacs, gelişmiş, özelleştirilebilir ve esnek metin düzenleyicidir."
-
 #: applications/editors/nvu::description
 msgid "Nvu (pronounced \"N-view\") is a WYSIWYG HTML editor, based on the Composer component of Mozilla Composer."
 msgstr "Nvu (N-view okunur), Linspire tarafından desteklenen WYSIWYG tarzı bir web editörüdür. Mozilla Composer programının kodu baz alınarak geliştirilmiştir."
@@ -6689,10 +6681,6 @@ msgstr ""
 #: server/vsftpd::description
 msgid "Vsftpd is a ftp server, mostly focuses on security."
 msgstr "Vsftpd güvenlik odaklı bir ftp sunucu yazılımıdır."
-
-#: server/database/postgresql-pl::description
-msgid "This package includes PL/Perl, PL/Tcl and PL/Python procedural languages wich used for PostgreSQL."
-msgstr "Bu paket PostgreSQL için program geliştirmeyi kolaylaştıran PL/Perl, PL/Tcl ve PL/Python dillerini içermektedir."
 
 #: server/database/firebird:firebird-client:description
 msgid "Firebird relational database client library"

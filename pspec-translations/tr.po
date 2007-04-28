@@ -4323,7 +4323,7 @@ msgstr "Eski apm komutlarını ACPI sistemlerde verir, pil ve sıcaklık bilgile
 
 #: applications/shells/zsh::summary
 msgid "Powerful command line shell"
-msgstr ""
+msgstr "Güçlü bir diğer komut satırı kabuğu"
 
 #: applications/shells/sash::summary
 msgid "A stand-alone shell with many built-in commands"
@@ -4335,7 +4335,7 @@ msgstr ""
 
 #: applications/shells/tcsh::summary
 msgid "Enhanced version of the Berkeley C shell (csh)"
-msgstr ""
+msgstr "Berkeley C kabuğunun (csh) gelişmiş sürümü"
 
 #: applications/shells/tcsh::description
 msgid "Tcsh is an enhanced, but completely compatible version of the Berkeley UNIX C shell (csh). It is a command language interpreter usable both as an interactive login shell and a shell script command processor. It includes a command-line editor, programmable word completion, spelling correction, a history mechanism, job control and a C-like syntax."
@@ -4575,7 +4575,7 @@ msgstr "DVD yaratmak icin basit bir araç"
 
 #: applications/multimedia/mkvtoolnix::summary
 msgid "A set of tools to create, alter and inspect Matroska files"
-msgstr ""
+msgstr "Matroska dosyalarını yaratmak, değiştirmek ve incelemek için araçlar"
 
 #: applications/multimedia/ghostscript::summary
 msgid "A graphics library for fast image creation"
@@ -4583,7 +4583,7 @@ msgstr "ESP Ghostscript GNU Ghostscript'in yazıcı desteği geliştirilmiş ver
 
 #: applications/multimedia/ghostscript::description
 msgid "ESP Ghostscript is a customized version of GPL Ghostscript that includes an enhanced autoconf-based configuration script, the CUPS raster driver to support CUPS raster printer drivers, and additional patches and drivers from various Linux distributors."
-msgstr "ESP Ghostscript zenginleştirilmiş  autoconf temelli konfigürasyon betiği içeren Genel Kamu Lisansının özelleştirilmiş sürümüdür.Genel Unix Yazdırma Sistemine ait tarama görüntüsü sürücüleri yazıcı sürücülerini ve çeşitli Linux dağıtıcılardan gelen ilave yamaları ve sürücüleri de desteklemektedir."
+msgstr "ESP Ghostscript Genel Kamu Lisansı ile dağıtılan Ghostscript'in, zenginleştirilmiş autoconf temelli konfigürasyon betiği içeren özelleştirilmiş bir sürümüdür. Genel Unix Yazdırma Sistemine ait tarama görüntüsü sürücüleri yazıcı sürücülerini ve çeşitli Linux dağıtıcılardan gelen ilave yamaları ve sürücüleri de desteklemektedir."
 
 #: applications/multimedia/lame::summary
 msgid "A free MP3 audio compression codec"

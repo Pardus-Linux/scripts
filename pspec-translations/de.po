@@ -319,6 +319,18 @@ msgstr ""
 msgid "ICU4J is a mature, widely used set of Java libraries for Unicode support, software internationalization and globalization (i18n/g11n)."
 msgstr ""
 
+#: programming/languages/erlang:erlang-emacs:summary
+msgid "Erlang integration for Emacs"
+msgstr ""
+
+#: programming/languages/erlang::summary
+msgid "Erlang programming language"
+msgstr ""
+
+#: programming/languages/erlang::description
+msgid "Erlang is a programming language designed at the Ericsson Computer Science Laboratory."
+msgstr ""
+
 #: programming/languages/gambas/gambas:gambas-runtime:summary
 msgid "Runtime environment for gambas"
 msgstr ""
@@ -421,6 +433,14 @@ msgstr ""
 
 #: programming/languages/python/python-ldap::description
 msgid "Various LDAP-related Python modules"
+msgstr ""
+
+#: programming/languages/python/PyQt4::summary
+msgid "set of Python bindings for the Qt 4.x Toolkit"
+msgstr ""
+
+#: programming/languages/python/PyQt4::description
+msgid "Qt is a set of C++ libraries and development tools that includes platform independent abstractions for graphical user interfaces, networking, threads, Unicode, regular expressions, SQL databases, SVG, OpenGL, XML, and user and application settings. PyQt implements 440 of these classes as a set of Python modules."
 msgstr ""
 
 #: programming/languages/python/Django::summary
@@ -1871,14 +1891,6 @@ msgstr ""
 msgid "MPEG-1 and MPEG-4 video encoding library"
 msgstr ""
 
-#: programming/libs/PyQt4::summary
-msgid "set of Python bindings for the Qt 4.x Toolkit"
-msgstr ""
-
-#: programming/libs/PyQt4::description
-msgid "Qt is a set of C++ libraries and development tools that includes platform independent abstractions for graphical user interfaces, networking, threads, Unicode, regular expressions, SQL databases, SVG, OpenGL, XML, and user and application settings. PyQt implements 440 of these classes as a set of Python modules."
-msgstr ""
-
 #: programming/libs/c-ares::summary
 msgid "A C library that performs DNS requests and name resolves asynchronously"
 msgstr ""
@@ -2245,6 +2257,14 @@ msgstr ""
 
 #: programming/libs/libmovtar::description
 msgid "Movtar tools and library for MJPEG video"
+msgstr ""
+
+#: programming/libs/libx86::summary
+msgid "A hardware-independent library for executing real-mode x86 code"
+msgstr ""
+
+#: programming/libs/libx86::description
+msgid "It's often useful to be able to make real-mode x86 BIOS calls from userland. lrmi provides a simple interface to this for x86 machines, but this doesn't help on other platforms. libx86 provides the lrmi interface, but will also run on platforms such as amd64 and alpha."
 msgstr ""
 
 #: programming/libs/amrwb::summary
@@ -5587,12 +5607,20 @@ msgstr ""
 msgid "Schedutils are collection of utilities for manipulating kernel schedular parameters."
 msgstr ""
 
+#: applications/util/colorcvs::summary
+msgid "A tool that colorizes CVS output."
+msgstr ""
+
 #: applications/util/screen::summary
 msgid "Screen is a full-screen window manager that multiplexes a physical terminal between several processes"
 msgstr ""
 
 #: applications/util/screen::description
 msgid "GNU Screen is a free terminal multiplexer developed by the GNU Project. It allows a user to access multiple separate terminal sessions inside a single terminal window or remote terminal session."
+msgstr ""
+
+#: applications/util/colorsvn::summary
+msgid "A tool that colorizes SVN output."
 msgstr ""
 
 #: applications/util/logrotate::summary
@@ -5609,6 +5637,10 @@ msgstr ""
 
 #: applications/util/bash-completion::description
 msgid "A relatively new feature in bash is programmable completion, which has been available since the beta version of 2.04. BASH has offered many forms of completion since its inception, including path, file, user, host and variable completion."
+msgstr ""
+
+#: applications/util/colorgcc::summary
+msgid "A tool that colorizes GCC output."
 msgstr ""
 
 #: applications/util/x11-ssh-askpass::summary
@@ -8142,6 +8174,10 @@ msgstr ""
 
 #: kernel/drivers/alsa-driver::description
 msgid " The Advanced Linux Sound Architecture (ALSA) provides audio and MIDI functionality to the Linux operating system. ALSA has significant features like efficient support for all types of audio interfaces, fully modularized sound drivers, SMP and thread-safe design, user space library and support for the older OSS API."
+msgstr ""
+
+#: kernel/drivers/syntekdriver::summary
+msgid "Driver for webcams with Syntek DC-1125 chipsets"
 msgstr ""
 
 #: kernel/drivers/rt61::summary

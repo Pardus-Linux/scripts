@@ -321,6 +321,18 @@ msgstr "Unicode destegi için uluslarası bileşenler (Java versiyonu)"
 msgid "ICU4J is a mature, widely used set of Java libraries for Unicode support, software internationalization and globalization (i18n/g11n)."
 msgstr "ICU4J, Unicode desteği, yazılım uluslarasılaştırma ve yerelleştirme konusunda yaygın olarak kullanılan gelişmiş bir kütüphanedir. ICU4J, Unicode ve u10a desteği için Java kütüphanelerini içerir."
 
+#: programming/languages/erlang:erlang-emacs:summary
+msgid "Erlang integration for Emacs"
+msgstr ""
+
+#: programming/languages/erlang::summary
+msgid "Erlang programming language"
+msgstr "Erlang programlama dili"
+
+#: programming/languages/erlang::description
+msgid "Erlang is a programming language designed at the Ericsson Computer Science Laboratory."
+msgstr "Erlang Ericsson Bilgisayar Bilimleri Laboratuvar'ında tasarlanmış bir programlama dilidir."
+
 #: programming/languages/gambas/gambas:gambas-runtime:summary
 msgid "Runtime environment for gambas"
 msgstr "Gambas için çalışma zamanı ortamı"
@@ -425,6 +437,14 @@ msgstr "LDAP'la ilgili çeşitli Python modülleri"
 msgid "Various LDAP-related Python modules"
 msgstr "LDAP'la ilgili çeşitli Python modülleri"
 
+#: programming/languages/python/PyQt4::summary
+msgid "set of Python bindings for the Qt 4.x Toolkit"
+msgstr "Qt 4.x araçları için python bağlayıcıları"
+
+#: programming/languages/python/PyQt4::description
+msgid "Qt is a set of C++ libraries and development tools that includes platform independent abstractions for graphical user interfaces, networking, threads, Unicode, regular expressions, SQL databases, SVG, OpenGL, XML, and user and application settings. PyQt implements 440 of these classes as a set of Python modules."
+msgstr "Qt, C++ kütüphaneleri dizisi ve geliştirme araçları olup grafik kullanıcı arabirimleri için, ağ bağlantısı, iş parçacığı, Unicode, düzenli ifadeler, SQL veritabanları, SVG, OpenGL, XML ve kullanıcıve uygulama ayarları gibi platform bağımsız uygulamalara ayrılır. PyQt, Python modülü seti olarak bu sınıftan 440 kadar uygulamayı çalıştırır."
+
 #: programming/languages/python/Django::summary
 msgid "Django web framework"
 msgstr "Django web çatısı"
@@ -487,7 +507,7 @@ msgstr "Ogg.vorbis kütüphanesi için python eklentileri."
 
 #: programming/languages/python/cherrypy::summary
 msgid "Pythonic, object-oriented web development framework."
-msgstr "Pythonik, nesne-yönelimli web geliştirme çatısı."
+msgstr ""
 
 #: programming/languages/python/cherrypy::description
 msgid "CherryPy allows developers to build web applications in much the same way they would build any other object-oriented Python program. This usually results in smaller source code developed in less time."
@@ -986,9 +1006,8 @@ msgid "This module offers a simple way to process namespaced XML names (unames) 
 msgstr ""
 
 #: programming/languages/perl/XML-Twig::summary
-#, fuzzy
 msgid "A perl module for processing huge XML documents in tree mode"
-msgstr "Büyük XML belgelerini ağaç şeklinde işleyen bir perl modülü"
+msgstr ""
 
 #: programming/languages/perl/Locale-gettext::summary
 msgid "A Perl module for accessing the GNU locale utilities"
@@ -1874,14 +1893,6 @@ msgstr "Live555, açık standart protokolleri kullanan (RTP/RTCP, RTSP, SIP) ço
 msgid "MPEG-1 and MPEG-4 video encoding library"
 msgstr "MPEG-1 ve MPEG-4 görüntü çözme kütüphanesi"
 
-#: programming/libs/PyQt4::summary
-msgid "set of Python bindings for the Qt 4.x Toolkit"
-msgstr "Qt 4.x araçları için python bağlayıcıları"
-
-#: programming/libs/PyQt4::description
-msgid "Qt is a set of C++ libraries and development tools that includes platform independent abstractions for graphical user interfaces, networking, threads, Unicode, regular expressions, SQL databases, SVG, OpenGL, XML, and user and application settings. PyQt implements 440 of these classes as a set of Python modules."
-msgstr "Qt, C++ kütüphaneleri dizisi ve geliştirme araçları olup grafik kullanıcı arabirimleri için, ağ bağlantısı, iş parçacığı, Unicode, düzenli ifadeler, SQL veritabanları, SVG, OpenGL, XML ve kullanıcıve uygulama ayarları gibi platform bağımsız uygulamalara ayrılır. PyQt, Python modülü seti olarak bu sınıftan 440 kadar uygulamayı çalıştırır."
-
 #: programming/libs/c-ares::summary
 msgid "A C library that performs DNS requests and name resolves asynchronously"
 msgstr "Eşzamansız DNS sorgulamaları ve isim çözme işlemleri için bir C kütüphanesi"
@@ -2249,6 +2260,14 @@ msgstr "MJPEG görüntüleri için Movtar araçları ve kütüphanesi"
 #: programming/libs/libmovtar::description
 msgid "Movtar tools and library for MJPEG video"
 msgstr "MJPEG görüntüleri için Movtar araçları ve kütüphanesidir."
+
+#: programming/libs/libx86::summary
+msgid "A hardware-independent library for executing real-mode x86 code"
+msgstr ""
+
+#: programming/libs/libx86::description
+msgid "It's often useful to be able to make real-mode x86 BIOS calls from userland. lrmi provides a simple interface to this for x86 machines, but this doesn't help on other platforms. libx86 provides the lrmi interface, but will also run on platforms such as amd64 and alpha."
+msgstr ""
 
 #: programming/libs/amrwb::summary
 msgid "A wrapper library for 3GPP AMR Adaptive Multi-Rate - Wideband (AMR-WB) Speech Codec"
@@ -4768,12 +4787,10 @@ msgid "mpck is a command line utility that check MP3 files. It scans the file to
 msgstr "mpck, MP3 dosyalarını kontrol eden bir komut satırı aracıdır. Dosyayı tarayarak yapısına ve biçiminin tutarlılığına bakar. Dosya hakkında bazı istatistikler çıkartır, taramanın sonunda dosyanın \"iyi\" ya da \"kötü\" olduğunu bildirir."
 
 #: applications/multimedia/mixxx::summary
-#, fuzzy
 msgid "Digital DJ tool using QT"
-msgstr "Dijital DJ aracı"
+msgstr ""
 
 #: applications/multimedia/mixxx::description
-#, fuzzy
 msgid "Digital DJ tool using QT"
 msgstr "Dijital DJ aracı"
 
@@ -5426,9 +5443,8 @@ msgid "The library for BlueZ makes an implementation of the Bluetooth™ wireles
 msgstr "Linuks için özelleştirilmiş Bluetooth™ kablosuz bağlantı standartlarını yerine geriten BlueZ uygulaması için bir kütüphanedir."
 
 #: applications/hardware/fxload::summary
-#, fuzzy
 msgid "USB firmware uploader"
-msgstr "USB yazılımı yükleyicisi"
+msgstr ""
 
 #: applications/hardware/uhinv::summary
 msgid "Universal Hardware Inventory Tool, uhinv displays operating system and hardware info"
@@ -5594,6 +5610,10 @@ msgstr "Çekirdek zamanlayıcı parametrelerini değiştirebilmek için yardımc
 msgid "Schedutils are collection of utilities for manipulating kernel schedular parameters."
 msgstr "Schedutils çekirdek zamanlayıcı parametrelerini değiştirebilmek için yardımcı programlar setidir."
 
+#: applications/util/colorcvs::summary
+msgid "A tool that colorizes CVS output."
+msgstr ""
+
 #: applications/util/screen::summary
 msgid "Screen is a full-screen window manager that multiplexes a physical terminal between several processes"
 msgstr "Screen bir terminal(komut penceresi) çoğaltıcıdır."
@@ -5601,6 +5621,10 @@ msgstr "Screen bir terminal(komut penceresi) çoğaltıcıdır."
 #: applications/util/screen::description
 msgid "GNU Screen is a free terminal multiplexer developed by the GNU Project. It allows a user to access multiple separate terminal sessions inside a single terminal window or remote terminal session."
 msgstr "GNU Screen tek bir terminal penceresini birden çok parçaya bölerek çalışmanızı sağlayan bir uygulamadır. Örneğin üst bölümde kodunuzu yazarken alt bölümde onu derleyip çalıştırabilirsiniz."
+
+#: applications/util/colorsvn::summary
+msgid "A tool that colorizes SVN output."
+msgstr ""
 
 #: applications/util/logrotate::summary
 msgid "Rotates, compresses, and mails system logs"
@@ -5617,6 +5641,10 @@ msgstr "Bash kabuğu için otomatik tamamlama"
 #: applications/util/bash-completion::description
 msgid "A relatively new feature in bash is programmable completion, which has been available since the beta version of 2.04. BASH has offered many forms of completion since its inception, including path, file, user, host and variable completion."
 msgstr "Kabukta çeşitli uygulamar için otomatik tamamlama özelliği eklenebilmesine olanak sağlayan bir uygulamadır."
+
+#: applications/util/colorgcc::summary
+msgid "A tool that colorizes GCC output."
+msgstr ""
 
 #: applications/util/x11-ssh-askpass::summary
 msgid "x11-ssh-askpass is a lightweight passphrase dialog for OpenSSH"
@@ -7099,9 +7127,8 @@ msgid "Kerberos is a network authentication protocol. It is designed to provide 
 msgstr ""
 
 #: applications/network/iftop::summary
-#, fuzzy
 msgid "display bandwidth usage on an interface"
-msgstr "Bir arayüz üzerindeki bant genişliği kullanımını gösterir"
+msgstr ""
 
 #: applications/network/iftop::description
 msgid "iftop does for network usage what top(1) does for CPU usage. It listens to network traffic on a named interface and displays a table of current bandwidth usage by pairs of hosts. Handy for answering the question why is our ADSL link so slow?"
@@ -7712,9 +7739,8 @@ msgid "GnuPG allows to encrypt and sign your data and communication, features a 
 msgstr "GnuPG verilerinizin ve iletişimlerinizin şifrelenmesi ve imzalanmmasını sağlar, her tür genel anahtar dizinleri için  modullere erişiminde olduğu gibi çok yönlü anahtar yönetim sistemi avantajı vardır."
 
 #: applications/security/fwbuilder::summary
-#, fuzzy
 msgid "Firewall builder"
-msgstr "Güvenlik duvarı kurucu"
+msgstr ""
 
 #: applications/security/fwbuilder::description
 msgid "GUI and set of policy compilers for various firewall platforms"
@@ -8152,6 +8178,10 @@ msgstr "ALSA çekirdek modülleri"
 #: kernel/drivers/alsa-driver::description
 msgid " The Advanced Linux Sound Architecture (ALSA) provides audio and MIDI functionality to the Linux operating system. ALSA has significant features like efficient support for all types of audio interfaces, fully modularized sound drivers, SMP and thread-safe design, user space library and support for the older OSS API."
 msgstr " Gelişmiş Linux Ses Mimarisi (ALSA) Linux işletim sistemine ses ve midi fonksiyonelliği sağlar. ALSA'nın, her türlü ses arayüzüne etkili destek vermek, tam modüler ses sürücüleri sağlamak, SMP ve evresel tasarım, kullanıcı alanı kütüphaneleri ve eski OSS uygulama arayüzüne destek vermek gibi önemli özellikleri vardır."
+
+#: kernel/drivers/syntekdriver::summary
+msgid "Driver for webcams with Syntek DC-1125 chipsets"
+msgstr ""
 
 #: kernel/drivers/rt61::summary
 msgid "RaLink RT2600 (RT61) driver"
@@ -11080,4 +11110,3 @@ msgstr ""
 #: desktop/freedesktop/x2x::description
 msgid "x2x allows the keyboard, mouse on one X display to be used to control another X display. It also shares X clipboards between the displays."
 msgstr ""
-

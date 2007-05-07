@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2007-04-20 09:04+0200\n"
+"PO-Revision-Date: 2007-04-30 17:30+0200\n"
 "Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
 "Language-Team: french <pardus-translators@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -3823,7 +3823,7 @@ msgstr "Daemons standard d'archivage (log)."
 
 #: system/base/pciutils::summary
 msgid "Various utilities dealing with the PCI bus"
-msgstr ""
+msgstr "Modules Python pour le développement orienté aspect."
 
 #: system/base/pciutils::description
 msgid "The PCI Utilities are a collection of programs for inspecting and manipulating configuration of PCI devices."
@@ -3831,7 +3831,7 @@ msgstr "Les utilitaires PCI sont une collection de programmes d'inspection et de
 
 #: system/base/which::summary
 msgid "Prints the location of specified executable in your path"
-msgstr ""
+msgstr "Psyco est un module d'extension Python permettant d'accélérer grandement l'exécution de tout code Python."
 
 #: system/base/which::description
 msgid "which , Locates a program file in the user's path."
@@ -3839,7 +3839,7 @@ msgstr "which, localise un programme dans le chemin de l'utilisateur."
 
 #: system/base/udev::summary
 msgid "Linux dynamic and persistent device naming support (aka userspace devfs)"
-msgstr ""
+msgstr "SOAPpy est implémente de manière riche la librairie SOAP pour Python et permet une utilisation simple supportant totalement un interaction dynamique entre clients et serveurs."
 
 #: system/base/udev::description
 msgid "udev allows Linux users to have a dynamic /dev directory and it provides the ability to have persistent device names."
@@ -3847,7 +3847,7 @@ msgstr "udev permet aux utilisateurs Linux d'avoir un répertoire /dev dynamique
 
 #: system/base/mingetty::summary
 msgid "A compact getty program for virtual consoles only"
-msgstr ""
+msgstr "paramiko est un module pour python 2.2 (ou plus haut) qui implémente le protocole SSH2 pour des connections sécurisées (cryptées et authentifiées) à des systèmes distants."
 
 #: system/base/mingetty::description
 msgid "mingetty, is a lightweight, minimalist getty for use on virtual consoles only."
@@ -3855,7 +3855,7 @@ msgstr "mingetty, est getty poids plume minimaliste à utiliser exclusivement su
 
 #: system/base/procps::summary
 msgid "Standard informational utilities and process-handling tools"
-msgstr ""
+msgstr "Pyrex est un langage spécialement conçu pour écrire des modules d'extension Python. Il est conçu pour établir un pont entre le monde joli, simple et de haut niveau de python avec le monde bas-niveau et fouillis du C."
 
 #: system/base/procps::description
 msgid "procps is the package that has a bunch of small useful utilities that give information about processes using the /proc filesystem. The package includes the programs ps, top, vmstat, w, kill, free, slabtop, and skill."
@@ -3867,7 +3867,7 @@ msgstr "Quatrième version de Berkeley DB"
 
 #: system/base/gzip::summary
 msgid "Standard GNU compressor"
-msgstr ""
+msgstr "setuptools est une collection d'améliorations au distutils de Python permettant de construire et distribuer des paquets Python (et plus particulièrement les paquets ayant des dépendances envers d'autres paquets) plus facilement."
 
 #: system/base/gzip::description
 msgid "gzip (GNU zip) is a popular data compression program written for the GNU project."
@@ -3875,7 +3875,7 @@ msgstr "gzip (GNU zip) est un programme populaire de compression de donnée écr
 
 #: system/base/pwdb::summary
 msgid "Password database"
-msgstr ""
+msgstr "pydelicious est une API python permettant d'accéder aux services web de del.icio.us."
 
 #: system/base/pwdb::description
 msgid "The pwdb package contains libpwdb, the password database library. Libpwdb is a library which implements a generic user information database. Libpwdb was specifically designed to work with Linux s PAM (Pluggable Authentication Modules). Libpwdb allows configurable access to and management of security tools like /etc/passwd, /etc/shadow and network authentication systems including NIS and Radius."
@@ -3883,7 +3883,7 @@ msgstr "Le paquet pwdb contient libpwdb, la librairie de base de données de mot
 
 #: system/base/comar::summary
 msgid "Manages system configuration"
-msgstr ""
+msgstr "module MySQL pour Python pour se connecter aux bases de données MySQL."
 
 #: system/base/comar::description
 msgid "Pardus programs are packaged with small scripts which configures them to entegrate with system and each other. Çomar is the tool which manages and executes these scripts."
@@ -3891,7 +3891,7 @@ msgstr "Les programmes Pardus sont mis sous forme de paquets à l'aide de petits
 
 #: system/base/gettext::summary
 msgid "GNU locale utilities"
-msgstr ""
+msgstr "Une librairie pour traiter les documentations en simple texte dans le but de les obtenir sous des formats utiles, tels que HTML, XML et LaTeX."
 
 #: system/base/gettext::description
 msgid "gettext is GNU internationalization library."
@@ -3903,7 +3903,7 @@ msgstr "S'occupe de la mise en forme de texte utilisé pour les pages de manuel"
 
 #: system/base/coolplug::summary
 msgid "Hardware prober"
-msgstr ""
+msgstr "CherryPy permet aux développeurs de construire des applications web de la même manière qu'ils auraient construits tout autre programme Python orienté objet. Il en résulte un code source nécessaire plus réduit et développé plus rapidement."
 
 #: system/base/coolplug::description
 msgid "A small utility that inserts necessary kernel modules and creates device nodes"
@@ -3911,7 +3911,7 @@ msgstr "Un petit utilitaire se chargeant d'insérer les modules du noyau nécess
 
 #: system/base/bash::summary
 msgid "The standard GNU Bourne again shell"
-msgstr ""
+msgstr "Matplotlib est une librairie de graphisme 2D produisant des figures de qualité de publication dans une variété de formats figés ou pour environnements interactifs multi-plateforme. matplotlib est utilisable depuis des scripts python."
 
 #: system/base/bash::description
 msgid "Bash is the GNU Project's Bourne Again SHell, a complete implementation of the IEEE POSIX and Open Group shell specification with interactive command line editing, csh-like features such as history substitution."
@@ -3919,7 +3919,7 @@ msgstr "Bash est le Bourne Again SHell du projet GNU, une implémentation compl�
 
 #: system/base/libpcre::summary
 msgid "Perl-compatible regular expression library"
-msgstr ""
+msgstr "Le module aggdraw implémente du graphisme de grande qualité, avec anti-aliasing et composition alpha (alpha compositing)."
 
 #: system/base/libpcre::description
 msgid "The PCRE (Perl Compatible Regular Expressions) library is a set of functions that implement regular expression pattern matching using the same syntax and semantics as Perl 5."
@@ -3939,7 +3939,7 @@ msgstr "Un client qui maîtrise tout ce qui concerne les URLs"
 
 #: system/base/terminus-font::summary
 msgid "Fixed point font"
-msgstr ""
+msgstr "Numpy contient un objet tableau de dimension N puissant, des fonctions sophistiquées (broadcasting -- diffusion large), des outils pour l'intégraton de code C/C++ et Fortran ainsi que des capacités très utiles en matière d'algèbre linéaire, de transformation de Fourier et de génération de nombres aléatoires."
 
 #: system/base/terminus-font::description
 msgid "Terminus font is designed for long (8 and more per day) work with computers."
@@ -3951,7 +3951,7 @@ msgstr "Utilitaires d'écran de démarrage du Framebuffer."
 
 #: system/base/readline::summary
 msgid "Another cute console display library"
-msgstr ""
+msgstr "La Python Imaging Library (PIL -- Librairie d'Imagerie Python) donne des capacités de traitement d'images à votre interpréteur Python. Cette librairie supporte de nombreux formats de fichiers et fournit des capacités graphiques et de traitement d'images formidables."
 
 #: system/base/readline::description
 msgid "The GNU Readline library provides a set of functions for use by applications that allow users to edit command lines as they are typed in. Both Emacs and vi editing modes are available. The Readline library includes additional functions to maintain a list of previously-entered command lines, to recall and perhaps reedit those lines, and perform csh-like history expansion on previous commands."
@@ -3963,7 +3963,7 @@ msgstr "Librairie de compression/extraction standard"
 
 #: system/base/coreutils::summary
 msgid "Standard GNU file, text and shell utilities"
-msgstr ""
+msgstr "Twister est un framework (cadre de développement) réseau orienté événements écrit en Python et diffusé sous licence MIT. Les projets Twisted supportent de manière variée TCP, UDP, SSL/TLS, multicast, les sockets Unix et un grand nombre de protocoles (y compris HTTP, NNTP, IMAP, SSH, IRC, FTP et autres), ainsi que bien d'autres choses encore."
 
 #: system/base/coreutils::description
 msgid "Standard GNU file utilities (chmod, cp, dd, dir, ls...), text utilities (sort, tr, head, wc..), and shell utilities (whoami, who,...)"
@@ -3971,7 +3971,7 @@ msgstr "Utilitaires standards GNU pour fichiers (chmod, cp, dd, dir, ls...), uti
 
 #: system/base/wireless-tools::summary
 msgid "A collection of tools to configure wireless lan cards."
-msgstr ""
+msgstr "Environnement d'exécution (runtime) pour gambas."
 
 #: system/base/wireless-tools::description
 msgid "The Wireless Tools (WT) is a set of tools allowing to manipulate the Wireless Extensions, a generic application programming interface allowing a driver to expose to the user space configuration and statistics specific to common Wireless LANs. They use a textual interface and are rather crude, but aim to support the full Wireless Extension."
@@ -3979,7 +3979,7 @@ msgstr "Les outils sans fil (Wireless Tools ou WT) est un ensemble d'outils perm
 
 #: system/base/mudur::summary
 msgid "Pardus boot and initialization system"
-msgstr ""
+msgstr "Paquet composant de Gambas pour compress."
 
 #: system/base/mudur::description
 msgid "Handles mounting of the filesystems, loading of the device drivers, starting of the system services, and other jobs during the Pardus boot and shutdown sequences."
@@ -3987,7 +3987,7 @@ msgstr "Gère le montage de systèmes de fichier, le chargement de pilotes de p�
 
 #: system/base/dmidecode::summary
 msgid "Dmidecode reports information about your system's hardware as described in your system BIOS according to the SMBIOS/DMI standard"
-msgstr ""
+msgstr "Paquet composant de Gambas pour db."
 
 #: system/base/dmidecode::description
 msgid "Dmidecode reports information about your system's hardware as described in your system BIOS. This information typically includes system manufacturer, model name, serial number, BIOS version, asset tag as well as a lot of other details of varying level of interest and reliability depending on the manufacturer."
@@ -3995,7 +3995,7 @@ msgstr "Dmidecode rapporte des informations à propos du matériel composant vot
 
 #: system/base/cpio::summary
 msgid "A file archival tool which can also read and write tar files"
-msgstr ""
+msgstr "Paquet composant de Gambas pour db.mysql."
 
 #: system/base/cpio::description
 msgid "GNU cpio copies files into or out of a cpio or tar archive. The archive can be another file on the disk, a magnetic tape, or a pipe. GNU cpio supports the following archive formats: binary, old ASCII, new ASCII, crc, HPUX binary, HPUX old ASCII, old tar, and POSIX.1 tar."
@@ -4003,7 +4003,7 @@ msgstr "GNU cpio permet de copier des fichiers du système dans une archive cpio
 
 #: system/base/freetype::summary
 msgid "A high-quality and portable font engine"
-msgstr ""
+msgstr "Paquet composant de Gambas pour db.postgresql."
 
 #: system/base/freetype::description
 msgid "FreeType 2 is a software font engine that is designed to be small, efficient, highly customizable, and portable while capable of producing high-quality output. It can be used in graphics libraries, display servers, font conversion tools, text image generation tools, and many other products as well."
@@ -4015,7 +4015,7 @@ msgstr "Crée, supprime, modifie les dimensions, vérifie et copie partitions et
 
 #: system/base/attr::summary
 msgid "Extended attributes tools"
-msgstr ""
+msgstr "Paquet composant de Gambas pour db.sqlite."
 
 #: system/base/attr::description
 msgid "These kernel patches enable extended attributes and access control list support to the nfs file system. It also contains a few patches for user tools."
@@ -4023,7 +4023,7 @@ msgstr "Ces patches du noyau permettent d'avoir le support d'attributs étendus 
 
 #: system/base/man::summary
 msgid "A somewhat comprehensive collection of Linux man pages"
-msgstr ""
+msgstr "Paquet composant de Gambas pour debug."
 
 #: system/base/man::description
 msgid "Man package consists of programs which is used to read most of the documentation available in linux system. For example, you can write \"man nameoftheprogram\" into the konsole or \"man:nameoftheprogram\" into the konqueror to get a detailed usage information for many programs."
@@ -4035,7 +4035,7 @@ msgstr "/sbin/init - parent de tous les process."
 
 #: system/base/vixie-cron::summary
 msgid "Paul Vixie's cron daemon, a fully featured crond implementation."
-msgstr ""
+msgstr "Paquet composant de Gambas pour eval."
 
 #: system/base/vixie-cron::description
 msgid "Vixie cron (Cron is a daemon that runs scheduled tasks.) is a full featured cron implementation based on SysV cron. Each user has his own crontab ( Crontab (CRON TABle) is a file which contains the schedule of cron) and is allowed to specify environment variables within that crontab."
@@ -4043,7 +4043,7 @@ msgstr "Vixie cron (Cron est un daemon qui lance des tâches planifiées) est un
 
 #: system/base/tar::summary
 msgid "Use this to make tarballs :)"
-msgstr ""
+msgstr "Paquet composant de Gambas pour net."
 
 #: system/base/tar::description
 msgid "The Tar program provides the ability to create tar archives, as well as various other kinds of manipulation. For example, you can use Tar on previously created archives to extract files, to store additional files, or to update or list files which were already stored."
@@ -4055,7 +4055,7 @@ msgstr "Utilitaires supplémentaire de page d'accueil Framebuffer."
 
 #: system/base/sysfsutils::summary
 msgid "System Utilities Based on Sysfs"
-msgstr ""
+msgstr "Paquet composant de Gambas pour net.curl."
 
 #: system/base/sysfsutils::description
 msgid "These are a set of utilites built upon sysfs, a new virtual filesystem in Linux kernel versions 2.5+ that exposes a system's device tree."
@@ -4063,7 +4063,7 @@ msgstr "Ceci est un ensemble d'utilitaires se basant sur sysfsm un nouveau syst�
 
 #: system/base/findutils::summary
 msgid "GNU utilities to find files"
-msgstr ""
+msgstr "Paquet composant de Gambas pour qt."
 
 #: system/base/findutils::description
 msgid "The GNU Find Utilities are the basic directory searching utilities of the GNU operating system. These programs are typically used in conjunction with other programs to provide modular and powerful directory search and file locating capabilities to other commands."
@@ -4071,7 +4071,7 @@ msgstr "Les utilitaires de recherche GNU sont les utilitaire de recherche de ré
 
 #: system/base/grub::summary
 msgid "GNU GRUB boot loader"
-msgstr ""
+msgstr "Paquet composant de Gambas pour qt.editor."
 
 #: system/base/grub::description
 msgid "GNU GRUB is a Multiboot boot loader. It was derived from GRUB, GRand Unified Bootloader, which was originally designed and implemented by Erich Stefan Boleyn. Briefly, boot loader is the first software program that runs when a computer starts. It is responsible for loading and transferring control to the operating system kernel software (such as the Hurd,Windows or the Linux). The kernel, in turn, initializes the rest of the operating system."
@@ -4079,7 +4079,7 @@ msgstr "GNU GRUB est un chargeur de démarrages multiples. Il s'agit d'un dériv
 
 #: system/base/usbutils::summary
 msgid "USB enumeration utilities"
-msgstr ""
+msgstr "Paquet composant de Gambas pour qt.ext."
 
 #: system/base/usbutils::description
 msgid "Usbutils provides some usb enumeration utilities."
@@ -4087,7 +4087,7 @@ msgstr "Usbutils fournit des utilitaires d'énumération usb."
 
 #: system/base/memtest86::summary
 msgid "Memory tester"
-msgstr ""
+msgstr "Paquet composant de Gambas pour qt.kde."
 
 #: system/base/memtest86::description
 msgid "Memory tester for x86 and x86_64 devices for x86 and 64bit x86 compatible computers. It should be started from boot menu."
@@ -4099,7 +4099,7 @@ msgstr "Librairie de vérification de mot de passe."
 
 #: system/base/pisi::summary
 msgid "PISI is the package management system of Pardus"
-msgstr ""
+msgstr "Paquet composant de Gambas pour qt.kde.html."
 
 #: system/base/pisi::description
 msgid "PISI is a modern package management system implemented in Python. Some of its main features are: package sources are written in XML and python, uses Berkeley DB for storing package information, implements all functions through a simple-to-use API, integrates low-level and high-level package management features."
@@ -4111,7 +4111,7 @@ msgstr "La librairie GLib2 de routines C."
 
 #: system/base/sed::summary
 msgid "GNU Stream Editor"
-msgstr ""
+msgstr "Paquet composant de Gambas pour sdl."
 
 #: system/base/sed::description
 msgid "Sed is a stream editor. A stream editor is used to perform basic text transformations on an input stream (a file or input from a pipeline)."
@@ -4127,7 +4127,7 @@ msgstr "Une sélection d'outils en provenance de Debian"
 
 #: system/base/perl::summary
 msgid "Larry Wall's Practical Extraction and Reporting Language"
-msgstr ""
+msgstr "Paquet composant de Gambas pour vb."
 
 #: system/base/perl::description
 msgid "Perl is a stable, cross platform programming language."
@@ -4135,7 +4135,7 @@ msgstr "Perl est un langage de programmation multi-plateforme stable."
 
 #: system/base/bc::summary
 msgid "Console-based calculator utility"
-msgstr ""
+msgstr "Paquet composant de Gambas pour xml."
 
 #: system/base/bc::description
 msgid "bc is an arbitrary precision numeric processing language and can be used as a calculator. Syntax is similar to C, but differs in many substantial areas. For example, it supports interactive execution of statements."
@@ -4143,7 +4143,7 @@ msgstr "bc est un langage de calcul numérique à précision arbitraire qui peut
 
 #: system/base/pyparted::summary
 msgid "Python bindings for parted"
-msgstr ""
+msgstr "Gambas est un environnement de développement libre basé sur un interpréteur de Basic avec des extensions objet."
 
 #: system/base/pyparted::description
 msgid "pyparted is the python module which enables to use GNU Parted package from python. Using python with this module, programmers can create, destroy, resize, check and copy partitions, and the file systems on them."
@@ -4151,7 +4151,7 @@ msgstr "pyparted est un module python permettant d'utiliser le paquet GNU Parted
 
 #: system/base/piksemel::summary
 msgid "Python binding for iksemel"
-msgstr ""
+msgstr "DBD::mysql est une interface entre le langage de programmation Perl et l'API de programmation MySQL fournie avec le système de gestion de bases de données relationnelles MySQL. La plupart des fonctions fournies par cette interface de programmation sont accessibles."
 
 #: system/base/piksemel::description
 msgid "A simple, fast, small and robust XML parser for Python, based on iksemel."
@@ -4159,7 +4159,7 @@ msgstr "Un analyseur XML simple, rapide, petit et robuste pour Python basé sur 
 
 #: system/base/libusb::summary
 msgid "Userspace access to USB devices"
-msgstr ""
+msgstr "Génération automatisée d'accesseurs (accessor)."
 
 #: system/base/libusb::description
 msgid "Project's main aim is to create a library for use by user level applications to access USB devices regardless of OS."
@@ -4171,7 +4171,7 @@ msgstr "Divers utilitaires Linux utiles."
 
 #: system/base/popt::summary
 msgid "Popt command line option parser"
-msgstr ""
+msgstr "Pour résoudre les séquences d'échappement Pod."
 
 #: system/base/popt::description
 msgid "The popt library exists essentially for parsing command line options with advantages such as there are no global variables, ability to parse an arbitrary array of argv-style elements, to exec external option filters, and automatic generation of help and usage messages, a standard method of option aliasing."
@@ -4183,7 +4183,7 @@ msgstr "Troisième version de Berkeley DB."
 
 #: system/base/fbgrab::summary
 msgid "Framebuffer screenshot utility"
-msgstr ""
+msgstr "ExtUtils::ParseXS compile tout code XS en code C en embarquant les constructions nécessaires pour permettre à des fonctions C de manipuler des variables Perl et en générant la glu nécessaire pour permettre à Perl d'accéder à ces fonctions."
 
 #: system/base/fbgrab::description
 msgid "FBGrab is a framebuffer screenshot program, capturing the linux frambuffer and converting it to a png-picture."
@@ -4191,7 +4191,7 @@ msgstr "FNGrab est un programme de capture d'écran framebuffer. Il permet de ca
 
 #: system/base/python-fchksum::summary
 msgid "Python module to find the checksum of files"
-msgstr ""
+msgstr "Le module File::Tail est conçu pour lire des fichiers qui sont continuellement alimenté en donnés (le nom provient de la commande tail -f). Ces fichiers sont habituellement des fichiers de traces (logfiles)."
 
 #: system/base/python-fchksum::description
 msgid "fchksum is a Python module to find the checksum of files. Currently it supports md5, crc32, cksum, bsd-style sum, and sysv-style sum."
@@ -4199,39 +4199,39 @@ msgstr "fchksum est un module Python de calcul de sommes de contrôle de fichier
 
 #: applications/tex/hevea::summary
 msgid "LaTeX to HTML converter"
-msgstr ""
+msgstr "Utilise d'autres formats de catalogue dans Maketext"
 
 #: applications/tex/hevea::description
 msgid "Hevea is a quite complete and fast LATEX to HTML translator."
-msgstr ""
+msgstr "Date::Manip est un ensemble de routines conçu pour rendre faciles toutes les manipulations communes sur les dates/horaires."
 
 #: applications/tex/auctex::summary
 msgid "AUCTeX is an extensible package that supports writing and formatting TeX files in Emacs"
-msgstr ""
+msgstr "Utilitaires fichier et chemin pour perl."
 
 #: applications/tex/auctex::description
 msgid "Auctex is an extensible package for writing and formatting TeX files in GNU Emacs and XEmacs."
-msgstr ""
+msgstr "DBI est le module d'accès aux bases de données pour le langage de programmation Perl. Il définit un ensemble de méthodes, variables et conventions qui fournissent une interface consistantes aux bases, indépendante de la base de données utilisée."
 
 #: applications/tex/tetex::summary
 msgid "A complete TeX distribution"
-msgstr ""
+msgstr "Le module Digest::SHA1 permet d'utiliser l'algorithme de \"digestion de message\" (message digest) NIST SHA-1 depuis des programmes Perl. L'algorithme prend en entrée un message de taille arbitraire et produit une \"empreinte\" (fingerprint) ou \"digestion du message\" (message digest) d'entrée."
 
 #: applications/tex/tetex::description
 msgid "Tetex is a complete TeX distribution for UNIX compatible systems."
-msgstr ""
+msgstr "Gestion de structures hiérarchiques en Perl."
 
 #: applications/tex/lyx::summary
 msgid "Graphical frontend for LaTeX"
-msgstr ""
+msgstr "Manipulation de spécification de chemin multi-plateforme."
 
 #: applications/tex/lyx::description
 msgid "Lyx is a document processor that encourages an approach to writing based on the structure of your documents, not their appearance."
-msgstr ""
+msgstr "Ce module réseau le problème d'avoir à continuellement écrire des méthodes accesseur (accessor) pour les objets effectuant des tâches standards."
 
 #: applications/tex/chktex::summary
 msgid "Error checker for LaTeX documents"
-msgstr ""
+msgstr "Perl SAX est une interface commune d'analyse pour les analyseurs XML. Elle permet d'écrire des applications utilisant des analyseurs XML."
 
 #: applications/tex/chktex::description
 msgid "Chktex is a LaTeX semantic checker."

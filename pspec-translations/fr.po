@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2007-04-30 17:30+0200\n"
+"PO-Revision-Date: 2007-05-07 09:05+0200\n"
 "Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
 "Language-Team: french <pardus-translators@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -18,47 +18,47 @@ msgstr ""
 
 #: programming/tools/oprofile::summary
 msgid "A transparent low-overhead system-wide profiler"
-msgstr ""
+msgstr "Profiler d'envergure système, transparent et à faible coût à l'exécution."
 
 #: programming/tools/oprofile::description
 msgid " OProfile is a system-wide profiler for Linux systems, capable of profiling all running code at low overhead. It consists of a kernel driver and a daemon for collecting sample data, and several post-profiling tools for turning data into information."
-msgstr ""
+msgstr "OProfile est un profiler d'envergure système pour systèmes Linux, capable de profiler tout code en cours d'exécution à un faible coût machine. Il consiste en un pilote noyau, d'un démon pour la récupération des échantillons de données ainsi que de nombreux outils post-profile pour extraire des informations à partir des données échantillonnées."
 
 #: programming/tools/ctags::summary
 msgid "Exuberant Ctags generates an index (or tag) file of objects found in source and header files."
-msgstr ""
+msgstr "Exuberant Ctags génère un fichier d'index (ou tag) pour les objets trouvés dans les fichiers sources et d'entête."
 
 #: programming/tools/ctags::description
 msgid "Exuberant Ctags generates an index (or tag) file of objects found in source and header files that allows these items to be quickly and easily located by a text editor or other utility. Currently supports 33 programming languages."
-msgstr ""
+msgstr "Exuberant Ctags génère un fichier d'index (ou tag) pour les objets trouvés dans les fichiers sources et d'entête permettant à ces entités d'être rapidement et facilement localisées par un éditeur de texte et d'autres utilitaires. Il gère actuellement 33 langages de programmation."
 
 #: programming/tools/systemtap::summary
 msgid "SystemTap provides free software (GPL) infrastructure to simplify the gathering of information about the running Linux kernel."
-msgstr ""
+msgstr "SystemTap fourni une infrastructure libre (GPL) simplifiant l'acquisition de données à propos de noyaux Linux en cours d'exécution."
 
 #: programming/tools/strace::summary
 msgid "A useful diagnostic, instructional, and debugging tool"
-msgstr ""
+msgstr "Un outil utile et instructif de diagnostic et de debug."
 
 #: programming/tools/mercurial::summary
 msgid "A distributed SCM tool"
-msgstr ""
+msgstr "Un outil distribué de gestion de code source."
 
 #: programming/tools/mercurial::description
 msgid "A fast, lightweight Source Control Management system designed for efficient handling of very large distributed projects."
-msgstr ""
+msgstr "Système de gestion de code source, rapide et léger conçu pour gérer de manière efficace les projets distribués de très grande taille."
 
 #: programming/tools/jam::summary
 msgid "Just Another Make"
-msgstr ""
+msgstr "Juste un autre Make."
 
 #: programming/tools/jam::description
 msgid "Advanced replacement for the development tool \"make\""
-msgstr ""
+msgstr "Remplacement avancé pour l'outil de développement \"make\""
 
 #: programming/tools/translate-toolkit::summary
 msgid "Helper applications for translations"
-msgstr ""
+msgstr "Applications d'aide à la traduction."
 
 #: programming/tools/qgit::summary
 msgid "A git GUI viewer built on Qt/C++"
@@ -11110,3 +11110,4 @@ msgstr ""
 #: desktop/freedesktop/x2x::description
 msgid "x2x allows the keyboard, mouse on one X display to be used to control another X display. It also shares X clipboards between the displays."
 msgstr "x2x permet à un clavier et à une souris d'un écran X d'être utilisés pour contrôler un autre écran X. Il permet également de partager les clipboards entre écrans."
+

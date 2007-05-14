@@ -18,7 +18,7 @@ import time
 Name = "Furkan Duman"
 Email = "coderlord@gmail.com"
 Comment = "Version bump"
-MirrorURI = "http://mirrors.dotsrc.org/kde/stable/%s/src"
+MirrorURI = "mirrors://kde/stable/%s/src/kde-i18n"
 
 class PspecUpdater:
     header = '''<?xml version="1.0" ?>
@@ -89,7 +89,8 @@ def update(filename, version):
         sha1sum = update_dict[source][0]
         archiveFilename = update_dict[source][1]
     except:
-        raise Exception("Unable to find %s package in sha1sum list!" % source)
+        print "Unable to find %s package in sha1sum list!" % source
+        return
 
     ''' Update archive '''
     archive = updater.getArchive()
@@ -114,6 +115,7 @@ def update(filename, version):
     updater.addHistory(history)
 
     updater.write(filename)
+    print "%s updated..." % source
 
 import os
 import sys

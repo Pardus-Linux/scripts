@@ -1,4 +1,4 @@
-#!/usr/bin/python
+>#!/usr/bin/python
 
 import MySQLdb as mysql
 import time
@@ -101,7 +101,7 @@ if __name__ == "__main__":
         repo = sys.argv[1]
         commit_no = sys.argv[2]
         cmd = '%s log -r %s %s' % (SVNLOOK, commit_no, repo)
-        log = codecs.encode(os.popen(cmd, 'r').readlines(), "utf-8")
+        log = codecs.decode(os.popen(cmd, 'r').readlines(), "utf-8")
 
         cmd = '%s author -r %s %s' % (SVNLOOK, commit_no, repo)
         author = os.popen(cmd, 'r').readline().rstrip('\n')

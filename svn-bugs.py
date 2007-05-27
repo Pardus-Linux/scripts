@@ -16,7 +16,7 @@ COMMENT_SQL = """INSERT INTO longdescs (bug_id, who, bug_when, thetext, work_tim
 BUGS_SQL = "UPDATE bugs SET bug_status='RESOLVED',resolution='FIXED' WHERE bug_id=%(bug_id)s"
 USERID_SQL = "SELECT userid FROM `profiles` WHERE login_name='%(mail)s'"
 
-COMMENT_TEMPLATE = """Author: %(author)s
+COMMENT_TEMPLATE = u"""Author: %(author)s
 Repository: %(repo)s
 Commit: %(commit_no)s
 

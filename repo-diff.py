@@ -32,10 +32,10 @@ def getVersion(pspecList):
         sources[specFile.source.name] = (specFile.getSourceVersion(), specFile.getSourceRelease())
     return sources
 
+# form two sorted lists and 
+# find differences in a single pass
+# over the lists
 def listCompare(firstRepo, secondRepo):
-    # form two sorted lists and 
-    # find differences in a single pass
-    # over the lists
     keys1 = list(firstRepo.keys())
     keys2 = list(secondRepo.keys())
     keys1.sort()
@@ -45,26 +45,32 @@ def listCompare(firstRepo, secondRepo):
     diffVersion = list()
     diffRelease = list()
     i=j=0
-    len1 = len(keys1)
+    len1 = len(keys1) # I just hope len is const time
     len2 = len(keys2)
-    while i < len1:
-       while j < len2:
-          if keys1[i] < keys2[j]:
-             onlyinFR.append(keys1[i])
-             i=i+1
-          elif keys1[i] > keys2[j]:
-             onlyinSR.append(keys2[j])
-             j=j+1
-          else:
-            if firstRepo[keys1[i]][0] != secondRepo[keys2[j]][0]:
-              diffVersion.append(keys1[i])
-            elif firstRepo[keys1[i]][1] != secondRepo[keys2[j]][1]:
-              diffRelease.append(keys1[i])
-            #else:
-              #same version and release, nothing to do
-            i = i+1
-            j = j+1
+    while i < len1 and j< len2:
+       if keys1[i] < keys2[j]:
+          onlyinFR.append(keys1[i])
+          i=i+1
+       elif keys1[i] > keys2[j]:
+          onlyinSR.append(keys2[j])
+          j=j+1
+       else:
+         if firstRepo[keys1[i]][0] != secondRepo[keys2[j]][0]:
+           diffVersion.append(keys1[i])
+         elif firstRepo[keys1[i]][1] != secondRepo[keys2[j]][1]:
+           diffRelease.append(keys1[i])
+         #else:
+           #same version and release, nothing to do
+         i = i+1
+         j = j+1
     
+    # one of the repos might not be checked to the very end if the
+    # repo contents do not overlap well, so fill the rest manually
+    if i!=len1:
+       onlyinFR += keys1[i:]
+    elif j!=len2:
+       onlyinSR += keys2[j:]
+
     return (onlyinFR, onlyinSR, diffVersion, diffRelease)
 
 def usage(miniMe):

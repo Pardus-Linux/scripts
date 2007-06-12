@@ -67,11 +67,11 @@ class Ldd2Dep:
 
             if kwargs['show_base']:
                 if pkg['partof'] == 'system.base':
-                    print "\033[33m%s (%s)" % (pkgname, libs[:-2]) # do not get last , and blank char
+                    print "\033[33m* %s (%s)" % (pkgname, libs[:-2]) # do not get last , and blank char
                 else:
-                    print "\033[32m%s (%s)" % (pkgname, libs[:-2])
+                    print "\033[32m* %s (%s)" % (pkgname, libs[:-2])
             elif not kwargs['show_base'] and pkg['partof'] != 'system.base':
-                    print "\033[32m%s (%s)" % (pkgname, libs[:-2])
+                    print "\033[32m* %s (%s)" % (pkgname, libs[:-2])
 
 if len(sys.argv) >= 2:
     ldd2dep = Ldd2Dep(sys.argv[1])

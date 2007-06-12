@@ -1,0 +1,63 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import piksemel
+import bz2
+import sys
+
+indexfile = "pisi-index.xml.bz2"
+
+def getXmlData(_file):
+    indexdata = bz2.decompress(file(_file).read())
+    return piksemel.parseString(indexdata)
+
+def parseXmlData(_index):
+    packageOf = {}
+    for i in _index.tags("SpecFile"):
+        tag = i.getTag("Source")
+        SourcePartOf = tag.getTagData("PartOf")
+        SourceName = tag.getTagData("Name")
+        SourcePackagerName = tag.getTag("Packager").getTagData("Name")
+
+        fullpath = "%s/%s" % (SourcePartOf.replace(".", "/"), SourceName)
+
+        if not SourcePackagerName in packageOf:
+            packageOf[SourcePackagerName] = []
+        packageOf[SourcePackagerName].append(fullpath)
+
+    return packageOf
+
+def printPackagesOf(owner, xmldata, escape=""):
+    packages = xmldata[owner]
+    packages.sort()
+    for package in packages:
+        print "%s%s" % (escape, package)
+
+
+def ladderPrint(_dict, pkgs = False):
+    owners = _dict.keys()
+    owners.sort()
+
+    for owner in owners:
+        print owner
+        if pkgs:
+            printPackagesOf(owner, _dict, "\t")
+
+if __name__ == "__main__":
+    xmldata = getXmlData(indexfile)
+    packagers = parseXmlData(xmldata)
+
+    if len(sys.argv) == 1:
+        ladderPrint(packagers, pkgs = True)
+    else:
+        arg = sys.argv[1]
+
+        if arg == "owners":
+            ladderPrint(packagers)
+
+        elif arg in packagers:
+            printPackagesOf(arg, packagers)
+
+        else:
+            print "%s does not have any package" % arg
+

@@ -1,0 +1,44 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import piksemel
+import bz2
+import sys
+import os
+
+indexfile = "pisi-index.xml"
+
+def getXmlData(_file):
+    if os.path.exists(_file):
+        return piksemel.parse(_file)
+    elif os.path.exists("%s.bz2" % _file):
+        indexdata = bz2.decompress(file("%s.bz2" % _file).read())
+        return piksemel.parseString(indexdata)
+    else:
+        print "%s not found" % indexfile
+
+def parseXmlData(_index):
+    for i in _index.tags("SpecFile"):
+        pkg = i.getTag("Package")
+        pkgName = pkg.getTagData("Name")
+
+        for tag in searchTags:
+            parent = pkg.getTag(tag)
+            if parent:
+                print pkgName, tag
+                for node in parent.tags("Package"):
+                    print "    %s" % node.firstChild().data()
+
+
+if __name__ == "__main__":
+    searchTags = []
+
+    if len(sys.argv) == 1:
+        # search for special tags
+        searchTags = ["Conflicts", "Replaces"]
+    else:
+        searchTags.append(sys.argv[1])
+
+    xmldata = getXmlData(indexfile)
+    parseXmlData(xmldata)
+

@@ -16,6 +16,7 @@ def getXmlData(_file):
         return piksemel.parseString(indexdata)
     else:
         print "%s not found" % indexfile
+        sys.exit(1)
 
 def parseXmlData(_index):
     for i in _index.tags("SpecFile"):

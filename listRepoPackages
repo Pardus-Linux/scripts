@@ -4,12 +4,19 @@
 import piksemel
 import bz2
 import sys
+import os
 
-indexfile = "pisi-index.xml.bz2"
+indexfile = "pisi-index.xml"
 
 def getXmlData(_file):
-    indexdata = bz2.decompress(file(_file).read())
-    return piksemel.parseString(indexdata)
+    if os.path.exists(_file):
+        return piksemel.parse(_file)
+    elif os.path.exists("%s.bz2" % _file):
+        indexdata = bz2.decompress(file("%s.bz2" % _file).read())
+        return piksemel.parseString(indexdata)
+    else:
+        print "%s not found" % indexfile
+        sys.exit(1)
 
 def parseXmlData(_index):
     packageOf = {}

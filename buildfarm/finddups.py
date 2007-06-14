@@ -14,9 +14,6 @@ import sys
 import piksemel as iks
 import zipfile
 
-BAD = '\x1b[31;01m'
-NORMAL = '\x1b[0m'
-
 files = {}
 
 def pisi_paks(path):
@@ -45,7 +42,7 @@ def parse_paks():
 
     for path in files:
         if len(files[path]) > 1:
-            print BAD, "File '%s' is duplicated in:" % path, NORMAL
+            print "File '%s' is duplicated in:" % path
             print "  %s" % "\n  ".join(files[path])
             print
 

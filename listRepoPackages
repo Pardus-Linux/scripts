@@ -18,19 +18,30 @@ def getXmlData(_file):
         print "%s not found" % indexfile
         sys.exit(1)
 
+def fillPackageDict(tag, _hasSpecFile, packageOf):
+        PackagePartOf = tag.getTagData("PartOf")
+        PackageName = tag.getTagData("Name")
+        if _hasSpecFile:
+            PackagePackagerName = tag.getTag("Packager").getTagData("Name")
+        else:
+            PackagePackagerName = tag.getTag("Source").getTag("Packager").getTagData("Name")
+
+        fullpath = "%s/%s" % (PackagePartOf.replace(".", "/"), PackageName)
+
+        if not PackagePackagerName in packageOf:
+            packageOf[PackagePackagerName] = []
+        packageOf[PackagePackagerName].append(fullpath)
+
 def parseXmlData(_index):
     packageOf = {}
-    for i in _index.tags("SpecFile"):
-        tag = i.getTag("Source")
-        SourcePartOf = tag.getTagData("PartOf")
-        SourceName = tag.getTagData("Name")
-        SourcePackagerName = tag.getTag("Packager").getTagData("Name")
-
-        fullpath = "%s/%s" % (SourcePartOf.replace(".", "/"), SourceName)
-
-        if not SourcePackagerName in packageOf:
-            packageOf[SourcePackagerName] = []
-        packageOf[SourcePackagerName].append(fullpath)
+    hasSpecFile = _index.getTag("SpecFile")
+    if hasSpecFile:
+        for i in _index.tags("SpecFile"):
+            parent = i.getTag("Source")
+            fillPackageDict(parent, hasSpecFile, packageOf)
+    else:
+        for parent in _index.tags("Package"):
+            fillPackageDict(parent, hasSpecFile, packageOf)
 
     return packageOf
 
@@ -48,7 +59,7 @@ def ladderPrint(_dict, pkgs = False):
     for owner in owners:
         print owner
         if pkgs:
-            printPackagesOf(owner, _dict, "\t")
+            printPackagesOf(owner, _dict, "    ")
 
 if __name__ == "__main__":
     xmldata = getXmlData(indexfile)

@@ -18,18 +18,25 @@ def getXmlData(_file):
         print "%s not found" % indexfile
         sys.exit(1)
 
+def parsePkg(_pkg):
+    pkgName = _pkg.getTagData("Name")
+    for tag in searchTags:
+        parent = _pkg.getTag(tag)
+        if parent:
+            print pkgName, tag
+            for node in parent.tags("Package"):
+                print "    %s" % node.firstChild().data()
+
 def parseXmlData(_index):
-    for i in _index.tags("SpecFile"):
-        pkg = i.getTag("Package")
-        pkgName = pkg.getTagData("Name")
-
-        for tag in searchTags:
-            parent = pkg.getTag(tag)
-            if parent:
-                print pkgName, tag
-                for node in parent.tags("Package"):
-                    print "    %s" % node.firstChild().data()
-
+    hasSpecFile = _index.getTag("SpecFile")
+    if hasSpecFile:
+        #We have SpecFile tag, this is a source repo
+        for i in _index.tags("SpecFile"):
+            pkg = i.getTag("Package")
+            parsePkg(pkg)
+    else:
+        for pkg in _index.tags("Package"):
+            parsePkg(pkg)
 
 if __name__ == "__main__":
     searchTags = []

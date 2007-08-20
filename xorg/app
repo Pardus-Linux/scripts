@@ -20,7 +20,7 @@ rendercheck-1.2.tar.bz2
 rgb-1.0.1.tar.bz2
 rstart-1.0.2.tar.bz2
 scripts-1.0.1.tar.bz2
-sessreg-1.0.2.tar.bz2
+sessreg-1.0.3.tar.bz2
 setxkbmap-1.0.4.tar.bz2
 showfont-1.0.1.tar.bz2
 smproxy-1.0.2.tar.bz2
@@ -38,9 +38,9 @@ xconsole-1.0.2.tar.bz2
 xcursorgen-1.0.1.tar.bz2
 xdbedizzy-1.0.2.tar.bz2
 xditview-1.0.1.tar.bz2
-xdm-1.1.5.tar.bz2
+xdm-1.1.6.tar.bz2
 xdpyinfo-1.0.1.tar.bz2
-xdriinfo-1.0.1.tar.bz2
+xdriinfo-1.0.2.tar.bz2
 xedit-1.0.2.tar.bz2
 xev-1.0.2.tar.bz2
 xeyes-1.0.1.tar.bz2
@@ -88,7 +88,7 @@ xsm-1.0.1.tar.bz2
 xstdcmap-1.0.1.tar.bz2
 xtrap-1.0.2.tar.bz2
 xvidtune-1.0.1.tar.bz2
-xvinfo-1.0.1.tar.bz2
+xvinfo-1.0.2.tar.bz2
 xwd-1.0.1.tar.bz2
 xwininfo-1.0.2.tar.bz2
 xwud-1.0.1.tar.bz2

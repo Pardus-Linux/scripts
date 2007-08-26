@@ -144,7 +144,7 @@ class Po:
             self.messages.append(msg)
 
 
-def find_pspecs(path):
+def find_packages(path):
     paks = []
     for root, dirs, files in os.walk(path):
         if "pspec.xml" in files:
@@ -156,13 +156,11 @@ def find_pspecs(path):
 
 getDataByTagName = lambda x, y: x.getElementsByTagName(y)[0].firstChild.data
 
-def extract_pspecs(path, language, old_messages = []):
-    # otherwise, reference gets an extra / prefix
-    # and update_pspecs does a os.path.join('/...', '/...', '...')
+def extract_from_translationsxmls(path, language, old_messages = []):
     if not path.endswith('/'):
         path += '/'
     messages = []
-    paks = find_pspecs(path)
+    paks = find_packages(path)
 
     def strp(msg):
         if msg:
@@ -214,7 +212,7 @@ def extract_pspecs(path, language, old_messages = []):
     return messages
 
 
-def update_pspecs(path, language, po):
+def update_translationsxmls(path, language, po):
 
     finished_packages = []
 
@@ -356,17 +354,17 @@ def extract(path, language, pofile):
         old_po = Po()
         old_po.load(pofile)
         po = Po(header = old_po.header)
-        po.messages = extract_pspecs(path, language, old_po.messages)
+        po.messages = extract_from_translationsxmls(path, language, old_po.messages)
         po.save(pofile)
     else:
         po = Po()
-        po.messages = extract_pspecs(path, language)
+        po.messages = extract_from_translationsxmls(path, language)
         po.save(pofile)
 
 def update(path, language, pofile):
     po = Po()
     po.load(pofile)
-    update_pspecs(path, language, po)
+    update_translationsxmls(path, language, po)
 
 def usage():
         print "Extract translatable strings into a po file:"

@@ -346,6 +346,8 @@ def update_translationsxmls(path, language, po):
         xml = xml.replace("<Name>", "\n        <Name>")
         xml = xml.replace("<Description ", "\n        <Description ")
         xml = xml.replace("<Summary ", "\n        <Summary ")
+        if xml[-1] != "\n":
+            xml += "\n"
         open(translations, "w").write(xml)
 
 

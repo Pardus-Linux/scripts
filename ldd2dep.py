@@ -8,6 +8,7 @@
 
 import os
 import sys
+import pisi
 import pisi.api as api
 import pisi.context as ctx
 
@@ -34,20 +35,32 @@ class Ldd2Dep:
 
         pkgname = ctx.filesdb.get_file(path)
         if pkgname:
-            return (pkgname[0], ctx.packagedb.get_package(pkgname[0]).partOf)
+            # If a package has been built with pspec.xml and it'is not in the repository, look for installed packages
+            try:
+                partof = ctx.packagedb.get_package(pkgname[0]).partOf
+                return (pkgname[0], partof)
+            except pisi.packagedb.Error:
+                metadata, files, repo = pisi.api.info_name(pkgname[0], True)
+                return(pkgname[0], metadata.package.partOf)
         else:
             return None
 
     def run(self, *args, **kwargs):
         ldd = os.popen("/usr/bin/ldd %s" % self.exe).read()
-        print "%s libraries that the application uses found!\nsystem.base dependencies will be shown as yellow, others as green.\n" % len(ldd.split("\t")[1:]) # because the first value is empty, do not calculate it
+        parse = ldd.split("\t")
 
         package_list = {}
-        for line in ldd.split("\t"):
+        # First value is blank, start from 1th value
+        for line in parse[1:]:
             try:
+                # parses library paths like; libxml.so.2 => /usr/lib/libxml.so.2
                 path = line.split()[2]
             except IndexError:
-                continue
+                # glibc libraries are shown like; /lib/ld-linux.so.2. So it can't be parsed and error occured. Control if first veriable starts with "/"
+                if line.split()[0].startswith("/"):
+                    path = line.split()[0]
+                else:
+                    path = None
 
             search = self.search_file(path)
             if search:
@@ -57,6 +70,8 @@ class Ldd2Dep:
                     package_list[search[0]].append({'partof': search[1], 'libs': [path]})
                 else:
                     package_list[search[0]][0]['libs'].append(path)
+
+        print "%s libraries that the application uses found!\nsystem.base dependencies will be shown as yellow, others as green.\n" % len(package_list)
 
         for pkgname in package_list:
             pkg = package_list[pkgname][0]

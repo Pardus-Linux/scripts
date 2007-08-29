@@ -50,7 +50,7 @@ class Ldd2Dep:
         parse = ldd.split("\t")
 
         package_list = {}
-        # First value is blank, start from 1th value
+        # First value is blank, start from 1st value
         for line in parse[1:]:
             try:
                 # parses library paths like; libxml.so.2 => /usr/lib/libxml.so.2

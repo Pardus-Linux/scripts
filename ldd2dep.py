@@ -88,15 +88,20 @@ class Ldd2Dep:
             elif not kwargs['show_base'] and pkg['partof'] != 'system.base':
                     print "\033[32m* %s (%s)" % (pkgname, libs[:-2])
 
-if len(sys.argv) >= 2:
-    ldd2dep = Ldd2Dep(sys.argv[1])
-    if not ldd2dep.init():
-        print "There is no such file or it's not executable"
+if __name__ == '__main__':
+    if len(sys.argv) >= 2:
+        try:
+            ldd2dep = Ldd2Dep(sys.argv[1])
+            if not ldd2dep.init():
+                print "There is no such file or it's not executable"
+            else:
+                if len(sys.argv) >= 3 and sys.argv[2] == '-s':
+                    ldd2dep.run(show_base=True)
+                else:
+                    ldd2dep.run(show_base=False)
+        except KeyboardInterrupt:
+            print "Exiting..."
+            sys.exit(1)
     else:
-        if len(sys.argv) >= 3 and sys.argv[2] == '-s':
-            ldd2dep.run(show_base=True)
-        else:
-            ldd2dep.run(show_base=False)
-else:
-    print """Usage: ldd2dep [executable] [-s]
+        print """Usage: ldd2dep [executable] [-s]
        -s means that show system.base dependencies as well"""

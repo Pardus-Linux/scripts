@@ -45,6 +45,7 @@ for i in `cat ../$FILELIST`
 do
     if [ ! -e $i ]; then
         wget $MIRROR"/"$i
+        echo "$i" > $FILELIST.changes
     fi
     tar xvf $i -C ../$PACKAGE-$VERSION
 done

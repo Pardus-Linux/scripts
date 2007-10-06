@@ -1,644 +1,659 @@
-# SOME DESCRIPTIVE TITLE.
+# translation of es.po to español
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Klemens <click3d_at_linuxmail_org>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2007-10-05 21:10-0400\n"
+"Last-Translator: Klemens <click3d_at_linuxmail_org>\n"
+"Language-Team: español <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #: kernel/kernel:kernel-source:summary
 msgid "Source files for the Linux kernel used by Pardus"
-msgstr ""
+msgstr "Archivos fuente del kernel de Linux usado en Pardus"
 
 #: kernel/kernel:kernel-headers:summary
 msgid "Header files for the Linux kernel for use by glibc"
-msgstr ""
+msgstr "Archivos de cabeceras del kernel de Linux para uso con glibc"
 
 #: kernel/kernel:kernel-headers:description
 msgid "Kernel-headers includes the C header files that specify the interface between the Linux kernel and userspace libraries and programs. The header files define structures and constants that are needed for building most standard programs and are also needed for rebuilding the glibc package."
-msgstr ""
+msgstr "Kernel-headers incluyen los archivos de cabeceras C que especifican la interfaz entre el kernel de Linux, librerías de espacio de usuario y programas. Los archivos de cabecera definen estructuras y constantes requeridos para compilar la mayoría de los programas estándar y también necesarios para recompilar el paquete glibc."
 
 #: kernel/kernel::summary
 msgid "The Linux kernel (the core of the Linux operating system) for Pardus Linux"
-msgstr ""
+msgstr "El kernel de Linux (el núcleo del sistema operativo Linux) para Pardus Linux"
 
 #: kernel/kernel::description
 msgid "The kernel package contains the Linux kernel, the core of any Linux operating system. The kernel handles the basic functions of the operating system: memory allocation, process allocation, device input and output, etc."
-msgstr ""
+msgstr "El paquete de kernel contiene el kernel de Linux, el núcleo de todo sistema operativo Linux. El kernel administra las funciones básicas del sistema operativo: asignación de memoria, control de procesos, entrada y salida de dispositivos, etc."
 
 #: kernel/kernel-debug:kernel-debug-source:summary
 msgid "Debug enabled Pardus Linux kernel source"
-msgstr ""
+msgstr "Fuentes del kernel de Linux usado en Pardus, con depurador habilitado"
 
 #: kernel/kernel-debug:kernel-debug-source:description
 msgid "Debug enabled Pardus Linux kernel source"
-msgstr ""
+msgstr "Fuentes del kernel de Linux usado en Pardus, con depurador habilitado"
 
 #: kernel/kernel-debug::summary
 msgid "Debug enabled Uniprocessor Linux kernel for Pardus Linux"
-msgstr ""
+msgstr "Fuentes del kernel de Linux uni-procesador para Pardus, con depurador habilitado"
 
 #: kernel/drivers/ipw3945::summary
 msgid "Driver for Intel IPW3945 wireless network chips"
-msgstr ""
+msgstr "Controlador para chips de red IPW3945 wireless "
 
 #: kernel/drivers/madwifi-ng::summary
 msgid "Wireless driver for Atheros chipset a/b/g cards"
-msgstr ""
+msgstr "Controlador para tarjetas wireless Atheros con chips a/b/g"
 
 #: kernel/drivers/rt2400::summary
 msgid "RaLink RT2400 driver"
-msgstr ""
+msgstr "Controlador RaLink RT2400"
 
 #: kernel/drivers/rt2400::description
 msgid "Driver for the RaLink RT2400 wireless chipset"
-msgstr ""
+msgstr "Controlador para chips wireless RaLink RT2400"
 
 #: kernel/drivers/nvidia-old:nvidia-kernel-old:summary
 msgid "nVIDIA kernel driver [For TNT2 and such older cards]"
-msgstr ""
+msgstr "Controlador nVIDIA de kernel [para tarjetas tan antiguas como TNT2]"
 
 #: kernel/drivers/nvidia-old:nvidia-kernel-old:description
 msgid "nVIDIA kernel driver for low level infrastracture [For TNT2 and such older cards]."
-msgstr ""
+msgstr "Controlador nVIDIA de kernel para infraestructura de bajo nivel [para tarjetas tan antiguas como TNT2]"
 
 #: kernel/drivers/nvidia-old:nvidia-glx-old:summary
 msgid "nVIDIA glx module for X.org [For TNT2 and such older cards]"
-msgstr ""
+msgstr "Controlador nVIDIA glx para X.org [para tarjetas tan antiguas como TNT2]"
 
 #: kernel/drivers/nvidia-old:nvidia-glx-old:description
 msgid "nVIDIA glx module for X.org for optimized 2d/3d performance [For TNT2 and such older cards]."
-msgstr ""
+msgstr "Controlador nVIDIA glx para X.org con rendimiento sd/3d optimizado[para tarjetas tan antiguas como TNT2]"
 
 #: kernel/drivers/nvidia-old:nvidia-tools-old:summary
 msgid "nvidia-settings tool [For TNT2 and such older cards]"
-msgstr ""
+msgstr "Herramientas de configuración nvidia [para tarjetas tan antiguas como TNT2]"
 
 #: kernel/drivers/nvidia-old:nvidia-tools-old:description
 msgid "GUI tool nvidia-settings for nVIDIA cards [For TNT2 and such older cards]."
-msgstr ""
+msgstr "Herramienta gráfica para configuración de tarjetas nVIDIA [tarjetas tan antiguas como TNT2]"
 
 #: kernel/drivers/nvidia-old::summary
 msgid "nVIDIA kernel and glx drivers for old nVIDIA cards like TNT2"
-msgstr ""
+msgstr "Controladores de kernel nVIDIA y glx para tarjetas nVIDIA antiguas como TNT2"
 
 #: kernel/drivers/nvidia-old::description
 msgid "nVIDIA kernel and glx drivers giving optimized 2d/3d performance on Linux for old nVidia cards"
-msgstr ""
+msgstr "Controladores de kernel nVIDIA y glx para rendimiento 2d/3d optimizado para tarjetas nVIDIA antiguas"
 
 #: kernel/drivers/lmpcm_usb::summary
 msgid "Drivers for Logitech MediaPlay Cordless Mouse"
-msgstr ""
+msgstr "Controladores para Ratón inalambrico Logitech MediaPlay"
 
 #: kernel/drivers/lmpcm_usb::description
 msgid "You can use Logitech MediaPlay Cordless Mouse's multimedia buttons with this driver."
-msgstr ""
+msgstr "El controlador permite uso de los botones multimedia del ratón inalambrico Logitech MediaPlay"
 
 #: kernel/drivers/rt61::summary
 msgid "RaLink RT2600 (RT61) driver"
-msgstr ""
+msgstr "Controladoe RaLink RT2600 (RT61) "
 
 #: kernel/drivers/rt61::description
 msgid "Driver for the RaLink RT2600 (RT61) wireless chipset"
-msgstr ""
+msgstr "Controlador para chips inalambricos RaLink RT2600 (RT61)"
 
 #: kernel/drivers/rt2570::summary
 msgid "RaLink RT2570 driver"
-msgstr ""
+msgstr "Controlador RaLink RT2570"
 
 #: kernel/drivers/rt2570::description
 msgid "Driver for the RaLink RT2570 wireless chipset"
-msgstr ""
+msgstr "Controlador para chips inalambricos RaLink RT2570"
 
 #: kernel/drivers/lirc::summary
 msgid "Linux Infrared Remote Control system"
-msgstr ""
+msgstr "Sistema de control remoto por infrarrojo para Linux"
 
 #: kernel/drivers/lirc::description
 msgid "LIRC is a package that allows you to decode and send infra-red signals of many (but not all) commonly used remote controls."
-msgstr ""
+msgstr "LIRC permite decodificar y transmitir señales infrarrojos compatible con muchos (pero no de todos) controles remotos comúnes."
 
 #: kernel/drivers/hsfmodem::summary
 msgid "Linuxant's modem driver"
-msgstr ""
+msgstr "Controlador de modem Linuxant"
 
 #: kernel/drivers/hsfmodem::description
 msgid "Linuxant's modem driver for Conexant HSF chipset"
-msgstr ""
+msgstr "Controlador de modem Linuxant para conjunto de chips Conexant HSF"
 
 #: kernel/drivers/kqemu::summary
 msgid "QEMU Accelerator Module"
-msgstr ""
+msgstr "Módulo acelerador de QEMU"
 
 #: kernel/drivers/eciadsl::summary
 msgid "Driver for various ADSL modems. Also known as EciAdsl"
-msgstr ""
+msgstr "Controlador para varios modems ADSL (RDSI). También conocido como EciAdsl."
 
 #: kernel/drivers/eciadsl::description
 msgid " Linux driver for ECI HiFocus ADSL USB and Globespan based modems. EciAdsl is a free Linux driver for connecting your computer to the internet, if you have a Globespan based ADSL USB modem."
-msgstr ""
+msgstr "Controlador para modems ECI HiFocus ADSL USB y basados en Globespan. AciAdsl es un controlador libre para conectar la computadora con la internet, si tiene un modem ADSL USB basado en Globespan."
 
 #: kernel/drivers/qc-usb-messenger::summary
 msgid "Logitech QuickCam USB Video Camera driver"
-msgstr ""
+msgstr "Controlador de cámara de video Logitech QuickCam USB"
 
+# # verificar, please proofread
 #: kernel/drivers/unionfs::summary
 msgid "Stackable unification file system, which can appear to merge the contents of several directories"
-msgstr ""
+msgstr "Sistema de archivo unificado stackable, que puede hacer parecer junto el contenido de varios directorios"
 
 #: kernel/drivers/gspca::summary
 msgid "Webcam driver"
-msgstr ""
+msgstr "Controlador de Webcam"
 
 #: kernel/drivers/gspca::description
 msgid "Driver for more than 200 webcams from manufacturers like Creative, Logitech, Mustek etc. using chips like Conexant, Etoms, Mars-Semi, Pixart, Sonix, Sunplus, Transvision, Vimicro, Microdia."
-msgstr ""
+msgstr "Controlador para más de 200 webcams de fabricantes como Creative, Logitech, Mustek etc. usando chips de Conexant, Etoms, Mars-Semi, Pixart, Sonix, Sunplus, Transvision, Vimicro, Microdia."
 
 #: kernel/drivers/rt73::summary
 msgid "RaLink RT2700 (RT73) driver"
-msgstr ""
+msgstr "Controlador RaLink RT2700 (RT73)"
 
 #: kernel/drivers/rt73::description
 msgid "Driver for the RaLink RT2700 (RT73) wireless chipset"
-msgstr ""
+msgstr "Controlador para el chips inalambricos RaLink RT2700 (RT73)"
 
 #: kernel/drivers/fuse::summary
 msgid "An interface for filesystems implemented in userspace"
-msgstr ""
+msgstr "Una interfaz para sistemas de archivos implementado en el espacio de usuarios"
 
 #: kernel/drivers/tpm-emulator::summary
 msgid "The project aims to create a fully working Trusted Platform Module (TPM) emulator follwing the specifications of the Trusted Computing Group"
-msgstr ""
+msgstr "El proyecto tiene la finalidad de crear un emulador Trusted Platform Module (TPM, módulo de plataforma confiable) siguiendo las especificaciones del grupo Trusted Computing"
 
 #: kernel/drivers/pwc::summary
 msgid "Philips USB Webcam driver"
-msgstr ""
+msgstr "Controlador de webcam Philips USB"
 
 #: kernel/drivers/pwc::description
 msgid "Free Philips USB Webcam driver for Linux that supports VGA resolution, newer kernels and replaces the old pwcx module."
-msgstr ""
+msgstr "Controlador libre para webcam Philips USB, que soporta resolución VGA, núcleos (kernel) nuevos y reemplaza al antiguo módulo pwcx."
 
 #: kernel/drivers/ati-drivers::summary
 msgid "Ati precompiled drivers for Xorg"
-msgstr ""
+msgstr "Controlador ATI precompilado para Xorg"
 
 #: kernel/drivers/ati-drivers::description
 msgid "ATI Proprietary Linux x86 Display Driver"
-msgstr ""
+msgstr "Controlador propietario ATI para Linux x86"
 
 #: kernel/drivers/linux-uvc::summary
 msgid "USB webcam driver"
-msgstr ""
+msgstr "Controlador de webcam USB"
 
 #: kernel/drivers/linux-uvc::description
 msgid "Webcam driver using Linux USB Video Class."
-msgstr ""
+msgstr "Controlador webcam usando Linux USB video class"
 
 #: kernel/drivers/acpi4asus::summary
 msgid "For Asus laptops to use all the functionality of their computers such as special keys, special LEDs, brightness control"
-msgstr ""
+msgstr "Permite usar en notebooks ASUS las funciones enteras, como teclas especiales, LEDs especiales, control de brillo, etc."
 
 #: kernel/drivers/acpi4asus::description
 msgid "For Asus laptops to use all the functionality of their computers such as special keys, special LEDs, brightness control"
-msgstr ""
+msgstr "Permite usar en notebooks ASUS las funciones enteras, como teclas especiales, LEDs especiales, control de brillo, etc."
 
 #: kernel/drivers/ungrab-winmodem::summary
 msgid "Additional module for Smartlink Modems"
-msgstr ""
+msgstr "Módulo adicional para modems Smartlink"
 
+# # please proofread, how to translate "dirty workaround" ?
 #: kernel/drivers/ungrab-winmodem::description
 msgid "A dirty workaround for Smartlink Modems to bypass \"device is already grabbed\" errors "
-msgstr ""
+msgstr "Una solución rudimentaria para modems Smartlink para evitar errores\"device is already grabbed\" "
 
 #: kernel/drivers/sc92031::summary
 msgid "Ethernet driver"
-msgstr ""
+msgstr "Controlador Ethernet"
 
 #: kernel/drivers/sc92031::description
 msgid "Driver for Silan SC92031 chip based ethernet cards."
-msgstr ""
+msgstr "Controlador para tarjetas ethernet basados en chip Silan SC92031"
 
 #: kernel/drivers/rt2500::summary
 msgid "RT2500 drivers"
-msgstr ""
+msgstr "Controladores RT2500"
 
 #: kernel/drivers/rt2500::description
 msgid "Driver for the RaLink RT2500 wireless chipset"
-msgstr ""
+msgstr "Controlador para chips wireless RaLink RT2500"
 
 #: kernel/drivers/acx100::summary
 msgid "Driver for Texas Instruments ACX100/ACX111 wireless network chips"
-msgstr ""
+msgstr "Controlador para chips wireless Texas Instruments ACX100/ACX111"
 
 #: kernel/drivers/acerhk::summary
 msgid "Hotkey driver for some Acer and Acer-like laptops"
-msgstr ""
+msgstr "Controlador Hotkey para notebooks Acer y similar"
 
+# # como traducir wrapper
 #: kernel/drivers/ndiswrapper::summary
 msgid "A driver wrapper"
-msgstr ""
+msgstr "Un wrapper para controladores"
 
 #: kernel/drivers/ndiswrapper::description
 msgid "Ndiswrapper allows you to use windows XP drivers for that WLAN card without proper Linux drivers."
-msgstr ""
+msgstr "Ndiswrapper permite usar controladores de windows XP para tarjetas WLAN que no tienen controladores propios para Linux."
 
 #: kernel/drivers/slmodem::summary
 msgid "Driver for Smart Link modem"
-msgstr ""
+msgstr "Controlador para modem SmartLink"
 
 #: kernel/drivers/slmodem::description
 msgid " This is the driver of Smart Link Modem for Linux. It provides full-featured 56K Voice Fax Modem."
-msgstr ""
+msgstr "Controlador de Linux para modem SmartLink. Provee todas las facilidades del 56K Voice Fax Modem."
 
 #: kernel/drivers/ltmodem::summary
 msgid "Winmodems with Lucent Apollo (ISA) and Mars (PCI) chipsets"
-msgstr ""
+msgstr "Winmodems con chips Lucent Apollo (ISA) y Mars (PCI)"
 
 #: kernel/drivers/ltmodem::description
 msgid "Linux driver for so called Winmodems with Lucent Apollo (ISA) and Mars (PCI) chipsets."
-msgstr ""
+msgstr "Controlador Linux para los llamados Winmodems con chips Lucent Apollo (ISA) y Mars (PCI)"
 
 #: kernel/drivers/ov511::summary
 msgid "Omnivision webcam driver"
-msgstr ""
+msgstr "Controlador de webcam Omnivision"
 
 #: kernel/drivers/ov511::description
 msgid "Driver for omnivision based webcams, with OVFX2 support for webcams like Orangemicro iBot2."
-msgstr ""
+msgstr "Controlador para webcams basados en omnivision, con soporte OVFX2 para webcams como Orangemicro iBot2."
 
 #: kernel/drivers/syntekdriver::summary
 msgid "Driver for webcams with Syntek DC-1125 chipsets"
-msgstr ""
+msgstr "Controlador para webcams con chips Syntek DC-1125"
 
 #: kernel/drivers/qc-usb::summary
 msgid "Logitech USB Quickcam Express Linux Driver Modules"
-msgstr ""
+msgstr "Módulo de controlador de Linux para Logitech USB Quickcam Express"
 
 #: kernel/drivers/nvidia-new:nvidia-kernel-new:summary
 msgid "nVIDIA kernel driver"
-msgstr ""
+msgstr "Controlador de kernel nVIDIA"
 
+# # traduccion "libre" de "low level" ;)
 #: kernel/drivers/nvidia-new:nvidia-kernel-new:description
 msgid "nVIDIA kernel driver for low level infrastracture."
-msgstr ""
+msgstr "Controlador de kernel nVIDIA para PC antigua"
 
 #: kernel/drivers/nvidia-new:nvidia-glx-new:summary
 msgid "nVIDIA glx module for X.org"
-msgstr ""
+msgstr "Módulo nVIDIA glx para X.org"
 
 #: kernel/drivers/nvidia-new:nvidia-glx-new:description
 msgid "nVIDIA glx module for X.org for optimized 2d/3d performance."
-msgstr ""
+msgstr "Módulo nVIDIA glx para X.org para mejor rendimiento 2d/3d."
 
 #: kernel/drivers/nvidia-new:nvidia-tools-new:summary
 msgid "nvidia-settings and nvidia-xconfig tools"
-msgstr ""
+msgstr "Herramientas nvidia-settings y nvidia-xconfig "
 
 #: kernel/drivers/nvidia-new:nvidia-tools-new:description
 msgid "GUI tool nvidia-settings for nVIDIA cards and a command line tool named nvidia-xconfig for X.org configuration"
-msgstr ""
+msgstr "Herramienta GUI nvidia-settings para tarjetas nVIDIA cards y una herramienta para línea de comando llamado nvidia-xconfig para configuración de X.org "
 
 #: kernel/drivers/nvidia-new::summary
 msgid "nVIDIA kernel and glx drivers for NV3 or better cards (Geforce FX or better)"
-msgstr ""
+msgstr "Controladores de kernel nVIDIA y glx para tarjetas NV3 o mejor (Geforce FX o mejor)"
 
+# # a verificar
 #: kernel/drivers/nvidia-new::description
 msgid "nVIDIA kernel and glx drivers giving optimized 2d/3d performance on Linux (For NV3X or better). Don't use this driver if your card's name doesn't contain the word FX."
-msgstr ""
+msgstr "Controladores de kernel nVIDIA y glx para rendimiento optimizado 2d/3d en Linux (Para NV3X o mejor). No use este controlador si el nombre de su tarjeta no contiene las letras FX."
 
 #: kernel/drivers/ov51x-jpeg::summary
 msgid "Omnivision webcam driver"
-msgstr ""
+msgstr "Controlador webcam Omnivision"
 
 #: kernel/drivers/ov51x-jpeg::description
 msgid "Driver for omnivision based webcams, forked, rewritten and using jpeg support."
-msgstr ""
+msgstr "Controlador para webcams basado en omnivision, reescrito con soporte para jpeg."
 
 #: kernel/drivers/alsa-driver::summary
 msgid "Advanced Linux Sound Architecture kernel modules"
-msgstr ""
+msgstr "Módulos de kernel Advanced Linux Sound Architecture"
 
 #: kernel/drivers/alsa-driver::description
 msgid " The Advanced Linux Sound Architecture (ALSA) provides audio and MIDI functionality to the Linux operating system. ALSA has significant features like efficient support for all types of audio interfaces, fully modularized sound drivers, SMP and thread-safe design, user space library and support for the older OSS API."
-msgstr ""
+msgstr "La arquitectura avanzada de sonido en Linux (ALSA) provee funcionalidad audio y MIDI functionality para Linux. ALSA tiene características significantes como soporte eficiente para todo tipo de interfaces de audio, controladores completamente modulares, diseño SMP y thread-safe, libreria user space y soporte para el anterior OSS API."
 
 #: kernel/drivers/nvidia:nvidia-kernel:summary
 msgid "nVIDIA kernel driver"
-msgstr ""
+msgstr "Controlador de kernel nVIDIA"
 
 #: kernel/drivers/nvidia:nvidia-kernel:description
 msgid "nVIDIA kernel driver for low level infrastracture."
-msgstr ""
+msgstr "Controlador de kernel nVIDIA para PCs antiguos"
 
 #: kernel/drivers/nvidia:nvidia-glx:summary
 msgid "nVIDIA glx module for X.org"
-msgstr ""
+msgstr "Módulo nVIDIA glx para X.org"
 
 #: kernel/drivers/nvidia:nvidia-glx:description
 msgid "nVIDIA glx module for X.org for optimized 2d/3d performance."
-msgstr ""
+msgstr "Módulo nVIDIA glx para X.org para rendimiento optimizado 2d/3d."
 
 #: kernel/drivers/nvidia:nvidia-tools:summary
 msgid "nvidia-settings and nvidia-xconfig tools"
-msgstr ""
+msgstr "Herramientas nvidia-settings y nvidia-xconfig"
 
 #: kernel/drivers/nvidia:nvidia-tools:description
 msgid "GUI tool nvidia-settings for nVIDIA cards and a command line tool named nvidia-xconfig for X.org configuration"
-msgstr ""
+msgstr "Herramienta GUI nvidia-settings para tarjetas nVIDIA cards y una herramienta para línea de comando llamado nvidia-xconfig para configuración de X.org "
 
 #: kernel/drivers/nvidia::summary
 msgid "nVIDIA kernel and glx drivers"
-msgstr ""
+msgstr "Controladores nVIDIA kernel y glx"
 
 #: kernel/drivers/nvidia::description
 msgid "nVIDIA kernel and glx drivers giving optimized 2d/3d performance on Linux"
-msgstr ""
+msgstr "Controladores de kernel nVIDIA y glx para rendimiento optimizado 2d/3d en Linux."
 
 #: kernel/drivers/r5u870::summary
 msgid "Driver for Ricoh R5U870 webcams"
-msgstr ""
+msgstr "Controlador para webcams Ricoh R5U870 "
 
 #: kernel/drivers/zr364xx::summary
 msgid "Zoran webcam driver"
-msgstr ""
+msgstr "Controlador para webcam Zoran"
 
 #: kernel/drivers/zr364xx::description
 msgid "Driver for Zoran based digital cameras and webcams, possibly working for ZR36430 (ZR36430BGC), ZR36431, ZR36440, ZR36442 etc."
-msgstr ""
+msgstr "Controlador para camaras digitales y webcams basados en Zoran, probablemente funcinan para ZR36430 (ZR36430BGC), ZR36431, ZR36440, ZR36442 etc."
 
 #: kernel/drivers/hcfpcimodem::summary
 msgid "Linuxant's modem driver"
-msgstr ""
+msgstr "Controlador de modem Linuxant"
 
 #: kernel/drivers/hcfpcimodem::description
 msgid "Linuxant's modem driver for Connexant HCF chipset"
-msgstr ""
+msgstr "Controlador de modem Linuxant para chips Connexant HCF"
 
 #: kernel/drivers/et131x::summary
 msgid "Agere ET131x ethernet driver"
-msgstr ""
+msgstr "Controlador ethernet Agere ET131x"
 
 #: kernel/drivers/et131x::description
 msgid "Kernel driver for Agere ET131x chipset based ethernet cards."
-msgstr ""
+msgstr "Controlador de kernel para tarjetas ethernet basados en chips Agere ET131x"
 
 #: kernel/drivers/sn9c1xx::summary
 msgid "Driver for SN9C101, SN9C102, SN9C103, SN9C105, SN9C120 webcam controllers"
-msgstr ""
+msgstr "Controlador para webcam SN9C101, SN9C102, SN9C103, SN9C105, SN9C120 "
 
 #: kernel/firmware/bcm43xx-firmware::summary
 msgid "Firmware for Broadcom 43xx wireless network chips"
-msgstr ""
+msgstr "Firmware para chips Broadcom 43xx de red inalambrico"
 
 #: kernel/firmware/bcm43xx-firmware::description
 msgid "Firmware for Broadcom wireless network chips"
-msgstr ""
+msgstr "Firmware para chips Broadcom de red inalambrico"
 
 #: kernel/firmware/accessrunner-firmware::summary
 msgid "Accessrunner USB ADSL modem driver firmware"
-msgstr ""
+msgstr "Controlador de firmware para modem Accessrunner USB ADSL"
 
 #: kernel/firmware/ipw3945-daemon::summary
 msgid "Regulatory daemon for the Intel PRO/Wireless 3945 miniPCI adapters"
-msgstr ""
+msgstr "Demonio regulador para adaptadores Intel PRO/Wireless 3945 miniPCI"
 
 #: kernel/firmware/acx100-firmware::summary
 msgid "Firmware for Texas Instruments' ACX100/ACX111 wireless network chips"
-msgstr ""
+msgstr "Firmware para chips Texas Instruments' ACX100/ACX111 de red inalambrica"
 
 #: kernel/firmware/eagle-firmware::summary
 msgid "Firmware for USB modems"
-msgstr ""
+msgstr "Firmware para modems USB"
 
 #: kernel/firmware/alsa-firmware::summary
 msgid "Advanced Linux Sound Architecture firmware"
-msgstr ""
+msgstr "Firmware para Advanced Linux Sound Architecture"
 
 #: kernel/firmware/bluez-firmware::summary
 msgid "Firmware for Broadcom BCM203x Blutonium devices"
-msgstr ""
+msgstr "Firmware para dispositivos Broadcom BCM203x Blutonium "
 
 #: kernel/firmware/zd1201-firmware::summary
 msgid "Firmware for ZD1201 based wireless devices"
-msgstr ""
+msgstr "Firmware para dispositivos inalambricas basados en ZD1201"
 
 #: kernel/firmware/atmel-firmware::summary
 msgid "Firmware for atmel and atmel_cs wlan drivers"
-msgstr ""
+msgstr "Firmware para atmel y controladores para atmel_cs wlan"
 
 #: kernel/firmware/ipw2100-firmware::summary
 msgid "Firmware for the Intel PRO/Wireless 2100 3B miniPCI adapter"
-msgstr ""
+msgstr "Firmware para adaptador Intel PRO/Wireless 2100 3B miniPCI"
 
 #: kernel/firmware/zd1211-firmware::summary
 msgid "Firmware for ZD1211 based wireless devices"
-msgstr ""
+msgstr "Firmware para dispositivos inalambricos basados en  ZD1211"
 
 #: kernel/firmware/ipw2200-firmware::summary
 msgid "Firmware for the Intel PRO/Wireless 2200BG/2915ABG miniPCI and 2225BG PCI adapters"
-msgstr ""
+msgstr "Firmware para adaptadores Intel PRO/Wireless 2200BG/2915ABG miniPCI and 2225BG PCI "
 
 #: kernel/firmware/speedtouch-firmware::summary
 msgid "ALCATEL SpeedTouch USB ADSL modem user-space driver firmware"
-msgstr ""
+msgstr "Firmware de controlador de espacio de usuario para modem ALCATEL SpeedTouch USB ADSL"
 
 #: kernel/firmware/ipw3945-firmware::summary
 msgid "Firmware for the Intel PRO/Wireless 3945 miniPCI adapters"
-msgstr ""
+msgstr "Firmware para adaptadores Intel PRO/Wireless 3945 miniPCI "
 
 #: programming/tools/oprofile::summary
 msgid "A transparent low-overhead system-wide profiler"
-msgstr ""
+msgstr "Un perfilador tranparente de todo el sistema con baja carga adicional"
 
 #: programming/tools/oprofile::description
 msgid " OProfile is a system-wide profiler for Linux systems, capable of profiling all running code at low overhead. It consists of a kernel driver and a daemon for collecting sample data, and several post-profiling tools for turning data into information."
-msgstr ""
+msgstr "OProfile es un perfilador de todo el sistema con baja carga adicional (overhead), capaz de perfilar todo código en ejecución con una mínima carga adicional. Consiste de un controlador de kernel y un demonio para coleccionar datos de muestra, y algunas herramientas de pos-procesamiento para convertir los datos en información."
 
+# # me parece mal traducido "facilitar"
 #: programming/tools/indent::summary
 msgid "A tool for making sources easier to read."
-msgstr ""
+msgstr "Herramienta para facilitar lectura de código fuente"
 
 #: programming/tools/indent::description
 msgid " The indent program can be used to make code easier to read. It can also convert from one style of writing C to another."
-msgstr ""
+msgstr "Se puede usar el programa indent (sangría de texto) para facilitar la lectura de código fuente. El programa también permite convertir de un estilo de escribir código C a otro."
 
 #: programming/tools/strace::summary
 msgid "A useful diagnostic, instructional, and debugging tool"
-msgstr ""
+msgstr "Una herramienta útil para uso diagnóstico, instructivo y de depuración"
 
+# # build se traduce con compilar ? no estoy seguro, aunque lo ví en alguna parte
 #: programming/tools/ant::summary
 msgid "Java-based build tool"
-msgstr ""
+msgstr "Herramienta de compilación (build) basado en Java"
 
+# # wrinkles, traduccion (demasiado ?) libre
 #: programming/tools/ant::description
 msgid "Apache Ant is a Java-based build tool. In theory, it is kind of like Make, but without Make's wrinkles."
-msgstr ""
+msgstr "Apache Ant es una herramienta de compilación (build) basado en Java. Teróricamente se puede comparar con Make, pero sin las vueltas que tiene aquel."
 
 #: programming/tools/git:git-emacs:summary
 msgid "GIT integration for emacs"
-msgstr ""
+msgstr "integración GIT para emacs"
 
 #: programming/tools/git:gitweb:summary
 msgid "Web interface for GIT"
-msgstr ""
+msgstr "Interfáz web para GIT"
 
 #: programming/tools/git::summary
 msgid "GIT - the stupid content tracker"
-msgstr ""
+msgstr "GIT - el rastreador de contenido estúpido (content tracker)"
 
 #: programming/tools/git::description
 msgid "Git is a fast, scalable, distributed revision control system with an unusually rich command set that provides both high-level operations and full access to internals."
-msgstr ""
+msgstr "GIT es un sistema rápido, escalable y distribuido de control de versiones con un amplio espectro de comandos que permite operaciones de alto nivel tanto como operaciones con acceso a detalles internos."
 
 #: programming/tools/rcs::summary
 msgid "Revision Control System"
-msgstr ""
+msgstr "Sistema de Control de Versiones"
 
+# # mis dudas, please profread:
+# # retrieval, merging, papers, form letters
 #: programming/tools/rcs::description
 msgid "The Revision Control System (RCS) manages multiple revisions of files. RCS automates the storing, retrieval, logging, identification, and merging of revisions. RCS is useful for text that is revised frequently, including source code, programs, documentation, graphics, papers, and form letters."
-msgstr ""
+msgstr "El sistema de control de versiones (RCS, Revision Control System) administra multiples revisiones de archivos, RCS automatiza la almacenamiento, la obtención, logeo, identificación y unión de revisiones. RCS es útil para textos que se revisan con frecuencia, incluyendo código fuente, programas, documentación, gráficos, notas y formularios de cartas"
 
 #: programming/tools/segv::summary
 msgid "This tool allows you to catch segmemtation faults globally on your system, giving a full backtrace for any program that dies with a segmemtation fault"
-msgstr ""
+msgstr "La herramienta permite capturar errores de segmentación globales del sistema, dando un backtrace completo para cualquier programa que muere con un error de segmentación."
 
 #: programming/tools/segv::description
 msgid "This tool allows you to catch segmemtation faults globally on your system, giving a full backtrace for any program that dies with a segmemtation fault. This is done with zero overhead in the running program, so you can install it on production systems without interference."
-msgstr ""
+msgstr "La herramienta permite capturar errores de segmentación globales del sistema, dando un backtrace completo para cualquier programa que muere con un error de segmentación. Esto se realiza sin carga adicional para el programa en ejecución, así que se puede instalarlo en un sistema de producción sin interferencias."
 
 #: programming/tools/cvs::summary
 msgid "Concurrent Versions System - source code revision control tools"
-msgstr ""
+msgstr "Sistema de versiones concurrentes - herramientas de revisión de código fuente"
 
 #: programming/tools/cvs::description
 msgid "The Concurrent Versions System (CVS), also known as the Concurrent Versioning System, implements a version control system: it keeps track of all work and all changes in a set of files, typically the implementation of a software project, and allows several (potentially widely separated) developers to collaborate."
-msgstr ""
+msgstr "El sistema de versiones concurrentes (CVS, Concurrent Version System) implementa funcionalidades de un sistema de control: Registra todo trabajo y modificaciones en un conjunto de archivos, típicamente la implementación de un proyecto de software, y permite la colaboración a varios desarrolladores (que pueden estar a larga distancia)."
 
 #: programming/tools/gdb::summary
 msgid "GNU debugger"
-msgstr ""
+msgstr "Depurador GNU"
 
 #: programming/tools/gdb::description
 msgid "GDB, the GNU Project debugger, allows you to see what is going on `inside' another program while it executes -- or what another program was doing at the moment it crashed."
-msgstr ""
+msgstr "GDB, el proyecto depurador GNU permite ver lo que está pasando \"dentro\" de otro programa, mientras se está ejecutando -- o lo que algun otro programa estaba haciendo, mientras se colgaba."
 
 #: programming/tools/cgdb::summary
 msgid "A curses frontend for GDB"
-msgstr ""
+msgstr "Interfaz curses para GDB"
 
+# # some free translations - and doubts, please proofread
+# # responsive, encumbered, deliver.., split screen, ..at home
 #: programming/tools/cgdb::description
 msgid "An ncurses frontend for the GNU debugger (GDB). The goal of CGDB is to be lightweight and responsive; not encumbered with unnecessary features. The interface is designed to deliver the familiar GDB text interface, with a split screen showing the source as it executes. If you are a VI user, you will feel at home with CGDB "
-msgstr ""
+msgstr "Una interfaz ncurses para el depurador GNU GDB. La finalidad de CGDB es de que sea liviano y rápido, no sobrecargado con funciones innecesarios. El diseño de la interfaz muestra la familiar interfaz GDB en formato texto, con una pantalla dividida que muestra el código fuente, mientras se está ejecutando. Si está acostumbrado al VI, se sentirá cómodo en el uso de CGDB"
 
 #: programming/tools/diffstat::summary
 msgid "Diffstat reads the output of the diff command and displays a histogram of the insertions, deletions, and modifications in each file."
-msgstr ""
+msgstr "Diffstat lee la salida del comando diff y muestra un histograma de inserciones, borrados y  modificaciones en cada archivo."
 
+# # i skipped "patch" tal vez hay una mejor forma de decir todo completo
 #: programming/tools/diffstat::description
 msgid "Diffstat reads the output of the diff command and displays a histogram of the insertions, deletions, and modifications in each file.Diffstat is commonly used to provide a summary of the changes in large, complex patch files."
-msgstr ""
+msgstr "Diffstat lee la salida del comando diff y muestra un histograma de inserciones, borrados y  modificaciones en cada archivo. Se usa comúnmente para mostrar un resumen de las modificaciones en archivos lagos y complejos."
 
 #: programming/tools/ctags::summary
 msgid "Exuberant Ctags generates an index (or tag) file of objects found in source and header files."
-msgstr ""
+msgstr "Exuberant Ctags genera un archivo de índice (o tag) de objetos encontrados en archivos de fuente y cabeceras."
 
 #: programming/tools/ctags::description
 msgid "Exuberant Ctags generates an index (or tag) file of objects found in source and header files that allows these items to be quickly and easily located by a text editor or other utility. Currently supports 33 programming languages."
-msgstr ""
+msgstr "Exuberant Ctags genera un archivo de índice (o tag) de objetos encontrados en archivos de fuente y cabeceras, para localizar fácilmente estos ítemes con un editor de texto u otra herramienta. Actualmente soporta 33 lenguajes de programación."
 
 #: programming/tools/lsof::summary
 msgid "Lists open files for running Unix processes"
-msgstr ""
+msgstr "Lista archivos abiertos por procesos activos en Unix"
 
 #: programming/tools/lsof::description
 msgid "Lsof is a Unix-specific diagnostic tool. Its name stands for LiSt Open Files, and it does just that. It lists information about any files that are open by processes currently running on the system. It can also list communications open by each process."
-msgstr ""
+msgstr "Lsof es una herramienta de diagnostica específica de Unix. Su nombre quiere decir LiSt Open files (listar archivos abiertos), y hace justamente esto. Genera una lista con información sobre cada archivo abierto por procesos que están activos en el sistema. También puede listar comunicaciones abiertas por cada proceso."
 
 #: programming/tools/gperf::summary
 msgid "Perfect hash generator"
-msgstr ""
+msgstr "Generador de hash perfecto"
 
 #: programming/tools/gperf::description
 msgid "GNU gperf is a perfect hash function generator. For a given list of strings, it produces a hash function and hash table, in form of C or C++ code, for looking up a value depending on the input string. The hash function is perfect, which means that the hash table has no collisions, and the hash table lookup needs a single string comparison only."
-msgstr ""
+msgstr "GNU gperf es un generador de perfect hash. Produce una función hash y una tabla hash a base de una lista de cadenas, en forma de código C o C++ , para revisar valores dependiendo de una cadena de entrada. La función de hash es perfecta, lo que quiere decir que no hay colisiones en la tabla de hash, y para la búsqueda en la tabla hash se necesita solamente una comparación."
 
 #: programming/tools/qgit::summary
 msgid "A git GUI viewer built on Qt/C++"
-msgstr ""
+msgstr "Un visualizador git GUI programado con Qt/C++"
 
 #: programming/tools/qgit::description
 msgid "With qgit you will be able to browse revisions history, view patch content and changed files, graphically following different development branches."
-msgstr ""
+msgstr "Con qgit se puede navegar por los históricos de revisiones, ver contenido de parches y archivos modificados, siguiendo de manera gráfica las diferentes ramificaciones de desarrollo."
 
 #: programming/tools/valgrind::summary
 msgid "Memory access debugger for X86 and PPC Linux platforms"
-msgstr ""
+msgstr "Depurador de acceso a memoria para plataformas Linux X86 y PPC"
 
 #: programming/tools/valgrind::description
 msgid " Valgrind is an award-winning suite of tools for debugging and profiling Linux programs. With the tools that come with Valgrind, you can automatically detect many memory management and threading bugs, avoiding hours of frustrating bug-hunting, making your programs more stable. You can also perform detailed profiling, to speed up and reduce memory use of your programs."
-msgstr ""
+msgstr "Valgrind es una suite destacada de herramientas para depurar y perfilar programas en Linux. Con las herramientas de Valgrind puede detectar automaticamente muchos errores de administración de memoria y de hilos, evitando horas frustradas de rastreo de errores, asegurando así la estabilidad de sus programas. También puede perfilar detalladamente, para acelerar y reducir el consumo de memoria de sus programas."
 
 #: programming/tools/jam::summary
 msgid "Just Another Make"
-msgstr ""
+msgstr "Just Another Make"
 
 #: programming/tools/jam::description
 msgid "Advanced replacement for the development tool \"make\""
-msgstr ""
+msgstr "Reemplazo avancado para la herramienta de desarrollo \"make\""
 
 #: programming/tools/ltrace::summary
 msgid "Shows runtime library calls for dynamically linked executables"
-msgstr ""
+msgstr "Muestra llamadas de librerías runtime de ejecutables con enlace dinámico"
 
 #: programming/tools/ltrace::description
 msgid " ltrace is a debugging program which runs a specified command until it exits. While the command is executing, ltrace intercepts and records the dynamic library calls which are called by the executed process and the signals received by that process. It can also intercept and print the system calls executed by the program."
-msgstr ""
+msgstr "Itrace es un programa de depuración que ejecuta un comando especificado hasta que termina. Durante la ejecución del programa Itrace intercepta y registra llamadas a librerías dinámicas realizados por el proceso en ejecución, y las señales recibidos. Tambien puede interceptar e imprimir llamadas al sistema realizados por el programa."
 
 #: programming/tools/esvn::summary
 msgid "GUI frontend to the Subversion revision system."
-msgstr ""
+msgstr "Fontend GUI al sistema de revisión Subversion."
 
 #: programming/tools/esvn::description
-#, fuzzy
 msgid "Frontend for the Subversion revision system written in Qt"
-msgstr ""
+msgstr "Fontend GUI al sistema de revisión Subversion, hecho en Qt"
 
 #: programming/tools/mercurial::summary
 msgid "A distributed SCM tool"
-msgstr ""
+msgstr "Herramienta SCM distribuida"
 
 #: programming/tools/mercurial::description
 msgid "A fast, lightweight Source Control Management system designed for efficient handling of very large distributed projects."
-msgstr ""
+msgstr "Un sistema rápido y liviano de administración de fuentes (Source Control Management) diseñado para manejo eficaz de proyectos muy largos y distribuidos."
 
 #: programming/tools/kdbg::summary
 msgid "KDbg is a graphical user interface to gdb"
-msgstr ""
+msgstr "KDbg es una interfaz gráfica para gdb"
 
+# # traducido un poco libre: breakpoints, stepping through the code
 #: programming/tools/kdbg::description
 msgid "KDbg is a graphical user interface to gdb, the GNU debugger. It provides an intuitive interface for setting breakpoints, inspecting variables, and stepping through code."
-msgstr ""
+msgstr "KDbg es una interfaz gráfica para gdb, el depurador GNU. Provee una interfáz intuitiva para colocar puntos de parada (breakpoints), variables de inspección, y ejecución paso a paso."
 
 #: programming/tools/doxygen::summary
 msgid "Documentation and analysis tool for C++, C, Java, IDL, PHP and C#"
-msgstr ""
+msgstr "Herramienta de documentación y análisis para C++, C, Java, IDL, PHP and C#"
 
+# # my doubts: flavor, to some extent
 #: programming/tools/doxygen::description
 msgid "Doxygen is a documentation system for C++, C, Java, Objective-C, Python, IDL (Corba and Microsoft flavors) and to some extent PHP, C#, and D."
-msgstr ""
+msgstr "Doxygen es un sistema de documentación para C++, C, Java, Objective-C, Python, IDL (versiones Corba y Microsoft) y hasta cierto punto también PHP, C#, y D."
 
 #: programming/tools/systemtap::summary
 msgid "SystemTap provides free software (GPL) infrastructure to simplify the gathering of information about the running Linux kernel."
-msgstr ""
+msgstr "SystemTap provee una infraestructura libre (GPL) para simplificar la recolección de información sobre el kernel de Linux en ejecución."
 
 #: programming/tools/unsermake::summary
 msgid "Build system"
@@ -646,67 +661,73 @@ msgstr ""
 
 #: programming/tools/unsermake::description
 msgid "Yet another make alike used by some KDE applications"
-msgstr ""
+msgstr "Otro similar a make, usado por algunas aplicaciones KDE"
 
 #: programming/tools/sysprof::summary
 msgid "Sysprof is a sampling profiler that uses a kernel module to generate stacktraces"
-msgstr ""
+msgstr "Sysprof es un perfilador de muestreo que utiliza un módulo de kernel para generear stacktraces"
 
 #: programming/tools/patchutils::summary
 msgid "Patchutils contains a collection of tools for manipulating patch files"
-msgstr ""
+msgstr "Patchutils contiene una colección de herramientas para manipular archivos de parches"
 
 #: programming/tools/patchutils::description
 msgid "Patchutils contains a collection of tools for manipulating patch files: interdiff, combinediff, flipdiff, filterdiff, fixcvsdiff, rediff, lsdiff, grepdiff, splitdiff, recountdiff, and unwrapdiff."
-msgstr ""
+msgstr "Patchutils contiene una colección de herramientas para manipular archivos de parches: interdiff, combinediff, flipdiff, filterdiff, fixcvsdiff, rediff, lsdiff, grepdiff, splitdiff, recountdiff, y unwrapdiff."
 
+# # free translation, like: Frontend for GIT, more user-friendly
+# # dogru mu anladim ?
 #: programming/tools/cogito::summary
 msgid "GIT için daha insancıl bir arayüz"
-msgstr ""
+msgstr "Frontend para GIT más amigable"
 
+# # my doubt: standalone code..
 #: programming/tools/dev86::summary
 msgid "Development environment for ELKS-86 and standalone 8086 code"
-msgstr ""
+msgstr "Entorno de desarrollo para ELKS-86 y código independiente 8086"
 
 #: programming/tools/quilt::summary
 msgid "The scripts allow to manage a series of patches by keeping track of the changes each patch makes. Patches can be applied, un-applied, refreshed, etc. "
-msgstr ""
+msgstr "El script permite manejar una serie de parches, registrando las modificaciones que realiza cada parche. Parches pueden ser aplicadas, revertidos, refrescados, etc,"
 
 #: programming/tools/translate-toolkit::summary
 msgid "Helper applications for translations"
-msgstr ""
+msgstr "Aplicación auxiliar para traducciones"
 
 #: programming/tools/SVK::summary
 msgid "SVK is a decentralized version control system built with the robust Subversion filesystem."
-msgstr ""
+msgstr "SVK es un sistema de control de versiones decentralizado, hecho con el sistema sistema de archivos Subversion."
 
 #: programming/tools/SVK::description
 msgid "It supports repository mirroring, disconnected operation, history-sensitive merging, and integrates with other version control systems, as well as popular visual merge tools."
-msgstr ""
+msgstr "Con soporte para espejado de repositorios, operación desconectada, unión atendiendo el histórico, e integra con otros sistemas de control de versiones, tanto como con herramientas visuales populares para la unión."
 
 #: programming/tools/cdecl::summary
 msgid "Turn English phrases to C or C++ declarations"
-msgstr ""
+msgstr "Convierte frases ingléses a declaciones C o C++ "
 
+# # some doubts, favor revisar
 #: programming/tools/cdecl::description
 msgid "Cdecl composes compilable C declarations and typecasts from descriptive English phrases, and can also explain a complicated typecast or declaration."
-msgstr ""
+msgstr "Cdecl compone declaraciones C para compilar, y typecasts desde frases descriptivas en inglés, y también puede explicar una typecast o declaración complicada."
 
 #: programming/tools/qconf::summary
 msgid "Autotools scripts generator for qmake-based projects"
-msgstr ""
+msgstr "Generador de scripts Autotools para proyectos basados en qmake"
 
+# # la ultima parte no me suena bien, favor revisar
 #: programming/tools/qconf::description
 msgid "QConf allows you to have a nice configure script for qmake-based projects. It is intended for developers who don’t need (or want) to use GNU autotools. With qconf/qmake, it is easy to maintain a cross-platform project that uses a familiar configuration interface on UNIX."
-msgstr ""
+msgstr "QConf le permite obtener un script de configuracióń para proyectos basados en qmake. Es dirigido a desarrolladores que no necesitan (o no quieren) usar GNU autotools. Con qconf/qmake es fácil mantener un proyecto cross-plataforma que usa una interfaz familiar de Unix."
 
 #: programming/languages/java/sun-java::summary
 msgid "Sun's J2SE Development Kit"
-msgstr ""
+msgstr "Kit de desarrollo J2SE de Sun"
 
+# # mis dudas: deploy, desktop
 #: programming/languages/java/sun-java::description
 msgid "Java Platform, Standard Edition (also known as Java 2 Platform) lets you develop and deploy Java applications on desktops and servers, as well as today's demanding Embedded and Real-Time environments."
-msgstr ""
+msgstr "Plataforma Java, Standard Edition (también conocido como plataforma java 2) le permite desarrollar y distribuir aplicaciones Java en estaciones de trabajo y servidores, y tambien en entornos embebidos para aplicaciones en tiempo real."
 
 #: programming/languages/java/db4-java::summary
 msgid "Java bindings for Berkeley DB"
@@ -714,11 +735,11 @@ msgstr ""
 
 #: programming/languages/java/icu4j::summary
 msgid "International Components for Unicode (Java version)"
-msgstr ""
+msgstr "Componentes de internacionalización para Unicode (versión Java)"
 
 #: programming/languages/java/icu4j::description
 msgid "ICU4J is a mature, widely used set of Java libraries for Unicode support, software internationalization and globalization (i18n/g11n)."
-msgstr ""
+msgstr "ICU4J es un conjunto de librerías maduras, y de uso común, para Java con soporte Unicode, para internacionalización y globalización de software (i18n/g11n)."
 
 #: programming/languages/java/qtjambi::summary
 msgid "A cross-platform, rich client application development framework for Java"
@@ -726,19 +747,19 @@ msgstr ""
 
 #: programming/languages/python/pysvn::summary
 msgid "Python SVN Tools"
-msgstr ""
+msgstr "Herramientas Python SVN"
 
 #: programming/languages/python/pysvn::description
 msgid " Python SVN Extension and WorkBench GUI. The pysvn project's goal is to enable Tools to be written in Python that use Subversion."
-msgstr ""
+msgstr "Extensiones Python de SVN y GUI WorkBench. El proyecto pysvn permite realizar herramientas escritos en Python para uso con Subversion."
 
 #: programming/languages/python/pyaspects::summary
 msgid "Aspect-Oriented development for Python"
-msgstr ""
+msgstr "Desarrollo Aspect-Oriented para Python"
 
 #: programming/languages/python/pyaspects::description
 msgid "Aspect-Oriented Development modules for Python."
-msgstr ""
+msgstr "Módulos Python para desarrollo Aspect-Oriented."
 
 #: programming/languages/python/Twisted::summary
 msgid "Event driven network framework"
@@ -746,151 +767,163 @@ msgstr ""
 
 #: programming/languages/python/Twisted::description
 msgid "Twisted is an event-driven networking framework written in Python and licensed under the MIT license. Twisted projects variously support TCP, UDP, SSL/TLS, multicast, Unix sockets, a large number of protocols (including HTTP, NNTP, IMAP, SSH, IRC, FTP, and others), and much more."
-msgstr ""
+msgstr "Twisted es un entorno de redes controlado por eventos, escrito en Python y licenciado bajo la licencia MIT. Los proyectos Twisted soportan TCP, UDP, SSL/TLS, multicast, Unix sockets, una gran cantidad de protocolos (incluyendo HTTP, NNTP, IMAP, SSH, IRC, FTP, y otros), y mucho más."
 
 #: programming/languages/python/mysql-python::summary
 msgid "MySQL module for Python"
-msgstr ""
+msgstr "Módulo MySQL para Python"
 
 #: programming/languages/python/mysql-python::description
 msgid "MySQL module for Python in order to connect to MySQL database"
-msgstr ""
+msgstr "Módulo MySQL para Python conexión con la base de datos MySQL"
 
 #: programming/languages/python/pyid3lib::summary
 msgid "ID3 support for Python"
-msgstr ""
+msgstr "Soporte ID3 para Python"
 
 #: programming/languages/python/pyid3lib::description
 msgid "Python modules to read and manipulate ID3 tags."
-msgstr ""
+msgstr "Módulos de Python para leer y manipular tags ID3."
 
 #: programming/languages/python/pydelicious::summary
 msgid "pydelicious allows you to access the web service of del.icio.us via it's API through python"
-msgstr ""
+msgstr "pydelicious permite acceder al API del servicio web del.icio.us con python."
 
 #: programming/languages/python/pydelicious::description
 msgid "pydelicious allows you to access the web service of del.icio.us via it's API through python."
-msgstr ""
+msgstr "pydelicious permite acceder al API del servicio web del.icio.us con python."
 
 #: programming/languages/python/pycrypto::summary
 msgid "Python Cryptography Toolkit"
-msgstr ""
+msgstr "Herramientas de criptografía Python"
 
 #: programming/languages/python/pycrypto::description
 msgid "Python Cryptography Toolkit is a collection of cryptographic algorithms and protocols, implemented for use from Python."
-msgstr ""
+msgstr "Python Cryptography Toolkit es una colección de algoritmos y protocolos para criptografía, para uso con Python."
 
 #: programming/languages/python/python-imaging::summary
 msgid "Python Imaging Library (PIL)"
-msgstr ""
+msgstr "Librería Python Imaging (PIL)"
 
 #: programming/languages/python/python-imaging::description
 msgid "The Python Imaging Library (PIL) adds image processing capabilities to your Python interpreter. This library supports many file formats, and provides powerful image processing and graphics capabilities."
-msgstr ""
+msgstr "La librería Python Imaging Library (PIL) facilita el procesamiento de imágenes desde Python. Esta librería soporta muchos formatos de archivos y provee potentes facilidades de procesamiento de gráficos."
 
 #: programming/languages/python/pyopenssl::summary
 msgid "Python interface to the OpenSSL library"
-msgstr ""
+msgstr "Interfáz Python a la librería OpenSSL"
 
+# # mis dudas: wrapper
+# # y además está un poco libre, favor revisar
 #: programming/languages/python/pyopenssl::description
 msgid "This module is a rather thin wrapper around (a subset of) the OpenSSL library. A lot of the object methods do nothing more than calling a corresponding function in the OpenSSL library."
-msgstr ""
+msgstr "Este módulo es más bien una capa de acceso liviana a (un subconjunto de) la librería OpenSSL. Muchos de los métodos de objetos simplemente llaman las funciones correspondientes de la librería OpenSSL."
 
+# # does it have to say exactly zope.interface ?
 #: programming/languages/python/ZopeInterface::summary
 msgid "zope.interface library"
-msgstr ""
+msgstr "Libería de interfaz zope."
 
+# # some doubt about "them"
+# #
 #: programming/languages/python/ZopeInterface::description
 msgid "Interfaces are objects that specify (document) the external behavior of objects that provide them."
-msgstr ""
+msgstr "Interfaces son objetos que especifican (documentan) el comportamiento externo de objetos que los proveen."
 
+# # verificar: templating
 #: programming/languages/python/cheetah::summary
 msgid "Templating module for Python"
-msgstr ""
+msgstr "Módulo de plantillas (templating) para Python"
 
 #: programming/languages/python/cheetah::description
 msgid "An advanced templating module for Python"
-msgstr ""
+msgstr "Módulo para plantillas avanzadas para Python"
 
 #: programming/languages/python/scapy::summary
 msgid "Powerful interactive packet manipulation program"
-msgstr ""
+msgstr "Programa interactivo y potente para la manipulación de paquetes"
 
 #: programming/languages/python/matplotlib::summary
 msgid "A 2D plotting library"
-msgstr ""
+msgstr "Librería para ploteo 2D"
 
 #: programming/languages/python/matplotlib::description
 msgid "Matplotlib is a python 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments across platforms. matplotlib can be used in python scripts."
-msgstr ""
+msgstr "Matplotlib es una librería python para ploteo 2D, que produce figuras con calidad de producción en varios formatos de archivos y entornos interactivos cross-platform. Se puede usar matplotlib en scripts de python."
 
 #: programming/languages/python/pyrex::summary
 msgid "A language for writing Python extension modules"
-msgstr ""
+msgstr "Lenguaje para escribir módulos de extensión de Python"
 
+# # mis dudas: messy
 #: programming/languages/python/pyrex::description
 msgid "Pyrex is a language specially designed for writing Python extension modules. It's designed to bridge the gap between the nice, high-level, easy-to-use world of Python and the messy, low-level world of C."
-msgstr ""
+msgstr "Pyrex es un lenguaje diseñado especialmente para escribir módulos de extension de Python. Está diseñado como puente entre el mundo lindo, de alto nivel, fácil de usar Python y el mundo complicado, de bajo nivel, de C."
 
 #: programming/languages/python/python-docs::summary
 msgid "HTML documentation for Python"
-msgstr ""
+msgstr "Documentación de Python en formato HTML"
 
 #: programming/languages/python/python-docs::description
 msgid "Python documentation files include tutorials for beginners, global module index, library reference, Machintosh library modules, languange reference, tutorials for C/C++ programmers and other concepts about Pyhton."
-msgstr ""
+msgstr "Documentación de Python incluye tutoriales para principiantes, índice global de módulos, referencia de librerías, módulos de librerías Macintosh, referencia de lenguaje, tutoriales para programadores C/C++ y otros conceptos acerca de Pyhton."
 
 #: programming/languages/python/numpy::summary
 msgid "The fundamental package needed for scientific computing with Python"
-msgstr ""
+msgstr "El paquete fundamental para computación scientifica con Python"
 
 #: programming/languages/python/numpy::description
 msgid "Numpy contains a powerful N-dimensional array object, sophisticated (broadcasting) functions, tools for integrating C/C++ and Fortran code, and useful linear algebra, Fourier transform, and random number capabilities."
-msgstr ""
+msgstr "Numpy contiene un potente objeto de array N-dimensional, funciones sofisticadas (broadcasting), herramientas para la integración de código C/C++ y Fortran, y facilidades útiles de algebra lineal, transformación Fourier, y número aleatorios."
 
+# # como mejor decir full-featured ?
 #: programming/languages/python/SOAPpy::summary
 msgid "A full-featured SOAP library for Python"
-msgstr ""
+msgstr "Librería SOAP para Python"
 
+# # favor revisar
 #: programming/languages/python/SOAPpy::description
 msgid "SOAPpy is a full-featured SOAP library for Python that is very simple to use and that fully supports dynamic interaction between clients and servers."
-msgstr ""
+msgstr "SOAPpy es una librería SOAP para Python, plenamente funcional y muy simple de usar, que soporta plenamente interacción dinámica entre clientes y servidores."
 
+# # free translation, trying to keep it short..
 #: programming/languages/python/psyco::summary
 msgid "A Python extension module which can massively speed up the execution of any Python code"
-msgstr ""
+msgstr "Módulo de extensión Python para aceleración de ejecución de codigo Python"
 
 #: programming/languages/python/psyco::description
 msgid "Psyco is a Python extension module which can massively speed up the execution of any Python code."
-msgstr ""
+msgstr "Psyco es un módulo de extensión de Python que puede mejorar bastante la velocidad de ejecución de cualquier código Python."
 
 #: programming/languages/python/fpconst::summary
 msgid "A python module implements constants and functions for working with IEEE754 double-precision special values"
-msgstr ""
+msgstr "Módulo Python con constantes y funciones para procesamiento de valores doble precisión según IEEE754"
 
+# # test for - traducir diferente: identificación ??
 #: programming/languages/python/fpconst::description
 msgid "Fpconst is a python module implementing constants and functions for working with IEEE754 double-precision special values. It provides constants for Not-a-Number (NaN), Positive Infinity (Inf), and Negative Infinity (-Inf), as well as functions to test for these values."
-msgstr ""
+msgstr "Fpconst es un módulo python que implementa constantes y funciones para uso con valores de doble precisión según IEEE754. Provee constantes para Not-a-Number (NaN), Positive Infinity (Inf), y Negative Infinity (-Inf), y también funciones para verificación de tales valores."
 
 #: programming/languages/python/aggdraw::summary
 msgid "Python interface to Agg library"
-msgstr ""
+msgstr "Interfaz Python con la librería Agg"
 
 #: programming/languages/python/aggdraw::description
 msgid "The aggdraw module implements high-quality drawing, with anti-aliasing and alpha compositing."
-msgstr ""
+msgstr "El módulo aggdraw implementa dibujo de alta calidad, para composiciones usando anti-aliasing y alpha."
 
+# # framework, se puede decir asi
 #: programming/languages/python/cherrypy::summary
 msgid "Pythonic, object-oriented web development framework."
-msgstr ""
+msgstr "Pythonic, entorno de desarrollo web orientado a objetos."
 
 #: programming/languages/python/cherrypy::description
 msgid "CherryPy allows developers to build web applications in much the same way they would build any other object-oriented Python program. This usually results in smaller source code developed in less time."
-msgstr ""
+msgstr "CherryPy permite crear aplicaciones web de practicamente igual manera como se desarrollaría un programa en Python orientado a objetos. Así generalmente se obtiene resultados con menos código fuente, y en menor tiempo."
 
 #: programming/languages/python/pylzma::summary
 msgid "Python LZMA compression module"
-msgstr ""
+msgstr "Módulo Python de compresión LZMA"
 
 #: programming/languages/python/pylzma::description
 msgid "Platform independent python bindings for the LZMA compression library."
@@ -898,31 +931,33 @@ msgstr ""
 
 #: programming/languages/python/pychecker::summary
 msgid "Python source code checker..."
-msgstr ""
+msgstr "Comprobador para cosigo fuente Python..."
 
+# # find bugs - and debug - can i use it the same ?
 #: programming/languages/python/pychecker::description
 msgid " PyChecker is a tool for finding bugs in python source code. It finds problems that are typically caught by a compiler for less dynamic languages, like C and C++"
-msgstr ""
+msgstr "PyChecker es una herramienta para buscar depurar código fuente Python. Encuentra problemas que típicamente suelen encontrar compiladores de lenguajes menos dinámicas, como C y C++"
 
 #: programming/languages/python/notify-python::summary
 msgid "libnotify's Python bindings"
 msgstr ""
 
+# # verificar..
 #: programming/languages/python/notify-python::description
 msgid " Galago is a desktop presence framework, designed to transmit presence information between programs. To put it in simpler terms, it takes information on who is online and their away/idle states from an instant messenger (such as gaim) or other similar programs and lets other programs (such as Evolution) to make use of it."
-msgstr ""
+msgstr "Galego es un entorno de presencia de escritorio, diseñado para transmitir informaciones entre programas. En términos sencillos: Puede tomar información sobre quien está en linea, y el estado ausente/inactivo de un programa de mensajería instantánea, como pidgin o similar, y pasar la información a otros programas (ejemplo Evolution) para hacer uso de ello."
 
 #: programming/languages/python/setuptools::summary
 msgid "Python setuptools"
-msgstr ""
+msgstr "Herramientas Python setup"
 
 #: programming/languages/python/setuptools::description
 msgid " setuptools is a collection of enhancements to the Python distutils that allow you to more easily build and distribute Python packages, especially ones that have dependencies on other packages."
-msgstr ""
+msgstr "setuptools es una colección de mejoras a Python distutils, que simplifican la creación y distribución de paquetes Python, especialmente en caso que estén dependientes de otros paquetes."
 
 #: programming/languages/python/pygame::summary
 msgid "Python game library"
-msgstr ""
+msgstr "Librería Python game"
 
 #: programming/languages/python/pygame::description
 msgid "Python bindings to sdl and other libs that facilitate game production"
@@ -930,11 +965,11 @@ msgstr ""
 
 #: programming/languages/python/docutils::summary
 msgid "A library for processing plaintext documentation."
-msgstr ""
+msgstr "Librería para procesamiento de documentación de texto plano."
 
 #: programming/languages/python/docutils::description
 msgid "A library for processing plaintext documentation into useful formats, such as HTML, XML, and LaTeX."
-msgstr ""
+msgstr "Librería para procesamiento de texto plano para conversión a formatos útiles como HTML, XML, y LaTeX."
 
 #: programming/languages/python/Django::summary
 msgid "Django web framework"
@@ -946,11 +981,11 @@ msgstr ""
 
 #: programming/languages/python/numeric::summary
 msgid "Python addon"
-msgstr ""
+msgstr "Agregado Python"
 
 #: programming/languages/python/numeric::description
 msgid "Numerical Python adds a fast, compact, multidimensional array language facility to Python"
-msgstr ""
+msgstr "Numerical Python agrega facilidades de un lenguaje rápido, compacto, para arrays multidimensionales"
 
 #: programming/languages/python/pysqlite::summary
 msgid "Python sqlite bindings"
@@ -963,27 +998,27 @@ msgstr ""
 
 #: programming/languages/python/paramiko::summary
 msgid "SSH2 implementation for Python"
-msgstr ""
+msgstr "Implementación SSH2 para Python"
 
 #: programming/languages/python/paramiko::description
 msgid "paramiko is a module for python 2.2 (or higher) that implements the SSH2 protocol for secure (encrypted and authenticated) connections to remote machines."
-msgstr ""
+msgstr "paramiko es un módulo para python 2.2 (o posterior) que implementa el protocolo SSH2 para conexiones seguras (encriptado y autenticado) con equipos remotos."
 
 #: programming/languages/python/pyPdf::summary
 msgid "A Pure-Python library built as a PDF toolkit"
-msgstr ""
+msgstr "Libería Pure-Python construido como herramienta PDF"
 
 #: programming/languages/python/pyPdf::description
 msgid "A Pure-Python library built as a PDF toolkit. It is capable of:extracting document information (title, author, ...),splitting documents page by page,merging documents page by page,cropping pages,merging multiple pages into a single page."
-msgstr ""
+msgstr "Libería Pure-Python construido como herramienta PDF. Es capaz de: extracción de informatión de documento (título, autor, ...), separación de páginas del documento, unión de documentos página por página, recortando páginas, unión de páginas múltiples en una sola página."
 
 #: programming/languages/python/python-iptables::summary
 msgid "IPTables configuration module for Python"
-msgstr ""
+msgstr "Módulo Python para configuración de IPTables"
 
 #: programming/languages/python/PyX::summary
 msgid "A Python package for the creation of PostScript and PDF files"
-msgstr ""
+msgstr "Paquete Python para la creación de archivos PostScript y PDF"
 
 #: programming/languages/python/tagpy::summary
 msgid "Python bindings for taglib"
@@ -995,19 +1030,19 @@ msgstr ""
 
 #: programming/languages/python/urwid::summary
 msgid "Console user interface library for Python"
-msgstr ""
+msgstr "Librería Python para interfaces de usuario en consola"
 
 #: programming/languages/python/urwid::description
 msgid "Console user interface library for Python, with many features like UTF-8 support and HTML screenshot."
-msgstr ""
+msgstr "Librería Python para interfaces de usuario en consola, con muchas facilidades como soporte UTF-8 y captura de pantalla HTML."
 
 #: programming/languages/python/pycallgraph::summary
 msgid "A library that creates call graphs for Python programs."
-msgstr ""
+msgstr "Librería que genera gráficos de llamadas para programas Python."
 
 #: programming/languages/python/pyao::summary
 msgid "Libao for python"
-msgstr ""
+msgstr "Libao para python"
 
 #: programming/languages/python/pyao::description
 msgid "Python bindings for libao audio library."
@@ -1015,7 +1050,7 @@ msgstr ""
 
 #: programming/languages/python/pyalsaaudio::summary
 msgid "Python ALSA module"
-msgstr ""
+msgstr "Módulo Python ALSA"
 
 #: programming/languages/python/pyalsaaudio::description
 msgid "A Python wrapper for the ALSA API"
@@ -1023,7 +1058,7 @@ msgstr ""
 
 #: programming/languages/python/pyvorbis::summary
 msgid "Python ogg.vorbis support"
-msgstr ""
+msgstr "Soporte ogg.vorbis para Python"
 
 #: programming/languages/python/pyvorbis::description
 msgid "Python bindings for the ogg.vorbis library."
@@ -1031,15 +1066,15 @@ msgstr ""
 
 #: programming/languages/python/gnuplot-py::summary
 msgid "Python interface to gnuplot"
-msgstr ""
+msgstr "Interfaz Python a gnuplot"
 
 #: programming/languages/python/pyv4l::summary
 msgid "V4L for Python"
-msgstr ""
+msgstr "V4L para Python"
 
 #: programming/languages/python/pyv4l::description
 msgid "V4L (Video for Linux) modules for Python."
-msgstr ""
+msgstr "Módulos Python para V4L (Video for Linux)."
 
 #: programming/languages/python/feedparser::summary
 msgid "RSS/ATOM feed parser in Python"
@@ -1047,7 +1082,7 @@ msgstr ""
 
 #: programming/languages/python/FormEncode::summary
 msgid "FormEncode is a validation and form generation package for Python"
-msgstr ""
+msgstr "FormEncode es un paquete Python de validación y generación de formularios"
 
 #: programming/languages/python/PyQt4::summary
 msgid "set of Python bindings for the Qt 4.x Toolkit"
@@ -1055,15 +1090,15 @@ msgstr ""
 
 #: programming/languages/python/PyQt4::description
 msgid "Qt is a set of C++ libraries and development tools that includes platform independent abstractions for graphical user interfaces, networking, threads, Unicode, regular expressions, SQL databases, SVG, OpenGL, XML, and user and application settings. PyQt implements 440 of these classes as a set of Python modules."
-msgstr ""
+msgstr "Qt es un conjunto de librerías C++ y herramientas de desarrollo que incluye abstracción independiente de la plataforma, para interfaces de usuarios gráficos, redes, hilos, Unicode, expresiones regulares, bases de datos SQL, SVG, OpenGL, XML, y configuraciones de usuario y de aplicaciones. PyQt implementa 440 de estas clases como conjunto de módulos Python."
 
 #: programming/languages/python/simplejson::summary
 msgid "Simple, fast, extensible JSON encoder/decoder for Python."
-msgstr ""
+msgstr "Codificado/deciodificador JSON simple, rápido, extensible, para Python."
 
 #: programming/languages/python/pyogg::summary
 msgid "Python ogg support"
-msgstr ""
+msgstr "Soporte ogg para Python"
 
 #: programming/languages/python/pyogg::description
 msgid "Python bindings for the ogg library."
@@ -1079,7 +1114,7 @@ msgstr ""
 
 #: programming/languages/python/PyICU::summary
 msgid "Python interface for ICU library"
-msgstr ""
+msgstr "Interfaz Python para la librería ICU"
 
 #: programming/languages/python/sip::summary
 msgid "SIP is a tool for generating bindings for C++ classes so that they can be used by Python."
@@ -1099,67 +1134,70 @@ msgstr ""
 
 #: programming/languages/python/pyosd::summary
 msgid "Xosd Python module"
-msgstr ""
+msgstr "Módulo Python Xosd"
 
 #: programming/languages/python/pyosd::description
 msgid "PyOSD is a python module for displaying text on your X display, much like the 'On Screen Displays' used on TVs and some monitors."
-msgstr ""
+msgstr "PyOSD es un módulo Python para mostrar texto en X display, similar a  'Texto en pantalla' usado en TV y algunos monitores."
 
 #: programming/languages/python/python-ldap::summary
 msgid "Various LDAP-related Python modules"
-msgstr ""
+msgstr "Varios módulos Python relacionados con LDAP"
 
 #: programming/languages/python/python-ldap::description
 msgid "Various LDAP-related Python modules"
-msgstr ""
+msgstr "Varios módulos Python relacionados con LDAP"
 
 #: programming/languages/python/PyXML::summary
 msgid "Python XML module"
-msgstr ""
+msgstr "Módulo Python XML "
 
 #: programming/languages/python/PyXML::description
 msgid "The PyXML package is a collection of libraries to process XML with Python."
-msgstr ""
+msgstr "El paquete PyXML es ujjna colección de librerías para procesar XML en Python."
 
 #: programming/languages/python/chardet::summary
 msgid "Character encoding auto-detection in Python"
-msgstr ""
+msgstr "Detección automatica de codificación de caracteres en Python"
 
+# # sounds very strange in english, why "grammars" ?
 #: programming/languages/python/pyparsing::summary
 msgid "Python module for creating and executing simple grammars."
 msgstr ""
 
 #: programming/languages/python/pardus-python::summary
 msgid "Python modules for Pardus"
-msgstr ""
+msgstr "Módulos Python para Pardus"
 
+# # english grammar - should say: "..provide functions.."
 #: programming/languages/python/pardus-python::description
 msgid "Python modules for Pardus provides functions for common task, with the aim of easing development."
-msgstr ""
+msgstr "Módulos Python para Pardus facilitan funciones para tareas comunes, para simplificar el desarrollo."
 
 #: programming/languages/python/python-xlib::summary
 msgid "Xlib for Python"
-msgstr ""
+msgstr "Xlib para Python"
 
 #: programming/languages/python/python-xlib::description
 msgid "X client library Python modules."
-msgstr ""
+msgstr "Módulos Python para librerías de cliente X."
 
 #: programming/languages/python/pexpect::summary
 msgid "pexpect library"
-msgstr ""
+msgstr "librería pexpect"
 
 #: programming/languages/python/pexpect::description
 msgid "Pexpect makes Python a better tool for controlling other applications."
-msgstr ""
+msgstr "Pexpect le facilita a Python mejor control sobre otras aplicaciones."
 
 #: programming/languages/python/pyinotify::summary
 msgid "pyinotify is a Python module for watching filesystems changes"
-msgstr ""
+msgstr "pynotify es un módulo Python para observar cambios del sistema de archivos"
 
+# # quizá dejar en ingles - kernel-space, user-space ??
 #: programming/languages/python/pyinotify::description
 msgid "pyinotify is a Python module for watching filesystems changes. pyinotify can be used for various kind of fs monitoring. pyinotify relies on a recent Linux Kernel feature (merged in kernel 2.6.13) called inotify. inotify is an event-driven notifier, its notifications are exported from kernel space to user space. "
-msgstr ""
+msgstr "pyinotify es un módulo Python para observar cambios del sistema de archivos. pyinotify puede ser utilizado para varias formas de monitoreo de fs. pyinotify depende una facilidad reciente del kernel de Linux(desde kernel 2.6.13) llamado inotify. inotify es un notificador, actuado popr eventos, las notificaciones se exportan desde el espacio de kernel al espacio de usuario. "
 
 #: programming/languages/python/mechanize::summary
 msgid "Stateful programmatic web browsing in Python"
@@ -11701,3 +11739,4 @@ msgstr ""
 #: kernel-xen/domU/kernel-domU::description
 msgid "User domain Xen-enabled kernel allows Pardus to run on the Xen virtual machine's user domain. This kernel cannot be booted as the first operating system on Xen, it must be booted from domain 0 and does not have direct access to hardware, but it's smaller than the domain 0 kernel."
 msgstr ""
+

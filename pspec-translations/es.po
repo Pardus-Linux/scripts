@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2007-10-05 21:10-0400\n"
+"PO-Revision-Date: 2007-10-07 21:16-0400\n"
 "Last-Translator: Klemens <click3d_at_linuxmail_org>\n"
 "Language-Team: español <es@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -992,9 +992,9 @@ msgid "Python sqlite bindings"
 msgstr ""
 
 #: programming/languages/python/pysqlite::description
-#, fuzzy
+# dudas: compliant, 
 msgid "pysqlite is a DB-API 2.0-compliant database interface for SQLite. pysqlite makes the powerful embedded SQL engine SQLite available to Python programmers. It stays compatible with the Python database API specification 2.0 as much as possible, but also exposes most of SQLite's native API, so that it is for example possible to create user-defined SQL functions and aggregates in Python."
-msgstr ""
+msgstr "pysqlite es una interfaz para SQLite, compatible con DB-API 2.0. pysqlite disponibiliza al potente y embebido motor SQLite a programadores de Python. Mantiene la mayor compatibilidad posible con la especificación del API 2.0 de bases de datos Python, pero también expone la mayoría del API nativo de SQLite, lo que permite por ejemplo crear funciones SQL definidos por el usuario, y agregados en Python."
 
 #: programming/languages/python/paramiko::summary
 msgid "SSH2 implementation for Python"
@@ -1209,27 +1209,28 @@ msgstr ""
 
 #: programming/languages/python/ClientForm::summary
 msgid "Python module for HTML Parsing"
-msgstr ""
+msgstr "Módulo Python para analizar HTML"
 
 #: programming/languages/python/ClientForm::description
+# mis dudas: parse, port (usar "transformación" no me suena bien)
 msgid "ClientForm is a Python module for handling HTML forms on the client side, useful for parsing HTML forms, filling them in and returning the completed forms to the server. It developed from a port of Gisle Aas' Perl module HTML::Form, from the libwww-perl library, but the interface is not the same."
-msgstr ""
+msgstr "ClientForm es un módulo Python para controlar formularios HTML del lado del cliente, lo que útil para analizar (parsear) formularios HTML, completarlos, y enviando el formulario completado al servidor. Se desarrolló como port del módulo Perl HTML::Form de Gisle Aas, de la librería libwww-perl, pero la interfaz es diferente."
 
 #: programming/languages/python/xmpppy::summary
 msgid "Python module for Jabber protocol"
-msgstr ""
+msgstr "Módulo Python para el protocolo Jabber"
 
 #: programming/languages/python/xmpppy::description
 msgid "A python library that is targeted to provide easy scripting with Jabber."
-msgstr ""
+msgstr "Librería Python que permite realizar fácilmente scripts con Jabber."
 
 #: programming/languages/python/pydns::summary
 msgid "DNS module for python."
-msgstr ""
+msgstr "Módulo DNS para Python."
 
 #: programming/languages/python/pydns::description
 msgid "A python library for performing DNS queries."
-msgstr ""
+msgstr "Librería Python para realizar consultas DNS."
 
 #: programming/languages/python/sexy-python::summary
 msgid "Python bindings for libsexy."
@@ -1241,167 +1242,174 @@ msgstr ""
 
 #: programming/languages/ruby::summary
 msgid "An object-oriented scripting language"
-msgstr ""
+msgstr "Lenguage Script, orientado a objetos"
 
 #: programming/languages/ruby::description
+# duda: natural
 msgid "Ruby is a dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is natural to read and easy to write."
-msgstr ""
+msgstr "Ruby es un lenguaje dinámico, de código abierto, y con enfoque en simplicidad y productividad. Tiene una sintaxis elegante que permite leer naturalmente y escribirlo de manera fácil."
 
 #: programming/languages/perl/Convert-ASN1::summary
 msgid "Standard en/decode of ASN.1 structures"
-msgstr ""
+msgstr "Condificación/decodificación estándar de estructuras ASN.1"
 
 #: programming/languages/perl/Convert-ASN1::description
 msgid "Convert::ASN1 encodes and decodes ASN.1 data structures using BER/DER rules."
-msgstr ""
+msgstr "Convert::ASN1 codifica y decodifica estructuras de datos ASN.1 usando reglas BER/DER."
 
 #: programming/languages/perl/SDL-Perl::summary
 msgid "Perl interface to SDL library"
-msgstr ""
+msgstr "Interfaz Perl a la librería SDL"
 
 #: programming/languages/perl/SDL-Perl::description
 msgid "With this interface, you can write SDL applications in Perl."
-msgstr ""
+msgstr "Con esta interfaz puede crear aplicaciones SDL en Perl."
 
 #: programming/languages/perl/Crypt-SmbHash::summary
 msgid "LM/NT hashing, for Samba's smbpasswd entries"
-msgstr ""
+msgstr "LM/NT hashing, para entradas smbpasswd de Samba"
 
 #: programming/languages/perl/Crypt-SmbHash::description
+# dudas: it is easily ported..
 msgid "This module provides functions to generate LM/NT hashes used in Samba's password files, like smbpasswd. The module is written entirely in perl, so it's a slower implementation that if it was written in C, its easily ported and installed."
-msgstr ""
+msgstr "Este módulo provee funciones para generar hashes LM/NT usados en archivos de contraseña de Samba, como en smbpasswd. El módulo fue escrito completamente en perl, así que es más lento de lo que sería si fuera escrito en C, se puede portar e instalar fácilmente."
 
 #: programming/languages/perl/Net-SSLeay::summary
 msgid "Net::SSLeay module for perl"
-msgstr ""
+msgstr "Módulo Net::SSLeay para perl"
 
 #: programming/languages/perl/Net-SSLeay::description
 msgid "Net::SMPP is an implementation of Short Message Peer to Peer protocol over TCP. This protocol is frequently used in the telecoms and mobile operator world to pass short messages between systems that implement the short message service (SMS)."
-msgstr ""
+msgstr "Net::SMPP es una implementación del protocolo TCP de mensajes cortos sobre Peer to Peer. Este protocolo está frecuentemente usado por operadoras de telecom y móviles para pasar mensajes cortos entre sistemas que implementan el servicio de mensajes cortos (SMS)."
 
 #: programming/languages/perl/Digest-HMAC::summary
 msgid "Keyed-Hashing for Message Authentication"
-msgstr ""
+msgstr "Hashing con claves para autenticación de mensajes"
 
 #: programming/languages/perl/Digest-HMAC::description
 msgid "This Perl module provides HMAC-MD5 hashing."
-msgstr ""
+msgstr "Este módulo Perl facilita hashing HMAC-MD5"
 
 #: programming/languages/perl/Net-Ident::summary
 msgid "Net::Ident is a module that looks up the username on the remote side of a TCP/IP connection through the ident (auth/tap) protocol described in RFC1413 (which supersedes RFC931)"
-msgstr ""
+msgstr "Net::Ident es un módulo que consulta al nombre de usuario del lado remoto de una conexión TCP/IP a través del protocolo ident (auth/tap) descrito en RFC1413 (que reemplaza RFC931)"
 
 #: programming/languages/perl/Net-Ident::description
 msgid "Lookup the username on the remote end of a TCP/IP connection."
-msgstr ""
+msgstr "Consulta de nombre de usuario del lado remoto de una conexión TCP/IP."
 
 #: programming/languages/perl/Sys-Hostname-Long::summary
 msgid "Try every conceivable way to get full hostname"
-msgstr ""
+msgstr "Probar todas formas posibles para conseguir el nombre completo del host"
 
 #: programming/languages/perl/Sys-Hostname-Long::description
 msgid "This module lets you get the host full name in perl on multiple operating systems (mac, windows, unix* etc)"
-msgstr ""
+msgstr "Este módulo perl le permite conseguir el nombre completo de host en varios sistemas operativos (mac, windows, unix* etc)"
 
 #: programming/languages/perl/DBD-SQLite::summary
 msgid "SQLite driver for the Perl5 Database Interface (DBI)"
-msgstr ""
+msgstr "Controlador SQLite para la interfaz de bases de datos (DBI) de Perl5"
 
 #: programming/languages/perl/XML-RegExp::summary
 msgid "A Perl module which contains some regular expressions for XML tokens"
-msgstr ""
+msgstr "Módulo Perl que contiene algunas expresiones regulares para tokens XML"
 
 #: programming/languages/perl/XML-RegExp::description
 msgid "Contains regular expressions for the following XML tokens: BaseChar, Ideographic, Letter, Digit, Extender, CombiningChar, NameChar, EntityRef, CharRef, Reference, Name, NmToken, and AttValue"
-msgstr ""
+msgstr "Contiene expresiones regulares para los siguientes tokens XML: BaseChar, Ideographic, Letter, Digit, Extender, CombiningChar, NameChar, EntityRef, CharRef, Reference, Name, NmToken, y AttValue"
 
 #: programming/languages/perl/Compress-Zlib::summary
 msgid "Perl interface to most of the zlib compression library"
-msgstr ""
+msgstr "Interfaz Perl a casi toda la librería de compresión zlib"
 
 #: programming/languages/perl/Compress-Zlib::description
+# please proofread, 
 msgid "This module provides a Perl interface to most of the zlib compression library."
-msgstr ""
+msgstr "El módulo facilita a Perl una interfaz a casi todo de la librería de compresión zlib."
 
 #: programming/languages/perl/String-ShellQuote::summary
 msgid "Quote strings for passing through the shell"
-msgstr ""
+msgstr "Comillas de cadenas para pasarlos por una shell"
 
 #: programming/languages/perl/String-ShellQuote::description
 msgid "This module contains some functions which are useful for quoting strings which are going to pass through the shell or a shell-like object."
-msgstr ""
+msgstr "El módulo contiene algunas funciones útiles para encerrar cadenas de texto entre comillas, para pasarlo a una shell o a un objeto similar."
 
 #: programming/languages/perl/Net-IP::summary
 msgid "Perl extension for manipulating IPv4/IPv6 addresses"
-msgstr ""
+msgstr "Extensión Perl para manipulación de direcciones IPv4/IPv6 "
 
 #: programming/languages/perl/Net-IP::description
 msgid "This module provides functions to deal with IPv4/IPv6 addresses. The module can be used as a class, allowing the user to instantiate IP objects, which can be single IP addresses, prefixes, or ranges of addresses."
-msgstr ""
+msgstr "El módulo facilita funciones para realizar operaciones con direcciones IPv4/IPv6. El módulo puede ser usado como clase, permitiendo al usuario crear instancias de objetos IP, que puede ser una única dirección IP, prefijos, o rangos de direcciones."
 
 #: programming/languages/perl/IO-Socket-SSL::summary
 msgid "Nearly transparent SSL encapsulation for IO::Socket::INET"
-msgstr ""
+msgstr "Encapsulación SSL casi transparente para IO::Socket::INET"
 
 #: programming/languages/perl/IO-Socket-SSL::description
 msgid "IO::Socket::SSL is a class implementing an object oriented interface to SSL sockets. The class is a descendent of IO::Socket::INET."
-msgstr ""
+msgstr "IO::Socket::SSL es una clase que implementa una inerfaz a sockets SSL, orientado a objetos. La clase es descendiente de IO::Socket::INET."
 
 #: programming/languages/perl/DBD-mysql::summary
 msgid "MySQL driver for the Perl5 Database Interface (DBI)"
-msgstr ""
+msgstr "Controlador MySQL para la Interfaz de base de datos (DBI) de Perl5 "
 
 #: programming/languages/perl/DBD-mysql::description
 msgid "DBD::mysql is an interface between the Perl programming language and the MySQL programming API that comes with the MySQL relational database management system. Most functions provided by this programming API are supported."
-msgstr ""
+msgstr "DBD::mysql es una interfaz entre el lenguaje de programación Perl y el API de programación de MySQL que viene con el sistema de administración de MySQL. La mayoría de las funciones de éste API de programación están soportadas."
 
 #: programming/languages/perl/DBI::summary
 msgid "The Perl Database Interface"
-msgstr ""
+msgstr "Interfaz de base de datos de Perl"
 
 #: programming/languages/perl/DBI::description
 msgid "The DBI is a database access module for the Perl programming language. It defines a set of methods, variables, and conventions that provide a consistent database interface, independent of the actual database being used."
-msgstr ""
+msgstr "DBI es un módulo de acceso para el lenguaje de programación Perl. Define un conjunto de métodos, variables y convenciones, que facilita una interfaz consistente a bases de datos, independientemente del tipo de base de datos utilizada concretamente."
 
 #: programming/languages/perl/Net-CIDR-Lite::summary
 msgid "Perl extension for merging IPv4 or IPv6 CIDR addresses"
-msgstr ""
+msgstr "Extensión Perl para unir direcciones IPv4 o IPv6 CIDR"
 
 #: programming/languages/perl/Net-CIDR-Lite::description
 msgid "The Net::CIDR package contains functions that manipulate lists of IP netblocks expressed in CIDR notation. The Net::CIDR functions handle both IPv4 and IPv6 addresses."
-msgstr ""
+msgstr "El paquete Net::CIDR contiene funciones para manipular listas de bloques de red IP en notación CIDR. Las funciones de Net::CIDR pueden manipular direcciones IPv4 y IPv6."
 
 #: programming/languages/perl/Carp-Clan::summary
+# duda: caller, clan of modules
 msgid "Report errors from perspective of caller of a clan of modules"
-msgstr ""
+msgstr "Reporte de errores desde la perspectiva del caller a un clan de módulos"
 
 #: programming/languages/perl/Carp-Clan::description
+# duda, favor como puedo decir: "clan of modules" y "calling stack" ?
 msgid "This module reports errors from the perspective of the caller of a clan of modules, similar to Carp.pm itself. But instead of giving it a number of levels to skip on the calling stack, you give it a pattern to characterize the package names of the clan of modules which shall never be blamed for any error."
-msgstr ""
+msgstr "Este módulo reporta errores desde la perspectiva del caller a un clan de módulos, similar al mismo Carp.pm. Pero en vez de retornar un número de niveles a saltar en la pila de llamadas, se le da un patrón que caracteriza los nombres de paquetes del clan que nunca deben ser culpados por un error."
 
 #: programming/languages/perl/Class-MethodMaker::summary
 msgid "Perl module for Class::MethodMaker"
-msgstr ""
+msgstr "Módulo Perl para Class::MethodMaker"
 
 #: programming/languages/perl/Class-MethodMaker::description
+# duda: "accessor" method, i translated as "access method", please proofread
 msgid "This module solves the problem of having to continually write accessor methods for your objects that perform standard tasks."
-msgstr ""
+msgstr "Éste módulo resuelve el problema de escribir continuamente métodos de acceso para objetos, que realizan tareas estándar."
 
 #: programming/languages/perl/IO-Zlib::summary
 msgid "IO:: style interface to Compress::Zlib"
-msgstr ""
+msgstr "Interfz estilo IO:: para Compress::Zlib"
 
 #: programming/languages/perl/IO-Zlib::description
 msgid "IO::Zlib provides an IO:: style interface to Compress::Zlib and hence to gzip/zlib compressed files. It provides many of the same methods as the IO::Handle interface."
-msgstr ""
+msgstr "IO::Zlib facilita una interfaz de estilo IO:: para Compress::Zlib y por lo tanto a archivos comprimidos con gzip/zlib . Facilita muchas de las mismas funciones de la interfaz IO::Handle."
 
 #: programming/languages/perl/Archive-Tar::summary
 msgid "Perl module for manipulations of tar archives"
-msgstr ""
+msgstr "Módulo Perl para manipulación de archivos tar"
 
 #: programming/languages/perl/Archive-Tar::description
+# duda: inventé la palabra gzipeados, hay alguna mejor forma de decir ??
 msgid "Archive::Tar provides an object oriented mechanism for handling tar files. It provides class methods for quick and easy files handling while also allowing for the creation of tar file objects for custom manipulation. If you have the IO::Zlib module installed, Archive::Tar will also support compressed or gzipped tar files."
-msgstr ""
+msgstr "Archive::Tar facilita un mecanismo, orientado a objetos, para manejar archivos tar. Provee métodos de clases para un rápido y fácil manejo de archivos mientras permitiendo también la creación de objetos de archivos tar para su manipulación customizada. Si tiene instalado el módulo IO::Zlib, Archive::Tar también soportará archivos tar comprimidos y gzipeados."
 
 #: programming/languages/perl/Time-HiRes::summary
 msgid "High resolution alarm, sleep, gettimeofday, interval timers"
@@ -1409,135 +1417,146 @@ msgstr ""
 
 #: programming/languages/perl/Time-HiRes::description
 msgid "The Time::HiRes module implements a Perl interface to the usleep, nanosleep, ualarm, gettimeofday, and setitimer/getitimer system calls, in other words, high resolution time and timers."
-msgstr ""
+msgstr "El módulo Time::HiRes implementa una interfaz para Perl para realizar llamadas al sistema a usleep, nanosleep, ualarm, gettimeofday, y setitimer/getitimer, en otras palabras, tiempos y temporizadores de alta resolución."
 
 #: programming/languages/perl/MIME-Base64::summary
 msgid "A base64/quoted-printable encoder/decoder Perl Modules"
-msgstr ""
+msgstr "Módulos Perl base64/quoted-printable encoder/decoder"
 
 #: programming/languages/perl/MIME-Base64::description
 msgid "This package contains a base64 encoder/decoder and a quoted-printable encoder/decoder. These encoding methods are specified in RFC 2045 - MIME (Multipurpose Internet Mail Extensions)."
-msgstr ""
+msgstr "El paquete contiene un codificador/decodificador base64 y un codificador/decodificador quoted-printable. Estos métodos de codificación están descritos en RFC 2045 - MIME (Multipurpose Internet Mail Extensions)."
 
 #: programming/languages/perl/IP-Country::summary
 msgid "Fast lookup of country codes from IP addresses"
-msgstr ""
+msgstr "Búsqueda rápida de códigos de países basado en direcciones IP"
 
 #: programming/languages/perl/IP-Country::description
 msgid "This module comes bundled with a database of countries where various IP addresses have been assigned."
-msgstr ""
+msgstr "Éste módulo viene con una base de datos de países, y las direcciones ip asignadas."
 
 #: programming/languages/perl/Digest-SHA1::summary
 msgid "SHA1 message digest algorithm"
-msgstr ""
+msgstr "Algoritmo SHA1 message digest "
 
 #: programming/languages/perl/Digest-SHA1::description
+# duda, please proofread. should be ok, but maybe you can say some parts more elegantly
 msgid "The Digest::SHA1 module allows you to use the NIST SHA-1 message digest algorithm from within Perl programs. The algorithm takes as input a message of arbitrary length and produces as output a 160-bit \"fingerprint\" or \"message digest\" of the input."
-msgstr ""
+msgstr "El módulo Digest::SHA1 permite usar el algoritmo NIST SHA-1 desde programas Perl. El algoritmo acepta como entrada un mensaje de longitud arbitraria y produce un \"fingerprint\" (huella digital) o \"message digest\" de 160-bit."
 
 #: programming/languages/perl/Storable::summary
 msgid "Storable - persistence for Perl data structures"
-msgstr ""
+msgstr "Storable - persistencia para estructuras de datos de Perl"
 
 #: programming/languages/perl/Storable::description
+# duda: image - why suddenly do You talk about image ??
+# or do You mean just - "copy" (of the data) ??
 msgid "The Storable package brings persistence to your Perl data structures containing SCALAR, ARRAY, HASH or REF objects, i.e. anything that can be conveniently stored to disk and retrieved at a later time. It can be used in the regular procedural way by calling store with a reference to the object to be stored, along with the file name where the image should be written."
-msgstr ""
+msgstr "El paquete Storable le provee persistencia a estructuras de datos de Perl, contiene objetos SCALAR, ARRAY, HASH o REF, i.e. todo lo que es conveniente guardar en disco y recuperarlo más tarde. Puede ser usado de manera procedural llamando a store con una referencia al objeto a guardar, con el nombre de archivo, donde se debe guardar la imagen."
 
 #: programming/languages/perl/libwww-perl::summary
 msgid "Application programming interface to the World-Wide Web"
-msgstr ""
+msgstr "Interfaz de programación de aplicaciones para la web"
 
 #: programming/languages/perl/libwww-perl::description
 msgid "libwww-perl collection is a set of Perl modules which provides a simple and consistent application programming interface to the World-Wide Web."
-msgstr ""
+msgstr "La colección libwww-perl es un conjunto de módulos Perl que facilitan una interfaz de programación de aplicación, simple y consistente para la Web."
 
 #: programming/languages/perl/Socket6::summary
 msgid "IPv6 related part of the C socket.h defines and structure manipulators"
-msgstr ""
+msgstr "Partes relacionados con IPv6 de definiciones socket.h y manipuladores de estructuras en C"
 
 #: programming/languages/perl/Socket6::description
+# duda: glue, traduccion libre, o mejor decir intercambio con.. ?
 msgid "Socket6 module provides glue routines to the various IPv6 functions"
-msgstr ""
+msgstr "Módulo Socket6 facilita rutinas de unión a las funciones diferentes IPv6 "
 
 #: programming/languages/perl/IO-Socket-INET6::summary
+# duda: seria mejor decir sockets de dominio ?
 msgid "Object interface for AF_INET|AF_INET6 domain sockets"
-msgstr ""
+msgstr "Interfaz de objetos para domain sockets AF_INET|AF_INET6 "
 
 #: programming/languages/perl/IO-Socket-INET6::description
 msgid "IO::Socket::INET6 provides an object interface to creating and using sockets in either AF_INET or AF_INET6 domains. It is built upon the IO::Socket interface and inherits all the methods defined by IO::Socket."
-msgstr ""
+msgstr "IO::Socket::INET6 facilita una interfaz a objetos para la creación  y uso de sockets en dominios AF_INET o AF_INET6. Está construido sobre la interfaz IO::Socket y hereda todos los métodos definidos en IO::Socket."
 
 #: programming/languages/perl/PlRPC::summary
+# duda: bundle traducir con paquete combo, me suena bien, les gusta ?
 msgid "A bundle to install PlRPC-Server, Client and prerequisites."
-msgstr ""
+msgstr "Un paquete combo para instalar PlRPC-Servidor, Cliente y prerequisitos."
 
 #: programming/languages/perl/PlRPC::description
 msgid "PlRPC (Perl RPC) is a package for implementing servers and clients that are written in Perl entirely.."
-msgstr ""
+msgstr "PlRPC (Perl RPC) es un paquete para implementar servidores y clientes escritos plenamente en Perl.."
 
 #: programming/languages/perl/Locale-gettext::summary
 msgid "A Perl module for accessing the GNU locale utilities"
-msgstr ""
+msgstr "Módulo Perl para acceder las utilidades de GNU locale"
 
 #: programming/languages/perl/Locale-gettext::description
+# duda: me parece que insertando la palabra "traducidos" se explica mejor..
 msgid "The gettext module permits access from Perl to the gettext() family of functions for retrieving message strings from databases constructed to internationalize software."
-msgstr ""
+msgstr "El módulo gettext permite Perl acceder a la familia de funciones gettext() para obtener cadenas de mensajes (traducidos) desde bases de datos para la internacionalización de software."
 
 #: programming/languages/perl/Archive-Zip::summary
 msgid "Perl interface to ZIP archive files"
-msgstr ""
+msgstr "Interfaz Perl a archivos comprimidos ZIP"
 
 #: programming/languages/perl/Archive-Zip::description
 msgid "The Archive::Zip module allows a Perl program to create, manipulate, read, and write Zip archive files. This module uses the Compress::Zlib library to read and write the compressed streams inside the files."
-msgstr ""
+msgstr "El módulo Archive::Zip permite a programas Perl la creación, manipulación, lectura y escritura de archivos comprimidos ZIP. Este módulo utiliza la librería Compress::Zlib para leer y escribir los flujos (streams) comprimidos dentro de los archivos."
 
 #: programming/languages/perl/Module-Build::summary
 msgid "A system for building, testing, and installing Perl modules"
-msgstr ""
+msgstr "Sistema para build, test e instalación de módulos Perl"
 
 #: programming/languages/perl/Module-Build::description
 msgid "Module::Build is a system for building, testing, and installing Perl modules. It is meant to be an alternative to ExtUtils::MakeMaker."
-msgstr ""
+msgstr "Module::Build es un sistema para build, test, e instalación de módulos Perl. Es una alternativa a ExtUtils::MakeMaker."
 
 #: programming/languages/perl/Authen-SASL::summary
 msgid "A Perl SASL interface"
-msgstr ""
+msgstr "Interfaz Perl para SASL"
 
 #: programming/languages/perl/Authen-SASL::description
+# duda: framework, .. plugged in, toda la ultima parte, favor revisar.
 msgid "SASL is a generic mechanism for authentication used by several network protocols. Authen::SASL provides an implementation framework that all protocols should be able to share. The framework allows different implementations of the connection class to be plugged in."
-msgstr ""
+msgstr "SASL es un mecanismo genérico de autenticación usado en varios protocolos de red. Authen::SASL facilita un capa de implementación, que todos los protocolos deberían poder compartir. El framework permite adjuntar implementaciones diferentes de la clase de conexión."
 
 #: programming/languages/perl/Net-Daemon::summary
 msgid "Perl extension for portable daemons"
-msgstr ""
+msgstr "Extensión Perl para demonios portables"
 
 #: programming/languages/perl/Net-Daemon::description
 msgid "Net::Daemon is an abstract base class for implementing portable server applications in a very simple way."
-msgstr ""
+msgstr "Net::Daemon es una clase abstracta básica para implementar de manera muy fácil aplicaciones de servidores portables."
 
 #: programming/languages/perl/Digest-Base::summary
+# duda: traduccion libre, creo que se entiende mejor asi
 msgid "Modules that calculate message digests"
-msgstr ""
+msgstr "Módulos para calculo de hashes"
 
 #: programming/languages/perl/Digest-Base::description
 msgid "The Digest:: modules calculate digests, also called \"fingerprints\" or \"hashes\", of some data, called a message. The digest is (usually) some small/fixed size string. The actual size of the digest depend of the algorithm used. The message is simply a sequence of arbitrary bytes or bits."
-msgstr ""
+msgstr "Digest:: modules calcula digests, tambien llamado \"fingerprints\" (huellas digitales) o \"hashes\", de algún dato, llamado mensaje. El digest es (generalmente) una cadena de una longitud determinada/fija. La longitud del digest depende del algoritmo usado. El mensaje es simplemente una secuencia arbitraria de bytes o bits."
 
 #: programming/languages/perl/XML-Parser::summary
 msgid "A Perl extension interface to James Clark's XML parser, expat"
-msgstr ""
+msgstr "Interfaz de extensión de Perl al parser XML de James Clark, expat"
 
 #: programming/languages/perl/XML-Parser::description
+# duda: parsestring
 msgid "This module provides an interface to James Clark's XML parser, expat. As in expat, a single instance of the parser can only parse one document. Calls to parsestring after the first for a given instance will die."
-msgstr ""
+msgstr "Este módulo facilita una interfaz al parser XML de James Clark, expat. Como en expat, una sola instancia del parser puede analizar solamente un documento. Llamadas a parsestring después del primero de una instancia determinada morirán."
 
 #: programming/languages/perl/TimeDate::summary
 msgid "A Date/Time Parsing Perl Module"
-msgstr ""
+msgstr "Módulo Date/Time Parsing para Perl"
 
 #: programming/languages/perl/TimeDate::description
+# here is a typo in english - should say "faster"
 msgid "This date parser is far superior to the yacc based parser, and a *lot* fatser. The parser contained here will only parse absolute dates."
-msgstr ""
+msgstr "El parser de fechas es muy superior al parser basado en yacc, y *mucho más* rápido. El parser incluido aquí solo analiza fechas absolutas."
 
 #: programming/languages/perl/HTML-Parser::summary
 msgid "HTML Parser"
@@ -1545,7 +1564,7 @@ msgstr ""
 
 #: programming/languages/perl/HTML-Parser::description
 msgid "The HTML-Parser distribution is a collection of modules that parse and extract information from HTML documents."
-msgstr ""
+msgstr "La distribución HTML-Parser es una colección de módulos que analizan y extraen información de documentos HTML."
 
 #: programming/languages/perl/URI::summary
 msgid "Perl module for Uniform Resource Identifiers (absolute and relative)"

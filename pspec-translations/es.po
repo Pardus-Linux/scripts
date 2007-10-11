@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2007-10-07 21:16-0400\n"
+"PO-Revision-Date: 2007-10-10 20:38-0400\n"
 "Last-Translator: Klemens <click3d_at_linuxmail_org>\n"
 "Language-Team: español <es@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -731,7 +731,7 @@ msgstr "Plataforma Java, Standard Edition (también conocido como plataforma jav
 
 #: programming/languages/java/db4-java::summary
 msgid "Java bindings for Berkeley DB"
-msgstr ""
+msgstr "Librerías Java para Berkeley DB"
 
 #: programming/languages/java/icu4j::summary
 msgid "International Components for Unicode (Java version)"
@@ -762,8 +762,9 @@ msgid "Aspect-Oriented Development modules for Python."
 msgstr "Módulos Python para desarrollo Aspect-Oriented."
 
 #: programming/languages/python/Twisted::summary
+# please proofread
 msgid "Event driven network framework"
-msgstr ""
+msgstr "Framework controlado por eventos"
 
 #: programming/languages/python/Twisted::description
 msgid "Twisted is an event-driven networking framework written in Python and licensed under the MIT license. Twisted projects variously support TCP, UDP, SSL/TLS, multicast, Unix sockets, a large number of protocols (including HTTP, NNTP, IMAP, SSH, IRC, FTP, and others), and much more."
@@ -927,7 +928,7 @@ msgstr "Módulo Python de compresión LZMA"
 
 #: programming/languages/python/pylzma::description
 msgid "Platform independent python bindings for the LZMA compression library."
-msgstr ""
+msgstr "Acceso independiente de la plataforma con Python a la librería de compresión LZMA compression."
 
 #: programming/languages/python/pychecker::summary
 msgid "Python source code checker..."
@@ -939,8 +940,9 @@ msgid " PyChecker is a tool for finding bugs in python source code. It finds pr
 msgstr "PyChecker es una herramienta para buscar depurar código fuente Python. Encuentra problemas que típicamente suelen encontrar compiladores de lenguajes menos dinámicas, como C y C++"
 
 #: programming/languages/python/notify-python::summary
+# please proofread
 msgid "libnotify's Python bindings"
-msgstr ""
+msgstr "Acceso Python a libnotify"
 
 # # verificar..
 #: programming/languages/python/notify-python::description
@@ -961,7 +963,7 @@ msgstr "Librería Python game"
 
 #: programming/languages/python/pygame::description
 msgid "Python bindings to sdl and other libs that facilitate game production"
-msgstr ""
+msgstr "Acceso con Python a sdl y otras librerías que facilitan produccion de juegos"
 
 #: programming/languages/python/docutils::summary
 msgid "A library for processing plaintext documentation."
@@ -973,11 +975,11 @@ msgstr "Librería para procesamiento de texto plano para conversión a formatos 
 
 #: programming/languages/python/Django::summary
 msgid "Django web framework"
-msgstr ""
+msgstr "Framework Django de web"
 
 #: programming/languages/python/Django::description
 msgid "Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design."
-msgstr ""
+msgstr "Django es un framework web de alto nivel en Python, que facilita desarrollo rápido y diseño limpio y pragmático."
 
 #: programming/languages/python/numeric::summary
 msgid "Python addon"
@@ -988,11 +990,12 @@ msgid "Numerical Python adds a fast, compact, multidimensional array language fa
 msgstr "Numerical Python agrega facilidades de un lenguaje rápido, compacto, para arrays multidimensionales"
 
 #: programming/languages/python/pysqlite::summary
+# please proofread
 msgid "Python sqlite bindings"
-msgstr ""
+msgstr "Acceso con Python a sqlite"
 
 #: programming/languages/python/pysqlite::description
-# dudas: compliant, 
+# dudas: compliant,
 msgid "pysqlite is a DB-API 2.0-compliant database interface for SQLite. pysqlite makes the powerful embedded SQL engine SQLite available to Python programmers. It stays compatible with the Python database API specification 2.0 as much as possible, but also exposes most of SQLite's native API, so that it is for example possible to create user-defined SQL functions and aggregates in Python."
 msgstr "pysqlite es una interfaz para SQLite, compatible con DB-API 2.0. pysqlite disponibiliza al potente y embebido motor SQLite a programadores de Python. Mantiene la mayor compatibilidad posible con la especificación del API 2.0 de bases de datos Python, pero también expone la mayoría del API nativo de SQLite, lo que permite por ejemplo crear funciones SQL definidos por el usuario, y agregados en Python."
 
@@ -1022,11 +1025,11 @@ msgstr "Paquete Python para la creación de archivos PostScript y PDF"
 
 #: programming/languages/python/tagpy::summary
 msgid "Python bindings for taglib"
-msgstr ""
+msgstr "Acceso con Python a taglib"
 
 #: programming/languages/python/tagpy::description
 msgid "TagPy is a set of python bindings for taglib. It supports ID3 v1/v2, ogg/vorbis/flac comments, ape tags etc. in many formats like mp2/mp3/flac/mpc/ogg/musepack."
-msgstr ""
+msgstr "TagPy es un conjunto de librerías para taglib. soporta ID3 v1/v2, comentarios ogg/vorbis/flac, ape tags etc. en muchos aspectos similar a mp2/mp3/flac/mpc/ogg/musepack."
 
 #: programming/languages/python/urwid::summary
 msgid "Console user interface library for Python"
@@ -1046,7 +1049,7 @@ msgstr "Libao para python"
 
 #: programming/languages/python/pyao::description
 msgid "Python bindings for libao audio library."
-msgstr ""
+msgstr "Acceso con Python a librería de audio libao "
 
 #: programming/languages/python/pyalsaaudio::summary
 msgid "Python ALSA module"
@@ -1054,7 +1057,7 @@ msgstr "Módulo Python ALSA"
 
 #: programming/languages/python/pyalsaaudio::description
 msgid "A Python wrapper for the ALSA API"
-msgstr ""
+msgstr "Capa de abstracción (wrapper) Pyhton para el API de ALSA"
 
 #: programming/languages/python/pyvorbis::summary
 msgid "Python ogg.vorbis support"
@@ -1062,7 +1065,7 @@ msgstr "Soporte ogg.vorbis para Python"
 
 #: programming/languages/python/pyvorbis::description
 msgid "Python bindings for the ogg.vorbis library."
-msgstr ""
+msgstr "Acceso Python a la librería ogg.vorbis."
 
 #: programming/languages/python/gnuplot-py::summary
 msgid "Python interface to gnuplot"
@@ -1086,7 +1089,7 @@ msgstr "FormEncode es un paquete Python de validación y generación de formular
 
 #: programming/languages/python/PyQt4::summary
 msgid "set of Python bindings for the Qt 4.x Toolkit"
-msgstr ""
+msgstr "Conjunto de librerías de acceso Python al Toolkit de QT 4.x"
 
 #: programming/languages/python/PyQt4::description
 msgid "Qt is a set of C++ libraries and development tools that includes platform independent abstractions for graphical user interfaces, networking, threads, Unicode, regular expressions, SQL databases, SVG, OpenGL, XML, and user and application settings. PyQt implements 440 of these classes as a set of Python modules."
@@ -1102,35 +1105,37 @@ msgstr "Soporte ogg para Python"
 
 #: programming/languages/python/pyogg::description
 msgid "Python bindings for the ogg library."
-msgstr ""
+msgstr "Acceso Python a la librería ogg."
 
 #: programming/languages/python/SQLObject::summary
+# please proofread
 msgid "SQLObject is an object-relational mapper for Python programming language"
-msgstr ""
+msgstr "SQLObject es un mapeador relacional de objetos para lenguaguaje de programación Python "
 
 #: programming/languages/python/SQLObject::description
 msgid "SQLObject is an object-relational mapper for Python programming language. It allows you to translate RDBMS table rows into Python objects, and manipulate those objects to transparently manipulate the database."
-msgstr ""
+msgstr "SQLObject es un mapeador relacional de objetos para lenguaguaje de programación Python. Le permite traducir registros de tablas de RDBMS a objetos Python, y manipular estos objetos para manipular de manera transparente la base de datos."
 
 #: programming/languages/python/PyICU::summary
 msgid "Python interface for ICU library"
 msgstr "Interfaz Python para la librería ICU"
 
 #: programming/languages/python/sip::summary
+# please proofread, sounds ok to me, but free translation
 msgid "SIP is a tool for generating bindings for C++ classes so that they can be used by Python."
-msgstr ""
+msgstr "SIP es una herramienta para generar librerías de acceso a clases C++, para poder usarlos desde Python."
 
 #: programming/languages/python/sip::description
 msgid "SIP is a tool for generating bindings for C and C++ libraries so that they can be used by Python. It takes any C or C++ libraries and converts them into Python extension modules."
-msgstr ""
+msgstr "SIP es una herramienta para generar librerías de acceso a clases C++, para poder usarlos desde Python. Puede tomar cualquier librería C o C++ y convertirlo en módulos de extensión para Python."
 
 #: programming/languages/python/PyQt::summary
 msgid "Set of Python bindings for the Qt 3.x Toolkit"
-msgstr ""
+msgstr "Conjunto de librerías Python de acceso para el Toolkit QT 3.x"
 
 #: programming/languages/python/PyQt::description
 msgid "PyQt contains the Python bindings to the Qt C++ GUI toolkit. You can easily create complex multi platform GUI programs using RAD technologies. PyQt supports Linux and various flavours of Unix, MacOS X and Windows."
-msgstr ""
+msgstr "PyQt contiene librerías de acceso Python al Toolkit GUI Qt C++. Puede crear fácilmente programas GUI complejos y multiplataforma, usando tecnología RAD. PyQt soporta Linux y varias versiones de Unix, MacOS X y Windows."
 
 #: programming/languages/python/pyosd::summary
 msgid "Xosd Python module"
@@ -1234,11 +1239,12 @@ msgstr "Librería Python para realizar consultas DNS."
 
 #: programming/languages/python/sexy-python::summary
 msgid "Python bindings for libsexy."
-msgstr ""
+msgstr "Acceso Python para libsexy."
 
 #: programming/languages/python/sexy-python::description
+# a bit free translation, but should be ok
 msgid "Pysexy is the python language bindings for libsexy."
-msgstr ""
+msgstr "Pysexy facilita al lenguaje Python el acceso a libsexy."
 
 #: programming/languages/ruby::summary
 msgid "An object-oriented scripting language"
@@ -1323,7 +1329,7 @@ msgid "Perl interface to most of the zlib compression library"
 msgstr "Interfaz Perl a casi toda la librería de compresión zlib"
 
 #: programming/languages/perl/Compress-Zlib::description
-# please proofread, 
+# please proofread,
 msgid "This module provides a Perl interface to most of the zlib compression library."
 msgstr "El módulo facilita a Perl una interfaz a casi todo de la librería de compresión zlib."
 
@@ -1413,7 +1419,7 @@ msgstr "Archive::Tar facilita un mecanismo, orientado a objetos, para manejar ar
 
 #: programming/languages/perl/Time-HiRes::summary
 msgid "High resolution alarm, sleep, gettimeofday, interval timers"
-msgstr ""
+msgstr "Temporizadores de alta resolución de alarma, sleep, gettimeofday e intervalos"
 
 #: programming/languages/perl/Time-HiRes::description
 msgid "The Time::HiRes module implements a Perl interface to the usleep, nanosleep, ualarm, gettimeofday, and setitimer/getitimer system calls, in other words, high resolution time and timers."
@@ -1559,52 +1565,55 @@ msgid "This date parser is far superior to the yacc based parser, and a *lot* fa
 msgstr "El parser de fechas es muy superior al parser basado en yacc, y *mucho más* rápido. El parser incluido aquí solo analiza fechas absolutas."
 
 #: programming/languages/perl/HTML-Parser::summary
+# please proofread
 msgid "HTML Parser"
-msgstr ""
+msgstr "Analizador sintáctico (parser) HTML"
 
 #: programming/languages/perl/HTML-Parser::description
 msgid "The HTML-Parser distribution is a collection of modules that parse and extract information from HTML documents."
-msgstr "La distribución HTML-Parser es una colección de módulos que analizan y extraen información de documentos HTML."
+msgstr "La distribución HTML-Parser es una colección de módulos que analizan la sintaxis y extraen información de documentos HTML."
 
 #: programming/languages/perl/URI::summary
 msgid "Perl module for Uniform Resource Identifiers (absolute and relative)"
-msgstr ""
+msgstr "Módulo Perl para identificadores de recursos uniformes URI (absolutos y relativos)"
 
 #: programming/languages/perl/URI::description
 msgid "A Uniform Resource Identifier is a compact string of characters that identifies an abstract or physical resource. A Uniform Resource Identifier can be further classified as either a Uniform Resource Locator (URL) or a Uniform Resource Name (URN)."
-msgstr ""
+msgstr "Un identificador de recurso uniformado (URI) es una cadena de caracteres compacta que identifica un recurso físico o abstracto. Se puede clasificar los URI en Uniform Resource Locator (URL) o Uniform Resource Name (URN)."
 
 #: programming/languages/perl/Digest-MD4::summary
 msgid "MD4 message digest algorithm"
-msgstr ""
+msgstr "Algoritmo MD4 digest"
 
 #: programming/languages/perl/Digest-MD4::description
 msgid "Digest::Perl::MD4 - Perl implementation of Ron Rivests MD4 Algorithm. This modules has the same interface as Digest::MD5. It should be compatible with the Digest::MD4 module"
-msgstr ""
+msgstr "Digest::Perl::MD4 - implementación Perl del algoritmo MD4 de Ron Rivest. El módulo tiene igual interfaz como Digest::MD5. Debería ser compatible con el módulo Digest::MD4."
 
 #: programming/languages/perl/Digest-MD5::summary
 msgid "MD5 message digest algorithm"
-msgstr ""
+msgstr "Algoritmo MD5 digest"
 
 #: programming/languages/perl/Digest-MD5::description
 msgid "Digest::MD5 - Perl interface to the MD5 Algorithm. The Digest::MD5 module allows you to use the RSA Data Security Inc. MD5 Message Digest algorithm from within Perl programs."
-msgstr ""
+msgstr "Digest::MD5 - interfaz Perl al algoritmo MD5. El módulo Digest::MD5 permite usar el algoritmo MD5 de la compañía RSA Data Security Inc. desde programas Perl."
 
 #: programming/languages/perl/XML-XQL::summary
 msgid "A perl module for querying XML tree structures with XQL"
-msgstr ""
+msgstr "Módulo Perl para consultar estructuras de arboles XML con XQL"
 
 #: programming/languages/perl/XML-XQL::description
 msgid "The XML::XQL module implements the XQL (XML Query Language) proposal submitted to the XSL Working Group in September 1998. "
-msgstr ""
+msgstr "El módulo XML::XQL implementa el lenguaje XQL (XML Query Language) según propuesto al XSL Working Group en setiembre 1998. "
 
 #: programming/languages/perl/YAML::summary
 msgid "YAML - YAML Ain't Markup Language (tm)"
 msgstr ""
 
 #: programming/languages/perl/YAML::description
+# please proofread
+# duda: serialization, readability
 msgid "YAML is a generic data serialization language that is optimized for human readability. It can be used to express the data structures of most modern programming languages."
-msgstr ""
+msgstr "YAML (abreviatura de trad: \"no es lenguaje de marcas\") es un lenguaje genérico de serialización optimizado para fácil lectura humana. Puede ser usado para expresar las estructuras de datos de la mayoría de los lenguajes modernos de programación."
 
 #: programming/languages/perl/Net-DNS::summary
 msgid "Perl interface to the DNS resolver"
@@ -1612,123 +1621,132 @@ msgstr ""
 
 #: programming/languages/perl/Net-DNS::description
 msgid "Net::DNS is a collection of Perl modules that act as a Domain Name System (DNS) resolver. It allows the programmer to perform DNS queries that are beyond the capabilities of gethostbyname and gethostbyaddr."
-msgstr ""
+msgstr "Net::DNS es una collección de módulos Perl con funciones de un servidor de nombres de dominio (DNS). Permite al programador realizar consultas DNS más allá de las facilidades de gethostbyname y gethostbyaddr."
 
 #: programming/languages/perl/Mail-SPF-Query::summary
 msgid "Query Sender Policy Framework for an IP,email,helo"
 msgstr ""
 
 #: programming/languages/perl/Mail-SPF-Query::description
+# duda, favor revisar.
 msgid "The SPF protocol relies on sender domains to describe their designated outbound mailers in DNS. Given an email address, Mail::SPF::Query determines the legitimacy of an SMTP client IP."
-msgstr ""
+msgstr "El protocolo SPF depende de los dominios de emisor para describir en DNS los servicios salientes de correo designados. A partir de una dirección de email, Mail::SPF::Query determina si el IP de un cliente SMTP es legítimo."
 
 #: programming/languages/perl/Date-Calc::summary
 msgid "Gregorian calendar date calculations"
-msgstr ""
+msgstr "Cálculos de calendario gregoriano"
 
 #: programming/languages/perl/Date-Calc::description
+# please proofread
 msgid "Date-Calc package consists of a C library and a Perl module (which uses the C library, internally) for all kinds of date calculations based on the Gregorian calendar (the one used in all western countries today), thereby complying with all relevant norms and standards: ISO/R 2015-1971, DIN 1355 and, to some extent, ISO 8601 (where applicable)."
-msgstr ""
+msgstr "Date-Calc package consiste de una libreríaC y un módulo Perl (que utiliza internamente la librería C) para toda clase de calculos de fechas basado en el calendario gregoriano (usado comúnmente hoy en día en todas las naciones occidentales), cumpliendo con todas las normas y estándares relevantes: ISO/R 2015-1971, DIN 1355 y parcialmente, ISO 8601 (donde aplicable)."
 
 #: programming/languages/perl/libnet-perl::summary
 msgid "Network library for Perl"
-msgstr ""
+msgstr "Librería de red para Perl"
 
 #: programming/languages/perl/libnet-perl::description
 msgid "libnet is a collection of Perl modules which provides a simple and consistent programming interface (API) to the client side of various protocols used in the internet community."
-msgstr ""
+msgstr "libnet es una coleción de módulos Perl que facilita una interfaz (API) simple y consistente para el lado cliente de varios protocolos usados en la comunidad de internet."
 
 #: programming/languages/perl/Bit-Vector::summary
 msgid "Efficient bit vector, set of integers and big int math library"
 msgstr ""
 
 #: programming/languages/perl/Bit-Vector::description
+# duda gramatica: tamaño arbitrario - o debe ser plural aqui ?
 msgid "Bit::Vector is an efficient C library which allows you to handle bit vectors, sets (of integers), \"big integer arithmetic\" and boolean matrices, all of arbitrary sizes."
-msgstr ""
+msgstr "Bit::Vector es una librería C eficiente que le permite manipular vectores de bits, conjuntos (sets de enteros), \"big integer arithmetic\" y matrices booleanos, todos de tamaño arbitrario."
 
 #: programming/languages/perl/File-Tail::summary
 msgid "Perl extension for reading from continously updated files "
-msgstr ""
+msgstr "Extension Perl para leer de archivos que se actualizan continuamente"
 
 #: programming/languages/perl/File-Tail::description
+# favor revisar, ultima parte traduccion libre.
 msgid "The File::Tail module is designed for reading files which are continously appended to (the name comes from the tail -f directive). Usualy such files are logfiles of some description."
-msgstr ""
+msgstr "El módulo File::Tail está designado para leer archivos a los cuales continuamente se anexa datos (el nombre viene del comando tail -f). Generalmente son archivos log con alguna descripción."
 
 #: programming/languages/perl/Date-Manip::summary
 msgid "Date manipulation routines"
-msgstr ""
+msgstr "Rutinas para manipulación de fechas"
 
 #: programming/languages/perl/Date-Manip::description
 msgid "Date::Manip is a set of routines designed to make any common date/time manipulation easy to do."
-msgstr ""
+msgstr "Date::Manip es un conjunto de rutinas para simplificar cualquier manipulación común de fecha/hora."
 
 #: programming/languages/perl/perl-ldap::summary
 msgid "Perl modules for object-oriented interface to LDAP servers."
-msgstr ""
+msgstr "Módulos Perl para una interfaz orientado a objetos para servidores LDAP."
 
 #: programming/languages/perl/perl-ldap::description
 msgid "A collection of perl modules which provide an object orientated interface to LDAP servers"
-msgstr ""
+msgstr "Una colección de módulos Perl para una interfaz orientado a objetos para servidores LDAP."
 
 #: programming/languages/perl/Parse-Yapp::summary
 msgid "Perl extension for generating and using LALR parsers."
-msgstr ""
+msgstr "Extensión Perl para generación y uso de parsers LALR"
 
 #: programming/languages/perl/Parse-Yapp::description
+# duda: thread safe, parser
 msgid "Parse::Yapp is a collection of modules that let you generate and use yacc like thread safe parsers with perl object oriented interface."
 msgstr ""
 
 #: programming/languages/perl/XML-NamespaceSupport::summary
+# something seems to be missing in the inglish text
+# maybe shoud say: ..offers a simple way to ...
 msgid "A Perl module that offers a simple to process namespaced XML names"
-msgstr ""
+msgstr "Módulo Perl para procesamiento sencillo de nombres de espacio de nombres XML"
 
 #: programming/languages/perl/XML-NamespaceSupport::description
 msgid "This module offers a simple way to process namespaced XML names (unames) from within any application that may need them"
-msgstr ""
+msgstr "Módulo Perl para procesamiento sencillo de nombres de espacio de nombres XML (unames) desde cualquier programa"
 
 #: programming/languages/perl/HTML-Tagset::summary
 msgid "Data tables useful in parsing HTML"
-msgstr ""
+msgstr "Tablas de datos útiles para analizar HTML"
 
 #: programming/languages/perl/HTML-Tagset::description
 msgid "HTML-Tagset contains several data tables useful in various kinds of HTML parsing operations."
-msgstr ""
+msgstr "HTML-Tagset contiene varios tablas de datos útiles para varias operaciones de parsear HTML."
 
 #: programming/languages/perl/Text-Iconv::summary
 msgid "A Perl interface to the iconv() codeset conversion function"
-msgstr ""
+msgstr "Interfaz Perl a la función iconv() de conversión de juego de códigos"
 
 #: programming/languages/perl/Text-Iconv::description
 msgid "This module provides a Perl interface to the iconv() codeset conversion function, as defined by the Single UNIX Specification"
-msgstr ""
+msgstr "Módulo que facilita a Perl una interfaz a la función iconv() de conversión de juego de códigos, como definido en la especificación Single UNIX"
 
 #: programming/languages/perl/ExtUtils-ParseXS::summary
 msgid "Converts Perl XS code into C code"
-msgstr ""
+msgstr "Convierte código Perl XS a código C"
 
 #: programming/languages/perl/ExtUtils-ParseXS::description
+# favor revisar, parece la ultima parte un poco atravesado..
 msgid "ExtUtils::ParseXS will compile XS code into C code by embedding the constructs necessary to let C functions manipulate Perl values and creates the glue necessary to let Perl access those functions."
-msgstr ""
+msgstr "ExtUtils::ParseXS puede compilar código XS a código C, con los constructores necesarios embebidos para que las funciones C puedan manipular los valores Perl y permite a Perl el acceso para interactuar con tales funciones."
 
 #: programming/languages/perl/Unicode-Map8::summary
 msgid "Convert between most 8bit encodings"
-msgstr ""
+msgstr "Conversión entre la mayoría de las codificaciones 8 bit"
 
 #: programming/languages/perl/Unicode-Map8::description
 msgid "A Perl module implement efficient mapping tables between 8-bit character sets and 16 bit character sets like Unicode"
-msgstr ""
+msgstr "Módulo Perl implementa tablas de mapeo eficientes para conversiones entre codificaciones de caracteres de 8 bit y codificaciones de 16 bit, tal como Unicode"
 
 #: programming/languages/perl/Unicode-Map::summary
+# tal vez se puede traducir (from and to) mas sencillo ? "con" ?
 msgid "Map charsets from and to utf16 code"
-msgstr ""
+msgstr "Mapear juegos de caracteres desde y hacia código utf16"
 
 #: programming/languages/perl/Unicode-Map::description
 msgid "A Perl module converts strings from and to 2-byte Unicode UCS2 format"
-msgstr ""
+msgstr "Módulo Perl convierte cadenas de desde y hacia formato Unicode de 2 byte UCS2 "
 
 #: programming/languages/perl/ExtUtils-CBuilder::summary
 msgid "Compile and link C code for Perl modules"
-msgstr ""
+msgstr "Compilar y linkear código C para módulos Perl"
 
 #: programming/languages/perl/ExtUtils-CBuilder::description
 msgid "ExtUtils-CBuilder can build the C portions of Perl modules by invoking the appropriate compilers and linkers in a cross-platform manner. "
@@ -1740,47 +1758,51 @@ msgstr ""
 
 #: programming/languages/perl/Jcode::description
 msgid "Perl extension interface to convert Japanese text"
-msgstr ""
+msgstr "Interfaz de extensión Perl para convertir texto japonés"
 
 #: programming/languages/perl/libxml-perl::summary
 msgid "A collection of Perl modules, scripts, and documents for working with XML in Perl"
-msgstr ""
+msgstr "una colección de módulos, scripts Perl y documentación para trabajar con XML en Perl"
 
 #: programming/languages/perl/libxml-perl::description
 msgid "libxml-perl isa collection of Perl modules, scripts, and documents for working with XML in Perl. It works in combination with XML::Parser, PerlSAX, XML::DOM, XML::Grove, and others."
-msgstr ""
+msgstr "libxml-perl es una colección de módulos, scripts Perl, y documentación para trabajar con XML en Perl. Funciona en combinación con XML::Parser, PerlSAX, XML::DOM, XML::Grove, y otros."
 
 #: programming/languages/perl/Unicode-String::summary
 msgid "String manipulation for Unicode strings"
-msgstr ""
+msgstr "Manipulación de cadenas para cadenas Unicode"
 
 #: programming/languages/perl/Unicode-String::description
+# duda, puse mi traduccion libre, pienso que es correcto así, pero si tienes mejor propuesta..
 msgid "Perl modules to handle various Unicode issues"
-msgstr ""
+msgstr "Módulos Perl para solucionar varios problemas con Unicode"
 
 #: programming/languages/perl/XML-DOM::summary
 msgid "A perl module for building DOM Level 1 compliant document structures "
-msgstr ""
+msgstr "Módulo Perl para crear estructuras de documentos cumpliendo DOM Level 1"
 
 #: programming/languages/perl/XML-DOM::description
+# duda: build on top of - usé una traduccion libre, está ok ?
+#  (sé que literalmente debería ser "encima de" o "por arriba de", pero me suena que no sería la idea correcta en español)
 msgid "This module extends the XML::Parser module by Clark Cooper. The XML::Parser module is built on top of XML::Parser::Expat, which is a lower level interface to James Clark's expat library."
-msgstr ""
+msgstr "Este módulo extiende al módulo XML::Parser de Clark Cooper. El módulo XML::Parser está construido alrededor de XML::Parser::Expat, que es una interfaz de bajo nivel a la librería expt de James Clark."
 
 #: programming/languages/perl/XML-SAX::summary
+# duda: falta traducir parser, framework, posicion de palabras SAX2 XML
 msgid "Perl module for using and building Perl SAX2 XML parsers, filters, and drivers"
-msgstr ""
+msgstr "Módulo Perl para usar y construir parsers, filtros y controladores SAX2 XML"
 
 #: programming/languages/perl/XML-SAX::description
 msgid "This module consists of several framework classes for using and building Perl SAX2 XML parsers, filters, and drivers"
-msgstr ""
+msgstr "El módulo consiste de varias clases de framework para usar y construir (build) parsers, filtros y controladores SAX2 XML"
 
 #: programming/languages/perl/XML-Filter-BufferText::summary
 msgid "Filter to put all characters() in one event"
-msgstr ""
+msgstr "Filtro para colocar todos characters() en un solo evento"
 
 #: programming/languages/perl/XML-Filter-BufferText::description
 msgid "This module does the trivial but oft-repeated task of putting all characters into a single event"
-msgstr ""
+msgstr "El módulo realiza la tarea trivial, pero a menudo repetida, de colocar todos los caracteres en un sólo evento"
 
 #: programming/languages/perl/XML-SAX-Writer::summary
 msgid "SAX2 Writer"
@@ -1788,15 +1810,16 @@ msgstr ""
 
 #: programming/languages/perl/XML-SAX-Writer::description
 msgid "Perl SAX is a common parser interface for XML parsers. It allows to write applications that use XML parsers"
-msgstr ""
+msgstr "Perl SAX es una interfaz común para parseadores XML. Permite escribir programas que usan parser XML"
 
 #: programming/languages/perl/Unicode-MapUTF8::summary
 msgid "Conversions to and from arbitrary character sets and UTF8"
-msgstr ""
+msgstr "Conversiones hacia y desde juegos de caracteres arbitrarios y UTF8"
 
 #: programming/languages/perl/Unicode-MapUTF8::description
+# duda: core rutines (de núcleo sería mas correcto ? a mi no me parece)
 msgid "A Perl module provides an adapter layer between core routines for converting to and from UTF8 and other encodings"
-msgstr ""
+msgstr "Módulo Perl facilita una capa de adaptación entre rutinas básicas (core) para la conversión hacia y desde UTF8 y otras codificaciones"
 
 #: programming/languages/perl/App-CLI::summary
 msgid "Dispatcher module for command line interface programs"
@@ -1804,51 +1827,53 @@ msgstr ""
 
 #: programming/languages/perl/GSSAPI::summary
 msgid "Perl extension providing access to the GSSAPIv2 library"
-msgstr ""
+msgstr "Extensión Perl que facilita acceso a la librería GSSAPIv2 "
 
 #: programming/languages/perl/Perl-GD::summary
 msgid "Interface to Gd Graphics Library"
-msgstr ""
+msgstr "interfaz a la librería gráfica GD"
 
 #: programming/languages/perl/Email-Date::summary
+# please check (in english): email date headers.. or is there something missing ? or some word mis-located ?
 msgid "Perl module for finding and formatting email date headers"
-msgstr ""
+msgstr "Módulo Perl para buscar y formatear cabeceras de fechas de emails"
 
 #: programming/languages/perl/Log-Log4perl::summary
 msgid "Log4j implementation for Perl"
-msgstr ""
+msgstr "Implementación Log4j para Perl"
 
 #: programming/languages/perl/Data-UUID::summary
 msgid "Perl extension for generating Globally/Universally Unique Identifiers "
-msgstr ""
+msgstr "Extensión Perl para generar identificadores únicos globales/universales"
 
 #: programming/languages/perl/Data-UUID::description
 msgid "Perl extension for generating Globally/Universally Unique Identifiers "
-msgstr ""
+msgstr "Extensión Perl para generar identificadores únicos globales/universales"
 
 #: programming/languages/perl/Apache-DBI::summary
 msgid "Perl module for initiating a persistent database connection"
-msgstr ""
+msgstr "Módulo Perl para iniciar una conexión persistente a una base de datos"
 
 #: programming/languages/perl/Class-ISA::summary
 msgid "Perl module for reporting the search path for a class's ISA tree"
-msgstr ""
+msgstr "Módulo Perl para reportar la ruta de búsqueda a un árbol ISA de una clase"
 
 #: programming/languages/perl/File-Temp::summary
+# duda: handle, safely
 msgid "Return name and handle of a temporary file safely"
-msgstr ""
+msgstr "Devolver con seguridad el nombre y handle de un archivo temporal"
 
 #: programming/languages/perl/Class-Autouse::summary
 msgid "A perl module for loading a class the first time you call a method in it"
-msgstr ""
+msgstr "Módulo Perl para cargar una clase, cuando se llama por primera vez a uno de sus métodos"
 
 #: programming/languages/perl/Class-Autouse::description
 msgid "A perl module for loading a class the first time you call a method in it"
-msgstr ""
+msgstr "Módulo Perl para cargar una clase, cuando se llama por primera vez a uno de sus métodos"
 
 #: programming/languages/perl/Algorithm-Diff::summary
 msgid "Compute `intelligent' differences between two files / lists"
-msgstr ""
+msgstr "Computar diferencias `inteligentes' entre dos archivos / listas"
 
 #: programming/languages/perl/Template-GD::summary
 msgid "GD plugin for the Template Toolkit"
@@ -1856,11 +1881,11 @@ msgstr ""
 
 #: programming/languages/perl/FreezeThaw::summary
 msgid "Converting Perl structures to strings and back"
-msgstr ""
+msgstr "Conversión entre estructuras de Perl y cadenas"
 
 #: programming/languages/perl/FreezeThaw::description
 msgid "Converting Perl structures to strings and back"
-msgstr ""
+msgstr "Conversión entre estructuras de Perl y cadenas"
 
 #: programming/languages/perl/Email-MIME::summary
 msgid "Easy MIME message parsing"
@@ -1868,7 +1893,7 @@ msgstr ""
 
 #: programming/languages/perl/IO-Digest::summary
 msgid "Calculate digests while reading or writing"
-msgstr ""
+msgstr "Calcular digest durante lectura o escritura"
 
 #: programming/languages/perl/MIME-tools::summary
 msgid "Modules for parsing and creating MIME entities"
@@ -1876,15 +1901,15 @@ msgstr ""
 
 #: programming/languages/perl/MIME-Types::summary
 msgid "Definition of MIME types"
-msgstr ""
+msgstr "Definición de tipos MIME"
 
 #: programming/languages/perl/Algorithm-Annotate::summary
 msgid "Represent a series of changes in annotate form"
-msgstr ""
+msgstr "Representa una serie de cambios en forma de anotación"
 
 #: programming/languages/perl/Math-Complex::summary
 msgid "Complex numbers and associated mathematical functions"
-msgstr ""
+msgstr "Números complejos y funciones matemáticas relacionadas"
 
 #: programming/languages/perl/IO-Compress-Zlib::summary
 msgid "Write RFC 1952 files/buffers; for Perl"
@@ -1904,15 +1929,15 @@ msgstr ""
 
 #: programming/languages/perl/Email-Simple-Creator::summary
 msgid "Perl module providing a constructor to Email::Simple for creating messages from scratch"
-msgstr ""
+msgstr "Módulo Perl con un constructor para Email::Simple para generar mensajes desde zero"
 
 #: programming/languages/perl/PathTools::summary
 msgid "File and path utilities for Perl."
-msgstr ""
+msgstr "Utilidad de archivos y rutas para Perl"
 
 #: programming/languages/perl/PathTools::description
 msgid "File and path utilities for Perl."
-msgstr ""
+msgstr "Utilidad de archivos y rutas para Perl"
 
 #: programming/languages/perl/Locale-Maketext-Lexicon::summary
 msgid "Use other catalog formats in Maketext"
@@ -1920,11 +1945,11 @@ msgstr ""
 
 #: programming/languages/perl/Email-Reply::summary
 msgid "Perl module for replying to a message"
-msgstr ""
+msgstr "Módulo Perl para responder mensajes"
 
 #: programming/languages/perl/Time-Piece::summary
 msgid "Object Oriented time objects"
-msgstr ""
+msgstr "Objeto de tiempo, orientado a objetos"
 
 #: programming/languages/perl/MIME-Lite::summary
 msgid "Low-calorie MIME generator"
@@ -1932,11 +1957,11 @@ msgstr ""
 
 #: programming/languages/perl/PerlIO-via-symlink::summary
 msgid "PerlIO layers for creating symlinks"
-msgstr ""
+msgstr "Capas PerlIO para creación de symlinks"
 
 #: programming/languages/perl/Clone::summary
 msgid "Recursively copy Perl datatypes"
-msgstr ""
+msgstr "Copia recursiva de tipos de datos Perl"
 
 #: programming/languages/perl/Pod-Escapes::summary
 msgid "For resolving Pod escape sequences"
@@ -1944,39 +1969,39 @@ msgstr ""
 
 #: programming/languages/perl/File-chdir::summary
 msgid "Perl module for changing directories"
-msgstr ""
+msgstr "Módulo Perl para cambio de directorios"
 
 #: programming/languages/perl/File-chdir::description
 msgid "Perl module for changing directories"
-msgstr ""
+msgstr "Módulo Perl para cambio de directorios"
 
 #: programming/languages/perl/PerlIO-eol::summary
 msgid "PerlIO layer for normalizing line endings"
-msgstr ""
+msgstr "Capa PerlIO para normalizar finales de línea"
 
 #: programming/languages/perl/PerlIO-eol::description
 msgid "PerlIO layer for normalizing line endings"
-msgstr ""
+msgstr "Capa PerlIO para normalizar finales de línea"
 
 #: programming/languages/perl/Compress-Raw-Zlib::summary
 msgid "Low-Level Interface to zlib compression library for perl"
-msgstr ""
+msgstr "Interfaz Perl de bajo nivel a la librería de compresión zlib"
 
 #: programming/languages/perl/Compress-Raw-Zlib::description
 msgid "Low-Level Interface to zlib compression library for perl"
-msgstr ""
+msgstr "Interfaz Perl de bajo nivel a la librería de compresión zlib"
 
 #: programming/languages/perl/Email-MIME-Encodings::summary
 msgid "A unified interface to MIME encoding and decoding"
-msgstr ""
+msgstr "Interfaz unificada para codificación y decodificación MIME"
 
 #: programming/languages/perl/Data-Hierarchy::summary
 msgid "Handling hierarchical structures with Perl"
-msgstr ""
+msgstr "Manipulación de estructuras jerárquicas con Perl"
 
 #: programming/languages/perl/Data-Hierarchy::description
 msgid "Handling hierarchical structures with Perl"
-msgstr ""
+msgstr "Manipulación de estructuras jerárquicas con Perl"
 
 #: programming/languages/perl/Return-Value::summary
 msgid "Polymorphic Return Values"
@@ -1984,7 +2009,7 @@ msgstr ""
 
 #: programming/languages/perl/SOAP-Lite::summary
 msgid "A collection of Perl modules which provides a simple and lightweight interface to the Simple Object Access Protocol"
-msgstr ""
+msgstr "Una colección de módulos Perl facilitando una interfaz simple y liviana al protocolo de acceso simple a objetos"
 
 #: programming/languages/perl/Template-Toolkit::summary
 msgid "Perl Template Toolkit"
@@ -1992,27 +2017,28 @@ msgstr ""
 
 #: programming/languages/perl/File-Type::summary
 msgid "A Perl module for determining file type using magic"
-msgstr ""
+msgstr "Módulo Perl para determinando tipo de archivos usando magia"
 
 #: programming/languages/perl/File-Type::description
 msgid "A Perl module for determining file type using magic"
-msgstr ""
+msgstr "Módulo Perl para determinando tipo de archivos usando magia"
 
 #: programming/languages/perl/Class-Data-Inheritable::summary
 msgid "Inheritable, overridable class data"
-msgstr ""
+msgstr "Datos de clases a heredar y sobreescribir"
 
 #: programming/languages/perl/MailTools::summary
 msgid "A set of perl modules related to mail applications"
-msgstr ""
+msgstr "Conjunto de módulos Perl para aplicativos de mail"
 
 #: programming/languages/perl/File-HomeDir::summary
 msgid "Perl module for finding home directories on any platform"
-msgstr ""
+msgstr "Módulos Perl para encontrar directorios home en todas plataformas"
 
 #: programming/languages/perl/Email-MIME-Attachment-Stripper::summary
+# duda: strip
 msgid "Perl module for stripping the attachments from a mail"
-msgstr ""
+msgstr "Módulo Perl para arrancar anexos de mails"
 
 #: programming/languages/perl/Email-Address::summary
 msgid "RFC 2822 Address Parsing and Creation"
@@ -2020,7 +2046,7 @@ msgstr ""
 
 #: programming/languages/perl/UNIVERSAL-require::summary
 msgid "Require modules from a variable"
-msgstr ""
+msgstr "Requerir módulos de una variable"
 
 #: programming/languages/perl/Module-Pluggable::summary
 msgid "Automatically give your module the ability to have plugins"
@@ -2028,31 +2054,32 @@ msgstr ""
 
 #: programming/languages/perl/Email-MIME-ContentType::summary
 msgid "Perl module for parsing a MIME Content-Type header"
-msgstr ""
+msgstr "Módulo Perl para analizar cabeceras de MIME Content-Type"
 
 #: programming/languages/perl/Email-Abstract::summary
 msgid "Unified interface to mail representations"
-msgstr ""
+msgstr "interfaz unificada para representaciones de correo"
 
 #: programming/languages/perl/Error::summary
 msgid "Error/exception handling in an OO-ish way"
-msgstr ""
+msgstr "Manipulaciones de Errores/excepciones de manera OO"
 
 #: programming/languages/perl/List-MoreUtils::summary
+# duda: why does my spell checker mark me "faltante" ?
 msgid "Provide the stuff missing in List::Util"
-msgstr ""
+msgstr "Facilitar lo faltante de List::Util"
 
 #: programming/languages/perl/SVN-Simple::summary
 msgid "A simple interface for SVN"
-msgstr ""
+msgstr "Interfaz simple para SVN"
 
 #: programming/languages/perl/Crypt-SSLeay::summary
 msgid "Crypt::SSLeay module for perl"
-msgstr ""
+msgstr "Módulo Crypt::SSLeay para Perl"
 
 #: programming/languages/perl/Regexp-Shellish::summary
 msgid "Shell-like regular expressions"
-msgstr ""
+msgstr "Expresiones regulares como Shell"
 
 #: programming/languages/perl/IO-Pager::summary
 msgid "Select a pager, optionally pipe it output if destination is a TTY"
@@ -2060,11 +2087,11 @@ msgstr ""
 
 #: programming/languages/perl/AppConfig::summary
 msgid "Perl module for reading configuration files and parsing command line arguments"
-msgstr ""
+msgstr "Módulo Perl para lectura de archivos de configuración y análisis de argumentos de línea de comando"
 
 #: programming/languages/perl/IO-Compress-Base::summary
 msgid "Base Class for IO::Compress modules"
-msgstr ""
+msgstr "Clase básica para módulos IO::Compress"
 
 #: programming/languages/perl/IO-Compress-Base::description
 msgid "This module is not intended for direct use in application code. Its sole purpose if to to be sub-classed by IO::Compress modules."
@@ -2084,15 +2111,15 @@ msgstr ""
 
 #: programming/languages/perl/GDGraph::summary
 msgid "Perl module for graph plotting"
-msgstr ""
+msgstr "Módulo Perl para plotear gráficos"
 
 #: programming/languages/perl/SVN-Mirror::summary
 msgid "SVN::Mirror allows you to mirror remote repository to your local subversion repository."
-msgstr ""
+msgstr "SVN::Mirror permite espejar repositorios remotos a un repositorio local de subversion."
 
 #: programming/languages/perl/SVN-Mirror::description
 msgid "SVN::Mirror allows you to mirror remote repository to your local subversion repository."
-msgstr ""
+msgstr "SVN::Mirror permite espejar repositorios remotos a un repositorio local de subversion."
 
 #: programming/languages/perl/Email-Simple::summary
 msgid "Simple parsing of RFC2822 message format and headers"
@@ -2100,23 +2127,23 @@ msgstr ""
 
 #: programming/languages/perl/PatchReader::summary
 msgid "Utilities to read and manipulate patches and CVS"
-msgstr ""
+msgstr "Utilidades para leer y manipular parches y CVS"
 
 #: programming/languages/perl/Email-MessageID::summary
 msgid "Perl module for generating world unique message-ids"
-msgstr ""
+msgstr "Módulo Perl para generar ids de mensajes únicos en el mundo"
 
 #: programming/languages/perl/Term-ReadKey::summary
 msgid "Term::ReadKey - A perl module for simple terminal control"
-msgstr ""
+msgstr "Term::ReadKey - Módulo Perl para control simple de terminal "
 
 #: programming/languages/perl/Term-ReadKey::description
 msgid "Term::ReadKey - A perl module for simple terminal control."
-msgstr ""
+msgstr "Term::ReadKey - Módulo Perl para control simple de terminal "
 
 #: programming/languages/perl/PerlIO-via-dynamic::summary
 msgid "Dynamic PerlIO layers"
-msgstr ""
+msgstr "Capas PerlIO dinámicas"
 
 #: programming/languages/perl/IO-stringy::summary
 msgid "I/O on in-core objects like strings and arrays"
@@ -2124,7 +2151,7 @@ msgstr ""
 
 #: programming/languages/perl/XML-Twig::summary
 msgid "A perl module for processing huge XML documents in tree mode"
-msgstr ""
+msgstr "Módulo Perl para procesar en modo de árbol documentos XML grandes "
 
 #: programming/languages/perl/Email-MIME-Creator::summary
 msgid "A perl module for creating a Email::MIME constructor for starting anew"
@@ -2132,23 +2159,23 @@ msgstr ""
 
 #: programming/languages/perl/Perl-Tk::summary
 msgid "A Perl module for Tkinter"
-msgstr ""
+msgstr "Módulo Perl para Tkinter"
 
 #: programming/languages/perl/version::summary
 msgid "Perl extension for Version Objects"
-msgstr ""
+msgstr "Extensión Perl para objetos de versión"
 
 #: programming/languages/perl/Time-Local::summary
 msgid "Perl module for efficiently computing time from local and GMT time"
-msgstr ""
+msgstr "Módulo Perl para computar eficientemente tiempo de local y GMT time"
 
 #: programming/languages/perl/GDTextUtil::summary
 msgid "Text utilities for use with GD"
-msgstr ""
+msgstr "Utilitarios de texto para uso con GD"
 
 #: programming/languages/perl/Path-Class::summary
 msgid "Cross-platform path specification manipulation"
-msgstr ""
+msgstr "Cross-plataforma manipulación de especificación de rutas"
 
 #: programming/languages/perl/Chart::summary
 msgid "A series of charting modules for Perl"
@@ -2156,11 +2183,11 @@ msgstr ""
 
 #: programming/languages/perl/Curses::summary
 msgid "Curses interface modules for Perl"
-msgstr ""
+msgstr "Módulo Perl para interfaz curses"
 
 #: programming/languages/perl/Class-Accessor::summary
 msgid "Automated accessor generation"
-msgstr ""
+msgstr "Generación automática de accessor"
 
 #: programming/languages/perl/Locale-Maketext-Simple::summary
 msgid "Simple interface to Perl module Locale::Maketext::Lexicon"
@@ -2176,7 +2203,7 @@ msgstr ""
 
 #: programming/languages/perl/Email-Send::summary
 msgid "Simply Sending Email"
-msgstr ""
+msgstr "Simplemente enviando correo"
 
 #: programming/languages/tcl/snack::summary
 msgid "The Snack Sound Toolkit"
@@ -2188,7 +2215,7 @@ msgstr ""
 
 #: programming/languages/tcl/tcl::summary
 msgid "Tcl programming language"
-msgstr ""
+msgstr "Lenguaje de programación Tcl"
 
 #: programming/languages/tcl/tcl::description
 msgid "Tcl provides a powerful platform for creating integration applications that tie together diverse applications, protocols, devices, and frameworks."

@@ -9,8 +9,6 @@
 import os
 import sys
 import pisi
-import pisi.api as api
-import pisi.context as ctx
 
 class Ldd2Dep:
     def __init__(self, executable=None):
@@ -23,37 +21,45 @@ class Ldd2Dep:
         elif os.stat(self.exe)[0] != 33261:
             return False
         else:
-            api.init(write=False)
             return True
 
     def search_file(self, path):
         """
         Search file, if path doesn't exist or there's no matched result return False else return package name and its component"""
-
         if path and path.startswith("/"):
             path = path.lstrip("/")
+        else:
+            return None
 
-        pkgname = ctx.filesdb.get_file(path)
-        if pkgname:
-            # If a package has been built with pspec.xml and it'is not in the repository, look for installed packages
+        packagedb = pisi.db.packagedb.PackageDB()
+        filesdb = pisi.db.filesdb.FilesDB()
+
+        if filesdb.has_file(path):
+            # returns array, ['package_name', 'file/path']
+            get_file = filesdb.get_file(path)
+            (pkgname, filepath) = get_file
+
+            # Try normally to get component
             try:
-                partof = ctx.packagedb.get_package(pkgname[0]).partOf
-                return (pkgname[0], partof)
-            except pisi.packagedb.Error:
-                metadata, files, repo = pisi.api.info_name(pkgname[0], True)
-                return(pkgname[0], metadata.package.partOf)
+                partof = packagedb.get_package(pkgname).partOf
+                return (pkgname, partof)
+            # FIXME: Pisi should except proper exception class
+            # If a package has been built with pspec.xml and it'is not in the repository, look for installed packages
+            except:
+                metadata, files, repo = pisi.api.info_name(pkgname, True)
+                return(pkgname, metadata.package.partOf)
         else:
             return None
 
     def run(self, *args, **kwargs):
         ldd = os.popen("/usr/bin/ldd %s" % self.exe).read()
         parse = ldd.split("\t")
-
         package_list = {}
+
         # First value is blank, start from 1st value
         for line in parse[1:]:
             try:
-                # parses library paths like; libxml.so.2 => /usr/lib/libxml.so.2
+                # parse library paths like; libxml.so.2 => /usr/lib/libxml.so.2
                 path = line.split()[2]
             except IndexError:
                 # glibc libraries are shown like; /lib/ld-linux.so.2. So it can't be parsed and error occured. Control if first veriable starts with "/"

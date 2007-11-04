@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2007-10-18 20:33-0400\n"
+"PO-Revision-Date: 2007-11-04 16:54-0300\n"
 "Last-Translator: Klemens <click3d_at_linuxmail_org>\n"
 "Language-Team: español <es@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -2796,43 +2796,44 @@ msgstr "Libería para formato de imágen de high dynamic-range (HDR)"
 
 #: programming/libs/openexr::description
 msgid "OpenEXR is a high dynamic-range (HDR) image file format  for use in computer imaging applications. OpenEXR's features include: Higher dynamic range and color precision than existing 8- and 10-bit image file formats; support for 16-bit floating-point, 32-bit floating-point, and 32-bit integer pixels; multiple lossless image compression algorithms; extensibility."
-msgstr ""
+msgstr "OpenEXR es un formato de archivo de imagen de alto fango dinámico (HDR) para uso en aplicaciones de computación de imágenes. OpenEXR contiene facilidades: rango dinámico y precisión de colores más alto que formatos existentes de 8- y 10-bit; soporta para punto flotante 16-bit, punto flotante 32-bit, y entero 32-bit pixels; algoritmos de compresión múltiple sin pérdida; extensible."
 
 #: programming/libs/openslp::summary
 msgid "An open-source implementation of Service Location Protocol"
-msgstr ""
+msgstr "Implementación código libre del protocolo de locación de servicio"
 
 #: programming/libs/openslp::description
 msgid "Service Location Protocol is an IETF standards track protocol that provides a framework to allow networking applications to discover the existence, location, and configuration of networked services in enterprise networks."
-msgstr ""
+msgstr "Service Location Protocol es un protocolo según estándar IETF, que provee un framework que permite a aplicaciones descubrir la existencia, locación y configuración de servicios de red en redes empresariales."
 
 #: programming/libs/libdts::summary
 msgid "Library for decoding DTS Coherent Acoustics streams"
-msgstr ""
+msgstr "Librería para decodificar flujos acústicos coherentes DTS "
 
 #: programming/libs/libdts::description
 msgid "libdts is a free library for decoding DTS Coherent Acoustics streams."
-msgstr ""
+msgstr "libdts es una librería libre para decodificar flujos acústicos coherentes DTS."
 
 #: programming/libs/libavc1394::summary
 msgid "library for the 1394 Trade Association AV/C (Audio/Video Control) Digital Interface Command Set"
-msgstr ""
+msgstr "Librería para el conjunto de comandos de la interfaz digital 1394 Trade Association AV/C (Audio/Video Control) "
 
 #: programming/libs/libassuan::summary
+# duda: standalone
 msgid "Standalone IPC library used by gpg, gpgme and newpg"
-msgstr ""
+msgstr "Librería independiente IPC usado por gpg, gpgme y newpg"
 
 #: programming/libs/dssi::summary
 msgid "Plugin API for software instruments with user interfaces"
-msgstr ""
+msgstr "Plugin API para instrumentos de software con interfaces de usuario"
 
 #: programming/libs/dssi::description
 msgid "DSSI (pronounced \"dizzy\") is an API for audio processing plugins, particularly useful for software synthesis plugins with user interfaces. Although designed for synthesis plugins, it can also be used for effects."
-msgstr ""
+msgstr "DSSI (pronunciado \"dizzy\") es un API para plugins de procesamiento de audio, particularmente útil para plugins de sintesis de software con interfaces de usuario, también puede ser usado para efectos."
 
 #: programming/libs/libwpd::summary
 msgid "A C++ library designed to help process WordPerfect documents"
-msgstr ""
+msgstr "Librería C++ diseñada para procesamiento de documentos WordPerfect"
 
 #: programming/libs/nspr::summary
 msgid "Netscape Portable Runtime (NSPR)"
@@ -2840,43 +2841,44 @@ msgstr ""
 
 #: programming/libs/nspr::description
 msgid "Netscape Portable Runtime (NSPR) provides a platform-neutral API for system level and libc like functions. The API is used in the Mozilla client, many of Netscape/AOL/iPlanet's and other software offerings."
-msgstr ""
+msgstr "Netscape Portable Runtime (NSPR) provee un API independiente de la plataforma a nivel de sistema y funciones como libc. El API está usado en el cliente Mozilla, y muchos otros software de Netscape/AOL/iPlanet."
 
 #: programming/libs/ladspa-sdk::summary
 msgid "The Linux Audio Developer's Simple Plugin API"
-msgstr ""
+msgstr "API simple de plugins de desarrolladores de lLinux"
 
 #: programming/libs/ladspa-sdk::description
 msgid "The Linux Audio Developer's Simple Plugin API (LADSPA) attempts to give programmers the ability to write simple `plugin' audio processors in C/C++ and link them dynamically against a range of host applications"
-msgstr ""
+msgstr "El Linux Audio Developer's Simple Plugin API (LADSPA) intenta facilitar a programadores la tarea de escribir procesadores simples de audio en C/C++ y enlazarlos dinámicamente con una gama de aplicaciones host."
 
 #: programming/libs/jpeg-mmx::summary
 msgid "JPEG library"
-msgstr ""
+msgstr "Librería JPEG "
 
 #: programming/libs/jpeg-mmx::description
 msgid "JPEG library with mmx enhancements"
-msgstr ""
+msgstr "Librería JPEG con mejoras mmx"
 
 #: programming/libs/libxmlpp::summary
 msgid "C++ wrapper for the libxml XML parser library"
-msgstr ""
+msgstr "Abstracción C++ para la librería de libxml XML parser"
 
 #: programming/libs/libgpg-error::summary
 msgid "Contains error handling functions used by GnuPG software"
-msgstr ""
+msgstr "Contiene funciones de manipulación de errores usado por el software GnuPG"
 
 #: programming/libs/libart_lgpl::summary
 msgid "a LGPL version of libart"
-msgstr ""
+msgstr "Una versión LGPL de libart"
 
 #: programming/libs/libart_lgpl::description
+# duda: antialiased rendering engine
 msgid " Libart is a library for high-performance 2D graphics. It is currently being used as the antialiased rendering engine for the Gnome Canvas. Libart supports a very powerful imaging model, basically the same as SVG and the Java 2D API."
-msgstr ""
+msgstr " Libart es una librería para gráficos 2D de alta performance. Actualmente está usado como antialiased rendering engine para Gnome Canvas. Libart soporta un modelo de imagen muy potente, básicamente el mismo como SVG y el API 2D de Java."
 
 #: programming/libs/libvorbis::summary
 msgid "Free Ogg Vorbis sound file format library"
-msgstr ""
+msgstr "Libraría para formato libre de sonido Ogg Vorbis"
 
 #: programming/libs/glpk::summary
 msgid "GNU Linear Programming Kit"
@@ -2888,11 +2890,11 @@ msgstr ""
 
 #: programming/libs/chmlib::summary
 msgid "A library for dealing with Microsoft ITSS/CHM format files"
-msgstr ""
+msgstr "Librería para manejar archivos del formato Microsoft ITSS/CHM"
 
 #: programming/libs/chmlib::description
 msgid "Chmlib is a library for dealing with Microsoft ITSS/CHM format files. Right now, it is a very simple library, but sufficient for dealing with all of the .chm files."
-msgstr ""
+msgstr "Chmlib es una librería para manejar archivos del formato Microsoft ITSS/CHM. Actualmente es una librería muy simple, pero suficiente para manejar todo tipo de archivos .chm."
 
 #: programming/libs/agg::summary
 msgid "A high quality rendering engine for C++"
@@ -2904,15 +2906,15 @@ msgstr ""
 
 #: programming/libs/tls::summary
 msgid "TLS support for TCL"
-msgstr ""
+msgstr "Soporte TLS para TCL"
 
 #: programming/libs/tls::description
 msgid "TLS support for TCL."
-msgstr ""
+msgstr "Soporte TLS para TCL"
 
 #: programming/libs/libogg::summary
 msgid "The Ogg media file format library"
-msgstr ""
+msgstr "Librería de formato de archivo de media Ogg"
 
 #: programming/libs/rlog::summary
 msgid "A C++ logging library"
@@ -2924,11 +2926,11 @@ msgstr ""
 
 #: programming/libs/mpfr::summary
 msgid "Multiple precision floating point library"
-msgstr ""
+msgstr "Libería de punto flotante de múltiple precisión"
 
 #: programming/libs/mpfr::description
 msgid "The MPFR library is a C library for multiple-precision floating-point computations with exact rounding (also called correct rounding). It is based on the GMP multiple-precision library."
-msgstr ""
+msgstr "MPFR es una librería en C para computaciones de punto flotante de múltiple precisión con redondeo exacto (también llamado redondeo correcto). Está basada en la librería de múltiple precisión GMP."
 
 #: programming/libs/sdl-gfx::summary
 msgid "SDL graphics drawing primitives and other support functions"
@@ -2936,31 +2938,33 @@ msgstr ""
 
 #: programming/libs/sdl-gfx::description
 msgid "The SDL_gfx library evolved out of the SDL_gfxPrimitives code which provided basic drawing routines such as lines, circles or polygons and SDL_rotozoom which implemented a interpolating rotozoomer for SDL surfaces."
-msgstr ""
+msgstr "La librería SDL_gfx evoucionó del código de SDL_gfxPrimitives, que facilitaba rutinas básicas de dibujo como líneas, círculos o polígonos y SDL_rotozoom, que implementa un rotozoomer interpolado para superficies SDL."
 
 #: programming/libs/qt4::summary
 msgid "Qt toolkit version 4"
 msgstr ""
 
 #: programming/libs/qt4::description
+# duda: toolkit, GUI, cross-platform
 msgid "Qt is a cross platform GUI toolkit."
-msgstr ""
+msgstr "Qt es un toolkit para GUI multiplataforma."
 
 #: programming/libs/xerces-c::summary
 msgid "Xerces-C++ is a validating XML parser written in a portable subset of C++"
-msgstr ""
+msgstr "Xerces-C++ es un analizador XML con validación, escrito con un subconjunto portable de C++"
 
 #: programming/libs/xerces-c::description
 msgid "Xerces-C++ is a validating XML parser written in a portable subset of C++."
-msgstr ""
+msgstr "Xerces-C++ es un analizador XML con validación, escrito con un subconjunto portable de C++"
 
 #: programming/libs/libsndfile::summary
+# duda: sampled sound
 msgid "A C library for reading and writing files containing sampled sound"
-msgstr ""
+msgstr "Librería C para lectura y escritura de archivos con sonido"
 
 #: programming/libs/libsndfile::description
 msgid "Libsndfile is a C library for reading and writing files containing sampled sound (such as MS Windows WAV and the Apple/SGI AIFF format) through one standard library interface."
-msgstr ""
+msgstr "Libsndfile es una librería C de lectura y escritura para archivos de sonido (como MS Windows WAV y el formato Apple/SGI AIFF) con una interfaz estándar de libería."
 
 #: programming/libs/t1lib::summary
 msgid "A Type 1 Font Rasterizer Library for UNIX/X11"
@@ -2968,31 +2972,32 @@ msgstr ""
 
 #: programming/libs/t1lib::description
 msgid "t1lib is a library written in the C programming language allowing a programmer to generate bitmaps from Adobe (TM) Type 1 fonts quite easily. These bitmaps are returned in a data structure with type GLYPH. This special GLYPH-type is also used in the X11 window system to describe character bitmaps. It contains the bitmap data as well as some metric information. But t1lib is in itself entirely independent of the X11-system or any other graphical user interface."
-msgstr ""
+msgstr "t1lib es una librería programada en C que permite al programador generar fácilmente bitmaps de fuentes Adobe (TM) Type 1. Estos bitmaps están representados por una estructura de datos del tipo GLYPH. Este tipo especial GLYPH también está usado en el sistema de ventanas X11 para describir mapas de bits de caracteres. Contiene los datos del bitmap y además algunas informaciones métricas. Sin embargo t1lib mismo está completamente independiente del sistema X11 y de otros interfaces gráficos de usuario."
 
 #: programming/libs/gnutls::summary
 msgid "GNU TLS Library"
-msgstr ""
+msgstr "Librería GNU TLS"
 
 #: programming/libs/gnutls::description
 msgid "GnuTLS is a project that aims to develop a library which provides a secure layer, over a reliable transport layer. Currently the GnuTLS library implements the proposed standards by the IETF's TLS working group."
-msgstr ""
+msgstr "GnuTLS es un proyecto que apunta al desarrollo de una librería, que facilite una capa segura, a través de una capa de transporte fiable. Actualmente la librería GnuTLS implementa los estándares propuestos del grupo de trabajo de TLS de IETF."
 
 #: programming/libs/sdl-ttf::summary
 msgid "TrueType font support for SDL"
-msgstr ""
+msgstr "Soporte para TrueType con SDL"
 
 #: programming/libs/sdl-ttf::description
+# duda: .. as portable
 msgid "SDL_ttf is a TrueType font rendering library that is used with the SDL library, and almost as portable."
-msgstr ""
+msgstr "SDL_ttf es una librería para render de fuentes TrueType utilizada en conjunto con la librerñia SDL, y está casi igual de portable."
 
 #: programming/libs/imlib2::summary
 msgid "Second version of the general image loading and rendering library"
-msgstr ""
+msgstr "Segunda versión de la librería de lectura y render de imágenes en general"
 
 #: programming/libs/imlib2::description
 msgid "Imlib 2 is the successor to Imlib. It is not just a newer version - it is a completely new library. Imlib2 can be installed alongside Imlib 1.x without any problems since they are effectively different libraries - but they Have very similar functionality."
-msgstr ""
+msgstr "Imlib 2 es el sucesor de Imlib. no es simplemente una versión actualizada - es una librería completamente nueva. Imlib2 puede instalarse junto con Imlib 1.x sin problemas, ya que efectivamente son librerías diferentes - sin embargo tienen una funcionalidad similar."
 
 #: programming/libs/openal::summary
 msgid "Open Audio Library is a vendor-neutral API for interactive spatialized audio"
@@ -3004,23 +3009,23 @@ msgstr ""
 
 #: programming/libs/openobex::summary
 msgid "An implementation of the OBEX protocol used for transferring data to mobile devices"
-msgstr ""
+msgstr "Una implementación del protocolo OBEX para transferencia de datos a dispositivos móviles"
 
 #: programming/libs/openobex::description
 msgid "The overall goal of this project is to make an open source implementation of the Object Exchange (OBEX) protocol. OBEX is a session protocol and can best be described as a binary HTTP protocol."
-msgstr ""
+msgstr "La intención final del proyecto es de realizar una implementación de código abierto del protocolo de intercambio de objetos (Object Echange - PBEX). OBEX es un protocolo de sesión y y se podría describir como protocolo HTTP binario."
 
 #: programming/libs/libcddb::summary
 msgid "A library for accessing a CDDB server"
-msgstr ""
+msgstr "Librería para acceder un servidor CDDB"
 
 #: programming/libs/libqgs::summary
 msgid "The Qt wrapper around Ghostscript"
-msgstr ""
+msgstr "Capa de abstracción QT para Ghostscript"
 
 #: programming/libs/libqgs::description
 msgid "The Qt wrapper around the Ghostscript shared library (libqgs) relieves you from having to use special tricks to use Ghostscript in your Qt application. You do not have to care about starting it, parsing its output, or doing weird tricks to receive the rendered pages."
-msgstr ""
+msgstr "La abstracción Qt para la libraría compartida Ghostscript (libqgs) le permite usar Ghostscript en sus aplicaciones Qt, sin tener que recurrir a trucos especiales. No tiene que preocuparse de iniciarlo, analiza su salida, o realizar algunos trucos para recibir las páginas renderizadas."
 
 #: programming/libs/libmpcdec::summary
 msgid "Portable Musepack decoder library"
@@ -3028,36 +3033,36 @@ msgstr ""
 
 #: programming/libs/libquicktime::summary
 msgid "A library based on quicktime4linux with extensions"
-msgstr ""
+msgstr "Libería basada en quicktime4linux con extensiones"
 
 #: programming/libs/libquicktime::description
+# duda: loadable module
 msgid "Libquicktime is based on the great quicktime4linux library with several enhancements. All 3rd-party libraries were removed from the sourcetree. Instead, the systemwide installed libraries are detected by the configure script. All original codecs were moved into dynamically loadable modules, and new codecs are in development."
-msgstr ""
+msgstr "Libquicktime está basado enla librería quicktime4linux con varios mejoras. Todos los librerías de terceros fueron removidos de los fuentes. En su lugar el script de configure detecta las librerías ya instalados en el sistema. Todos codecs originales fueron convertido a módulos dinámicos, y nuevos codecs están en desarrollo."
 
 #: programming/libs/ucl::summary
 msgid "UCL: The UCL Compression Library"
-msgstr ""
+msgstr "UCL: Librería de compresión UCL"
 
 #: programming/libs/ucl::description
 msgid "UCL is a portable lossless data compression library written in ANSI C."
-msgstr ""
+msgstr "UCL es una librería portable para compresión de datos sin pérdida, escrito en ANSI C."
 
 #: programming/libs/ortp::summary
 msgid "RTP protocol library"
-msgstr ""
+msgstr "Librería de protocolo RTP"
 
 #: programming/libs/ortp::description
-#, fuzzy
 msgid "Ortp is a LGPL-2.1 licensed C library implementing the RTP protocol (rfc1889)."
-msgstr ""
+msgstr "Ortp es una librería C, licenciado bajo LGPL-2.1 que implementa el protocolo RTP (rfc1889)."
 
 #: programming/libs/gsl::summary
 msgid "GNU scientific library"
-msgstr ""
+msgstr "Librería científica GNU"
 
 #: programming/libs/gsl::description
 msgid "The GNU Scientific Library (GSL) is a numerical library for C and C++ programmers."
-msgstr ""
+msgstr "GNU Scientific Library (GSL) es una libería numérica para programadores C y C++."
 
 #: programming/libs/boost::summary
 msgid "Peer-reviewed portable C++ source libraries"
@@ -3069,59 +3074,61 @@ msgstr ""
 
 #: programming/libs/libmtp::summary
 msgid "An implementation of Microsoft's Media Transfer Protocol (MTP)"
-msgstr ""
+msgstr "Una implementación del Microsoft Media Transfer Protocol (MTP)"
 
 #: programming/libs/libmtp::description
+# duda: compliant
 msgid "libmtp is an implementation of Microsoft's Media Transfer Protocol (MTP) in the form of a library suitable primarily for POSIX compliant operating systems."
-msgstr ""
+msgstr "libmtp es una implementación del protocolo de transferencia de Microsoft's Media (MTP) en forma de una librería para uso en sistemas operativos POSIX compliant."
 
 #: programming/libs/libvisual::summary
 msgid "An abstraction library that comes between applications and audio visualisation plugins."
-msgstr ""
+msgstr "Librería de abstracción que actúa entre aplicaciones y plugins con funciones audiovisuales."
 
 #: programming/libs/libvisual::description
 msgid "Libvisual is an abstraction library that comes between applications and audio visualisation plugins."
-msgstr ""
+msgstr "Libvisual es una librería de abstracción que actúa entre aplicaciones y plugins con funciones audiovisuales."
 
 #: programming/libs/xmlsec::summary
 msgid "XML security library"
-msgstr ""
+msgstr "Librería de seguridad XML"
 
 #: programming/libs/xmlsec::description
 msgid "XML Security Library is a C library based on LibXML2. The library supports major XML security standards."
-msgstr ""
+msgstr "XML Security Library es una libería C basado en LibXML2. La librería soporta las principales estándares de seguridad XML."
 
 #: programming/libs/exiv2::summary
 msgid "Library for parsing, editing, and saving EXIF data"
-msgstr ""
+msgstr "Librería para analizar, editar y guardar datos EXIF"
 
 #: programming/libs/exiv2::description
+# duda: growing number of projects..
 msgid "Exiv2 is a C++ library and a command line utility to access image metadata. Exiv2 is available as free software and with a commercial license, and is used in a growing number of projects."
-msgstr ""
+msgstr "Exiv2 es una librería C++ y una herramienta de línea de comandopara acceder metadatos de imágenes. Exiv2 está disponible como software libre y con licencia comercial, y se utiliza cada vez en más proyectos."
 
 #: programming/libs/libdc1394::summary
 msgid "Programming interface for IEEE 1394 based cameras"
-msgstr ""
+msgstr "Interfaz de programación para camaras basados en IEEE 1394"
 
 #: programming/libs/libdc1394::description
 msgid "libdc1394 is a library that is intended to provide a high level programming interface for application developers who wish to control IEEE 1394 based cameras that conform to the 1394-based Digital Camera Specification (found at http://www.1394ta.org/)."
-msgstr ""
+msgstr "libdc1394 es una librería con intención de facilitar una interfaz de programación de alto nivel para programadores de aplicaciones, que desean controlar camaras basados en IEEE 1394, conforme la especificación de camaras digitales basados en 1394 (véase http://www.1394ta.org/)."
 
 #: programming/libs/libungif::summary
 msgid "GIF image library"
-msgstr ""
+msgstr "Librería de imágenes GIF"
 
 #: programming/libs/libungif::description
 msgid "A library for reading and writing GIF images without LZW compression"
-msgstr ""
+msgstr "Librería para lectura y escritura de imágenes GIF sin compresión LZW"
 
 #: programming/libs/libdv::summary
 msgid "Software codec for dv-format video (camcorders etc)."
-msgstr ""
+msgstr "Codec para formato de video dv (camcorders, etc.)"
 
 #: programming/libs/libdv::description
 msgid "The Quasar DV codec (libdv) is a software codec for DV video, the encoding format used by most digital camcorders, typically those that support the IEEE 1394 (a.k.a. FireWire or i.Link) interface. Libdv was developed according to the official standards for DV video: IEC 61834 and SMPTE 314M."
-msgstr ""
+msgstr "El codec Quasar DV (libdv) es un codec de software para video DV, el formato de codificación usado en la mayoría de los camcorders digitales, que típicamente soportan la interfaz IEEE 1394 (alias FireWire o i.Link). Libdv fue desarrollado de conforme los estándares oficiales para video DV: IEC 61834 y SMPTE 314M."
 
 #: programming/libs/fltk::summary
 msgid "FLTK (pronounced \"fulltick\") is a cross-platform C++ GUI toolkit"
@@ -3129,7 +3136,7 @@ msgstr ""
 
 #: programming/libs/fltk::description
 msgid "FLTK provides modern GUI functionality without the bloat and supports 3D graphics via OpenGL and its built-in GLUT emulation. FLTK is designed to be small and modular enough to be statically linked, but works fine as a shared library. FLTK also includes an excellent UI builder called FLUID that can be used to create applications in minutes."
-msgstr ""
+msgstr "FLTK provee una funcionalidad de un GUI moderno sin demasiado complejidad y soporta gráficos 3D via OpenGL y su emulación GLUT incluido. FLTK fue diseñado para ser pequeño y modular para enlace estático, pero funciona bien como librería compartida. FLTK también incluye un entorno de desarrollo UI llamado FLUID con el cual se puede crear aplicaciones en minutos."
 
 #: programming/libs/cdk::summary
 msgid "A library of curses widgets"
@@ -3141,19 +3148,19 @@ msgstr ""
 
 #: programming/libs/libraw1394::summary
 msgid "library that provides direct access to the IEEE 1394 bus"
-msgstr ""
+msgstr "librería que facilita acceso directo al bus IEEE 1394 "
 
 #: programming/libs/libraw1394::description
 msgid "IEEE 1394 is a standard defining a high speed serial bus. This bus is also named FireWire by Apple or i.Link by Sony."
-msgstr ""
+msgstr "IEEE 1394 es un estándar que define un bus serial de alta velocidad. Este bus lleva también el nombre FireWire por Apple o i.Link por Sony."
 
 #: programming/libs/clanlib::summary
 msgid "Game developement library"
-msgstr ""
+msgstr "Librería para desarrollo de juegos"
 
 #: programming/libs/clanlib::description
 msgid "Multiplatform game developement library"
-msgstr ""
+msgstr "Librería multiplataforma para desarrollo de juegos"
 
 #: programming/libs/gtk+extra::summary
 msgid "Useful additional GTK+ widgets"
@@ -3165,27 +3172,27 @@ msgstr ""
 
 #: programming/libs/libebml::summary
 msgid "Extensible binary format library (kinda like XML)"
-msgstr ""
+msgstr "Librería de formato binario extensible (similar XML)"
 
 #: programming/libs/portaudio::summary
 msgid "Portable audio library"
-msgstr ""
+msgstr "Librería portable de audio"
 
 #: programming/libs/portaudio::description
 msgid "An open-source cross platform audio API"
-msgstr ""
+msgstr "Un audio API, código libre y cross-plataforma"
 
 #: programming/libs/sdl-net::summary
 msgid "SDL network library"
-msgstr ""
+msgstr "Librería de red SDL"
 
 #: programming/libs/libmikmod::summary
 msgid "A library to play a wide range of module formats"
-msgstr ""
+msgstr "Librería para reproducir una gama amplia de formatos de módulos"
 
 #: programming/libs/libmikmod::description
 msgid "libmikmod is a portable sound library, which used to be packaged with the MikMod module player, but is now released independentely. It is capable of playing samples as well as module files, using the OSS driver for output, as well as Alsa and EsounD. Supported module format include mod, s3m, xm, it, med, mtm and 669, to name a few."
-msgstr ""
+msgstr "libmikmod es ina librería portable de sonido, que solía estar incluido con el MikMod module player, pero ahora fue lanzado independientemente. Es capaz de reproducir archivos de sonidos y de módulos, usando para la salida tanto un controlador OSS, como también Alsa y EsounD. Formatos de módulos soportados abarcan mod, s3m, xm, it, med, mtm and 669, para nombrar algunos."
 
 #: programming/libs/gle::summary
 msgid "GL extrusion library"
@@ -3197,15 +3204,15 @@ msgstr ""
 
 #: programming/libs/aalib:aalib:summary
 msgid "A ASCII-Graphics Library"
-msgstr ""
+msgstr "Librería para gráficos ASCII"
 
 #: programming/libs/aalib::summary
 msgid "An ASCII-graphics Library"
-msgstr ""
+msgstr "Librería para gráficos ASCII"
 
 #: programming/libs/aalib::description
 msgid "Aalib is an ASCII-graphics Library generating ASCII character outputs."
-msgstr ""
+msgstr "Aalib es una librería gráfica ASCII que genera salidas con caracteres ASCII."
 
 #: programming/libs/egenix-mx-base::summary
 msgid "Egenix utils for Python"
@@ -3221,15 +3228,15 @@ msgstr ""
 
 #: programming/libs/libtheora::summary
 msgid "The Theora Video Compression Codec"
-msgstr ""
+msgstr "Theora Video Compression Codec"
 
 #: programming/libs/libxmlpp2::summary
 msgid "C++ wrapper for the libxml XML parser library"
-msgstr ""
+msgstr "Abstracción C++ para la librería de análisis XML libxml"
 
 #: programming/libs/libxmlpp2::description
 msgid "C++ wrapper for the libxml XML parser library."
-msgstr ""
+msgstr "Abstracción C++ para la librería de análisis XML libxml"
 
 #: programming/libs/glut::summary
 msgid "The OpenGL Utility Toolkit (GLUT)"
@@ -3237,7 +3244,7 @@ msgstr ""
 
 #: programming/libs/glut::description
 msgid "GLUT is the OpenGL Utility Toolkit, a window system independent toolkit for writing OpenGL programs. It implements a simple windowing application programming interface (API) for OpenGL. GLUT makes it considerably easier to learn about and explore OpenGL Programming."
-msgstr ""
+msgstr "GLUT es la caja de herramientas de OpenGL, con herramientas para crear programas OpenGL, independientemente del sistema de ventanas. Facilita una simple interfaz de programación de aplicaciones (API) con ventanas para OpanGL. GLUT facilita considerablemente el aprendizaje y exploración de la programación OpenGL."
 
 #: programming/libs/libwww::summary
 msgid "A general-purpose client side WEB API"
@@ -3249,27 +3256,30 @@ msgstr ""
 
 #: programming/libs/mpeg2vidcodec::summary
 msgid "MPEG Library"
-msgstr ""
+msgstr "Libería MPEG"
 
 #: programming/libs/mpeg2vidcodec::description
 msgid "This package contains an implementation of an ISO/IEC DIS 13818-2 codec. It converts uncompressed video frames into MPEG-1 and MPEG-2 video coded bitstream sequences, and vice versa."
-msgstr ""
+msgstr "Este paquete contiene una implementación de un codec ISO/IEC DIS 13818-2. Convierte tramas de video sin compresión a secuencias de flujos de bits de video MPEG-1 y MPEG-2."
 
 #: programming/libs/liblrdf::summary
+# duda: plugins
 msgid "A lightweight RDF library with special support for LADSPA plugins"
-msgstr ""
+msgstr "Librería RDF liviana, con soporte especial para plugins LADSPA"
 
 #: programming/libs/liblrdf::description
 msgid "A lightweight RDF library with special support for LADSPA plugins."
-msgstr ""
+msgstr "Librería RDF liviana, con soporte especial para plugins LADSPA"
 
 #: programming/libs/liboil::summary
+# duda: various CPUs, traduccion libre..
 msgid "Liboil is a library of simple functions that are optimized for various CPUs"
-msgstr ""
+msgstr "Liboil es una librería con funciones simples, optimizados para múltiples CPUs"
 
 #: programming/libs/liboil::description
+# duda: array, summing AN array..
 msgid "Liboil is a library of simple functions that are optimized for various CPUs. These functions are generally loops implementing simple algorithms, such as converting an array of N integers to floating-point numbers or multiplying and summing an array of N numbers."
-msgstr ""
+msgstr "Liboil es una librería con funciones simples, optimizados para múltiples CPUs. Estas funciones son generalmente bucles realizando simples algoritmos, como conversión de arrays de N enteros a números de punto flotante o multiplicación y suma de un array de N números."
 
 #: programming/libs/lesstif::summary
 msgid "An OSF/Motif(R) clone"
@@ -3281,15 +3291,15 @@ msgstr ""
 
 #: programming/libs/netcdf::summary
 msgid "Scientific library and interface for array oriented data access"
-msgstr ""
+msgstr "Librería científica con interfaz para acceso a datos orientados a arrays"
 
 #: programming/libs/sdl-sound::summary
 msgid "SDL sound library"
-msgstr ""
+msgstr "Librería de sonido SDL"
 
 #: programming/libs/sdl-sound::description
 msgid "SDL library handling decoding of sound formats"
-msgstr ""
+msgstr "Librería SDL para decodificación de formatos de sonido"
 
 #: programming/libs/4suite::summary
 msgid "4Suite"
@@ -3297,7 +3307,7 @@ msgstr ""
 
 #: programming/libs/4suite::description
 msgid "4Suite allows users to take advantage of standard XML technologies rapidly and to develop and integrate Web-based applications. It also puts practical technologies for knowledge management projects in the hands of developers. It is implemented in Python with C extensions."
-msgstr ""
+msgstr "4Suite permite a usuarios aprovechar rápidamente las ventajas de tecnología del estándar XML para desarrollar e integrar aplicaciones basados en la web. Pone en los manos de los desarrolladores tecnologías prácticas para proyectos de administración de conocimientos. Está implementado en Python con extensiones C."
 
 #: programming/libs/freealut::summary
 msgid "The OpenAL Utility Toolkit"
@@ -3305,47 +3315,48 @@ msgstr ""
 
 #: programming/libs/librsync::summary
 msgid "librsync implements the rolling-checksum algorithm of remote file synchronization that was popularized by the rsync utility and is used in rproxy."
-msgstr ""
+msgstr "librsync implementa el cómputo del rolling-checksum de la sincronización de archivos remotos, que fue popularizado por la herramienta rsync y se usa en rproxy."
 
 #: programming/libs/librsync::description
 msgid "librsync implements the rolling-checksum algorithm of remote file synchronization that was popularized by the rsync utility and is used in rproxy. This algorithm transfers the differences between 2 files without needing both files on the same system."
-msgstr ""
+msgstr "librsync implementa el cómputo del rolling-checksum de la sincronización de archivos remotos, que fue popularizado por la herramienta rsync y se usa en rproxy. El algoritmo transfiere la diferencia de los 2 archivos sin la necesidad de tener ambos archivos en el mismo sistema."
 
 #: programming/libs/pyxattr::summary
 msgid "Python extension for extended file attributes"
-msgstr ""
+msgstr "Extensión Python para atributos extendidos de archivos"
 
 #: programming/libs/pylibacl::summary
 msgid "This python 2.2+ extension module allows you to manipulate the POSIX.1e Access Control Lists present in some os/filesystem combinations."
-msgstr ""
+msgstr "Este módulo de extensión de Python 2.2+ le permite manipular listas de control de acceso POSIX.1e, presente en algunas combinaciones Sistema Operativo/Sistema de archivos."
 
 #: programming/libs/pylibacl::description
 msgid "This python 2.2+ extension module allows you to manipulate the POSIX.1e Access Control Lists present in some os/filesystem combinations."
-msgstr ""
+msgstr "Este módulo de extensión de Python 2.2+ le permite manipular listas de control de acceso POSIX.1e, presente en algunas combinaciones Sistema Operativo/Sistema de archivos."
 
 #: programming/libs/libiec61883::summary
 msgid "Library for capturing video (DV, MPEG2 or AMDTP) over the IEEE 1394 bus"
-msgstr ""
+msgstr "Librería para la captura de video (DV, MPEG2 o AMDTP) sobre el bus IEEE 1394"
 
 #: programming/libs/libiec61883::description
 msgid "This library provides third generation media reception and transmission for DV, MPEG2-TS, and AMDTP (audio and music) using only raw1394 and not the complicated setup and maintenance of other kernel modules and their /dev nodes."
-msgstr ""
+msgstr "La librería facilita recepción y transmisión de media de tercera generación para DV, MPEG2-TS, y AMDTP (audio y music), usando solamente la interfaz 1394 en crudo, sin configuración complicada y mantenimiento de otros módulos de kernel y nodos /dev correspondientes."
 
 #: programming/libs/swh-plugins::summary
 msgid "Large collection of LADSPA audio plugins/effects"
-msgstr ""
+msgstr "Colección larga de plugins/efecto de LADSPA audio"
 
 #: programming/libs/swh-plugins::description
+# please check: eklemtileri - is this the proper word, or should this be translated too ?
 msgid "SWH eklemtileri are a set of audio plugins for the LADSPA plugin system."
-msgstr ""
+msgstr "SWH eklemtileri es un conjunto de plugins de audio para el sistema plugin de LADSPA."
 
 #: programming/libs/simgear::summary
 msgid "Game library"
-msgstr ""
+msgstr "Librería de juegos"
 
 #: programming/libs/simgear::description
 msgid "Developement library for simulation games"
-msgstr ""
+msgstr "Librería de desarrollo para juegos de simulación"
 
 #: programming/libs/xsynth-dssi::summary
 msgid "Xsynth-DSSI plugin"
@@ -3353,27 +3364,27 @@ msgstr ""
 
 #: programming/libs/xsynth-dssi::description
 msgid "Xsynth-DSSI plugin, a classic-analog (VCOs-VCF-VCA) style software synthesizer with an editor GUI"
-msgstr ""
+msgstr "Plugin Xsynth-DSSI, un software sintetizador (VCOs-VCF-VCA) de estilo clásico-análogo con un editor GUI"
 
 #: programming/libs/liblo::summary
 msgid "Lightweight OSC implementation"
-msgstr ""
+msgstr "Implementación liviana OSC"
 
 #: programming/libs/liblo::description
 msgid "Lightweight OSC (Open Sound Control) implementation"
-msgstr ""
+msgstr "Implementación liviana OSC (Open Sound Control)"
 
 #: programming/libs/tiff::summary
 msgid "Library for manipulation of TIFF (Tag Image File Format) images."
-msgstr ""
+msgstr "Librería para la manipulación de archivos de imágenes TIFF (Tag Image File Format)."
 
 #: programming/libs/tiff::description
 msgid "This software provides support for the Tag Image File Format (TIFF), a widely used format for storing image data."
-msgstr ""
+msgstr "Este software facilita soporte para el formato de imagen etiqueteado (TIFF), un formato para almacenamiento de imágenes de uso común."
 
 #: programming/libs/libqalculate::summary
 msgid "Qalculate! is a multi-purpose desktop calculator for GNU/Linux"
-msgstr ""
+msgstr "Qalculate! es una calculadora de escritorio multiuso para GNU/Linux"
 
 #: programming/libs/ode::summary
 msgid "Open Dynamics Engine"
@@ -3385,15 +3396,15 @@ msgstr ""
 
 #: programming/libs/physfs::summary
 msgid "Filesystem library"
-msgstr ""
+msgstr "Librería de sistema de archivos"
 
 #: programming/libs/physfs::description
 msgid "Abstraction layer for filesystems, usually used by games"
-msgstr ""
+msgstr "Capa de abstracción para sistemas de archivos, comúnmente utilizado en juegos"
 
 #: programming/libs/cln::summary
 msgid "CLN, a class library (C++) for numbers"
-msgstr ""
+msgstr "CLN, una librería de clases (C++) para números"
 
 #: programming/libs/tap-plugins::summary
 msgid "TAP LADSPA plugins"
@@ -3401,7 +3412,7 @@ msgstr ""
 
 #: programming/libs/tap-plugins::description
 msgid "TAP LADSPA plugins package which contains DeEsser, Dynamics, Equalizer, Reverb, Stereo Echo, Tremolo"
-msgstr ""
+msgstr "Paquete de plugins TAP LADSPA, que contiene DeEsser, Dynamics, Equalizer, Reverb, Stereo Echo, Tremolo"
 
 #: programming/libs/hexter::summary
 msgid "Yamaha DX7 modeller plugin"
@@ -3409,35 +3420,36 @@ msgstr ""
 
 #: programming/libs/plib::summary
 msgid "Game library"
-msgstr ""
+msgstr "Librería de Juegos"
 
 #: programming/libs/plib::description
 msgid "Multimedia and 3D library used mostly by games"
-msgstr ""
+msgstr "Librería multimedia y 3D usado principalmente en juegos"
 
 #: programming/libs/libuninameslist::summary
 msgid "Library of unicode annotation data"
-msgstr ""
+msgstr "Librería de datos de anotación unicode"
 
 #: programming/libs/ladspa-cmt::summary
 msgid "CMT Lasdpa library plugins"
-msgstr ""
+msgstr "Plugins de librería CMT Lasdpa"
 
 #: programming/libs/ladspa-cmt::description
 msgid "CMT (computer music toolkit) Lasdpa library plugins"
-msgstr ""
+msgstr "Plugins de librería Lasdpa CMT (computer music toolkit)"
 
 #: programming/libs/libnotify::summary
 msgid "Desktop notify library"
-msgstr ""
+msgstr "Librería de notificación de escritorio"
 
 #: programming/libs/libnotify::description
 msgid "Sends desktop notifications to a notification daemon"
-msgstr ""
+msgstr "Envía notificaciones de escritorio al demonio de notificaciones"
 
 #: programming/libs/neon::summary
+# duda: cliente se refiere solamente a WebDav - o tambien a HTTP ?
 msgid "HTTP and WebDAV client library"
-msgstr ""
+msgstr "Librería de cliente HTTP y WebDAV"
 
 #: programming/libs/xine-lib::summary
 msgid "Core libraries for Xine movie player"
@@ -3453,31 +3465,35 @@ msgstr ""
 
 #: programming/libs/soundtouch::summary
 msgid "Audio Processing Library"
-msgstr ""
+msgstr "Librería para procesamiento de audio"
 
 #: programming/libs/soundtouch::description
+# duda, please proofread, dejé algunas cosas en ingles, otros traduje..
 msgid "open-source audio processing library for changing the Tempo, Pitch and Playback Rates of audio streams or file"
-msgstr ""
+msgstr "Librería código libre para procesamiento de sonido para manipular Tempo, Pitch y Tasas de reproducción de flujos o archivos de audio"
 
 #: programming/libs/libmad::summary
 msgid "\"M\"peg \"A\"udio \"D\"ecoder library"
-msgstr ""
+msgstr "Librería \"M\"peg \"A\"udio \"D\"ecoder"
 
 #: programming/libs/libnjb::summary
 msgid "libnjb is a C library and API for communicating with the Creative Nomad JukeBox and Dell DJ digital audio players"
-msgstr ""
+msgstr "libnjb es una librería C y un API para la comunicación con reproductores de audio digital Creative Nomad JukeBox y Dell DJ"
 
 #: programming/libs/libnjb::description
+# duda: presumably, gramatica "es llamado .. por Creative"
 msgid "libnjb is a C library and API for communicating with the Creative Nomad JukeBox and Dell DJ digital audio players. The protocol these devices use is presumably called PDE (Portable Digital Entertainment protocol) at Creative."
-msgstr ""
+msgstr "libnjb es una librería C y un API para la comunicación con reproductores de audio digital Creative Nomad JukeBox y Dell DJ. El protocolo de estos dispositivos es llamado PDE (Portable Digital Entertainment protocol) por Creative."
 
 #: programming/libs/spidermonkey::summary
+# duda, favor revisar
 msgid "Stand-alone JavaScript C Library"
-msgstr ""
+msgstr "Librería JavaScript independiente realizado en C"
 
 #: programming/libs/spidermonkey::description
+# duda: favor verificar
 msgid "Spidermonkey is Mozilla's C implementation of JavaScript."
-msgstr ""
+msgstr "Spidermonkey es la implementación de JavaScript con C de Mozilla."
 
 #: programming/libs/libmal::summary
 msgid "Convenience library of the functions malsync distribution"
@@ -3489,27 +3505,28 @@ msgstr ""
 
 #: programming/libs/libmp4v2::description
 msgid "MPEG4 library extracted from MPEG4IP, usually used in 3D sound systems."
-msgstr ""
+msgstr "Librería MPEG4 parte de MPEG4IP, comúnmente utilizado en sistemas de sonido 3D."
 
 #: programming/libs/unixodbc::summary
 msgid "ODBC Interface for Linux"
-msgstr ""
+msgstr "Interfaz ODBC para Linux"
 
 #: programming/libs/unixodbc::description
 msgid "The unixODBC Project goals are to develop and promote unixODBC to be the definitive standard for ODBC on non MS Windows platforms. This is to include GUI support for both KDE and GNOME."
-msgstr ""
+msgstr "El proyecto unixODBC apunta a desarollar y promocionarse como el estándar definitivo ODBC para plataformas no-Windows. Incluye también soporte para interfaces gráficos con KDE y GNOME."
 
 #: programming/libs/sdl-pango::summary
 msgid "SDL Pango library"
-msgstr ""
+msgstr "Librería SDL Pango"
 
 #: programming/libs/libieee1284::summary
 msgid "Library to query devices using IEEE1284"
-msgstr ""
+msgstr "Librería para acceder dispositivos usando IEEE1284"
 
 #: programming/libs/libieee1284::description
+# please proofread - sure you are talking about parallel port ?
 msgid "Library is intended to be used by applications that need to communicate with (or at least identify) devices that are attached via a parallel port."
-msgstr ""
+msgstr "La librería usado por aplicaciones que necesitan comunicarse con (,o al menos necesitan identificar) dispositivos conectados al puerto paralelo."
 
 #: programming/libs/libpqxx::summary
 msgid "C++ client API for PostgreSQL"
@@ -3517,7 +3534,7 @@ msgstr ""
 
 #: programming/libs/libaio::summary
 msgid "Asynchronous input/output library that uses the kernels native interface"
-msgstr ""
+msgstr "Librería asíncrona de entrada/salida, que usa la interfaz nativa del kernel"
 
 #: programming/libs/cal3d::summary
 msgid "Cal3D is a skeletal based character animation library"
@@ -3529,67 +3546,69 @@ msgstr ""
 
 #: programming/libs/libdaemon::summary
 msgid "Libdaemon is a lightweight C library that eases the writing of UNIX daemons"
-msgstr ""
+msgstr "Libdaemon es una librería C liviana que simplifica la programación de demonios de UNIX"
 
 #: programming/libs/libdaemon::description
 msgid "Libdaemon is a lightweight C library that eases the writing of UNIX daemons"
-msgstr ""
+msgstr "Libdaemon es una librería C liviana que simplifica la programación de demonios de UNIX"
 
 #: programming/libs/dmapi::summary
 msgid "XFS data management API library"
-msgstr ""
+msgstr "Librería API para administración de datos XFS"
 
 #: programming/libs/libmodplug::summary
 msgid "Library for playing MOD-like music files"
-msgstr ""
+msgstr "Librería para reproducir archivos de música como MOD"
 
 #: programming/libs/mhash::summary
 msgid "A uniform interface to several hash algorithms"
-msgstr ""
+msgstr "Interfaz uniforme a varios algoritmos hash"
 
 #: programming/libs/sqlite::summary
 msgid "An SQL Database Engine in a C Library"
-msgstr ""
+msgstr "Motor de base de datos SQL en una librería C"
 
 #: programming/libs/sqlite::description
+# duda: self-contained, embeddable, zero-configuration, puede haber mejores maneras de decir
 msgid "SQLite is a small C library that implements a self-contained, embeddable, zero-configuration SQL database engine. Supports databases up to 2 terabytes in size."
-msgstr ""
+msgstr "SQLite es una pequeña librería C, que implementa un motor de base de datos SQL, auto-contenido, embebible, sin necesidad de configuración. Soporta bases de datos con un tamaño de hasta 2 Terabyte."
 
 #: programming/libs/libupnp::summary
 msgid "UPnP library"
-msgstr ""
+msgstr "Librería UPnP "
 
 #: programming/libs/libsidplay2::summary
 msgid "C64 SID player library"
-msgstr ""
+msgstr "Librería de reproductor C64 SID"
 
 #: programming/libs/libsidplay2::description
 msgid "C64 SID player library"
-msgstr ""
+msgstr "Librería de reproductor C64 SID"
 
 #: programming/libs/lib3ds::summary
 msgid "lib3ds is a free ANSI-C library for working with the popular \"3ds\" 3D model format."
-msgstr ""
+msgstr "lib3ds es una librería libre ANSI-C para trabajar con el popular formato \"3ds\" de modelos 3D."
 
 #: programming/libs/libkexiv2::summary
 msgid "KDE interface Library for parsing, editing, and saving EXIF data"
-msgstr ""
+msgstr "Librería de la interfaz KDE para analizar, editar y guardar datos EXIF"
 
 #: programming/libs/geoip::summary
+# duda: maybe i should translate more literally 
 msgid "Easily lookup countries by IP addresses, even when Reverse DNS entries don't exist"
-msgstr ""
+msgstr "Identificar fácilmente países por la dirección IP, incluso cuando no existen entradas DNS reversas"
 
 #: programming/libs/libgsf::summary
 msgid "Gnome Structured File library"
-msgstr ""
+msgstr "Librería de archivo estructurado de Gnome"
 
 #: programming/libs/libpcap::summary
 msgid "A system-independent library for user-level network packet capture"
-msgstr ""
+msgstr "Librería multi-plataforma para captura de paquetes de red, a nivel de usuario"
 
 #: programming/libs/libpcap::description
 msgid "libpcap (Packet CAPture) provides a portable framework for low-level network monitoring. Applications include network statistics collection, security monitoring, network debugging, etc."
-msgstr ""
+msgstr "libpcap (Packet CAPture) facilita un framework portable para monitoreo de redes a a bajo nivel. Aplicaciones abarcan sistemas de estadísticas de red, monitoreo de seguridad, depuración de red, etc."
 
 #: programming/libs/libfwbuilder::summary
 msgid "Firewall Builder API"
@@ -3601,35 +3620,39 @@ msgstr ""
 
 #: programming/libs/xvid::summary
 msgid "High performance MPEG-4 video de-/encoding solution"
-msgstr ""
+msgstr "Solución de codificación/decodificación de video MPEG-4 de alta perfomance"
 
 #: programming/libs/xvid::description
 msgid "Xvid is a codec which makes it possible to compress movies too much while still maintaining the original image quality."
-msgstr ""
+msgstr "Xvid es un codec que posibilita una alta compresión de peliculas, manteniendo la calidad original de la imagen."
 
 #: programming/libs/gsm::summary
+# duda: lossy, en buen español - de computación ?
 msgid "Lossy speech compression library and tool"
-msgstr ""
+msgstr "Librería y herramienta para compresión de voz con pérdida"
 
 #: programming/libs/gsm::description
+# duda: final draft, full-rate (tasa entera no me suena bien)
 msgid "Gsm is an implementation of the final draft GSM 06.10 standard for full-rate speech transcoding"
-msgstr ""
+msgstr "Gsm es una implementación del estándar GSM 06.10 final draft de codificación de voz full-rate"
 
 #: programming/libs/wavpack::summary
 msgid "WavPack audio compression tools."
-msgstr ""
+msgstr "Herramientas de compresión de audio WavPack."
 
 #: programming/libs/wavpack::description
+# duda: unique (i simply left it out..)
 msgid "WavPack is a completely open audio compression format providing lossless, high-quality lossy, and a unique hybrid compression mode."
-msgstr ""
+msgstr "WavPack es un formato de compresión open audio con modos de compresión sin pérdida, de alta calidad con pérdida, y un modo híbrido."
 
 #: programming/libs/miniupnp::summary
 msgid "Mini UPnP library"
-msgstr ""
+msgstr "Librería mini UPnP"
 
 #: programming/libs/qwt::summary
+# duda: background
 msgid "The Qwt library contains GUI Components and utility classes which are primarily useful for programs with a technical background."
-msgstr ""
+msgstr "La librería Qwt contiene componentes y clases con utilitarios GUI, útiles principalmente para programas con un trasfondo técnico."
 
 #: programming/libs/qwt::description
 msgid "The Qwt library contains GUI Components and utility classes which are primarily useful for programs with a technical background. Beside a 2D plot widget it provides scales, sliders, dials, compasses, thermometers, wheels and knobs to control or display values, arrays, or ranges of type double."
@@ -3637,51 +3660,52 @@ msgstr ""
 
 #: programming/libs/liblzf::summary
 msgid "LibLZF is a very small data compression library."
-msgstr ""
+msgstr "LibLZF es una librería muy pequeña de compresión de datos."
 
 #: programming/libs/tre::summary
 msgid "A lightweight, robust, and efficient POSIX compliant regexp matching library"
-msgstr ""
+msgstr "Librería liviana, robusta, y eficiente para POSIX para expresiones regulares"
 
 #: programming/libs/lcms::summary
+# duda: color management engine
 msgid "A lightweight, speed optimized color management engine"
 msgstr ""
 
 #: programming/libs/cel:cel-doc:summary
 msgid "Cel documents"
-msgstr ""
+msgstr "documentación Cel"
 
 #: programming/libs/cel:cel-doc:description
 msgid "Additional documentation for Cel"
-msgstr ""
+msgstr "Documentación adicional para Cel"
 
 #: programming/libs/cel::summary
 msgid "A game entity layer based on Crystal Space"
-msgstr ""
+msgstr "Capa de entidades para juegos, basado en Crystal Space"
 
 #: programming/libs/yazpp::summary
 msgid "C++ addon for the YAZ development libraries"
-msgstr ""
+msgstr "Agregado C++ para las librerías de desarrollo YAZ "
 
 #: programming/libs/yazpp::description
 msgid "YAZ++ is an application programming interface (API) to YAZ. YAZ++ includes an implementation of the ZOOM C++ binding and a generic client/server API based on the Observer/Observable design pattern."
-msgstr ""
+msgstr "YAZ++ es una interfaz de programación de aplicaciones (API) para YAZ. YAZ++ incluye una implementación de ZOOM C++ binding y una API genérico cliente/servidor basado en el patrón de diseño Observer/Observable."
 
 #: programming/libs/fribidi::summary
 msgid "A free implementation of the unicode bidirectional algorithm"
-msgstr ""
+msgstr "Implementación libre del algoritmo bidireccional unicode"
 
 #: programming/libs/fribidi::description
 msgid "GNU FriBidi is the Free Implementation of the Unicode Bidirectional Algorithm."
-msgstr ""
+msgstr "GNU FriBidi es la implementación libre del algoritmo Unicode Bidirectional."
 
 #: programming/libs/xmlrpc-epi::summary
 msgid "An implementation of the xmlrpc protocol in C"
-msgstr ""
+msgstr "implementación del protocolo xmlrpc en C"
 
 #: programming/libs/amrnb::summary
 msgid "A wrapper library for 3GPP Adaptive Multi-Rate Floating-point (AMR) Speech Codec"
-msgstr ""
+msgstr "Una librería de abstracción para ·3GPP, codec de voz multi-tasa adaptable (AMR) de punto flotante"
 
 #: programming/libs/yaz::summary
 msgid "C/C++ Z39.50v3 library"
@@ -3689,28 +3713,27 @@ msgstr ""
 
 #: programming/libs/yaz::description
 msgid "YAZ is a programmers’ toolkit supporting the development of Z39.50/SRW/SRU clients and servers."
-msgstr ""
+msgstr "YAZ es un conjunto de herramientas para programadores que soporta del desarrollo de clientes y servidores de Z39.50/SRW/SRU."
 
 #: programming/libs/libdvbpsi::summary
 msgid "Library for MPEG TS/DVB PSI tables decoding and generation"
-msgstr ""
+msgstr "Librería para decodificación y generación de tablas MPEG TS/DVB PSI"
 
 #: programming/libs/xalan-c::summary
 msgid "XSLT processor for C++"
-msgstr ""
+msgstr "procesador XSLT para C++"
 
 #: programming/libs/xalan-c::description
 msgid "XSLT processor for transforming XML documents into HTML, text, or other XML document types"
-msgstr ""
+msgstr "Procesador XSLT para transformar documentos XML a HTML, text, o documentos de otro tipo XML"
 
 #: programming/libs/iksemel::summary
 msgid "XML parser library"
-msgstr ""
+msgstr "Librería de analizador XML"
 
 #: programming/libs/iksemel::description
-#, fuzzy
 msgid "XML parser library designed for Jabber applications."
-msgstr ""
+msgstr "Librería de analizador XML diseñado para aplicaciones Jabber."
 
 #: programming/libs/pth::summary
 msgid "GNU Portable Threads"
@@ -3729,20 +3752,21 @@ msgid "Crazy Eddie's GUI System"
 msgstr ""
 
 #: programming/libs/cegui::description
+# duda: favor revisar
 msgid "Crazy Eddie'nin GUI Sistemi is a library providing windowing and widgets for graphics APIs / engines where such functionality is not natively available, or severely lacking"
-msgstr ""
+msgstr "Sistema GUI de Crazy Eddie es una librería con un sistema de ventanas y con componentes para motores o APIs gráficos, que carecen de tales funcionalidades, o están muy incompletos en este sentido."
 
 #: programming/libs/qwtplot3d::summary
 msgid "QwtPlot3D is not a  program, but a feature-rich Qt/OpenGL-based C++ programming library, providing essentially a  bunch of 3D-widgets for programmers."
-msgstr ""
+msgstr "QwtPlot3D no es un programa, sino una librería muy versátil C++ basado en Qt/OpenGL, que facilita básicamente una serie de componentes 3D para programadores."
 
 #: programming/libs/tunepimp::summary
 msgid "Client library to create MusicBrainz enabled tagging applications"
-msgstr ""
+msgstr "Librería cliente para crear aplicaciones con marcadores de MusicBrainz habilitados"
 
 #: programming/libs/tunepimp::description
 msgid "Client library to create MusicBrainz enabled tagging applications"
-msgstr ""
+msgstr "Librería cliente para crear aplicaciones con marcadores de MusicBrainz habilitados"
 
 #: programming/libs/libmcrypt::summary
 msgid "A thread-safe encryption library"
@@ -3754,19 +3778,19 @@ msgstr ""
 
 #: programming/libs/amrwb::summary
 msgid "A wrapper library for 3GPP AMR Adaptive Multi-Rate - Wideband (AMR-WB) Speech Codec"
-msgstr ""
+msgstr "Librería de abstracción para el codec de voz 3GPP AMR Adaptive Multi-Rate - Wideband (AMR-WB) "
 
 #: programming/libs/libx86::summary
 msgid "A hardware-independent library for executing real-mode x86 code"
-msgstr ""
+msgstr "Librería independiente del hardware para la ejecución de código x86 en modo real"
 
 #: programming/libs/libx86::description
 msgid "It's often useful to be able to make real-mode x86 BIOS calls from userland. lrmi provides a simple interface to this for x86 machines, but this doesn't help on other platforms. libx86 provides the lrmi interface, but will also run on platforms such as amd64 and alpha."
-msgstr ""
+msgstr "A menudo puede ser útil poder realizar llamadas de BIOS x86 en modo real desde el espacio de usuarios. lrmi facilita para ello una interfaz simple para equipos x86, sin embargo no funciona en otras plataformas. libx86 facilita la interfaz lrmi, pero además funcionará en plataformas como amd64 y alpha."
 
 #: programming/libs/pcre++::summary
 msgid "C++ interface for PCRE library"
-msgstr ""
+msgstr "Interfaz C++ para la librería PCRE "
 
 #: programming/libs/djbfft::summary
 msgid "An extremely fast library for floating-point convolution"
@@ -3774,55 +3798,57 @@ msgstr ""
 
 #: programming/libs/gpgme::summary
 msgid "GnuPG Made Easy is a library for making GnuPG easier to use"
-msgstr ""
+msgstr "GnuPG Made Easy es una librería para simplificar el uso de GnuPG"
 
 #: programming/libs/gpgme::description
 msgid "GPGME is a library designed to make access to GnuPG easier for applications. It provides a high-Level Crypto application programming interface (API) for encryption, decryption, signing, signature verification and key management."
-msgstr ""
+msgstr "GPGME es una librería diseñada para simplificar el acceso a GnuPG para aplicaciones. Facilita una interfaz de programación de aplicación (API) de alto nivel para encriptación, decriptación, firmas, verificación de firmas y administración de llaves."
 
 #: programming/libs/obexftp::summary
+# duda: exposing, eposición suena mal
 msgid "ObexFTP is a library bundling everything needed for OBEX transfers and exposing it via a simple interface"
-msgstr ""
+msgstr "ObexFTP es una librería que abarca todas las funciones necesarias para transferencias OBEX y su presentación via una interfaz simple"
 
 #: programming/libs/openjpeg::summary
 msgid "JPEG2000 decoding library"
-msgstr ""
+msgstr "librería decodificadora JPEG2000 "
 
 #: programming/libs/libgphoto2::summary
 msgid "Library that implements support for numerous digital cameras"
-msgstr ""
+msgstr "Librería que implementa soporte para muchas camaras digitales"
 
 #: programming/libs/libgphoto2::description
 msgid "Libgphoto2 is the core library designed to allow access to digital camera by external programs."
-msgstr ""
+msgstr "Libgphoto2 es la librería núcleo (core) que permite a programas externos acceder a camaras digitales."
 
 #: programming/libs/libwpg::summary
 msgid "A C++ library designed to help process WordPerfect Graphics documents"
-msgstr ""
+msgstr "Librería C++ para procesamiento de documentos de gráficos de WordPerfect"
 
 #: programming/libs/clucene::summary
 msgid "A high-performance indexing and searching API"
-msgstr ""
+msgstr "Un API de alta performance para indexación y búsqueda"
 
 #: programming/libs/clucene::description
+# duda: full-featured
 msgid "CLucene is a high-performance, scalable, cross platform, full-featured, open-source indexing and searching API. It is written in C++."
-msgstr ""
+msgstr "CLucene es una API para indexación y búsqueda de alta performance, escalable, cross plataforma, full-featured, código abierto. Está escrito en C++."
 
 #: programming/libs/libsmbios::summary
 msgid "Provide access to (SM)BIOS information"
-msgstr ""
+msgstr "Provee acceso a información (SM)BIOS "
 
 #: programming/libs/libkdcraw::summary
 msgid "KDE Image Plugin Interface: a dcraw library wrapper"
-msgstr ""
+msgstr "Interfaz de KDE Image Plugin: una abstracción de la librería dcraw"
 
 #: programming/libs/libpaper::summary
 msgid "Library for handling paper characteristics"
-msgstr ""
+msgstr "Librería para manejar características de papel"
 
 #: programming/libs/libpaper::description
 msgid "Libpaper is a programming library for handling paper characteristics."
-msgstr ""
+msgstr "Libpaper es una librería de programación para manejar características de papel."
 
 #: programming/libs/intel-tbb::summary
 msgid "Intel Threading Building Blocks Library"
@@ -3830,39 +3856,41 @@ msgstr ""
 
 #: programming/libs/libxklavier::summary
 msgid "High level XKB library"
-msgstr ""
+msgstr "Librería XKB de alto nivel"
 
 #: programming/libs/DevIL::summary
+# duda: full featured
 msgid "A full featured cross-platform image library"
 msgstr ""
 
 #: programming/libs/DevIL::description
+# duda: image loading
 msgid "Developer's Image Library (DevIL) is a programmer's library to develop applications with very powerful image loading capabilities, yet is easy for a developer to learn and use."
-msgstr ""
+msgstr "Developer's Image Library (DevIL) es una librería de programación para desarrollar aplicaciones con facilidades potentes de visualización de imágenes, pero es fácil de aprender y usar para un desarrollador."
 
 #: programming/libs/musicbrainz::summary
 msgid "Client library to access metadata of mp3/vorbis/CD media"
-msgstr ""
+msgstr "Librería cliente para acceder metadata de medios mp3/vorbis/CD"
 
 #: programming/libs/musicbrainz::description
 msgid "MusicBrainz is a project that aims to create an open content music encyclopedia. It is an online database of information about recorded music. MusicBrainz client library captures information about artists, the album title, track titles,the length of each track and many more."
-msgstr ""
+msgstr "MusicBrainz es un proyecto con la finalidad de crear una enciclopedia de contenido abierto sobre música. Es una base de datos de información en línea sobre grabaciones de música. La libreía de cliente MusicBrainz captura información de artista, título de album, título de las músicas, longitudes de cada música, y mucho más."
 
 #: programming/libs/tolua++::summary
 msgid "A tool to integrate C/C++ code with Lua"
-msgstr ""
+msgstr "Herramienta para integrar código C/C++ en Lua"
 
 #: programming/libs/tolua++::description
 msgid "Tolua++ is an extended version of tolua, a tool to integrate C/C++ code with Lua. tolua++ includes new features oriented to c++ such as: Support for std::string as a basic type (this can be turned off by a command line option) and Support for class templates"
-msgstr ""
+msgstr "Tolua++ es una versión extendida de tolua, una herramienta para integrar código C/C++ en Lua. tolua++ incluye nuevas facilidades orientados a c++ tales como: Soporte para std::string como tipo básico (Se puede desactivar con un una opción en la linea de comando) y soporte para class templates"
 
 #: programming/libs/FreeImage::summary
 msgid "FreeImage is an Open Source library project"
-msgstr ""
+msgstr "FreeImage es un proyecto de librería código abierto"
 
 #: programming/libs/FreeImage::description
 msgid "FreeImage is an Open Source library project for developers who would like to support popular graphics image formats like PNG, BMP, JPEG, TIFF and others as needed by today's multimedia applications"
-msgstr ""
+msgstr "FreeImage es un proyecto de librería código abierto para desarrolladores que quisieran soportar formatos populares de imágenes como PNG, BMP, JPEG, TIFF y otros, usados en aplicaciones multimedia actuales"
 
 #: programming/libs/libofa::summary
 msgid "The Open Fingerprint Architecture library"

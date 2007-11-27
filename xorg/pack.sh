@@ -44,7 +44,7 @@ cd xorg
 for i in `cat ../$FILELIST`
 do
     if [ ! -e $i ]; then
-        wget $MIRROR"/"$i
+        wget $MIRROR"/"$i || exit 1
         echo "$i" > $FILELIST.changes
     fi
     tar xvf $i -C ../$PACKAGE-$VERSION

@@ -11,6 +11,7 @@
 # Please read the COPYING file.
 
 import sys
+import bz2
 
 import piksemel
 
@@ -35,7 +36,10 @@ TUBITAK = ["S.Çağlar Onur",
            ]
 
 def parseRepoIndex(index):
-    doc = piksemel.parse(index)
+    if index.endswith("bz2"):
+        doc = piksemel.parseString(bz2.decompress(file(index).read()))
+    else:
+        doc = piksemel.parse(index)
 
     for spec in doc.tags("SpecFile"):
         pkgr = spec.getTag("Source").getTag("Packager")

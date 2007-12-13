@@ -1,0 +1,98 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+# Copyright (C) 2007, TUBITAK/UEKAE
+#
+# This program is free software; you can redistribute it and/or modify it under
+# the terms of the GNU General Public License as published by the Free
+# Software Foundation; either version 2 of the License, or (at your option)
+# any later version.
+#
+# Please read the COPYING file.
+
+import sys
+
+import piksemel
+
+tubitak_devel = {}
+non_tubitak_devel = {}
+packagestats = {"tubitak_maintained":0,
+                "nontubitak_maintained":0}
+
+# TUBITAK employees who are maintainers of at least one package
+TUBITAK = ["S.Çağlar Onur",
+           "İsmail Dönmez",
+           "Onur Küçük",
+           "Bahadır Kandemir",
+           "Fatih Aşıcı",
+           "Gökmen GÖKSEL",
+           "Faik Uygur",
+           "Ekin Meroğlu",
+           "Koray Löker",
+           "Gökçen Eraslan",
+           "Pınar Yanardağ",
+           "Ozan Çağlayan"
+           ]
+
+def parseRepoIndex(index):
+    doc = piksemel.parse(index)
+
+    for spec in doc.tags("SpecFile"):
+        pkgr = spec.getTag("Source").getTag("Packager")
+        name = pkgr.getTagData("Name")
+        curdict = None
+        if name not in TUBITAK:
+            curdict = non_tubitak_devel
+            packagestats["nontubitak_maintained"] += 1
+        else:
+            curdict = tubitak_devel
+            packagestats["tubitak_maintained"] += 1
+
+        if curdict.has_key(name):
+            curdict[name] += 1
+        else:
+            curdict[name] =  1
+
+if len(sys.argv) < 2:
+    print "Usage: packagerStats <sourceRepoIndexFile> <sourceRepoIndexFile> ..."
+    sys.exit(1)
+    
+for i in range(1,len(sys.argv)):
+    parseRepoIndex(sys.argv[i])
+
+from operator import itemgetter
+tubitak_sortedlist = sorted(tubitak_devel.iteritems(), key=itemgetter(1), reverse=True)
+nontubitak_sortedlist = sorted(non_tubitak_devel.iteritems(), key=itemgetter(1), reverse=True)
+
+print "TUBITAK developers"
+print "------------------"
+for devel in tubitak_sortedlist:
+    print devel[0] + " - " + str(devel[1])
+
+print
+print "Non-TUBITAK developers"
+print "----------------------"
+for devel in nontubitak_sortedlist:
+    print devel[0] + " - " + str(devel[1])
+
+print 
+
+total_maintained = packagestats["tubitak_maintained"] + packagestats["nontubitak_maintained"]
+
+print "Total source pisi packages in given Pardus 2007 repositories are %d.\n" % total_maintained
+
+print "%4d (%.0f%%) are maintained by non-TUBITAK developers." % (packagestats["nontubitak_maintained"], 100.0*packagestats["nontubitak_maintained"]/total_maintained)
+print "%4d (%.0f%%) are maintained by TUBITAK developers.\n" % (packagestats["tubitak_maintained"], 100.0*packagestats["tubitak_maintained"]/total_maintained)
+
+print "The total number of non-TUBITAK maintainers is %d." % len(non_tubitak_devel)
+print "The total number of TUBITAK maintainers is %d.\n" % len(tubitak_devel)
+
+total_developers = len(tubitak_devel) + len(non_tubitak_devel)
+
+print "%d / %d = %0.1f packages per non-TUBITAK maintainer." % (packagestats["nontubitak_maintained"], len(non_tubitak_devel), float(packagestats["nontubitak_maintained"]) / float(len(non_tubitak_devel)))
+
+print "%d / %d = %0.1f packages per TUBITAK maintainer." % (packagestats["tubitak_maintained"], len(tubitak_devel), float(packagestats["tubitak_maintained"]) / float(len(tubitak_devel)))
+
+print
+
+print "%d / %d = %0.1f packages per maintainer.\n" % (total_maintained, total_developers, float(total_maintained)/float(total_developers))

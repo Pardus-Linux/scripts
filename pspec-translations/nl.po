@@ -1,95 +1,96 @@
-# SOME DESCRIPTIVE TITLE.
+# translation of nl.po to Nederlands
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Willem Gielen <w.gielen@gmail.com>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2007-12-26 21:12+0100\n"
+"Last-Translator: Willem Gielen <w.gielen@gmail.com>\n"
+"Language-Team: Nederlands <Pardus-translation-nl@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #: kernel/kernel:kernel-source:summary
 msgid "Source files for the Linux kernel used by Pardus"
-msgstr ""
+msgstr "Bron bestanden voor de Linux kernel, gebruikt door Pardus"
 
 #: kernel/kernel:kernel-headers:summary
 msgid "Header files for the Linux kernel for use by glibc"
-msgstr ""
+msgstr "Header bestanden voor de Linux kernel, gebruikt door glibc"
 
 #: kernel/kernel:kernel-headers:description
 msgid "Kernel-headers includes the C header files that specify the interface between the Linux kernel and userspace libraries and programs. The header files define structures and constants that are needed for building most standard programs and are also needed for rebuilding the glibc package."
-msgstr ""
+msgstr "Kernel-headers bevatten de C header bestanden welk zorg dragen voor de interface tussen de Linux kernel en gebruikersruimte bibliotheken en programma's. De header bestanden omschrijven structuren en constanten welk noodzakelijk zijn voor het bouwen van de meeste standaard programma's en welk ook nodig zijn om het glibc pakket te herbouwen."
 
 #: kernel/kernel::summary
 msgid "The Linux kernel (the core of the Linux operating system) for Pardus Linux"
-msgstr ""
+msgstr "De Linux kernel (de kern van het Linux besturingssysteem) voor Pardus Linux"
 
 #: kernel/kernel::description
 msgid "The kernel package contains the Linux kernel, the core of any Linux operating system. The kernel handles the basic functions of the operating system: memory allocation, process allocation, device input and output, etc."
-msgstr ""
+msgstr "Het kernel pakket bevat de Linux kernel, de kern van elk Linux besturkingssysteem. De kernel handelt de meeste basisfuncties van het besturingssysteem af: geheugengebruik, procesbeheersing, communicatie met randapparatuur, etc."
 
 #: kernel/kernel-debug:kernel-debug-source:summary
 msgid "Debug enabled Pardus Linux kernel source"
-msgstr ""
+msgstr "Debug geactiveerde Pardus Linux kernel bron"
 
 #: kernel/kernel-debug:kernel-debug-source:description
 msgid "Debug enabled Pardus Linux kernel source"
-msgstr ""
+msgstr "Debug geactiveerde Pardus Linux kernel bron"
 
 #: kernel/kernel-debug::summary
 msgid "Debug enabled Uniprocessor Linux kernel for Pardus Linux"
-msgstr ""
+msgstr "Debug geactiveerde Uniprocessor Linux kernel voor Pardus Linux"
 
 #: kernel/drivers/ipw3945::summary
 msgid "Driver for Intel IPW3945 wireless network chips"
-msgstr ""
+msgstr "Driver voor Intel IPW3945 draadloos netwerk chips"
 
 #: kernel/drivers/madwifi-ng::summary
 msgid "Wireless driver for Atheros chipset a/b/g cards"
-msgstr ""
+msgstr "Draadloze driver voor Atheros chipset a/b/g kaarten"
 
 #: kernel/drivers/rt2400::summary
 msgid "RaLink RT2400 driver"
-msgstr ""
+msgstr "RaLink RT2400 driver"
 
 #: kernel/drivers/rt2400::description
 msgid "Driver for the RaLink RT2400 wireless chipset"
-msgstr ""
+msgstr "Driver voor de RaLink RT2400 draadloze chipset"
 
 #: kernel/drivers/nvidia-old:nvidia-kernel-old:summary
 msgid "nVIDIA kernel driver [For TNT2 and such older cards]"
-msgstr ""
+msgstr "nVIDIA kernel driver [Voor TNT2 en meer van deze oudere kaarten]"
 
 #: kernel/drivers/nvidia-old:nvidia-kernel-old:description
 msgid "nVIDIA kernel driver for low level infrastracture [For TNT2 and such older cards]."
-msgstr ""
+msgstr "nVIDIA kernel driver voor laag niveau infrastructuur [Voor TNT2 en meer van deze oudere kaarten]."
 
 #: kernel/drivers/nvidia-old:nvidia-glx-old:summary
 msgid "nVIDIA glx module for X.org [For TNT2 and such older cards]"
-msgstr ""
+msgstr "nVIDIA glx module voor X.org [Voor TNT2 en meer van deze oudere kaarten]"
 
 #: kernel/drivers/nvidia-old:nvidia-glx-old:description
 msgid "nVIDIA glx module for X.org for optimized 2d/3d performance [For TNT2 and such older cards]."
-msgstr ""
+msgstr "nVIDIA glx module voor X.org voor geoptimaliseerde 2d/3d prestatie [Voor TNT2 en meer van deze oudere kaarten]."
 
 #: kernel/drivers/nvidia-old:nvidia-tools-old:summary
 msgid "nvidia-settings tool [For TNT2 and such older cards]"
-msgstr ""
+msgstr "nVIDIA-settings gereedschap [Voor TNT2 en meer van deze oudere kaarten]"
 
 #: kernel/drivers/nvidia-old:nvidia-tools-old:description
 msgid "GUI tool nvidia-settings for nVIDIA cards [For TNT2 and such older cards]."
-msgstr ""
+msgstr "GUI gereedschap nvidia-settings voor nVIDIA kaarten [Voor TNT2 en meer van deze oudere kaarten]."
 
 #: kernel/drivers/nvidia-old::summary
 msgid "nVIDIA kernel and glx drivers for old nVIDIA cards like TNT2"
-msgstr ""
+msgstr "nVIDIA kernel en glx drivers voor oudere nVIDIA kaarten als de TNT2"
 
 #: kernel/drivers/nvidia-old::description
 msgid "nVIDIA kernel and glx drivers giving optimized 2d/3d performance on Linux for old nVidia cards"
@@ -209,7 +210,7 @@ msgstr ""
 
 #: kernel/drivers/acpi4asus::description
 msgid "For Asus laptops to use all the functionality of their computers such as special keys, special LEDs, brightness control"
-msgstr ""
+msgstr "Voor Asus laptops voor  het gebruik van alle functionaliteit van deze computers als speciale toetsen, speciale LEDs, en helderheid instellingen"
 
 #: kernel/drivers/ungrab-winmodem::summary
 msgid "Additional module for Smartlink Modems"
@@ -11701,3 +11702,4 @@ msgstr ""
 #: kernel-xen/domU/kernel-domU::description
 msgid "User domain Xen-enabled kernel allows Pardus to run on the Xen virtual machine's user domain. This kernel cannot be booted as the first operating system on Xen, it must be booted from domain 0 and does not have direct access to hardware, but it's smaller than the domain 0 kernel."
 msgstr ""
+

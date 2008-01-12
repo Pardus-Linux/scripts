@@ -170,7 +170,7 @@ def extract_from_translationsxmls(path, language, old_messages = []):
     def set_fuzzy_flag(msg):
         for old_msg in old_messages:
             if old_msg.reference == msg.reference:
-                if old_msg.msgstr == msg.msgstr:
+                if len(old_msg.msgstr) and old_msg.msgstr == msg.msgstr:
                     if ('fuzzy' in old_msg.flags) or (strp(old_msg.msgid) != strp(msg.msgid)):
                         msg.flags.append("fuzzy")
                 if (old_msg.msgid == msg.msgid) and (strp(old_msg.msgstr) != strp(msg.msgstr)):

@@ -1,19 +1,21 @@
-# SOME DESCRIPTIVE TITLE.
+# translation of de.po to Deutsch
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR Gökhan Akca <goekhanakca_ed_web.de>, 2007.
 #
+# FIRST AUTHOR Gökhan Akca <goekhanakca_ed_web.de>, 2007.
+# Mustafa Ölcerman <m.oelcerman@pardus-linux.de>, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2007-03-02 02:16+0100\n"
-"Last-Translator: Gökhan Akca <goekhanakca_ed_web.de>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2008-01-15 15:29+0200\n"
+"Last-Translator: Mustafa Ölcerman <m.oelcerman@pardus-linux.de>\n"
+"Language-Team: Deutsch <pardus-translation-de@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #: kernel/kernel:kernel-source:summary
 msgid "Source files for the Linux kernel used by Pardus"
@@ -53,7 +55,7 @@ msgstr ""
 
 #: kernel/drivers/rt2400::summary
 msgid "RaLink RT2400 driver"
-msgstr ""
+msgstr "RaLink RT2400 Treiber"
 
 #: kernel/drivers/rt2400::description
 msgid "Driver for the RaLink RT2400 wireless chipset"
@@ -12442,3 +12444,4 @@ msgstr ""
 #: kernel-xen/domU/kernel-domU::description
 msgid "User domain Xen-enabled kernel allows Pardus to run on the Xen virtual machine's user domain. This kernel cannot be booted as the first operating system on Xen, it must be booted from domain 0 and does not have direct access to hardware, but it's smaller than the domain 0 kernel."
 msgstr ""
+

@@ -400,10 +400,6 @@ msgstr ""
 msgid "Attansic L2 gigabit ethernet driver"
 msgstr ""
 
-#: kernel/drivers/realtime-lsm::summary
-msgid "The Realtime Linux Security Module (LSM) is a loadable extension for kernels. It selectively grants realtime permissions to specific user groups or applications."
-msgstr ""
-
 #: kernel/firmware/bcm43xx-firmware::summary
 msgid "Firmware for Broadcom 43xx wireless network chips"
 msgstr "Broadcom 43xx kablosuz ağ çip sürücüleri"
@@ -5379,7 +5375,7 @@ msgid "Skype allows you to make calls and send text messages from your computer.
 msgstr "Skype bilgisayarınızdan sesli, görüntülü aramalar yapmanızı sağlayan bir yazılımdır."
 
 #: applications/network/rsync::summary
-msgid "File transfer program to keep remote files into sync"
+msgid "File transfer program to keep remote files in sync"
 msgstr "Dosya yedekleme ve eşleme uygulaması"
 
 #: applications/network/ppp::summary

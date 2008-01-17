@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2008-01-15 15:29+0200\n"
+"PO-Revision-Date: 2008-01-18 00:06+0200\n"
 "Last-Translator: Mustafa Ölcerman <m.oelcerman@pardus-linux.de>\n"
 "Language-Team: Deutsch <pardus-translation-de@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -103,7 +103,7 @@ msgstr ""
 
 #: kernel/drivers/rt61::summary
 msgid "RaLink RT2600 (RT61) driver"
-msgstr ""
+msgstr "RaLink RT2600 (RT61) Treiber"
 
 #: kernel/drivers/rt61::description
 msgid "Driver for the RaLink RT2600 (RT61) wireless chipset"
@@ -111,7 +111,7 @@ msgstr ""
 
 #: kernel/drivers/rt2570::summary
 msgid "RaLink RT2570 driver"
-msgstr ""
+msgstr "RaLink RT2570 Treiber"
 
 #: kernel/drivers/rt2570::description
 msgid "Driver for the RaLink RT2570 wireless chipset"
@@ -163,7 +163,7 @@ msgstr ""
 
 #: kernel/drivers/rt73::summary
 msgid "RaLink RT2700 (RT73) driver"
-msgstr ""
+msgstr "RaLink RT2700 (RT73) Treiber"
 
 #: kernel/drivers/rt73::description
 msgid "Driver for the RaLink RT2700 (RT73) wireless chipset"
@@ -219,7 +219,7 @@ msgstr ""
 
 #: kernel/drivers/rt2500::summary
 msgid "RT2500 drivers"
-msgstr ""
+msgstr "RT2500 Treiber"
 
 #: kernel/drivers/rt2500::description
 msgid "Driver for the RaLink RT2500 wireless chipset"
@@ -3259,7 +3259,7 @@ msgstr ""
 
 #: programming/libs/4suite::summary
 msgid "4Suite"
-msgstr ""
+msgstr "4Suite"
 
 #: programming/libs/4suite::description
 msgid "4Suite allows users to take advantage of standard XML technologies rapidly and to develop and integrate Web-based applications. It also puts practical technologies for knowledge management projects in the hands of developers. It is implemented in Python with C extensions."
@@ -5535,7 +5535,7 @@ msgstr ""
 
 #: applications/network/amsn-kde::summary
 msgid "KDE integration for amsn"
-msgstr ""
+msgstr "KDE-Integration für aMSN"
 
 #: applications/network/amsn-kde::description
 msgid "aMSN is a free open source MSN Messenger clone."
@@ -5599,7 +5599,7 @@ msgstr ""
 
 #: applications/network/tightvnc::summary
 msgid "VNC server"
-msgstr ""
+msgstr "VNC-Server"
 
 #: applications/network/tightvnc::description
 msgid "VNC (Virtual Network Computing) server. TightVNC is a free remote control software package derived from the popular VNC software. With TightVNC, you can see the desktop of a remote machine and control it with your local mouse and keyboard, just like you would do it sitting in the front of that computer. To increase security, you can use it through SSH tunnelling"
@@ -6087,7 +6087,7 @@ msgstr ""
 
 #: applications/multimedia/smpeg::summary
 msgid "SDL MPEG"
-msgstr ""
+msgstr "SDL MPEG"
 
 #: applications/multimedia/smpeg::description
 msgid "SDL MPEG player library"
@@ -6727,7 +6727,7 @@ msgstr ""
 
 #: applications/games/foobillard::summary
 msgid "3D billard game"
-msgstr ""
+msgstr "3D Billiardspiel"
 
 #: applications/games/foobillard::description
 msgid "3D 8ball, 9ball, snooker and carambol game"
@@ -6775,7 +6775,7 @@ msgstr ""
 
 #: applications/games/abuse_sdl::summary
 msgid "Abuse"
-msgstr ""
+msgstr "Abuse"
 
 #: applications/games/abuse_sdl::description
 msgid "SDL Port of Abuse by Crack dot Com"
@@ -7151,7 +7151,7 @@ msgstr ""
 
 #: applications/games/pytraffic::summary
 msgid "\"Rush Hour\" Puzzle"
-msgstr ""
+msgstr "\"Rush Hour\" Puzzle"
 
 #: applications/games/pytraffic::description
 msgid "PyTraffic is a computer version of the board puzzle Rush Hour. The goal is to remove the red car out of the grid through the slot on the right. To do this you have to slide the other cars out of the way."
@@ -7287,7 +7287,7 @@ msgstr ""
 
 #: applications/games/kiki::summary
 msgid "3D puzzle game"
-msgstr ""
+msgstr "3D Puzzlespiel"
 
 #: applications/games/kiki::description
 msgid "A mixture of Sokoban and Kula-World in 3D. You control a nano bot to repair the botmaker, who has gone crazy beacuse of a parazite."
@@ -9203,7 +9203,7 @@ msgstr ""
 
 #: server/www/apache::summary
 msgid "Apache web server"
-msgstr ""
+msgstr "Apache Webserver"
 
 #: server/www/apache::description
 msgid "Apache HTTP Server is a free software/open source web server for Unix-like systems, Microsoft Windows, Novell NetWare and other operating systems. Apache is notable for playing a key role in the initial growth of the World Wide Web, and continues to be the most popular web server in use, serving as the de facto reference platform against which other web servers are designed and judged."
@@ -9279,7 +9279,7 @@ msgstr ""
 
 #: server/dhcp::summary
 msgid "DHCP server"
-msgstr ""
+msgstr "DHCP-Server"
 
 #: server/dhcp::description
 msgid "ISC Dynamic Host Configuration Protocol"
@@ -9431,7 +9431,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-gl::summary
 msgid "Galician KDE internationalization package"
-msgstr ""
+msgstr "Galicisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-gl::description
 msgid "KDE internationalization package provides Galician translations for KDE applications."
@@ -9447,7 +9447,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-kk::summary
 msgid "Kazakh KDE internationalization package"
-msgstr ""
+msgstr "Kasachisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-kk::description
 msgid "KDE internationalization package provides Kazakh translations for KDE applications."
@@ -9455,7 +9455,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-cs::summary
 msgid "Czech KDE internationalization package"
-msgstr ""
+msgstr "Tscheschiches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-cs::description
 msgid "KDE internationalization package provides Czech translations for KDE applications."
@@ -9463,7 +9463,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-se::summary
 msgid "Northern Sami KDE internationalization package"
-msgstr ""
+msgstr "Nordsamisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-se::description
 msgid "KDE internationalization package provides Northern Sami translations for KDE applications."
@@ -9471,7 +9471,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-km::summary
 msgid "Khmer KDE internationalization package"
-msgstr ""
+msgstr "Khmerisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-km::description
 msgid "KDE internationalization package provides Khmer translations for KDE applications."
@@ -9479,7 +9479,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-ko::summary
 msgid "Korean KDE internationalization package"
-msgstr ""
+msgstr "Koreanisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-ko::description
 msgid "KDE internationalization package provides Korean translations for KDE applications."
@@ -9487,7 +9487,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-cy::summary
 msgid "Welsh KDE internationalization package"
-msgstr ""
+msgstr "Walisisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-cy::description
 msgid "KDE internationalization package provides Welsh translations for KDE applications."
@@ -9495,7 +9495,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-sk::summary
 msgid "Slovak KDE internationalization package"
-msgstr ""
+msgstr "Slowakisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-sk::description
 msgid "KDE internationalization package provides Slovak translations for KDE applications."
@@ -9503,7 +9503,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-sl::summary
 msgid "Slovenian KDE internationalization package"
-msgstr ""
+msgstr "Slowenisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-sl::description
 msgid "KDE internationalization package provides Slovenian translations for KDE applications."
@@ -9511,7 +9511,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-sr::summary
 msgid "Serbian KDE internationalization package"
-msgstr ""
+msgstr "Serbisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-sr::description
 msgid "KDE internationalization package provides Serbian translations for KDE applications."
@@ -9519,7 +9519,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-da::summary
 msgid "Danish KDE internationalization package"
-msgstr ""
+msgstr "Dänisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-da::description
 msgid "KDE internationalization package provides Danish translations for KDE applications."
@@ -9535,7 +9535,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-sv::summary
 msgid "Swedish KDE internationalization package"
-msgstr ""
+msgstr "Schwedisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-sv::description
 msgid "KDE internationalization package provides Swedish translations for KDE applications."
@@ -9543,7 +9543,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-de::summary
 msgid "German KDE internationalization package"
-msgstr ""
+msgstr "Deutsches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-de::description
 msgid "KDE internationalization package provides German translations for KDE applications."
@@ -9551,7 +9551,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-he::summary
 msgid "Hebrew KDE internationalization package"
-msgstr ""
+msgstr "Hebräisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-he::description
 msgid "KDE internationalization package provides Hebrew translations for KDE applications."
@@ -9559,7 +9559,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-pa::summary
 msgid "Punjabi KDE internationalization package"
-msgstr ""
+msgstr "Pandschabisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-pa::description
 msgid "KDE internationalization package provides Punjabi translations for KDE applications."
@@ -9567,7 +9567,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-hi::summary
 msgid "Hindi KDE internationalization package"
-msgstr ""
+msgstr "Indisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-hi::description
 msgid "KDE internationalization package provides Hindi translations for KDE applications."
@@ -9575,7 +9575,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-ta::summary
 msgid "Tamil KDE internationalization package"
-msgstr ""
+msgstr "Tamilisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-ta::description
 msgid "KDE internationalization package provides Tamil translations for KDE applications."
@@ -9583,7 +9583,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-hr::summary
 msgid "Croatian KDE internationalization package"
-msgstr ""
+msgstr "Kroatisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-hr::description
 msgid "KDE internationalization package provides Croatian translations for KDE applications."
@@ -9591,7 +9591,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-tg::summary
 msgid "Tajik KDE internationalization package"
-msgstr ""
+msgstr "Tadschikisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-tg::description
 msgid "KDE internationalization package provides Tajik translations for KDE applications."
@@ -9599,7 +9599,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-en_GB::summary
 msgid "British English KDE internationalization package"
-msgstr ""
+msgstr "Britisch-Englisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-en_GB::description
 msgid "KDE internationalization package provides British English translations for KDE applications."
@@ -9607,7 +9607,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-pl::summary
 msgid "Polish KDE internationalization package"
-msgstr ""
+msgstr "Polnisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-pl::description
 msgid "KDE internationalization package provides Polish translations for KDE applications."
@@ -9615,7 +9615,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-hu::summary
 msgid "Hungarian KDE internationalization package"
-msgstr ""
+msgstr "Ungarisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-hu::description
 msgid "KDE internationalization package provides Hungarian translations for KDE applications."
@@ -9623,7 +9623,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-lt::summary
 msgid "Lithuanian KDE internationalization package"
-msgstr ""
+msgstr "Litauisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-lt::description
 msgid "KDE internationalization package provides Lithuanian translations for KDE applications."
@@ -9631,7 +9631,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-lv::summary
 msgid "Latvian KDE internationalization package"
-msgstr ""
+msgstr "Lettisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-lv::description
 msgid "KDE internationalization package provides Latvian translations for KDE applications."
@@ -9639,7 +9639,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-pt::summary
 msgid "Portuguese KDE internationalization package"
-msgstr ""
+msgstr "Portugisiesches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-pt::description
 msgid "KDE internationalization package provides Portuguese translations for KDE applications."
@@ -9647,7 +9647,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-tr::summary
 msgid "Turkish KDE internationalization package"
-msgstr ""
+msgstr "Türkisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-tr::description
 msgid "KDE internationalization package provides Turkish translations for KDE applications."
@@ -9655,7 +9655,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-af::summary
 msgid "Afrikaans KDE internationalization package"
-msgstr ""
+msgstr "Kapholländisches (Afrikaans) KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-af::description
 msgid "KDE internationalization package provides Afrikaans translations for KDE applications."
@@ -9671,7 +9671,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-el::summary
 msgid "Greek KDE internationalization package"
-msgstr ""
+msgstr "Griechisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-el::description
 msgid "KDE internationalization package provides Greek translations for KDE applications."
@@ -9679,7 +9679,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-ar::summary
 msgid "Arabic KDE internationalization package"
-msgstr ""
+msgstr "Arabisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-ar::description
 msgid "KDE internationalization package provides Arabic translations for KDE applications."
@@ -9687,7 +9687,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-eo::summary
 msgid "Esperanto KDE internationalization package"
-msgstr ""
+msgstr "Esperantoisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-eo::description
 msgid "KDE internationalization package provides Esperanto translations for KDE applications."
@@ -9695,7 +9695,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-mk::summary
 msgid "Macedonian KDE internationalization package"
-msgstr ""
+msgstr "Mazedonisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-mk::description
 msgid "KDE internationalization package provides Macedonian translations for KDE applications."
@@ -9703,7 +9703,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-es::summary
 msgid "Spanish KDE internationalization package"
-msgstr ""
+msgstr "Spanisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-es::description
 msgid "KDE internationalization package provides Spanish translations for KDE applications."
@@ -9711,7 +9711,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-et::summary
 msgid "Estonian KDE internationalization package"
-msgstr ""
+msgstr "Estnisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-et::description
 msgid "KDE internationalization package provides Estonian translations for KDE applications."
@@ -9719,7 +9719,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-eu::summary
 msgid "Basque KDE internationalization package"
-msgstr ""
+msgstr "Baskisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-eu::description
 msgid "KDE internationalization package provides Basque translations for KDE applications."
@@ -9727,7 +9727,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-mn::summary
 msgid "Mongolian KDE internationalization package"
-msgstr ""
+msgstr "Mongolisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-mn::description
 msgid "KDE internationalization package provides Mongolian translations for KDE applications."
@@ -9735,7 +9735,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-az::summary
 msgid "Azerbaijani KDE internationalization package"
-msgstr ""
+msgstr "Aserbaidschanisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-az::description
 msgid "KDE internationalization package provides Azerbaijani translations for KDE applications."
@@ -9743,7 +9743,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-is::summary
 msgid "Icelandic KDE internationalization package"
-msgstr ""
+msgstr "Isländisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-is::description
 msgid "KDE internationalization package provides Icelandic translations for KDE applications."
@@ -9751,7 +9751,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-it::summary
 msgid "Italian KDE internationalization package"
-msgstr ""
+msgstr "Italienisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-it::description
 msgid "KDE internationalization package provides Italian translations for KDE applications."
@@ -9759,7 +9759,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-uk::summary
 msgid "Ukrainian KDE internationalization package"
-msgstr ""
+msgstr "Ukrainisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-uk::description
 msgid "KDE internationalization package provides Ukrainian translations for KDE applications."
@@ -9767,7 +9767,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-ms::summary
 msgid "Malay KDE internationalization package"
-msgstr ""
+msgstr "Malayisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-ms::description
 msgid "KDE internationalization package provides Malay translations for KDE applications."
@@ -9775,7 +9775,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-nds::summary
 msgid "Low Saxon KDE internationalization package"
-msgstr ""
+msgstr "Niedersächsisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-nds::description
 msgid "KDE internationalization package provides Low Saxon translations for KDE applications."
@@ -9783,7 +9783,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-fa::summary
 msgid "Farsi (Persian) KDE internationalization package"
-msgstr ""
+msgstr "Farsisches (persisches) KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-fa::description
 msgid "KDE internationalization package provides Farsi (Persian) translations for KDE applications."
@@ -9791,7 +9791,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-bg::summary
 msgid "Bulgarian KDE internationalization package"
-msgstr ""
+msgstr "Bulgarisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-bg::description
 msgid "KDE internationalization package provides Bulgarian translations for KDE applications."
@@ -9799,7 +9799,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-ja::summary
 msgid "Japanese KDE internationalization package"
-msgstr ""
+msgstr "Japanisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-ja::description
 msgid "KDE internationalization package provides Japanese translations for KDE applications."
@@ -9807,7 +9807,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-uz::summary
 msgid "Uzbek KDE internationalization package"
-msgstr ""
+msgstr "Uzbekisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-uz::description
 msgid "KDE internationalization package provides Uzbek translations for KDE applications."
@@ -9847,7 +9847,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-bs::summary
 msgid "Bosnian KDE internationalization package"
-msgstr ""
+msgstr "Bosnisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-bs::description
 msgid "KDE internationalization package provides Bosnian translations for KDE applications."
@@ -9863,7 +9863,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-fr::summary
 msgid "French KDE internationalization package"
-msgstr ""
+msgstr "Französisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-fr::description
 msgid "KDE internationalization package provides French translations for KDE applications."
@@ -9871,7 +9871,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-nl::summary
 msgid "Dutch KDE internationalization package"
-msgstr ""
+msgstr "Niederländisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-nl::description
 msgid "KDE internationalization package provides Dutch translations for KDE applications."
@@ -9887,7 +9887,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-vi::summary
 msgid "Vietnamese KDE internationalization package"
-msgstr ""
+msgstr "Vietnamesisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-vi::description
 msgid "KDE internationalization package provides Vietnamese translations for KDE applications."
@@ -9895,7 +9895,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-fy::summary
 msgid "Frisian KDE internationalization package"
-msgstr ""
+msgstr "Friesisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-fy::description
 msgid "KDE internationalization package provides Frisian translations for KDE applications."
@@ -9903,7 +9903,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-ro::summary
 msgid "Romanian KDE internationalization package"
-msgstr ""
+msgstr "Rumänisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-ro::description
 msgid "KDE internationalization package provides Romanian translations for KDE applications."
@@ -9911,7 +9911,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-ca::summary
 msgid "Catalan KDE internationalization package"
-msgstr ""
+msgstr "Katalanisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-ca::description
 msgid "KDE internationalization package provides Catalan translations for KDE applications."
@@ -9919,7 +9919,7 @@ msgstr ""
 
 #: desktop/kde/i18n/kde-i18n-ru::summary
 msgid "Russian KDE internationalization package"
-msgstr ""
+msgstr "Russisches KDE-Internationalisierungspaket"
 
 #: desktop/kde/i18n/kde-i18n-ru::description
 msgid "KDE internationalization package provides Russian translations for KDE applications."
@@ -10443,7 +10443,7 @@ msgstr ""
 
 #: desktop/kde/k3b-i18n::summary
 msgid "Internationalization files for K3b"
-msgstr ""
+msgstr "Internationalisierungsdateien für K3b"
 
 #: desktop/kde/k3b-i18n::description
 msgid "These are the internationalization files for K3B CD/DVD burning program."
@@ -10451,7 +10451,7 @@ msgstr ""
 
 #: desktop/kde/user-manager::summary
 msgid "User Manager"
-msgstr ""
+msgstr "Benutzer-Manager"
 
 #: desktop/kde/user-manager::description
 msgid "The User Manager can add a new user to Pardus or modify other users. You can add, modify or delete a user, add a new group, add users to groups or delete groups and you can allow or restrict user to do certain tasks such as using the CD drive, playing audio or having super user privileges."
@@ -10459,7 +10459,7 @@ msgstr ""
 
 #: desktop/kde/kvpnc::summary
 msgid "A vpn manager for KDE"
-msgstr ""
+msgstr "Ein VPN-Manager für KDE"
 
 #: desktop/kde/kvpnc::description
 msgid "Kvpnc is a KDE frontend for various VPN (virtual private network) clients."
@@ -10523,7 +10523,7 @@ msgstr ""
 
 #: desktop/kde/ktorrent::summary
 msgid "A BitTorrent program for KDE"
-msgstr ""
+msgstr "Ein BitTorrent-Programm für KDE"
 
 #: desktop/kde/ktorrent::description
 msgid "KTorrent is a BitTorrent (P2P file distribution protocol) program for KDE."
@@ -10767,7 +10767,7 @@ msgstr ""
 
 #: desktop/kde/amarok::summary
 msgid "Amarok audio player"
-msgstr ""
+msgstr "Amarok Audio-Player"
 
 #: desktop/kde/amarok::description
 msgid "Feature-rich audio player for KDE system"
@@ -11847,7 +11847,7 @@ msgstr ""
 
 #: desktop/freedesktop/zorg::summary
 msgid "Çomar's X configuration tools"
-msgstr ""
+msgstr "Çomar's X-Konfigurationtools"
 
 #: desktop/freedesktop/zorg::description
 msgid "X configuration tools, monitor and display adapter database files"
@@ -12051,7 +12051,7 @@ msgstr ""
 
 #: desktop/kde4/i18n/kde4-i18n-bg::summary
 msgid "Bulgarian KDE4 internationalization package"
-msgstr ""
+msgstr "Bulgarisches KDE4-Internationalisierungspaket"
 
 #: desktop/kde4/i18n/kde4-i18n-bg::description
 msgid "KDE4 internationalization package provides Bulgarian translations for KDE4 applications."
@@ -12059,7 +12059,7 @@ msgstr ""
 
 #: desktop/kde4/i18n/kde4-i18n-de::summary
 msgid "German KDE4 internationalization package"
-msgstr ""
+msgstr "Deutsches KDE4-Internationalisierungspaket"
 
 #: desktop/kde4/i18n/kde4-i18n-de::description
 msgid "KDE4 internationalization package provides German translations for KDE4 applications."
@@ -12067,7 +12067,7 @@ msgstr ""
 
 #: desktop/kde4/i18n/kde4-i18n-ja::summary
 msgid "Japanese KDE4 internationalization package"
-msgstr ""
+msgstr "Japanisches KDE4-Internationalisierungspaket"
 
 #: desktop/kde4/i18n/kde4-i18n-ja::description
 msgid "KDE4 internationalization package provides Japanese translations for KDE4 applications."
@@ -12099,7 +12099,7 @@ msgstr ""
 
 #: desktop/kde4/i18n/kde4-i18n-hi::summary
 msgid "Hindi KDE4 internationalization package"
-msgstr ""
+msgstr "Indisches KDE4-Internationalisierungspaket"
 
 #: desktop/kde4/i18n/kde4-i18n-hi::description
 msgid "KDE4 internationalization package provides Hindi translations for KDE4 applications."
@@ -12107,7 +12107,7 @@ msgstr ""
 
 #: desktop/kde4/i18n/kde4-i18n-fr::summary
 msgid "French KDE4 internationalization package"
-msgstr ""
+msgstr "Französisches KDE4-Internationalisierungspaket"
 
 #: desktop/kde4/i18n/kde4-i18n-fr::description
 msgid "KDE4 internationalization package provides French translations for KDE4 applications."
@@ -12115,7 +12115,7 @@ msgstr ""
 
 #: desktop/kde4/i18n/kde4-i18n-nl::summary
 msgid "Dutch KDE4 internationalization package"
-msgstr ""
+msgstr "Niederländisches KDE4-Internationalisierungspaket"
 
 #: desktop/kde4/i18n/kde4-i18n-nl::description
 msgid "KDE4 internationalization package provides Dutch translations for KDE4 applications."
@@ -12123,7 +12123,7 @@ msgstr ""
 
 #: desktop/kde4/i18n/kde4-i18n-en_GB::summary
 msgid "British English KDE4 internationalization package"
-msgstr ""
+msgstr "Britisch-Englisches KDE4-Internationalisierungspaket"
 
 #: desktop/kde4/i18n/kde4-i18n-en_GB::description
 msgid "KDE4 internationalization package provides British English translations for KDE4 applications."
@@ -12131,7 +12131,7 @@ msgstr ""
 
 #: desktop/kde4/i18n/kde4-i18n-pl::summary
 msgid "Polish KDE4 internationalization package"
-msgstr ""
+msgstr "Polnisches KDE4-Internationalisierungspaket"
 
 #: desktop/kde4/i18n/kde4-i18n-pl::description
 msgid "KDE4 internationalization package provides Polish translations for KDE4 applications."
@@ -12147,7 +12147,7 @@ msgstr ""
 
 #: desktop/kde4/i18n/kde4-i18n-hu::summary
 msgid "Hungarian KDE4 internationalization package"
-msgstr ""
+msgstr "Ungarisches KDE4-Internationalisierungspaket"
 
 #: desktop/kde4/i18n/kde4-i18n-hu::description
 msgid "KDE4 internationalization package provides Hungarian translations for KDE4 applications."
@@ -12163,7 +12163,7 @@ msgstr ""
 
 #: desktop/kde4/i18n/kde4-i18n-pt::summary
 msgid "Portuguese KDE4 internationalization package"
-msgstr ""
+msgstr "Portugiesisches KDE4-Internationalisierungspaket"
 
 #: desktop/kde4/i18n/kde4-i18n-pt::description
 msgid "KDE4 internationalization package provides Portuguese translations for KDE4 applications."
@@ -12187,7 +12187,7 @@ msgstr ""
 
 #: desktop/kde4/i18n/kde4-i18n-tr::summary
 msgid "Turkish KDE4 internationalization package"
-msgstr ""
+msgstr "Türkisches KDE4-Internationalisierungspaket"
 
 #: desktop/kde4/i18n/kde4-i18n-tr::description
 msgid "KDE4 internationalization package provides Turkish translations for KDE4 applications."
@@ -12195,7 +12195,7 @@ msgstr ""
 
 #: desktop/kde4/i18n/kde4-i18n-ru::summary
 msgid "Russian KDE4 internationalization package"
-msgstr ""
+msgstr "Russisches KDE4-Internationalisierungspaket"
 
 #: desktop/kde4/i18n/kde4-i18n-ru::description
 msgid "KDE4 internationalization package provides Russian translations for KDE4 applications."
@@ -12219,7 +12219,7 @@ msgstr ""
 
 #: desktop/kde4/i18n/kde4-i18n-el::summary
 msgid "Greek KDE4 internationalization package"
-msgstr ""
+msgstr "Griechisches KDE4-Internationalisierungspaket"
 
 #: desktop/kde4/i18n/kde4-i18n-el::description
 msgid "KDE4 internationalization package provides Greek translations for KDE4 applications."
@@ -12235,7 +12235,7 @@ msgstr ""
 
 #: desktop/kde4/i18n/kde4-i18n-ar::summary
 msgid "Arabic KDE4 internationalization package"
-msgstr ""
+msgstr "Arabisches KDE4-Internationalisierungspaket"
 
 #: desktop/kde4/i18n/kde4-i18n-ar::description
 msgid "KDE4 internationalization package provides Arabic translations for KDE4 applications."
@@ -12267,7 +12267,7 @@ msgstr ""
 
 #: desktop/kde4/i18n/kde4-i18n-km::summary
 msgid "Khmer KDE4 internationalization package"
-msgstr ""
+msgstr "Khmerisches KDE4-Internationalisierungspaket"
 
 #: desktop/kde4/i18n/kde4-i18n-km::description
 msgid "KDE4 internationalization package provides Khmer translations for KDE4 applications."
@@ -12275,7 +12275,7 @@ msgstr ""
 
 #: desktop/kde4/i18n/kde4-i18n-es::summary
 msgid "Spanish KDE4 internationalization package"
-msgstr ""
+msgstr "Spanisches KDE4-Internationalisierungspaket"
 
 #: desktop/kde4/i18n/kde4-i18n-es::description
 msgid "KDE4 internationalization package provides Spanish translations for KDE4 applications."
@@ -12283,7 +12283,7 @@ msgstr ""
 
 #: desktop/kde4/i18n/kde4-i18n-se::summary
 msgid "Northern Sami KDE4 internationalization package"
-msgstr ""
+msgstr "Nordsamisches KDE4-Internationalisierungspaket"
 
 #: desktop/kde4/i18n/kde4-i18n-se::description
 msgid "KDE4 internationalization package provides Northern Sami translations for KDE4 applications."
@@ -12299,7 +12299,7 @@ msgstr ""
 
 #: desktop/kde4/i18n/kde4-i18n-ko::summary
 msgid "Korean KDE4 internationalization package"
-msgstr ""
+msgstr "Koreanisches KDE4-Internationalisierungspaket"
 
 #: desktop/kde4/i18n/kde4-i18n-ko::description
 msgid "KDE4 internationalization package provides Korean translations for KDE4 applications."
@@ -12315,7 +12315,7 @@ msgstr ""
 
 #: desktop/kde4/i18n/kde4-i18n-it::summary
 msgid "Italian KDE4 internationalization package"
-msgstr ""
+msgstr "Italienisches KDE4-Internationalisierungspaket"
 
 #: desktop/kde4/i18n/kde4-i18n-it::description
 msgid "KDE4 internationalization package provides Italian translations for KDE4 applications."

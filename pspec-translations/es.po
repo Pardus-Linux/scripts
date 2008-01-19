@@ -1,16 +1,18 @@
-# translation of es.po to español
+# translation of es.po to Spanish
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Klemens <click3d_at_linuxmail_org>, 2007.
+# Klemens Häckel <click3d_at_linuxmail_org>, 2007.
+# Klemens Haeckel <click3d at linuxmail dot org>, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2007-11-04 16:54-0300\n"
-"Last-Translator: Klemens <click3d_at_linuxmail_org>\n"
-"Language-Team: español <es@li.org>\n"
+"PO-Revision-Date: 2008-01-19 20:14-0300\n"
+"Last-Translator: Klemens Haeckel <click3d at linuxmail dot org>\n"
+"Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,11 +20,11 @@ msgstr ""
 
 #: kernel/kernel:kernel-source:summary
 msgid "Source files for the Linux kernel used by Pardus"
-msgstr ""
+msgstr "Archivos de fuentes del kernel de Linux usado en Pardus"
 
 #: kernel/kernel:kernel-headers:summary
 msgid "Header files for the Linux kernel for use by glibc"
-msgstr ""
+msgstr "Archivos de cabecera de Linux para uso con glibc"
 
 #: kernel/kernel:kernel-headers:description
 msgid "Kernel-headers includes the C header files that specify the interface between the Linux kernel and userspace libraries and programs. The header files define structures and constants that are needed for building most standard programs and are also needed for rebuilding the glibc package."
@@ -30,7 +32,7 @@ msgstr "Kernel-headers incluyen los archivos de cabeceras C que especifican la i
 
 #: kernel/kernel::summary
 msgid "The Linux kernel (the core of the Linux operating system) for Pardus Linux"
-msgstr ""
+msgstr "El kernel de Linux (el núcleo del sistema operativo Linux) de Pardus Linux"
 
 #: kernel/kernel::description
 msgid "The kernel package contains the Linux kernel, the core of any Linux operating system. The kernel handles the basic functions of the operating system: memory allocation, process allocation, device input and output, etc."
@@ -38,23 +40,23 @@ msgstr "El paquete de kernel contiene el kernel de Linux, el núcleo de todo sis
 
 #: kernel/kernel-debug:kernel-debug-source:summary
 msgid "Debug enabled Pardus Linux kernel source"
-msgstr ""
+msgstr "Fuente del kernel de Pardus Linux con debug habilitado"
 
 #: kernel/kernel-debug::summary
 msgid "Debug enabled Uniprocessor Linux kernel for Pardus Linux"
-msgstr ""
+msgstr "Kernel Uniprocesador de Pardus Linux con debug habilitado"
 
 #: kernel/drivers/ipw3945::summary
 msgid "Driver for Intel IPW3945 wireless network chips"
-msgstr ""
+msgstr "Controlador para chips de red wireless Intel IPW3945"
 
 #: kernel/drivers/madwifi-ng::summary
 msgid "Wireless driver for Atheros chipset a/b/g cards"
-msgstr ""
+msgstr "Controlador para tarjetas wireless con chipset Atheros a/b/g"
 
 #: kernel/drivers/rt2400::summary
 msgid "RaLink RT2400 driver"
-msgstr ""
+msgstr "Controlador RaLink RT2400 "
 
 #: kernel/drivers/rt2400::description
 msgid "Driver for the RaLink RT2400 wireless chipset"
@@ -62,7 +64,7 @@ msgstr "Controlador para chips wireless RaLink RT2400"
 
 #: kernel/drivers/nvidia-old:nvidia-kernel-old:summary
 msgid "nVIDIA kernel driver [For TNT2 and such older cards]"
-msgstr ""
+msgstr "Controlador nVIDIA de kernel [para tarjetas tan antiguas como TNT2]"
 
 #: kernel/drivers/nvidia-old:nvidia-kernel-old:description
 msgid "nVIDIA kernel driver for low level infrastracture [For TNT2 and such older cards]."
@@ -70,15 +72,15 @@ msgstr "Controlador nVIDIA de kernel para infraestructura de bajo nivel [para ta
 
 #: kernel/drivers/nvidia-old:nvidia-glx-old:summary
 msgid "nVIDIA glx module for X.org [For TNT2 and such older cards]"
-msgstr ""
+msgstr "Controlador nVIDIA glx para X.org[para tarjetas tan antiguas como TNT2]"
 
 #: kernel/drivers/nvidia-old:nvidia-glx-old:description
 msgid "nVIDIA glx module for X.org for optimized 2d/3d performance [For TNT2 and such older cards]."
-msgstr "Controlador nVIDIA glx para X.org con rendimiento sd/3d optimizado[para tarjetas tan antiguas como TNT2]"
+msgstr "Controlador nVIDIA glx para X.org con rendimiento sd/3d optimizado [para tarjetas tan antiguas como TNT2]"
 
 #: kernel/drivers/nvidia-old:nvidia-tools-old:summary
 msgid "nvidia-settings tool [For TNT2 and such older cards]"
-msgstr ""
+msgstr "Herramienta de configuración nVIDIA [tarjetas tan antiguas como TNT2]"
 
 #: kernel/drivers/nvidia-old:nvidia-tools-old:description
 msgid "GUI tool nvidia-settings for nVIDIA cards [For TNT2 and such older cards]."
@@ -102,7 +104,7 @@ msgstr "El controlador permite uso de los botones multimedia del ratón inalambr
 
 #: kernel/drivers/rt61::summary
 msgid "RaLink RT2600 (RT61) driver"
-msgstr ""
+msgstr "Controlador RaLink RT2600 (RT61)"
 
 #: kernel/drivers/rt61::description
 msgid "Driver for the RaLink RT2600 (RT61) wireless chipset"
@@ -110,7 +112,7 @@ msgstr "Controlador para chips inalambricos RaLink RT2600 (RT61)"
 
 #: kernel/drivers/rt2570::summary
 msgid "RaLink RT2570 driver"
-msgstr ""
+msgstr "Controlador RaLink RT2570 "
 
 #: kernel/drivers/rt2570::description
 msgid "Driver for the RaLink RT2570 wireless chipset"
@@ -118,7 +120,7 @@ msgstr "Controlador para chips inalambricos RaLink RT2570"
 
 #: kernel/drivers/lirc::summary
 msgid "Linux Infrared Remote Control system"
-msgstr ""
+msgstr "Sistema de control remoto por infrarrojo en Linux"
 
 #: kernel/drivers/lirc::description
 msgid "LIRC is a package that allows you to decode and send infra-red signals of many (but not all) commonly used remote controls."
@@ -126,7 +128,7 @@ msgstr "LIRC permite decodificar y transmitir señales infrarrojos compatible co
 
 #: kernel/drivers/hsfmodem::summary
 msgid "Linuxant's modem driver"
-msgstr ""
+msgstr "controlador de modem Linuxant"
 
 #: kernel/drivers/hsfmodem::description
 msgid "Linuxant's modem driver for Conexant HSF chipset"
@@ -134,11 +136,11 @@ msgstr "Controlador de modem Linuxant para conjunto de chips Conexant HSF"
 
 #: kernel/drivers/kqemu::summary
 msgid "QEMU Accelerator Module"
-msgstr ""
+msgstr "Módulo acelerador de QEMU"
 
 #: kernel/drivers/eciadsl::summary
 msgid "Driver for various ADSL modems. Also known as EciAdsl"
-msgstr ""
+msgstr "Controlador para varios modems ADSL, también conocido como EciAdsl"
 
 #: kernel/drivers/eciadsl::description
 msgid " Linux driver for ECI HiFocus ADSL USB and Globespan based modems. EciAdsl is a free Linux driver for connecting your computer to the internet, if you have a Globespan based ADSL USB modem."
@@ -146,7 +148,7 @@ msgstr "Controlador para modems ECI HiFocus ADSL USB y basados en Globespan. Aci
 
 #: kernel/drivers/qc-usb-messenger::summary
 msgid "Logitech QuickCam USB Video Camera driver"
-msgstr ""
+msgstr "Controlador de camara de video Logitech QuickCam USB "
 
 #: kernel/drivers/unionfs::summary
 msgid "Stackable unification file system, which can appear to merge the contents of several directories"
@@ -154,7 +156,7 @@ msgstr ""
 
 #: kernel/drivers/gspca::summary
 msgid "Webcam driver"
-msgstr ""
+msgstr "Controlador de camara web"
 
 #: kernel/drivers/gspca::description
 msgid "Driver for more than 200 webcams from manufacturers like Creative, Logitech, Mustek etc. using chips like Conexant, Etoms, Mars-Semi, Pixart, Sonix, Sunplus, Transvision, Vimicro, Microdia."
@@ -162,7 +164,7 @@ msgstr "Controlador para más de 200 webcams de fabricantes como Creative, Logit
 
 #: kernel/drivers/rt73::summary
 msgid "RaLink RT2700 (RT73) driver"
-msgstr ""
+msgstr "Controlador RaLink RT2700 (RT73)"
 
 #: kernel/drivers/rt73::description
 msgid "Driver for the RaLink RT2700 (RT73) wireless chipset"
@@ -170,7 +172,7 @@ msgstr "Controlador para el chips inalambricos RaLink RT2700 (RT73)"
 
 #: kernel/drivers/fuse::summary
 msgid "An interface for filesystems implemented in userspace"
-msgstr ""
+msgstr "Una interfaz para sistemas de archivos implementados en el espacio de usuario"
 
 #: kernel/drivers/tpm-emulator::summary
 msgid "The project aims to create a fully working Trusted Platform Module (TPM) emulator follwing the specifications of the Trusted Computing Group"
@@ -178,7 +180,7 @@ msgstr ""
 
 #: kernel/drivers/pwc::summary
 msgid "Philips USB Webcam driver"
-msgstr ""
+msgstr "Controlador de camara web Philips USB"
 
 #: kernel/drivers/pwc::description
 msgid "Free Philips USB Webcam driver for Linux that supports VGA resolution, newer kernels and replaces the old pwcx module."
@@ -186,11 +188,11 @@ msgstr "Controlador libre para webcam Philips USB, que soporta resolución VGA, 
 
 #: kernel/drivers/ati-drivers::summary
 msgid "ATI display drivers"
-msgstr ""
+msgstr "Controlador display ATI"
 
 #: kernel/drivers/linux-uvc::summary
 msgid "USB webcam driver"
-msgstr ""
+msgstr "Controlador camara web"
 
 #: kernel/drivers/linux-uvc::description
 msgid "Webcam driver using Linux USB Video Class."
@@ -198,11 +200,11 @@ msgstr "Controlador webcam usando Linux USB video class"
 
 #: kernel/drivers/acpi4asus::summary
 msgid "For Asus laptops to use all the functionality of their computers such as special keys, special LEDs, brightness control"
-msgstr ""
+msgstr "Funciones especiales para notebooks ASUS como teclas especiales, LEDs indicadores, control de brillo"
 
 #: kernel/drivers/ungrab-winmodem::summary
 msgid "Additional module for Smartlink Modems"
-msgstr ""
+msgstr "Módulo adicional para modems Smartlink "
 
 #: kernel/drivers/ungrab-winmodem::description
 msgid "A dirty workaround for Smartlink Modems to bypass \"device is already grabbed\" errors "
@@ -210,7 +212,7 @@ msgstr "Una solución rudimentaria para modems Smartlink para evitar errores\"de
 
 #: kernel/drivers/sc92031::summary
 msgid "Ethernet driver"
-msgstr ""
+msgstr "Controlador Ethernet "
 
 #: kernel/drivers/sc92031::description
 msgid "Driver for Silan SC92031 chip based ethernet cards."
@@ -218,7 +220,7 @@ msgstr "Controlador para tarjetas ethernet basados en chip Silan SC92031"
 
 #: kernel/drivers/rt2500::summary
 msgid "RT2500 drivers"
-msgstr ""
+msgstr "Controladores RT2500"
 
 #: kernel/drivers/rt2500::description
 msgid "Driver for the RaLink RT2500 wireless chipset"
@@ -226,15 +228,15 @@ msgstr "Controlador para chips wireless RaLink RT2500"
 
 #: kernel/drivers/acx100::summary
 msgid "Driver for Texas Instruments ACX100/ACX111 wireless network chips"
-msgstr ""
+msgstr "Controlador para chips de red inalambrico ACX100/ACX111 de Texas Instruments "
 
 #: kernel/drivers/acerhk::summary
 msgid "Hotkey driver for some Acer and Acer-like laptops"
-msgstr ""
+msgstr "Controlador de Hotkey para algunos notebooks como Acer y Acer"
 
 #: kernel/drivers/ndiswrapper::summary
 msgid "A driver wrapper"
-msgstr ""
+msgstr "Capa de abstracción de controladores"
 
 #: kernel/drivers/ndiswrapper::description
 msgid "Ndiswrapper allows you to use windows XP drivers for that WLAN card without proper Linux drivers."
@@ -242,7 +244,7 @@ msgstr "Ndiswrapper permite usar controladores de windows XP para tarjetas WLAN 
 
 #: kernel/drivers/slmodem::summary
 msgid "Driver for Smart Link modem"
-msgstr ""
+msgstr "Controlador para modem Smart Link "
 
 #: kernel/drivers/slmodem::description
 msgid " This is the driver of Smart Link Modem for Linux. It provides full-featured 56K Voice Fax Modem."
@@ -250,7 +252,7 @@ msgstr "Controlador de Linux para modem SmartLink. Provee todas las facilidades 
 
 #: kernel/drivers/ltmodem::summary
 msgid "Winmodems with Lucent Apollo (ISA) and Mars (PCI) chipsets"
-msgstr ""
+msgstr "Winmodems con chipsets Lucent Apollo (ISA) y Mars (PCI)"
 
 #: kernel/drivers/ltmodem::description
 msgid "Linux driver for so called Winmodems with Lucent Apollo (ISA) and Mars (PCI) chipsets."
@@ -258,7 +260,7 @@ msgstr "Controlador Linux para los llamados Winmodems con chips Lucent Apollo (I
 
 #: kernel/drivers/ov511::summary
 msgid "Omnivision webcam driver"
-msgstr ""
+msgstr "Controlador camara web Omnivision "
 
 #: kernel/drivers/ov511::description
 msgid "Driver for omnivision based webcams, with OVFX2 support for webcams like Orangemicro iBot2."
@@ -266,35 +268,35 @@ msgstr "Controlador para webcams basados en omnivision, con soporte OVFX2 para w
 
 #: kernel/drivers/syntekdriver::summary
 msgid "Driver for webcams with Syntek DC-1125 chipsets"
-msgstr ""
+msgstr "Controlador para camaras web con chipset Syntek DC-1125 "
 
 #: kernel/drivers/qc-usb::summary
 msgid "Logitech USB Quickcam Express Linux Driver Modules"
-msgstr ""
+msgstr "Módulos de controlador Linux para Logitech USB Quickcam Express"
 
 #: kernel/drivers/nvidia-new:nvidia-kernel-new:summary
 msgid "New nVIDIA kernel driver"
-msgstr ""
+msgstr "Controlador nuevo de kernel nVIDIA"
 
 #: kernel/drivers/nvidia-new:nvidia-kernel-new:description
 msgid "New nVIDIA kernel driver for low level infrastracture."
-msgstr ""
+msgstr "Controlador nuevo de kernel nVIDIA para infraestructura de bajo nivel."
 
 #: kernel/drivers/nvidia-new:nvidia-glx-new:summary
 msgid "New nVIDIA glx module for X.org"
-msgstr ""
+msgstr "Módulo nuevo nVIDIA glx de X.org"
 
 #: kernel/drivers/nvidia-new:nvidia-glx-new:description
 msgid "New nVIDIA glx module for X.org for optimized 2d/3d performance."
-msgstr ""
+msgstr "Módulo nuevo nVIDIA glx de X.org para rendimiento 2d/3d optimizado."
 
 #: kernel/drivers/nvidia-new:nvidia-tools-new:summary
 msgid "New nvidia-settings and nvidia-xconfig tools"
-msgstr ""
+msgstr "Herramienta nueva de configuración nvidia-y nvidia-xconfig"
 
 #: kernel/drivers/nvidia-new:nvidia-tools-new:description
 msgid "GUI tool for nvidia-settings (new) for nVIDIA cards and a command line tool named nvidia-xconfig for X.org configuration"
-msgstr ""
+msgstr "Herramienta GUI (nuevo) para configuración de tarjetas nVIDIA y herramienta de línea de comando llamado nvidia-xconfig para configuración de X.org"
 
 #: kernel/drivers/nvidia-new::summary
 msgid "nVIDIA kernel and glx drivers for NV3 or better cards (Geforce FX or better)"
@@ -3529,6 +3531,7 @@ msgid "KDE interface Library for parsing, editing, and saving EXIF data"
 msgstr ""
 
 #: programming/libs/geoip::summary
+# duda: maybe i should translate more literally
 msgid "Easily lookup countries by IP addresses, even when Reverse DNS entries don't exist"
 msgstr ""
 
@@ -12455,3 +12458,4 @@ msgstr ""
 #: kernel-xen/domU/kernel-domU::description
 msgid "User domain Xen-enabled kernel allows Pardus to run on the Xen virtual machine's user domain. This kernel cannot be booted as the first operating system on Xen, it must be booted from domain 0 and does not have direct access to hardware, but it's smaller than the domain 0 kernel."
 msgstr ""
+

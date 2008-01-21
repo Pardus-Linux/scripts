@@ -57,7 +57,7 @@ def ladderPrint(_dict, pkgs = False):
     owners.sort()
 
     for owner in owners:
-        print owner
+        print "%s  (%i)" % (owner, len(_dict[owner]))
         if pkgs:
             printPackagesOf(owner, _dict, "    ")
 

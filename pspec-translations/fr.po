@@ -6155,6 +6155,10 @@ msgstr ""
 msgid "madplay is a command-line MPEG audio decoder and player based on the MAD library (libmad)."
 msgstr ""
 
+#: applications/multimedia/vlc:vlc-firefox:summary
+msgid "VLC plugin for Firefox"
+msgstr ""
+
 #: applications/multimedia/vlc::summary
 msgid "VLC media player"
 msgstr ""
@@ -10620,10 +10624,6 @@ msgstr ""
 msgid "An advanced shut down utility for KDE"
 msgstr "Un utilitaire avancé d'extinction pour KDE."
 
-#: desktop/kde/tasma-extra::summary
-msgid "Tasma (Pardus Configuration Center) Extra Modules"
-msgstr ""
-
 #: desktop/kde/freetts::summary
 msgid "A speech synthesis system written entirely in Java"
 msgstr ""
@@ -11559,10 +11559,6 @@ msgstr "Librairie Xevie de X.Org."
 #: desktop/freedesktop/xorg/lib/libXprintUtil::summary
 msgid "X.Org XprintUtil library"
 msgstr "Librairie XprintUtil de X.Org."
-
-#: desktop/freedesktop/xorg/lib/liblbxutil::summary
-msgid "X.Org lbxutil library"
-msgstr "Librairie lbxutil de X.Org."
 
 #: desktop/freedesktop/xorg/lib/libxkbfile::summary
 msgid "X.Org xkbfile library"

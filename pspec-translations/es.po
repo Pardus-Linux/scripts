@@ -3531,7 +3531,6 @@ msgid "KDE interface Library for parsing, editing, and saving EXIF data"
 msgstr ""
 
 #: programming/libs/geoip::summary
-# duda: maybe i should translate more literally
 msgid "Easily lookup countries by IP addresses, even when Reverse DNS entries don't exist"
 msgstr ""
 
@@ -6145,6 +6144,10 @@ msgstr ""
 
 #: applications/multimedia/madplay::description
 msgid "madplay is a command-line MPEG audio decoder and player based on the MAD library (libmad)."
+msgstr ""
+
+#: applications/multimedia/vlc:vlc-firefox:summary
+msgid "VLC plugin for Firefox"
 msgstr ""
 
 #: applications/multimedia/vlc::summary
@@ -10611,10 +10614,6 @@ msgstr ""
 msgid "An advanced shut down utility for KDE"
 msgstr ""
 
-#: desktop/kde/tasma-extra::summary
-msgid "Tasma (Pardus Configuration Center) Extra Modules"
-msgstr ""
-
 #: desktop/kde/freetts::summary
 msgid "A speech synthesis system written entirely in Java"
 msgstr ""
@@ -11551,10 +11550,6 @@ msgstr ""
 msgid "X.Org XprintUtil library"
 msgstr ""
 
-#: desktop/freedesktop/xorg/lib/liblbxutil::summary
-msgid "X.Org lbxutil library"
-msgstr ""
-
 #: desktop/freedesktop/xorg/lib/libxkbfile::summary
 msgid "X.Org xkbfile library"
 msgstr ""
@@ -12458,4 +12453,3 @@ msgstr ""
 #: kernel-xen/domU/kernel-domU::description
 msgid "User domain Xen-enabled kernel allows Pardus to run on the Xen virtual machine's user domain. This kernel cannot be booted as the first operating system on Xen, it must be booted from domain 0 and does not have direct access to hardware, but it's smaller than the domain 0 kernel."
 msgstr ""
-

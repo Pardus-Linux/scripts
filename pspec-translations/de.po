@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2008-01-18 00:06+0200\n"
+"PO-Revision-Date: 2008-01-24 15:15+0200\n"
 "Last-Translator: Mustafa Ölcerman <m.oelcerman@pardus-linux.de>\n"
 "Language-Team: Deutsch <pardus-translation-de@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -127,7 +127,7 @@ msgstr ""
 
 #: kernel/drivers/hsfmodem::summary
 msgid "Linuxant's modem driver"
-msgstr ""
+msgstr "Linuxant's Modem Treiber"
 
 #: kernel/drivers/hsfmodem::description
 msgid "Linuxant's modem driver for Conexant HSF chipset"
@@ -147,7 +147,7 @@ msgstr ""
 
 #: kernel/drivers/qc-usb-messenger::summary
 msgid "Logitech QuickCam USB Video Camera driver"
-msgstr ""
+msgstr "Logitech QuickCam USB -Videokamera Treiber"
 
 #: kernel/drivers/unionfs::summary
 msgid "Stackable unification file system, which can appear to merge the contents of several directories"
@@ -155,7 +155,7 @@ msgstr ""
 
 #: kernel/drivers/gspca::summary
 msgid "Webcam driver"
-msgstr ""
+msgstr "Webcam Treiber"
 
 #: kernel/drivers/gspca::description
 msgid "Driver for more than 200 webcams from manufacturers like Creative, Logitech, Mustek etc. using chips like Conexant, Etoms, Mars-Semi, Pixart, Sonix, Sunplus, Transvision, Vimicro, Microdia."
@@ -191,7 +191,7 @@ msgstr ""
 
 #: kernel/drivers/linux-uvc::summary
 msgid "USB webcam driver"
-msgstr ""
+msgstr "USB-Webcam Treiber"
 
 #: kernel/drivers/linux-uvc::description
 msgid "Webcam driver using Linux USB Video Class."
@@ -211,7 +211,7 @@ msgstr ""
 
 #: kernel/drivers/sc92031::summary
 msgid "Ethernet driver"
-msgstr ""
+msgstr "Ethernet Treiber"
 
 #: kernel/drivers/sc92031::description
 msgid "Driver for Silan SC92031 chip based ethernet cards."
@@ -12452,3 +12452,4 @@ msgstr ""
 #: kernel-xen/domU/kernel-domU::description
 msgid "User domain Xen-enabled kernel allows Pardus to run on the Xen virtual machine's user domain. This kernel cannot be booted as the first operating system on Xen, it must be booted from domain 0 and does not have direct access to hardware, but it's smaller than the domain 0 kernel."
 msgstr ""
+

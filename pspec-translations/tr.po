@@ -3155,14 +3155,6 @@ msgstr "Ek GTK+ bileşenleri."
 msgid "Extensible binary format library (kinda like XML)"
 msgstr "Genişletilebilir ikilik biçimlendirme kütüphanesi"
 
-#: programming/libs/portaudio::summary
-msgid "Portable audio library"
-msgstr "Ses kütüphanesi"
-
-#: programming/libs/portaudio::description
-msgid "An open-source cross platform audio API"
-msgstr "Birden çok platformda kullanılabilinen açıkkodlu ses kütüphanesi"
-
 #: programming/libs/sdl-net::summary
 msgid "SDL network library"
 msgstr "SDL ağ kütüphanesi"
@@ -3524,7 +3516,8 @@ msgid "A software package for computer-aided number theory"
 msgstr ""
 
 #: programming/libs/libupnp::summary
-msgid "UPnP library"
+#, fuzzy
+msgid "Portable UPnP library"
 msgstr "UPnP kitaplığı"
 
 #: programming/libs/libsidplay2::summary
@@ -4107,6 +4100,14 @@ msgstr ""
 msgid "libdiscid reads a CD's table of contents (TOC) and generates an identifier which can be used to lookup the CD at MusicBrainz. Additionally, it provides a submission URL for adding the DiscID to the database."
 msgstr ""
 
+#: programming/libs/audiofile::summary
+msgid "An elegant API for accessing audio files"
+msgstr "Ses dosyalarına erişim için zarif bir API"
+
+#: programming/libs/audiofile::description
+msgid "The Audio File Library provides a uniform and elegant API for accessing a variety of audio file formats, such as AIFF/AIFF-C, WAVE, NeXT/Sun .snd/.au, Berkeley/IRCAM/CARL Sound File, Audio Visual Research, Amiga IFF/8SVX, and NIST SPHERE."
+msgstr "Audio File Library AIFF/AIFF-C, WAVE, NeXT/Sun .snd/.au, Berkeley/IRCAM/CARL Sound File, Audio Visual Research, Amiga IFF/8SVX ve NIST SPHERE gibi çeşitli ses dosyası formatlarına erişim için gerekli düzenli ve gelişmiş bir API sağlar."
+
 #: programming/microcontroller/avr-libc::summary
 msgid "C library for Atmel AVR microcontrollers"
 msgstr ""
@@ -4278,7 +4279,7 @@ msgid "Used to create autoconfiguration files"
 msgstr ""
 
 #: system/devel/autoconf::description
-msgid "Used to create autoconfiguration files, Autoconf is an extensible package of m4 macros that produce shell scripts to automatically configure software source code packages. Its version number is 2.59."
+msgid "Used to create autoconfiguration files, Autoconf is an extensible package of m4 macros that produce shell scripts to automatically configure software source code packages."
 msgstr ""
 
 #: system/devel/unifdef::summary
@@ -4666,10 +4667,6 @@ msgstr "Verilen komutun çalıştırma yolundaki önceliğe göre yerini göster
 msgid "which , Locates a program file in the user's path."
 msgstr "which, kullanıcı dizinindeki program dosyalarının yarini bulur."
 
-#: system/base/db3::summary
-msgid "Third version of Berkeley DB"
-msgstr "Berkeley Veritabanı'nın üçüncü versiyonu"
-
 #: system/base/udev::summary
 msgid "Linux dynamic and persistent device naming support (aka userspace devfs)"
 msgstr "Linux dinamik ve sürekli aygıt isimlendirme desteği (kernel dışındaki devfs)"
@@ -4686,10 +4683,6 @@ msgstr ""
 msgid "chrpath allows you to modify the dynamic library load path (rpath and runpath) of compiled programs and libraries."
 msgstr ""
 
-#: system/base/db1::summary
-msgid "Berkeley database version 1"
-msgstr "Berkeley veritabanı 1. sürümü"
-
 #: system/base/man-pages::summary
 msgid "A somewhat comprehensive collection of Linux man pages"
 msgstr "Kapsamlı Linux kılavuz dökümanları"
@@ -4699,7 +4692,8 @@ msgid "Another uncompressor for compatibility"
 msgstr "Bir başka sıkışmış dosya açma programı"
 
 #: system/base/db4::summary
-msgid "Fourth version of Berkeley DB"
+#, fuzzy
+msgid "An embeddable database engine that provides developers with fast, reliable, local persistence with zero administration"
 msgstr "Berkeley Veritabanı'nın dördüncü versiyonu"
 
 #: system/base/lzma::summary
@@ -5202,11 +5196,12 @@ msgid "GNU Midnight Commander cli-based file manager It allows file tranfer by u
 msgstr "Midnight Commander (mc), komut istemcisinde çalıştırabileceğiniz metin tabanlı bir dosya yöneticisidir. İki sistem arasında ftp, scp ve samba protokollerini kullanarak dosya transferinine olanak verir"
 
 #: applications/admin/dosfstools::summary
-msgid "DOS filesystem tools - provides mkdosfs, mkfs.msdos, mkfs.vfat"
+msgid "DOS filesystem tools - provides mkdosfs, mkfs.msdos, mkfs.vfat, dosfslabel"
 msgstr ""
 
 #: applications/admin/dosfstools::description
-msgid "The dosfstools package includes the mkdosfs and dosfsck utilities like mkdosfs, mkfs.msdos, mkfs.vfat. You can make and check MS-DOS FAT filesystems on hard drives or on floppies"
+#, fuzzy
+msgid "The dosfstools package includes the mkdosfs and dosfsck utilities like mkdosfs, mkfs.msdos, mkfs.vfat, dosfslabel. You can make and check MS-DOS FAT filesystems on hard drives or on floppies"
 msgstr "Dosfstools paketi, mkdosfs, mkfs.msdos, mkfs.vfat gibi araçları içerir, bu araçlarda disk ya da disket v.b. üzerinde MS-DOS FAT dosya sistemi yaratılmasına ve kontrol edilmesine olanak verir"
 
 #: applications/admin/irqbalance::summary
@@ -6443,14 +6438,6 @@ msgstr "20 çeşit davul kiti ve Hydrogen için demo şarkılar"
 #: applications/multimedia/hydrogen-drumkits::description
 msgid "Hydrogen is an advanced drum machine for GNU/Linux. It bring professional yet simple and intuitive pattern-based drum programming."
 msgstr "Hydrogen GNU/Linux için gelişmiş bir drum machine yazılımıdır. Profesyonel şablon tabanlı drum programlarının basit, kolay öğrenilebilir bir şekilde yapılmasını sağlar."
-
-#: applications/multimedia/audiofile::summary
-msgid "An elegant API for accessing audio files"
-msgstr "Ses dosyalarına erişim için zarif bir API"
-
-#: applications/multimedia/audiofile::description
-msgid "The Audio File Library provides a uniform and elegant API for accessing a variety of audio file formats, such as AIFF/AIFF-C, WAVE, NeXT/Sun .snd/.au, Berkeley/IRCAM/CARL Sound File, Audio Visual Research, Amiga IFF/8SVX, and NIST SPHERE."
-msgstr "Audio File Library AIFF/AIFF-C, WAVE, NeXT/Sun .snd/.au, Berkeley/IRCAM/CARL Sound File, Audio Visual Research, Amiga IFF/8SVX ve NIST SPHERE gibi çeşitli ses dosyası formatlarına erişim için gerekli düzenli ve gelişmiş bir API sağlar."
 
 #: applications/multimedia/tuxpaint-stamps::summary
 msgid "Set of extra stamps for Tux Paint"
@@ -7761,6 +7748,14 @@ msgstr ""
 msgid "Music files for Secret Maryo Chronicles"
 msgstr ""
 
+#: applications/games/crimson-fields::summary
+msgid "A turn-based tactical war game"
+msgstr ""
+
+#: applications/games/crimson-fields::description
+msgid "The outcome of the war lies in your hands. You decide which units are sent to the front lines, and when to unleash the reserves. Your mission objectives range from defending strategically vital locations to simply destroying all enemy forces in the area. Protect supply convoys or raid enemy facilities to uncover technological secrets or fill your storage bays so you can repair damaged units or build new ones in your own factories. Lead your troops to victory!"
+msgstr ""
+
 #: applications/hardware/fbset::summary
 msgid "A utility to set the framebuffer videomode"
 msgstr "Framebuffer video kipini ayarlamaya yardımcı program"
@@ -7868,10 +7863,6 @@ msgstr "Bluetooth araçları ve sistem sunucuları"
 #: applications/hardware/bluez-utils::description
 msgid "The overall goal of this project is to make an implementation of the Bluetooth™ wireless standards specifications for Linux. "
 msgstr "Bu projenin genel amacı Linux'ta Bluetooth kablosuz standartların ayrıntılarını yerine getirmektir."
-
-#: applications/hardware/alsa-oss::summary
-msgid "Advanced Linux Sound Architecture OSS compatibility layer"
-msgstr "ALSA - OSS uyumluluk katmanı"
 
 #: applications/hardware/alsa-lib::summary
 msgid "Advanced Linux Sound Architecture Library"
@@ -8058,7 +8049,8 @@ msgid "Lyx is a document processor that encourages an approach to writing based 
 msgstr "Lyx belgelerinin görünüşüne değil, yapısının temelindeki yazılıma ulaşmanızı sağlayan belge işlemcisidir."
 
 #: applications/tex/pgf::summary
-msgid "pgf -- The TeX Portable Graphic Format"
+#, fuzzy
+msgid "The TeX Portable Graphic Format"
 msgstr "pgf --TeX Portable Graphic Format"
 
 #: applications/tex/pgf::description
@@ -8455,6 +8447,10 @@ msgstr "Qalculate! GNU/Linux için çok amaçlı modern bir masaüstü hesap mak
 
 #: applications/science/mathematics/genus2reduction::summary
 msgid "Conductor and Reduction Types for Genus 2 Curves"
+msgstr ""
+
+#: applications/science/mathematics/gfan::summary
+msgid "A software package for computing Gröbner fans and tropical varieties"
 msgstr ""
 
 #: applications/science/electronics/gpsim::summary

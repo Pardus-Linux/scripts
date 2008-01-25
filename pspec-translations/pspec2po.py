@@ -257,6 +257,10 @@ def update_translationsxmls(path, language, po):
         current_name, type_flag, tag = msg.reference.split(':')
         tag = tag.title()
 
+        if not os.path.exists(os.path.join(path, current_name)):
+            #package may be removed to another place or deleted from repository..
+            continue
+
         if current_name in finished_packages:
             continue
         else:

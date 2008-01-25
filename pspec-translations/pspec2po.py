@@ -206,8 +206,8 @@ def extract_from_translationsxmls(path, language, old_messages = []):
                             msg.reference = pak[len(path):] + "::" + tag.lower()
 
                     if msg.msgid:
+                        msg = set_fuzzy_flag(msg)
                         messages.append(msg)
-                msg = set_fuzzy_flag(msg)
 
     return messages
 

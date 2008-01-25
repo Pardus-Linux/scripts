@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2008-01-24 15:15+0200\n"
+"PO-Revision-Date: 2008-01-25 11:43+0200\n"
 "Last-Translator: Mustafa Ölcerman <m.oelcerman@pardus-linux.de>\n"
 "Language-Team: Deutsch <pardus-translation-de@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -3506,9 +3506,8 @@ msgid "A software package for computer-aided number theory"
 msgstr ""
 
 #: programming/libs/libupnp::summary
-#, fuzzy
 msgid "Portable UPnP library"
-msgstr "UPnP Bibliothek"
+msgstr "Portabels UPnP Bibliothek"
 
 #: programming/libs/libsidplay2::summary
 msgid "C64 SID player library"
@@ -4679,9 +4678,8 @@ msgid "Another uncompressor for compatibility"
 msgstr "Ein weiterer Nichtkompressor zu Kompatibilitätszwecken"
 
 #: system/base/db4::summary
-#, fuzzy
 msgid "An embeddable database engine that provides developers with fast, reliable, local persistence with zero administration"
-msgstr "Virte Version der Berkeley DB"
+msgstr "Ein einbettbares Datenbank Engine, dass die Entwickler mit schnellen, zuverlässigen und lokalen Persistenz unterstützt und null Administration erfordert."
 
 #: system/base/lzma::summary
 msgid "LZMA utils for Unix"
@@ -12446,3 +12444,4 @@ msgstr ""
 #: kernel-xen/domU/kernel-domU::description
 msgid "User domain Xen-enabled kernel allows Pardus to run on the Xen virtual machine's user domain. This kernel cannot be booted as the first operating system on Xen, it must be booted from domain 0 and does not have direct access to hardware, but it's smaller than the domain 0 kernel."
 msgstr ""
+

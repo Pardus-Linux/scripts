@@ -1018,11 +1018,19 @@ msgstr ""
 msgid "A library for processing plaintext documentation into useful formats, such as HTML, XML, and LaTeX."
 msgstr "Librería para procesamiento de texto plano para conversión a formatos útiles como HTML, XML, y LaTeX."
 
-#: programming/languages/python/Django::summary
+#: programming/languages/python/django/django-tagging::summary
+msgid "Tagging application for Django Web Framework"
+msgstr ""
+
+#: programming/languages/python/django/django-tagging::description
+msgid "A generic tagging application for Django projects, which allows association of a number of tags with any Model instance and makes retrieval of tags simple."
+msgstr ""
+
+#: programming/languages/python/django/Django::summary
 msgid "Django web framework"
 msgstr ""
 
-#: programming/languages/python/Django::description
+#: programming/languages/python/django/Django::description
 msgid "Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design."
 msgstr "Django es un framework web de alto nivel en Python, que facilita desarrollo rápido y diseño limpio y pragmático."
 
@@ -2851,11 +2859,12 @@ msgid "Contains error handling functions used by GnuPG software"
 msgstr ""
 
 #: programming/libs/libart_lgpl::summary
-msgid "a LGPL version of libart"
+msgid "A LGPL version of libart"
 msgstr ""
 
 #: programming/libs/libart_lgpl::description
-msgid " Libart is a library for high-performance 2D graphics. It is currently being used as the antialiased rendering engine for the Gnome Canvas. Libart supports a very powerful imaging model, basically the same as SVG and the Java 2D API."
+#, fuzzy
+msgid "Libart is a library for high-performance 2D graphics. It is currently being used as the antialiased rendering engine for the Gnome Canvas. Libart supports a very powerful imaging model, basically the same as SVG and the Java 2D API."
 msgstr " Libart es una librería para gráficos 2D de alta performance. Actualmente está usado como antialiased rendering engine para Gnome Canvas. Libart soporta un modelo de imagen muy potente, básicamente el mismo como SVG y el API 2D de Java."
 
 #: programming/libs/libvorbis::summary
@@ -3144,6 +3153,10 @@ msgstr ""
 
 #: programming/libs/libebml::summary
 msgid "Extensible binary format library (kinda like XML)"
+msgstr ""
+
+#: programming/libs/lib-compat::summary
+msgid "Compatibility C++ and libc5 and libc6 libraries for programs new and old"
 msgstr ""
 
 #: programming/libs/sdl-net::summary
@@ -4098,6 +4111,14 @@ msgstr ""
 msgid "The Audio File Library provides a uniform and elegant API for accessing a variety of audio file formats, such as AIFF/AIFF-C, WAVE, NeXT/Sun .snd/.au, Berkeley/IRCAM/CARL Sound File, Audio Visual Research, Amiga IFF/8SVX, and NIST SPHERE."
 msgstr ""
 
+#: programming/libs/teckit::summary
+msgid "A tool for encoding conversion"
+msgstr ""
+
+#: programming/libs/teckit::description
+msgid "TECkit is a tool for encoding conversion, usable through standalone tools or by linking with other software packages."
+msgstr ""
+
 #: programming/microcontroller/avr-libc::summary
 msgid "C library for Atmel AVR microcontrollers"
 msgstr ""
@@ -4722,10 +4743,6 @@ msgstr ""
 msgid "Various utilities dealing with the PCMCIA bus"
 msgstr ""
 
-#: system/base/lib-compat::summary
-msgid "Compatibility C++ and libc5 and libc6 libraries for programs new and old"
-msgstr ""
-
 #: system/base/sysvinit::summary
 msgid "/sbin/init - parent of all processes"
 msgstr ""
@@ -4974,10 +4991,6 @@ msgstr ""
 msgid "Memory tester for x86 and x86_64 devices for x86 and 64bit x86 compatible computers. It should be started from boot menu."
 msgstr ""
 
-#: system/base/groff-utf8::summary
-msgid "UTF-8 support for groff"
-msgstr ""
-
 #: system/base/sysfsutils::summary
 msgid "System Utilities Based on Sysfs"
 msgstr ""
@@ -5175,7 +5188,7 @@ msgid "GNU Midnight Commander cli-based file manager"
 msgstr ""
 
 #: applications/admin/mc::description
-msgid "GNU Midnight Commander cli-based file manager It allows file tranfer by using ftp, scp, sbm"
+msgid "GNU Midnight Commander cli-based file manager. You can do lots of filemanager and editor tasks, both in normal terminals and in terminal emulators of X. Also has file transfer capabilities over ftp, ssh, samba."
 msgstr ""
 
 #: applications/admin/dosfstools::summary
@@ -5958,14 +5971,6 @@ msgstr ""
 msgid "Yet Another Free Raytracer"
 msgstr ""
 
-#: applications/multimedia/esound::summary
-msgid "The Enlightened Sound Daemon"
-msgstr ""
-
-#: applications/multimedia/esound::description
-msgid "EsounD can mix several audio streams into one sound device. It will mix in pre-loaded samples, too."
-msgstr ""
-
 #: applications/multimedia/ogle::summary
 msgid "A fast DVD player with menu support"
 msgstr ""
@@ -6166,10 +6171,6 @@ msgstr ""
 msgid "GOCR is an OCR (Optical Character Recognition) program."
 msgstr ""
 
-#: applications/multimedia/gocr::description
-msgid "GOCR is an OCR program, it converts scanned images of text back to text files."
-msgstr ""
-
 #: applications/multimedia/faac::summary
 msgid "Free MPEG-4 audio codecs by AudioCoding.com"
 msgstr ""
@@ -6220,10 +6221,6 @@ msgstr ""
 
 #: applications/multimedia/ffmpeg::summary
 msgid "FFmpeg is a complete solution to record, convert and stream audio and video"
-msgstr ""
-
-#: applications/multimedia/ffmpeg::description
-msgid "FFmpeg is a complete solution to record, convert and stream audio and video. It includes libavcodec, the leading audio/video codec library."
 msgstr ""
 
 #: applications/multimedia/timidity::summary
@@ -6504,14 +6501,6 @@ msgstr ""
 
 #: applications/multimedia/ogmtools::summary
 msgid "Tools that allow information about (ogminfo) or extraction from (ogmdemux) or creation of (ogmmerge) OGG media stream"
-msgstr ""
-
-#: applications/multimedia/nas::summary
-msgid "Network Audio System"
-msgstr ""
-
-#: applications/multimedia/nas::description
-msgid "The Network Audio System is a network transparent, client/server audio transport system. It can be described as the audio equivalent of an X server. It is support Lots of audio file and data formats."
 msgstr ""
 
 #: applications/multimedia/lastfm::summary
@@ -8512,14 +8501,6 @@ msgstr ""
 
 #: applications/science/openbabel::description
 msgid "Open Babel is a chemical toolbox designed to speak the many languages of chemical data."
-msgstr ""
-
-#: applications/editors/emacs/nxml-mode::summary
-msgid "nXML module for Emacs"
-msgstr ""
-
-#: applications/editors/emacs/nxml-mode::description
-msgid "nXML mode is an addon for GNU Emacs, which makes GNU Emacs into a powerful XML editor."
 msgstr ""
 
 #: applications/editors/emacs/emacs::summary
@@ -11474,10 +11455,6 @@ msgstr ""
 msgid "X.Org Xrand library"
 msgstr ""
 
-#: desktop/freedesktop/xorg/lib/libWindowsWM::summary
-msgid "X.Org WindowsWM library"
-msgstr ""
-
 #: desktop/freedesktop/xorg/lib/libXScrnSaver::summary
 msgid "X.Org XScrnSaver library"
 msgstr ""
@@ -11504,14 +11481,6 @@ msgstr ""
 
 #: desktop/freedesktop/xorg/lib/libXinerama::summary
 msgid "X.Org Xinerama library"
-msgstr ""
-
-#: desktop/freedesktop/xorg/lib/libAppleWM::summary
-msgid "X.org libAppleWM library"
-msgstr ""
-
-#: desktop/freedesktop/xorg/lib/libAppleWM::description
-msgid "X.org libAppleWM library."
 msgstr ""
 
 #: desktop/freedesktop/xorg/lib/libXcursor::summary
@@ -11562,10 +11531,6 @@ msgstr ""
 msgid "Pixman contains lowlevel pixel manipulation routines and is used by both xorg and cairo."
 msgstr ""
 
-#: desktop/freedesktop/xorg/xorg-data::summary
-msgid "X.Org data files"
-msgstr ""
-
 #: desktop/freedesktop/xorg/xbitmaps::summary
 msgid "X.Org xbitmaps utility"
 msgstr ""
@@ -11596,6 +11561,14 @@ msgstr ""
 
 #: desktop/freedesktop/xorg/xcb-util::summary
 msgid "The xcb-util module provides a number of libraries which sit on top of libxcb"
+msgstr ""
+
+#: desktop/freedesktop/xorg/xcursor-themes::summary
+msgid "Xorg cursor themes: handhelds, redglass and whiteglass"
+msgstr ""
+
+#: desktop/freedesktop/xorg/xkeyboard-config::summary
+msgid "X keyboard configuration database"
 msgstr ""
 
 #: desktop/freedesktop/synaptics::summary
@@ -12390,10 +12363,6 @@ msgstr ""
 msgid "More KDE4 runtime applications"
 msgstr ""
 
-#: kernel-xen/dom0/firmware/ipw2200-firmware-dom0::summary
-msgid "Xen enabled firmware for the Intel PRO/Wireless 2200BG/2915ABG miniPCI and 2225BG PCI adapters (domO)"
-msgstr ""
-
 #: kernel-xen/dom0/kernel-dom0:kernel-dom0-source:summary
 msgid "Xen enabled Pardus Linux kernel source (dom0)"
 msgstr ""
@@ -12414,10 +12383,6 @@ msgstr ""
 msgid "ALSA (Advanced Linux Sound Architecture) drivers for the dom0 Xen-enabled kernel allows Pardus running on Xen to have direct access to the sound system."
 msgstr ""
 
-#: kernel-xen/dom0/drivers/nvidia-dom0:nvidia-kernel-dom0:description
-msgid "nVIDIA kernel driver for low level infrastracture for Xen"
-msgstr ""
-
 #: kernel-xen/dom0/drivers/nvidia-dom0::summary
 msgid "nVIDIA kernel and glx drivers for Xen"
 msgstr ""
@@ -12432,6 +12397,18 @@ msgstr ""
 
 #: kernel-xen/dom0/drivers/ndiswrapper-dom0::description
 msgid "Ndiswrapper allows you to use windows XP drivers for that WLAN card without proper Linux drivers (for Xen)."
+msgstr ""
+
+#: kernel-xen/dom0/drivers/ipw3945-dom0::summary
+msgid "Xen-enabled driver for Intel IPW3945 wireless network chips"
+msgstr ""
+
+#: kernel-xen/dom0/drivers/nvidia-new-dom0::summary
+msgid "Xen-enabled nVIDIA kernel and glx drivers for NV3 or better cards (Geforce FX or better)"
+msgstr ""
+
+#: kernel-xen/dom0/drivers/nvidia-new-dom0::description
+msgid "Xen-enabled nVIDIA kernel and glx drivers giving optimized 2d/3d performance on Linux (For NV3X or better). Don't use this driver if your card's name doesn't contain the word FX."
 msgstr ""
 
 #: kernel-xen/domU/kernel-domU:kernel-domU-source:summary

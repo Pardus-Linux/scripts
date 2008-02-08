@@ -20,17 +20,17 @@ for option in $*; do
 done
 
 if [ "$MIRROR" == "" ]; then
-    echo "Use with $0 --mirror=http://ftp.gwdg.de/pub/x11/x.org/pub/individual/{app/data/doc/driver/font/input/proto/util}"
+    echo "Use with $0 --mirror=http://ftp.gwdg.de/pub/x11/x.org/pub/individual/{app/doc/driver/font/input/proto/util}"
     exit
 fi
 
 if [ "$PACKAGE" == "" ]; then
-    echo "Use with $0 --package={xorg-app/xorg-data/xorg-doc/xorg-font/xorg-input/xorg-proto/xorg-util/xorg-video}"
+    echo "Use with $0 --package={xorg-app/xorg-doc/xorg-font/xorg-input/xorg-proto/xorg-util/xorg-video}"
     exit
 fi
 
 if [ "$FILELIST" == "" ]; then
-    echo "Use with $0 --filelist={app/data/doc/font/input/proto/util/video}"
+    echo "Use with $0 --filelist={app/doc/font/input/proto/util/video}"
     exit
 fi
 

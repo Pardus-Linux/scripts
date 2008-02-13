@@ -1,21 +1,23 @@
-# translation of tr.po to Türkçe
+# translation of pspec-tr.po to Turkish
 # translation of tr_ozerkavak.po to
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Ahmet Emre Aladağ <emre@emrealadag.com>, 2007.
+# Serdar Soytetir <tulliana@gmail.com>, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: tr\n"
+"Project-Id-Version: pspec-tr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2007-04-30 00:37+0300\n"
-"Last-Translator: Ahmet Emre Aladağ <emre@emrealadag.com>\n"
-"Language-Team: Türkçe <tr@li.org>\n"
+"PO-Revision-Date: 2008-02-13 22:35+0200\n"
+"Last-Translator: Serdar Soytetir <tulliana@gmail.com>\n"
+"Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=1; plural=0;\n"
 
 #: kernel/kernel:kernel-source:summary
 msgid "Source files for the Linux kernel used by Pardus"
@@ -39,7 +41,7 @@ msgstr "Pardus için Linux çekirdeği"
 
 #: kernel/kernel-debug:kernel-debug-source:summary
 msgid "Debug enabled Pardus Linux kernel source"
-msgstr ""
+msgstr "Hata ayıklama sembollerini de içeren Pardus Linux çekirdek kaynakları"
 
 #: kernel/kernel-debug::summary
 msgid "Debug enabled Uniprocessor Linux kernel for Pardus Linux"
@@ -63,7 +65,7 @@ msgstr "RaLink RT2400 kablosuz ağ entegresi kullanan aygıtlar için sürücül
 
 #: kernel/drivers/nvidia-old:nvidia-kernel-old:summary
 msgid "nVIDIA kernel driver [For TNT2 and such older cards]"
-msgstr ""
+msgstr "nVIDIA çekirdek sürücüsü [TNT2 ve daha eski kartlar için]"
 
 #: kernel/drivers/nvidia-old:nvidia-kernel-old:description
 msgid "nVIDIA kernel driver for low level infrastracture [For TNT2 and such older cards]."
@@ -79,7 +81,7 @@ msgstr ""
 
 #: kernel/drivers/nvidia-old:nvidia-tools-old:summary
 msgid "nvidia-settings tool [For TNT2 and such older cards]"
-msgstr ""
+msgstr "nvidia-settings, sürücü yapılandırma aracı [TNT2 ve daha eski kartlar için]"
 
 #: kernel/drivers/nvidia-old:nvidia-tools-old:description
 msgid "GUI tool nvidia-settings for nVIDIA cards [For TNT2 and such older cards]."
@@ -278,9 +280,8 @@ msgid "New nVIDIA kernel driver"
 msgstr "nVIDIA çekirdek sürücüsü"
 
 #: kernel/drivers/nvidia-new:nvidia-kernel-new:description
-#, fuzzy
 msgid "New nVIDIA kernel driver for low level infrastracture."
-msgstr "Düşük seviye altyapı için nVIDIA çekirdek sürücüsü."
+msgstr "Düşük seviye altyapılar için Yeni nVIDIA çekirdek sürücüsü."
 
 #: kernel/drivers/nvidia-new:nvidia-glx-new:summary
 msgid "New nVIDIA glx module for X.org"
@@ -319,7 +320,6 @@ msgid "Advanced Linux Sound Architecture kernel modules"
 msgstr "ALSA çekirdek modülleri"
 
 #: kernel/drivers/alsa-driver::description
-#, fuzzy
 msgid "The Advanced Linux Sound Architecture (ALSA) provides audio and MIDI functionality to the Linux operating system. ALSA has significant features like efficient support for all types of audio interfaces, fully modularized sound drivers, SMP and thread-safe design, user space library and support for the older OSS API."
 msgstr " Gelişmiş Linux Ses Mimarisi (ALSA) Linux işletim sistemine ses ve midi fonksiyonelliği sağlar. ALSA'nın, her türlü ses arayüzüne etkili destek vermek, tam modüler ses sürücüleri sağlamak, SMP ve evresel tasarım, kullanıcı alanı kütüphaneleri ve eski OSS uygulama arayüzüne destek vermek gibi önemli özellikleri vardır."
 
@@ -380,9 +380,8 @@ msgid "Linuxant's modem driver (PCI)"
 msgstr "Linuxant modem sürücüleri"
 
 #: kernel/drivers/hcfpcimodem::description
-#, fuzzy
 msgid "Linuxant's modem driver for Connexant HCF chipset (PCI)"
-msgstr "Conexant HCF entegreli modemler için Linuxant sürücüleri"
+msgstr "Conexant HCF (PCI) entegreli modemler için Linuxant sürücüleri"
 
 #: kernel/drivers/et131x::summary
 msgid "Agere ET131x ethernet driver"
@@ -525,7 +524,6 @@ msgid "GNU debugger"
 msgstr "GNU hata ayıklayıcısı"
 
 #: programming/tools/gdb::description
-#, fuzzy
 msgid "GDB, the GNU Project debugger, allows you to see what is going on 'inside' another program while it executes -- or what another program was doing at the moment it crashed."
 msgstr "GDB, GNU Proje hata ayıklama aracı, çalışır durumdaki başka bir programın `içinde' olan biteni görmenizi, veya başka bir programın çöktüğü anda ne yapıyor olduğunu bilmenizi sağlar."
 
@@ -582,9 +580,8 @@ msgid "Memory access debugger for X86 and PPC Linux platforms"
 msgstr "X86 ve PPC Linux platformları için bellek erişimi hata ayıklayıcı"
 
 #: programming/tools/valgrind::description
-#, fuzzy
 msgid "Valgrind is an award-winning suite of tools for debugging and profiling Linux programs. With the tools that come with Valgrind, you can automatically detect many memory management and threading bugs, avoiding hours of frustrating bug-hunting, making your programs more stable. You can also perform detailed profiling, to speed up and reduce memory use of your programs."
-msgstr " Valgrind, bu konuda ödül kazanmış Linux için çizge ve hata ayıklama araçları takımıdır. Valgrind ile gelen araçlar yardımıyla, birçok hafıza yönetimi ve iş parçacığı hatalarını otomatik olarak yakalayabilir, boşa geçen hata ayıklama saatlerinizi kazanabilir, programlarınızı daha kararlı bir hale getirebilirsiniz. Ayrıca programlarınızı daha hızlı çalışır yapmak ve kullandıkları hafızayı azaltmak için iş parçacıklarını detaylı olarak inceleyebilirsiniz."
+msgstr "Valgrind, bu konuda ödül kazanmış Linux için çizge ve hata ayıklama araçları takımıdır. Valgrind ile gelen araçlar yardımıyla, birçok hafıza yönetimi ve iş parçacığı hatalarını otomatik olarak yakalayabilir, boşa geçen hata ayıklama saatlerinizi kazanabilir, programlarınızı daha kararlı bir hale getirebilirsiniz. Ayrıca programlarınızı daha hızlı çalışır yapmak ve kullandıkları hafızayı azaltmak için iş parçacıklarını detaylı olarak inceleyebilirsiniz."
 
 #: programming/tools/jam::summary
 msgid "Just Another Make"
@@ -607,9 +604,8 @@ msgid "GUI frontend to the Subversion revision system."
 msgstr "Subversion sisteminin grafik arayüz ön ucu"
 
 #: programming/tools/esvn::description
-#, fuzzy
 msgid "Frontend for the Subversion revision system written in Qt"
-msgstr " Subversion sürüm kontrol sistemi (SVN) için Qt ile yazılmış bir arayüz."
+msgstr "Subversion sürüm kontrol sistemi (SVN) için Qt ile yazılmış bir arayüz."
 
 #: programming/tools/mercurial::summary
 msgid "A distributed SCM tool"
@@ -1004,9 +1000,8 @@ msgid "Python setuptools"
 msgstr "Python kurulum araçları"
 
 #: programming/languages/python/setuptools::description
-#, fuzzy
 msgid "setuptools is a collection of enhancements to the Python distutils that allow you to more easily build and distribute Python packages, especially ones that have dependencies on other packages."
-msgstr " setuptools, Python distutils'e yapılan, özellikle başka paketlere bağımlılığı olan Python paketlerini daha kolay oluşturmaya ve dağıtmaya yarayan iyileştirmeler koleksiyonudur."
+msgstr "setuptools, Python distutils'e yapılan, özellikle başka paketlere bağımlılığı olan Python paketlerini daha kolay oluşturmaya ve dağıtmaya yarayan iyileştirmeler koleksiyonudur."
 
 #: programming/languages/python/pygame::summary
 msgid "Python game library"
@@ -1053,9 +1048,8 @@ msgid "Python sqlite bindings"
 msgstr "Python sqlite bağlayıcıları"
 
 #: programming/languages/python/pysqlite::description
-#, fuzzy
 msgid "pysqlite is a DB-API 2.0-compliant database interface for SQLite. pysqlite makes the powerful embedded SQL engine SQLite available to Python programmers. It stays compatible with the Python database API specification 2.0 as much as possible, but also exposes most of SQLite's native API, so that it is for example possible to create user-defined SQL functions and aggregates in Python."
-msgstr " pysqlite, SQLite için bir DB-API 2.0 uyumlu veri tabanı ara yüzüdür. pysql güçlü gömülü SQL motoru SQLite'ı Python programcılarına uygun hale getirir. Python veri tabanı API 2.0 teknik özelliklerine olabildiğince uyumlu kalır, ama aynı zamanda SQLite'ın doğal API'sinin çoğunu meydana çıkarır, böylece örneğin, Python ile kullanıcı tanımlı SQL fonksiyonları ve kümeler oluşturmak mümkündür."
+msgstr "pysqlite, SQLite için bir DB-API 2.0 uyumlu veri tabanı ara yüzüdür. pysql güçlü gömülü SQL motoru SQLite'ı Python programcılarına uygun hale getirir. Python veri tabanı API 2.0 teknik özelliklerine olabildiğince uyumlu kalır, ama aynı zamanda SQLite'ın doğal API'sinin çoğunu meydana çıkarır, böylece örneğin, Python ile kullanıcı tanımlı SQL fonksiyonları ve kümeler oluşturmak mümkündür."
 
 #: programming/languages/python/paramiko::summary
 msgid "SSH2 implementation for Python"
@@ -2155,7 +2149,7 @@ msgstr ""
 
 #: programming/languages/perl/PerlIO-via-dynamic::summary
 msgid "Dynamic PerlIO layers"
-msgstr ""
+msgstr "Dinamik PerlIO katmanları"
 
 #: programming/languages/perl/IO-stringy::summary
 msgid "I/O on in-core objects like strings and arrays"
@@ -2175,7 +2169,7 @@ msgstr "Tkinter için bir Perl modülü"
 
 #: programming/languages/perl/version::summary
 msgid "Perl extension for Version Objects"
-msgstr ""
+msgstr "Sürüm Nesneleri için Perl eklentisi"
 
 #: programming/languages/perl/Time-Local::summary
 msgid "Perl module for efficiently computing time from local and GMT time"
@@ -2183,7 +2177,7 @@ msgstr ""
 
 #: programming/languages/perl/GDTextUtil::summary
 msgid "Text utilities for use with GD"
-msgstr ""
+msgstr "GD ile kullanmak için metin araçları"
 
 #: programming/languages/perl/Path-Class::summary
 msgid "Cross-platform path specification manipulation"
@@ -2211,7 +2205,7 @@ msgstr ""
 
 #: programming/languages/perl/Email-Send::summary
 msgid "Simply Sending Email"
-msgstr ""
+msgstr "Kolayca E-posta Gönderimi"
 
 #: programming/languages/perl/RPC-XML::summary
 msgid "A set of classes for core data, message and XML handling"
@@ -2223,7 +2217,7 @@ msgstr ""
 
 #: programming/languages/tcl/snack::summary
 msgid "The Snack Sound Toolkit"
-msgstr ""
+msgstr "Snack Ses Araç Takımı"
 
 #: programming/languages/tcl/tcltk::summary
 msgid "An X11 toolkit implemented with the Tcl scripting language"
@@ -2283,7 +2277,7 @@ msgstr "Smarty PHP ile yazılmış bir şablon motorudur. Smarty PHP'yi HTML'den
 
 #: programming/languages/php/php:php-common:summary
 msgid "Common config files for PHP"
-msgstr ""
+msgstr "PHP için genel yapılandırma dosyaları"
 
 #: programming/languages/php/php::summary
 msgid "PHP5 is an HTML-embedded scripting language. The goal of the language is to allow web developers to write dynamically generated pages quickly"
@@ -2415,7 +2409,7 @@ msgstr "R özgür istatistik ve grafik ortamı"
 
 #: programming/languages/erlang:erlang-emacs:summary
 msgid "Erlang integration for Emacs"
-msgstr ""
+msgstr "Emacs için Erlang bütünleşmesi"
 
 #: programming/languages/erlang::summary
 msgid "Erlang programming language"
@@ -2471,7 +2465,7 @@ msgstr "Python programlama dili için gelişmiş kabuk."
 
 #: programming/environments/lazarus::summary
 msgid "Lazarus Component Library and IDE"
-msgstr ""
+msgstr "Lazarus Bileşen Kitaplığı ve Bütünleşik Geliştirme Ortamı"
 
 #: programming/environments/lazarus::description
 msgid "Lazarus is a free and opensource RAD tool for freepascal using the lazarus component library - LCL, which is also included in this package."
@@ -2714,9 +2708,8 @@ msgid "Automatically Tuned Linear Algebra Software (BLAS implementation)"
 msgstr "Bir doğrusal cebir yazılımı"
 
 #: programming/libs/atlas::description
-#, fuzzy
 msgid "The ATLAS (Automatically Tuned Linear Algebra Software) project is an ongoing research effort focusing on applying empirical techniques in order to provide portable performance.It's main job is to provide optimized libraries."
-msgstr "The ATLAS (Automatically Tuned Linear Algebra Software – Otomatik Ayarlanmış Doğrusal Cebir Yazılım) projesi, aktarılabilir başarım temini için deneysel teknikler uygulamaya odaklı devamlı bir araştırma çabasıdır. Temel görevi, en iyi hale getirilmiş kütüphaneler temin etmektir."
+msgstr "The ATLAS (Automatically Tuned Linear Algebra Software – Otomatik Ayarlanmış Doğrusal Cebir Yazılımı) projesi, aktarılabilir başarım temini için deneysel teknikler uygulamaya odaklı devamlı bir araştırma çabasıdır. Temel görevi, en iyi hale getirilmiş kütüphaneler temin etmektir."
 
 #: programming/libs/sdl-mixer::summary
 msgid "SDL mixer library"
@@ -2867,12 +2860,10 @@ msgid "Contains error handling functions used by GnuPG software"
 msgstr "GnuPG yazılımı tarafından kullanılan hata yakalama fonksiyonlarını içerir"
 
 #: programming/libs/libart_lgpl::summary
-#, fuzzy
 msgid "A LGPL version of libart"
-msgstr "libart'ın LGPL sürümü"
+msgstr "libart'ın bir LGPL sürümü"
 
 #: programming/libs/libart_lgpl::description
-#, fuzzy
 msgid "Libart is a library for high-performance 2D graphics. It is currently being used as the antialiased rendering engine for the Gnome Canvas. Libart supports a very powerful imaging model, basically the same as SVG and the Java 2D API."
 msgstr "Libart, yüksek performanslı iki boyutlu grafikler için bir kütüphanedir. Halihazırda Gnome Canvas için kenarların yumuşatıldığı dönüştürme aracı olarak kullanılmaktadır. Libart, temelde Java 2D API ve SVG benzeri, çok güçlü bir görüntüleme modelini destekler."
 
@@ -2882,7 +2873,7 @@ msgstr "Özgür Ogg Vorbis ses dosyası biçimi kitaplığı"
 
 #: programming/libs/glpk::summary
 msgid "GNU Linear Programming Kit"
-msgstr ""
+msgstr "GNU Doğrusal Programlama Kiti"
 
 #: programming/libs/glpk::description
 msgid "The GLPK (GNU Linear Programming Kit) package is intended for solving large-scale linear programming (LP), mixed integer programming (MIP), and other related problems. It is a set of routines written in ANSI C and organized in the form of a callable library."
@@ -3045,9 +3036,8 @@ msgid "RTP protocol library"
 msgstr "RTP protokolü kütüphanesi"
 
 #: programming/libs/ortp::description
-#, fuzzy
 msgid "Ortp is a LGPLv2.1 licensed C library implementing the RTP protocol (rfc1889)."
-msgstr "LGPL lisansı ile dağıtılan ve RTP protokolünü (rfc1889) sağlayan C kütüphanesi."
+msgstr "LGPLv2.1 lisansı ile dağıtılan ve RTP protokolünü (rfc1889) sağlayan C kütüphanesi."
 
 #: programming/libs/gsl::summary
 msgid "GNU scientific library"
@@ -3091,7 +3081,7 @@ msgstr "Xmlsec, temel XML standartlarını destekleyen, LibXML2 tabanlı bir XML
 
 #: programming/libs/exiv2::summary
 msgid "Another library for parsing, editing, and saving EXIF data"
-msgstr ""
+msgstr "EXIF verilerini ayrıştırmak, düzenlemek ve kaydetmek için bir diğer kitaplık"
 
 #: programming/libs/exiv2::description
 msgid "Exiv2 is a C++ library and a command line utility to access image metadata. Exiv2 is available as free software and with a commercial license, and is used in a growing number of projects."
@@ -3107,7 +3097,7 @@ msgstr "Bu kütüphane IEEE 1394 tabanlı kameraların kontrolü için yüksek s
 
 #: programming/libs/ois::summary
 msgid "Object Oriented Input System"
-msgstr ""
+msgstr "Nesne Yönelimli Girdi Sistemi"
 
 #: programming/libs/ois::description
 msgid "The goal of OIS is shield the application programmer from having to rewrite input systems from scratch for each project."
@@ -3191,11 +3181,11 @@ msgstr "GLE Tüpleme ve Çekiştirme kütüphanesi bir uygulama programlama aray
 
 #: programming/libs/aalib:aalib:summary
 msgid "A ASCII-Graphics Library"
-msgstr ""
+msgstr "Bir ASCII-Grafik Kitaplığı"
 
 #: programming/libs/aalib::summary
 msgid "An ASCII-graphics Library"
-msgstr "Bir ASCII-grafik kütüphanesi"
+msgstr "Bir ASCII-grafik Kitaplığı"
 
 #: programming/libs/aalib::description
 msgid "Aalib is an ASCII-graphics Library generating ASCII character outputs."
@@ -3335,7 +3325,7 @@ msgstr "Genellikle simulasyon oyunları tarafından kullanılan bir kütüphanes
 
 #: programming/libs/xsynth-dssi::summary
 msgid "Xsynth-DSSI plugin"
-msgstr ""
+msgstr "Xsynth-DSSI eklentisi"
 
 #: programming/libs/xsynth-dssi::description
 msgid "Xsynth-DSSI plugin, a classic-analog (VCOs-VCF-VCA) style software synthesizer with an editor GUI"
@@ -3383,7 +3373,7 @@ msgstr "CLN, sayılar için bir C++ kütüphanesi"
 
 #: programming/libs/tap-plugins::summary
 msgid "TAP LADSPA plugins"
-msgstr ""
+msgstr "TAP LADSPA eklentileri"
 
 #: programming/libs/tap-plugins::description
 msgid "TAP LADSPA plugins package which contains DeEsser, Dynamics, Equalizer, Reverb, Stereo Echo, Tremolo"
@@ -3391,7 +3381,7 @@ msgstr ""
 
 #: programming/libs/hexter::summary
 msgid "Yamaha DX7 modeller plugin"
-msgstr ""
+msgstr "Yamaha DX7 modelleyici eklentisi"
 
 #: programming/libs/plib::summary
 msgid "Plib game library"
@@ -3403,19 +3393,19 @@ msgstr "Genellikle oyunlar tarafından kullanılan multimedya ve 3B kütüphanes
 
 #: programming/libs/libuninameslist::summary
 msgid "Library of unicode annotation data"
-msgstr ""
+msgstr "Unicode dipnot veri kitaplığı"
 
 #: programming/libs/ladspa-cmt::summary
 msgid "CMT Lasdpa library plugins"
-msgstr ""
+msgstr "CMT Lasdpa kitaplık eklentileri"
 
 #: programming/libs/ladspa-cmt::description
 msgid "CMT (computer music toolkit) Lasdpa library plugins"
-msgstr ""
+msgstr "CMT (bilgisayar için müzik araç takımı) Lasdpa kitaplık eklentileri"
 
 #: programming/libs/libnotify::summary
 msgid "Desktop notify library"
-msgstr ""
+msgstr "Masaüstü bildirim kitaplığı"
 
 #: programming/libs/libnotify::description
 msgid "Sends desktop notifications to a notification daemon"
@@ -3435,7 +3425,7 @@ msgstr "Sparse matrix kütüphanesi"
 
 #: programming/libs/soundtouch::summary
 msgid "Audio Processing Library"
-msgstr ""
+msgstr "Ses Üretme Kitaplığı"
 
 #: programming/libs/soundtouch::description
 msgid "open-source audio processing library for changing the Tempo, Pitch and Playback Rates of audio streams or file"
@@ -3530,13 +3520,12 @@ msgid "A software package for computer-aided number theory"
 msgstr ""
 
 #: programming/libs/libupnp::summary
-#, fuzzy
 msgid "Portable UPnP library"
-msgstr "UPnP kitaplığı"
+msgstr "Taşınabilir UPnP kitaplığı"
 
 #: programming/libs/libsidplay2::summary
 msgid "C64 SID player library"
-msgstr ""
+msgstr "C64 SID oynatıcı kitaplığı"
 
 #: programming/libs/lib3ds::summary
 msgid "lib3ds is a free ANSI-C library for working with the popular \"3ds\" 3D model format."
@@ -3552,7 +3541,7 @@ msgstr "Dns girdileri olmadığında bile kolay bir şekilde ülke tanımların�
 
 #: programming/libs/libgsf::summary
 msgid "Gnome Structured File library"
-msgstr ""
+msgstr "Gnome Yapılandırılmış Dosya kitaplığı"
 
 #: programming/libs/libpcap::summary
 msgid "A system-independent library for user-level network packet capture"
@@ -3564,11 +3553,11 @@ msgstr "libcap (CAPture paketi) düşük-seviye ağların izlenmesi için uygula
 
 #: programming/libs/libfwbuilder::summary
 msgid "Firewall Builder API"
-msgstr ""
+msgstr "Güvenlik Duvarı Oluşturma API'si"
 
 #: programming/libs/libfwbuilder::description
 msgid "Firewall Builder 2.0 API library and compiler framework"
-msgstr ""
+msgstr "Güvenlik Duvarı Oluşturucu 2.0 API kitaplığı ve derleyici çalışma ortamı"
 
 #: programming/libs/xvid::summary
 msgid "High performance MPEG-4 video de-/encoding solution"
@@ -3608,7 +3597,7 @@ msgstr "Qwt kütüphanesi programlar için kullanışlı arayüz sınıflarını
 
 #: programming/libs/liblzf::summary
 msgid "LibLZF is a very small data compression library."
-msgstr ""
+msgstr "LibLZF çok küçük bir ver sıkıştırma kitaplığıdır."
 
 #: programming/libs/tre::summary
 msgid "A lightweight, robust, and efficient POSIX compliant regexp matching library"
@@ -3620,11 +3609,11 @@ msgstr "Hız geliştirmesi yapılmış, hafif bir renk yönetim motoru"
 
 #: programming/libs/cel:cel-doc:summary
 msgid "Cel documents"
-msgstr ""
+msgstr "Cel belgeleri"
 
 #: programming/libs/cel:cel-doc:description
 msgid "Additional documentation for Cel"
-msgstr ""
+msgstr "Cel için ek belgeler"
 
 #: programming/libs/cel::summary
 msgid "A game entity layer based on Crystal Space"
@@ -3692,7 +3681,7 @@ msgstr "Pth Unix platformları için derlenmiş taşınabilir kütüphanedir. Bi
 
 #: programming/libs/ftgl::summary
 msgid "Font rendering library for OpenGL"
-msgstr ""
+msgstr "OpenGL için yazı tipi hazırlama kitaplığı"
 
 #: programming/libs/cegui::summary
 msgid "Crazy Eddie's GUI System"
@@ -3768,7 +3757,7 @@ msgstr ""
 
 #: programming/libs/clucene::summary
 msgid "A high-performance indexing and searching API"
-msgstr ""
+msgstr "Yüksek performanslı bir indeksleme ve arama API'si"
 
 #: programming/libs/clucene::description
 msgid "CLucene is a high-performance, scalable, cross platform, full-featured, open-source indexing and searching API. It is written in C++."
@@ -3776,7 +3765,7 @@ msgstr ""
 
 #: programming/libs/libsmbios::summary
 msgid "Provide access to (SM)BIOS information"
-msgstr ""
+msgstr "(SM)BIOS bilgilerine ulaşabilmeyi sağlar"
 
 #: programming/libs/libkdcraw::summary
 msgid "KDE Image Plugin Interface: a dcraw library wrapper"
@@ -3800,7 +3789,7 @@ msgstr "Yüksek seviyeli bir XKB kütüphanesi"
 
 #: programming/libs/DevIL::summary
 msgid "A full featured cross-platform image library"
-msgstr ""
+msgstr "Tam özellikli, platformlar arası grafik kütüphanesi"
 
 #: programming/libs/DevIL::description
 msgid "Developer's Image Library (DevIL) is a programmer's library to develop applications with very powerful image loading capabilities, yet is easy for a developer to learn and use."
@@ -4199,9 +4188,8 @@ msgid "The GNU Compiler Collection, includes C, C++, Objective-C and Fortran com
 msgstr "C/C++ ve Fortran derleyicisi"
 
 #: system/devel/gcc::description
-#, fuzzy
 msgid "The GNU Compiler Collection includes front ends for C, C++, Objective-C, Fortran, as well as libraries for these languages"
-msgstr "C, C++, Objective-C, Fortran, Java, ve Ada programlama dilleri ile bu dillere ait kütüphaneleri içeren, GNU derleyici paketi."
+msgstr "C, C++, Objective-C, Fortran programlama dilleri ile bu dillere ait kütüphaneleri içeren, GNU derleyici paketi"
 
 #: system/devel/help2man::summary
 msgid "GNU utility to convert program --help output to a man page"
@@ -4232,9 +4220,8 @@ msgid "Apache portable runtime library"
 msgstr "Apache portatif çalışma ortamı kütüphanesi (eski sürüm)"
 
 #: system/devel/apr::description
-#, fuzzy
 msgid "The mission of the Apache portable runtime (APR) is to provide a free library of C data structures and routines."
-msgstr "Apache portatif çalışma ortamı kütüphanesi (APR), C data yapıları için özgür kütüphane sağlar. Bu sürüm 0 ile başlar."
+msgstr "Apache portatif çalışma ortamı kütüphanesi (APR), C data yapıları ve rutinleri için özgür kütüphane sağlar."
 
 #: system/devel/subversion::summary
 msgid "A compelling replacement for CVS"
@@ -4345,9 +4332,8 @@ msgid "Apache portable runtime utils"
 msgstr "Apache çalışma ortamı araçları (eski sürüm)"
 
 #: system/devel/apr-util::description
-#, fuzzy
 msgid "Apache portable runtime utils (APR-Util) contains additional utility interfaces for APR; including support for XML, database interfaces, URI parsing and more."
-msgstr "Apache portatif çalışma ortamı araçları (APR-Util) ek arabirimleri içerir; XML, LDAP, veritabanı, URI ve diğer arabirimler. Bu sürüm 0 ile başlar."
+msgstr "Apache portatif çalışma ortamı araçları (APR-Util) ek arabirimleri içerir; XML veritabanı arayüzleri, URI ayrıştırma ve diğer arabirimler."
 
 #: system/devel/expect::summary
 msgid "Tool for automating interactive applications"
@@ -4714,9 +4700,8 @@ msgid "Another uncompressor for compatibility"
 msgstr "Bir başka sıkışmış dosya açma programı"
 
 #: system/base/db4::summary
-#, fuzzy
 msgid "An embeddable database engine that provides developers with fast, reliable, local persistence with zero administration"
-msgstr "Berkeley Veritabanı'nın dördüncü versiyonu"
+msgstr "Geliştiricilere yerel süreklilik ve sıfır yönetim kolaylığı sağlayan hızlı ve gömülebilir bir veritabanı motoru"
 
 #: system/base/lzma::summary
 msgid "LZMA utils for Unix"
@@ -4979,7 +4964,6 @@ msgid "Utility to change hard drive performance parameters"
 msgstr "Sabit disk parametrelerini değiştirmekte kullanılan araç"
 
 #: system/base/hdparm::description
-#, fuzzy
 msgid "hdparm has some useful utilities that allows you to get/set hard disk parameters for Linux IDE drives in runtime."
 msgstr "hdparm paketi çalışma anında Linux IDE sürücülerinin parametrelerini almanıza/değiştirmenize olanak sağlayan bazı kullanışlı uygulamaları içerir."
 
@@ -5096,9 +5080,8 @@ msgid "Port of 7-Zip archiver for Unix"
 msgstr "7-zip arşivleme programı"
 
 #: applications/archive/p7zip::description
-#, fuzzy
 msgid "p7zip is a port of 7-Zip archiver for Unix Supported formats Packing-unpacking: 7z, ZIP, GZIP, BZIP2 and TAR. Unpacking only: RAR, CAB, ISO, ARJ, LZH, CHM, Z, CPIO, RPM, DEB and NSIS"
-msgstr "7-zip arşivleme programı. Desteklediği sıkıştırma ve açma formatları: 7z, ZIP, GZIP, BZIP2 and TAR. Sadece açma desteği verdiği dosyalar ise; RAR, CAB, ISO, ARJ, LZH, CHM, Z, CPIO, RPM, DEB and NSIS"
+msgstr "7-zip arşivleme programı. Desteklediği sıkıştırma ve açma formatları: 7z, ZIP, GZIP, BZIP2 ve TAR. Sadece açma desteği verdiği dosyalar ise; RAR, CAB, ISO, ARJ, LZH, CHM, Z, CPIO, RPM, DEB and NSIS"
 
 #: applications/archive/rdiff-backup::summary
 msgid "rdiff-backup backs up one directory to another, possibly over a network."
@@ -5165,13 +5148,12 @@ msgid "Userspace tools for NTFS filesystems"
 msgstr "NTFS dosya sistemi için kullanıcı araçları"
 
 #: applications/admin/ntfsprogs::description
-#, fuzzy
 msgid "Userspace tools for NTFS filesystems. The goals of the Linux-NTFS project are to develop reliable and full feature access to NTFS by the Linux kernel driver to provide a wide collection of NTFS utilities"
-msgstr "NTFS dosya sistemi için kullanıcı araçları içerir. Bu araçların amacı Linux çekirdek sürücüne bu tür dosya sistemlerine tam erişim sağlamaktır"
+msgstr "NTFS dosya sistemi için kullanıcı araçları içerir. Bu araçların amacı Linux çekirdek sürücüne bu tür dosya sistemlerine tam erişim sağlayacak NTFS araçlarını sağlamaktır"
 
 #: applications/admin/squashfs-tools::summary
 msgid "Tool for creating compressed filesystem type squashfs"
-msgstr ""
+msgstr "Sıkıştırılmış bir dosya sistemi olan squashfs oluşturma aracı"
 
 #: applications/admin/squashfs-tools::description
 msgid "Squashfs is a highly compressed read-only filesystem for Linux.  This package contains the utilities for manipulating squashfs filesystems"
@@ -5206,27 +5188,24 @@ msgid "GNU Midnight Commander cli-based file manager"
 msgstr "Midnight Commander (mc), komut istemcisinde çalıştırabileceğiniz metin tabanlı bir dosya yöneticisidir."
 
 #: applications/admin/mc::description
-#, fuzzy
 msgid "GNU Midnight Commander cli-based file manager. You can do lots of filemanager and editor tasks, both in normal terminals and in terminal emulators of X. Also has file transfer capabilities over ftp, ssh, samba."
-msgstr "Midnight Commander (mc), komut istemcisinde çalıştırabileceğiniz metin tabanlı bir dosya yöneticisidir. İki sistem arasında ftp, scp ve samba protokollerini kullanarak dosya transferinine olanak verir"
+msgstr "Midnight Commander (mc), komut istemcisinde çalıştırabileceğiniz metin tabanlı bir dosya yöneticisidir. İki sistem arasında ftp, scp ve samba protokollerini kullanarak dosya transferinine olanak verir."
 
 #: applications/admin/dosfstools::summary
 msgid "DOS filesystem tools - provides mkdosfs, mkfs.msdos, mkfs.vfat, dosfslabel"
-msgstr ""
+msgstr "DOS dosya sistemi araçları - mkdosfs, mkfs.msdos, mkfs.vfat, dosfslabel komutlarını sağlar"
 
 #: applications/admin/dosfstools::description
-#, fuzzy
 msgid "The dosfstools package includes the mkdosfs and dosfsck utilities like mkdosfs, mkfs.msdos, mkfs.vfat, dosfslabel. You can make and check MS-DOS FAT filesystems on hard drives or on floppies"
-msgstr "Dosfstools paketi, mkdosfs, mkfs.msdos, mkfs.vfat gibi araçları içerir, bu araçlarda disk ya da disket v.b. üzerinde MS-DOS FAT dosya sistemi yaratılmasına ve kontrol edilmesine olanak verir"
+msgstr "Dosfstools paketi, mkdosfs, mkfs.msdos, mkfs.vfat gibi araçları içerir. Bu araçlarda disk ya da disket üzerinde MS-DOS FAT dosya sistemi yaratılmasına ve kontrol edilmesine olanak verir"
 
 #: applications/admin/irqbalance::summary
 msgid "Distribute hardware interrupts across processors on a multiprocessor system."
 msgstr "Çok işlemcili sistemlerde, işlemciler arası donanım kesmelerini (irq) dağıtır"
 
 #: applications/admin/irqbalance::description
-#, fuzzy
 msgid "Daemon to balance irqs across multiple CPUs on systems.This can lead to better performance and I/O balance on SMP systems."
-msgstr "2.4 veya 2.6 çekirdekte, çoklu işlemciler arasındaki donanım kesmelerinin (irq) dengesini sağlayan artalan süreci. Bu SMP(simetrik çoklu işlemciler) sistemlerde daha iyi performans ve G/Ç dengesi sağlar."
+msgstr "Çoklu işlemciler arasındaki donanım kesmelerinin (irq) dengesini sağlayan artalan süreci. Bu SMP(simetrik çoklu işlemciler) sistemlerde daha iyi performans ve G/Ç dengesi sağlar."
 
 #: applications/admin/jfsutils::summary
 msgid "IBM's Journaling Filesystem (JFS) Utilities"
@@ -5241,9 +5220,8 @@ msgid "Allows certain users/groups to run commands as root"
 msgstr "Kullanıcılara, yönetici (root) yetkisiyle komut çalıştırır"
 
 #: applications/admin/sudo::description
-#, fuzzy
 msgid "sudo allows certain users/groups to run commands as root user priviligies."
-msgstr "Belirli kullanıcıların ya da kullanıcı gruplarının yönetici (root) komutlarını çalıştırmasına izin verir. Böylelikle, hazırladığınız veya kullandığınız bir program, düzgün çalışabilmesi için kök kullanıcı haklarına ihtiyaç duyuyorsa ve bu program root kullanıcısı dışındaki kullanıcılar tarafından da kullanılacaksa, sözkonusu programın düzgün çalışabilmesi sağlanmış olur"
+msgstr "Belirli kullanıcıların ya da kullanıcı gruplarının yönetici (root) komutlarını çalıştırmasına izin veren bir yazılımdır."
 
 #: applications/admin/xfsprogs::summary
 msgid "XFS filesystem utilities"
@@ -5251,11 +5229,11 @@ msgstr "xfs dosya sistemi araçları"
 
 #: applications/admin/webalizer::summary
 msgid "Webserver log file analyzer"
-msgstr ""
+msgstr "Web sunucusu günlük kayıtlarını analiz eden bir uygulama"
 
 #: applications/admin/xfsdump::summary
 msgid "XFS dump/restore utilities"
-msgstr ""
+msgstr "XFS dump/restore araçları"
 
 #: applications/admin/tmpwatch::summary
 msgid "A utility for removing files based on when they were last accessed"
@@ -5386,9 +5364,8 @@ msgid "A P2P VoIP client."
 msgstr "Skype P2P VoIP istemcisi"
 
 #: applications/network/skype::description
-#, fuzzy
 msgid "Skype allows you to make calls and send text messages from your computer."
-msgstr "Skype bilgisayarınızdan sesli, görüntülü aramalar yapmanızı sağlayan bir yazılımdır."
+msgstr "Skype bilgisayarınızdan aramalar yapmanızı ve metin iletileri göndermenizi sağlayan bir yazılımdır."
 
 #: applications/network/rsync::summary
 msgid "File transfer program to keep remote files in sync"
@@ -7436,20 +7413,19 @@ msgstr "Oyun, Büyük Saldırı denen bir olay ile ayaklanan gezegendeki robotla
 
 #: applications/games/WoP-padpack::summary
 msgid "WoP extra maps"
-msgstr ""
+msgstr "WoP ek haritaları"
 
 #: applications/games/WoP-padpack::description
 msgid "Extra maps for World of Padman"
-msgstr ""
+msgstr "World of Padman için ek haritalar"
 
 #: applications/games/scourge::summary
 msgid "A graphical rogue-like adventure game"
 msgstr "Rogue benzeri, grafiksel macera oyunu"
 
 #: applications/games/scourge::description
-#, fuzzy
 msgid "S.C.O.U.R.G.E. is a rogue-like game in the fine tradition of NetHack and Moria. It sports a graphical front-end, similar to glHack or the Falcon's eye."
-msgstr "Rogue benzeri, grafiksel macera oyunu"
+msgstr ""
 
 #: applications/games/alienarena2007::summary
 msgid "A standalone 3D first person shooter game"
@@ -8040,9 +8016,8 @@ msgid "Lyx is a document processor that encourages an approach to writing based 
 msgstr "Lyx belgelerinin görünüşüne değil, yapısının temelindeki yazılıma ulaşmanızı sağlayan belge işlemcisidir."
 
 #: applications/tex/pgf::summary
-#, fuzzy
 msgid "The TeX Portable Graphic Format"
-msgstr "pgf --TeX Portable Graphic Format"
+msgstr "TeX Taşınabilir Grafik Biçimi"
 
 #: applications/tex/pgf::description
 msgid "PGF is a TeX macro package for generating graphics."
@@ -8709,9 +8684,8 @@ msgid "Netkit - portmapper"
 msgstr "Portmap, RPC (remote procedure call) uygulama numaralarını TCP/IP protokolüne göre port numaralarına çevirir"
 
 #: applications/util/portmap::description
-#, fuzzy
 msgid "Portmap is server software running under Unix-like systems that converts RPC program numbers into DARPA protocol port numbers."
-msgstr "Portmap Unix benzeri sistemlerde RPC program numaralarını DARPA protokolü port numaralarına çeviren bir sunucu yazılımıdır. Tasarım amacı kullanımdaki port sayısını azaltmak olmasına rağmen yaygın olarak benimsenmediği için bu amaca ulaşılamadı. RPC çağrılarının yapılabilmesi için çalışıyor durumda olması gerekir."
+msgstr "Portmap Unix benzeri sistemlerde RPC program numaralarını DARPA protokolü port numaralarına çeviren bir sunucu yazılımıdır."
 
 #: applications/util/lsscsi::summary
 msgid "SCSI sysfs query tool"
@@ -9214,9 +9188,8 @@ msgid "Python module for Apache"
 msgstr "Apache Web Sunucu için Python modülü"
 
 #: server/www/mod_python::description
-#, fuzzy
 msgid "mod_python is an Apache module that embeds the Python interpreter within the server."
-msgstr "Mod_python, Python yorumlayıcısını sunucu içerisine gömen bir Apache modülüdür."
+msgstr "mod_python, Python yorumlayıcısını sunucu içerisine gömen bir Apache modülüdür."
 
 #: server/www/apache::summary
 msgid "Apache web server"
@@ -11627,9 +11600,8 @@ msgid "PDF rendering library"
 msgstr "Xpdf koduna dayanan bir PDF kütüphanesi"
 
 #: desktop/freedesktop/poppler::description
-#, fuzzy
 msgid "Poppler is a PDF rendering library based on the xpdf."
-msgstr "Poppler, xpdf koduna dayanan bir PDF kütüphanesidir. PDF dosyaları görüntülemek için kullanılır."
+msgstr "Poppler, xpdf koduna dayanan bir PDF hazırlama kütüphanesidir."
 
 #: desktop/freedesktop/shared-mime-info::summary
 msgid "The shared MIME info database"
@@ -12393,7 +12365,7 @@ msgstr ""
 
 #: kernel-xen/dom0/kernel-dom0:kernel-dom0-source:summary
 msgid "Xen enabled Pardus Linux kernel source (dom0)"
-msgstr ""
+msgstr "Xen destekli Pardus için Linux çekirdeği (dom0)"
 
 #: kernel-xen/dom0/kernel-dom0::summary
 msgid "Xen enabled uniprocessor Linux kernel for Pardus Linux"
@@ -12413,36 +12385,35 @@ msgstr "Dom0 (Alan 0) Xen çekirdeği için ALSA (Gelişmiş Linux Ses Mimarisi)
 
 #: kernel-xen/dom0/drivers/nvidia-dom0::summary
 msgid "nVIDIA kernel and glx drivers for Xen"
-msgstr ""
+msgstr "Xen için nVIDIA çekirdek ve glx sürücüleri"
 
 #: kernel-xen/dom0/drivers/nvidia-dom0::description
 msgid "nVIDIA kernel and glx drivers giving optimized 2d/3d performance on Linux for Xen"
-msgstr ""
+msgstr "2d/3d performansı için iyileştirilmiş Xen destekli nVIDIA çekirdek ve glx sürücüleri"
 
 #: kernel-xen/dom0/drivers/ndiswrapper-dom0::summary
 msgid "A driver wrapper for Xen"
 msgstr "Bir sürücü ara yazılımı(wrapper)"
 
 #: kernel-xen/dom0/drivers/ndiswrapper-dom0::description
-#, fuzzy
 msgid "Ndiswrapper allows you to use windows XP drivers for that WLAN card without proper Linux drivers (for Xen)."
-msgstr "Ndiswrapper, Linux sürücüsü olmayan kablosuz kartların (pcmcia,usb) windows XP sürücüleri kullanılarak çalıştırmasını sağlayan bir programdır"
+msgstr "Ndiswrapper Linux sürücüsü olmayan kablosuz kartların Windows XP sürücüleri kullanılarak çalıştırmasını sağlayan bir programdır (Xen için)."
 
 #: kernel-xen/dom0/drivers/ipw3945-dom0::summary
 msgid "Xen-enabled driver for Intel IPW3945 wireless network chips"
-msgstr ""
+msgstr "Xen destekli IPW3945 kablosuz ağ sürücüsü"
 
 #: kernel-xen/dom0/drivers/nvidia-new-dom0::summary
 msgid "Xen-enabled nVIDIA kernel and glx drivers for NV3 or better cards (Geforce FX or better)"
-msgstr ""
+msgstr "NV3 ve daha yeni kartlar için Xen destekli nVIDIA çekirdek ve glx sürücüleri (Geforce FX ya da daha yeni)"
 
 #: kernel-xen/dom0/drivers/nvidia-new-dom0::description
 msgid "Xen-enabled nVIDIA kernel and glx drivers giving optimized 2d/3d performance on Linux (For NV3X or better). Don't use this driver if your card's name doesn't contain the word FX."
-msgstr ""
+msgstr "2d/3d performansı için iyileştirilmiş Xen destekli nVIDIA çekirdek ve glx sürücüleri (NV3X ya da daha yeni). Eğer kartınızın modelinin adında FX sözcüğü geçmiyorsa bu sürücüyü kullanmayın."
 
 #: kernel-xen/domU/kernel-domU:kernel-domU-source:summary
 msgid "Xen enabled Pardus Linux kernel source (domU)"
-msgstr ""
+msgstr "Xen destekli Pardus Linux kernel kaynakları (domU)"
 
 #: kernel-xen/domU/kernel-domU::summary
 msgid "Xen enabled uniprocessor Linux kernel for Pardus Linux (domU)"
@@ -12451,3 +12422,4 @@ msgstr "Xen destekli Pardus için Linux çekirdeği (domU)"
 #: kernel-xen/domU/kernel-domU::description
 msgid "User domain Xen-enabled kernel allows Pardus to run on the Xen virtual machine's user domain. This kernel cannot be booted as the first operating system on Xen, it must be booted from domain 0 and does not have direct access to hardware, but it's smaller than the domain 0 kernel."
 msgstr "Kullanıcı-alanı (domU) Xen çekirdeği Pardus'un, Xen üzerinde kullanıcı alanı seviyesinde çalışmasını sağlar. Bu çekirdek Xen üzerindeki ilk işletim sistemi olarak açılamaz, dom0 üzerinden açılması gerekir ve donanıma doğrudan erişim hakkı yoktur, fakat dom0 çekirdeğinden daha küçük boyuttadır."
+

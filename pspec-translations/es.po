@@ -1,4 +1,5 @@
 # translation of es.po to Spanish
+# translation of es.po to
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
@@ -10,7 +11,7 @@ msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2008-01-19 20:14-0300\n"
+"PO-Revision-Date: 2008-02-17 14:57-0300\n"
 "Last-Translator: Klemens Haeckel <click3d at linuxmail dot org>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -93,7 +94,7 @@ msgstr "Herramienta gráfica para configuración de tarjetas nVIDIA [tarjetas ta
 
 #: kernel/drivers/nvidia-old::summary
 msgid "nVIDIA kernel and glx drivers for old nVIDIA cards like TNT2"
-msgstr ""
+msgstr "Controladores de kernel para nVIDIA y glx para tarjetas antiguas nVIDIA como TNT2"
 
 #: kernel/drivers/nvidia-old::description
 msgid "nVIDIA kernel and glx drivers giving optimized 2d/3d performance on Linux for old nVidia cards"
@@ -101,7 +102,7 @@ msgstr "Controladores de kernel nVIDIA y glx para rendimiento 2d/3d optimizado p
 
 #: kernel/drivers/lmpcm_usb::summary
 msgid "Drivers for Logitech MediaPlay Cordless Mouse"
-msgstr ""
+msgstr "Controladores para ratón inlambrico Logitech MediaPlay "
 
 #: kernel/drivers/lmpcm_usb::description
 msgid "You can use Logitech MediaPlay Cordless Mouse's multimedia buttons with this driver."
@@ -305,7 +306,7 @@ msgstr "Herramienta GUI (nuevo) para configuración de tarjetas nVIDIA y herrami
 
 #: kernel/drivers/nvidia-new::summary
 msgid "nVIDIA kernel and glx drivers for NV3 or better cards (Geforce FX or better)"
-msgstr ""
+msgstr "Controladores nVIDIA  de kernel y glx para tarjetas NV3 o mejor (Geforce FX o mejor)"
 
 #: kernel/drivers/nvidia-new::description
 msgid "nVIDIA kernel and glx drivers giving optimized 2d/3d performance on Linux (For NV3X or better). Don't use this driver if your card's name doesn't contain the word FX."
@@ -313,7 +314,7 @@ msgstr "Controladores de kernel nVIDIA y glx para rendimiento optimizado 2d/3d e
 
 #: kernel/drivers/ov51x-jpeg::summary
 msgid "Omnivision webcam driver with jpeg compression"
-msgstr ""
+msgstr "Controlador de camara web Omnivision con compresión jpeg "
 
 #: kernel/drivers/ov51x-jpeg::description
 msgid "Driver for omnivision based webcams, forked, rewritten and using jpeg support."
@@ -329,7 +330,7 @@ msgstr ""
 
 #: kernel/drivers/nvidia:nvidia-kernel:summary
 msgid "nVIDIA kernel driver"
-msgstr ""
+msgstr "Controlador de kernel nVIDIA"
 
 #: kernel/drivers/nvidia:nvidia-kernel:description
 msgid "nVIDIA kernel driver for low level infrastracture."
@@ -337,7 +338,7 @@ msgstr "Controlador de kernel nVIDIA para PCs antiguos"
 
 #: kernel/drivers/nvidia:nvidia-glx:summary
 msgid "nVIDIA glx module for X.org"
-msgstr ""
+msgstr "Módulo nVIDIA glx para X.org"
 
 #: kernel/drivers/nvidia:nvidia-glx:description
 msgid "nVIDIA glx module for X.org for optimized 2d/3d performance."
@@ -353,7 +354,7 @@ msgstr "Herramienta GUI nvidia-settings para tarjetas nVIDIA cards y una herrami
 
 #: kernel/drivers/nvidia::summary
 msgid "nVIDIA kernel and glx drivers"
-msgstr ""
+msgstr "Controladores de kernel nVIDIA y glx"
 
 #: kernel/drivers/nvidia::description
 msgid "nVIDIA kernel and glx drivers giving optimized 2d/3d performance on Linux"
@@ -361,11 +362,11 @@ msgstr "Controladores de kernel nVIDIA y glx para rendimiento optimizado 2d/3d e
 
 #: kernel/drivers/r5u870::summary
 msgid "Driver for Ricoh R5U870 webcams"
-msgstr ""
+msgstr "Controlador para camara web Ricoh R5U870 "
 
 #: kernel/drivers/zr364xx::summary
 msgid "Zoran webcam driver"
-msgstr ""
+msgstr "Controlador para camara web Zoran"
 
 #: kernel/drivers/zr364xx::description
 msgid "Driver for Zoran based digital cameras and webcams, possibly working for ZR36430 (ZR36430BGC), ZR36431, ZR36440, ZR36442 etc."
@@ -373,23 +374,23 @@ msgstr "Controlador para camaras digitales y webcams basados en Zoran, probablem
 
 #: kernel/drivers/atl1::summary
 msgid "Attansic gigabit ethernet driver"
-msgstr ""
+msgstr "Controlador para ethernet gigabit Attansic "
 
 #: kernel/drivers/atl1::description
 msgid "Attansic L1 Gigabit Ethernet driver for Linux. The Attansic L1 is included as the onboard network device for the Asus M2V, P5B-E, P5L-MX, and P5L-VM 1394 etc. mainboards."
-msgstr ""
+msgstr "Controlador de Ethernet gigabit Attansic L1 para Linux. Attansic L1 está incluido para ethernet onboard en placas madres Asus M2V, P5B-E, P5L-MX, y P5L-VM 1394 etc."
 
 #: kernel/drivers/hcfpcimodem::summary
 msgid "Linuxant's modem driver (PCI)"
-msgstr ""
+msgstr "Controlador modem Linuxant (PCI)"
 
 #: kernel/drivers/hcfpcimodem::description
 msgid "Linuxant's modem driver for Connexant HCF chipset (PCI)"
-msgstr ""
+msgstr "Controlador para modem Linuxant con chipset Connexant HCF (PCI)"
 
 #: kernel/drivers/et131x::summary
 msgid "Agere ET131x ethernet driver"
-msgstr ""
+msgstr "Controlador ethernet Agere ET131x "
 
 #: kernel/drivers/et131x::description
 msgid "Kernel driver for Agere ET131x chipset based ethernet cards."
@@ -397,15 +398,15 @@ msgstr "Controlador de kernel para tarjetas ethernet basados en chips Agere ET13
 
 #: kernel/drivers/sn9c1xx::summary
 msgid "Driver for SN9C101, SN9C102, SN9C103, SN9C105, SN9C120 webcam controllers"
-msgstr ""
+msgstr "Controlador para controladores de camara web SN9C101, SN9C102, SN9C103, SN9C105, SN9C120 "
 
 #: kernel/drivers/atl2::summary
 msgid "Attansic L2 gigabit ethernet driver"
-msgstr ""
+msgstr "Controlador ethernet gigabit Attansic L2 "
 
 #: kernel/firmware/bcm43xx-firmware::summary
 msgid "Firmware for Broadcom 43xx wireless network chips"
-msgstr ""
+msgstr "Firmware para chips Broadcom 43xx de red inalambrico"
 
 #: kernel/firmware/bcm43xx-firmware::description
 msgid "Firmware for Broadcom wireless network chips"
@@ -413,7 +414,7 @@ msgstr "Firmware para chips Broadcom de red inalambrico"
 
 #: kernel/firmware/accessrunner-firmware::summary
 msgid "Accessrunner USB ADSL modem driver firmware"
-msgstr ""
+msgstr "Controlador para firmware de modem ADSL Accessrunner USB "
 
 #: kernel/firmware/ipw3945-daemon::summary
 msgid "Regulatory daemon for the Intel PRO/Wireless 3945 miniPCI adapters"
@@ -473,7 +474,7 @@ msgstr "OProfile es un perfilador de todo el sistema con baja carga adicional (o
 
 #: programming/tools/indent::summary
 msgid "A tool for making sources easier to read."
-msgstr ""
+msgstr "Herramienta para lectura fácil de fuentes"
 
 #: programming/tools/indent::description
 msgid " The indent program can be used to make code easier to read. It can also convert from one style of writing C to another."
@@ -481,7 +482,7 @@ msgstr "Se puede usar el programa indent (sangría de texto) para facilitar la l
 
 #: programming/tools/strace::summary
 msgid "A useful diagnostic, instructional, and debugging tool"
-msgstr ""
+msgstr "Herramienta útil para diagnostico, aprendizaje y depuración"
 
 #: programming/tools/ant::summary
 msgid "Java-based build tool"
@@ -497,7 +498,7 @@ msgstr ""
 
 #: programming/tools/git:gitweb:summary
 msgid "Web interface for GIT"
-msgstr ""
+msgstr "interfaz web para GIT"
 
 #: programming/tools/git::summary
 msgid "The stupid content tracker"
@@ -509,7 +510,7 @@ msgstr "GIT es un sistema rápido, escalable y distribuido de control de version
 
 #: programming/tools/rcs::summary
 msgid "Revision Control System"
-msgstr ""
+msgstr "Sistema de Control de Revisiones"
 
 #: programming/tools/rcs::description
 msgid "The Revision Control System (RCS) manages multiple revisions of files. RCS automates the storing, retrieval, logging, identification, and merging of revisions. RCS is useful for text that is revised frequently, including source code, programs, documentation, graphics, papers, and form letters."
@@ -525,11 +526,11 @@ msgstr "El sistema de versiones concurrentes (CVS, Concurrent Version System) im
 
 #: programming/tools/gdb::summary
 msgid "GNU debugger"
-msgstr ""
+msgstr "Depurador GNU"
 
 #: programming/tools/gdb::description
 msgid "GDB, the GNU Project debugger, allows you to see what is going on 'inside' another program while it executes -- or what another program was doing at the moment it crashed."
-msgstr ""
+msgstr "GDB, el depurador del proyecto GNU permite ver lo que está pasando 'en el interior de' otro programa mientras ejecuta -- o lo que estaba haciendo cuando quedó colgado."
 
 #: programming/tools/cgdb::summary
 msgid "A curses frontend for GDB"
@@ -557,7 +558,7 @@ msgstr "Exuberant Ctags genera un archivo de índice (o tag) de objetos encontra
 
 #: programming/tools/lsof::summary
 msgid "Lists open files for running Unix processes"
-msgstr ""
+msgstr "Lista archivos abiertos por procesos unix en ejecución"
 
 #: programming/tools/lsof::description
 msgid "Lsof is a Unix-specific diagnostic tool. Its name stands for LiSt Open Files, and it does just that. It lists information about any files that are open by processes currently running on the system. It can also list communications open by each process."
@@ -660,12 +661,14 @@ msgid "Patchutils contains a collection of tools for manipulating patch files: i
 msgstr "Patchutils contiene una colección de herramientas para manipular archivos de parches: interdiff, combinediff, flipdiff, filterdiff, fixcvsdiff, rediff, lsdiff, grepdiff, splitdiff, recountdiff, y unwrapdiff."
 
 #: programming/tools/cogito::summary
+# insancil sería "humano", pero lo traduje como "amigable", por cuestion gramatical
+# proofread, revisar
 msgid "GIT için daha insancıl bir arayüz"
-msgstr ""
+msgstr "Interfaz GIT más amigable"
 
 #: programming/tools/dev86::summary
 msgid "Development environment for ELKS-86 and standalone 8086 code"
-msgstr ""
+msgstr "Entorno de desarrollo para ELKS-86 y código 8086 independiente"
 
 #: programming/tools/quilt::summary
 msgid "The scripts allow to manage a series of patches by keeping track of the changes each patch makes. Patches can be applied, un-applied, refreshed, etc. "
@@ -673,11 +676,11 @@ msgstr ""
 
 #: programming/tools/translate-toolkit::summary
 msgid "Helper applications for translations"
-msgstr ""
+msgstr "Programas auxiliares para traducciones"
 
 #: programming/tools/SVK::summary
 msgid "SVK is a decentralized version control system built with the robust Subversion filesystem."
-msgstr ""
+msgstr "SVK es un sistema de control de versiones decentralizado, basado en el robusto sistema de archivos de Subversion"
 
 #: programming/tools/SVK::description
 msgid "It supports repository mirroring, disconnected operation, history-sensitive merging, and integrates with other version control systems, as well as popular visual merge tools."
@@ -685,7 +688,7 @@ msgstr "Con soporte para espejado de repositorios, operación desconectada, uni�
 
 #: programming/tools/cdecl::summary
 msgid "Turn English phrases to C or C++ declarations"
-msgstr ""
+msgstr "Convertir frases en inglés a declaraciones C o C++"
 
 #: programming/tools/cdecl::description
 msgid "Cdecl composes compilable C declarations and typecasts from descriptive English phrases, and can also explain a complicated typecast or declaration."
@@ -709,11 +712,11 @@ msgstr ""
 
 #: programming/tools/autogen::summary
 msgid "A tool designed to simplify the creation and maintenance of programs that contain large amounts of repetitious text"
-msgstr ""
+msgstr "Herramienta para simplificar creación y mantenimiento de programas que contienen muchos textos repetitivos"
 
 #: programming/tools/bk-client::summary
 msgid "Command line tool to clone BitKeeper repositories"
-msgstr ""
+msgstr "Herramienta de línea de comando para clonar repositorios BitKeeper"
 
 #: programming/tools/expect::summary
 msgid "Tool for automating interactive applications"
@@ -757,7 +760,7 @@ msgstr ""
 
 #: programming/languages/java/icu4j::summary
 msgid "International Components for Unicode (Java version)"
-msgstr ""
+msgstr "Componentes internacionales para Unicode (versión Java)"
 
 #: programming/languages/java/icu4j::description
 msgid "ICU4J is a mature, widely used set of Java libraries for Unicode support, software internationalization and globalization (i18n/g11n)."
@@ -857,7 +860,7 @@ msgstr ""
 
 #: programming/languages/python/pyaspects::description
 msgid "Aspect-Oriented Development modules for Python."
-msgstr "Módulos Python para desarrollo Aspect-Oriented."
+msgstr "Módulos Python para desarrollo orientado a Aspect."
 
 #: programming/languages/python/Twisted::summary
 msgid "Event driven network framework"
@@ -4258,15 +4261,15 @@ msgstr ""
 
 #: system/devel/patch::summary
 msgid "Applies patch files"
-msgstr ""
+msgstr "Aplicación de archivos de parches"
 
 #: system/devel/patch::description
 msgid "Takes a patch file generated by diff command, and applies it to the original files, thus producing patched files."
-msgstr ""
+msgstr "Recibe una archivo de parche generado por el comando diff y lo aplica a los archivos originales, así produciendo archivos parcheados."
 
 #: system/devel/perl-XML-Parser::summary
 msgid "A Perl extension interface to James Clark's XML parser, expat"
-msgstr ""
+msgstr "Una extensión Perl al parseador XML de James Clark, expat"
 
 #: system/devel/perl-XML-Parser::description
 msgid "This module provides an interface to James Clark's XML parser, expat. As in expat, a single instance of the parser can only parse one document. Calls to parsestring after the first for a given instance will die."
@@ -4278,15 +4281,15 @@ msgstr ""
 
 #: system/devel/ccache::summary
 msgid "Fast compiler cache"
-msgstr ""
+msgstr "Cache veloz de compilador"
 
 #: system/devel/pkgconfig::summary
 msgid "Package Config system that manages compile/link flags for libraries"
-msgstr ""
+msgstr "Sistema de configuración de paquetes que soporta banderas de compilación/link para librerías"
 
 #: system/devel/pkgconfig::description
 msgid "Package Config system that manages compile/link flags for libraries. It helps you insert the correct compiler options on the command line"
-msgstr ""
+msgstr "Sistema de configuración de paquetes que soporta banderas de compilación/link para librerías. Facilita la inserción de las opciones correctos de compilador en línea de comando"
 
 #: system/devel/icecream:icecream-scheduler:summary
 msgid "Icecream scheduler which should only run on the master icecream node"
@@ -4294,11 +4297,11 @@ msgstr ""
 
 #: system/devel/icecream::summary
 msgid "Distributed C(++) compiling tool"
-msgstr ""
+msgstr "Herramienta de compilación C(++) distribuida"
 
 #: system/devel/icecream::description
 msgid "Icecream is a program for distributed compiling of C/C++ code across several machines based on ideas and code by distcc."
-msgstr ""
+msgstr "Icecream es un programa para compilación de código C/C++ distribuida en varios servidores, basado en ideas y código de distcc."
 
 #: system/devel/bison::summary
 msgid "A yacc-compatible parser generator"
@@ -4310,7 +4313,7 @@ msgstr ""
 
 #: system/devel/make::summary
 msgid "Standard tool to compile source trees"
-msgstr ""
+msgstr "Herramienta estándar para compilación de arboles de fuentes"
 
 #: system/devel/make::description
 msgid "Standard tool to compile source trees. Make gets its knowledge of how to build your program from a file called the makefile. When you write a program, you should write a makefile for it, so that it is possible to use Make to build and install the program"
@@ -4326,7 +4329,7 @@ msgstr ""
 
 #: system/devel/autoconf::summary
 msgid "Used to create autoconfiguration files"
-msgstr ""
+msgstr "Usado para crear archivos de autoconfiguración"
 
 #: system/devel/autoconf::description
 msgid "Used to create autoconfiguration files, Autoconf is an extensible package of m4 macros that produce shell scripts to automatically configure software source code packages."
@@ -12443,3 +12446,4 @@ msgstr ""
 #: kernel-xen/domU/kernel-domU::description
 msgid "User domain Xen-enabled kernel allows Pardus to run on the Xen virtual machine's user domain. This kernel cannot be booted as the first operating system on Xen, it must be booted from domain 0 and does not have direct access to hardware, but it's smaller than the domain 0 kernel."
 msgstr ""
+

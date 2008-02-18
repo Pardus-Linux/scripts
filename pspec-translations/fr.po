@@ -49,21 +49,9 @@ msgstr "Noyau Linux Pardus pour machine monoprocesseur contenant les information
 msgid "This kernel package contains debug options enabled version of the Linux kernel, the core of any Linux operating system. The kernel handles the basic functions of the operating system: memory allocation, process allocation, device input and output, etc."
 msgstr ""
 
-#: kernel/drivers/ipw3945::summary
-msgid "Driver for Intel IPW3945 wireless network chips"
-msgstr "Pilote pour les puces réseau sans-fil Intel IPW3945."
-
 #: kernel/drivers/madwifi-ng::summary
 msgid "Wireless driver for Atheros chipset a/b/g cards"
 msgstr "Pilote sans-fil pour cartes a/b/g à chipset Atheros."
-
-#: kernel/drivers/rt2400::summary
-msgid "RaLink RT2400 driver"
-msgstr ""
-
-#: kernel/drivers/rt2400::description
-msgid "Driver for the RaLink RT2400 wireless chipset"
-msgstr "Pilote pour le chipset sans-fil RaLink RT2400."
 
 #: kernel/drivers/nvidia-old:nvidia-kernel-old:summary
 msgid "nVIDIA kernel driver [For TNT2 and such older cards]"
@@ -104,22 +92,6 @@ msgstr ""
 #: kernel/drivers/lmpcm_usb::description
 msgid "You can use Logitech MediaPlay Cordless Mouse's multimedia buttons with this driver."
 msgstr "Vous pouvez utiliser les boutons multimédia de la souris sans fil MediaPlay Logitech avec ce pilote."
-
-#: kernel/drivers/rt61::summary
-msgid "RaLink RT2600 (RT61) driver"
-msgstr ""
-
-#: kernel/drivers/rt61::description
-msgid "Driver for the RaLink RT2600 (RT61) wireless chipset"
-msgstr "Pilote pour le chipset sans fil RaLink RT2600 (RT61)."
-
-#: kernel/drivers/rt2570::summary
-msgid "RaLink RT2570 driver"
-msgstr ""
-
-#: kernel/drivers/rt2570::description
-msgid "Driver for the RaLink RT2570 wireless chipset"
-msgstr "Pilote pour le chipset sans fil RaLink RT2570."
 
 #: kernel/drivers/lirc::summary
 msgid "Linux Infrared Remote Control system"
@@ -165,14 +137,6 @@ msgstr ""
 msgid "Driver for more than 200 webcams from manufacturers like Creative, Logitech, Mustek etc. using chips like Conexant, Etoms, Mars-Semi, Pixart, Sonix, Sunplus, Transvision, Vimicro, Microdia."
 msgstr "Pilote pour plus de 200 webcams de fabricants comme Creative, Logitech, Mustek etc. utilisant les puces tels Conexant, Etoms, Mars-Semi, Pixart, Sonix, Sunplus, Transvision, Vimicro, Microdia."
 
-#: kernel/drivers/rt73::summary
-msgid "RaLink RT2700 (RT73) driver"
-msgstr ""
-
-#: kernel/drivers/rt73::description
-msgid "Driver for the RaLink RT2700 (RT73) wireless chipset"
-msgstr "Pilote pour le chipset sans-fil RaLink RT2700 (RT73)."
-
 #: kernel/drivers/fuse::summary
 msgid "An interface for filesystems implemented in userspace"
 msgstr "Interface implémentée dans l'environnement utilisateur (userpace) pour les systèmes de fichier."
@@ -212,22 +176,6 @@ msgstr ""
 #: kernel/drivers/ungrab-winmodem::description
 msgid "A dirty workaround for Smartlink Modems to bypass \"device is already grabbed\" errors "
 msgstr "Une manière sale de contourner en passant outreles erreurs \"device is already grabbed\" (le périphérique est déjà pris) de modems Smartlink."
-
-#: kernel/drivers/sc92031::summary
-msgid "Ethernet driver"
-msgstr ""
-
-#: kernel/drivers/sc92031::description
-msgid "Driver for Silan SC92031 chip based ethernet cards."
-msgstr "Pilote pour les cartes réseau ethernet basées sur des puces Silan SC92031."
-
-#: kernel/drivers/rt2500::summary
-msgid "RT2500 drivers"
-msgstr ""
-
-#: kernel/drivers/rt2500::description
-msgid "Driver for the RaLink RT2500 wireless chipset"
-msgstr "Pilote pour le chipset sans fil RaLink RT2500."
 
 #: kernel/drivers/acx100::summary
 msgid "Driver for Texas Instruments ACX100/ACX111 wireless network chips"
@@ -362,22 +310,6 @@ msgstr "noyau et pilotes glx nVIDIA donnant des performances 2d/3d optimisées s
 msgid "Driver for Ricoh R5U870 webcams"
 msgstr ""
 
-#: kernel/drivers/zr364xx::summary
-msgid "Zoran webcam driver"
-msgstr ""
-
-#: kernel/drivers/zr364xx::description
-msgid "Driver for Zoran based digital cameras and webcams, possibly working for ZR36430 (ZR36430BGC), ZR36431, ZR36440, ZR36442 etc."
-msgstr ""
-
-#: kernel/drivers/atl1::summary
-msgid "Attansic gigabit ethernet driver"
-msgstr ""
-
-#: kernel/drivers/atl1::description
-msgid "Attansic L1 Gigabit Ethernet driver for Linux. The Attansic L1 is included as the onboard network device for the Asus M2V, P5B-E, P5L-MX, and P5L-VM 1394 etc. mainboards."
-msgstr ""
-
 #: kernel/drivers/hcfpcimodem::summary
 msgid "Linuxant's modem driver (PCI)"
 msgstr ""
@@ -414,10 +346,6 @@ msgstr "Firmware (logiciel interne) pour puces réseau sans-fil Broadcom."
 #: kernel/firmware/accessrunner-firmware::summary
 msgid "Accessrunner USB ADSL modem driver firmware"
 msgstr "firmware (logiciel interne) pour le pilote de modem ADSL USB accessrunner."
-
-#: kernel/firmware/ipw3945-daemon::summary
-msgid "Regulatory daemon for the Intel PRO/Wireless 3945 miniPCI adapters"
-msgstr "Daemon de régulation pour adapteurs miniPCI Intel PRO/Wireless 3945."
 
 #: kernel/firmware/acx100-firmware::summary
 msgid "Firmware for Texas Instruments' ACX100/ACX111 wireless network chips"
@@ -459,9 +387,13 @@ msgstr "Firmware (logiciel interne) pour adaptateurs PCI 2225BG et miniPCI Intel
 msgid "ALCATEL SpeedTouch USB ADSL modem user-space driver firmware"
 msgstr "firmware (logiciel interne) pour pilote d'environnement utilisateur moderne du modem USB ADSL ALCATEL SpeedTouch."
 
-#: kernel/firmware/ipw3945-firmware::summary
+#: kernel/firmware/iwlwifi4965-ucode::summary
+msgid "Firmware for the Intel PRO/Wireless 4965 miniPCI adapters"
+msgstr ""
+
+#: kernel/firmware/iwlwifi3945-ucode::summary
 msgid "Firmware for the Intel PRO/Wireless 3945 miniPCI adapters"
-msgstr "Firmware (logiciel interne) pour l'adaptateur miniPCI Intel PRO/Wireless 3945."
+msgstr ""
 
 #: programming/tools/oprofile::summary
 msgid "A transparent low-overhead system-wide profiler"
@@ -5395,7 +5327,7 @@ msgid "rdesktop is an open source client for Windows NT/2000 Terminal Server. Un
 msgstr ""
 
 #: applications/network/skype::summary
-msgid "A P2P VoIP client."
+msgid "A P2P VoIP client"
 msgstr ""
 
 #: applications/network/skype::description

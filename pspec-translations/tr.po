@@ -52,21 +52,9 @@ msgstr "Pardus için debug seçenekleri açık Linux çekirdeği"
 msgid "This kernel package contains debug options enabled version of the Linux kernel, the core of any Linux operating system. The kernel handles the basic functions of the operating system: memory allocation, process allocation, device input and output, etc."
 msgstr ""
 
-#: kernel/drivers/ipw3945::summary
-msgid "Driver for Intel IPW3945 wireless network chips"
-msgstr "Intel IPW3945 kablosuz ağ çip sürücüleri"
-
 #: kernel/drivers/madwifi-ng::summary
 msgid "Wireless driver for Atheros chipset a/b/g cards"
 msgstr "Atheros yongasetli kablosuz ağ kartları (a/b/g) için gerekli sürücüler"
-
-#: kernel/drivers/rt2400::summary
-msgid "RaLink RT2400 driver"
-msgstr "RaLink RT2400 sürücüleri"
-
-#: kernel/drivers/rt2400::description
-msgid "Driver for the RaLink RT2400 wireless chipset"
-msgstr "RaLink RT2400 kablosuz ağ entegresi kullanan aygıtlar için sürücüler"
 
 #: kernel/drivers/nvidia-old:nvidia-kernel-old:summary
 msgid "nVIDIA kernel driver [For TNT2 and such older cards]"
@@ -107,22 +95,6 @@ msgstr "Logitech MediaPlay Cordless Mouse için gerekli sürücüler"
 #: kernel/drivers/lmpcm_usb::description
 msgid "You can use Logitech MediaPlay Cordless Mouse's multimedia buttons with this driver."
 msgstr "Bu sürücü ile Logitech MediaPlay Cordless Mouse'unuzun multimedya düğmelerini kullanabilirsiniz."
-
-#: kernel/drivers/rt61::summary
-msgid "RaLink RT2600 (RT61) driver"
-msgstr "RaLink RT2600 (RT61) sürücüleri"
-
-#: kernel/drivers/rt61::description
-msgid "Driver for the RaLink RT2600 (RT61) wireless chipset"
-msgstr "RaLink RT2600 (RT61) kablosuz ağ entegresi kullanan aygıtlar için sürücüler"
-
-#: kernel/drivers/rt2570::summary
-msgid "RaLink RT2570 driver"
-msgstr "RaLink RT2570 sürücüleri"
-
-#: kernel/drivers/rt2570::description
-msgid "Driver for the RaLink RT2570 wireless chipset"
-msgstr "RaLink RT2570 kablosuz ağ entegresi kullanan aygıtlar için sürücüler"
 
 #: kernel/drivers/lirc::summary
 msgid "Linux Infrared Remote Control system"
@@ -168,14 +140,6 @@ msgstr "Kamera sürücüsü"
 msgid "Driver for more than 200 webcams from manufacturers like Creative, Logitech, Mustek etc. using chips like Conexant, Etoms, Mars-Semi, Pixart, Sonix, Sunplus, Transvision, Vimicro, Microdia."
 msgstr "Conexant, Etoms, Mars-Semi, Pixart, Sonix, Sunplus, Transvision, Vimicro, Microdia ve benzeri yongalı, Creative, Mustek ve Logitech gibi üreticilerin ürettiği 200 den fazla kamera için sürücü pakedi."
 
-#: kernel/drivers/rt73::summary
-msgid "RaLink RT2700 (RT73) driver"
-msgstr "RaLink RT2700 (RT73) sürücüleri"
-
-#: kernel/drivers/rt73::description
-msgid "Driver for the RaLink RT2700 (RT73) wireless chipset"
-msgstr "RaLink RT2700 (RT73) kablosuz ağ entegresi kullanan aygıtlar için sürücüler"
-
 #: kernel/drivers/fuse::summary
 msgid "An interface for filesystems implemented in userspace"
 msgstr "Kullanıcı düzeyinde dosya sistemi oluştumaya yarayan kütüphane"
@@ -215,22 +179,6 @@ msgstr ""
 #: kernel/drivers/ungrab-winmodem::description
 msgid "A dirty workaround for Smartlink Modems to bypass \"device is already grabbed\" errors "
 msgstr ""
-
-#: kernel/drivers/sc92031::summary
-msgid "Ethernet driver"
-msgstr "Ağ kartı sürücüsü"
-
-#: kernel/drivers/sc92031::description
-msgid "Driver for Silan SC92031 chip based ethernet cards."
-msgstr "Silan SC92031 entegreli ağ kartları için sürücü."
-
-#: kernel/drivers/rt2500::summary
-msgid "RT2500 drivers"
-msgstr "RT2500 sürücüleri"
-
-#: kernel/drivers/rt2500::description
-msgid "Driver for the RaLink RT2500 wireless chipset"
-msgstr "RaLink RT2500 kablosuz entegreli cihazlar için sürücüler"
 
 #: kernel/drivers/acx100::summary
 msgid "Driver for Texas Instruments ACX100/ACX111 wireless network chips"
@@ -364,22 +312,6 @@ msgstr "2B/3B başarımı için gerekli nVIDIA sürücüleri"
 msgid "Driver for Ricoh R5U870 webcams"
 msgstr "Ricoh R5U870 yongasetli kameralar için sürücü"
 
-#: kernel/drivers/zr364xx::summary
-msgid "Zoran webcam driver"
-msgstr ""
-
-#: kernel/drivers/zr364xx::description
-msgid "Driver for Zoran based digital cameras and webcams, possibly working for ZR36430 (ZR36430BGC), ZR36431, ZR36440, ZR36442 etc."
-msgstr ""
-
-#: kernel/drivers/atl1::summary
-msgid "Attansic gigabit ethernet driver"
-msgstr ""
-
-#: kernel/drivers/atl1::description
-msgid "Attansic L1 Gigabit Ethernet driver for Linux. The Attansic L1 is included as the onboard network device for the Asus M2V, P5B-E, P5L-MX, and P5L-VM 1394 etc. mainboards."
-msgstr ""
-
 #: kernel/drivers/hcfpcimodem::summary
 msgid "Linuxant's modem driver (PCI)"
 msgstr "Linuxant modem sürücüleri"
@@ -415,10 +347,6 @@ msgstr "Broadcom kablosuz ağ çip sürücüleri"
 #: kernel/firmware/accessrunner-firmware::summary
 msgid "Accessrunner USB ADSL modem driver firmware"
 msgstr "Accessrunner USB ADSL modem sürücü firmware"
-
-#: kernel/firmware/ipw3945-daemon::summary
-msgid "Regulatory daemon for the Intel PRO/Wireless 3945 miniPCI adapters"
-msgstr ""
 
 #: kernel/firmware/acx100-firmware::summary
 msgid "Firmware for Texas Instruments' ACX100/ACX111 wireless network chips"
@@ -460,9 +388,13 @@ msgstr "Intel PRO/Wireless 2200BG/2915ABG miniPCI ve 2225BG PCI adaptörleri iç
 msgid "ALCATEL SpeedTouch USB ADSL modem user-space driver firmware"
 msgstr "ALCATEL SpeedTouch USB ADSL modem sürücüsü firmware"
 
-#: kernel/firmware/ipw3945-firmware::summary
+#: kernel/firmware/iwlwifi4965-ucode::summary
+msgid "Firmware for the Intel PRO/Wireless 4965 miniPCI adapters"
+msgstr ""
+
+#: kernel/firmware/iwlwifi3945-ucode::summary
 msgid "Firmware for the Intel PRO/Wireless 3945 miniPCI adapters"
-msgstr "Intel PRO/Wireless 3945 miniPCI için bellenim (firmware)"
+msgstr ""
 
 #: programming/tools/oprofile::summary
 msgid "A transparent low-overhead system-wide profiler"
@@ -5385,8 +5317,8 @@ msgid "rdesktop is an open source client for Windows NT/2000 Terminal Server. Un
 msgstr "rdesktop Windows NT/2003 terminal sunucuları için, sunucu eklentileri gerektirmeyen açık kaynaklı bir istemcidir."
 
 #: applications/network/skype::summary
-msgid "A P2P VoIP client."
-msgstr "Skype P2P VoIP istemcisi"
+msgid "A P2P VoIP client"
+msgstr "P2P VoIP istemcisi"
 
 #: applications/network/skype::description
 msgid "Skype allows you to make calls and send text messages from your computer."

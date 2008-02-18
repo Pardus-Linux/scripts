@@ -47,20 +47,8 @@ msgstr ""
 msgid "This kernel package contains debug options enabled version of the Linux kernel, the core of any Linux operating system. The kernel handles the basic functions of the operating system: memory allocation, process allocation, device input and output, etc."
 msgstr ""
 
-#: kernel/drivers/ipw3945::summary
-msgid "Driver for Intel IPW3945 wireless network chips"
-msgstr ""
-
 #: kernel/drivers/madwifi-ng::summary
 msgid "Wireless driver for Atheros chipset a/b/g cards"
-msgstr ""
-
-#: kernel/drivers/rt2400::summary
-msgid "RaLink RT2400 driver"
-msgstr ""
-
-#: kernel/drivers/rt2400::description
-msgid "Driver for the RaLink RT2400 wireless chipset"
 msgstr ""
 
 #: kernel/drivers/nvidia-old:nvidia-kernel-old:summary
@@ -101,22 +89,6 @@ msgstr ""
 
 #: kernel/drivers/lmpcm_usb::description
 msgid "You can use Logitech MediaPlay Cordless Mouse's multimedia buttons with this driver."
-msgstr ""
-
-#: kernel/drivers/rt61::summary
-msgid "RaLink RT2600 (RT61) driver"
-msgstr ""
-
-#: kernel/drivers/rt61::description
-msgid "Driver for the RaLink RT2600 (RT61) wireless chipset"
-msgstr ""
-
-#: kernel/drivers/rt2570::summary
-msgid "RaLink RT2570 driver"
-msgstr ""
-
-#: kernel/drivers/rt2570::description
-msgid "Driver for the RaLink RT2570 wireless chipset"
 msgstr ""
 
 #: kernel/drivers/lirc::summary
@@ -163,14 +135,6 @@ msgstr ""
 msgid "Driver for more than 200 webcams from manufacturers like Creative, Logitech, Mustek etc. using chips like Conexant, Etoms, Mars-Semi, Pixart, Sonix, Sunplus, Transvision, Vimicro, Microdia."
 msgstr ""
 
-#: kernel/drivers/rt73::summary
-msgid "RaLink RT2700 (RT73) driver"
-msgstr ""
-
-#: kernel/drivers/rt73::description
-msgid "Driver for the RaLink RT2700 (RT73) wireless chipset"
-msgstr ""
-
 #: kernel/drivers/fuse::summary
 msgid "An interface for filesystems implemented in userspace"
 msgstr ""
@@ -209,22 +173,6 @@ msgstr ""
 
 #: kernel/drivers/ungrab-winmodem::description
 msgid "A dirty workaround for Smartlink Modems to bypass \"device is already grabbed\" errors "
-msgstr ""
-
-#: kernel/drivers/sc92031::summary
-msgid "Ethernet driver"
-msgstr ""
-
-#: kernel/drivers/sc92031::description
-msgid "Driver for Silan SC92031 chip based ethernet cards."
-msgstr ""
-
-#: kernel/drivers/rt2500::summary
-msgid "RT2500 drivers"
-msgstr ""
-
-#: kernel/drivers/rt2500::description
-msgid "Driver for the RaLink RT2500 wireless chipset"
 msgstr ""
 
 #: kernel/drivers/acx100::summary
@@ -359,22 +307,6 @@ msgstr ""
 msgid "Driver for Ricoh R5U870 webcams"
 msgstr ""
 
-#: kernel/drivers/zr364xx::summary
-msgid "Zoran webcam driver"
-msgstr ""
-
-#: kernel/drivers/zr364xx::description
-msgid "Driver for Zoran based digital cameras and webcams, possibly working for ZR36430 (ZR36430BGC), ZR36431, ZR36440, ZR36442 etc."
-msgstr ""
-
-#: kernel/drivers/atl1::summary
-msgid "Attansic gigabit ethernet driver"
-msgstr ""
-
-#: kernel/drivers/atl1::description
-msgid "Attansic L1 Gigabit Ethernet driver for Linux. The Attansic L1 is included as the onboard network device for the Asus M2V, P5B-E, P5L-MX, and P5L-VM 1394 etc. mainboards."
-msgstr ""
-
 #: kernel/drivers/hcfpcimodem::summary
 msgid "Linuxant's modem driver (PCI)"
 msgstr ""
@@ -409,10 +341,6 @@ msgstr ""
 
 #: kernel/firmware/accessrunner-firmware::summary
 msgid "Accessrunner USB ADSL modem driver firmware"
-msgstr ""
-
-#: kernel/firmware/ipw3945-daemon::summary
-msgid "Regulatory daemon for the Intel PRO/Wireless 3945 miniPCI adapters"
 msgstr ""
 
 #: kernel/firmware/acx100-firmware::summary
@@ -455,7 +383,11 @@ msgstr ""
 msgid "ALCATEL SpeedTouch USB ADSL modem user-space driver firmware"
 msgstr ""
 
-#: kernel/firmware/ipw3945-firmware::summary
+#: kernel/firmware/iwlwifi4965-ucode::summary
+msgid "Firmware for the Intel PRO/Wireless 4965 miniPCI adapters"
+msgstr ""
+
+#: kernel/firmware/iwlwifi3945-ucode::summary
 msgid "Firmware for the Intel PRO/Wireless 3945 miniPCI adapters"
 msgstr ""
 
@@ -5380,7 +5312,7 @@ msgid "rdesktop is an open source client for Windows NT/2000 Terminal Server. Un
 msgstr ""
 
 #: applications/network/skype::summary
-msgid "A P2P VoIP client."
+msgid "A P2P VoIP client"
 msgstr ""
 
 #: applications/network/skype::description

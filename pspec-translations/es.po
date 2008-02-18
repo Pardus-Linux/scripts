@@ -52,21 +52,9 @@ msgstr "Kernel Uniprocesador de Pardus Linux con debug habilitado"
 msgid "This kernel package contains debug options enabled version of the Linux kernel, the core of any Linux operating system. The kernel handles the basic functions of the operating system: memory allocation, process allocation, device input and output, etc."
 msgstr ""
 
-#: kernel/drivers/ipw3945::summary
-msgid "Driver for Intel IPW3945 wireless network chips"
-msgstr "Controlador para chips de red wireless Intel IPW3945"
-
 #: kernel/drivers/madwifi-ng::summary
 msgid "Wireless driver for Atheros chipset a/b/g cards"
 msgstr "Controlador para tarjetas wireless con chipset Atheros a/b/g"
-
-#: kernel/drivers/rt2400::summary
-msgid "RaLink RT2400 driver"
-msgstr "Controlador RaLink RT2400 "
-
-#: kernel/drivers/rt2400::description
-msgid "Driver for the RaLink RT2400 wireless chipset"
-msgstr "Controlador para chips wireless RaLink RT2400"
 
 #: kernel/drivers/nvidia-old:nvidia-kernel-old:summary
 msgid "nVIDIA kernel driver [For TNT2 and such older cards]"
@@ -107,22 +95,6 @@ msgstr "Controladores para ratón inlambrico Logitech MediaPlay "
 #: kernel/drivers/lmpcm_usb::description
 msgid "You can use Logitech MediaPlay Cordless Mouse's multimedia buttons with this driver."
 msgstr "El controlador permite uso de los botones multimedia del ratón inalambrico Logitech MediaPlay"
-
-#: kernel/drivers/rt61::summary
-msgid "RaLink RT2600 (RT61) driver"
-msgstr "Controlador RaLink RT2600 (RT61)"
-
-#: kernel/drivers/rt61::description
-msgid "Driver for the RaLink RT2600 (RT61) wireless chipset"
-msgstr "Controlador para chips inalambricos RaLink RT2600 (RT61)"
-
-#: kernel/drivers/rt2570::summary
-msgid "RaLink RT2570 driver"
-msgstr "Controlador RaLink RT2570 "
-
-#: kernel/drivers/rt2570::description
-msgid "Driver for the RaLink RT2570 wireless chipset"
-msgstr "Controlador para chips inalambricos RaLink RT2570"
 
 #: kernel/drivers/lirc::summary
 msgid "Linux Infrared Remote Control system"
@@ -168,14 +140,6 @@ msgstr "Controlador de camara web"
 msgid "Driver for more than 200 webcams from manufacturers like Creative, Logitech, Mustek etc. using chips like Conexant, Etoms, Mars-Semi, Pixart, Sonix, Sunplus, Transvision, Vimicro, Microdia."
 msgstr "Controlador para más de 200 webcams de fabricantes como Creative, Logitech, Mustek etc. usando chips de Conexant, Etoms, Mars-Semi, Pixart, Sonix, Sunplus, Transvision, Vimicro, Microdia."
 
-#: kernel/drivers/rt73::summary
-msgid "RaLink RT2700 (RT73) driver"
-msgstr "Controlador RaLink RT2700 (RT73)"
-
-#: kernel/drivers/rt73::description
-msgid "Driver for the RaLink RT2700 (RT73) wireless chipset"
-msgstr "Controlador para el chips inalambricos RaLink RT2700 (RT73)"
-
 #: kernel/drivers/fuse::summary
 msgid "An interface for filesystems implemented in userspace"
 msgstr "Una interfaz para sistemas de archivos implementados en el espacio de usuario"
@@ -215,22 +179,6 @@ msgstr "Módulo adicional para modems Smartlink "
 #: kernel/drivers/ungrab-winmodem::description
 msgid "A dirty workaround for Smartlink Modems to bypass \"device is already grabbed\" errors "
 msgstr "Una solución rudimentaria para modems Smartlink para evitar errores\"device is already grabbed\" "
-
-#: kernel/drivers/sc92031::summary
-msgid "Ethernet driver"
-msgstr "Controlador Ethernet "
-
-#: kernel/drivers/sc92031::description
-msgid "Driver for Silan SC92031 chip based ethernet cards."
-msgstr "Controlador para tarjetas ethernet basados en chip Silan SC92031"
-
-#: kernel/drivers/rt2500::summary
-msgid "RT2500 drivers"
-msgstr "Controladores RT2500"
-
-#: kernel/drivers/rt2500::description
-msgid "Driver for the RaLink RT2500 wireless chipset"
-msgstr "Controlador para chips wireless RaLink RT2500"
 
 #: kernel/drivers/acx100::summary
 msgid "Driver for Texas Instruments ACX100/ACX111 wireless network chips"
@@ -364,22 +312,6 @@ msgstr "Controladores de kernel nVIDIA y glx para rendimiento optimizado 2d/3d e
 msgid "Driver for Ricoh R5U870 webcams"
 msgstr "Controlador para camara web Ricoh R5U870 "
 
-#: kernel/drivers/zr364xx::summary
-msgid "Zoran webcam driver"
-msgstr "Controlador para camara web Zoran"
-
-#: kernel/drivers/zr364xx::description
-msgid "Driver for Zoran based digital cameras and webcams, possibly working for ZR36430 (ZR36430BGC), ZR36431, ZR36440, ZR36442 etc."
-msgstr "Controlador para camaras digitales y webcams basados en Zoran, probablemente funcinan para ZR36430 (ZR36430BGC), ZR36431, ZR36440, ZR36442 etc."
-
-#: kernel/drivers/atl1::summary
-msgid "Attansic gigabit ethernet driver"
-msgstr "Controlador para ethernet gigabit Attansic "
-
-#: kernel/drivers/atl1::description
-msgid "Attansic L1 Gigabit Ethernet driver for Linux. The Attansic L1 is included as the onboard network device for the Asus M2V, P5B-E, P5L-MX, and P5L-VM 1394 etc. mainboards."
-msgstr "Controlador de Ethernet gigabit Attansic L1 para Linux. Attansic L1 está incluido para ethernet onboard en placas madres Asus M2V, P5B-E, P5L-MX, y P5L-VM 1394 etc."
-
 #: kernel/drivers/hcfpcimodem::summary
 msgid "Linuxant's modem driver (PCI)"
 msgstr "Controlador modem Linuxant (PCI)"
@@ -415,10 +347,6 @@ msgstr "Firmware para chips Broadcom de red inalambrico"
 #: kernel/firmware/accessrunner-firmware::summary
 msgid "Accessrunner USB ADSL modem driver firmware"
 msgstr "Controlador para firmware de modem ADSL Accessrunner USB "
-
-#: kernel/firmware/ipw3945-daemon::summary
-msgid "Regulatory daemon for the Intel PRO/Wireless 3945 miniPCI adapters"
-msgstr ""
 
 #: kernel/firmware/acx100-firmware::summary
 msgid "Firmware for Texas Instruments' ACX100/ACX111 wireless network chips"
@@ -460,7 +388,11 @@ msgstr ""
 msgid "ALCATEL SpeedTouch USB ADSL modem user-space driver firmware"
 msgstr ""
 
-#: kernel/firmware/ipw3945-firmware::summary
+#: kernel/firmware/iwlwifi4965-ucode::summary
+msgid "Firmware for the Intel PRO/Wireless 4965 miniPCI adapters"
+msgstr ""
+
+#: kernel/firmware/iwlwifi3945-ucode::summary
 msgid "Firmware for the Intel PRO/Wireless 3945 miniPCI adapters"
 msgstr ""
 
@@ -661,8 +593,6 @@ msgid "Patchutils contains a collection of tools for manipulating patch files: i
 msgstr "Patchutils contiene una colección de herramientas para manipular archivos de parches: interdiff, combinediff, flipdiff, filterdiff, fixcvsdiff, rediff, lsdiff, grepdiff, splitdiff, recountdiff, y unwrapdiff."
 
 #: programming/tools/cogito::summary
-# insancil sería "humano", pero lo traduje como "amigable", por cuestion gramatical
-# proofread, revisar
 msgid "GIT için daha insancıl bir arayüz"
 msgstr "Interfaz GIT más amigable"
 
@@ -5388,7 +5318,7 @@ msgid "rdesktop is an open source client for Windows NT/2000 Terminal Server. Un
 msgstr ""
 
 #: applications/network/skype::summary
-msgid "A P2P VoIP client."
+msgid "A P2P VoIP client"
 msgstr ""
 
 #: applications/network/skype::description
@@ -12446,4 +12376,3 @@ msgstr ""
 #: kernel-xen/domU/kernel-domU::description
 msgid "User domain Xen-enabled kernel allows Pardus to run on the Xen virtual machine's user domain. This kernel cannot be booted as the first operating system on Xen, it must be booted from domain 0 and does not have direct access to hardware, but it's smaller than the domain 0 kernel."
 msgstr ""
-

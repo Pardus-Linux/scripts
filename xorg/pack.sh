@@ -51,5 +51,5 @@ do
 done
 
 cd ..
-tar cjvf $PACKAGE-$VERSION.tar.bz2 $PACKAGE-$VERSION
+tar cjvf $PACKAGE-$VERSION.tar.bz2 -C $PACKAGE-$VERSION .
 rm -rf  $PACKAGE-$VERSION

@@ -62,7 +62,7 @@ class Ldd2Dep:
                 # parse library paths like; libxml.so.2 => /usr/lib/libxml.so.2
                 path = line.split()[2]
             except IndexError:
-                # glibc libraries are shown like; /lib/ld-linux.so.2. So it can't be parsed and error occured. Control if first veriable starts with "/"
+                # glibc libraries are shown like; /lib/ld-linux.so.2. So it can't be parsed and error occures. Control if the first veriable starts with "/"
                 if line.split()[0].startswith("/"):
                     path = line.split()[0]
                 else:
@@ -110,4 +110,4 @@ if __name__ == '__main__':
             sys.exit(1)
     else:
         print """Usage: ldd2dep [executable] [-s]
-       -s means that show system.base dependencies as well"""
+       -s shows system.base dependencies as well"""

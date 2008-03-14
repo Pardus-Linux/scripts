@@ -1,0 +1,133 @@
+#!/usr/bin/python
+#
+# -*- coding: utf-8 -*-
+#
+# Copyright (C) 2008, TUBITAK/UEKAE
+#
+# This program is free software; you can redistribute it and/or modify it under
+# the terms of the GNU General Public License as published by the Free
+# Software Foundation; either version 2 of the License, or (at your option)
+# any later version.
+#
+# Please read the COPYING file.
+#
+
+import sys
+
+import pisi
+import pisi.dependency as dependency
+from pisi.graph import CycleException
+import piksemel
+
+class SourceDB:
+    def __init__(self, index):
+
+        self.__source_nodes = {}
+        self.__pkgstosrc = {}
+
+        doc = piksemel.parse(index)
+        self.__source_nodes, self.__pkgstosrc = self.__generate_sources(doc)
+
+    def __generate_sources(self, doc):
+        sources = {}
+        pkgstosrc = {}
+
+        for spec in doc.tags("SpecFile"):
+            src_name = spec.getTag("Source").getTagData("Name")
+            sources[src_name] = spec.toString()
+            for package in spec.tags("Package"):
+                pkgstosrc[package.getTagData("Name")] = src_name
+        
+        return sources, pkgstosrc
+
+    def has_spec(self, name):
+        return self.__source_nodes.has_key(name)
+
+    def get_spec(self, name):
+        src = self.__source_nodes[name]
+        spec = pisi.specfile.SpecFile()
+        spec.parse(src)
+        return spec
+
+    def list_specs(self):
+        return self.__source_nodes.keys()
+
+    def pkgtosrc(self, name):
+        return self.__pkgstosrc[name]
+
+def find_circle(sourcedb, A):
+
+    G_f = pisi.graph.Digraph()
+
+    def get_spec(name):
+        if sourcedb.has_spec(name):
+            return sourcedb.get_spec(name)
+        else:
+            raise Exception('Cannot find source package: %s' % name)
+
+    def get_src(name):
+        return get_spec(name).source
+
+    def add_src(src):
+        if not str(src.name) in G_f.vertices():
+            G_f.add_vertex(str(src.name), (src.version, src.release))
+
+    def pkgtosrc(pkg):
+        return sourcedb.pkgtosrc(pkg)
+
+    B = A
+
+    install_list = set()
+
+    while len(B) > 0:
+        Bp = set()
+        for x in B:
+            sf = get_spec(x)
+            src = sf.source
+            add_src(src)
+
+            # add dependencies
+
+            def process_dep(dep):
+                srcdep = pkgtosrc(dep.package)
+                if not srcdep in G_f.vertices():
+                    Bp.add(srcdep)
+                    add_src(get_src(srcdep))
+                if not src.name == srcdep: # firefox - firefox-devel thing
+                    G_f.add_edge(src.name, srcdep)
+
+            for builddep in src.buildDependencies:
+                process_dep(builddep)
+
+            for pkg in sf.packages:
+                for rtdep in pkg.packageDependencies:
+                    process_dep(rtdep)
+        B = Bp
+
+        try:
+            order_build = G_f.topological_sort()
+            order_build.reverse()
+        except CycleException, cycle:
+            return str(cycle)
+
+    return ""
+
+if __name__ == "__main__":
+
+    if len(sys.argv) < 2:
+        print "Usage: circlefinder.py <source repo pisi-index.xml file>"
+        sys.exit(1)
+
+    sourcedb = SourceDB(sys.argv[1])
+    cycles = set()
+    sources = sourcedb.list_specs()
+    ls = len(sources)
+    i = 0
+    for pkg in sources:
+        i += 1
+        sys.stdout.write("\r(%04d/%d) Calculating build dep of %s                       " % (i, ls, pkg))
+        sys.stdout.flush()
+        cycles.add(find_circle(sourcedb, [pkg]))
+
+    for cycle in cycles:
+        print cycle

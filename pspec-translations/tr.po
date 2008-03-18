@@ -140,10 +140,6 @@ msgstr "Kamera sürücüsü"
 msgid "Driver for more than 200 webcams from manufacturers like Creative, Logitech, Mustek etc. using chips like Conexant, Etoms, Mars-Semi, Pixart, Sonix, Sunplus, Transvision, Vimicro, Microdia."
 msgstr "Conexant, Etoms, Mars-Semi, Pixart, Sonix, Sunplus, Transvision, Vimicro, Microdia ve benzeri yongalı, Creative, Mustek ve Logitech gibi üreticilerin ürettiği 200 den fazla kamera için sürücü pakedi."
 
-#: kernel/drivers/fuse::summary
-msgid "An interface for filesystems implemented in userspace"
-msgstr "Kullanıcı düzeyinde dosya sistemi oluştumaya yarayan kütüphane"
-
 #: kernel/drivers/tpm-emulator::summary
 msgid "The project aims to create a fully working Trusted Platform Module (TPM) emulator follwing the specifications of the Trusted Computing Group"
 msgstr ""
@@ -599,10 +595,6 @@ msgstr "A human-suitable interface for GIT"
 #: programming/tools/dev86::summary
 msgid "Development environment for ELKS-86 and standalone 8086 code"
 msgstr "ELKS-86 ve 8086 kodları için geliştirme ortamı"
-
-#: programming/tools/quilt::summary
-msgid "The scripts allow to manage a series of patches by keeping track of the changes each patch makes. Patches can be applied, un-applied, refreshed, etc. "
-msgstr ""
 
 #: programming/tools/translate-toolkit::summary
 msgid "Helper applications for translations"
@@ -1179,14 +1171,6 @@ msgstr "Python için otomatik karakter kodlama tespiti"
 #: programming/languages/python/pyparsing::summary
 msgid "Python module for creating and executing simple grammars."
 msgstr "Basit dilbilgisi oluşturma ve işlemeye yarayan Python modülü."
-
-#: programming/languages/python/pardus-python::summary
-msgid "Python modules for Pardus"
-msgstr "Pardus için Python modülleri"
-
-#: programming/languages/python/pardus-python::description
-msgid "Python modules for Pardus provides functions for common task, with the aim of easing development."
-msgstr "Pardus için Python modülleri genel işler için fonksiyonlar sunarak geliştirme işini kolaylaştırmayı amaçlamaktadır."
 
 #: programming/languages/python/python-xlib::summary
 msgid "Xlib for Python"
@@ -2468,9 +2452,13 @@ msgstr ""
 msgid "FFTW v3 is a C subroutine library for computing the discrete Fourier transform (DFT) in one or more dimensions, of arbitrary input size, and of both real and complex data (as well as of even/odd data, i.e. the discrete cosine/sine transforms or DCT/DST)."
 msgstr ""
 
-#: programming/libs/libcap::summary
-msgid "POSIX 1003.1e capabilities library"
-msgstr "POSIX 1003.1e desteği"
+#: programming/libs/unixODBC::summary
+msgid "ODBC Interface for Linux"
+msgstr ""
+
+#: programming/libs/unixODBC::description
+msgid "The unixODBC Project goals are to develop and promote unixODBC to be the definitive standard for ODBC on non MS Windows platforms."
+msgstr ""
 
 #: programming/libs/compface::summary
 msgid "X-Face library"
@@ -2483,10 +2471,6 @@ msgstr "X-Face formatını okuma ve yazmaya yarayan bir kütüphane"
 #: programming/libs/libsigsegv::summary
 msgid "A library for handling page faults in user mode"
 msgstr "Oluşan bellek hatalarının kullanıcı kipinde işlenmesini sağlayan bir kütüphane"
-
-#: programming/libs/libgcrypt::summary
-msgid "General purpose crypto library based on the code used in GnuPG"
-msgstr "GnuPG içinde kullanılan kod temelinde yazılmış genel amaçlı şifreleme kütüphanesi"
 
 #: programming/libs/libfame::summary
 msgid "MPEG-1 and MPEG-4 video encoding library"
@@ -2708,14 +2692,6 @@ msgstr "RDF ayrıştırıcı araç kiti"
 msgid "Raptor is the RDF Parser Toolkit for Redland that provides a set of Resource Description Framework (RDF) parsers and serializers"
 msgstr "librdf, RDF ayrıştırıcılar ve yorumlayıcılar için gerekli kütüphane ve araçları içerir."
 
-#: programming/libs/libmng::summary
-msgid "Multiple Image Networkgraphics lib (animated png's)"
-msgstr "Çoklu resim Networkgraphics (Animasyonlu png)"
-
-#: programming/libs/libmng::description
-msgid "Libmng -The reference library for reading, displaying, writing and examining Multiple-Image Network Graphics. MNG is the animation extension to the popular PNG image-format."
-msgstr "Libmng, Çoklu Görüntü Ağ Grafiklerini (MNG) okuma, görüntüleme, yazma ve denemek için başvuru kütüphanesidir. MNG popüler PNG görüntü formatı için animasyon uzantısıdır."
-
 #: programming/libs/libdvdnav::summary
 msgid "libdvdnav is a library for developers of multimedia applications."
 msgstr "libdvdnav çokluortam uyguamaları geliştiricileri için bir kütüphane"
@@ -2819,10 +2795,6 @@ msgstr "MMX yetenekleri eklenmiş JPEG kütüphanesi"
 #: programming/libs/libxmlpp::summary
 msgid "C++ wrapper for the libxml2 XML parser library"
 msgstr ""
-
-#: programming/libs/libgpg-error::summary
-msgid "Contains error handling functions used by GnuPG software"
-msgstr "GnuPG yazılımı tarafından kullanılan hata yakalama fonksiyonlarını içerir"
 
 #: programming/libs/libart_lgpl::summary
 msgid "A LGPL version of libart"
@@ -3296,14 +3268,6 @@ msgstr ""
 msgid "Lightweight OSC (Open Sound Control) implementation"
 msgstr ""
 
-#: programming/libs/tiff::summary
-msgid "Library for manipulation of TIFF (Tag Image File Format) images."
-msgstr "TIFF (Tag Image File Format) türündeki resimleri işlemeye aracılık eden kütüphane"
-
-#: programming/libs/tiff::description
-msgid "This software provides support for the Tag Image File Format (TIFF), a widely used format for storing image data."
-msgstr "Bu kütüphane TIFF (Tag Image File Format) resim biçimi desteği sağlar. Bu biçim resim bilgisi saklamak için pek çok yerde kullanılır."
-
 #: programming/libs/libqalculate::summary
 msgid "Qalculate! is a multi-purpose desktop calculator for GNU/Linux"
 msgstr ""
@@ -3419,14 +3383,6 @@ msgstr "MPEG4 kütüphanesi"
 #: programming/libs/libmp4v2::description
 msgid "MPEG4 library extracted from MPEG4IP, usually used in 3D sound systems."
 msgstr "Genellikle 3B ses işleme uygulamalarında kullanılan, MPEG4IP yazılımının parçası olan MPEG4 kütüphanesi."
-
-#: programming/libs/unixodbc::summary
-msgid "ODBC Interface for Linux"
-msgstr "Linux için ODBC arayüzü"
-
-#: programming/libs/unixodbc::description
-msgid "The unixODBC Project goals are to develop and promote unixODBC to be the definitive standard for ODBC on non MS Windows platforms. This is to include GUI support for both KDE and GNOME."
-msgstr "unixODBC Projesinin amacı, unixODBC'yi geliştirip ilerleterek MS Windows harici platformlarda ODBC için kesin bir standart haline getirmektir. KDE ve GNOME için grafik arayüzü de içerir."
 
 #: programming/libs/sdl-pango::summary
 msgid "SDL Pango library"
@@ -3559,10 +3515,6 @@ msgstr "LibLZF çok küçük bir ver sıkıştırma kitaplığıdır."
 #: programming/libs/tre::summary
 msgid "A lightweight, robust, and efficient POSIX compliant regexp matching library"
 msgstr ""
-
-#: programming/libs/lcms::summary
-msgid "A lightweight, speed optimized color management engine"
-msgstr "Hız geliştirmesi yapılmış, hafif bir renk yönetim motoru"
 
 #: programming/libs/cel:cel-doc:summary
 msgid "Cel documents"
@@ -4280,6 +4232,10 @@ msgstr "Makine dili derleme ve bağlama araçları"
 msgid "Contains commands like as, ld, nm, objdump, ar, ranlib for compiling assembly code to the machine language, and for linking and manipulating the binary object files."
 msgstr "Assembly kodlarını makine diline derlemek, oluşan obje dosyalarını bağlamak ve ikili dosyalar üzerinde işlemler yapmak için kullanılan as, ld, nm, objdump, ar, ranlib gibi komutları içermektedir."
 
+#: system/devel/xtrans::summary
+msgid "X.Org trans library"
+msgstr "X.Org trans kitaplığı."
+
 #: system/devel/libtool::summary
 msgid "A shared library tool for developers"
 msgstr "Program geliştiriciler için ortak kütüphane aracı"
@@ -4299,6 +4255,22 @@ msgstr "Basitleştirilmiş arayüz oluşturucu"
 #: system/devel/swig::description
 msgid "Simplified Wrapper and Interface Generator, SWIG is a software development tool that connects programs written in C and C++ with a variety of high-level programming languages. SWIG is used with different types of languages including common scripting languages such as Perl, PHP, Python, Tcl, Ruby and PHP"
 msgstr "SWIG, C ve C++ ile yazılmış uygulamaları çeşitli üst düzey programlama dilleri ile bağlayan bir yazılım geliştirme aracıdır. SWIG, genel betik dilleri olan Perl, PHP, Python, Tcl, Ruby gibi farklı diller ile kullanılır."
+
+#: system/devel/xorg-proto::summary
+msgid "X.Org Protocol Headers"
+msgstr "X.Org Protokol Başlıkları"
+
+#: system/devel/quilt::summary
+msgid "The scripts allow to manage a series of patches by keeping track of the changes each patch makes. Patches can be applied, un-applied, refreshed, etc. "
+msgstr ""
+
+#: system/devel/util-macros::summary
+msgid "X.org macros used for X.org compiliation"
+msgstr ""
+
+#: system/devel/libpthread-stubs::summary
+msgid "X.Org libpthread-stubs library"
+msgstr ""
 
 #: system/base/libpcre::summary
 msgid "Perl-compatible regular expression library"
@@ -4656,6 +4628,10 @@ msgstr "Parola Kontrol Kütüphanesi"
 msgid "A somewhat comprehensive collection of Linux man pages"
 msgstr "Kapsamlı Linux kılavuz dökümanları"
 
+#: system/base/libcap::summary
+msgid "POSIX 1003.1e capabilities library"
+msgstr "POSIX 1003.1e desteği"
+
 #: system/base/ncompress::summary
 msgid "Another uncompressor for compatibility"
 msgstr "Bir başka sıkışmış dosya açma programı"
@@ -4667,6 +4643,10 @@ msgstr "Geliştiricilere yerel süreklilik ve sıfır yönetim kolaylığı sağ
 #: system/base/lzma::summary
 msgid "LZMA utils for Unix"
 msgstr "Unix için , LZMA (Lempel-Ziv-Markov chain-Algorithm) sıkıştırma yöntemi araçları."
+
+#: system/base/lcms::summary
+msgid "A lightweight, speed optimized color management engine"
+msgstr "Hız geliştirmesi yapılmış, hafif bir renk yönetim motoru"
 
 #: system/base/util-linux::summary
 msgid "Various useful Linux utilities"
@@ -4704,6 +4684,14 @@ msgstr "XML ayrıştırıcı kütüphaneleri"
 msgid "Various utilities dealing with the PCMCIA bus"
 msgstr "PCMCIA veriyolu işlevleri ile ilgili çeşitli programlar"
 
+#: system/base/libgcrypt::summary
+msgid "General purpose crypto library based on the code used in GnuPG"
+msgstr "GnuPG içinde kullanılan kod temelinde yazılmış genel amaçlı şifreleme kütüphanesi"
+
+#: system/base/libxcb::summary
+msgid "X.Org XCB library"
+msgstr "X.Org XCB kitaplığı."
+
 #: system/base/sysvinit::summary
 msgid "/sbin/init - parent of all processes"
 msgstr "/sbin/init - tüm süreçlerin ebeveyni"
@@ -4720,9 +4708,25 @@ msgstr "C programlama dili için GLib2 kütüphanesi"
 msgid "Standard log daemons"
 msgstr "Günlük tutulmasını sağlayan servis"
 
+#: system/base/libxml2::summary
+msgid "Version 2 of the library to manipulate XML files"
+msgstr "XML türü dosyaları işlemeye aracılık eden kütüphanenin 2. sürümü"
+
+#: system/base/libxml2::description
+msgid "Libxml2 is the XML C parser and toolkit developed for the Gnome project (but usable outside of the Gnome platform)."
+msgstr "Libxml2, Gnome projesi için geliştirilmiş C dilinde XML ayrıştırıcısıdır. Gnome platformu olmadan da kullanılabilir."
+
 #: system/base/groff::summary
 msgid "Text formatter used for man pages"
 msgstr "Man sayfaları için kullanılan döküman biçimlendirme sistemi."
+
+#: system/base/PolicyKit::summary
+msgid "Policy framework for system-wide components"
+msgstr "Sistem bileşenleri için erişim politikası servisi"
+
+#: system/base/PolicyKit::description
+msgid "PolicyKit is a framework for defining policy for system-wide components and for desktop pieces to configure it. It is used by HAL."
+msgstr "PolicyKit, sistem genelindeki bileşenlerin ve masaüstü bileşenlerinin ayarlayabileceği şekilde ilkeler tanımlamak için araçlardan oluşur."
 
 #: system/base/pisi::summary
 msgid "PISI is the package management system of Pardus"
@@ -4748,6 +4752,10 @@ msgstr "Standart dosya, metin ve kabuk uygulamaları"
 msgid "Standard GNU file utilities (chmod, cp, dd, dir, ls...), text utilities (sort, tr, head, wc..), and shell utilities (whoami, who,...)"
 msgstr "GNU dosya uygulamaları (chmod, cp, dd, dir, ls...), sh uygulamaları (whoami, who,...) ve metin uygulamalarının (sort, tr, head, wc..) birlikteliğinden oluşmaktadır."
 
+#: system/base/dbus-glib::summary
+msgid "Glib bindings of a message bus system (D-BUS)"
+msgstr ""
+
 #: system/base/pam::summary
 msgid "Pluggable Authentication Modules"
 msgstr "PAM - Eklenebilir Yetkilendirme Modülleri"
@@ -4771,6 +4779,14 @@ msgstr "USB aygıtlarınıza erişiminizi sağlayan kütüphane."
 #: system/base/libusb::description
 msgid "Project's main aim is to create a library for use by user level applications to access USB devices regardless of OS."
 msgstr "Projenin ana hedefi işletim sisteminden bağımsız olarak kullanıcı düzeyinde çalışan uygulamaların USB cihazlara ulaşabilmesi için gerekli kütüphaneleri oluşturmaktır."
+
+#: system/base/bootsplash-theme-pardus::summary
+msgid "Default Bootsplash theme for Pardus"
+msgstr ""
+
+#: system/base/bootsplash-theme-pardus::description
+msgid "This is the default bootsplash theme for Pardus."
+msgstr ""
 
 #: system/base/readline::summary
 msgid "Another cute console display library"
@@ -4835,6 +4851,14 @@ msgstr "Konsol ortamında kullanabileceğiniz bir metin düzenleyicidir."
 #: system/base/nano::description
 msgid "Nano is a small, free and friendly editor which aims to replace Pico, the default editor included in the non-free Pine package. Rather than just copying Pico's look and feel, nano also implements some missing (or disabled by default) features in Pico, such as \"search and replace\" and \"go to line number\"."
 msgstr "Nano özgür olmayan Pine paketinin içindeki metin düzenleme programı olan Pico'nun yerine geçme hedefini güden küçük, özgür ve kullanışlı bir metin düzenleme programıdır. Pico'nun görünüşünü ve işlevini kopyalamaktan çok, Nano aynı zamanda \"ara ve değiştir\" ve \"satır numarasına git\" gibi Pico'da olmayan (veya ön tanımlı olarak kapalı) bazı özellikleri sunar."
+
+#: system/base/tiff::summary
+msgid "Library for manipulation of TIFF (Tag Image File Format) images."
+msgstr "TIFF (Tag Image File Format) türündeki resimleri işlemeye aracılık eden kütüphane"
+
+#: system/base/tiff::description
+msgid "This software provides support for the Tag Image File Format (TIFF), a widely used format for storing image data."
+msgstr "Bu kütüphane TIFF (Tag Image File Format) resim biçimi desteği sağlar. Bu biçim resim bilgisi saklamak için pek çok yerde kullanılır."
 
 #: system/base/grep::summary
 msgid "GNU regular expression matcher"
@@ -4932,6 +4956,14 @@ msgstr ""
 msgid "Urlgrabber provides a clean library interface to protocol-independant file-access for Python programs"
 msgstr ""
 
+#: system/base/libmng::summary
+msgid "Multiple Image Networkgraphics lib (animated png's)"
+msgstr "Çoklu resim Networkgraphics (Animasyonlu png)"
+
+#: system/base/libmng::description
+msgid "Libmng -The reference library for reading, displaying, writing and examining Multiple-Image Network Graphics. MNG is the animation extension to the popular PNG image-format."
+msgstr "Libmng, Çoklu Görüntü Ağ Grafiklerini (MNG) okuma, görüntüleme, yazma ve denemek için başvuru kütüphanesidir. MNG popüler PNG görüntü formatı için animasyon uzantısıdır."
+
 #: system/base/memtest86::summary
 msgid "Memory tester"
 msgstr "Bellek test edici"
@@ -4939,6 +4971,10 @@ msgstr "Bellek test edici"
 #: system/base/memtest86::description
 msgid "Memory tester for x86 and x86_64 devices for x86 and 64bit x86 compatible computers. It should be started from boot menu."
 msgstr "x86 ve 64bit x86 mimarilerindeki bilgisayarın belleklerini test etmeye ve hataları bulmaya yaran bir program. Kullanmak için açılış menüsünden çalıştırmanız gerekmektedir."
+
+#: system/base/bootsplash::summary
+msgid "Graphical boot process for the linux kernel"
+msgstr ""
 
 #: system/base/sysfsutils::summary
 msgid "System Utilities Based on Sysfs"
@@ -4955,6 +4991,70 @@ msgstr "Dosyaları karşılaştırmak ve fark dosyaları oluşturmak için kulla
 #: system/base/diffutils::description
 msgid "You can use the diff command to show differences between two files, or each corresponding file in two directories. diff outputs differences between files line by line in any of several formats, selectable by command line options."
 msgstr "İki dosya arasındaki ya da iki klasör içindeki dosyaları karşılaştırarak farklılıkları belirleyebileceğiniz araç. Farklılıkları satır satır olarak, komut satırı seçenekleri ile farklı formatta dosyalara yazdırabilirsiniz."
+
+#: system/base/libXau::summary
+msgid "X.Org Au library"
+msgstr "X.Org Au kitaplığı."
+
+#: system/base/libgpg-error::summary
+msgid "Contains error handling functions used by GnuPG software"
+msgstr "GnuPG yazılımı tarafından kullanılan hata yakalama fonksiyonlarını içerir"
+
+#: system/base/disktype::summary
+msgid "Detect the content format of a disk or disk image"
+msgstr "Disk veya disk görüntüsünün biçimsel içeriğini saptar"
+
+#: system/base/disktype::description
+msgid "The purpose of disktype is to detect the content format of a disk or disk image. It knows about common file systems, partition tables, and boot codes.The program is written in C and is designed to compile on any modern Unix flavour."
+msgstr "Disktype'ın amacı disk veya disk görüntüsünün içerik yapısını denetlemektir. Yaygın dosya sistemlerini, bölümleme tablolarını ve önyükleme kodlarını bilir. C dilinde yazılmış, herhangi bir modern Unix derleme tadında tasarlanmıştır."
+
+#: system/base/dbus::summary
+msgid "A message bus system, a simple way for applications to talk to each other"
+msgstr "Uygulamaların birbirleriyle haberleşmesinin basit bir yöntemi"
+
+#: system/base/dbus::description
+msgid "D-Bus supplies both a system daemon (for events such as \"new hardware device added\" or \"printer queue changed\") and a per-user-login-session daemon (for general IPC needs among user applications). Also, the message bus is built on top of a general one-to-one message passing framework, which can be used by any two apps to communicate directly (without going through the message bus daemon). Currently the communicating applications are on one computer, but TCP/IP option is available and remote support planned."
+msgstr "D-Bus, sistem ve kullanıcılar için olmak üzere iki tane artalan süreci (daemon) sunar. Mesaj yolu, bire bir mesaj geçiş araçları üzerine inşa edilmiştir. Bu sayede iki program birbiriyle bir mesaj yolu artalan süreci kullanmadan, direkt olarak haberleşebilir. Şu an için haberleşme araçları aynı bilgisayar üzerinde çalışabilmektedir, fakat TCP/IP ile uzaktan haberleşme de planlanmaktadır."
+
+#: system/base/libX11::summary
+msgid "X.Org X11 library"
+msgstr "X.Org X11 kitaplığı"
+
+#: system/base/libXdmcp::summary
+msgid "X.Org Xdmcp library"
+msgstr "X.Org Xdmcp kitaplığı."
+
+#: system/base/xcb-proto::summary
+msgid "X.Org XCB header files"
+msgstr ""
+
+#: system/base/libxslt::summary
+msgid "XSLT libraries and tools"
+msgstr "XSLT kütüphane ve araçları"
+
+#: system/base/libxslt::description
+msgid "Libxslt is the XSLT C library developed for the GNOME project. XSLT itself is a an XML language to define transformation for XML."
+msgstr "Libxslt, GNOME projesi için geliştirilen XSLT C kütüphanesidir. XSLT'nin kendisi, XML oluşumunu tanımlayan bir XML dilidir."
+
+#: system/base/ConsoleKit::summary
+msgid "ConsoleKit is a framework for defining and tracking users, login sessions, and seats"
+msgstr ""
+
+#: system/base/ConsoleKit::description
+msgid "ConsoleKit is a system daemon for tracking what users are logged into the system and how they interact with the computer (e.g. which keyboard and mouse they use)."
+msgstr ""
+
+#: system/base/dbus-python::summary
+msgid "Python bindings of a message bus system (D-BUS)"
+msgstr ""
+
+#: system/base/pardus-python::summary
+msgid "Python modules for Pardus"
+msgstr "Pardus için Python modülleri"
+
+#: system/base/pardus-python::description
+msgid "Python modules for Pardus provides functions for common task, with the aim of easing development."
+msgstr "Pardus için Python modülleri genel işler için fonksiyonlar sunarak geliştirme işini kolaylaştırmayı amaçlamaktadır."
 
 #: system/yali::summary
 msgid "YALI: Yet Another Linux Installer"
@@ -5077,20 +5177,21 @@ msgid "killproc and assorted tools for boot scripts."
 msgstr "Killproc ve sistem başlangıç betikleri için çeşitli araçlar."
 
 #: applications/admin/dstat::summary
-msgid "Dstat is a versatile replacement for vmstat, iostat and ifstat"
+#, fuzzy
+msgid "Replacement for vmstat, iostat and ifstat"
 msgstr "Vmstat, iostat ve ifstat yerine kullanılan becerikli bir uygulama"
 
 #: applications/admin/dstat::description
-msgid "dstat is a versatile replacement for vmstat, iostat and ifstat stat is a versatile replacement for vmstat, iostat, netstat, nfsstat and ifstat. Dstat overcomes some of their limitations and adds some extra features, more counters and flexibility. Dstat is handy for monitoring systems during performance tuning tests, benchmarks or troubleshooting"
-msgstr "Vmstat, iostat ve ifstat yerine kullanılan becerikli bir uygulamadır. Bu uygulamaların bazı kısıtlamalarını aşar; ek özellikler, sayaçlar ve esneklik katar. Sistemlerinizin performans artırma, karşılaştırma ve sorun giderme işlemlerinde yardımcı olacak kullanışlı bir araçtır"
+msgid "Dstat is a versatile replacement for vmstat, iostat and ifstat. Dstat overcomes some of their limitations and adds some extra features, more counters and flexibility. Dstat is handy for monitoring systems during performance tuning tests, benchmarks or troubleshooting."
+msgstr "Dstat vmstat, iostat ve ifstat yerine kullanılan becerikli bir uygulamadır. Bu uygulamaların bazı kısıtlamaları bulunur, dstat bu kısıtlamaları aşmak için yapılmıştır, ayrıca bazı ek özellikler, sayaçlar ve esneklik katar. Sistemlerin performans ölçümü, artırma, karşılaştırma ve sorun giderme işlemlerinde yardımcı olacak kullanışlı bir araçtır."
 
 #: applications/admin/device-mapper::summary
-msgid "Device mapper ioctl library for use with LVM2 utilities."
-msgstr ""
+msgid "Device mapper ioctl library and utilities for use with LVM2"
+msgstr "LVM2 ile kullanılan aygıt eşleyici girdi-çıktı kontrol kütüphanesi ve araçları"
 
 #: applications/admin/device-mapper::description
-msgid "Device mapper ioctl library for use with LVM2 utilities"
-msgstr "Mantıksal Hacim Yöneticisi ile kullanılacak aygıt eşleyici girdi-çıktı kontrol kütüphanesi araçlarını içerir"
+msgid "Contains device mapper ioctl library and utilities for use with logical volume management (LVM2)."
+msgstr "Mantıksal Hacim Yöneticisi (LVM2) ile kullanılan aygıt eşleyici girdi-çıktı kontrol kütüphanesini ve ilgili araçları içerir."
 
 #: applications/admin/multitail::summary
 msgid "Tail with multiple windows"
@@ -5105,56 +5206,56 @@ msgid "Userspace tools for NTFS filesystems"
 msgstr "NTFS dosya sistemi için kullanıcı araçları"
 
 #: applications/admin/ntfsprogs::description
-msgid "Userspace tools for NTFS filesystems. The goals of the Linux-NTFS project are to develop reliable and full feature access to NTFS by the Linux kernel driver to provide a wide collection of NTFS utilities"
-msgstr "NTFS dosya sistemi için kullanıcı araçları içerir. Bu araçların amacı Linux çekirdek sürücüne bu tür dosya sistemlerine tam erişim sağlayacak NTFS araçlarını sağlamaktır"
+msgid "Userspace tools for NTFS filesystems. The goals of the Linux-NTFS project are to develop reliable and full feature access to NTFS by the Linux kernel driver to provide a wide collection of NTFS utilities."
+msgstr "NTFS dosya sistemi için kullanıcı araçları içerir. Bu araçların amacı Linux çekirdek sürücüsüne bu tür dosya sistemlerine güvenilir ve tam erişim sağlayacak NTFS araçlarını sağlamaktır."
 
 #: applications/admin/squashfs-tools::summary
 msgid "Tool for creating compressed filesystem type squashfs"
 msgstr "Sıkıştırılmış bir dosya sistemi olan squashfs oluşturma aracı"
 
 #: applications/admin/squashfs-tools::description
-msgid "Squashfs is a highly compressed read-only filesystem for Linux.  This package contains the utilities for manipulating squashfs filesystems"
-msgstr "Squashfs, Linux için şıkıştırılmış salt-okunur dosya sistemidir. Bu paket de bu tür bir sistem ile kullanılabilecek araçları içerir"
+msgid "Squashfs is a highly compressed read-only filesystem for Linux.  This package contains the utilities for manipulating squashfs filesystems."
+msgstr "Squashfs, Linux için şıkıştırılmış salt-okunur dosya sistemidir. Bu paket squashfs dosya sistemiyle çalışmak için kullanılabilecek araçları içerir."
 
 #: applications/admin/reiserfsprogs::summary
-msgid "Reiserfs filesystem creating and checking tools"
-msgstr "Reiserfs dosya sistemi oluşturma ve hata düzeltme araçları"
+msgid "Tools to work with Reiserfs filesystems"
+msgstr "Reiserfs dosya sistemiyle çalışabilmek için gereken araçlar"
 
 #: applications/admin/reiserfsprogs::description
-msgid "Reiserfs filesystem Utilities"
-msgstr "Reiserfs dosya sistemi oluşturmak, bu dosya sistemini kontrol etmek, boyutlandırmak ve hatalarını ayıklamak için gereken araçlar"
+msgid "Tools designed to create and check Reiserfs filesystems"
+msgstr "Reiserfs dosya sistemi oluşturmak, bu dosya sistemini kontrol etmek, boyutlandırmak ve hatalarını ayıklamak gibi görevler gereken araçlar."
 
 #: applications/admin/kexec-tools::summary
-msgid "Load another kernel from the currently executing Linux kernel"
+msgid "Load another kernel from within the current kernel"
 msgstr ""
 
 #: applications/admin/kexec-tools::description
-msgid "Kexec is a set of system calls that allows you to load another kernel from the currently executing Linux kernel"
-msgstr "Kexec, çalışmakta olan çekirdek içerisinde yeni bir çekirdek yüklenmesine izin veren sistem çağrılarını içerir"
+msgid "Kexec is a set of system calls that allows you to load another kernel from the currently executing Linux kernel."
+msgstr "Kexec, çalışmakta olan çekirdek içerisinde yeni bir çekirdek yüklenmesine izin veren sistem çağrılarını içerir."
 
 #: applications/admin/gkrellm::summary
 msgid "A compact and clean system monitoring tool"
 msgstr "Sade görünümlü sistem durumu izleyicisi"
 
 #: applications/admin/gkrellm::description
-msgid "A program to monitor system status, collecting info such as memory usage, cpu temprature etc."
-msgstr "Bilgisayarınızın bileşenlerinin durumunu takip edebileceğiniz, hafıza kullanımı, işlemci sıcaklığı gibi bilgiler veren bir araç"
+msgid "A program to monitor system status, and to collect system information such as memory usage, cpu temperature etc."
+msgstr "Bilgisayarınızın bileşenlerinin durumunu takip edebileceğiniz, hafıza kullanımı, işlemci sıcaklığı gibi bilgiler veren bir araç."
 
 #: applications/admin/mc::summary
 msgid "GNU Midnight Commander cli-based file manager"
 msgstr "Midnight Commander (mc), komut istemcisinde çalıştırabileceğiniz metin tabanlı bir dosya yöneticisidir."
 
 #: applications/admin/mc::description
-msgid "GNU Midnight Commander cli-based file manager. You can do lots of filemanager and editor tasks, both in normal terminals and in terminal emulators of X. Also has file transfer capabilities over ftp, ssh, samba."
-msgstr "Midnight Commander (mc), komut istemcisinde çalıştırabileceğiniz metin tabanlı bir dosya yöneticisidir. İki sistem arasında ftp, scp ve samba protokollerini kullanarak dosya transferinine olanak verir."
+msgid "GNU Midnight Commander cli-based file manager. You can do lots of filemanager and editor tasks, both in normal terminals and in terminal emulators of X. Also has file transfer capabilities over FTP, SSH, and Samba."
+msgstr "GNU Midnight Commander (mc), komut satırında çalışan metin tabanlı bir dosya yöneticisidir. İki sistem arasında FTP, SSH ve Samba protokollerini kullanarak dosya transferlerine olanak verir."
 
 #: applications/admin/dosfstools::summary
-msgid "DOS filesystem tools - provides mkdosfs, mkfs.msdos, mkfs.vfat, dosfslabel"
-msgstr "DOS dosya sistemi araçları - mkdosfs, mkfs.msdos, mkfs.vfat, dosfslabel komutlarını sağlar"
+msgid "Tools to create and check DOS and VFAT filesystems"
+msgstr "DOS dosya sistemi oluşturmaya ve kontrol etmeye yarayan komutlar"
 
 #: applications/admin/dosfstools::description
-msgid "The dosfstools package includes the mkdosfs and dosfsck utilities like mkdosfs, mkfs.msdos, mkfs.vfat, dosfslabel. You can make and check MS-DOS FAT filesystems on hard drives or on floppies"
-msgstr "Dosfstools paketi, mkdosfs, mkfs.msdos, mkfs.vfat gibi araçları içerir. Bu araçlarda disk ya da disket üzerinde MS-DOS FAT dosya sistemi yaratılmasına ve kontrol edilmesine olanak verir"
+msgid "The dosfstools package includes the DOS and VFAT filesystem utilities like mkdosfs, mkfs.msdos, mkfs.vfat, dosfsck, dosfslabel. You can create and check MS-DOS FAT filesystems on hard drives or on floppies"
+msgstr "Dosfstools paketi, mkdosfs, mkfs.msdos, mkfs.vfat, dosfsck, dosfslabel gibi, DOS ve VFAT dosyasistemleri yaratmaya ve kontrol etmeye yarayan araçları içerir."
 
 #: applications/admin/irqbalance::summary
 msgid "Distribute hardware interrupts across processors on a multiprocessor system."
@@ -5168,21 +5269,33 @@ msgstr "Çoklu işlemciler arasındaki donanım kesmelerinin (irq) dengesini sa�
 msgid "IBM's Journaling Filesystem (JFS) Utilities"
 msgstr "IBM'in Journaling Dosya sistemi (JFS) araçları"
 
+#: applications/admin/jfsutils::description
+msgid "Tools for JFS (Journaling Filesystem) developed by IBM."
+msgstr "IBM'in geliştirdiği Journaling Dosya Sistemi (JFS) araçları"
+
 #: applications/admin/acct::summary
 msgid "System resource accounting utilities"
 msgstr "Sistem kaynak hesaplama araçları"
+
+#: applications/admin/acct::description
+msgid "Contains utilities to be used when accounting system resources."
+msgstr "Sistem kaynak hesaplamaları için kullanılabilecek araçlar içerir."
 
 #: applications/admin/sudo::summary
 msgid "Allows certain users/groups to run commands as root"
 msgstr "Kullanıcılara, yönetici (root) yetkisiyle komut çalıştırır"
 
 #: applications/admin/sudo::description
-msgid "sudo allows certain users/groups to run commands as root user priviligies."
-msgstr "Belirli kullanıcıların ya da kullanıcı gruplarının yönetici (root) komutlarını çalıştırmasına izin veren bir yazılımdır."
+msgid "sudo allows certain users/groups to run commands with root user privileges."
+msgstr "Belirli kullanıcıların ya da kullanıcı gruplarının komut ve uygulamaları yönetici kullanıcı (root) haklarıyla çalıştırmasına izin veren bir yazılımdır."
 
 #: applications/admin/xfsprogs::summary
 msgid "XFS filesystem utilities"
 msgstr "xfs dosya sistemi araçları"
+
+#: applications/admin/xfsprogs::description
+msgid "A number of administrative utilities to work with and manage XFS filesystems."
+msgstr "XFS dosya sistemini kullanmak ve yönetmek için bir dizi araç içerir."
 
 #: applications/admin/webalizer::summary
 msgid "Webserver log file analyzer"
@@ -5193,16 +5306,20 @@ msgid "XFS dump/restore utilities"
 msgstr "XFS dump/restore araçları"
 
 #: applications/admin/tmpwatch::summary
-msgid "A utility for removing files based on when they were last accessed"
-msgstr "Belirli bir zamanda erişilmemiş dosya/dizinleri silen program"
+msgid "Remove files based on their last access time"
+msgstr "Dosya/dizinleri en son ne zaman erişildiklerine bakarak sil"
 
 #: applications/admin/tmpwatch::description
-msgid "Utility recursively searches through specified directories and removes files which have not been accessed in a specified period of time"
-msgstr "Bir zaman aralığı içinde erişilmemiş dizinleri ve/veya dosyaları (/tmp, /var/cache/packages.. gibi) sistemden otomatik olarak silinmesini gerçekleştiren programdır"
+msgid "Utility recursively searches through specified directories and removes files which have not been accessed in a specified period of time."
+msgstr "İstenen dizinlere ve alt öğelerine bakarak son erişim zamanlarına göre onları otomatik olarak silmek, yani temizlik yapmak için kullanılabilen bir uygulamadır."
 
 #: applications/admin/dazuko::summary
 msgid "On-access Virus Scanning Kernel Interface"
 msgstr ""
+
+#: applications/admin/dazuko::description
+msgid "An interface to the kernel module that allows scanning files for viruses when they are accessed."
+msgstr "Erişildiklerinde dosyalarda virüs denetimi yapmayı sağlayan çekirdek bileşeninin arayüzü."
 
 #: applications/powermanagement/suspend::summary
 msgid "Support for Userspace SW Suspend"
@@ -5768,6 +5885,10 @@ msgstr ""
 msgid "Gtk+2 utility for Linux that helps you configure your wireless devices. Although primarily written for the rt2x00 project, it supports any Linux wireless extensions compliant kernel module. For now, if you want to use WPA on ralink based wireless devices, you need to either manually set the parameters from console or use this frontend. To access to network you need to setup a profile and activate it from the icon in the panel. You can scan for access-points from the site survey menu."
 msgstr ""
 
+#: applications/network/avahi-bindings::summary
+msgid "Avahi is a system which facilitates service discovery on a local network."
+msgstr ""
+
 #: applications/printing/foomatic-db-hpijs::summary
 msgid "Drivers for inkjet printers"
 msgstr "Inkjet yazıcı sürücüleri"
@@ -5887,6 +6008,22 @@ msgstr "Lexmark z600, X- ve Z-  serisi yazıcılar için sürücüler."
 #: applications/printing/poster::summary
 msgid "Poster printing utility"
 msgstr "Poster yapmak için ufak bir uygulama"
+
+#: applications/printing/splix::summary
+msgid "A set of CUPS printer drivers for SPL(Samsung Printer Language) printers"
+msgstr ""
+
+#: applications/printing/splix::description
+msgid "The Splix drivers are usable by all printer devices which understand the SPL II language. It covers several Samsung, Xerox, Dell and Ricoh printers."
+msgstr ""
+
+#: applications/multimedia/jbigkit::summary
+msgid "A portable library of compression and decompression functions"
+msgstr ""
+
+#: applications/multimedia/jbigkit::description
+msgid "JBIG-KIT implements a highly effective data compression algorithm for bi-level high-resolution images such as fax pages or scanned documents."
+msgstr ""
 
 #: applications/multimedia/jasper::summary
 msgid "JasPer is a software-based implementation of the codec specified in the emerging JPEG-2000 Part-1 standard"
@@ -6511,14 +6648,6 @@ msgstr "Framebuffer ekran görüntüsü yakalama yardımcı programı"
 #: applications/multimedia/fbgrab::description
 msgid "FBGrab is a framebuffer screenshot program, capturing the linux frambuffer and converting it to a png-picture."
 msgstr "FBGrab bir ekran tampon belleği resimini kaydetme programıdır. Linux'un ekran arabelleğini yakalama ve png resmine çevirme işlemini yapar."
-
-#: applications/multimedia/picard::summary
-msgid "Music tagging application"
-msgstr ""
-
-#: applications/multimedia/picard::description
-msgid "Picard is the next generation MusicBrainz tagging application."
-msgstr ""
 
 #: applications/games/gnugo::summary
 msgid "A free program that plays the game of GO"
@@ -7729,14 +7858,6 @@ msgstr "Seri portu yapılandırır"
 msgid "Setserial is a program designed to set and/or report the configuration information associated with a serial port."
 msgstr "Setserial bir seri portun konfigürasyon işlerini yapmaya olanak sağlar."
 
-#: applications/hardware/disktype::summary
-msgid "Detect the content format of a disk or disk image"
-msgstr "Disk veya disk görüntüsünün biçimsel içeriğini saptar"
-
-#: applications/hardware/disktype::description
-msgid "The purpose of disktype is to detect the content format of a disk or disk image. It knows about common file systems, partition tables, and boot codes.The program is written in C and is designed to compile on any modern Unix flavour."
-msgstr "Disktype'ın amacı disk veya disk görüntüsünün içerik yapısını denetlemektir. Yaygın dosya sistemlerini, bölümleme tablolarını ve önyükleme kodlarını bilir. C dilinde yazılmış, herhangi bir modern Unix derleme tadında tasarlanmıştır."
-
 #: applications/hardware/irda-utils::summary
 msgid "IrDA utilities for infrared communication"
 msgstr "Kızılötesi aktarım için IrDA yardımcı programları"
@@ -7884,14 +8005,6 @@ msgstr ""
 #: applications/hardware/gnokii::summary
 msgid "User space driver and tools for use with mobile phones"
 msgstr "Cep telefonlarını kullanmak için kullanıcı sürücüsü ve araçları"
-
-#: applications/hardware/ddcxinfos::summary
-msgid "DDC Prober"
-msgstr "DDC Sorgulayıcı"
-
-#: applications/hardware/ddcxinfos::description
-msgid "A program to probe DDC info of a monitor"
-msgstr "Ekranların DDC bilgisini sorgulamak-incelemek için bir program"
 
 #: applications/hardware/alsa-tools::summary
 msgid "Advanced Linux Sound Architecture tools"
@@ -8880,6 +8993,10 @@ msgstr "Basit ve küçük bir Linux dosya sistemi"
 #: applications/filesystems/encfs::summary
 msgid "Encrypted file system"
 msgstr "Şifreli dosya sistemi"
+
+#: applications/filesystems/fuse::summary
+msgid "An interface for filesystems implemented in userspace"
+msgstr "Kullanıcı düzeyinde dosya sistemi oluştumaya yarayan kütüphane"
 
 #: applications/zemberek-openoffice::summary
 msgid "Zemberek integration package for OpenOffice.org office suite"
@@ -11073,14 +11190,6 @@ msgstr "SVG içeriği cairo kullanarak kullanılabilir hale getiren bir kütüph
 msgid "libsvg-cairo provides the ability to render SVG content from files or buffers. All rendering is performed using the cairo rendering library."
 msgstr "libsvg-cairo, SVG içeriğini dosyadan veya tampondan alarak gösterme yeteneğini sağlar. Bütün gösterme işlemi cairo kütüphanesi kullanılarak gerçekleştirilir."
 
-#: desktop/gnome/libxslt::summary
-msgid "XSLT libraries and tools"
-msgstr "XSLT kütüphane ve araçları"
-
-#: desktop/gnome/libxslt::description
-msgid "Libxslt is the XSLT C library developed for the GNOME project. XSLT itself is a an XML language to define transformation for XML."
-msgstr "Libxslt, GNOME projesi için geliştirilen XSLT C kütüphanesidir. XSLT'nin kendisi, XML oluşumunu tanımlayan bir XML dilidir."
-
 #: desktop/gnome/libsvg::summary
 msgid "A parser for SVG content in files or buffers"
 msgstr "Dosya ya da tamponlardaki SVG içerikler için bir ayrıştırıcı"
@@ -11177,14 +11286,6 @@ msgstr "Scalable Vector Graphics (SVG) kütüphanesi"
 msgid "librsvg is a component used within software applications to enable support for SVG-format scalable graphics."
 msgstr "Scalable Vector Graphics (SVG) kütüphanesi"
 
-#: desktop/gnome/libxml2::summary
-msgid "Version 2 of the library to manipulate XML files"
-msgstr "XML türü dosyaları işlemeye aracılık eden kütüphanenin 2. sürümü"
-
-#: desktop/gnome/libxml2::description
-msgid "Libxml2 is the XML C parser and toolkit developed for the Gnome project (but usable outside of the Gnome platform)."
-msgstr "Libxml2, Gnome projesi için geliştirilmiş C dilinde XML ayrıştırıcısıdır. Gnome platformu olmadan da kullanılabilir."
-
 #: desktop/gnome/libsexy::summary
 msgid "Sexy GTK+ Widgets"
 msgstr "Özelleştirilmiş GTK+ bileşenleri"
@@ -11194,7 +11295,8 @@ msgid "libsexy is a collection of GTK+ widgets that extend the functionality of 
 msgstr "libsexy, Gtkentry ve Gtklabel gibi standart parçaların(widget) alt sınıflarını tanımlayarak işlevselliğini arttıran GTK+ parçaları koleksiyonudur."
 
 #: desktop/gnome/gail::summary
-msgid "Accessibility support for Gtk+ and libgnomecanvas"
+#, fuzzy
+msgid "Accessibility support for GTK+ and libgnomecanvas"
 msgstr "Gtk+ ve libgnomecanvas için erişilebilirlik desteği"
 
 #: desktop/gnome/gst-plugins-base::summary
@@ -11261,13 +11363,9 @@ msgstr "Xvideo aracı"
 msgid "Commandline utility to set Xvideo extension properties."
 msgstr "Xvideo sistemi ayarlarını değiştirmek için komut satırı aracı."
 
-#: desktop/freedesktop/xorg/util-macros::summary
-msgid "X.org macros used for X.org compiliation"
+#: desktop/freedesktop/xorg/xdriinfo::summary
+msgid "Queries configuration information of DRI drivers"
 msgstr ""
-
-#: desktop/freedesktop/xorg/xorg-proto::summary
-msgid "X.Org Protocol Headers"
-msgstr "X.Org Protokol Başlıkları"
 
 #: desktop/freedesktop/xorg/font-util::summary
 msgid "X.Org font utilities"
@@ -11301,10 +11399,6 @@ msgstr "X.Org composite kitaplığı."
 msgid "X.Org fontenc library"
 msgstr "X.Org fontenc kitaplığı"
 
-#: desktop/freedesktop/xorg/lib/libXau::summary
-msgid "X.Org Au library"
-msgstr "X.Org Au kitaplığı."
-
 #: desktop/freedesktop/xorg/lib/libXfont::summary
 msgid "X.Org Xfont library"
 msgstr "X.Org Xfont kitaplığı."
@@ -11336,14 +11430,6 @@ msgstr "X.Org oldX kitaplığı."
 #: desktop/freedesktop/xorg/lib/libXmu::summary
 msgid "X.Org Xmu library"
 msgstr "X.Org Xmu kitaplığı."
-
-#: desktop/freedesktop/xorg/lib/libX11::summary
-msgid "X.Org X11 library"
-msgstr "X.Org X11 kitaplığı"
-
-#: desktop/freedesktop/xorg/lib/libXdmcp::summary
-msgid "X.Org Xdmcp library"
-msgstr "X.Org Xdmcp kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libXvMC::summary
 msgid "X.Org XvMC library"
@@ -11380,10 +11466,6 @@ msgstr "X.Org Xp kitaplığı."
 #: desktop/freedesktop/xorg/lib/libdmx::summary
 msgid "X.Org dmx library"
 msgstr "X.Org dmx kitaplığı."
-
-#: desktop/freedesktop/xorg/lib/xtrans::summary
-msgid "X.Org trans library"
-msgstr "X.Org trans kitaplığı."
 
 #: desktop/freedesktop/xorg/lib/libXt::summary
 msgid "X.Org Xt library"
@@ -11465,10 +11547,6 @@ msgstr "X.Org xkbfile kitaplığı."
 msgid "X.Org Xxf86vm library"
 msgstr "X.Org Xxf86vm kitaplığı."
 
-#: desktop/freedesktop/xorg/lib/libxcb::summary
-msgid "X.Org XCB library"
-msgstr "X.Org XCB kitaplığı."
-
 #: desktop/freedesktop/xorg/lib/pixman::summary
 msgid "X.Org pixman library"
 msgstr ""
@@ -11497,14 +11575,6 @@ msgstr "X.Org girdi dosyaları"
 msgid "X.Org applications"
 msgstr "X.Org uygulamaları."
 
-#: desktop/freedesktop/xorg/libpthread-stubs::summary
-msgid "X.Org libpthread-stubs library"
-msgstr ""
-
-#: desktop/freedesktop/xorg/xcb-proto::summary
-msgid "X.Org XCB header files"
-msgstr ""
-
 #: desktop/freedesktop/xorg/xcb-util::summary
 msgid "The xcb-util module provides a number of libraries which sit on top of libxcb"
 msgstr ""
@@ -11525,21 +11595,25 @@ msgstr "Synaptics dokunma alanı sürücüleri"
 msgid "This is a driver for the Synaptics TouchPad for XOrg/XFree86 4.x. A Synaptics touchpad by default operates in compatibility mode by emulating a standard mouse. However, by using a dedicated driver, more advanced features of the touchpad becomes available."
 msgstr "XOrg/XFree86 4.x için Synaptics TouchPad sürücüleri sayesinde, öntanımlı olarak geleneksel fareler ile uyumluluk kipinde çalışan dokunma alanınızı daha gelişkin özellikler ile donatmanız mümkün olacaktır."
 
-#: desktop/freedesktop/dbus-glib::summary
-msgid "Glib bindings of a message bus system (D-BUS)"
-msgstr ""
-
-#: desktop/freedesktop/poppler:poppler-qt:summary
+#: desktop/freedesktop/poppler-bindings:poppler-qt:summary
 msgid "Qt3 bindings for Poppler"
-msgstr ""
+msgstr "Poppler için Qt3 bağlayıcıları"
 
-#: desktop/freedesktop/poppler:poppler-qt4:summary
+#: desktop/freedesktop/poppler-bindings:poppler-qt4:summary
 msgid "Qt4 bindings for Poppler"
 msgstr "Poppler için Qt4 bağlayıcıları"
 
-#: desktop/freedesktop/poppler:poppler-glib:summary
+#: desktop/freedesktop/poppler-bindings:poppler-glib:summary
 msgid "Glib bindings for Poppler"
-msgstr ""
+msgstr "Poppler için Glib bağlayıcıları"
+
+#: desktop/freedesktop/poppler-bindings::summary
+msgid "Glib, Qt and Qt4 bindings of PDF rendering "
+msgstr "Xpdf koduna dayanan PDF kütüphanesinin çeşitli bağlayıcıları"
+
+#: desktop/freedesktop/poppler-bindings::description
+msgid "Poppler is a PDF rendering library based on the xpdf. This package contains Glib, Qt and Qt4 bindings of poppler library."
+msgstr "Poppler, xpdf koduna dayanan bir PDF hazırlama kütüphanesidir. Bu paket, poppler kütüphanesinin çeşitli bağlayıcılarını içerir."
 
 #: desktop/freedesktop/poppler::summary
 msgid "PDF rendering library"
@@ -11589,14 +11663,6 @@ msgstr ""
 msgid "This package contains moshi's Grounation cursors."
 msgstr "Bu paket moshi's Grounation fare imleci temasını içerir."
 
-#: desktop/freedesktop/ConsoleKit::summary
-msgid "ConsoleKit is a framework for defining and tracking users, login sessions, and seats"
-msgstr ""
-
-#: desktop/freedesktop/ConsoleKit::description
-msgid "ConsoleKit is a system daemon for tracking what users are logged into the system and how they interact with the computer (e.g. which keyboard and mouse they use)."
-msgstr ""
-
 #: desktop/freedesktop/fontconfig::summary
 msgid "A library for configuring and customizing font access"
 msgstr "Yazıtiplerinin yapılandırılması ve özelleştirilmesi için bir kitaplık"
@@ -11604,14 +11670,6 @@ msgstr "Yazıtiplerinin yapılandırılması ve özelleştirilmesi için bir kit
 #: desktop/freedesktop/fontconfig::description
 msgid "Fontconfig is a library designed to provide system-wide font configuration, customization and application access."
 msgstr "Fontconfig sistem genelindeki programlar için yazıtiplerinin ayarlanmasını, özelleştirilmesini ve programlar tarafından erişilmesini sağlar."
-
-#: desktop/freedesktop/dbus::summary
-msgid "A message bus system, a simple way for applications to talk to each other"
-msgstr "Uygulamaların birbirleriyle haberleşmesinin basit bir yöntemi"
-
-#: desktop/freedesktop/dbus::description
-msgid "D-Bus supplies both a system daemon (for events such as \"new hardware device added\" or \"printer queue changed\") and a per-user-login-session daemon (for general IPC needs among user applications). Also, the message bus is built on top of a general one-to-one message passing framework, which can be used by any two apps to communicate directly (without going through the message bus daemon). Currently the communicating applications are on one computer, but TCP/IP option is available and remote support planned."
-msgstr "D-Bus, sistem ve kullanıcılar için olmak üzere iki tane artalan süreci (daemon) sunar. Mesaj yolu, bire bir mesaj geçiş araçları üzerine inşa edilmiştir. Bu sayede iki program birbiriyle bir mesaj yolu artalan süreci kullanmadan, direkt olarak haberleşebilir. Şu an için haberleşme araçları aynı bilgisayar üzerinde çalışabilmektedir, fakat TCP/IP ile uzaktan haberleşme de planlanmaktadır."
 
 #: desktop/freedesktop/jimmac-xcursor::summary
 msgid "X11 mouse theme based on Jimmac's cursors"
@@ -11745,14 +11803,6 @@ msgstr "Smart Common Input Method - Girdi Metodları sistemi"
 msgid "Smart Common Input Method (SCIM) is a framework for Input Methods. It is a modular and flexible approach for authoring and using Input Methods for X11 platform."
 msgstr "Smart Common Input Method (SCIM), X11 platformu için  Girdi Metodlarının yönetilmesi ve kullanılması için modüler ve esnek Girdi Metodları sistemi"
 
-#: desktop/freedesktop/855resolution::summary
-msgid "Utility to patch VBIOS of Intel 855 / 865 / 915 chipsets."
-msgstr "Intel 855 / 865 / 915 yongasetli anakartların video BIOS'larının yamalanması için gereken bir araç"
-
-#: desktop/freedesktop/855resolution::description
-msgid "Utility to patch VBIOS of Intel 855 / 865 / 915 chipsets"
-msgstr "Intel 855 / 865 / 915 yongasetli anakartların video BIOS'larının yamalanması için gereken bir araç"
-
 #: desktop/freedesktop/dbus-qt3::summary
 msgid "Qt3 bindings of a message bus system (D-BUS)"
 msgstr ""
@@ -11797,14 +11847,6 @@ msgstr "Bilgilendirme sunucusu"
 msgid "This package includes the notification daemon of Galago project."
 msgstr "Bu pakette Galago projesinin bilgilendirme sunucusu bulunur."
 
-#: desktop/freedesktop/PolicyKit::summary
-msgid "Policy framework for system-wide components"
-msgstr "Sistem bileşenleri için erişim politikası servisi"
-
-#: desktop/freedesktop/PolicyKit::description
-msgid "PolicyKit is a framework for defining policy for system-wide components and for desktop pieces to configure it. It is used by HAL."
-msgstr "PolicyKit, sistem genelindeki bileşenlerin ve masaüstü bileşenlerinin ayarlayabileceği şekilde ilkeler tanımlamak için araçlardan oluşur."
-
 #: desktop/freedesktop/glitz::summary
 msgid "An OpenGL image compositing library"
 msgstr ""
@@ -11812,14 +11854,6 @@ msgstr ""
 #: desktop/freedesktop/glitz::description
 msgid "glitz is an OpenGL 2D graphics library and a backend for gl output in cairo."
 msgstr "glitz, iki boyutlu bir OpenGL çizim kütüphanesidir. Aynı zamanda cairo için gl çıkışı sağlar."
-
-#: desktop/freedesktop/915resolution::summary
-msgid "Utility to patch VBIOS of Intel videocards"
-msgstr "Intel ekran kartlarının çözünürlüğünü değiştiren bir araç"
-
-#: desktop/freedesktop/915resolution::description
-msgid "Utility to patch VBIOS of Intel 855 / 865 / 915 / 945 chipsets"
-msgstr "Intel 855 / 865 / 915 / 945 yongasetli ekran kartlarının video BIOS'larının yamalanması için gereken bir araç"
 
 #: desktop/freedesktop/xdg-utils::summary
 msgid "Common desktop utilities"
@@ -11843,10 +11877,6 @@ msgstr ""
 
 #: desktop/freedesktop/hal-info::summary
 msgid "Hardware Abstraction Layer's Informatin Files"
-msgstr ""
-
-#: desktop/freedesktop/dbus-python::summary
-msgid "Python bindings of a message bus system (D-BUS)"
 msgstr ""
 
 #: desktop/fonts/gnu-gs-fonts-std::summary

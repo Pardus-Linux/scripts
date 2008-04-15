@@ -53,36 +53,12 @@ msgstr ""
 msgid "Wireless driver for Atheros chipset a/b/g cards"
 msgstr ""
 
-#: kernel/drivers/nvidia-old:nvidia-kernel-old:summary
-msgid "nVIDIA kernel driver [For TNT2 and such older cards]"
+#: kernel/drivers/nvidia-drivers::summary
+msgid "nVIDIA kernel and glx drivers"
 msgstr ""
 
-#: kernel/drivers/nvidia-old:nvidia-kernel-old:description
-msgid "nVIDIA kernel driver for low level infrastracture [For TNT2 and such older cards]."
-msgstr ""
-
-#: kernel/drivers/nvidia-old:nvidia-glx-old:summary
-msgid "nVIDIA glx module for X.org [For TNT2 and such older cards]"
-msgstr ""
-
-#: kernel/drivers/nvidia-old:nvidia-glx-old:description
-msgid "nVIDIA glx module for X.org for optimized 2d/3d performance [For TNT2 and such older cards]."
-msgstr ""
-
-#: kernel/drivers/nvidia-old:nvidia-tools-old:summary
-msgid "nvidia-settings tool [For TNT2 and such older cards]"
-msgstr ""
-
-#: kernel/drivers/nvidia-old:nvidia-tools-old:description
-msgid "GUI tool nvidia-settings for nVIDIA cards [For TNT2 and such older cards]."
-msgstr ""
-
-#: kernel/drivers/nvidia-old::summary
-msgid "nVIDIA kernel and glx drivers for old nVIDIA cards like TNT2"
-msgstr ""
-
-#: kernel/drivers/nvidia-old::description
-msgid "nVIDIA kernel and glx drivers giving optimized 2d/3d performance on Linux for old nVidia cards"
+#: kernel/drivers/nvidia-drivers::description
+msgid "nVIDIA kernel and glx drivers giving optimized 2d/3d performance on Linux"
 msgstr ""
 
 #: kernel/drivers/lmpcm_usb::summary
@@ -91,6 +67,14 @@ msgstr ""
 
 #: kernel/drivers/lmpcm_usb::description
 msgid "You can use Logitech MediaPlay Cordless Mouse's multimedia buttons with this driver."
+msgstr ""
+
+#: kernel/drivers/nvidia-drivers-old::summary
+msgid "nVIDIA kernel and glx drivers for old nVIDIA cards like TNT2"
+msgstr ""
+
+#: kernel/drivers/nvidia-drivers-old::description
+msgid "nVIDIA kernel and glx drivers giving optimized 2d/3d performance on Linux for old nVidia cards"
 msgstr ""
 
 #: kernel/drivers/lirc::summary
@@ -161,16 +145,20 @@ msgstr "USB-Webcam Treiber"
 msgid "Webcam driver using Linux USB Video Class."
 msgstr ""
 
-#: kernel/drivers/acpi4asus::summary
-msgid "For Asus laptops to use all the functionality of their computers such as special keys, special LEDs, brightness control"
-msgstr ""
-
 #: kernel/drivers/ungrab-winmodem::summary
 msgid "Additional module for Smartlink Modems"
 msgstr ""
 
 #: kernel/drivers/ungrab-winmodem::description
 msgid "A dirty workaround for Smartlink Modems to bypass \"device is already grabbed\" errors "
+msgstr ""
+
+#: kernel/drivers/nvidia-drivers-new::summary
+msgid "nVIDIA kernel and glx drivers for NV3 or better cards (Geforce FX or better)"
+msgstr ""
+
+#: kernel/drivers/nvidia-drivers-new::description
+msgid "nVIDIA kernel and glx drivers giving optimized 2d/3d performance on Linux (For NV3X or better). Don't use this driver if your card's name doesn't contain the word FX."
 msgstr ""
 
 #: kernel/drivers/acx100::summary
@@ -221,38 +209,6 @@ msgstr ""
 msgid "Logitech USB Quickcam Express Linux Driver Modules"
 msgstr ""
 
-#: kernel/drivers/nvidia-new:nvidia-kernel-new:summary
-msgid "New nVIDIA kernel driver"
-msgstr ""
-
-#: kernel/drivers/nvidia-new:nvidia-kernel-new:description
-msgid "New nVIDIA kernel driver for low level infrastracture."
-msgstr ""
-
-#: kernel/drivers/nvidia-new:nvidia-glx-new:summary
-msgid "New nVIDIA glx module for X.org"
-msgstr ""
-
-#: kernel/drivers/nvidia-new:nvidia-glx-new:description
-msgid "New nVIDIA glx module for X.org for optimized 2d/3d performance."
-msgstr ""
-
-#: kernel/drivers/nvidia-new:nvidia-tools-new:summary
-msgid "New nvidia-settings and nvidia-xconfig tools"
-msgstr ""
-
-#: kernel/drivers/nvidia-new:nvidia-tools-new:description
-msgid "GUI tool for nvidia-settings (new) for nVIDIA cards and a command line tool named nvidia-xconfig for X.org configuration"
-msgstr ""
-
-#: kernel/drivers/nvidia-new::summary
-msgid "nVIDIA kernel and glx drivers for NV3 or better cards (Geforce FX or better)"
-msgstr ""
-
-#: kernel/drivers/nvidia-new::description
-msgid "nVIDIA kernel and glx drivers giving optimized 2d/3d performance on Linux (For NV3X or better). Don't use this driver if your card's name doesn't contain the word FX."
-msgstr ""
-
 #: kernel/drivers/ov51x-jpeg::summary
 msgid "Omnivision webcam driver with jpeg compression"
 msgstr ""
@@ -267,38 +223,6 @@ msgstr ""
 
 #: kernel/drivers/alsa-driver::description
 msgid "The Advanced Linux Sound Architecture (ALSA) provides audio and MIDI functionality to the Linux operating system. ALSA has significant features like efficient support for all types of audio interfaces, fully modularized sound drivers, SMP and thread-safe design, user space library and support for the older OSS API."
-msgstr ""
-
-#: kernel/drivers/nvidia:nvidia-kernel:summary
-msgid "nVIDIA kernel driver"
-msgstr ""
-
-#: kernel/drivers/nvidia:nvidia-kernel:description
-msgid "nVIDIA kernel driver for low level infrastracture."
-msgstr ""
-
-#: kernel/drivers/nvidia:nvidia-glx:summary
-msgid "nVIDIA glx module for X.org"
-msgstr ""
-
-#: kernel/drivers/nvidia:nvidia-glx:description
-msgid "nVIDIA glx module for X.org for optimized 2d/3d performance."
-msgstr ""
-
-#: kernel/drivers/nvidia:nvidia-tools:summary
-msgid "nvidia-settings and nvidia-xconfig tools"
-msgstr ""
-
-#: kernel/drivers/nvidia:nvidia-tools:description
-msgid "GUI tool nvidia-settings for nVIDIA cards and a command line tool named nvidia-xconfig for X.org configuration"
-msgstr ""
-
-#: kernel/drivers/nvidia::summary
-msgid "nVIDIA kernel and glx drivers"
-msgstr ""
-
-#: kernel/drivers/nvidia::description
-msgid "nVIDIA kernel and glx drivers giving optimized 2d/3d performance on Linux"
 msgstr ""
 
 #: kernel/drivers/r5u870::summary
@@ -339,6 +263,14 @@ msgstr ""
 
 #: kernel/firmware/accessrunner-firmware::summary
 msgid "Accessrunner USB ADSL modem driver firmware"
+msgstr ""
+
+#: kernel/firmware/ralink-firmware::summary
+msgid "Ralink firmware"
+msgstr ""
+
+#: kernel/firmware/ralink-firmware::description
+msgid "Freely redistributable firmware files for ralink based wireless devices."
 msgstr ""
 
 #: kernel/firmware/acx100-firmware::summary
@@ -1169,6 +1101,14 @@ msgstr ""
 msgid "Python module for creating and executing simple grammars."
 msgstr ""
 
+#: programming/languages/python/pycups::summary
+msgid "Python interface to the CUPS API"
+msgstr ""
+
+#: programming/languages/python/pycups::description
+msgid "These python bindings are intended to wrap the CUPS API."
+msgstr ""
+
 #: programming/languages/python/python-xlib::summary
 msgid "Xlib for Python"
 msgstr ""
@@ -1288,6 +1228,22 @@ msgstr ""
 #: programming/languages/python/python-bsddb3::description
 msgid "The new version of the python adaptor library for berkeley db"
 msgstr "Die neue Version der Python Adapter Bibliothek für Berkeley DB"
+
+#: programming/languages/python/yali4-pyqt::summary
+msgid "A set of Python bindings for the Qt 4.x Toolkit to be used by YALI"
+msgstr ""
+
+#: programming/languages/python/yali4-pyqt::description
+msgid "Contains Python bindings for the Qt 4.x libraries that are to be used by YALI when installing Pardus."
+msgstr ""
+
+#: programming/languages/python/dbus-pyqt3-mainloop::summary
+msgid "DBus mainloop for PyQt3"
+msgstr ""
+
+#: programming/languages/python/dbus-pyqt3-mainloop::description
+msgid "dbus-pyqt3-mainloop is required to call asyncronous methods and receive signals from programs that uses PyQt3."
+msgstr ""
 
 #: programming/languages/ruby::summary
 msgid "An object-oriented scripting language"
@@ -2469,6 +2425,14 @@ msgstr ""
 msgid "A library for handling page faults in user mode"
 msgstr ""
 
+#: programming/libs/yali4-qt::summary
+msgid "Qt toolkit to be used by YALI"
+msgstr ""
+
+#: programming/libs/yali4-qt::description
+msgid "Contains a stripped-down version of Qt for use in the installation of Pardus."
+msgstr ""
+
 #: programming/libs/libfame::summary
 msgid "MPEG-1 and MPEG-4 video encoding library"
 msgstr ""
@@ -2573,12 +2537,12 @@ msgstr ""
 msgid "The mission of the Apache portable runtime (APR) is to provide a free library of C data structures and routines."
 msgstr ""
 
-#: programming/libs/hermes::summary
-msgid "Graphics library"
+#: programming/libs/libdca::summary
+msgid "Library for decoding DTS Coherent Acoustics streams"
 msgstr ""
 
-#: programming/libs/hermes::description
-msgid "Library for fast colorspace conversion and other graphics routines"
+#: programming/libs/libdca::description
+msgid "libdts is a free library for decoding DTS Coherent Acoustics streams."
 msgstr ""
 
 #: programming/libs/sqlite2::summary
@@ -2689,6 +2653,14 @@ msgstr ""
 msgid "Raptor is the RDF Parser Toolkit for Redland that provides a set of Resource Description Framework (RDF) parsers and serializers"
 msgstr ""
 
+#: programming/libs/ilmbase::summary
+msgid "Several utility libraries from ILM used by OpenEXR"
+msgstr ""
+
+#: programming/libs/ilmbase::description
+msgid "IlmBase are a set of utility libraries released by ILM, and used in their OpenEXR implementation. Included in this package you can find: . * libHalf: a class (Half) for manipulating \"half\" values (16-bit floating point format) as if they were a built-in C++ data type. . * libIlmThread: a thread abstraction library on top of pthreads. . * libImath: a math library with support for matrices, 2d- and 3d-transformations, solvers for linear/quadratic/cubic equations, and more. . * libIex: an exception handling library. "
+msgstr ""
+
 #: programming/libs/libdvdnav::summary
 msgid "libdvdnav is a library for developers of multimedia applications."
 msgstr ""
@@ -2737,14 +2709,6 @@ msgstr ""
 msgid "Service Location Protocol is an IETF standards track protocol that provides a framework to allow networking applications to discover the existence, location, and configuration of networked services in enterprise networks."
 msgstr ""
 
-#: programming/libs/libdts::summary
-msgid "Library for decoding DTS Coherent Acoustics streams"
-msgstr ""
-
-#: programming/libs/libdts::description
-msgid "libdts is a free library for decoding DTS Coherent Acoustics streams."
-msgstr ""
-
 #: programming/libs/libavc1394::summary
 msgid "library for the 1394 Trade Association AV/C (Audio/Video Control) Digital Interface Command Set"
 msgstr ""
@@ -2779,14 +2743,6 @@ msgstr ""
 
 #: programming/libs/ladspa-sdk::description
 msgid "The Linux Audio Developer's Simple Plugin API (LADSPA) attempts to give programmers the ability to write simple `plugin' audio processors in C/C++ and link them dynamically against a range of host applications"
-msgstr ""
-
-#: programming/libs/jpeg-mmx::summary
-msgid "JPEG library"
-msgstr ""
-
-#: programming/libs/jpeg-mmx::description
-msgid "JPEG library with mmx enhancements"
 msgstr ""
 
 #: programming/libs/libxmlpp::summary
@@ -3103,10 +3059,6 @@ msgstr ""
 
 #: programming/libs/gle::description
 msgid "The GLE Tubing and Extrusion Library is a graphics application programming interface (API). The library consists of a number of \"C\" language subroutines for drawing tubing and extrusions."
-msgstr ""
-
-#: programming/libs/aalib:aalib:summary
-msgid "A ASCII-Graphics Library"
 msgstr ""
 
 #: programming/libs/aalib::summary
@@ -4039,6 +3991,10 @@ msgstr ""
 
 #: programming/libs/apr-util::description
 msgid "Apache portable runtime utils (APR-Util) contains additional utility interfaces for APR; including support for XML, database interfaces, URI parsing and more."
+msgstr ""
+
+#: programming/libs/libatomic_ops::summary
+msgid "Provides implementations for atomic memory update operations on a number of architectures. This allows direct use of these in reasonably portable code."
 msgstr ""
 
 #: programming/microcontroller/avr-libc::summary
@@ -5078,47 +5034,63 @@ msgid "ARJ unarchiever"
 msgstr ""
 
 #: applications/archive/unarj::description
-msgid "Extracts ARJ archive files."
+msgid "Extracts files from the once-very-popular ARJ archives."
 msgstr ""
 
 #: applications/archive/cabextract::summary
-msgid "A program to extract Microsoft Cabinet files"
+msgid "A program to extract from Microsoft Cabinet files"
 msgstr ""
 
 #: applications/archive/cabextract::description
-msgid "cabextract is a program to extract Microsoft Cabinet files"
+msgid "cabextract is a program to extract files from Microsoft Cabinet files."
 msgstr ""
 
 #: applications/archive/xdelta::summary
-msgid "Xdelta (X for XCF: the eXperimental Computing Facility at Berkeley) is a binary delta generator"
+msgid "Binary delta generator"
+msgstr ""
+
+#: applications/archive/xdelta::description
+msgid "Xdelta (X for XCF: the eXperimental Computing Facility at Berkeley) is a binary delta (consider it a binary diff) generator."
 msgstr ""
 
 #: applications/archive/lzo::summary
 msgid "An extremely fast compression and decompression library"
 msgstr ""
 
+#: applications/archive/lzo::description
+msgid "lzo is a library with very high compression and decompression speeds and very small memory usage. Provides low compression ratios but very high speeds."
+msgstr ""
+
 #: applications/archive/rzip::summary
-msgid "A compression program taking advantage long distance redundencies in files"
+msgid "A compression program with a longer redundancy distance"
+msgstr ""
+
+#: applications/archive/rzip::description
+msgid "rzip is a compression program taking advantage of long-distance redundancies in files. Having a longer redundancy distance allows higher compression ratios."
 msgstr ""
 
 #: applications/archive/unrar::summary
-msgid "Open rar files"
+msgid "RAR decompressor"
+msgstr ""
+
+#: applications/archive/unrar::description
+msgid "unrar is a program to decompress RAR archives."
 msgstr ""
 
 #: applications/archive/rpm2targz::summary
-msgid "Convert an RPM file to a .tar.gz archive"
+msgid "RPM to .tar.gz converter"
 msgstr ""
 
 #: applications/archive/rpm2targz::description
-msgid "Convert an RPM (RedHat Package Manager) file to a .tar.gz archive. In case you ever run across the need to obtain something that is only in RPM format, this program may come in handy"
+msgid "Convert an RPM (RedHat Package Manager) file to a .tar.gz archive. In case you ever run across the need to obtain something that is only in RPM format, this program may come in handy."
 msgstr ""
 
 #: applications/archive/unshield::summary
-msgid "A program to extract InstallShield Cabinet files"
+msgid "InstallShield Cabinet extractor"
 msgstr ""
 
 #: applications/archive/unshield::description
-msgid "Unshield is a program to extract InstallShield Cabinet files"
+msgid "Unshield is a program to extract files from InstallShield Cabinet files."
 msgstr ""
 
 #: applications/archive/sharutils::summary
@@ -5126,43 +5098,55 @@ msgid "Tools to deal with shar archives"
 msgstr ""
 
 #: applications/archive/sharutils::description
-msgid "GNU shar makes so-called shell archives out of many files, preparing them for transmission by electronic mail services. A shell archive is a collection of files that can be unpacked by /bin/sh. A wide range of features provide extensive flexibility in manufacturing shars and in specifying shar smartness. For example, shar may compress files, uuencode binary files, split long files and construct multi-part mailings, ensure correct unsharing order, and provide simplistic checksums"
+msgid "GNU shar makes so-called shell archives out of many files, preparing them for transmission by electronic mail services. A shell archive is a collection of files that can be unpacked by /bin/sh. A wide range of features provide extensive flexibility in manufacturing shars and in specifying shar smartness. For example, shar may compress files, uuencode binary files, split long files and construct multi-part mailings, ensure correct unsharing order, and provide simplistic checksums."
 msgstr ""
 
 #: applications/archive/p7zip::summary
-msgid "Port of 7-Zip archiver for Unix"
+msgid "Port of 7-Zip archiver for *nix"
 msgstr ""
 
 #: applications/archive/p7zip::description
-msgid "p7zip is a port of 7-Zip archiver for Unix Supported formats Packing-unpacking: 7z, ZIP, GZIP, BZIP2 and TAR. Unpacking only: RAR, CAB, ISO, ARJ, LZH, CHM, Z, CPIO, RPM, DEB and NSIS"
+msgid "p7zip is a port of 7-Zip archiver for Unix. Supports packing-unpacking 7z, ZIP, GZIP, BZIP2 and TAR archives and unpacking RAR, CAB, ISO, ARJ, LZH, CHM, Z, CPIO, RPM, DEB and NSIS arhives."
 msgstr ""
 
 #: applications/archive/rdiff-backup::summary
-msgid "rdiff-backup backs up one directory to another, possibly over a network."
+msgid "directory backup application"
 msgstr ""
 
 #: applications/archive/rdiff-backup::description
-msgid "rdiff-backup is a script, written in Python, that backs up one directory to another and is intended to be run periodically (nightly from cron for instance). The target directory ends up a copy of the source directory, but extra reverse diffs are stored in the target directory, so you can still recover files lost some time ago"
+msgid "rdiff-backup is a script, written in Python, that backs up one directory to another and is intended to be run periodically (nightly from cron for instance). The target directory ends up a copy of the source directory, but extra reverse diffs are stored in the target directory, so you can still recover files lost some time ago."
 msgstr ""
 
 #: applications/archive/unalz::summary
-msgid "A utility to decompress alzip format files"
+msgid "alzip decompressor"
+msgstr ""
+
+#: applications/archive/unalz::description
+msgid "unalz is a decompressor for alzip format files."
 msgstr ""
 
 #: applications/archive/lrzip::summary
-msgid "This is a compression program optimised for large files."
+msgid "A (de)compressor optimised for large files"
 msgstr ""
 
 #: applications/archive/lrzip::description
-msgid "This is a compression program optimised for large files. The larger the file and the more memory you have, the better the compression advantage this will provide, especially once the files are larger than 100MB."
+msgid "This is a compression program optimised for large files. The larger the file and the more memory you have, the better the compression advantage this program will provide, especially for files larger than 100MB."
 msgstr ""
 
 #: applications/archive/xdelta3::summary
-msgid "Computes changes between binary or text files and creates deltas (version 3)"
+msgid "Binary delta generator version 3"
+msgstr ""
+
+#: applications/archive/xdelta3::description
+msgid "Version 3 of Xdelta (X for XCF: the eXperimental Computing Facility at Berkeley), a binary or text-file delta (diff) generator and applier."
 msgstr ""
 
 #: applications/archive/mt-st::summary
-msgid "Enhanced mt command for Linux to control magnetic tape drives"
+msgid "Enhanced mt command to control magnetic tape drives"
+msgstr ""
+
+#: applications/archive/mt-st::description
+msgid "mt-st provides an enhanced mt command, used to control magnetic tape drives."
 msgstr ""
 
 #: applications/admin/killproc::summary
@@ -5170,7 +5154,7 @@ msgid "killproc and assorted tools for boot scripts"
 msgstr ""
 
 #: applications/admin/killproc::description
-msgid "killproc and assorted tools for boot scripts."
+msgid "Contains killproc and assorted tools for boot scripts."
 msgstr ""
 
 #: applications/admin/dstat::summary
@@ -5190,11 +5174,11 @@ msgid "Contains device mapper ioctl library and utilities for use with logical v
 msgstr ""
 
 #: applications/admin/multitail::summary
-msgid "Tail with multiple windows"
+msgid "multi-file multi-window Tail"
 msgstr ""
 
 #: applications/admin/multitail::description
-msgid "Tail program with enhancements like syntax highlighting and multiple input files."
+msgid "Tail program with enhancements like syntax highlighting and tailing multiple input files simultaneously."
 msgstr ""
 
 #: applications/admin/ntfsprogs::summary
@@ -5202,11 +5186,11 @@ msgid "Userspace tools for NTFS filesystems"
 msgstr ""
 
 #: applications/admin/ntfsprogs::description
-msgid "Userspace tools for NTFS filesystems. The goals of the Linux-NTFS project are to develop reliable and full feature access to NTFS by the Linux kernel driver to provide a wide collection of NTFS utilities."
+msgid "Userspace tools for NTFS filesystems. The goals of the Linux-NTFS project are to develop reliable and full-featured access to NTFS by the Linux kernel driver and to provide a wide collection of NTFS utilities."
 msgstr ""
 
 #: applications/admin/squashfs-tools::summary
-msgid "Tool for creating compressed filesystem type squashfs"
+msgid "Tool to create compressed filesystem type squashfs"
 msgstr ""
 
 #: applications/admin/squashfs-tools::description
@@ -5218,7 +5202,7 @@ msgid "Tools to work with Reiserfs filesystems"
 msgstr ""
 
 #: applications/admin/reiserfsprogs::description
-msgid "Tools designed to create and check Reiserfs filesystems"
+msgid "Contains tools designed to create, modify and check Reiserfs filesystems."
 msgstr ""
 
 #: applications/admin/kexec-tools::summary
@@ -5242,7 +5226,7 @@ msgid "GNU Midnight Commander cli-based file manager"
 msgstr ""
 
 #: applications/admin/mc::description
-msgid "GNU Midnight Commander cli-based file manager. You can do lots of filemanager and editor tasks, both in normal terminals and in terminal emulators of X. Also has file transfer capabilities over FTP, SSH, and Samba."
+msgid "Contains GNU Midnight Commander cli-based file manager. You can do lots of file management and editing tasks, both in normal terminals and in terminal emulators of X. Also has file transfer capabilities over FTP, SSH, and Samba."
 msgstr ""
 
 #: applications/admin/dosfstools::summary
@@ -5254,11 +5238,11 @@ msgid "The dosfstools package includes the DOS and VFAT filesystem utilities lik
 msgstr ""
 
 #: applications/admin/irqbalance::summary
-msgid "Distribute hardware interrupts across processors on a multiprocessor system."
+msgid "Distribute hardware interrupts across processors"
 msgstr ""
 
 #: applications/admin/irqbalance::description
-msgid "Daemon to balance irqs across multiple CPUs on systems.This can lead to better performance and I/O balance on SMP systems."
+msgid "Daemon to balance IRQs across multiple CPUs on systems.This can lead to better performance and I/O balance on SMP systems."
 msgstr ""
 
 #: applications/admin/jfsutils::summary
@@ -5266,7 +5250,7 @@ msgid "IBM's Journaling Filesystem (JFS) Utilities"
 msgstr ""
 
 #: applications/admin/jfsutils::description
-msgid "Tools for JFS (Journaling Filesystem) developed by IBM."
+msgid "Contains tools to work with JFS (Journaling Filesystem) developed by IBM."
 msgstr ""
 
 #: applications/admin/acct::summary
@@ -5290,15 +5274,23 @@ msgid "XFS filesystem utilities"
 msgstr ""
 
 #: applications/admin/xfsprogs::description
-msgid "A number of administrative utilities to work with and manage XFS filesystems."
+msgid "Contains a number of administrative utilities to work with and manage XFS filesystems."
 msgstr ""
 
 #: applications/admin/webalizer::summary
 msgid "Webserver log file analyzer"
 msgstr ""
 
+#: applications/admin/webalizer::description
+msgid "Webalizer is an application that can be used to analyze and report on web server access and error logs."
+msgstr ""
+
 #: applications/admin/xfsdump::summary
 msgid "XFS dump/restore utilities"
+msgstr ""
+
+#: applications/admin/xfsdump::description
+msgid "Contains XFS filesystem dump and restore utilities."
 msgstr ""
 
 #: applications/admin/tmpwatch::summary
@@ -5315,6 +5307,14 @@ msgstr ""
 
 #: applications/admin/dazuko::description
 msgid "An interface to the kernel module that allows scanning files for viruses when they are accessed."
+msgstr ""
+
+#: applications/admin/sysstat::summary
+msgid "System performance tools for Linux"
+msgstr ""
+
+#: applications/admin/sysstat::description
+msgid "System performance tools including sar, sadf, mpstat, iostat, pidstat and sa."
 msgstr ""
 
 #: applications/powermanagement/suspend::summary
@@ -5362,23 +5362,23 @@ msgid "Tools for moving data between a Palm device and a desktop"
 msgstr ""
 
 #: applications/network/pilot-link::description
-msgid "Suite of tools for moving data between a Palm device and a desktop"
+msgid "Pilot-Link is a suite of tools for moving data between a Palm handheld device and a computer."
 msgstr ""
 
 #: applications/network/gift-openft::summary
-msgid "The giFT OpenFT plugin"
+msgid "giFT OpenFT plugin"
 msgstr ""
 
 #: applications/network/gift-openft::description
-msgid "The giFT plugin for OpenFT peer-to-peer file-sharing networks application"
+msgid "gift-openft is the giFT plugin for OpenFT peer-to-peer file-sharing networks application."
 msgstr ""
 
 #: applications/network/nfs-utils::summary
-msgid "NFS client and server daemons"
+msgid "NFS client and server"
 msgstr ""
 
 #: applications/network/nfs-utils::description
-msgid "Network File System client and server daemons"
+msgid "Contains NFS (Network File System) client and server. It is possible to mount a network resource as a file system using the NFS protocol."
 msgstr ""
 
 #: applications/network/iptraf::summary
@@ -5386,7 +5386,7 @@ msgid "Network traffic analyzer"
 msgstr ""
 
 #: applications/network/iptraf::description
-msgid "IPTraf is an ncurses-based IP LAN monitor"
+msgid "IPTraf is an ncurses-based IP LAN monitor."
 msgstr ""
 
 #: applications/network/gift::summary
@@ -5402,7 +5402,7 @@ msgid "Improved whois client"
 msgstr ""
 
 #: applications/network/whois::description
-msgid "This is a new whois (RFC 3912) client rewritten from scratch. It is inspired from and compatible with the usual BSD and RIPE whois(1) programs. It is intelligent and can automatically select the appropriate whois server for most queries."
+msgid "This is a new whois (RFC 3912) client rewritten from scratch. It is inspired from and compatible with the usual BSD and RIPE whois programs. It is intelligent and can automatically select the appropriate whois server for most queries."
 msgstr ""
 
 #: applications/network/netkit-ftp::summary
@@ -5410,15 +5410,15 @@ msgid "Standard Linux FTP client"
 msgstr ""
 
 #: applications/network/netkit-ftp::description
-msgid "Ftp is the user interface to the ARPANET standard File Transfer Protocol. The program allows a user to transfer files to and from a remote network site."
+msgid "Ftp is the user interface to the ARPANET standard File Transfer Protocol. The program allows a user to transfer files to and from a remote network site using the FTP protocol."
 msgstr ""
 
 #: applications/network/vpnc::summary
-msgid "Free client for Cisco VPN routing software"
+msgid "Client for Cisco VPN routing software"
 msgstr ""
 
 #: applications/network/vpnc::description
-msgid "VPN client compatible with cisco3000 VPN Concentrator (also known as Cisco's EasyVPN equipment)."
+msgid "vpnc is a VPN client compatible with cisco3000 VPN Concentrator (also known as Cisco's EasyVPN equipment)."
 msgstr ""
 
 #: applications/network/rdesktop::summary
@@ -5426,7 +5426,7 @@ msgid "A Remote Desktop Protocol Client"
 msgstr ""
 
 #: applications/network/rdesktop::description
-msgid "rdesktop is an open source client for Windows NT/2000 Terminal Server. Unlike Citrix ICA, no server extensions are required."
+msgid "rdesktop is an open source client to connecto to Windows NT/2000 Terminal Servers. Unlike Citrix ICA, no server extensions are required."
 msgstr ""
 
 #: applications/network/skype::summary
@@ -5434,11 +5434,15 @@ msgid "A P2P VoIP client"
 msgstr ""
 
 #: applications/network/skype::description
-msgid "Skype allows you to make calls and send text messages from your computer."
+msgid "Skype allows you to make voice calls and send text messages from your computer."
 msgstr ""
 
 #: applications/network/rsync::summary
-msgid "File transfer program to keep remote files in sync"
+msgid "File transfer program to keep local copies in sync with remote files"
+msgstr ""
+
+#: applications/network/rsync::description
+msgid "RSync is a tool to keep local copies of remote files in sync (i.e. make sure local files are exact copies of remote files)."
 msgstr ""
 
 #: applications/network/ppp::summary
@@ -5450,7 +5454,7 @@ msgid "The Point-to-Point Protocol (PPP) provides a standard way to transmit dat
 msgstr ""
 
 #: applications/network/rdate::summary
-msgid "use TCP or UDP to retrieve the current time of another machine"
+msgid "Retrieve current date and time of another machine over the web and optionally set local date and time"
 msgstr ""
 
 #: applications/network/rdate::description
@@ -5458,7 +5462,7 @@ msgid "Rdate displays and sets the local date and time from the host name or add
 msgstr ""
 
 #: applications/network/telnet-bsd::summary
-msgid "Telnet and telnetd ported from OpenBSD with IPv6 support"
+msgid "Telnet and telnetd"
 msgstr ""
 
 #: applications/network/telnet-bsd::description
@@ -5478,7 +5482,7 @@ msgid "Firewall, NAT and packet mangling tools"
 msgstr ""
 
 #: applications/network/iptables::description
-msgid "Iptables firewall, NAT and packet mangling tools."
+msgid "Contains iptables firewall, NAT and packet mangling tools."
 msgstr ""
 
 #: applications/network/spamassassin::summary
@@ -5494,7 +5498,7 @@ msgid "FastTrack Plugin for giFT"
 msgstr ""
 
 #: applications/network/gift-fasttrack::description
-msgid "giFT is a collection of various software components  geared towards improving the overall usability of a multitude of peer-to-peer file-sharing networks. This package provides the plugin to access the FastTrack network."
+msgid "This package provides giFT the plugin to access the FastTrack network."
 msgstr ""
 
 #: applications/network/iproute2::summary
@@ -5502,11 +5506,15 @@ msgid "Kernel routing and traffic control utilities"
 msgstr ""
 
 #: applications/network/iproute2::description
-msgid "Iproute2 is a collection of utilites for controlling TCP / IP networking and Traffic Control in Linux."
+msgid "Iproute2 is a collection of utilites for controlling TCP/IP networking and traffic control in Linux."
 msgstr ""
 
 #: applications/network/synergy::summary
-msgid "A tool to share mouse and keyboard between different computers and operating systems"
+msgid "A tool to share mouse, keyboard and clipboard between different computers and operating systems"
+msgstr ""
+
+#: applications/network/synergy::description
+msgid "Synergy lets you easily share a single mouse and keyboard between multiple computers with different operating systems, each with its own display, without special hardware. It's intended for users with multiple computers on their desk since each system uses its own monitor(s)."
 msgstr ""
 
 #: applications/network/traceroute::summary
@@ -5514,11 +5522,11 @@ msgid "Utility to trace the route of IP packets"
 msgstr ""
 
 #: applications/network/traceroute::description
-msgid "The traceroute utility displays the route used by IP packets on their way to a specified network (or Internet) host. Traceroute is used as a network debugging tool. If you're having network connectivity problems, traceroute will show you where the trouble is coming from along the route."
+msgid "The traceroute utility displays the route used by IP packets on their way to a specified network (or Internet) host. Traceroute is used as a network debugging tool. If you're having network connectivity problems, traceroute will show you where along the route the trouble is."
 msgstr ""
 
 #: applications/network/ntlmaps::summary
-msgid "NTLM proxy Authentication against MS proxy/web server"
+msgid "NTLM proxy authentication against MS proxy/web server"
 msgstr ""
 
 #: applications/network/ntlmaps::description
@@ -5526,15 +5534,15 @@ msgid "NTLM Authorization Proxy Server' (APS) is a proxy software that allows yo
 msgstr ""
 
 #: applications/network/ethtool::summary
-msgid "Utility for examining and tuning ethernet-based network interfaces"
+msgid "Utility to examine and tune ethernet-based network interfaces"
 msgstr ""
 
 #: applications/network/ethtool::description
-msgid "ethtool is used for querying settings of an ethernet device and changing them."
+msgid "ethtool is used for querying and changing settings of an ethernet device."
 msgstr ""
 
 #: applications/network/links::summary
-msgid "links is a fast lightweight text and graphic web-browser"
+msgid "A lightweight console-mode webbrowser"
 msgstr ""
 
 #: applications/network/links::description
@@ -5542,11 +5550,11 @@ msgid "Links is a lynx-like character mode browser. It includes support for rend
 msgstr ""
 
 #: applications/network/efax-gtk::summary
-msgid "Efax-gtk is a GUI front end for the 'efax' fax program"
+msgid "efax GUI"
 msgstr ""
 
 #: applications/network/efax-gtk::description
-msgid "Efax-gtk is a GUI front end for the 'efax' fax program.It can be used to send and receive faxes with a fax modem, and to view, print and manage faxes received.   It also has a socket interface to provide a \"virtual printer\" for sending faxes from word processors and similar programs, and can automatically e-mail a received fax to a designated user, and automatically print a received fax."
+msgid "Efax-gtk is a GUI frontend for efax.It can be used to send and receive faxes with a fax-modem, and to view, print and manage faxes received. It also has a socket interface to provide a &virtual printer& for sending faxes from word processors and similar, and can automatically e-mail a received fax to a designated user, and automatically print a received fax."
 msgstr ""
 
 #: applications/network/gift-ares::summary
@@ -5554,11 +5562,15 @@ msgid "Ares Plugin for giFT"
 msgstr ""
 
 #: applications/network/gift-ares::description
-msgid "giFT is a collection of various software components  geared towards improving the overall usability of a multitude of peer-to-peer file-sharing networks. This package provides the plugin to access the ares network."
+msgid "gift-ares package adds giFT ability to connect to Ares p2p network."
 msgstr ""
 
 #: applications/network/avahi::summary
-msgid "Avahi is a system which facilitates service discovery on a local network."
+msgid "Local network service discovery application"
+msgstr ""
+
+#: applications/network/avahi::description
+msgid "Avahi is a system which facilitates service discovery on a local network. This means that you can plug your laptop or computer into a network and instantly be able to view other people who you can chat with, find printers to print to or find files being shared."
 msgstr ""
 
 #: applications/network/giftcurs::summary
@@ -5582,11 +5594,15 @@ msgid "IEEE 802.1X/WPA supplicant for secure wireless transfers"
 msgstr ""
 
 #: applications/network/wpa_supplicant::description
-msgid "wpa_supplicant is a WPA Supplicant for Linux, BSD, and Windows with support for WPA and WPA2."
+msgid "wpa_supplicant is a WPA supplicant with support for WPA and WPA2."
 msgstr ""
 
 #: applications/network/alpine::summary
-msgid "Program for Internet News, Email - is a tool for reading, sending, and managing electronic messages."
+msgid "Easy to use email client"
+msgstr ""
+
+#: applications/network/alpine::description
+msgid "Alpine is an easy to use email client that is suitable  for both the inexperienced email user as well as for the most demanding of power users."
 msgstr ""
 
 #: applications/network/bogofilter::summary
@@ -5598,27 +5614,28 @@ msgid "Bogofilter is a mail filter that classifies mail as spam or ham (non-spam
 msgstr ""
 
 #: applications/network/tn5250::summary
-msgid "Telnet client for the IBM AS/400 that emulates 5250 terminals and printers"
+msgid "Telnet client for the IBM AS/400"
 msgstr ""
 
 #: applications/network/tn5250::description
-msgid "A telnet client for the IBM iSeries and AS/400 that emulates 5250 terminals and printers."
+msgid "tn5250 is a telnet client for the IBM iSeries and AS/400 that emulates 5250 terminals and printers."
 msgstr ""
 
 #: applications/network/amsn::summary
-msgid "A free open source MSN Messenger clone"
+msgid "A free and open source MSN Messenger clone"
 msgstr ""
 
 #: applications/network/amsn::description
-msgid "aMSN is a free open source MSN Messenger clone, with features such as: conferencing support, full-speed file transfers, webcam support etc"
+msgid "aMSN is a free and open source MSN Messenger clone, with features like conferencing support, full-speed file transfers, and webcam support."
 msgstr ""
 
 #: applications/network/amsn-kde::summary
-msgid "KDE integration for amsn"
+#, fuzzy
+msgid "KDE integration for aMSN"
 msgstr "KDE-Integration für aMSN"
 
 #: applications/network/amsn-kde::description
-msgid "aMSN is a free open source MSN Messenger clone."
+msgid "Contains files to make aMSN integrate into KDE as an instant messaging system."
 msgstr ""
 
 #: applications/network/gift-gnutella::summary
@@ -5626,15 +5643,15 @@ msgid "The giFT Gnutella plugin"
 msgstr ""
 
 #: applications/network/gift-gnutella::description
-msgid "giFT is a project designed to completely abstract low-level filesharing protocol communication while allowing seamless support for multiple networks. Currently available plugins include: OpenFT, Gnutella, and FastTrack (third party)."
+msgid "gift-gnutella package adds giFT the ability to connect to Gnutella p2p network."
 msgstr ""
 
 #: applications/network/rp-pppoe::summary
-msgid "A user-mode PPPoE client and server suite for Linux"
+msgid "A user-mode PPPoE client and server suite"
 msgstr ""
 
 #: applications/network/rp-pppoe::description
-msgid "rp-pppoe is a PPPoE client and server suite for Linux. It is fully RFC-compliant and supports cookies, relay-IDs, and multiple simultaneous PPPoE discovery phases."
+msgid "rp-pppoe is a PPPoE client and server suite. It is fully RFC-compliant and supports cookies, relay-IDs, and multiple simultaneous PPPoE discovery phases."
 msgstr ""
 
 #: applications/network/openvpn::summary
@@ -5646,7 +5663,7 @@ msgid "OpenVPN is a full-featured SSL VPN solution which can accomodate a wide r
 msgstr ""
 
 #: applications/network/wget::summary
-msgid "Network utility to retrieve files from the WWW or FTP protocols"
+msgid "Command-line utility to retrieve files from remote systems"
 msgstr ""
 
 #: applications/network/wget::description
@@ -5658,7 +5675,7 @@ msgid "Firefox Web Browser"
 msgstr ""
 
 #: applications/network/mozilla/firefox::description
-msgid "It is more secure and faster to browse the web with Firefox Web Browser. You can personalize your web browser with many specifications that is not enough to explain in two sentences."
+msgid "It is more secure and faster to browse the web with Firefox web browser. You can personalize your web browser with many specifications that is not enough to explain in two sentences."
 msgstr ""
 
 #: applications/network/mozilla/mplayerplug-in::summary
@@ -5666,15 +5683,23 @@ msgid "mplayer plug-in for Gecko based browsers"
 msgstr ""
 
 #: applications/network/mozilla/mplayerplug-in::description
-msgid "Plugin for Gecko based browsers to add embedded audio/video support on webpages."
+msgid "Plugin for Gecko based web browsers to add embedded audio/video support to webpages."
+msgstr ""
+
+#: applications/network/mozilla/flashplugin::summary
+msgid "Adobe Flash Player"
+msgstr ""
+
+#: applications/network/mozilla/flashplugin::description
+msgid "Adobe (Macromedia) Flash Player is an application to present interactive (and possibly multimedia-containing) content created using Adobe Flash."
 msgstr ""
 
 #: applications/network/mozilla/thunderbird::summary
-msgid "Thunderbird Mail Client"
+msgid "Thunderbird Email Client"
 msgstr ""
 
-#: applications/network/mozilla/macromedia-flash::summary
-msgid "Macromedia Shockwave Flash Player"
+#: applications/network/mozilla/thunderbird::description
+msgid "Thunderbird is an email client with advanced features like skinning and plugin support."
 msgstr ""
 
 #: applications/network/tightvnc::summary
@@ -5686,15 +5711,27 @@ msgid "VNC (Virtual Network Computing) server. TightVNC is a free remote control
 msgstr ""
 
 #: applications/network/ncftp::summary
-msgid "An extremely configurable ftp client"
+msgid "An extremely configurable FTP client"
+msgstr ""
+
+#: applications/network/ncftp::description
+msgid "NcFTP is a set of programs and tools to work with FTP (File Transfer Protocol). It contains NcFTP (FTP client with GUI) and NcFTPGet, NcFTPPut, NcFTPLs, NcFTPBatch command-line tools."
 msgstr ""
 
 #: applications/network/youtube-dl::summary
 msgid "A small command-line program to download videos from YouTube.com"
 msgstr ""
 
+#: applications/network/youtube-dl::description
+msgid "Youtube-dl is a small Python script to download videos from YouTube.com. Just give the URL or the identifier of the video, and it will download and save it as a .flv file."
+msgstr ""
+
 #: applications/network/tcpdump::summary
 msgid "A Tool for network monitoring and data acquisition"
+msgstr ""
+
+#: applications/network/tcpdump::description
+msgid "Tcpdump is a tool to print out (or save to file) the contents of packets on a network interface. It also allows limiting the number of packets collected using expressions."
 msgstr ""
 
 #: applications/network/linux-atm::summary
@@ -5702,7 +5739,7 @@ msgid "Tools for ATM"
 msgstr ""
 
 #: applications/network/linux-atm::description
-msgid "Tools for Asynchronous Transfer Mode"
+msgid "Contains tools for Asynchronous Transfer Mode. Supports raw ATM connections (PVCs and SVCs), IP over ATM, LAN emulation, MPOA, Arequipa, and some others."
 msgstr ""
 
 #: applications/network/pptpclient::summary
@@ -5710,23 +5747,23 @@ msgid "Point-to-Point Tunneling Protocol client"
 msgstr ""
 
 #: applications/network/pptpclient::description
-msgid "PPTP Client is a Linux, FreeBSD, NetBSD and OpenBSD client for the proprietary Microsoft Point-to-Point Tunneling Protocol, PPTP."
+msgid "PPTP Client is a client for the proprietary Microsoft Point-to-Point Tunneling Protocol, PPTP. It allows connection to PPTP based Virtual Private Networks (VPNs)."
 msgstr ""
 
 #: applications/network/nicotine::summary
-msgid "A Soulseek client."
+msgid "A Soulseek client"
 msgstr ""
 
 #: applications/network/nicotine::description
-msgid "A Soulseek client for GTK+2"
+msgid "Nicotine is a Soulseek client written in Python and using GTK+ 2."
 msgstr ""
 
 #: applications/network/streamripper::summary
-msgid "Internet radio ripper for console."
+msgid "Internet radio ripper"
 msgstr ""
 
 #: applications/network/streamripper::description
-msgid "Icecast/Shoutcast stream ripper software for console."
+msgid "Icecast/Shoutcast stream ripper software running in console."
 msgstr ""
 
 #: applications/network/sylpheed::summary
@@ -5734,15 +5771,15 @@ msgid "A lightweight email client and newsreader"
 msgstr ""
 
 #: applications/network/sylpheed::description
-msgid "A simple, lightweight but featureful, and easy-to-use e-mail client"
+msgid "Sylpheed is a simple and lightweight but featureful and easy-to-use e-mail client."
 msgstr ""
 
 #: applications/network/netcat::summary
-msgid "Netcat is a featured networking utility which reads and writes data across network connections, using the TCP/IP protocol."
+msgid "A tool designed to read and write data across connections using TCP/IP."
 msgstr ""
 
 #: applications/network/netcat::description
-msgid "A simple Unix utility which reads and writes data across network connections using TCP or UDP protocol."
+msgid "A simple Unix utility which reads and writes data across network connections using TCP or UDP protocol. It is designed to be a reliable \"back-end\" tool that can be used directly or easily driven by other programs and scripts."
 msgstr ""
 
 #: applications/network/br2684ctl::summary
@@ -5750,7 +5787,7 @@ msgid "Utility for configuring RFC 2684 ATM/Ethernet bridging"
 msgstr ""
 
 #: applications/network/br2684ctl::description
-msgid "Utility for configuring RFC 2684 ATM/Ethernet bridging."
+msgid "br2684ctl is a utility for configuring RFC 2684 ATM/Ethernet bridging. ATM bridging is a way to extend Ethernet over an ATM network and is mainly used for DSL connections. This package contains the user space utility needed to configure the kernel driver. This package is needed if you own an USB DSL modem and your connection uses one of these protocols: RFC 1483 bridged (RFC 2684 bridged), PPP over Ethernet (PPPoE)."
 msgstr ""
 
 #: applications/network/bridge-utils::summary
@@ -5758,7 +5795,7 @@ msgid "Linux network bridging utilities"
 msgstr ""
 
 #: applications/network/bridge-utils::description
-msgid "Linux network bridging utilities."
+msgid "Containts userspace driver for IEEE 802.1d ethernet bridging (plus Spanning Tree protocol) for the linux kernel."
 msgstr ""
 
 #: applications/network/wireshark::summary
@@ -5766,7 +5803,7 @@ msgid "A commercial-quality network protocol analyzer"
 msgstr ""
 
 #: applications/network/wireshark::description
-msgid "Wireshark is a commercial-quality network protocol analyzer used to investigate packets on the network."
+msgid "Wireshark is a commercial-quality network protocol analyzer useful to investigate packets on the network."
 msgstr ""
 
 #: applications/network/ebtables::summary
@@ -5781,6 +5818,10 @@ msgstr ""
 msgid "Text-based modem control and terminal emulation program"
 msgstr ""
 
+#: applications/network/minicom::description
+msgid "Minicom is a menu driven communications program. It emulates ANSI and VT102 terminals. It has a dialing directory and auto zmodem download."
+msgstr ""
+
 #: applications/network/grsync::summary
 msgid "GTK GUI for Rsync"
 msgstr ""
@@ -5791,6 +5832,10 @@ msgstr ""
 
 #: applications/network/smbldap-tools::summary
 msgid "Idealx samba-ldap management tools"
+msgstr ""
+
+#: applications/network/smbldap-tools::description
+msgid "Containts a set of scripts, part of the official Samba project, able to manage POSIX accounts (users, groups, machines) for SAMBA, stored in a LDAP directory used as a (sort-of) SAM database. Edited by IDEALX in the OpenTrust suite (Cryptonit, IMC, IDX-PKI...)."
 msgstr ""
 
 #: applications/network/gftp::summary
@@ -5806,7 +5851,7 @@ msgid "A download utility with resuming and segmented downloading."
 msgstr ""
 
 #: applications/network/aria2::description
-msgid "aria2 is a download utility with resuming and segmented downloading. Supported protocols are HTTP/HTTPS/FTP/BitTorrent. It also supports Metalink version 3.0."
+msgid "aria2 is a download utility with resuming and segmented downloading. Supported protocols are HTTP, HTTPS, FTP and BitTorrent. It also supports Metalink version 3.0."
 msgstr ""
 
 #: applications/network/sabishape::summary
@@ -5829,12 +5874,16 @@ msgstr ""
 msgid "Library for creating VNC (Virtual Network Computing) servers"
 msgstr ""
 
+#: applications/network/libvncserver::description
+msgid "libvncserver provides a C library to create VNC servers."
+msgstr ""
+
 #: applications/network/pidgin::summary
-msgid "Instant messaging tool, previously known as gaim"
+msgid "Instant messaging application previously known as gaim"
 msgstr ""
 
 #: applications/network/pidgin::description
-msgid "Multi-protocol Instant messaging tool for MSN, Yahoo, IRC, Jabber, Gadu-Gadu"
+msgid "Multi-protocol instant messaging tool for MSN, Yahoo, IRC, Jabber and Gadu-Gadu protocols."
 msgstr ""
 
 #: applications/network/net-snmp::summary
@@ -5842,15 +5891,23 @@ msgid "A collection of SNMP protocol tools and libraries"
 msgstr ""
 
 #: applications/network/net-snmp::description
-msgid "Simple Network Management Protocol tools and libraries"
+msgid "Simple Network Management Protocol (SNMP) is a widely used protocol for monitoring the health and welfare of network equipment (eg. routers), computer equipment and even devices like UPSs. Net-SNMP is a suite of applications used to implement SNMP v1, SNMP v2c and SNMP v3 using both IPv4 and IPv6."
 msgstr ""
 
 #: applications/network/crm114::summary
 msgid "A system to examine incoming e-mail, system log streams, data files or other data streams"
 msgstr ""
 
+#: applications/network/crm114::description
+msgid "CRM114 is a system to examine incoming e-mail, system log streams, data files or other data streams, and to sort, filter, or alter the incoming files or data streams according to the user's wildest desires. Criteria for categorization of data can be via a host of methods, including regexes, approximate regexes, a Hidden Markov Model, Orthogonal Sparse Bigrams, WINNOW, Correllation, KNN/Hyperspace, or Bit Entropy (or by other means- it's all programmable)."
+msgstr ""
+
 #: applications/network/normalizemime::summary
 msgid "Helper program to normalize MIME encoded messages"
+msgstr ""
+
+#: applications/network/normalizemime::description
+msgid "NormalizeMIME.cc is a MIME email message parser to be used as a preprocessor for email classification software (such as spam filters)."
 msgstr ""
 
 #: applications/network/nfdump::summary
@@ -5866,11 +5923,15 @@ msgid "A system to store and display time-series data"
 msgstr ""
 
 #: applications/network/rrdtool::description
-msgid "RRD is the Acronym for Round Robin Database. RRD is a system to store and display time-series data (i.e. network bandwidth, machine-room temperature, server load average). It stores the data in a very compact way that will not expand over time, and it presents useful graphs by processing the data to enforce a certain data density."
+msgid "RRD is the acronym for Round Robin Database. RRD is a system to store and display time-series data (i.e. network bandwidth, machine-room temperature, server load average). It stores the data in a very compact way that will not expand over time, and it presents useful graphs by processing the data to enforce a certain data density."
 msgstr ""
 
 #: applications/network/metalink::summary
-msgid "The shortest description of a metalink is probably: an XML mirror list."
+msgid "Tools to create and handle metalinks"
+msgstr ""
+
+#: applications/network/metalink::description
+msgid "Contains tools to create and handle metalinks. A metalink is basically a list of links (that may include a description of the files, verification information and publisher information) that point to the same resource."
 msgstr ""
 
 #: applications/network/rutilt::summary
@@ -5882,7 +5943,35 @@ msgid "Gtk+2 utility for Linux that helps you configure your wireless devices. A
 msgstr ""
 
 #: applications/network/avahi-bindings::summary
-msgid "Avahi is a system which facilitates service discovery on a local network."
+msgid "Avahi bindings"
+msgstr ""
+
+#: applications/network/avahi-bindings::description
+msgid "Contains bindings for Avahi."
+msgstr ""
+
+#: applications/network/telepathy-qt::summary
+msgid "Base classes for use in connection managers, and proxy classes for use in clients"
+msgstr ""
+
+#: applications/network/telepathy-qt::description
+msgid "The Telepathy project is about building a unified framework for many different kinds of real-time communications. telepathy-qt contains base and proxy classes for use in connection managers and clients."
+msgstr ""
+
+#: applications/network/tapioca-qt::summary
+msgid "High-level classes on top of TelepathyQt for use in clients"
+msgstr ""
+
+#: applications/network/tapioca-qt::description
+msgid "Tapioca provides a set of convenience libraries to easily integrate VoIP and IM in applications."
+msgstr ""
+
+#: applications/network/decibel::summary
+msgid "A communication framework for KDE4"
+msgstr ""
+
+#: applications/network/decibel::description
+msgid "Decibel is a realtime communications framework, integrating services like CTI (Computer Telephone Integration), VoIP (Voice over IP), text based chat and instant messaging."
 msgstr ""
 
 #: applications/printing/foomatic-db-hpijs::summary
@@ -6013,6 +6102,22 @@ msgstr ""
 msgid "The Splix drivers are usable by all printer devices which understand the SPL II language. It covers several Samsung, Xerox, Dell and Ricoh printers."
 msgstr ""
 
+#: applications/printing/system-config-printer::summary
+msgid "A GUI excluded version of the original system-config-printer tool"
+msgstr ""
+
+#: applications/printing/system-config-printer::description
+msgid "The system-config-printer package provides python scripts used by hal-cups-utils to automatically detect and configure printers."
+msgstr ""
+
+#: applications/printing/hal-cups-utils::summary
+msgid "A CUPS backend for HAL"
+msgstr ""
+
+#: applications/printing/hal-cups-utils::description
+msgid "The hal-cups-utils package contains a CUPS backend for browsing local printers using HAL and a HAL callout for configuration issues."
+msgstr ""
+
 #: applications/multimedia/jbigkit::summary
 msgid "A portable library of compression and decompression functions"
 msgstr ""
@@ -6022,15 +6127,27 @@ msgid "JBIG-KIT implements a highly effective data compression algorithm for bi-
 msgstr ""
 
 #: applications/multimedia/jasper::summary
-msgid "JasPer is a software-based implementation of the codec specified in the emerging JPEG-2000 Part-1 standard"
+msgid "Software implementation of JPEG-2000 Part 1"
+msgstr ""
+
+#: applications/multimedia/jasper::description
+msgid "JasPer is a software-based implementation of the codec specified in the JPEG-2000 Part-1 standard (ISO/IEC 15444-1:2000)."
 msgstr ""
 
 #: applications/multimedia/speex::summary
-msgid "Speex is an Open Source/Free Software patent-free audio compression format designed for speech"
+msgid "Audio compression format designed for speech and its converter application"
+msgstr ""
+
+#: applications/multimedia/speex::description
+msgid "Speex is an Open Source/Free Software patent-free audio compression format designed for speech. The Speex Project aims to lower the barrier of entry for voice applications by providing a free alternative to expensive proprietary speech codecs. The package also contains a command-line tool to convert to/from Speex codec."
 msgstr ""
 
 #: applications/multimedia/netpbm::summary
-msgid "A set of utilities for converting to/from the netpbm (and related) formats"
+msgid "A set of utilities to convert to/from the netpbm (and related) formats"
+msgstr ""
+
+#: applications/multimedia/netpbm::description
+msgid "Netpbm is a toolkit for manipulation of graphic images, including conversion of images between a variety of different formats. There are over 300 separate tools in the package including converters for about 100 graphics formats."
 msgstr ""
 
 #: applications/multimedia/jack-audio-connection-kit::summary
@@ -6038,31 +6155,43 @@ msgid "A low-latency audio server"
 msgstr ""
 
 #: applications/multimedia/jack-audio-connection-kit::description
-msgid "JACK is a low-latency audio server, written for POSIX conformant operating systems such as GNU/Linux and Apple's OS X."
+msgid "JACK is a low-latency audio server written for POSIX conformant operating systems such as GNU/Linux and Apple's OS X."
 msgstr ""
 
 #: applications/multimedia/graphviz::summary
-msgid "open source graph drawing software"
+msgid "Open source graph drawing software"
 msgstr ""
 
 #: applications/multimedia/graphviz::description
-msgid "Graphviz is open source graph visualization software which has web and interactive graphical interfaces, and auxiliary tools, libraries. Graphviz has many useful features for diagrams, such as options for colors, fonts, tabular node layouts, line styles, and custom shapes."
+msgid "Graphviz is open source graph visualization software which has web and interactive graphical interfaces, and auxiliary tools and libraries. Graphviz has many useful features for diagrams, such as options for colors, fonts, tabular node layouts, line styles, and custom shapes."
 msgstr ""
 
 #: applications/multimedia/yafray::summary
 msgid "Yet Another Free Raytracer"
 msgstr ""
 
+#: applications/multimedia/yafray::description
+msgid "YafRay is a powerful raytracer, under the LGPL license. It enables you to create images and animations of a photorealistic quality."
+msgstr ""
+
 #: applications/multimedia/ogle::summary
 msgid "A fast DVD player with menu support"
 msgstr ""
 
+#: applications/multimedia/ogle::description
+msgid "Ogle is a fast DVD player application (and is the first one to support DVD menus)."
+msgstr ""
+
 #: applications/multimedia/imagemagick::summary
-msgid "A collection of tools and libraries for many image formats"
+msgid "A collection of tools and libraries for many image file formats"
+msgstr ""
+
+#: applications/multimedia/imagemagick::description
+msgid "ImageMagick is a software suite to create, edit, and compose bitmap images. It can read, convert and write images in a variety of formats (over 100) including DPX, EXR, GIF, JPEG, JPEG-2000, PDF, PhotoCD, PNG, Postscript, SVG, and TIFF. You can use ImageMagick to translate, flip, mirror, rotate, scale, shear and transform images, adjust image colors, apply various special effects, or draw text, lines, polygons, ellipses and Bézier curves."
 msgstr ""
 
 #: applications/multimedia/mlt::summary
-msgid "An open source multimedia framework, designed and developed for television broadcasting"
+msgid "Multimedia framework designed for television broadcasting"
 msgstr ""
 
 #: applications/multimedia/mlt::description
@@ -6070,19 +6199,23 @@ msgid "MLT is an open source multimedia framework, designed and developed for te
 msgstr ""
 
 #: applications/multimedia/xvidcap::summary
-msgid "Screen capture utility"
+msgid "Screen recording utility"
 msgstr ""
 
 #: applications/multimedia/xvidcap::description
-msgid "Screen capture utility enabling you to create videos of your desktop, supporting filetypes like mpeg and flash"
+msgid "XVidCap is a screen capture utility enabling you to create videos of your desktop, supporting filetypes like mpeg and flash video."
 msgstr ""
 
 #: applications/multimedia/normalize::summary
 msgid "Audio file volume normalizer"
 msgstr ""
 
+#: applications/multimedia/normalize::description
+msgid "Normalize, as the name suggests, is a tool to \"normalize\" (i.e. bring the files to the same volume) audio files."
+msgstr ""
+
 #: applications/multimedia/muse::summary
-msgid "MuSE is an application for the mixing, encoding, and network streaming of sound."
+msgid "An application for mixing, encoding, and network streaming of sound."
 msgstr ""
 
 #: applications/multimedia/muse::description
@@ -6093,20 +6226,24 @@ msgstr ""
 msgid "An advanced CDDA reader with error correction"
 msgstr ""
 
+#: applications/multimedia/cdparanoia::description
+msgid "cdparanoia is an advanced CDDA (audio CD) reader with error correction."
+msgstr ""
+
 #: applications/multimedia/imposter::summary
-msgid "Imposter is a standalone viewer for the presentations created by OpenOffice.org Impress software"
+msgid "Standalone viewer for presentations created using OpenOffice Impress"
 msgstr ""
 
 #: applications/multimedia/imposter::description
-msgid "Imposter is a standalone viewer for the presentations created by OpenOffice.org Imposter"
+msgid "Imposter is a standalone viewer for presentations created using OpenOffice.org Impress."
 msgstr ""
 
 #: applications/multimedia/vorbis-tools::summary
-msgid "tools for using the Ogg Vorbis sound file format"
+msgid "Tools for using the Ogg Vorbis sound file format"
 msgstr ""
 
 #: applications/multimedia/vorbis-tools::description
-msgid "This tools allow you to play and encode Ogg Vorbis files."
+msgid "This set of tools allow you to play and encode Ogg Vorbis files."
 msgstr ""
 
 #: applications/multimedia/audacity::summary
@@ -6114,7 +6251,7 @@ msgid "Free audio editor and recorder"
 msgstr ""
 
 #: applications/multimedia/audacity::description
-msgid "Audacity is free, open source software for recording and editing sounds."
+msgid "Audacity is a free, open source software for recording and editing sounds."
 msgstr ""
 
 #: applications/multimedia/x264::summary
@@ -6134,7 +6271,11 @@ msgid "Ufraw is a GIMP plug-in for processing RAW photographs."
 msgstr ""
 
 #: applications/multimedia/mpg123::summary
-msgid "Real Time mp3 player"
+msgid "Console MP3 player"
+msgstr ""
+
+#: applications/multimedia/mpg123::description
+msgid "mpg123 is a fast and free console MP3 player. It does not require high system resources, it can even run in a 100MHz computer."
 msgstr ""
 
 #: applications/multimedia/xawtv::summary
@@ -6142,11 +6283,11 @@ msgid "TV application"
 msgstr ""
 
 #: applications/multimedia/xawtv::description
-msgid "xawtv is a TV application which supports a lot of interfaces, such as Xvideo, v4l2 and bktr etc. it also have video recording capabilities and several useful command line tools."
+msgid "xawtv is a TV application that supports many interfaces (analog video streams), such as Xvideo, v4l2 and bktr etc. It can display TV streams and record them."
 msgstr ""
 
 #: applications/multimedia/gpac::summary
-msgid "GPAC is a multimedia framework based on the MPEG-4 Systems standard (ISO/IEC 14496-1)"
+msgid "A multimedia framework based on the MPEG-4 Systems standard (ISO/IEC 14496-1)"
 msgstr ""
 
 #: applications/multimedia/gpac::description
@@ -6162,7 +6303,7 @@ msgid "Monkey’s Audio (APE) is a fast and easy way to losslessly compress digi
 msgstr ""
 
 #: applications/multimedia/faad2::summary
-msgid "AAC decoder"
+msgid "MPEG2 and MPEG4 AAC decoder"
 msgstr ""
 
 #: applications/multimedia/faad2::description
@@ -6170,15 +6311,20 @@ msgid "FAAD2 is a HE, LC, MAIN and LTP profile, MPEG2 and MPEG-4 AAC decoder."
 msgstr ""
 
 #: applications/multimedia/smpeg::summary
-msgid "SDL MPEG"
+#, fuzzy
+msgid "SDL MPEG library"
 msgstr "SDL MPEG"
 
 #: applications/multimedia/smpeg::description
-msgid "SDL MPEG player library"
+msgid "smpeg is a SDL MPEG decoding library."
 msgstr ""
 
 #: applications/multimedia/mixxx::summary
-msgid "Digital DJ tool using QT"
+msgid "Digital DJ tool"
+msgstr ""
+
+#: applications/multimedia/mixxx::description
+msgid "Mixxx allows DJs to mix music live with a clean, simple interface."
 msgstr ""
 
 #: applications/multimedia/transcode::summary
@@ -6186,7 +6332,7 @@ msgid "Converter tool for several video and audio formats"
 msgstr ""
 
 #: applications/multimedia/transcode::description
-msgid "Transcode is a suite of command line utilities for transcoding video and audio codecs, and for converting beween different container formats. Transcode can decode and encode many audio and video formats."
+msgid "Transcode is a suite of command line utilities for transcoding video and audio codecs, and for converting beween different container formats. Transcode can decode, encode and convert many audio and video formats into one another."
 msgstr ""
 
 #: applications/multimedia/mjpegtools::summary
@@ -6194,31 +6340,35 @@ msgid "Tools for MJPEG video"
 msgstr ""
 
 #: applications/multimedia/mjpegtools::description
-msgid "Mjpegtools is a complete suite of tools for you to capture, edit, process, filter and play your media as you wish. You can digitize your VHS collection, create DVDs, do advanced video filtering on already-digitized videos."
+msgid "Mjpegtools is a complete suite of tools for you to capture, edit, process, filter and play your media as you wish. You can digitize your VHS collection, create DVDs, and do advanced video filtering on already-digitized videos."
 msgstr ""
 
 #: applications/multimedia/fluidsynth::summary
+msgid "A realtime software synthesizer"
+msgstr ""
+
+#: applications/multimedia/fluidsynth::description
 msgid "FluidSynth is a real-time software synthesizer based on the SoundFont 2 specifications."
 msgstr ""
 
 #: applications/multimedia/cg::summary
-msgid "Cg ( C for Graphics ) Toolkit"
+msgid "Cg (C for Graphics) Toolkit"
 msgstr ""
 
 #: applications/multimedia/cg::description
-msgid "The Cg Toolkit provides a compiler for the Cg language, runtime libraries for use with both leading graphics APIs, runtime libraries for CgFX."
+msgid "The Cg Toolkit provides a compiler for the Cg language, runtime libraries for use with both leading graphics APIs, and runtime libraries for CgFX."
 msgstr ""
 
 #: applications/multimedia/ccd2iso::summary
-msgid "Converts CloneCD images to ISOs"
+msgid "CloneCD image files to ISO converter"
 msgstr ""
 
 #: applications/multimedia/ccd2iso::description
-msgid "Converts CloneCD images to ISOs."
+msgid "ccd2iso converts CloneCD image files to ISO image files."
 msgstr ""
 
 #: applications/multimedia/madplay::summary
-msgid "The MAD audio player"
+msgid "The MAD command-line audio player"
 msgstr ""
 
 #: applications/multimedia/madplay::description
@@ -6234,7 +6384,7 @@ msgid "VLC media player"
 msgstr ""
 
 #: applications/multimedia/vlc::description
-msgid "Video player and streamer"
+msgid "VLC is a famous video player and streamer."
 msgstr ""
 
 #: applications/multimedia/vnc2swf::summary
@@ -6242,31 +6392,51 @@ msgid "Vnc2swf Screen Recorder"
 msgstr ""
 
 #: applications/multimedia/vnc2swf::description
-msgid "Vnc2swf records screen from a vnc server and export as .swf file."
+msgid "Vnc2swf records screen from a vnc server and exports it to a .swf file."
 msgstr ""
 
 #: applications/multimedia/cdrtools::summary
-msgid "A set of tools for CD/DVD recording, including cdrecord"
+msgid "A set of tools for CD/DVD recording"
+msgstr ""
+
+#: applications/multimedia/cdrtools::description
+msgid "Contains a set of tools for CD/DVD recording, including cdrecord."
 msgstr ""
 
 #: applications/multimedia/gocr::summary
-msgid "GOCR is an OCR (Optical Character Recognition) program."
+msgid "OCR program with GNU Public License"
+msgstr ""
+
+#: applications/multimedia/gocr::description
+msgid "GOCR is an OCR (Optical Character Recognition) program licensed under the GNU Public License (hence the name)."
 msgstr ""
 
 #: applications/multimedia/faac::summary
-msgid "Free MPEG-4 audio codecs by AudioCoding.com"
+msgid "MPEG-4 audio codecs"
+msgstr ""
+
+#: applications/multimedia/faac::description
+msgid "Free MPEG-4 audio codecs by AudioCoding.com."
 msgstr ""
 
 #: applications/multimedia/cdrdao::summary
-msgid "Burn CDs in disk-at-once mode -- with optional GUI frontend"
+msgid "Burn CDs in disk-at-once mode"
+msgstr ""
+
+#: applications/multimedia/cdrdao::description
+msgid "Cdrdao records audio or data CD-Rs in disk-at-once (DAO) mode based on a textual description of the CD contents."
 msgstr ""
 
 #: applications/multimedia/inkscape::summary
-msgid "SVG based vector drawing program"
+msgid "SVG vector graphics application"
+msgstr ""
+
+#: applications/multimedia/inkscape::description
+msgid "Inkscape is an application to create, edit, and convert SVG vector graphics images that can also import from and export to bitmap image files."
 msgstr ""
 
 #: applications/multimedia/dialog::summary
-msgid "Tool to display dialog boxes from a shell"
+msgid "Tool to display dialog boxes in a shell"
 msgstr ""
 
 #: applications/multimedia/dialog::description
@@ -6274,7 +6444,11 @@ msgid "Dialog is a utility to create nice user interfaces to shell scripts, or o
 msgstr ""
 
 #: applications/multimedia/dvd+rw-tools::summary
-msgid "A set of tools for DVD+RW/-RW drives"
+msgid "Tools for DVD+RW/-RW drives"
+msgstr ""
+
+#: applications/multimedia/dvd+rw-tools::description
+msgid "dvd+rw-tools is a set of tools to work with DVD+-RW drives."
 msgstr ""
 
 #: applications/multimedia/vcdimager::summary
@@ -6290,11 +6464,11 @@ msgid "Live audio streamer"
 msgstr ""
 
 #: applications/multimedia/darkice::description
-msgid " DarkIce as a live audio streamer. It records audio from an audio interface (e.g. sound card), encodes it and sends it to a streaming server"
+msgid "DarkIce as a live audio streamer. It records audio from an audio interface (e.g. sound card), encodes it and sends it to a streaming server."
 msgstr ""
 
 #: applications/multimedia/a52dec::summary
-msgid "library for decoding ATSC A/52 streams used in DVD"
+msgid "DVD ATSC A/52 streams decoder library"
 msgstr ""
 
 #: applications/multimedia/a52dec::description
@@ -6302,39 +6476,43 @@ msgid "liba52 is a free library for decoding ATSC A/52 streams. The A/52 standar
 msgstr ""
 
 #: applications/multimedia/ffmpeg::summary
-msgid "FFmpeg is a complete solution to record, convert and stream audio and video"
+msgid "A command-line tool to record, convert and stream audio and video"
+msgstr ""
+
+#: applications/multimedia/ffmpeg::description
+msgid "FFmpeg is a complete solution to record, convert and stream audio and video."
 msgstr ""
 
 #: applications/multimedia/timidity::summary
-msgid "MIDI to WAV converter"
+msgid "Software synthesizer and MIDI converter"
 msgstr ""
 
 #: applications/multimedia/timidity::description
-msgid "A handy MIDI to WAV converter with OSS and ALSA output support, which can emulate a midi port"
+msgid "Timidity is a software synthesizer, MIDI player and MIDI to other sound formats converter which can also emulate a midi port."
 msgstr ""
 
 #: applications/multimedia/flac::summary
-msgid "C subroutine library for computing the Discrete Fourier Transform (DFT)"
+msgid "Tools to work with FLAC audio format"
 msgstr ""
 
 #: applications/multimedia/flac::description
-msgid "FLAC is a Free Lossless Audio Codec. The FLAC format supports streaming, seeking, and archival, and gives 25-75% compression on typical CD audio."
+msgid "FLAC is a Free Lossless Audio Codec. The FLAC format supports streaming, seeking, and archival, and gives 25-75% compression on typical CD audio. This package contains tools and libraries to work with and support for files in FLAC format."
 msgstr ""
 
 #: applications/multimedia/dvgrab::summary
-msgid "Digital Video (DV) grabber for GNU/Linux"
+msgid "Digital Video (DV) grabber"
 msgstr ""
 
 #: applications/multimedia/dvgrab::description
-msgid "Digital Video (DV) grabber for GNU/Linux."
+msgid "dvgrab Digital Video (DV) grabber for GNU/Linux."
 msgstr ""
 
 #: applications/multimedia/emovix::summary
-msgid "Micro Linux distro to boot from a CD and play videos files in the CD root"
+msgid "An application to create a bootable CD CD that runs media in it"
 msgstr ""
 
 #: applications/multimedia/emovix::description
-msgid "eMoviX is a 'live-CD' micro-distro able to boot and play all the audio/video content you stored in the CD you burned it on."
+msgid "eMoviX is a 'live-CD' micro-distribution able to boot and play all the audio/video content you stored in the CD you burned it on."
 msgstr ""
 
 #: applications/multimedia/tvtime::summary
@@ -6346,7 +6524,7 @@ msgid "tvtime is a high quality television application for use with video captur
 msgstr ""
 
 #: applications/multimedia/twolame::summary
-msgid "An optimised MPEG Audio Layer 2 encoder based on tooLAME by Mike Cheng"
+msgid "An optimised MPEG Audio Layer 2"
 msgstr ""
 
 #: applications/multimedia/twolame::description
@@ -6366,7 +6544,7 @@ msgid "Media Player for Linux"
 msgstr ""
 
 #: applications/multimedia/mplayer::description
-msgid "MPlayer is a movie player which runs on many systems.It plays most MPEG/VOB, AVI, Ogg/OGM, VIVO, ASF/WMA/WMV, QT/MOV/MP4, RealMedia, Matroska, NUT, NuppelVideo, FLI, YUV4MPEG, FILM, RoQ, PVA files, supported by many native, XAnim, and Win32 DLL codecs."
+msgid "MPlayer is a movie player that can run on many platforms. It plays most MPEG/VOB, AVI, Ogg/OGM, VIVO, ASF/WMA/WMV, QT/MOV/MP4, RealMedia, Matroska, NUT, NuppelVideo, FLI, YUV4MPEG, FILM, RoQ, PVA files, supported by many native, XAnim, and Win32 DLL codecs."
 msgstr ""
 
 #: applications/multimedia/sox::summary
@@ -6374,15 +6552,15 @@ msgid "The swiss army knife of sound processing programs"
 msgstr ""
 
 #: applications/multimedia/sox::description
-msgid "SoX is a command line utility that can convert various formats of computer audio files in to other formats. It can also apply various effects to these sound files during the conversion. SoX also can play and record audio files."
+msgid "SoX is a command line utility that can convert various audio formats to other formats. It can also apply various effects to these sound files during the conversion. SoX can also play and record audio files."
 msgstr ""
 
 #: applications/multimedia/blender::summary
-msgid "3D Creation/Animation/Publishing System"
+msgid "3D modeling and animation application"
 msgstr ""
 
 #: applications/multimedia/blender::description
-msgid "Blender is the open source software for 3D modeling, animation."
+msgid "Blender is an open source software for 3D modeling and animation."
 msgstr ""
 
 #: applications/multimedia/gv::summary
@@ -6394,11 +6572,15 @@ msgid "gv allows to view PostScript and PDF documents on an X display by providi
 msgstr ""
 
 #: applications/multimedia/mlt++::summary
-msgid "Provides C++ wrappers for the MLT C API as well as SWIG based wrappers for ruby, perl, python and tcl"
+msgid "MLT C API wrappers for C++, Ruby, Perl, Python and TCL"
+msgstr ""
+
+#: applications/multimedia/mlt++::description
+msgid "The mlt++ package provides C++ wrappers for the MLT C API as well as SWIG based wrappers for ruby, perl, python and tcl"
 msgstr ""
 
 #: applications/multimedia/lame::summary
-msgid "A free MP3 audio compression codec"
+msgid "A free MP3 encoder/decoder"
 msgstr ""
 
 #: applications/multimedia/lame::description
@@ -6406,7 +6588,7 @@ msgid "LAME is an MPEG Audio Layer III (MP3) encoder licensed under the LGPL."
 msgstr ""
 
 #: applications/multimedia/tuxpaint::summary
-msgid "Drawing program designed for young children"
+msgid "Drawing program for kids"
 msgstr ""
 
 #: applications/multimedia/tuxpaint::description
@@ -6422,15 +6604,19 @@ msgid "Dcraw is a command-line tool for processing RAW photographs."
 msgstr ""
 
 #: applications/multimedia/ttf2pt1::summary
-msgid "Converts True Type to Type 1 fonts"
+msgid "TrueType to Type1 font converter"
 msgstr ""
 
 #: applications/multimedia/ttf2pt1::description
-msgid "Converts True Type to Type 1 fonts."
+msgid "ttf2pt1 is a tool to convert TrueType fonts to Type1 fonts."
 msgstr ""
 
 #: applications/multimedia/rosegarden::summary
-msgid "MIDI and audio sequencer and notation editor"
+msgid "MIDI and audio sequencer and score editor"
+msgstr ""
+
+#: applications/multimedia/rosegarden::description
+msgid "Rosegarden is a well-rounded audio and MIDI sequencer, score editor, and general-purpose music composition and editing environment."
 msgstr ""
 
 #: applications/multimedia/timidity-eawpatches::summary
@@ -6438,11 +6624,15 @@ msgid "Sound patches for Timidity (EAW)"
 msgstr ""
 
 #: applications/multimedia/timidity-eawpatches::description
-msgid "Eric Welsh's GUS patches for TiMidity"
+msgid "Containts Eric Welsh's GUS patches for Timidity."
 msgstr ""
 
 #: applications/multimedia/hydrogen::summary
 msgid "Advanced drum machine for GNU/Linux"
+msgstr ""
+
+#: applications/multimedia/hydrogen::description
+msgid "Hydrogen is an advanced drum machine for GNU/Linux. It's main goal is to bring professional yet simple and intuitive pattern-based drum programming."
 msgstr ""
 
 #: applications/multimedia/timidity-shompatches::summary
@@ -6450,7 +6640,7 @@ msgid "Sound patches for Timidity (Shom)"
 msgstr ""
 
 #: applications/multimedia/timidity-shompatches::description
-msgid "Matsumoto Shoji's patch collection for TiMidity (Roland SC-55 style)"
+msgid "Containts Matsumoto Shoji's patch collection for TiMidity (Roland SC-55 style)"
 msgstr ""
 
 #: applications/multimedia/avidemux::summary
@@ -6458,19 +6648,23 @@ msgid "Simple video editing/encoding tool"
 msgstr ""
 
 #: applications/multimedia/avidemux::description
-msgid "Avidemux is a video editor designed for simple cutting, filtering and encoding tasks. It supports many file types, including AVI, DVD compatible MPEG files, MP4 and ASF, using a variety of codecs. Tasks can be automated using projects, job queue and powerful scripting capabilities."
+msgid "Avidemux is a video editor designed for simple cutting, filtering and encoding tasks. It supports many file types, including AVI, DVD compatible MPEG files, MP4 and ASF using a variety of codecs. Tasks can be automated using projects, job queue and powerful scripting capabilities."
 msgstr ""
 
 #: applications/multimedia/streamtuner::summary
-msgid "Stream directory browser for browsing internet radio streams"
+msgid "Stream directories' browser"
 msgstr ""
 
 #: applications/multimedia/streamtuner::description
-msgid "streamtuner is a stream directory browser. With streamtuner, You can browse Internet radio directories such as SHOUTcast and Live365."
+msgid "streamtuner is a stream directory browser. With streamtuner, you can browse Internet radio directories such as SHOUTcast and Live365."
 msgstr ""
 
 #: applications/multimedia/icns2png::summary
-msgid "Converts icns files to png"
+msgid "icns to png converter"
+msgstr ""
+
+#: applications/multimedia/icns2png::description
+msgid "icns2png is an tool to convert MAC OS X .icns icon files to PNG images."
 msgstr ""
 
 #: applications/multimedia/asymptote::summary
@@ -6478,31 +6672,47 @@ msgid "Vector graphics framework"
 msgstr ""
 
 #: applications/multimedia/asymptote::description
-msgid "Asymptote is a powerful descriptive vector graphics language that provides a natural coordinate-based framework for technical drawing"
+msgid "Asymptote is a powerful descriptive vector graphics language that provides a natural coordinate-based framework for technical drawing."
 msgstr ""
 
 #: applications/multimedia/lilycomp::summary
 msgid "Graphical note entry program for LilyPond"
 msgstr ""
 
+#: applications/multimedia/lilycomp::description
+msgid "LilyComp is a graphical note entry program for use with the LilyPond music typesetting program. A couple of common items like ties, slurs, and measure bars are supported."
+msgstr ""
+
 #: applications/multimedia/lilypond::summary
 msgid "GNU Music Typesetter"
 msgstr ""
 
+#: applications/multimedia/lilypond::description
+msgid "LilyPond is an \"automated engraving system\". It will format music notation beautifully without requiring typographical expertise."
+msgstr ""
+
 #: applications/multimedia/hydrogen-drumkits::summary
-msgid "20 various drumkit and demo songs for Hydrogen"
+msgid "20 drumkits and demo songs for Hydrogen"
 msgstr ""
 
 #: applications/multimedia/hydrogen-drumkits::description
-msgid "Hydrogen is an advanced drum machine for GNU/Linux. It bring professional yet simple and intuitive pattern-based drum programming."
+msgid "Package contains 20 drumkits and some demo songs for Hydrogen."
 msgstr ""
 
 #: applications/multimedia/tuxpaint-stamps::summary
-msgid "Set of extra stamps for Tux Paint"
+msgid "Extra stamps for Tux Paint"
+msgstr ""
+
+#: applications/multimedia/tuxpaint-stamps::description
+msgid "Contains extra stamps for Tux Paint."
 msgstr ""
 
 #: applications/multimedia/potrace::summary
 msgid "Transforming bitmaps into vector graphics"
+msgstr ""
+
+#: applications/multimedia/potrace::description
+msgid "potrace is a command-line application that can convert bitmap image files (ordinary image files) into scalable vector graphics images."
 msgstr ""
 
 #: applications/multimedia/mpeg4ip::summary
@@ -6510,19 +6720,23 @@ msgid "MPEG4 library and tools"
 msgstr ""
 
 #: applications/multimedia/mpeg4ip::description
-msgid "An audio/video streaming application which comes with its mpeg4 library and glue implementations for several multimedia libraries"
+msgid "mpeg4ip is an audio/video streaming application which comes with its mpeg4 library and glue implementations for several multimedia libraries."
 msgstr ""
 
 #: applications/multimedia/autotrace::summary
-msgid "Converts Bitmaps to vector-graphics"
+msgid "Bitmap to vector graphics conversion tool"
+msgstr ""
+
+#: applications/multimedia/autotrace::description
+msgid "AutoTrace is a tool to convert bitmap images (orginary image files) to vector graphics."
 msgstr ""
 
 #: applications/multimedia/ardour::summary
-msgid "A Digital audio workstation"
+msgid "A digital audio workstation"
 msgstr ""
 
 #: applications/multimedia/ardour::description
-msgid "Multi-track hard disk recording software"
+msgid "Ardour is a digital audio workstation. You can use it to record, edit and mix multi-track audio. You can produce your own CDs, mix video soundtracks, or just experiment with new ideas about music and sound."
 msgstr ""
 
 #: applications/multimedia/dvdauthor::summary
@@ -6530,7 +6744,7 @@ msgid "A simple DVD tool"
 msgstr ""
 
 #: applications/multimedia/dvdauthor::description
-msgid "A simple set of tools to help you author a DVD"
+msgid "dvdauthor is a set of simple tools to help you author a DVD."
 msgstr ""
 
 #: applications/multimedia/mandvd::summary
@@ -6546,11 +6760,15 @@ msgid "Slideshow-style DVD Creator"
 msgstr ""
 
 #: applications/multimedia/dvd-slideshow::description
-msgid "dvd-slideshow is a group of commandline programs that creates a slideshow-style dvd from groups of pictures."
+msgid "dvd-slideshow is a group of commandline programs to create a slideshow-style DVD from groups of pictures."
 msgstr ""
 
 #: applications/multimedia/AtomicParsley::summary
-msgid "A lightweight command line program for reading, parsing and setting metadata into MPEG-4 files"
+msgid "MPEG-4 metadata tool"
+msgstr ""
+
+#: applications/multimedia/AtomicParsley::description
+msgid "A lightweight command line program for reading, parsing and setting metadata into MPEG-4 files."
 msgstr ""
 
 #: applications/multimedia/shorten::summary
@@ -6566,23 +6784,39 @@ msgid "A command line utility to split MP3/OGG files"
 msgstr ""
 
 #: applications/multimedia/mp3splt::description
-msgid "Mp3splt is a command-line utility to split mp3/ogg files selecting a begin and an end time position, without decoding. It's very useful to split large MP3/OGG to make smaller files or to split entire albums to obtain original tracks. If you want to split an album, you can select split points and filenames manually or you can get them automatically from CDDB (internet or a local file) or from .cue files. Supports also automatic silence split, that can be used also to adjust cddb/cue splitpoints. You can extract tracks from Mp3Wrap or AlbumWrap files in few seconds."
+msgid "Mp3splt is a command-line utility to split mp3/ogg files selecting a begin and an end time position, without decoding. It's very useful to split large MP3/OGG to make smaller files or to split entire albums to obtain original tracks. If you want to split an album, you can select split points and filenames manually or you can get them automatically from CDDB (internet or a local file) or from .cue files. Supports also automatic silence split that can be used also to adjust cddb/cue splitpoints. You can extract tracks from Mp3Wrap or AlbumWrap files in few seconds."
 msgstr ""
 
 #: applications/multimedia/dvdbackup::summary
-msgid "Backup content from DVD to hard disk"
+msgid "Backup DVD content to hard disk"
+msgstr ""
+
+#: applications/multimedia/dvdbackup::description
+msgid "dvdbackup is a tool to backup the contents of an entire DVD to hard disk."
 msgstr ""
 
 #: applications/multimedia/mkvtoolnix::summary
 msgid "A set of tools to create, alter and inspect Matroska files"
 msgstr ""
 
+#: applications/multimedia/mkvtoolnix::description
+msgid "MKVToolnix is a set of tools (mkvmerge, mkvinfo and mkvextract) With these tools one can get information about (mkvinfo) Matroska files, extract tracks/data from (mkvextract) Matroska files and create (mkvmerge) Matroska files from other media files."
+msgstr ""
+
 #: applications/multimedia/vobcopy::summary
-msgid "Copies DVD .vob files to harddisk, decrypting them on the way"
+msgid "DVD .vob copier"
+msgstr ""
+
+#: applications/multimedia/vobcopy::description
+msgid "vobcopy copies DVD .vob files to harddisk, decrypting them on the way."
 msgstr ""
 
 #: applications/multimedia/ogmtools::summary
-msgid "Tools that allow information about (ogminfo) or extraction from (ogmdemux) or creation of (ogmmerge) OGG media stream"
+msgid "OGG media stream tool"
+msgstr ""
+
+#: applications/multimedia/ogmtools::description
+msgid "ogmtools is a set of tools that allow gathering information about (ogminfo), extraction parts from (ogmdemux) or creation of (ogmmerge) OGG media streams."
 msgstr ""
 
 #: applications/multimedia/lastfm::summary
@@ -6590,7 +6824,7 @@ msgid "The Last.fm Player"
 msgstr ""
 
 #: applications/multimedia/lastfm::description
-msgid "With Last.fm player, you can listen radio stations that streaming on last.fm."
+msgid "With Last.fm player, you can listen to radio stations that stream on last.fm."
 msgstr ""
 
 #: applications/multimedia/shntool::summary
@@ -6606,7 +6840,7 @@ msgid "Command-line MP3 checker"
 msgstr ""
 
 #: applications/multimedia/mpck::description
-msgid "mpck is a command line utility that check MP3 files. It scans the file to see if the frames are where they are supposed to be, if the frame headers are correct and if the headers are consistent throughout the file. It gives some statistics on the file and a conclusion whether the file is good or bad."
+msgid "mpck is a command line utility that check MP3 files. It scans the file to see if the frames are where they are supposed to be, if the frame headers are correct and if the headers are consistent throughout the file. It gives some statistics on the file and tells if the file is corrupt or not."
 msgstr ""
 
 #: applications/multimedia/aften::summary
@@ -6614,15 +6848,23 @@ msgid "A/52 audio encoder"
 msgstr ""
 
 #: applications/multimedia/aften::description
-msgid "A simple AC3-compatible audio encoder based on FFmpeg."
+msgid "Aften is a simple AC3-compatible audio encoder based on FFmpeg."
 msgstr ""
 
 #: applications/multimedia/tesseract::summary
-msgid "An OCR Engine that was developed at HP Labs between 1985 and 1995"
+msgid "Tesseract OCR Engine"
+msgstr ""
+
+#: applications/multimedia/tesseract::description
+msgid "The Tesseract OCR engine was one of the top 3 engines in the 1995 UNLV Accuracy test. Between 1995 and 2006 it had little work done on it, but it is probably one of the most accurate open source OCR engines available. The source code will read a binary, grey or color image and output text. A tiff reader is built in that will read uncompressed TIFF images."
 msgstr ""
 
 #: applications/multimedia/qsynth::summary
-msgid "Qsynth is a fluidsynth GUI front-end application "
+msgid "fluidsynth GUI"
+msgstr ""
+
+#: applications/multimedia/qsynth::description
+msgid "Qsynth is a fluidsynth GUI front-end application."
 msgstr ""
 
 #: applications/multimedia/qjackctl::summary
@@ -6630,11 +6872,15 @@ msgid "A simple GUI for Jack server"
 msgstr ""
 
 #: applications/multimedia/qjackctl::description
-msgid "QjackCtl is a simple Qt application to control the JACK sound server daemon, specific for the Linux Audio Desktop infrastructure."
+msgid "QjackCtl is a simple Qt application to control the JACK sound server daemon, specifically for the Linux Audio Desktop infrastructure."
 msgstr ""
 
 #: applications/multimedia/jamin::summary
-msgid "JAMin is the JACK Audio Connection Kit (JACK) Audio Mastering interface"
+msgid "JACK Audio Mastering Interface"
+msgstr ""
+
+#: applications/multimedia/jamin::description
+msgid "JAMin is the JACK Audio Connection Kit (JACK) Audio Mastering Interface."
 msgstr ""
 
 #: applications/multimedia/fbgrab::summary
@@ -6642,15 +6888,15 @@ msgid "Framebuffer screenshot utility"
 msgstr ""
 
 #: applications/multimedia/fbgrab::description
-msgid "FBGrab is a framebuffer screenshot program, capturing the linux frambuffer and converting it to a png-picture."
+msgid "FBGrab is a framebuffer screenshot program, capturing the linux frambuffer and converting it to a PNG image."
 msgstr ""
 
 #: applications/games/gnugo::summary
-msgid "A free program that plays the game of GO"
+msgid "A GO game server and player"
 msgstr ""
 
 #: applications/games/gnugo::description
-msgid "A GO server which can be played with default ascii interface or through Emacs as well as many clients including qgo"
+msgid "GNU GO contains a GO server and a GO player, it includes a simple console-mode ASCII interface, through Emacs or through clients like QGo."
 msgstr ""
 
 #: applications/games/gnuchess::summary
@@ -6666,11 +6912,11 @@ msgid "An arcade game"
 msgstr ""
 
 #: applications/games/chromium::description
-msgid "Chromium is an arcade game which needs 3D acceleration"
+msgid "Chromium is an arcade shoot-em-up game with ship upgrade possibilities that needs a 3D-accelerated graphics card."
 msgstr ""
 
 #: applications/games/njam::summary
-msgid "Multi or single-player network Pacman-like game"
+msgid "Network multiplayer or singleplayer Pacman-like game"
 msgstr ""
 
 #: applications/games/njam::description
@@ -6682,7 +6928,7 @@ msgid "Funny RPG game with funny characters and sounds."
 msgstr ""
 
 #: applications/games/egoboo::description
-msgid "Funny RPG game with funny characters and sounds. Use t and y for attacks, g and h to drop and pickup stuff, b and n to browse in inventory. You can use mouse to rotate and fixate cameras"
+msgid "Egoboo is a funny RPG game with funny characters and sounds. Use t and y for attacks, g and h to drop and pickup stuff, b and n to browse in inventory. You can use mouse to rotate and fixate cameras."
 msgstr ""
 
 #: applications/games/qGo::summary
@@ -6690,7 +6936,7 @@ msgid "A c++/qt go client and sgf editor"
 msgstr ""
 
 #: applications/games/qGo::description
-msgid "Go is an ancient boardgame, very common in Japan, China and Korea.qGo is a Go client and full featured SGF editor, available for Linux/Windows and MacOS X. qGo code is C++/Qt."
+msgid "Go is an ancient boardgame, very common in Japan, China and Korea. qGo is a Go client and full featured SGF editor, coded in C++/Qt."
 msgstr ""
 
 #: applications/games/crack-attack::summary
@@ -6698,11 +6944,11 @@ msgid "3D Tetris Attack like game"
 msgstr ""
 
 #: applications/games/crack-attack::description
-msgid "Crack Attack! is a fast-paced puzzle game inspired by the classic Super NES title Tetris Attack!"
+msgid "Crack Attack! is a fast-paced puzzle game inspired by the classic Super NES title Tetris Attack."
 msgstr ""
 
 #: applications/games/chromium-data::summary
-msgid "Chromium B.S.U. - an arcade game data package"
+msgid "Chromium B.S.U. data package"
 msgstr ""
 
 #: applications/games/chromium-data::description
@@ -6714,7 +6960,7 @@ msgid "Flight simulator"
 msgstr ""
 
 #: applications/games/gl117::description
-msgid "An action flight simulator"
+msgid "GL117 is an action-packed flight simulator."
 msgstr ""
 
 #: applications/games/ltris::summary
@@ -6722,23 +6968,23 @@ msgid "SDL Tetris Clone"
 msgstr ""
 
 #: applications/games/ltris::description
-msgid "LTris as a tetris clone which means you have a bowl with blocks falling down. By rotating and moving the blocks you try to assemble whole lines which then disappear. LTris has three modes for this: Classic is the classical one where you play until the bowl becomes filled, Figures resets the bowl contents to a new figure for each level and adds suddenly appearing tiles and lines later on and Multiplayer where up to three players either controlled by human or CPU(!) compete and send completed lines to each other."
+msgid "LTris as a tetris clone which means you have a bowl with blocks falling down. By rotating and moving the blocks you try to assemble whole lines which then disappear. LTris has three modes for this: Classic is the classical one where you play until the bowl becomes filled, Figures resets the bowl contents to a new figure for each level and adds suddenly appearing tiles and lines later on and Multiplayer where up to three players either controlled by human or CPU compete and send completed lines to each other."
 msgstr ""
 
 #: applications/games/supertux::summary
-msgid "Platform game"
+msgid "Side-scrolling platform game"
 msgstr ""
 
 #: applications/games/supertux::description
-msgid "Super Mario inspired penguin platform game"
+msgid "Super Tux is a Super Mario inspired penguin platform game."
 msgstr ""
 
 #: applications/games/lmarbles::summary
-msgid "Marble game"
+msgid "Marble puzzle game"
 msgstr ""
 
 #: applications/games/lmarbles::description
-msgid "Puzzle game inspired by Atomix written in SDL"
+msgid "Puzzle game inspired by Atomix and written using the SDL library."
 msgstr ""
 
 #: applications/games/kobodeluxe::summary
@@ -6746,15 +6992,15 @@ msgid "An SDL port of Xkobo"
 msgstr ""
 
 #: applications/games/kobodeluxe::description
-msgid "An SDL port of Xkobo, an addictive space shoot-em-up"
+msgid "KoboDeluxe is an SDL port of Xkobo, an addictive space shoot-em-up game."
 msgstr ""
 
 #: applications/games/clanbomber::summary
-msgid "Bomberman like game"
+msgid "Bomberman-like game"
 msgstr ""
 
 #: applications/games/clanbomber::description
-msgid "Bomberman like multiplayer game"
+msgid "ClanBomber is a Bomberman-like game with multiplayer abilities."
 msgstr ""
 
 #: applications/games/bzflag::summary
@@ -6762,7 +7008,7 @@ msgid "A free multiplayer multiplatform 3D tank battle game"
 msgstr ""
 
 #: applications/games/bzflag::description
-msgid "BZFlag is a free multiplayer multiplatform 3D tank battle game. The name stands for Battle Zone capture Flag. It runs on Irix, Linux, *BSD, Windows, Mac OS X and other platforms. It's one of the most popular games ever on Silicon Graphics machines."
+msgid "BZFlag is a free multiplayer multiplatform 3D tank battle game. The name stands for Battle Zone capture Flag. It's one of the most popular games ever on Silicon Graphics machines."
 msgstr ""
 
 #: applications/games/knights::summary
@@ -6770,7 +7016,7 @@ msgid "KDE Chess Interface"
 msgstr ""
 
 #: applications/games/knights::description
-msgid "Knights aims to be the ultimate chess resource on your computer. Written for the K Desktop Environment, it's designed to be both friendly to new chess players and functional for Grand Masters."
+msgid "Knights aims to be the ultimate chess resource on your computer. Written for the K Desktop Environment, it's designed to be both friendly to new chess players and functional for grand masters."
 msgstr ""
 
 #: applications/games/btanks::summary
@@ -6786,7 +7032,7 @@ msgid "Secret Maryo Chronicles"
 msgstr ""
 
 #: applications/games/smc::description
-msgid "Secret Maryo Chronicles is an Open Source two-dimensional platform game with a style designed similar to classic sidescroller games which utilizes the platform independent library, SDL and the OpenGL"
+msgid "Secret Maryo Chronicles is an Open Source two-dimensional platform game with a style designed similar to classic sidescroller games which utilizes the platform independent library SDL and OpenGL."
 msgstr ""
 
 #: applications/games/foobillard::summary
@@ -6794,7 +7040,7 @@ msgid "3D billard game"
 msgstr "3D Billiardspiel"
 
 #: applications/games/foobillard::description
-msgid "3D 8ball, 9ball, snooker and carambol game"
+msgid "FooBillard is a 3D 8ball, 9ball, snooker and carambol game."
 msgstr ""
 
 #: applications/games/freeciv::summary
@@ -6802,7 +7048,7 @@ msgid "Multiplayer strategy game"
 msgstr ""
 
 #: applications/games/freeciv::description
-msgid "Freeciv is a free turn-based multiplayer strategy game, in which each player becomes the leader of a civilization, fighting to obtain the ultimate goal: To become the greatest civilization"
+msgid "Freeciv is a free turn-based multiplayer strategy game in which each player becomes the leader of a civilization, fighting to obtain the ultimate goal: To become the greatest civilization."
 msgstr ""
 
 #: applications/games/glest-data::summary
@@ -6810,7 +7056,7 @@ msgid "Data files for Glest"
 msgstr ""
 
 #: applications/games/glest-data::description
-msgid "Glest  is a free 3D real time strategy game, available for several operative systems and that can be modified using XML and a set of tools."
+msgid "Contains the data files needed by the Glest game."
 msgstr ""
 
 #: applications/games/egoboo-extra::summary
@@ -6818,7 +7064,7 @@ msgid "Egoboo extras"
 msgstr ""
 
 #: applications/games/egoboo-extra::description
-msgid "Extra levels, characters, objects and tools for egoboo. There are also some unfinished levels"
+msgid "Extra levels, characters, objects and tools for egoboo. There are also some unfinished (not ready) levels in this package."
 msgstr ""
 
 #: applications/games/wesnoth::summary
@@ -6826,23 +7072,23 @@ msgid "A fantasy turn-based strategy game"
 msgstr ""
 
 #: applications/games/wesnoth::description
-msgid "The Battle for Wesnoth is a turn-based strategy game with a fantasy theme.Build up a great army, gradually turning raw recruits into hardened veterans. In later games, recall your toughest warriors and form a deadly host against whom none can stand! Choose units from a large pool of specialists, and hand-pick a force with the right strengths to fight well on different terrains against all manner of opposition."
+msgid "The Battle for Wesnoth is a turn-based strategy game with a fantasy theme. Build up a great army, gradually turning raw recruits into hardened veterans. In later games, recall your toughest warriors and form a deadly host against whom none can stand! Choose units from a large pool of specialists, and hand-pick a force with the right strengths to fight well on different terrains against all manner of opposition."
 msgstr ""
 
 #: applications/games/frozen-bubble::summary
-msgid "A Puzzle Bubble clone written in perl (now with network support)."
+msgid "A Puzzle Bubble clone"
 msgstr ""
 
 #: applications/games/frozen-bubble::description
-msgid "Full-featured, colorful animated penguin eyecandy, 100 levels of 1p game, hours and hours of 2p game, a level-editor, 3 professional quality 20-channels music tracks, 15 stereo sound effects, 7 unique graphical transition effects."
+msgid "Frozen Bubble is a Puzzle Bubble clone written in Perl with network support; full-featured, colorful animated penguin eyecandy, 100 levels of 1p game, hours and hours of 2p game, a level-editor, 3 professional quality 20-channel music tracks, 15 stereo sound effects, 7 unique graphical transition effects."
 msgstr ""
 
-#: applications/games/abuse_sdl::summary
-msgid "Abuse"
-msgstr "Abuse"
+#: applications/games/abuse-data::summary
+msgid "Abuse data files"
+msgstr ""
 
-#: applications/games/abuse_sdl::description
-msgid "SDL Port of Abuse by Crack dot Com"
+#: applications/games/abuse-data::description
+msgid "abuse-data contains the data files needed by Abuse."
 msgstr ""
 
 #: applications/games/crack-attack-sounds::summary
@@ -6850,23 +7096,23 @@ msgid "Sounds for Crack Attack"
 msgstr ""
 
 #: applications/games/crack-attack-sounds::description
-msgid "Additional files for Crack Attack game to add sound support"
+msgid "Additional files for Crack Attack game to add sound in-game."
 msgstr ""
 
 #: applications/games/wormux::summary
-msgid "Free software clone of Worms game"
+msgid "Worms clone"
 msgstr ""
 
 #: applications/games/wormux::description
-msgid "Have the mascots of your favorite free softwares battle in the Wormux arena. Using dynamite, grenades, baseball bat and others bazookas,... exterminate your opponent in a 2D toon style scenery and a funny environment."
+msgid "Have the mascots of your favorite free softwares battle in the Wormux arena. Exterminate your opponent in a 2D toon style scenery and a funny environment using dynamite, grenades, baseball bat, bazookas, ..."
 msgstr ""
 
 #: applications/games/pingus::summary
-msgid "Free Lemmings clone"
+msgid "Lemmings clone"
 msgstr ""
 
 #: applications/games/pingus::description
-msgid "Pingus is a free Lemmings clone for GNU/Linux and Windows covered under the GNU GPL. Pingus uses ClanLib  and libxml and might also be usable on some other OSs like FreeBSD, but hasn't been tested there. Pingus is mainly developed under GNU/Linux."
+msgid "Pingus is a free clone of the famous Lemmings game."
 msgstr ""
 
 #: applications/games/crack-attack-music::summary
@@ -6874,23 +7120,23 @@ msgid "Music for Crack Attack"
 msgstr ""
 
 #: applications/games/crack-attack-music::description
-msgid "Additional files for Crack Attack game to add music support"
+msgid "Additional files for Crack Attack game to add music in-game."
 msgstr ""
 
-#: applications/games/abuse_sdl-data::summary
-msgid "Abuse data files"
+#: applications/games/alienarena-data::summary
+msgid "Alien Arena 2008 data package"
 msgstr ""
 
-#: applications/games/abuse_sdl-data::description
-msgid "Abuse-SDL is a port of Abuse by Crack Dot Com to Linux using the Simple DirectMedia Layer library. This allows Abuse to run at screen depths greater than 8bpp as well as fullscreen."
+#: applications/games/alienarena-data::description
+msgid "Data Files for Alien Arena 2008"
 msgstr ""
 
 #: applications/games/neverball::summary
-msgid "3D roll the ball game"
+msgid "3D roll-the-ball game"
 msgstr ""
 
 #: applications/games/neverball::description
-msgid "3D puzzle and action game where you roll the ball by tilting the table"
+msgid "Neverball is a 3D puzzle and action game in which you roll a ball by tilting the table to get the ball to a destination location."
 msgstr ""
 
 #: applications/games/lbreakout2::summary
@@ -6898,7 +7144,7 @@ msgid "Bouncing balls puzzle game"
 msgstr ""
 
 #: applications/games/lbreakout2::description
-msgid "The polished successor to LBreakout offers you a new challenge in more than 50 levels with loads of new bonuses (goldshower, joker, explosive balls, bonus magnet ...), maluses (chaos, darkness, weak balls, malus magnet ...) and special bricks (growing bricks, explosive bricks, regenerative bricks, indestructible bricks, chaotic bricks). And if you're through with all the levels you can create complete new levelsets with the integrated easy-to-use level editor or challenge other humans via LAN or internet iin either deathmatch or normal levelsets."
+msgid "The polished successor to LBreakout offers you a new challenge in more than 50 levels with loads of new bonuses (goldshower, joker, explosive balls, bonus magnet, ...), maluses (chaos, darkness, weak balls, malus magnet, ...) and special bricks (growing bricks, explosive bricks, regenerative bricks, indestructible bricks, chaotic bricks). And if you're through with all the levels you can create complete new levelsets with the integrated easy-to-use level editor or challenge other people via LAN or Internet in either deathmatch or normal levelsets."
 msgstr ""
 
 #: applications/games/enigma::summary
@@ -6906,7 +7152,7 @@ msgid "Puzzle game similiar to 0xyd"
 msgstr ""
 
 #: applications/games/enigma::description
-msgid "Enigma is a puzzle game inspired by Oxyd on the Atari ST and Rock'n'Roll on the Amiga. The object of the game is to find uncover pairs of identically colored Oxyd stones. Simple? Yes. Easy? Certainly not! Hidden traps, vast mazes, laser beams, and, most of all, countless hairy puzzles usually block your direct way to the Oxyd stones"
+msgid "Enigma is a puzzle game inspired by 0xyd on the Atari ST and Rock'n'Roll on the Amiga. The object of the game is to find and uncover pairs of identically colored Oxyd stones. Simple? Yes. Easy? Certainly not! Hidden traps, vast mazes, laser beams, and, most important of all, countless hairy puzzles usually block your direct way to the Oxyd stones."
 msgstr ""
 
 #: applications/games/bass::summary
@@ -6922,7 +7168,7 @@ msgid "3D realtime strategy game"
 msgstr ""
 
 #: applications/games/glest::description
-msgid "3D realtime strategy game. Requires an accelerated graphics card with 3D enabled"
+msgid "3D realtime strategy game. Requires a 3D accelerated graphics card."
 msgstr ""
 
 #: applications/games/xmoto::summary
@@ -6930,7 +7176,7 @@ msgid "Motorcross game"
 msgstr ""
 
 #: applications/games/xmoto::description
-msgid "A motocross game with fancy effects like ghost replay. Requires a 3D accelerated video card"
+msgid "A motocross game with fancy effects like ghost replay. Requires a 3D accelerated video card."
 msgstr ""
 
 #: applications/games/maniadrive::summary
@@ -6938,15 +7184,15 @@ msgid "Car acrobatics"
 msgstr ""
 
 #: applications/games/maniadrive::description
-msgid "Arcade car game on acrobatic tracks, with a quick and nervous gameplay (tracks almost never exceed one minute), and features a network mode"
+msgid "Arcade car game on acrobatic tracks, with a quick and nervous gameplay (tracks almost never exceed one minute), and featuring a network mode."
 msgstr ""
 
 #: applications/games/ensemblist::summary
-msgid "Constructing strange objects game"
+msgid "Game of constructing strange objects"
 msgstr ""
 
 #: applications/games/ensemblist::description
-msgid "In this game, you have to put together several simple geometric primitives to build a given shape. For this, you can move, rotate and compose the primitives with the boolean operators union, intersection and minus"
+msgid "In this game, you have to put together several simple geometric primitives to build a given shape. For this, you can move, rotate and compose the primitives with the boolean operators union, intersection and minus."
 msgstr ""
 
 #: applications/games/trackballs::summary
@@ -6954,23 +7200,23 @@ msgid "Marble rolling game"
 msgstr ""
 
 #: applications/games/trackballs::description
-msgid "3D puzzle game where you roll a marble through mazes of dangerous traps"
+msgid "TrackBalls is a 3D puzzle game where you roll a marble through mazes of dangerous traps."
 msgstr ""
 
 #: applications/games/nogravity::summary
-msgid "3D space shooter"
+msgid "3D first-person space shooter"
 msgstr ""
 
 #: applications/games/nogravity::description
-msgid "No Gravity is a fantastic and futuristic universe made of five intergalactic worlds. An arcade type game with great playability, where it is easy to plunge into space battles against spacefighters, space stations and more"
+msgid "No Gravity is a fantastic and futuristic universe made of five intergalactic worlds. An arcade type game with great playability, where it is easy to plunge into space battles against spacefighters, space stations and more."
 msgstr ""
 
 #: applications/games/project-starfighter::summary
-msgid "Space fighter"
+msgid "Sidescrolling space fighter"
 msgstr ""
 
 #: applications/games/project-starfighter::description
-msgid "Sidescrolling space battle game with lots of weapons, powerups and bossfights. There is a storyline to follow and different mission styles like protecting"
+msgid "Sidescrolling space battle game with lots of weapons, powerups and bossfights. There is a storyline to follow and different missions like protecting."
 msgstr ""
 
 #: applications/games/dangerdeep::summary
@@ -6978,7 +7224,7 @@ msgid "3D submarine simulation"
 msgstr ""
 
 #: applications/games/dangerdeep::description
-msgid "3D realistic tactical simulation of WWII submarines"
+msgid "DangerDeep is a 3D realistic tactical simulation of WWII submarines."
 msgstr ""
 
 #: applications/games/armagetronad::summary
@@ -6986,7 +7232,7 @@ msgid "Yet another 3D Tron game"
 msgstr ""
 
 #: applications/games/armagetronad::description
-msgid "3D racing game with the style and look of the sci-fi movie Tron"
+msgid "Armagetron Advanced is a 3D racing game with the style and look of the sci-fi movie Tron."
 msgstr ""
 
 #: applications/games/funnyboat::summary
@@ -6994,15 +7240,15 @@ msgid "Steamboat arcade"
 msgstr ""
 
 #: applications/games/funnyboat::description
-msgid "The game is side scrolling arcade shooter game on a steamboat equipped with a cannon and the ability to jump."
+msgid "Funnyboat is a side scrolling arcade shooter game on a steamboat equipped with a cannon and the ability to jump."
 msgstr ""
 
 #: applications/games/glaxium::summary
-msgid "Space shooter"
+msgid "3D-like space shooter with nice graphics"
 msgstr ""
 
 #: applications/games/glaxium::description
-msgid "3D space battle game"
+msgid "Glaxium is a 3D-like (your ship moves on a way) space battle game with nice graphics."
 msgstr ""
 
 #: applications/games/sauerbraten::summary
@@ -7010,7 +7256,7 @@ msgid "Yet another multiplayer FPS"
 msgstr ""
 
 #: applications/games/sauerbraten::description
-msgid "Sauerbraten is the successor of the cube engine. Rather than creating the most of the eyecandy, cube2 aims for \"more fun to play\" with features like on-the-fly map editing"
+msgid "Sauerbraten is the successor of the cube engine. Rather than creating the most of the eyecandy, cube2 aims for \"more fun to play\" with features like on-the-fly map editing."
 msgstr ""
 
 #: applications/games/blobwars::summary
@@ -7018,7 +7264,7 @@ msgid "Platform game about a blob and his quest to rescue MIAs from an alien inv
 msgstr ""
 
 #: applications/games/blobwars::description
-msgid "In Blob Wars : Metal Blob Solid, you take on the role of a fearless Blob agent, Bob. Bob's mission is to infiltrate the various enemy bases around the Blobs' homeworld and rescue as many MIAs as possible. But standing in his way are many vicious aliens, other Blobs who have been assimilated and the evil alien leader, Galdov."
+msgid "In Blob Wars:Metal Blob Solid, you take on the role of a fearless Blob agent, Bob. Bob's mission is to infiltrate the various enemy bases around the Blobs' homeworld and rescue as many MIAs as possible. But standing in his way are many vicious aliens, other Blobs who have been assimilated and the evil alien leader, Galdov."
 msgstr ""
 
 #: applications/games/supertuxkart::summary
@@ -7026,15 +7272,15 @@ msgid "Gokart game"
 msgstr ""
 
 #: applications/games/supertuxkart::description
-msgid "Gokart racing game starring Tux, the linux penguin "
+msgid "Super Tux Kart is a gokart racing game starring Tux, the linux penguin."
 msgstr ""
 
 #: applications/games/tomatoes::summary
-msgid "Tomatoes game"
+msgid "Tomato smash game"
 msgstr ""
 
 #: applications/games/tomatoes::description
-msgid "How many tomatoes can you smash in ten short minutes ?"
+msgid "How many tomatoes can you smash in ten short minutes?"
 msgstr ""
 
 #: applications/games/ppracer::summary
@@ -7042,23 +7288,23 @@ msgid "Penguin race on ice"
 msgstr ""
 
 #: applications/games/ppracer::description
-msgid "You race against time on ice, while collecting fish trying to finish courses"
+msgid "Planet Penguin Racer is a race against time on ice, while collecting fish trying to finish courses."
 msgstr ""
 
 #: applications/games/fish-fillets-data::summary
-msgid "Fillets data"
-msgstr ""
-
-#: applications/games/fish-fillets-data::description
 msgid "Fish Fillets NG data files"
 msgstr ""
 
+#: applications/games/fish-fillets-data::description
+msgid "Contains Fish Fillets NG data files."
+msgstr ""
+
 #: applications/games/tomatoes-data::summary
-msgid "Tomatoes data"
+msgid "Tomatoes data files"
 msgstr ""
 
 #: applications/games/tomatoes-data::description
-msgid "Data files for I Have No Tomatoes game"
+msgid "Contains the data files of the Tomatoes game."
 msgstr ""
 
 #: applications/games/ufoai::summary
@@ -7066,7 +7312,7 @@ msgid "Strategy game against hostile aliens"
 msgstr ""
 
 #: applications/games/ufoai::description
-msgid " UFO: ALIEN INVASION is a strategy game featuring tactical combat against hostile alien forces which are about to infiltrate earth at this very moment. You are in command of a small special unit which has been founded to face the alien strike force. To be successful on the long run, you will also have to have a research team study the aliens and their technologies in order to learn as much as possible about their technology, their goals and the aliens themselves."
+msgid "UFO: ALIEN INVASION is a strategy game featuring tactical combat against hostile alien forces which are about to infiltrate earth at this very moment. You are in command of a small special unit which has been founded to face the alien strike force. To be successful on the long run, you will also have to have a research team study the aliens and their technologies in order to learn as much as possible about their technology, their goals and the aliens themselves. A total remake of the famous X-COM game known with different names.."
 msgstr ""
 
 #: applications/games/ufoai-data::summary
@@ -7074,7 +7320,7 @@ msgid "Data files for UFO:AI"
 msgstr ""
 
 #: applications/games/ufoai-data::description
-msgid "UFO: ALIEN INVASION is a strategy game featuring tactical combat against hostile alien forces which are about to infiltrate earth at this very moment."
+msgid "Contains the data files of the UFO:AI game."
 msgstr ""
 
 #: applications/games/armagetronad-moviepack::summary
@@ -7082,7 +7328,7 @@ msgid "Armagetron AD moviepack"
 msgstr ""
 
 #: applications/games/armagetronad-moviepack::description
-msgid "Armagetron Advanced extra data package to add support for movie alike objects"
+msgid "Armagetron Advanced extra data package to add support for movie alike objects."
 msgstr ""
 
 #: applications/games/warsow-data::summary
@@ -7090,7 +7336,7 @@ msgid "Warsow data"
 msgstr ""
 
 #: applications/games/warsow-data::description
-msgid "Data files for warsow game"
+msgid "Contains data files for Warsow game."
 msgstr ""
 
 #: applications/games/flightgear-data-base::summary
@@ -7098,7 +7344,7 @@ msgid "Flightgear data files"
 msgstr ""
 
 #: applications/games/flightgear-data-base::description
-msgid "Base data files for Flightgear simulator. You can also install additional data files, including the 3 DVD sized world map from the original website"
+msgid "Contains base data files for Flightgear simulator. You can also install additional data files, including the 3 DVD sized world map from the original website"
 msgstr ""
 
 #: applications/games/gltron::summary
@@ -7106,15 +7352,15 @@ msgid "3D Tron game"
 msgstr ""
 
 #: applications/games/gltron::description
-msgid "3D racing game with the style of one of the early sci-fi movies, Tron"
+msgid "GLTron is a 3D racing game with the style of one of the early sci-fi movie Tron."
 msgstr ""
 
 #: applications/games/queen::summary
-msgid "Flight of the Amazon Queen"
+msgid "Adaventure game Flight of the Amazon Queen"
 msgstr ""
 
 #: applications/games/queen::description
-msgid "2D point-and-click adventure game set in the 1940"
+msgid "Flight of the Amazon Queen is a 2D point-and-click adventure game set in the 1940."
 msgstr ""
 
 #: applications/games/armagetronad-moviesounds::summary
@@ -7122,7 +7368,7 @@ msgid "Armagetron AD sound package"
 msgstr ""
 
 #: applications/games/armagetronad-moviesounds::description
-msgid "Armagetron Advanced extra data package to add support for movie sounds"
+msgid "Armagetron Advanced extra data package to add support for movie sounds."
 msgstr ""
 
 #: applications/games/monsterz::summary
@@ -7130,7 +7376,7 @@ msgid "Bejewelled like game"
 msgstr ""
 
 #: applications/games/monsterz::description
-msgid "Monsterz is a little arcade puzzle game, similar to the famous Bejeweled or Zookeeper. The aim of the game is to put similiar monsterz in a row or column"
+msgid "Monsterz is a little arcade puzzle game, similar to the famous Bejeweled or Zookeeper. The aim of the game is to put similar monsterz in a row or column of three or more."
 msgstr ""
 
 #: applications/games/warsow::summary
@@ -7138,7 +7384,7 @@ msgid "Multiplayer FPS"
 msgstr ""
 
 #: applications/games/warsow::description
-msgid "Multiplayer FPS based on the QFusion engine (evolved from Quake 2)"
+msgid "Warsow is a multiplayer FPS based on the QFusion engine (evolved from Quake 2)."
 msgstr ""
 
 #: applications/games/warzone2100::summary
@@ -7146,7 +7392,7 @@ msgid "3D realtime strategy"
 msgstr ""
 
 #: applications/games/warzone2100::description
-msgid "Warzone 2100 is a real-time strategy game, developed by Pumpkin Studios and published by Eidos Interactive. Although comparable to Earth 2150 in many significant respects, it does contain aspects that are unique. These include various radar technologies, a greater focus on artillery and counter-battery technologies, more frequent in-game cinematic updates as gameplay progress, as well as a different vehicle design method. It was released in 1999 for both PC and Playstation. It's suggested to set display depth to 24bit"
+msgid "Warzone 2100 is a real-time strategy game developed by Pumpkin Studios and published by Eidos Interactive. Although comparable to Earth 2150 in many significant respects, it does contain aspects that are unique. These include various radar technologies, a greater focus on artillery and counter-battery technologies, more frequent in-game cinematic updates as gameplay progresses, and a different vehicle design method. It was released in 1999 for both PC and Playstation. It's suggested to set display depth to 24bit."
 msgstr ""
 
 #: applications/games/nogravity-data::summary
@@ -7154,7 +7400,7 @@ msgid "Nogravity data"
 msgstr ""
 
 #: applications/games/nogravity-data::description
-msgid "Nogravity verileri"
+msgid "Contains Nogravity data files"
 msgstr ""
 
 #: applications/games/fish-fillets::summary
@@ -7162,7 +7408,7 @@ msgid "Puzzle game"
 msgstr ""
 
 #: applications/games/fish-fillets::description
-msgid "Next generation of Fish Fillets Underwater puzzle game. Find your way out ! You can toggle fullscreen with the F11 key"
+msgid "Next generation of Fish Fillets Underwater puzzle game. Find your way out! You can toggle fullscreen with the F11 key."
 msgstr ""
 
 #: applications/games/trackballs-music::summary
@@ -7170,7 +7416,7 @@ msgid "Trackballs music files"
 msgstr ""
 
 #: applications/games/trackballs-music::description
-msgid "Music files for Trackballs in OGG format"
+msgid "Contains music files for Trackballs in OGG format."
 msgstr ""
 
 #: applications/games/pathological::summary
@@ -7178,7 +7424,7 @@ msgid "Clone of the game \"Logical\" by Rainbow Arts"
 msgstr ""
 
 #: applications/games/pathological::description
-msgid "Clone of the game \"Logical\" by Rainbow Arts. To solve a level, fill each wheel with four marbles of matching color. Various board elements such as teleporters, switches, filters, etc., make the game interesting and challenging. New levels can be created using your favorite text editor."
+msgid "Path-o-Logical is a clone of the game \"Logical\" by Rainbow Arts. To solve a level, fill each wheel with four marbles of matching color. Various board elements such as teleporters, switches, filters, etc., make the game interesting and challenging. New levels can be created using your favorite text editor."
 msgstr ""
 
 #: applications/games/flightgear::summary
@@ -7186,7 +7432,7 @@ msgid "Opensource flight simulator"
 msgstr ""
 
 #: applications/games/flightgear::description
-msgid "Opensource multiplatform flight simulator project"
+msgid "FlightGear is an opensource multiplatform flight simulator project."
 msgstr ""
 
 #: applications/games/abe::summary
@@ -7202,7 +7448,7 @@ msgid "Nexuiz data"
 msgstr ""
 
 #: applications/games/nexuiz-data::description
-msgid "Data files for Nexuiz"
+msgid "Contains data files for Nexuiz."
 msgstr ""
 
 #: applications/games/nexuiz::summary
@@ -7210,7 +7456,7 @@ msgid "Deathmatch FPS"
 msgstr ""
 
 #: applications/games/nexuiz::description
-msgid "Deathmatch FPS based on Darkplaces, and advanced Quake1 engine"
+msgid "Nexuiz is a deathmatch first person shooter game based on Darkplaces, and advanced Quake1 engine."
 msgstr ""
 
 #: applications/games/pytraffic::summary
@@ -7234,7 +7480,7 @@ msgid "Realtime strategy game"
 msgstr ""
 
 #: applications/games/glob2::description
-msgid "Command the brave army of globs in a realtime strategy game, where units can be automatically assigned to tasks."
+msgid "In Globulation 2, you command the brave army of globs in a realtime strategy game, where units can be automatically assigned to tasks."
 msgstr ""
 
 #: applications/games/Ri-li::summary
@@ -7242,7 +7488,7 @@ msgid "Chu chu chuu"
 msgstr ""
 
 #: applications/games/Ri-li::description
-msgid "Drive the toy to find all the coaches to finish the levels"
+msgid "Drive the toy to find all the coaches to finish the levels."
 msgstr ""
 
 #: applications/games/sdljump::summary
@@ -7254,19 +7500,19 @@ msgid "SDLjump is a clone of the simple yet addictive game Xjump, adding new fea
 msgstr ""
 
 #: applications/games/loosecannon::summary
-msgid "Space adventure"
+msgid "3D space adventure"
 msgstr ""
 
 #: applications/games/loosecannon::description
-msgid "3D space action adventure game where you are stuck in your ship, cleaning out the aliens in randomly generated levels."
+msgid "LooseCannon is a 3D space action adventure game in which you are stuck in your ship, cleaning out the aliens in randomly generated levels."
 msgstr ""
 
 #: applications/games/tremulous::summary
-msgid "Team based FPS"
+msgid "Team FPS"
 msgstr ""
 
 #: applications/games/tremulous::description
-msgid "Team based FPS with elements of strategy based on advanced Quake3 engine"
+msgid "Tremulous is a team FPS with elements of strategy based on the advanced Quake3 engine."
 msgstr ""
 
 #: applications/games/dangerdeep-data::summary
@@ -7274,7 +7520,7 @@ msgid "Dangerdeep data"
 msgstr ""
 
 #: applications/games/dangerdeep-data::description
-msgid "Data files for dangerdeep"
+msgid "Contains data files for DangerDeep."
 msgstr ""
 
 #: applications/games/tremulous-data::summary
@@ -7282,15 +7528,15 @@ msgid "Tremulous data"
 msgstr ""
 
 #: applications/games/tremulous-data::description
-msgid "Data files for tremulous"
+msgid "Contains data files for tremulous."
 msgstr ""
 
 #: applications/games/magicor-data::summary
-msgid "Magicor data"
+msgid "Magicor data files"
 msgstr ""
 
 #: applications/games/magicor-data::description
-msgid "Data files for Magicor"
+msgid "Contains data files needed by Magicor."
 msgstr ""
 
 #: applications/games/vdrift::summary
@@ -7298,7 +7544,7 @@ msgid "Driving simulation"
 msgstr ""
 
 #: applications/games/vdrift::description
-msgid "A driving simulation with drift racing in mind"
+msgid "VDrift is a driving simulation game with drift racing in mind."
 msgstr ""
 
 #: applications/games/vdrift-data-full::summary
@@ -7306,7 +7552,7 @@ msgid "Vdrift data"
 msgstr ""
 
 #: applications/games/vdrift-data-full::description
-msgid "Vdrift data files"
+msgid "Contains Vdrift data files."
 msgstr ""
 
 #: applications/games/kiki-extra::summary
@@ -7314,7 +7560,7 @@ msgid "Kiki extras"
 msgstr ""
 
 #: applications/games/kiki-extra::description
-msgid "Additional files for kiki, like title song."
+msgid "Contains additional files for kiki, like title song."
 msgstr ""
 
 #: applications/games/torcs::summary
@@ -7338,15 +7584,15 @@ msgid "Logic-based placement puzzle"
 msgstr ""
 
 #: applications/games/ksudoku::description
-msgid "Sudoku, sometimes spelled Su Doku, is a logic-based placement puzzle"
+msgid "Sudoku, originally named Su Doku, is a logic-based placement puzzle. KSudoku is a Su Doku game with advanced options."
 msgstr ""
 
 #: applications/games/boson::summary
-msgid "Realtime strategy"
+msgid "a realtime strategy game"
 msgstr ""
 
 #: applications/games/boson::description
-msgid "Boson is an OpenGL real-time strategy game. It is designed to run on Unix (Linux) computers, and is built on top of the KDE and Qt libraries"
+msgid "Boson is an OpenGL real-time strategy game. It is built on top of the KDE and Qt libraries."
 msgstr ""
 
 #: applications/games/kiki::summary
@@ -7354,23 +7600,23 @@ msgid "3D puzzle game"
 msgstr "3D Puzzlespiel"
 
 #: applications/games/kiki::description
-msgid "A mixture of Sokoban and Kula-World in 3D. You control a nano bot to repair the botmaker, who has gone crazy beacuse of a parazite."
+msgid "A mixture of Sokoban and Kula-World in 3D. You control a nanobot to repair the botmaker, who has gone crazy beacuse of a parasite."
 msgstr ""
 
 #: applications/games/freecol::summary
-msgid "Colonization Clone Strategy Game"
+msgid "Colonization clone strategy game"
 msgstr ""
 
 #: applications/games/freecol::description
-msgid "Game starts in 1492 and the object of the game is to colonize, build a powerful nation, declare your independence and survive the attack of the King's forces."
+msgid "Game starts in 1492 and the object of the game is to colonize America , build a powerful nation, declare your independence and survive the attack of the King's forces."
 msgstr ""
 
-#: applications/games/alienarena2007-data::summary
-msgid "Alien Arena 2007 data package"
+#: applications/games/alienarena::summary
+msgid "A standalone 3D first person shooter game"
 msgstr ""
 
-#: applications/games/alienarena2007-data::description
-msgid "Data Files for Alien Arena 2007"
+#: applications/games/alienarena::description
+msgid "Alien Arena 2008 is a standalone 3D first person online deathmatch shooter crafted from the original source code of  Quake II and Quake III."
 msgstr ""
 
 #: applications/games/boswars::summary
@@ -7386,7 +7632,7 @@ msgid "3D tank battle (OpenGL)"
 msgstr ""
 
 #: applications/games/scorched3d::description
-msgid "Multiplayer tank battle in 3D (OpenGL)"
+msgid "Scorched 3D is a multiplayer tank battle in 3D (requires OpenGL)."
 msgstr ""
 
 #: applications/games/xmoto-edit::summary
@@ -7394,15 +7640,23 @@ msgid "X-moto editor"
 msgstr ""
 
 #: applications/games/xmoto-edit::description
-msgid "Level editor for X-moto game"
+msgid "xmoto-edit is the level editor for X-moto game."
 msgstr ""
 
 #: applications/games/uqm-voice::summary
 msgid "Voice files for The Ur-Quan Masters"
 msgstr ""
 
+#: applications/games/uqm-voice::description
+msgid "Contains voice files (speeches) for Ur-Quan Masters."
+msgstr ""
+
 #: applications/games/blobby::summary
-msgid "Blobby Volley is one of the most popular volleyball game"
+msgid "A pretty popular volleyball games"
+msgstr ""
+
+#: applications/games/blobby::description
+msgid "Blobby Volley is a very popular and simple to play volleyball game."
 msgstr ""
 
 #: applications/games/openarena-data::summary
@@ -7410,7 +7664,7 @@ msgid "Openarena data"
 msgstr ""
 
 #: applications/games/openarena-data::description
-msgid "Data files for Openarena."
+msgid "Contains data files for Openarena."
 msgstr ""
 
 #: applications/games/nexuiz-mappack::summary
@@ -7418,7 +7672,7 @@ msgid "Extra maps for Nexuiz"
 msgstr ""
 
 #: applications/games/nexuiz-mappack::description
-msgid "Community map pack compiled by Strahlemann for Nexuiz."
+msgid "Contains community map pack compiled by Strahlemann for Nexuiz."
 msgstr ""
 
 #: applications/games/crystalspace:crystalspace-doc:summary
@@ -7430,7 +7684,11 @@ msgid "Additional documentation for Crystalspace"
 msgstr ""
 
 #: applications/games/crystalspace::summary
-msgid "Portable 3D Game Development Kit written in C++"
+msgid "Portable 3D game development kit"
+msgstr ""
+
+#: applications/games/crystalspace::description
+msgid "Crystal Space is a software development kit written in C++ for realtime 3D graphics."
 msgstr ""
 
 #: applications/games/uqm::summary
@@ -7442,15 +7700,19 @@ msgid "The Ur-Quan Masters, sometimes referred to as UQM, is a port of Star Cont
 msgstr ""
 
 #: applications/games/trigger::summary
-msgid "Rally Car racing game"
+msgid "Rally car racing game"
 msgstr ""
 
 #: applications/games/trigger::description
-msgid "Free OpenGL rally car racing game."
+msgid "Trigger is an OpenGL rally car racing game."
 msgstr ""
 
 #: applications/games/WoP::summary
-msgid "Quake Arena3 fun mod"
+msgid "World of PadMan"
+msgstr ""
+
+#: applications/games/WoP::description
+msgid "World of PadMan is a Quake3 Arena mod with fancy graphics."
 msgstr ""
 
 #: applications/games/AssaultCube-maps::summary
@@ -7458,7 +7720,7 @@ msgid "AssaultCube maps"
 msgstr ""
 
 #: applications/games/AssaultCube-maps::description
-msgid "Extra maps for AssaultCube."
+msgid "Contains extra maps for AssaultCube."
 msgstr ""
 
 #: applications/games/trigger-data::summary
@@ -7466,7 +7728,7 @@ msgid "Data files for Trigger"
 msgstr ""
 
 #: applications/games/trigger-data::description
-msgid "Data files for OpenGL rally car racing game, Trigger."
+msgid "Contains the data files for the OpenGL rally car racing game Trigger."
 msgstr ""
 
 #: applications/games/AssaultCube::summary
@@ -7490,7 +7752,7 @@ msgid "WoP extra maps"
 msgstr ""
 
 #: applications/games/WoP-padpack::description
-msgid "Extra maps for World of Padman"
+msgid "Contains extra maps for World of Padman."
 msgstr ""
 
 #: applications/games/scourge::summary
@@ -7501,20 +7763,28 @@ msgstr ""
 msgid "S.C.O.U.R.G.E. is a rogue-like game in the fine tradition of NetHack and Moria. It sports a graphical front-end, similar to glHack or the Falcon's eye."
 msgstr ""
 
-#: applications/games/alienarena2007::summary
-msgid "A standalone 3D first person shooter game"
-msgstr ""
+#: applications/games/abuse::summary
+msgid "Abuse"
+msgstr "Abuse"
 
-#: applications/games/alienarena2007::description
-msgid "Alien Arena 2007 is a standalone 3D first person online deathmatch shooter crafted from the original source code of  Quake II and Quake III"
+#: applications/games/abuse::description
+msgid "Abuse-SDL is a port of the original Abuse game by Crack Dot Com to Linux using the Simple DirectMedia Layer library. This allows Abuse to run at screen depths greater than 8bpp as well as fullscreen."
 msgstr ""
 
 #: applications/games/uqm_3domusic::summary
 msgid "Music files for The Ur-Quan Masters"
 msgstr ""
 
+#: applications/games/uqm_3domusic::description
+msgid "Contains 3DO music files for Ur-Quan Masters."
+msgstr ""
+
 #: applications/games/uqm-content::summary
 msgid "Content files for The Ur-Quan Masters"
+msgstr ""
+
+#: applications/games/uqm-content::description
+msgid "Contains main data files of Ur-Quan Masters."
 msgstr ""
 
 #: applications/games/scourge-data::summary
@@ -7526,11 +7796,19 @@ msgid "Game play data files including sounds, maps, etc. for Scourge"
 msgstr ""
 
 #: applications/games/gnuchess-book::summary
-msgid "Opening book for gnuchess"
+msgid "Opening book for GNU Chess"
+msgstr ""
+
+#: applications/games/gnuchess-book::description
+msgid "Contains opening book (set of movesets to be played at the beginning of the game) for GNU Chess."
 msgstr ""
 
 #: applications/games/openarena::summary
-msgid "Open-source replacement content for Quake 3 Arena, effectively creating a free stand-alone game"
+msgid "Quake 3 Arena replacement"
+msgstr ""
+
+#: applications/games/openarena::description
+msgid "OpenArena is an opensource replacement for Quake 3 Arena, effectively creating a free stand-alone game."
 msgstr ""
 
 #: applications/games/WoP-data::summary
@@ -7538,7 +7816,7 @@ msgid "WoP data files"
 msgstr ""
 
 #: applications/games/WoP-data::description
-msgid "Data files for World of Padman"
+msgid "Contains data files for World of Padman."
 msgstr ""
 
 #: applications/games/lincity-ng::summary
@@ -7570,7 +7848,7 @@ msgid "StepMania data package"
 msgstr ""
 
 #: applications/games/StepMania-data::description
-msgid "Data files for dance and rhythm game StepMania"
+msgid "Contains data files for dance and rhythm game StepMania."
 msgstr ""
 
 #: applications/games/eternal-lands::summary
@@ -7578,11 +7856,15 @@ msgid "Eternal Lands MMORPG"
 msgstr ""
 
 #: applications/games/eternal-lands::description
-msgid "Eternal Lands is a free MMORPG (massively multiplayer online role playing game)"
+msgid "Eternal Lands is a free MMORPG (massively multiplayer online role playing game)."
 msgstr ""
 
 #: applications/games/eternal-lands-music::summary
-msgid "Eternal Lands Music Files"
+msgid "Eternal Lands music files"
+msgstr ""
+
+#: applications/games/eternal-lands-music::description
+msgid "Contains music files for Eternal Lands."
 msgstr ""
 
 #: applications/games/StepMania::summary
@@ -7598,7 +7880,7 @@ msgid "StepMania StepMix1 song pack"
 msgstr ""
 
 #: applications/games/StepMania-stepmix1::description
-msgid "This packages contains the songs from the StepMania StepMix1 contest"
+msgid "This packages contains the songs from the StepMania StepMix1 contest."
 msgstr ""
 
 #: applications/games/eternal-lands-data::summary
@@ -7606,7 +7888,7 @@ msgid "Eternal Lands data package"
 msgstr ""
 
 #: applications/games/eternal-lands-data::description
-msgid "Data Files for Eternal Lands"
+msgid "Contains data files for Eternal Lands."
 msgstr ""
 
 #: applications/games/daimonin-music::summary
@@ -7614,15 +7896,15 @@ msgid "Daimonin music package"
 msgstr ""
 
 #: applications/games/daimonin-music::description
-msgid "Music files for online role playing game Daimonin"
+msgid "Contains music files for online role playing game Daimonin."
 msgstr ""
 
 #: applications/games/daimonin::summary
-msgid "Daimonin is a online role playing game (MMORPG)."
+msgid "A massive multiplayer online roleplaying game (MMORPG)"
 msgstr ""
 
 #: applications/games/daimonin::description
-msgid "Daimonin - graphical 2d tile-based MMORPG with true color and mp3 sound."
+msgid "Daimonin is a graphical 2d tile-based massive multiplayer online role-playing game (MMORPG) with true color and mp3 sound."
 msgstr ""
 
 #: applications/games/westernquake3::summary
@@ -7630,7 +7912,7 @@ msgid "A realistic simulation of the \"Old West's\" great atmosphere"
 msgstr ""
 
 #: applications/games/westernquake3::description
-msgid "WesternQuake3 is intended to be a realistic simulation of the \"Old West's\" great atmosphere. It is being developed on id Software's Quake3 Arena Engine"
+msgid "WesternQuake3 is intended to be a realistic simulation of the \"Old West's\" great atmosphere. It is being developed on top of id Software's Quake3 Arena engine."
 msgstr ""
 
 #: applications/games/cdogs-sdl::summary
@@ -7638,7 +7920,7 @@ msgid "Arcade shoot-em-up with single and multiplayer modes"
 msgstr ""
 
 #: applications/games/cdogs-sdl::description
-msgid "C-Dogs is an arcade shoot-em-up which lets players work alone and co-operativly during missions, and against each other in the \"dogfight\" deathmatch mode."
+msgid "C-Dogs is an arcade shoot-em-up which lets players work alone and co-operatively during missions, and against each other in the \"dogfight\" deathmatch mode."
 msgstr ""
 
 #: applications/games/cdogs-sdl-data::summary
@@ -7654,27 +7936,27 @@ msgid "WesternQuake3 data"
 msgstr ""
 
 #: applications/games/westernquake3-data::description
-msgid "Data files for WesternQuake3"
+msgid "Contains data files for WesternQuake3."
 msgstr ""
 
 #: applications/games/tecnoballz::summary
-msgid "An exciting Brick Breaker with 50 levels of game and 11 special levels."
+msgid "A brick breaker game"
 msgstr ""
 
 #: applications/games/tecnoballz::description
-msgid "TecnoballZ gives the player a sophisticated system of attack weapons with an enormous power of fire that can be build by gaining bonuses. Numerous decors, musics and sounds complete this great game."
+msgid "TechnoballZ is an exciting brick breaker game with 50 levels and 11 special levels. TecnoballZ gives the player a sophisticated system of attack weapons with an enormous power of fire that can be built by collection bonuses. Numerous decors, musics and sounds complete this great game."
 msgstr ""
 
 #: applications/games/blockout2::summary
-msgid "3D Blockout Game"
+msgid "3D Tetris Game"
 msgstr ""
 
 #: applications/games/blockout2::description
-msgid "Free adaptation of the original BlockOut DOS game edited by California Dreams in 1989. BlockOut II has the same features than the original game with few graphic improvements. The score calculation is also nearly similar to the original game. BlockOut II has been designed by an addicted player for addicted players."
+msgid "Blockout2 is a free adaptation of the original BlockOut DOS game edited by California Dreams in 1989. BlockOut II has the same features of the original game with few graphic improvements. The score calculation is also nearly similar to the original game. BlockOut II has been designed by an addicted player for addicted players."
 msgstr ""
 
 #: applications/games/widelands::summary
-msgid "An open source (GPLed) real-time strategy game"
+msgid "A clone of Settlers RTS"
 msgstr ""
 
 #: applications/games/widelands::description
@@ -7686,15 +7968,23 @@ msgid "Remake of the MSX Goonies game"
 msgstr ""
 
 #: applications/games/goonies::description
-msgid "This remake of the movie game has the same simple gameplay as the original but with modern and of quality graphics and musics. You are Sloth and must rescue each one of the 7 goonies to finish a level, but the Fratelli brothers and the various other enemies do not want you to succeed. Various bonuses will help you along the way."
+msgid "This remake of the movie game has the same simple gameplay as the original but with modern and of quality graphics and music. You are Sloth and must rescue each one of the 7 goonies to finish a level, but the Fratelli brothers and the various other enemies do not want you to succeed. Various bonuses will help you along the way."
 msgstr ""
 
 #: applications/games/AstroMenace-data::summary
 msgid "Data package for AstroMenace"
 msgstr ""
 
+#: applications/games/AstroMenace-data::description
+msgid "Contains data files of AstroMenace"
+msgstr ""
+
 #: applications/games/memonix-data::summary
 msgid "Data package for Memonix"
+msgstr ""
+
+#: applications/games/memonix-data::description
+msgid "Contains data files needed by Memonix."
 msgstr ""
 
 #: applications/games/stormbaancoureur::summary
@@ -7702,15 +7992,19 @@ msgid "Stormbaan Coureur - Assault Course Driver"
 msgstr ""
 
 #: applications/games/stormbaancoureur::description
-msgid " Stormbaan Coureur is the Linux game that was formerly known as Sturmbahnfahrer. It is all about the car Physics. If you want to master it, try to have the laws of physics work with you, not against you."
+msgid " Stormbaan Coureur is the game formerly known as Sturmbahnfahrer. It is all about car physics. If you want to master it, try to have the laws of physics work with you, not against you."
 msgstr ""
 
 #: applications/games/simutrans-food::summary
 msgid "Supermarket chain data package for Simutrans"
 msgstr ""
 
+#: applications/games/simutrans-food::description
+msgid "simutrans-food contains data files to enable supermarket chains in-game."
+msgstr ""
+
 #: applications/games/simutrans::summary
-msgid "A freeware transportation simulator"
+msgid "A transportation simulator"
 msgstr ""
 
 #: applications/games/simutrans::description
@@ -7718,19 +8012,27 @@ msgid "You take on the role of operating a transportation company, and your goal
 msgstr ""
 
 #: applications/games/liquidwar::summary
-msgid "Multiplayer wargame based on liquids"
+msgid "Multiplayer wargame of liquids"
 msgstr ""
 
 #: applications/games/liquidwar::description
-msgid "You have to control an army formed with thousands of pixels which look like liquid, and try and eat your opponent. Up to 6 people can play on a single machine, but internet play is also possible."
+msgid "You have to control an army formed with thousands of liquid-like pixels, and try and eat your opponent. Up to 6 people can play on a single machine, but internet play is also possible."
 msgstr ""
 
 #: applications/games/AstroMenace::summary
-msgid "Hardcore 3D space shooter with spaceship upgrade possibilities."
+msgid "A 3D space shooter with ship upgrade possibilities"
+msgstr ""
+
+#: applications/games/AstroMenace::description
+msgid "AstroMenace is a 3D space shooter with spaceship upgrade possibilities."
 msgstr ""
 
 #: applications/games/simutrans-waste::summary
 msgid "Waste chain data package for Simutrans"
+msgstr ""
+
+#: applications/games/simutrans-waste::description
+msgid "simutrans-waste contains data files to enable waste chains in-game."
 msgstr ""
 
 #: applications/games/opencity::summary
@@ -7742,11 +8044,19 @@ msgid "OpenCity is a city simulator game project written in standard C++ with Op
 msgstr ""
 
 #: applications/games/memonix::summary
-msgid "Brain teasers, puzzle and memory games in one pack"
+msgid "Contains brain teasers, puzzle and memory games."
+msgstr ""
+
+#: applications/games/memonix::description
+msgid "Contains Mosaic (create the same placement of the shapes), Builder (like Mosaic, except you are building a house), Pair (find pairs), and JigSaw (place parts of the picture to recreate the picture), a gamepack for kids."
 msgstr ""
 
 #: applications/games/urbanterror::summary
-msgid "Urban Terror game using Quake3 engine"
+msgid "Urban Terror"
+msgstr ""
+
+#: applications/games/urbanterror::description
+msgid "Urban Terror is a multiplayer first person shooter, and a good one at it!"
 msgstr ""
 
 #: applications/games/amoebax::summary
@@ -7754,23 +8064,39 @@ msgid "A cute and addictive action-puzzle game"
 msgstr ""
 
 #: applications/games/amoebax::description
-msgid "Due an awful mutation, some amoeba's species have started to multiply until they take the world if you can't stop them. Fortunately the mutation made then too unstable and lining up four or more will make them disappear."
+msgid "Due to an awful mutation, some amoeba's have started to multiply and they will take hold of the world if you can't stop them. Fortunately the mutation made them too unstable and lining up four or more will kill them."
 msgstr ""
 
 #: applications/games/simutrans-base::summary
-msgid "Base package for Simutrans in order to be able to play the game."
+msgid "SimuTrans base data"
+msgstr ""
+
+#: applications/games/simutrans-base::description
+msgid "Contains base data for the SimuTrans game."
 msgstr ""
 
 #: applications/games/urbanterror-data::summary
 msgid "Urban Terror data package"
 msgstr ""
 
+#: applications/games/urbanterror-data::description
+msgid "Contains main data files for Urt (Urban Terror)."
+msgstr ""
+
 #: applications/games/ioPaintball-data::summary
-msgid "Data package for stand alone version ioPaintball"
+msgid "Data package for ioPaintball"
+msgstr ""
+
+#: applications/games/ioPaintball-data::description
+msgid "Contains the data files needed by ioPaintball."
 msgstr ""
 
 #: applications/games/ioPaintball::summary
-msgid "Stand alone version of the original Q3PB (Quake3 Paintball) mod for Quake3"
+msgid "Standalone version of the original Q3PB (Quake3 Paintball) mod for Quake3"
+msgstr ""
+
+#: applications/games/ioPaintball::description
+msgid "ioPaintball is a standalone game (not a mod) based on the Q3PB (Quake3 Paintball) mod for Quake3."
 msgstr ""
 
 #: applications/games/funguloids::summary
@@ -7778,7 +8104,7 @@ msgid "Those Funny Funguloids"
 msgstr ""
 
 #: applications/games/funguloids::description
-msgid "Never before has collecting mushrooms been this mildly entertaining. At least not in outer space. It's more of a lifestyle than a game, really. Now with graphics and sound, too!"
+msgid "Never before has collecting mushrooms been this mildly entertaining. At least not in outer space. It's more of a lifestyle than a game, really."
 msgstr ""
 
 #: applications/games/smc-music::summary
@@ -7802,15 +8128,15 @@ msgid "A utility to set the framebuffer videomode"
 msgstr ""
 
 #: applications/hardware/fbset::description
-msgid "Fbset is a system utility to show or change the settings of the frame buffer device that provides a simple and unique interface to access different kinds of graphic displays."
+msgid "Fbset is a system utility to show or change the settings of the framebuffer device that provides a simple and unique interface to access different kinds of graphics displays."
 msgstr ""
 
 #: applications/hardware/gpm::summary
-msgid "Console-based mouse driver"
+msgid "Console mouse driver"
 msgstr ""
 
 #: applications/hardware/gpm::description
-msgid "GPM means general purpose mouse and is the mouse support for linux in the console."
+msgid "GPM (short for General Purpose Mouse) brings mouse support to TTYs."
 msgstr ""
 
 #: applications/hardware/libsynaptics::summary
@@ -7818,7 +8144,7 @@ msgid "Library for synaptics drivers"
 msgstr ""
 
 #: applications/hardware/libsynaptics::description
-msgid "Library for synaptics drivers."
+msgid "Contains synaptics drivers library."
 msgstr ""
 
 #: applications/hardware/qtparted::summary
@@ -7830,7 +8156,7 @@ msgid "QTParted is a Partition Magic clone written in C++ using the Qt toolkit."
 msgstr ""
 
 #: applications/hardware/uhinv::summary
-msgid "Universal Hardware Inventory Tool, uhinv displays operating system and hardware info"
+msgid "Universal Hardware Inventory Tool"
 msgstr ""
 
 #: applications/hardware/uhinv::description
@@ -7842,15 +8168,23 @@ msgid "A command to eject a disc from the CD-ROM drive"
 msgstr ""
 
 #: applications/hardware/eject::description
-msgid "Eject allows removable media (typically a CD-ROM, floppy disk, tape, or JAZ or ZIP disk) to be ejected under software control. The command can also control some multi-disc CD-ROM changers, the auto-eject feature supported by some devices, and close the disc tray of some CD-ROM drives."
+msgid "Eject allows removable media (typically a CD/DVD-ROM/R/RW, floppy disk, tape, or JAZ or ZIP disk) to be ejected with software control. The command can also control some multi-disc CD-ROM changers, the auto-eject feature supported by some devices, and can close the disc tray of some CD/DVD-ROM/R/RW drives."
 msgstr ""
 
 #: applications/hardware/setserial::summary
-msgid "Configure your serial ports with it"
+msgid "Serial port configuration tool"
 msgstr ""
 
 #: applications/hardware/setserial::description
 msgid "Setserial is a program designed to set and/or report the configuration information associated with a serial port."
+msgstr ""
+
+#: applications/hardware/cwiid::summary
+msgid "Nintendo Wiimote driver"
+msgstr ""
+
+#: applications/hardware/cwiid::description
+msgid "Contains the library, input driver and utilities for the Nintendo Wiimote controller."
 msgstr ""
 
 #: applications/hardware/irda-utils::summary
@@ -7858,27 +8192,39 @@ msgid "IrDA utilities for infrared communication"
 msgstr ""
 
 #: applications/hardware/irda-utils::description
-msgid "Package which control IrDA (Infrared Data Association) stack and a bunch of little programs serving as examples and tools for IrDA applications."
+msgid "irda-utils contains IrDA (Infrared Data Association) stack control and a bunch of little programs serving as examples and tools for IrDA applications."
 msgstr ""
 
 #: applications/hardware/smartcard/pcsc-lite::summary
 msgid "PC/SC drivers for smart card readers"
 msgstr ""
 
+#: applications/hardware/smartcard/pcsc-lite::description
+msgid "pcsc-lite is middleware to access a smart card using SCard API (PC/SC)."
+msgstr ""
+
 #: applications/hardware/smartcard/opensc::summary
 msgid "Smart card library and applications"
+msgstr ""
+
+#: applications/hardware/smartcard/opensc::description
+msgid "OpenSC provides a set of libraries and utilities to access smart cards. Its main focus is on cards that support cryptographic operations, and facilitate their use in security applications such as mail encryption, authentication, and digital signature. OpenSC implements the PKCS#11 API so applications supporting this API such as Mozilla Firefox and Thunderbird can use it. OpenSC implements the PKCS#15 standard and aims to be compatible with every software that does so, too."
 msgstr ""
 
 #: applications/hardware/smartcard/openct::summary
 msgid "Drivers for smart card readers"
 msgstr ""
 
+#: applications/hardware/smartcard/openct::description
+msgid "Contains drivers for several smart card readers. See their homepage for a list."
+msgstr ""
+
 #: applications/hardware/sane-backends::summary
-msgid "Scanner Access Now Easy - Backends"
+msgid "SANE Backends"
 msgstr ""
 
 #: applications/hardware/sane-backends::description
-msgid "\"Scanner Access Now Easy\" and is an application programming interface (API) that provides standardized access to any raster image scanner hardware."
+msgid "Contains SANE (Scanner Access Now Easy) backend files (communication and rule specifications for specific devices)."
 msgstr ""
 
 #: applications/hardware/microcode-ctl::summary
@@ -7890,39 +8236,51 @@ msgid "The microcode_ctl utility is a companion to the IA32 microcode driver.It 
 msgstr ""
 
 #: applications/hardware/bluez-utils::summary
-msgid "Bluetooth Tools and System Daemons for using Bluetooth under Linux"
+msgid "Bluetooth tools and system daemons for using Bluetooth under Linux"
 msgstr ""
 
 #: applications/hardware/bluez-utils::description
-msgid "The overall goal of this project is to make an implementation of the Bluetooth™ wireless standards specifications for Linux. "
+msgid "Contains BlueZ commandline utitilities to work with Bluetooth wireless."
 msgstr ""
 
 #: applications/hardware/alsa-lib::summary
-msgid "Advanced Linux Sound Architecture Library"
+msgid "ALSA libraries"
+msgstr ""
+
+#: applications/hardware/alsa-lib::description
+msgid "Contains ALSA (Advanced Linux Sound Architecture) library files."
 msgstr ""
 
 #: applications/hardware/alsa-headers::summary
-msgid "Header files for Advanced Linux Sound Architecture kernel modules"
+msgid "Header files for ALSA"
+msgstr ""
+
+#: applications/hardware/alsa-headers::description
+msgid "Contains hardware information for ALSA (Advanced Linux Sound Architecture) kernel modules."
 msgstr ""
 
 #: applications/hardware/fnfx::summary
-msgid "Daemon and client allowing use of Toshiba special keys"
+msgid "Daemon and client allowing use of Toshiba Fn-keys"
 msgstr ""
 
 #: applications/hardware/fnfx::description
-msgid "FnFX enables owners of Toshiba laptops to change the LCD brightness, control, the internal fan and use the special keys on their keyboard. The internal functions will give the possibility to map the Fn-Keys to functions like volume up/down, mute, suspend to disk, suspend to ram and switch LCD/CRT/TV-out."
+msgid "FnFX enables owners of Toshiba laptops to change the LCD brightness, control, the internal fan and use the special keys on their keyboard. The internal functions will give the possibility to map the Fn-Keys to functions like volume up/down, mute, suspend to disk, suspend to RAM and switch LCD/CRT/TV-out."
 msgstr ""
 
 #: applications/hardware/bluez-libs::summary
-msgid "Bluetooth Userspace Libraries"
+msgid "Bluetooth userspace libraries"
 msgstr ""
 
 #: applications/hardware/bluez-libs::description
-msgid "The library for BlueZ makes an implementation of the Bluetooth™ wireless standards specifications for Linux."
+msgid "Contains the library files for BlueZ Bluetooth wireless."
 msgstr ""
 
 #: applications/hardware/alsa-utils::summary
-msgid "Advanced Linux Sound Architecture Utils (alsactl, alsamixer, etc.)"
+msgid "ALSA commandline utitilities"
+msgstr ""
+
+#: applications/hardware/alsa-utils::description
+msgid "ALSA (Advanced Linux Sound Architecture) utilities such as alsactl, and alsamixer."
 msgstr ""
 
 #: applications/hardware/acpica::summary
@@ -7942,51 +8300,71 @@ msgid "GParted is the Gnome Partition Editor application. GParted is an industri
 msgstr ""
 
 #: applications/hardware/smartdimmer::summary
-msgid "LCD brightness tool for NVidia cards with SmartDimmer feature"
+msgid "NVidia SmartDimmer LCD brightness tool"
+msgstr ""
+
+#: applications/hardware/smartdimmer::description
+msgid "smartdimmer is a tool to control LCD brightness in Nvidia cards with SmartDimmer feature."
 msgstr ""
 
 #: applications/hardware/vbetool::summary
-msgid "Run real-mode video BIOS code to alter hardware state (i.e. reinitialize video card)"
+msgid "Alter video hardware state through video BIOS"
 msgstr ""
 
 #: applications/hardware/vbetool::description
-msgid "Real-mode video BIOS code to alter hardware state. Vbetool uses lrmi in order to run code from the video BIOS. It is able to alter DPMS states, save/restore video card state and attempt to initialize the video card from scratch."
+msgid "vbetools is a real-mode video BIOS code to alter hardware state. Vbetool uses lrmi in order to run code from the video BIOS. It is able to alter DPMS states, save/restore video card state and attempt to initialize the video card from scratch."
 msgstr ""
 
 #: applications/hardware/sdparm::summary
-msgid "Utility to output and modify parameters on a SCSI device, like hdparm"
+msgid "Utility to read and write SCSI devices' parameters"
+msgstr ""
+
+#: applications/hardware/sdparm::description
+msgid "sdparm is a utility to output and modify parameters on a SCSI device, like hdparm."
 msgstr ""
 
 #: applications/hardware/sg3_utils::summary
 msgid "Applications for querying the sg SCSI interface"
 msgstr ""
 
+#: applications/hardware/sg3_utils::description
+msgid "The Linux sg driver is a upper level SCSI subsystem device driver that is used primarily to handle devices _not_ covered by the other upper level drivers: sd (disks), st (tapes) and sr (CDROMs and DVDs). The sg driver is used for enclosure management, cd writers, applications that read cd audio digitally and scanners. Sg can also be used for less usual tasks performed on disks, tapes and cdroms. Sg is a character device driver which, in some contexts, gives it some advantages over block device drivers such as sd and sr. The interface of sg is at the level of SCSI command requests and their associated responses."
+msgstr ""
+
 #: applications/hardware/interbench::summary
-msgid " The Linux Interactivity Benchmark"
+msgid "Linux Interactivity Benchmark"
 msgstr ""
 
 #: applications/hardware/interbench::description
-msgid "It is designed to emulate the cpu scheduling behaviour of interactive tasks and measure their scheduling latency and jitter. It does this with the tasks on their own and then in the presence of various background loads, both with configurable nice levels and the benchmarked tasks can be real time."
+msgid "interbench (Linux Interactivity Benchmark) is designed to emulate the cpu scheduling behaviour of interactive tasks and measure their scheduling latency and jitter. It does this with the tasks on their own and then in the presence of various background loads, both with configurable nice levels and with the possibility of the benchmarked tasks being in real time."
 msgstr ""
 
 #: applications/hardware/mdadm::summary
 msgid "A useful tool for running RAID systems"
 msgstr ""
 
+#: applications/hardware/mdadm::description
+msgid "mdadm is an administration application for Linux software RAID."
+msgstr ""
+
 #: applications/hardware/pmtools::summary
-msgid "This is a small collection of power management test and investigation tools"
+msgid "Power management tools"
+msgstr ""
+
+#: applications/hardware/pmtools::description
+msgid "This is a small collection of power management test and investigation tools."
 msgstr ""
 
 #: applications/hardware/lirc-remotes::summary
-msgid "LIRC configs"
+msgid "LIRC configurations"
 msgstr ""
 
 #: applications/hardware/lirc-remotes::description
-msgid "Lots of config files for Infra-Red devices to use with LIRC system"
+msgid "Contains lots of config files for various Infra-Red devices to be used with LIRC system."
 msgstr ""
 
 #: applications/hardware/dmidecode::summary
-msgid "Dmidecode reports information about your system's hardware as described in your system BIOS according to the SMBIOS/DMI standard"
+msgid "System hardware report tool"
 msgstr ""
 
 #: applications/hardware/dmidecode::description
@@ -7997,12 +8375,40 @@ msgstr ""
 msgid "USB firmware uploader"
 msgstr ""
 
+#: applications/hardware/fxload::description
+msgid "fxload is a tool to allow hotplug devices' firmware to be loaded."
+msgstr ""
+
 #: applications/hardware/gnokii::summary
-msgid "User space driver and tools for use with mobile phones"
+msgid "Userspace driver and tools for use with mobile phones"
+msgstr ""
+
+#: applications/hardware/gnokii::description
+msgid "gnokii contains driver and tools to allow regular users connect their cellular phones to their computers."
+msgstr ""
+
+#: applications/hardware/acpi4asus::summary
+msgid "Asus laptops hardware package"
+msgstr ""
+
+#: applications/hardware/acpi4asus::description
+msgid "acpi4asus is not only about ACPI, it is a package for Asus laptops to use all the functionality of their computers such as special keys, special LEDs, and brightness control."
 msgstr ""
 
 #: applications/hardware/alsa-tools::summary
-msgid "Advanced Linux Sound Architecture tools"
+msgid "ALSA tools"
+msgstr ""
+
+#: applications/hardware/alsa-tools::description
+msgid "Contains ALSA (Advanced Linux Sound Architecture) tools."
+msgstr ""
+
+#: applications/hardware/nvidia-settings::summary
+msgid "The NVIDIA X Server Settings tool"
+msgstr ""
+
+#: applications/hardware/nvidia-xconfig::summary
+msgid "The NVIDIA X Configuration Tool"
 msgstr ""
 
 #: applications/tex/chktex::summary
@@ -8094,55 +8500,91 @@ msgid "GNU barcode generator"
 msgstr ""
 
 #: applications/doc/barcode::description
-msgid "Barcode is a tool to convert text strings to printed bars."
+msgid "Barcode is a tool to convert text strings to printed bars (barcode images)."
 msgstr ""
 
 #: applications/doc/recode::summary
-msgid "Convert files between various character sets"
+msgid "File character set converter"
 msgstr ""
 
 #: applications/doc/recode::description
-msgid "Recode is a program which has the purpose of converting files between various character sets and usages."
+msgid "Recode can convert files to various character sets (e.g. utf8, iso-8859-1, koi8r..)."
 msgstr ""
 
 #: applications/doc/docbook/SGMLSpm::summary
-msgid "Class for postprocessing the output from the sgmls and nsgmls parsers"
+msgid "SGML and NSGML parsers' output postprocessor"
+msgstr ""
+
+#: applications/doc/docbook/SGMLSpm::description
+msgid "SGMLSpm is a class to postprocess the output of SGML and NSGML parsers."
 msgstr ""
 
 #: applications/doc/docbook/docbook-xml4_2::summary
-msgid "Docbook DTD for XML, version 4.2"
+msgid "Docbook XML DTD 4.2"
+msgstr ""
+
+#: applications/doc/docbook/docbook-xml4_2::description
+msgid "Contains Docbook DTD for XML, version 4.2."
 msgstr ""
 
 #: applications/doc/docbook/docbook-sgml3_1::summary
 msgid "Docbook SGML DTD 3.1"
 msgstr ""
 
+#: applications/doc/docbook/docbook-sgml3_1::description
+msgid "Contains Docbook SGML DTD version 3.1."
+msgstr ""
+
 #: applications/doc/docbook/docbook-xsl::summary
 msgid "XSL Stylesheets for Docbook"
+msgstr ""
+
+#: applications/doc/docbook/docbook-xsl::description
+msgid "Contains Docbook XSL stylesheets."
 msgstr ""
 
 #: applications/doc/docbook/docbook-sgml4_1::summary
 msgid "Docbook SGML DTD 4.1"
 msgstr ""
 
+#: applications/doc/docbook/docbook-sgml4_1::description
+msgid "Contains Docbook SGML DTD version 4.1."
+msgstr ""
+
 #: applications/doc/docbook/jadetex::summary
 msgid "TeX macros used by Jade TeX output"
 msgstr ""
 
+#: applications/doc/docbook/jadetex::description
+msgid "Contains TeX-related macros used by Jade for TeX output."
+msgstr ""
+
 #: applications/doc/docbook/docbook-xml4_4::summary
-msgid "Docbook DTD for XML"
+msgid "Docbook XML DTD 4.4"
+msgstr ""
+
+#: applications/doc/docbook/docbook-xml4_4::description
+msgid "Contains Docbook DTD for XML version 4.4."
 msgstr ""
 
 #: applications/doc/docbook/docbook-sgml4_2::summary
-msgid "Docbook SGML DTD 4.2"
+msgid "Docbook 4.2 SGML DTD"
+msgstr ""
+
+#: applications/doc/docbook/docbook-sgml4_2::description
+msgid "Contains Docbook SGML DTD version 4.2 ."
 msgstr ""
 
 #: applications/doc/docbook/build-docbook-catalog::summary
-msgid "A script for building docbook catalog"
+msgid "A script for building docbook catalogs"
+msgstr ""
+
+#: applications/doc/docbook/build-docbook-catalog::description
+msgid "As the name says, build-docbook-catalog is a script to build docbook catalogs."
 msgstr ""
 
 #: applications/doc/docbook/openjade::summary
-msgid "Jade is an implementation of DSSSL - an ISO standard for formatting SGML and XML documents"
+msgid "An implementation of DSSSL"
 msgstr ""
 
 #: applications/doc/docbook/openjade::description
@@ -8150,15 +8592,27 @@ msgid "OpenJade is an implementation of Document Style Semantics and Specificati
 msgstr ""
 
 #: applications/doc/docbook/docbook-xml4_5::summary
-msgid "Docbook DTD for XML, version 4.5"
+msgid "Docbook XML DTD 4.5"
+msgstr ""
+
+#: applications/doc/docbook/docbook-xml4_5::description
+msgid "Contains Docbook DTD for XML, version 4.5."
 msgstr ""
 
 #: applications/doc/docbook/docbook-sgml4_4::summary
 msgid "Docbook SGML DTD 4.4"
 msgstr ""
 
+#: applications/doc/docbook/docbook-sgml4_4::description
+msgid "Contains Docbook SGML DTD version 4.4."
+msgstr ""
+
 #: applications/doc/docbook/docbook-sgml4_5::summary
 msgid "Docbook SGML DTD 4.5"
+msgstr ""
+
+#: applications/doc/docbook/docbook-sgml4_5::description
+msgid "Contains Docbook SGML DTD version 4.5."
 msgstr ""
 
 #: applications/doc/docbook/sgml-common::summary
@@ -8166,19 +8620,27 @@ msgid "Base ISO character entities and utilities for SGML"
 msgstr ""
 
 #: applications/doc/docbook/sgml-common::description
-msgid "Sgml-common is a collection of entities and document type definitions (dtds) that are useful for SGML processing."
+msgid "Sgml-common is a collection of entities and document type definitions (DTDs) useful for SGML processing."
 msgstr ""
 
 #: applications/doc/docbook/docbook-xml4_1_2::summary
-msgid "Docbook DTD for XML, version 4.1.2"
+msgid "Docbook XML DTD 4.1.2"
+msgstr ""
+
+#: applications/doc/docbook/docbook-xml4_1_2::description
+msgid "Contains Docbook DTD for XML, version 4.1.2."
 msgstr ""
 
 #: applications/doc/docbook/xmlto::summary
-msgid "A bash script for converting XML and DocBook"
+msgid "A frontend to an XSL toolchain"
+msgstr ""
+
+#: applications/doc/docbook/xmlto::description
+msgid "The purpose of xmlto is to convert an XML file to the desired format using whatever means necessary."
 msgstr ""
 
 #: applications/doc/docbook/opensp::summary
-msgid "A free, object-oriented toolkit for SGML parsing and entity management"
+msgid "A SGML parsing and entity management toolkit"
 msgstr ""
 
 #: applications/doc/docbook/opensp::description
@@ -8189,8 +8651,16 @@ msgstr ""
 msgid "Docbook DSSSL Stylesheets"
 msgstr ""
 
+#: applications/doc/docbook/docbook-dsssl::description
+msgid "Contains DocBook DSSSL Sheetsheets."
+msgstr ""
+
 #: applications/doc/docbook/docbook-utils::summary
-msgid "A set of utilities for Docbook processing"
+msgid "Docbook processor utilities"
+msgstr ""
+
+#: applications/doc/docbook/docbook-utils::description
+msgid "Contains a set of utilities to process files of type Docbook."
 msgstr ""
 
 #: applications/doc/docbook/asciidoc::summary
@@ -8202,47 +8672,59 @@ msgid "AsciiDoc is a text document format for writing short documents, articles,
 msgstr ""
 
 #: applications/doc/yodl::summary
-msgid "Your Own Documentation Language"
+msgid "A comprehensive documentation language"
+msgstr ""
+
+#: applications/doc/yodl::description
+msgid "YODL (Your Own Documentation Language) is a through documentation language, allowing conversion of the prepared documentation into many formats."
 msgstr ""
 
 #: applications/doc/reportlab::summary
 msgid "PDF generator library"
 msgstr ""
 
+#: applications/doc/reportlab::description
+msgid "ReportLab is an PDF generation library with extensive features."
+msgstr ""
+
 #: applications/doc/aiksaurus::summary
-msgid "A thesaurus lib, tool and database"
+msgid "A thesaurus library, tool and database"
 msgstr ""
 
 #: applications/doc/aiksaurus::description
-msgid "Aiksaurus is a set of libraries and applications which provide a thesaurus using native GUI on several platforms"
+msgid "Aiksaurus is a set of libraries and applications which provide a thesaurus using native GUI on several platforms."
 msgstr ""
 
 #: applications/doc/dos2unix::summary
-msgid "Convert DOS or MAC text files to UNIX format"
+msgid "Convert DOS and MAC text files to UNIX format"
+msgstr ""
+
+#: applications/doc/dos2unix::description
+msgid "dos2unix can convert DOS and MAC files to UNIX format, processing character encoding and line ending characters."
 msgstr ""
 
 #: applications/doc/htmldoc::summary
-msgid "htmldoc converts HTML files and web pages into indexed HTML, PostScript, and PDF files"
+msgid "HTML to indexed HTML, PostScript, or PDF converter"
 msgstr ""
 
 #: applications/doc/htmldoc::description
-msgid "HTMLDOC is a tool which converts HTML files and web pages into indexed HTML, PostScript, and PDF files suitable for on-line viewing and printing."
+msgid "htmldoc is a tool to convert HTML files and web pages into indexed HTML, PostScript, and PDF files suitable for on-line viewing and printing."
 msgstr ""
 
 #: applications/doc/wv::summary
-msgid "Tool for conversion of MSWord doc and rtf files to something readable"
+msgid "Microsoft Word to HTML, Latex, DVI, PS, PDF, text, WML, RTF or Abiword converter"
 msgstr ""
 
 #: applications/doc/wv::description
-msgid "Bu araç, Microsoft Word doc/rtf biçimindeki dosyaları okunabilir bir biçime dönüştürür."
+msgid "wv can convert many versions of Microsoft Word .doc files to many other formats including HTML, Latex, DVI, PS, PDF, plaintext, WML, RTF and Abiword formats."
 msgstr ""
 
 #: applications/doc/texi2html::summary
-msgid "A Perl script which converts Texinfo source files to HTML output"
+msgid "Texinfo to HTML converter"
 msgstr ""
 
 #: applications/doc/texi2html::description
-msgid "A Perl script which converts Texinfo source files to HTML output."
+msgid "texi2html is a Perl script which can generate HTML from Texinfo source files."
 msgstr ""
 
 #: applications/doc/djvu::summary
@@ -8250,19 +8732,31 @@ msgid "DjVu viewers, encoders and utilities."
 msgstr ""
 
 #: applications/doc/djvu::description
-msgid "Web-centric format and software platform for distributing documents and images"
+msgid "DjVu is a web-centric format and software platform to distribute documents and images."
 msgstr ""
 
 #: applications/doc/mftrace::summary
-msgid "Generates scalable fonts for TeX"
+msgid "Bitmap font to PFA, PFB or TTF converter"
+msgstr ""
+
+#: applications/doc/mftrace::description
+msgid "mftrace is a small Python program that lets you trace a TeX bitmap font into a PFA or PFB font (A PostScript Type1 Scalable Font) or TTF (TrueType) font."
 msgstr ""
 
 #: applications/doc/t1utils::summary
 msgid "Type 1 Font utilities"
 msgstr ""
 
+#: applications/doc/t1utils::description
+msgid "t1utils contains six tools (t1ascii, t1binary, t1disasm, t1asm, t1unmac and t1mac) for dealing with Type 1 fonts."
+msgstr ""
+
 #: applications/doc/antiword::summary
-msgid "Console based MS Word reader"
+msgid "Console based Microsoft Word .doc reader"
+msgstr ""
+
+#: applications/doc/antiword::description
+msgid "antiword is an application you can use to extract text from Microsoft Word .doc files."
 msgstr ""
 
 #: applications/security/apparmor-utils::summary
@@ -8399,6 +8893,10 @@ msgstr ""
 
 #: applications/security/tpm-tools::summary
 msgid "TrouSerS' support tools for the Trusted Platform Modules"
+msgstr ""
+
+#: applications/security/tpm-tools::description
+msgid "Contains TrouSerS' support tools for the Trusted Platform Modules."
 msgstr ""
 
 #: applications/security/pam-krb5::summary
@@ -8558,19 +9056,19 @@ msgid "Open Babel is a chemical toolbox designed to speak the many languages of 
 msgstr ""
 
 #: applications/editors/emacs/emacs::summary
-msgid "An extensible display editor"
+msgid "An extensible console-mode editor"
 msgstr ""
 
 #: applications/editors/emacs/emacs::description
-msgid "Emacs is the extensible, customizable, self-documenting real-time display editor."
+msgid "Emacs is the extensible, customizable, self-documenting real-time console-mode editor. It has many features to increase productivity when programming."
 msgstr ""
 
 #: applications/editors/emacs/cedet::summary
-msgid "CEDET is a collection of tools written with the end goal of creating an advanced development environment in Emacs"
+msgid "An advanced development environment in Emacs"
 msgstr ""
 
 #: applications/editors/emacs/cedet::description
-msgid "Emacs already is a great environment for writing software, but there are additional areas that need improvement. Many new ideas for integrated environments have been developed in newer products, such as Microsoft's Visual environment, JBuilder, Eclipse, or KDevelop. CEDET is a project which brings together several different tools needed to implement advanced features."
+msgid "Emacs already is a great environment for writing software, but there are additional areas that need improvement. Many new ideas for integrated environments have been developed in newer products such as Microsoft's Visual environment, JBuilder, Eclipse, or KDevelop. CEDET is a project which brings together several different tools needed to implement such advanced features in Emacs."
 msgstr ""
 
 #: applications/editors/emacs/ecb::summary
@@ -8578,11 +9076,15 @@ msgid "Emacs Code Browser"
 msgstr ""
 
 #: applications/editors/emacs/ecb::description
-msgid "ECB is a file/code browser for Emacs. It can be used to browse any type of file and supports parsing of Java, C, C++, Elisp and some other code like perl, TeX, LaTeX."
+msgid "ECB is a file/sourcecode browser for Emacs. It can be used to browse any type of file and supports parsing of Java, C, C++, Elisp and some other source code like Perl, TeX, and LaTeX."
 msgstr ""
 
 #: applications/editors/emacs/color-theme::summary
-msgid "Color theme is an Emacs-Lisp package with more than 50 color themes for your use."
+msgid "Emacs-Lisp color theme package"
+msgstr ""
+
+#: applications/editors/emacs/color-theme::description
+msgid "Colortheme is an Emacs-Lisp package with more than 50 color themes for your use."
 msgstr ""
 
 #: applications/editors/emacs/mmm-mode::summary
@@ -8597,20 +9099,24 @@ msgstr ""
 msgid "PHP mode for Emacs"
 msgstr ""
 
+#: applications/editors/emacs/php-mode::description
+msgid "php-mode is an add-on for Emacs to help work with PHP files more efficiently."
+msgstr ""
+
 #: applications/editors/ed::summary
 msgid "Basic line editor"
 msgstr ""
 
 #: applications/editors/ed::description
-msgid "Ed is a line-oriented text editor. It is used to create, display, modify and otherwise manipulate text files, both interactively and via shell scripts."
+msgid "Ed is a line-oriented text editor. It is used to create, display and modify text files both interactively and via shell scripts."
 msgstr ""
 
 #: applications/editors/nvu::summary
-msgid "A WYSIWYG web editor for linux similiar to Dreamweaver"
+msgid "A Dreamweaver-like WYSIWYG complete web authoring application"
 msgstr ""
 
 #: applications/editors/nvu::description
-msgid "Nvu (pronounced \"N-view\") is a WYSIWYG HTML editor, based on the Composer component of Mozilla Composer."
+msgid "Nvu (pronounced \"N-view\") is a WYSIWYG HTML editor and complete web authoring application based on the Composer component of Mozilla Composer."
 msgstr ""
 
 #: applications/editors/scribus::summary
@@ -8618,11 +9124,11 @@ msgid "Desktop Publishing (DTP) and Layout program"
 msgstr ""
 
 #: applications/editors/scribus::description
-msgid "Scribus is a free, open source desktop publishing (DTP) application."
+msgid "Scribus is an opensource desktop publishing application with features like CMYK colorspace and PDF output."
 msgstr ""
 
 #: applications/editors/vim::summary
-msgid "King of all text editors."
+msgid "Vi IMproved, an advanced text editor"
 msgstr ""
 
 #: applications/editors/vim::description
@@ -8630,7 +9136,7 @@ msgid "Vim, which stands for Vi IMproved, is an open-source, multiplatform text 
 msgstr ""
 
 #: applications/editors/joe::summary
-msgid "Joe text editor."
+msgid "Joe text editor"
 msgstr ""
 
 #: applications/editors/joe::description
@@ -8642,15 +9148,19 @@ msgid "Vim colorschemes"
 msgstr ""
 
 #: applications/editors/vim-colorschemes::description
-msgid "Extra colorschemes for Vi Improved"
+msgid "Contains extra colorschemes for Vi Improved."
 msgstr ""
 
 #: applications/editors/kompozer::summary
-msgid "A wysiwyg web editor like nvu"
+msgid "A complete web authoring application based on Nvu"
+msgstr ""
+
+#: applications/editors/kompozer::description
+msgid "Kompozer is an unofficial Nvu release to fix some issues with Nvu. Kompozer (Nvu) is a WYSIWYG (WhatYouSeeIsWhatYouGet) webpage editor and complete web authoring application."
 msgstr ""
 
 #: applications/emulators/wine::summary
-msgid "An emulator which lets you run windows applications"
+msgid "An emulator which lets you run Microsoft Windows applications"
 msgstr ""
 
 #: applications/emulators/wine::description
@@ -8662,19 +9172,23 @@ msgid "Super Nintendo emulator"
 msgstr ""
 
 #: applications/emulators/zsnes::description
-msgid "This is the most compatible and fast Super Nintendo emulator available. You need to obtain game roms yourself."
+msgid "This is the most compatible and fastest Super Nintendo emulator available. But you will need to obtain game roms yourself."
 msgstr ""
 
 #: applications/emulators/vice::summary
 msgid "The Versatile Commodore 8-bit Emulator"
 msgstr ""
 
+#: applications/emulators/vice::description
+msgid "Vice is a virtual machine software that emulates the well-known Commodores of the past."
+msgstr ""
+
 #: applications/emulators/qemu::summary
-msgid "A generic and open source processor emulator"
+msgid "A processor emulator"
 msgstr ""
 
 #: applications/emulators/qemu::description
-msgid "QEMU emulates a full system (for example a PC), including a processor and various peripherials. It can be used to launch different Operating Systems without rebooting the PC or to debug system code. In user mode emulation mode, QEMU can launch Linux processes compiled for one CPU on another CPU."
+msgid "QEMU emulates a full system (for example a PC), including a processor and various peripherials. It can be used to launch different operating systems without rebooting the PC or to debug system code. In user-mode emulation mode, QEMU can launch Linux processes compiled for one CPU on another CPU."
 msgstr ""
 
 #: applications/emulators/scummvm::summary
@@ -8682,7 +9196,7 @@ msgid "An interpreter of SCUMM adventure games"
 msgstr ""
 
 #: applications/emulators/scummvm::description
-msgid "ScummVM is a multi-platform stack-based virtual machine, which was originally made to allow one to play LucasArts adventure games that use the SCUMM system on platforms other than those for which they were originally released. It also supports a variety of non-SCUMM games by companies like Revolution Software and Adventure Soft."
+msgid "ScummVM is a multi-platform stack-based virtual machine, which was originally written to allow one to play LucasArts adventure games that use the SCUMM system on platforms other than those for which they were originally released. It also supports a variety of non-SCUMM games by companies like Revolution Software and Adventure Soft."
 msgstr ""
 
 #: applications/emulators/xmame::summary
@@ -8690,7 +9204,7 @@ msgid "Multiple Arcade Machine Emulator for X"
 msgstr ""
 
 #: applications/emulators/xmame::description
-msgid "Multiple Arcade Machine Emulator for X11"
+msgid "xmame is an arcade machine emulator."
 msgstr ""
 
 #: applications/emulators/dosbox::summary
@@ -8722,7 +9236,7 @@ msgid "OpenOffice.org office suite"
 msgstr ""
 
 #: applications/openoffice::description
-msgid "OpenOffice.org the product is a multi-platform office productivity suite. It includes the key desktop applications, such as a word processor, spreadsheet, presentation manager, and drawing program, with a user interface and feature set similar to other office suites. Sophisticated and flexible, OpenOffice.org also works transparently with a variety of file formats, including those of Microsoft Office."
+msgid "OpenOffice.org (the product) is a multi-platform office productivity suite. It includes key desktop applications such as a word processor, a spreadsheet application, a presentation creator-viewer, and a drawing program, with a user interface and feature set similar to other office suites. Sophisticated and flexible, OpenOffice.org also works transparently with a variety of file formats, including those of Microsoft Office."
 msgstr ""
 
 #: applications/util/screen::summary
@@ -8925,6 +9439,14 @@ msgstr ""
 msgid "A simple GTK+ application to demonstrate and test libfprint's capabilities"
 msgstr ""
 
+#: applications/util/command-not-found::summary
+msgid "A bash facility which informs the user when a command is not found"
+msgstr ""
+
+#: applications/util/command-not-found::description
+msgid "command-not-found is a python script written for Pardus that tells the user which PiSi package provides the command that is not found."
+msgstr ""
+
 #: applications/virtualization/convirt::summary
 msgid "Xen management interface."
 msgstr ""
@@ -8954,11 +9476,19 @@ msgid "Additional Video/Mouse drivers for VirtualBox for optimized performance"
 msgstr ""
 
 #: applications/filesystems/libgmail::summary
-msgid "Python bindings to access Google's gmail service"
+msgid "Python bindings to access Google's GMail service as filesystem"
+msgstr ""
+
+#: applications/filesystems/libgmail::description
+msgid "libgmail is a Python library that makes it possible to use the space provided by the GMail service as a filesystem."
 msgstr ""
 
 #: applications/filesystems/fuse-python::summary
 msgid "Python bindings of FUSE"
+msgstr ""
+
+#: applications/filesystems/fuse-python::description
+msgid "fuse-python includes bindings needed for Python scripts to be able to use the FUSE library."
 msgstr ""
 
 #: applications/filesystems/gmailfs::summary
@@ -8966,31 +9496,55 @@ msgid "Gmail filesystem"
 msgstr ""
 
 #: applications/filesystems/gmailfs::description
-msgid "Gmail Filesystem provides a mountable Linux filesystem which uses your Gmail account as its storage medium."
+msgid "Gmail filesystem provides a mountable Linux filesystem that uses your Gmail account as a storage medium."
 msgstr ""
 
 #: applications/filesystems/ntfs_3g::summary
 msgid "Userspace driver for NTFS read/write support"
 msgstr ""
 
+#: applications/filesystems/ntfs_3g::description
+msgid "ntfs_3g allows regular users read/write access to NTFS filesystems."
+msgstr ""
+
 #: applications/filesystems/wdfs::summary
-msgid "wdfs is a webdav filesystem with special features for accessing subversion repositories"
+msgid "webdav filesystem"
+msgstr ""
+
+#: applications/filesystems/wdfs::description
+msgid "wdfs is a webdav filesystem with special features for accessing subversion repositories."
 msgstr ""
 
 #: applications/filesystems/sshfs::summary
-msgid "A filesystem client based on the SSH File Transfer Protocol"
+msgid "A filesystem client based on the SSH FTP"
+msgstr ""
+
+#: applications/filesystems/sshfs::description
+msgid "sshfs allows mounting remote SSH accounts as a filesystem."
 msgstr ""
 
 #: applications/filesystems/cramfs::summary
-msgid "Linux filesystem designed to be simple, small, and to compress things well"
+msgid "A filesystem designed to be simple, small, and to compress things well."
+msgstr ""
+
+#: applications/filesystems/cramfs::description
+msgid "cramfs (compressed ROM file system) is a read-only Linux filesystem designed for simplicity and space-efficiency. Files in a cramfs filesystem are zlib-compressed."
 msgstr ""
 
 #: applications/filesystems/encfs::summary
 msgid "Encrypted file system"
 msgstr ""
 
+#: applications/filesystems/encfs::description
+msgid "Encfs (encrypted file system) is a filesystem that transparently encrypts files, using an arbitrary directory as storage for the encrypted files."
+msgstr ""
+
 #: applications/filesystems/fuse::summary
 msgid "An interface for filesystems implemented in userspace"
+msgstr ""
+
+#: applications/filesystems/fuse::description
+msgid "FUSE is a backend allowing regular users to (un)mount filesystems for their own use."
 msgstr ""
 
 #: applications/zemberek-openoffice::summary
@@ -8998,75 +9552,123 @@ msgid "Zemberek integration package for OpenOffice.org office suite"
 msgstr ""
 
 #: applications/pda/libopensync-plugin-syncml::summary
-msgid "SyncML Synchronization Plug-In for OpenSync"
+msgid "OpenSync SyncML plugin"
+msgstr ""
+
+#: applications/pda/libopensync-plugin-syncml::description
+msgid "SyncML is the former name (currently known as Open Mobile Alliance Data Synchronization and Device Management) for a information synchronization standard. libopensync-plugin-syncml is the base package that implements SyncML markup language."
 msgstr ""
 
 #: applications/pda/libopensync::summary
-msgid "OpenSync is a synchronization framework that is platform and distribution independent. "
+msgid "A powerful synchronization framework"
 msgstr ""
 
 #: applications/pda/libopensync::description
-msgid "OpenSync is very flexible and capable of synchronizing any type of data, including contacts, calendar, tasks, notes and files. "
+msgid "OpenSync is a synchronization framework that is platform and distribution independent. OpenSync is very flexible and capable of synchronizing any type of data, including contacts, calendar, tasks, notes and files."
 msgstr ""
 
 #: applications/pda/msynctool::summary
 msgid "CLI for synchronization with OpenSync"
 msgstr ""
 
+#: applications/pda/msynctool::description
+msgid "msynctool is a command-line tool for synchronizing data using OpenSync and related libraries."
+msgstr ""
+
 #: applications/pda/libopensync-plugin-kdepim::summary
-msgid "KDE PIM Synchronization Plug-In for OpenSync"
+msgid "KDE PIM synchronization plugin for OpenSync"
+msgstr ""
+
+#: applications/pda/libopensync-plugin-kdepim::description
+msgid "KDE PIM Synchronization Plug-In allows using OpenSync in KDE PIM applications (Kontact, Kmail, ..)."
 msgstr ""
 
 #: applications/pda/libopensync-plugin-gpe::summary
-msgid "GPE Synchronization Plug-In for OpenSync"
+msgid "GPE synchronization plugin for OpenSync"
+msgstr ""
+
+#: applications/pda/libopensync-plugin-gpe::description
+msgid "GPE synchronization plugin adds Palmtop/Handheld synchronization support to OpenSync."
 msgstr ""
 
 #: applications/pda/libsyncml::summary
-msgid "Header files, libraries and development documentation for libsyncml"
+msgid "An implementation of the SyncML markup language"
 msgstr ""
 
 #: applications/pda/libsyncml::description
-msgid "Libsyncml is a implementation of the SyncML protocol."
+msgid "Libsyncml is a implementation of the SyncML protocol. It includes header files, library files and developer documentation."
 msgstr ""
 
 #: applications/pda/libopensync-plugin-file::summary
-msgid "File Synchronization Plug-In for OpenSync"
+msgid "File synchronization plugin for OpenSync"
+msgstr ""
+
+#: applications/pda/libopensync-plugin-file::description
+msgid "OpenSync file plugin allows synchronization of files."
 msgstr ""
 
 #: applications/pda/libopensync-plugin-ldap::summary
-msgid "LDAP Synchronization Plug-In for OpenSync"
+msgid "LDAP synchronization plugin for OpenSync"
+msgstr ""
+
+#: applications/pda/libopensync-plugin-ldap::description
+msgid "OpenSync LDAP synchronization plugin allows using and synching LDAP (Lightweight Directory Access Protocol) resources."
 msgstr ""
 
 #: applications/pda/libopensync-plugin-gnokii::summary
-msgid "Gnokii Synchronization Plug-In for OpenSync"
+msgid "Gnokii synchronization plugin for OpenSync"
+msgstr ""
+
+#: applications/pda/libopensync-plugin-gnokii::description
+msgid "OpenSync Gnokii plugin allows connections to mobile phones through the Gnokii application."
 msgstr ""
 
 #: applications/pda/libopensync-plugin-python::summary
-msgid "OpenSync module for Python plugins"
+msgid "OpenSync module for Python"
+msgstr ""
+
+#: applications/pda/libopensync-plugin-python::description
+msgid "libopensync-plugin-python allows using OpenSync in Python scripts."
 msgstr ""
 
 #: applications/pda/libopensync-plugin-google-calendar::summary
-msgid "Google Calendar Synchronization Plug-In for OpenSync"
+msgid "Google Calendar synchronization plugin for OpenSync"
+msgstr ""
+
+#: applications/pda/libopensync-plugin-google-calendar::description
+msgid "OpenSync Google Calendar plugin makes it possible to synchronize data with Google Calendar as a resource."
 msgstr ""
 
 #: applications/pda/libopensync-plugin-palm::summary
-msgid "Palm Synchronization Plug-In for OpenSync"
+msgid "Palm synchronization plugin for OpenSync"
+msgstr ""
+
+#: applications/pda/libopensync-plugin-palm::description
+msgid "OpenSync Palm Synchronization Plugin allows data synchronization to and from Palm devices."
 msgstr ""
 
 #: applications/pda/libopensync-plugin-irmc::summary
-msgid "IrMC Synchronization Plug-In for OpenSync"
+msgid "IrMC synchronization plugin for OpenSync"
+msgstr ""
+
+#: applications/pda/libopensync-plugin-irmc::description
+msgid "IrMC Synchronization Plug-In allows data synchronization through Bluetooth."
 msgstr ""
 
 #: applications/pda/wbxml2::summary
-msgid "The WBXML Library (libwbxml) contains a library and its associated tools to parse, encode and handle WBXML documents."
+msgid "WBXML library and related tools to parse, create or hangle WBXML documents."
 msgstr ""
 
 #: applications/pda/wbxml2::description
-msgid "The WBXML format is a binary representation of XML, defined by the Wap Forum, and used to reduce bandwidth in mobile communications."
+msgid "The WBXML Library (libwbxml) contains a library and its associated tools to parse, encode and handle WBXML documents. The WBXML format is a binary representation of XML, defined by the Wap Forum, and used to reduce bandwidth in mobile communications."
 msgstr ""
 
 #: applications/pda/libopensync-plugin-opie::summary
-msgid "Opie Synchronization Plug-In for OpenSync"
+msgid "Opie synchronization plugin for OpenSync"
+msgstr ""
+
+#: applications/pda/libopensync-plugin-opie::description
+msgid "OpenSync Opie synchronization plugin allows using Opie (Open Palmtop Integrated Environment) connectivity."
 msgstr ""
 
 #: applications/shells/tcsh::summary
@@ -9090,7 +9692,11 @@ msgid "A stand-alone shell with many built-in commands."
 msgstr ""
 
 #: applications/dictionaries/aspell/aspell::summary
-msgid "A spell checker replacement for ispell"
+msgid "A multi-language spellchecker"
+msgstr ""
+
+#: applications/dictionaries/aspell/aspell::description
+msgid "Aspell is a spellchecker that has dictionaries for more than one language and is written as a replacement to ispell."
 msgstr ""
 
 #: applications/dictionaries/aspell/aspell-en::summary

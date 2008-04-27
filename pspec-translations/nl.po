@@ -1,14 +1,14 @@
-# translation of ca.po to Nederlands
+# translation of nl.po to Nederlands
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
 # W.P.M.H.I.A. Gielen <w.gielen@gmail.com>, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: ca\n"
+"Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2008-04-27 13:09+0200\n"
+"PO-Revision-Date: 2008-04-27 13:16+0200\n"
 "Last-Translator: W.P.M.H.I.A. Gielen <w.gielen@gmail.com>\n"
 "Language-Team: Nederlands <http://liste.pardus.org.tr/pardus-translation-nl/>\n"
 "MIME-Version: 1.0\n"
@@ -18,19 +18,19 @@ msgstr ""
 
 #: kernel/kernel:kernel-source:summary
 msgid "Source files for the Linux kernel used by Pardus"
-msgstr ""
+msgstr "Bron bestanden voor de Linux kernel, gebruikt door Pardus"
 
 #: kernel/kernel:kernel-headers:summary
 msgid "Header files for the Linux kernel for use by glibc"
-msgstr ""
+msgstr "Header bestanden voor de Linux kernel, gebruikt door glibc"
 
 #: kernel/kernel:kernel-headers:description
 msgid "Kernel-headers includes the C header files that specify the interface between the Linux kernel and userspace libraries and programs. The header files define structures and constants that are needed for building most standard programs and are also needed for rebuilding the glibc package."
-msgstr ""
+msgstr "Kernel-headers inclusief de C header bestanden welk de interface tussen de Linux kernel en de gebruikersruimte libraries en programma's specificeert. De header bestanden definiëren structuur en constanten voor de meeste standaard programma's en zijn ook nodig voor het herbouwen van het glibc pakket."
 
 #: kernel/kernel::summary
 msgid "The Linux kernel (the core of the Linux operating system) for Pardus Linux"
-msgstr ""
+msgstr "De Linux kernel (de kern van het Linux besturingssysteem) voor Pardus Linux"
 
 #: kernel/kernel::description
 msgid "The kernel package contains the Linux kernel, the core of any Linux operating system. The kernel handles the basic functions of the operating system: memory allocation, process allocation, device input and output, etc."

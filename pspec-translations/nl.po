@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2008-04-27 13:16+0200\n"
+"PO-Revision-Date: 2008-04-27 13:41+0200\n"
 "Last-Translator: W.P.M.H.I.A. Gielen <w.gielen@gmail.com>\n"
 "Language-Team: Nederlands <http://liste.pardus.org.tr/pardus-translation-nl/>\n"
 "MIME-Version: 1.0\n"
@@ -34,71 +34,71 @@ msgstr "De Linux kernel (de kern van het Linux besturingssysteem) voor Pardus Li
 
 #: kernel/kernel::description
 msgid "The kernel package contains the Linux kernel, the core of any Linux operating system. The kernel handles the basic functions of the operating system: memory allocation, process allocation, device input and output, etc."
-msgstr ""
+msgstr "Het kernel pakket bevat de Linux kernel, de kern van elk Linux besturingssysteem. De kernel handelt de basis functies van het besturingssysteem af: geheugengebruik, apparaat invoer en uitvoer, etc."
 
 #: kernel/kernel-debug:kernel-debug-source:summary
 msgid "Debug enabled Pardus Linux kernel source"
-msgstr ""
+msgstr "Debug geactiveerde Pardus Linux kernel bron"
 
 #: kernel/kernel-debug::summary
 msgid "Debug options enabled version of the Linux kernel (the core of the Linux operating system) for Pardus Linux"
-msgstr ""
+msgstr "Debug optie geactiveerde versie van de Linux kernel (kern van het Linux besturingssysteem) voor Pardus Linux"
 
 #: kernel/kernel-debug::description
 msgid "This kernel package contains debug options enabled version of the Linux kernel, the core of any Linux operating system. The kernel handles the basic functions of the operating system: memory allocation, process allocation, device input and output, etc."
-msgstr ""
+msgstr "Dit kernel pakker bevat de debug geactiveerde versie van de Linux kernel, bron van elk Linux besturingssysteem. De kernel handelt de basis functies van het besturingssysteem af: geheugengebruik, apparaat invoer en uitvoer, etc."
 
 #: kernel/drivers/madwifi-ng::summary
 msgid "Wireless driver for Atheros chipset a/b/g cards"
-msgstr ""
+msgstr "Draadloze driver voor Atheros chipset a/b/g kaarten"
 
 #: kernel/drivers/nvidia-drivers::summary
 msgid "nVIDIA kernel and glx drivers"
-msgstr ""
+msgstr "nVidia kernel en glx drivers"
 
 #: kernel/drivers/nvidia-drivers::description
 msgid "nVIDIA kernel and glx drivers giving optimized 2d/3d performance on Linux"
-msgstr ""
+msgstr "nVidia kernel en glx drivers voor geoptimaliseerde 2d/3d actie met Linux"
 
 #: kernel/drivers/lmpcm_usb::summary
 msgid "Drivers for Logitech MediaPlay Cordless Mouse"
-msgstr ""
+msgstr "Drivers voor Logitech MediaPlay Cordless Mouse"
 
 #: kernel/drivers/lmpcm_usb::description
 msgid "You can use Logitech MediaPlay Cordless Mouse's multimedia buttons with this driver."
-msgstr ""
+msgstr "U kunt de Logitech MediaPlay Cordless Mouse multimedia knoppen gebruiken met deze driver."
 
 #: kernel/drivers/nvidia-drivers-old::summary
 msgid "nVIDIA kernel and glx drivers for old nVIDIA cards like TNT2"
-msgstr ""
+msgstr "nVidia kernel en glx drivers voor oude nVidia kaarten als de TNT2"
 
 #: kernel/drivers/nvidia-drivers-old::description
 msgid "nVIDIA kernel and glx drivers giving optimized 2d/3d performance on Linux for old nVidia cards"
-msgstr ""
+msgstr "nVidia kernel en glx drivers voor geoptimaliseerde 2d/3d actie met Linux en een oude nVidia kaart"
 
 #: kernel/drivers/lirc::summary
 msgid "Linux Infrared Remote Control system"
-msgstr ""
+msgstr "Linux infrarood afstandsbediening systeem"
 
 #: kernel/drivers/lirc::description
 msgid "LIRC is a package that allows you to decode and send infra-red signals of many (but not all) commonly used remote controls."
-msgstr ""
+msgstr "LIRC is een pakket dat u in staat stelt om infrarood signalen te detecteren en decoderen van veel (maar niet alle) veel gebruikte afstandsbedieningen."
 
 #: kernel/drivers/hsfmodem::summary
 msgid "Linuxant's modem driver"
-msgstr ""
+msgstr "Linuxant modem driver"
 
 #: kernel/drivers/hsfmodem::description
 msgid "Linuxant's modem driver for Conexant HSF chipset"
-msgstr ""
+msgstr "Linuxant modem driver voor de Conexant HSF chipset"
 
 #: kernel/drivers/kqemu::summary
 msgid "QEMU Accelerator Module"
-msgstr ""
+msgstr "QEMU accelerator module"
 
 #: kernel/drivers/eciadsl::summary
 msgid "Driver for various ADSL modems. Also known as EciAdsl"
-msgstr ""
+msgstr "Driver voor verschillende ADSL modems. Ook wel bekend als EciAdsl"
 
 #: kernel/drivers/eciadsl::description
 msgid " Linux driver for ECI HiFocus ADSL USB and Globespan based modems. EciAdsl is a free Linux driver for connecting your computer to the internet, if you have a Globespan based ADSL USB modem."

@@ -1,16 +1,16 @@
-# translation of nl.po to Nederlands
+# translation of ca.po to Nederlands
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Willem Gielen <w.gielen@gmail.com>, 2007.
+# W.P.M.H.I.A. Gielen <w.gielen@gmail.com>, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: nl\n"
+"Project-Id-Version: ca\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2007-12-26 21:12+0100\n"
-"Last-Translator: Willem Gielen <w.gielen@gmail.com>\n"
-"Language-Team: Nederlands <Pardus-translation-nl@pardus.org.tr>\n"
+"PO-Revision-Date: 2008-04-27 13:09+0200\n"
+"Last-Translator: W.P.M.H.I.A. Gielen <w.gielen@gmail.com>\n"
+"Language-Team: Nederlands <http://liste.pardus.org.tr/pardus-translation-nl/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,7 +26,7 @@ msgstr ""
 
 #: kernel/kernel:kernel-headers:description
 msgid "Kernel-headers includes the C header files that specify the interface between the Linux kernel and userspace libraries and programs. The header files define structures and constants that are needed for building most standard programs and are also needed for rebuilding the glibc package."
-msgstr "Kernel-headers bevatten de C header bestanden welk zorg dragen voor de interface tussen de Linux kernel en gebruikersruimte bibliotheken en programma's. De header bestanden omschrijven structuren en constanten welk noodzakelijk zijn voor het bouwen van de meeste standaard programma's en welk ook nodig zijn om het glibc pakket te herbouwen."
+msgstr ""
 
 #: kernel/kernel::summary
 msgid "The Linux kernel (the core of the Linux operating system) for Pardus Linux"
@@ -34,7 +34,7 @@ msgstr ""
 
 #: kernel/kernel::description
 msgid "The kernel package contains the Linux kernel, the core of any Linux operating system. The kernel handles the basic functions of the operating system: memory allocation, process allocation, device input and output, etc."
-msgstr "Het kernel pakket bevat de Linux kernel, de kern van elk Linux besturkingssysteem. De kernel handelt de meeste basisfuncties van het besturingssysteem af: geheugengebruik, procesbeheersing, communicatie met randapparatuur, etc."
+msgstr ""
 
 #: kernel/kernel-debug:kernel-debug-source:summary
 msgid "Debug enabled Pardus Linux kernel source"
@@ -13003,3 +13003,4 @@ msgstr ""
 #: kernel-xen/domU/kernel-domU::description
 msgid "User domain Xen-enabled kernel allows Pardus to run on the Xen virtual machine's user domain. This kernel cannot be booted as the first operating system on Xen, it must be booted from domain 0 and does not have direct access to hardware, but it's smaller than the domain 0 kernel."
 msgstr ""
+

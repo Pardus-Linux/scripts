@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # W.P.M.H.I.A. Gielen <w.gielen@gmail.com>, 2008.
+# Willem Gielen <w.gielen@gmail.com>, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2008-04-27 13:41+0200\n"
-"Last-Translator: W.P.M.H.I.A. Gielen <w.gielen@gmail.com>\n"
-"Language-Team: Nederlands <http://liste.pardus.org.tr/pardus-translation-nl/>\n"
+"PO-Revision-Date: 2008-05-11 15:20+0200\n"
+"Last-Translator: Willem Gielen <w.gielen@gmail.com>\n"
+"Language-Team: Nederlands <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -102,11 +103,11 @@ msgstr "Driver voor verschillende ADSL modems. Ook wel bekend als EciAdsl"
 
 #: kernel/drivers/eciadsl::description
 msgid " Linux driver for ECI HiFocus ADSL USB and Globespan based modems. EciAdsl is a free Linux driver for connecting your computer to the internet, if you have a Globespan based ADSL USB modem."
-msgstr ""
+msgstr "Linux driver voor op ECI HiFocus USB en Globespan gebaseerde modems. EciAdsl is een vrije Linux driver voor verbinden van de computer met het internet, als u een Globespan gebaseerde ADSL USB modem bezit."
 
 #: kernel/drivers/qc-usb-messenger::summary
 msgid "Logitech QuickCam USB Video Camera driver"
-msgstr ""
+msgstr "Logitech QuickCam USB Video Camera driver"
 
 #: kernel/drivers/unionfs::summary
 msgid "Stackable unification file system, which can appear to merge the contents of several directories"

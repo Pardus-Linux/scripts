@@ -3,7 +3,7 @@ xf86-video-ark-0.7.0.tar.bz2
 xf86-video-ast-0.85.0.tar.bz2
 xf86-video-ati-6.8.0.tar.bz2
 xf86-video-chips-1.2.0.tar.bz2
-xf86-video-cirrus-1.2.0.tar.bz2
+xf86-video-cirrus-1.2.1.tar.bz2
 xf86-video-cyrix-1.1.0.tar.bz2
 xf86-video-dummy-0.3.0.tar.bz2
 xf86-video-fbdev-0.4.0.tar.bz2
@@ -14,7 +14,7 @@ xf86-video-i740-1.2.0.tar.bz2
 xf86-video-imstt-1.1.0.tar.bz2
 xf86-video-intel-2.2.1.tar.bz2
 xf86-video-mga-1.9.100.tar.bz2
-xf86-video-neomagic-1.2.0.tar.bz2
+xf86-video-neomagic-1.2.1.tar.bz2
 xf86-video-newport-0.2.1.tar.bz2
 xf86-video-nsc-2.8.3.tar.bz2
 xf86-video-nv-2.1.9.tar.bz2
@@ -22,8 +22,8 @@ xf86-video-openchrome-0.2.902.tar.bz2
 xf86-video-radeonhd-1.2.1.tar.bz2
 xf86-video-rendition-4.2.0.tar.bz2
 xf86-video-s3-0.6.0.tar.bz2
-xf86-video-s3virge-1.10.0.tar.bz2
-xf86-video-savage-2.2.0.tar.bz2
+xf86-video-s3virge-1.10.1.tar.bz2
+xf86-video-savage-2.2.1.tar.bz2
 xf86-video-siliconmotion-1.6.0.tar.bz2
 xf86-video-sis-0.10.0.tar.bz2
 xf86-video-sisusb-0.9.0.tar.bz2

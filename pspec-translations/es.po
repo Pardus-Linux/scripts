@@ -1,19 +1,18 @@
-# translation of es.po to Spanish
 # translation of es.po to
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Klemens <click3d_at_linuxmail_org>, 2007.
-# Klemens Häckel <click3d_at_linuxmail_org>, 2007.
+# Klemens Häckel <click3d_at_linuxmail_org>, 2007, 2008.
 # Klemens Haeckel <click3d at linuxmail dot org>, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2008-02-17 14:57-0300\n"
-"Last-Translator: Klemens Haeckel <click3d at linuxmail dot org>\n"
-"Language-Team: Spanish <es@li.org>\n"
+"PO-Revision-Date: 2008-05-30 16:30-0400\n"
+"Last-Translator: Klemens Häckel <click3d_at_linuxmail_org>\n"
+"Language-Team:  <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -44,13 +43,12 @@ msgid "Debug enabled Pardus Linux kernel source"
 msgstr "Fuente del kernel de Pardus Linux con debug habilitado"
 
 #: kernel/kernel-debug::summary
-#, fuzzy
 msgid "Debug options enabled version of the Linux kernel (the core of the Linux operating system) for Pardus Linux"
-msgstr "Kernel Uniprocesador de Pardus Linux con debug habilitado"
+msgstr "Kernel de Pardus Linux (el n-ucleo del sistema operativo Linux) con opciones de depuración habilitados"
 
 #: kernel/kernel-debug::description
 msgid "This kernel package contains debug options enabled version of the Linux kernel, the core of any Linux operating system. The kernel handles the basic functions of the operating system: memory allocation, process allocation, device input and output, etc."
-msgstr ""
+msgstr "Este paquete de kernel contiene un kernel de Linux, el núcleo de todos los sistemas Linux, en una versión con opciones de depuración activados. El kernel administra las funciones básicos de acceso a los recursos del sistems: alocación de memoria, alocación de procesoso, entrada y salida de dispositivos, etc."
 
 #: kernel/drivers/madwifi-ng::summary
 msgid "Wireless driver for Atheros chipset a/b/g cards"
@@ -58,11 +56,11 @@ msgstr "Controlador para tarjetas wireless con chipset Atheros a/b/g"
 
 #: kernel/drivers/nvidia-drivers::summary
 msgid "nVIDIA kernel and glx drivers"
-msgstr ""
+msgstr "Kernel nVIDIA y controladores glx"
 
 #: kernel/drivers/nvidia-drivers::description
 msgid "nVIDIA kernel and glx drivers giving optimized 2d/3d performance on Linux"
-msgstr ""
+msgstr "Kernel nVIDIA y controladores glx para renidmiento óptimo 2d/3d en Linux"
 
 #: kernel/drivers/lmpcm_usb::summary
 msgid "Drivers for Logitech MediaPlay Cordless Mouse"
@@ -74,11 +72,11 @@ msgstr "El controlador permite uso de los botones multimedia del ratón inalambr
 
 #: kernel/drivers/nvidia-drivers-old::summary
 msgid "nVIDIA kernel and glx drivers for old nVIDIA cards like TNT2"
-msgstr ""
+msgstr "Kernel nVIDIA y controladores glx para tarjetas antiguas nVIDIA como TNT2"
 
 #: kernel/drivers/nvidia-drivers-old::description
 msgid "nVIDIA kernel and glx drivers giving optimized 2d/3d performance on Linux for old nVidia cards"
-msgstr ""
+msgstr "Kernel nVIDIA y controladores glx para rendimiento óptimo sd/3d para tarjetas antiguas nVIDIA en Linux"
 
 #: kernel/drivers/lirc::summary
 msgid "Linux Infrared Remote Control system"
@@ -158,11 +156,11 @@ msgstr "Una solución rudimentaria para modems Smartlink para evitar errores\"de
 
 #: kernel/drivers/nvidia-drivers-new::summary
 msgid "nVIDIA kernel and glx drivers for NV3 or better cards (Geforce FX or better)"
-msgstr ""
+msgstr "kernel nVIDIA y controladores glx para tarjetas NV3 o mejores (Geforce FX o mejor)"
 
 #: kernel/drivers/nvidia-drivers-new::description
 msgid "nVIDIA kernel and glx drivers giving optimized 2d/3d performance on Linux (For NV3X or better). Don't use this driver if your card's name doesn't contain the word FX."
-msgstr ""
+msgstr "kernel nVIDIA y controladores glx para óptimo rendimiento 2d/3d en Linux (para NV3X o mejor). No use este controlador si la tarjeta no contiene las letras FX."
 
 #: kernel/drivers/acx100::summary
 msgid "Driver for Texas Instruments ACX100/ACX111 wireless network chips"
@@ -270,19 +268,19 @@ msgstr "Controlador para firmware de modem ADSL Accessrunner USB "
 
 #: kernel/firmware/ralink-firmware::summary
 msgid "Ralink firmware"
-msgstr ""
+msgstr "Firmware Ralink "
 
 #: kernel/firmware/ralink-firmware::description
 msgid "Freely redistributable firmware files for ralink based wireless devices."
-msgstr ""
+msgstr "Archivos de firmware a libre distribución para dispositivos inalambricos basados en ralink."
 
 #: kernel/firmware/acx100-firmware::summary
 msgid "Firmware for Texas Instruments' ACX100/ACX111 wireless network chips"
-msgstr ""
+msgstr "Firmware para dispositivos inlambricos con chips  ACX100/ACX111 de Texas Instruments"
 
 #: kernel/firmware/eagle-firmware::summary
 msgid "Firmware for USB modems"
-msgstr ""
+msgstr "Firmware para modems USB"
 
 #: kernel/firmware/alsa-firmware::summary
 msgid "Advanced Linux Sound Architecture firmware"
@@ -290,39 +288,39 @@ msgstr ""
 
 #: kernel/firmware/bluez-firmware::summary
 msgid "Firmware for Broadcom BCM203x Blutonium devices"
-msgstr ""
+msgstr "Firmware para dispositivos Broadcom BCM203x Blutonium"
 
 #: kernel/firmware/zd1201-firmware::summary
 msgid "Firmware for ZD1201 based wireless devices"
-msgstr ""
+msgstr "Firmware para dispositivos inalambricos basados en ZD1201"
 
 #: kernel/firmware/atmel-firmware::summary
 msgid "Firmware for atmel and atmel_cs wlan drivers"
-msgstr ""
+msgstr "Firmware para controladores wlan de atmel y atmel_cs "
 
 #: kernel/firmware/ipw2100-firmware::summary
 msgid "Firmware for the Intel PRO/Wireless 2100 3B miniPCI adapter"
-msgstr ""
+msgstr "Firmware para el adaptador miniPCI PRO/Wireless 2100 3B de Intel "
 
 #: kernel/firmware/zd1211-firmware::summary
 msgid "Firmware for ZD1211 based wireless devices"
-msgstr ""
+msgstr "Firmware para dispositivos inalambricos basados en ZD1211"
 
 #: kernel/firmware/ipw2200-firmware::summary
 msgid "Firmware for the Intel PRO/Wireless 2200BG/2915ABG miniPCI and 2225BG PCI adapters"
-msgstr ""
+msgstr "Firmware para el adaptador miniPCI PRO/Wireless 2200BG/2915ABG y 2225BG PCI de Intel "
 
 #: kernel/firmware/speedtouch-firmware::summary
 msgid "ALCATEL SpeedTouch USB ADSL modem user-space driver firmware"
-msgstr ""
+msgstr "firmware para controlador de user-space de modem ADLS ALCATEL SpeedTouch USB"
 
 #: kernel/firmware/iwlwifi4965-ucode::summary
 msgid "Firmware for the Intel PRO/Wireless 4965 miniPCI adapters"
-msgstr ""
+msgstr "Firmware para el adaptador miniPCI PRO/Wireless 4965 de Intel "
 
 #: kernel/firmware/iwlwifi3945-ucode::summary
 msgid "Firmware for the Intel PRO/Wireless 3945 miniPCI adapters"
-msgstr ""
+msgstr "Firmware para el adaptador miniPCI PRO/Wireless 3945 de Intel "
 
 #: programming/tools/oprofile::summary
 msgid "A transparent low-overhead system-wide profiler"
@@ -346,7 +344,7 @@ msgstr "Herramienta útil para diagnostico, aprendizaje y depuración"
 
 #: programming/tools/ant::summary
 msgid "Java-based build tool"
-msgstr ""
+msgstr "Herramienta build basado en Java"
 
 #: programming/tools/ant::description
 msgid "Apache Ant is a Java-based build tool. In theory, it is kind of like Make, but without Make's wrinkles."
@@ -402,7 +400,7 @@ msgstr "Una interfaz ncurses para el depurador GNU GDB. La finalidad de CGDB es 
 
 #: programming/tools/diffstat::summary
 msgid "Diffstat reads the output of the diff command and displays a histogram of the insertions, deletions, and modifications in each file."
-msgstr ""
+msgstr "Diffstat lee los mensajes de salida del comando diff y muestra un hisograma de las inserciones, borrados y modificaciones de cada archivo."
 
 #: programming/tools/diffstat::description
 msgid "Diffstat reads the output of the diff command and displays a histogram of the insertions, deletions, and modifications in each file.Diffstat is commonly used to provide a summary of the changes in large, complex patch files."
@@ -442,7 +440,7 @@ msgstr "Con qgit se puede navegar por los históricos de revisiones, ver conteni
 
 #: programming/tools/valgrind::summary
 msgid "Memory access debugger for X86 and PPC Linux platforms"
-msgstr ""
+msgstr "Depurador de acceso de memoria para plataformas Linux X86 y PPC"
 
 #: programming/tools/valgrind::description
 msgid "Valgrind is an award-winning suite of tools for debugging and profiling Linux programs. With the tools that come with Valgrind, you can automatically detect many memory management and threading bugs, avoiding hours of frustrating bug-hunting, making your programs more stable. You can also perform detailed profiling, to speed up and reduce memory use of your programs."
@@ -454,11 +452,11 @@ msgstr ""
 
 #: programming/tools/jam::description
 msgid "Advanced replacement for the development tool \"make\""
-msgstr "Reemplazo avancado para la herramienta de desarrollo \"make\""
+msgstr "Reemplazo avanzado para la herramienta de desarrollo \"make\""
 
 #: programming/tools/ltrace::summary
 msgid "Shows runtime library calls for dynamically linked executables"
-msgstr ""
+msgstr "Muestra llamadas a librerías dinamicas en la ejecución ejecutables con enlaces dinamicos"
 
 #: programming/tools/ltrace::description
 msgid " ltrace is a debugging program which runs a specified command until it exits. While the command is executing, ltrace intercepts and records the dynamic library calls which are called by the executed process and the signals received by that process. It can also intercept and print the system calls executed by the program."
@@ -13008,3 +13006,4 @@ msgstr ""
 #: kernel-xen/domU/kernel-domU::description
 msgid "User domain Xen-enabled kernel allows Pardus to run on the Xen virtual machine's user domain. This kernel cannot be booted as the first operating system on Xen, it must be booted from domain 0 and does not have direct access to hardware, but it's smaller than the domain 0 kernel."
 msgstr ""
+

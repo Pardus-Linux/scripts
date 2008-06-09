@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2008-05-30 20:48-0400\n"
+"PO-Revision-Date: 2008-06-09 19:47-0400\n"
 "Last-Translator: Klemens Häckel <click3d_at_linuxmail_org>\n"
 "Language-Team:  <es@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -480,7 +480,7 @@ msgstr "Un sistema rápido y liviano de administración de fuentes (Source Contr
 
 #: programming/tools/kdbg::summary
 msgid "KDbg is a graphical user interface to gdb"
-msgstr ""
+msgstr "KDbg es una interfaz gráfica para gdb"
 
 #: programming/tools/kdbg::description
 msgid "KDbg is a graphical user interface to gdb, the GNU debugger. It provides an intuitive interface for setting breakpoints, inspecting variables, and stepping through code."
@@ -488,7 +488,7 @@ msgstr "KDbg es una interfaz gráfica para gdb, el depurador GNU. Provee una int
 
 #: programming/tools/doxygen::summary
 msgid "Documentation and analysis tool for C++, C, Java, IDL, PHP and C#"
-msgstr ""
+msgstr "Herramienta de documentación y análisis para C++, C, Java, IDL, PHP y C#"
 
 #: programming/tools/doxygen::description
 msgid "Doxygen is a documentation system for C++, C, Java, Objective-C, Python, IDL (Corba and Microsoft flavors) and to some extent PHP, C#, and D."
@@ -496,7 +496,7 @@ msgstr "Doxygen es un sistema de documentación para C++, C, Java, Objective-C, 
 
 #: programming/tools/systemtap::summary
 msgid "SystemTap provides free software (GPL) infrastructure to simplify the gathering of information about the running Linux kernel."
-msgstr ""
+msgstr "SystemTap provee una infraestructrura de software libre (GPL) para simplificar la obtención de informaciones sobre el kernel de Linux, actualmente en ejecución."
 
 #: programming/tools/unsermake::summary
 msgid "Build system"
@@ -548,7 +548,7 @@ msgstr "Cdecl compone declaraciones C para compilar, y typecasts desde frases de
 
 #: programming/tools/qconf::summary
 msgid "Autotools scripts generator for qmake-based projects"
-msgstr ""
+msgstr "Autotools generador de scripts para proyectos basados en qmake-based"
 
 #: programming/tools/qconf::description
 msgid "QConf allows you to have a nice configure script for qmake-based projects. It is intended for developers who don’t need (or want) to use GNU autotools. With qconf/qmake, it is easy to maintain a cross-platform project that uses a familiar configuration interface on UNIX."
@@ -556,11 +556,11 @@ msgstr "QConf le permite obtener un script de configuracióń para proyectos bas
 
 #: programming/tools/cvsps::summary
 msgid "A program for generating 'patchset' information from a CVS repository"
-msgstr ""
+msgstr "Programa para la generación de información sobre parches, a base de un repositorio CVS"
 
 #: programming/tools/hgforest::summary
 msgid "A Mercurial extension to work with multi-project repositories"
-msgstr ""
+msgstr "Extensión Mercurial, para trabajar con repositorios de múltiples proyectos"
 
 #: programming/tools/autogen::summary
 msgid "A tool designed to simplify the creation and maintenance of programs that contain large amounts of repetitious text"
@@ -640,7 +640,7 @@ msgstr ""
 
 #: programming/languages/java/libpixie-java::summary
 msgid "A WMF-File reading library"
-msgstr ""
+msgstr "Librería para lectura de archivos WMF"
 
 #: programming/languages/java/libflute-java::summary
 msgid "A CSS2 parser written in Java that implements SAC"
@@ -652,7 +652,7 @@ msgstr "Capa de abstracción sencilla para acceder contenido organizado en capas
 
 #: programming/languages/java/libfonts-java::summary
 msgid "A library developed to support advanced layouting and allows to read TrueType-Font files to extract layouting specific informations."
-msgstr ""
+msgstr "Librería para el soporte avanzado de maquetación, que permite leer archivos de fuentes TrueType para extraer informaciones específicas sobre el layout."
 
 #: programming/languages/java/jcommon::summary
 msgid "A free general purpose Java class library"
@@ -812,7 +812,7 @@ msgstr "Documentación de Python incluye tutoriales para principiantes, índice 
 
 #: programming/languages/python/numpy::summary
 msgid "The fundamental package needed for scientific computing with Python"
-msgstr ""
+msgstr "Paquete Python fundamental para computación científica"
 
 #: programming/languages/python/numpy::description
 msgid "Numpy contains a powerful N-dimensional array object, sophisticated (broadcasting) functions, tools for integrating C/C++ and Fortran code, and useful linear algebra, Fourier transform, and random number capabilities."
@@ -828,7 +828,7 @@ msgstr "SOAPpy es una librería SOAP para Python, plenamente funcional y muy sim
 
 #: programming/languages/python/psyco::summary
 msgid "A Python extension module which can massively speed up the execution of any Python code"
-msgstr ""
+msgstr "Módulo de extensión Python, que puede acelerar considerablemente la ejecución de código Python"
 
 #: programming/languages/python/psyco::description
 msgid "Psyco is a Python extension module which can massively speed up the execution of any Python code."
@@ -844,7 +844,7 @@ msgstr "Fpconst es un módulo python que implementa constantes y funciones para 
 
 #: programming/languages/python/aggdraw::summary
 msgid "Python interface to Agg library"
-msgstr ""
+msgstr "Interfaz Python a la librería Agg"
 
 #: programming/languages/python/aggdraw::description
 msgid "The aggdraw module implements high-quality drawing, with anti-aliasing and alpha compositing."
@@ -972,7 +972,7 @@ msgstr "TagPy es un conjunto de librerías para taglib. soporta ID3 v1/v2, comen
 
 #: programming/languages/python/urwid::summary
 msgid "Console user interface library for Python"
-msgstr ""
+msgstr "Librería Python para interfaz de consola"
 
 #: programming/languages/python/urwid::description
 msgid "Console user interface library for Python, with many features like UTF-8 support and HTML screenshot."
@@ -1341,11 +1341,11 @@ msgstr "Liberería Perl de red"
 
 #: programming/languages/perl/perl-libnet::description
 msgid "libnet is a collection of Perl modules which provides a simple and consistent programming interface (API) to the client side of various protocols used in the internet community."
-msgstr ""
+msgstr "libnet es una colección de módulos Perl, que proveen una interfaz sencilla y consistente de programación (API), para clientes de varios protocolos usados en la comunidad de internet."
 
 #: programming/languages/perl/perl-Locale-Maketext-Lexicon::summary
 msgid "Use other catalog formats in Maketext"
-msgstr ""
+msgstr "Uso de otros formatos de catálogo en Maketext"
 
 #: programming/languages/perl/perl-Email-Reply::summary
 msgid "Perl module for replying to a message"
@@ -1461,7 +1461,7 @@ msgstr ""
 
 #: programming/languages/perl/perl-RPC-XML::description
 msgid "The RPC::XML package is an implementation of the XML-RPC standard. The package provides a set of classes for creating values to pass to the constructors for requests and responses."
-msgstr ""
+msgstr "El paquete RPC::XML es una implementación del estándar XML-RPC. El paquete provee un conjunto de clases para la creación de valores a pasar a los constructores, para peticiones y respuestas."
 
 #: programming/languages/perl/perl-Data-Hierarchy::summary
 msgid "Handling hierarchical structures with Perl"
@@ -1853,7 +1853,7 @@ msgid "This module consists of several framework classes for using and building 
 msgstr "El módulo consiste de varias clases de framework para usar y construir (build) parsers, filtros y controladores SAX2 XML"
 
 #: programming/languages/perl/perl-Path-Class::summary
-# favor revisar, 
+# favor revisar,
 msgid "Cross-platform path specification manipulation"
 msgstr "Manipulación de directorios multiplataforma"
 
@@ -2003,7 +2003,7 @@ msgstr ""
 
 #: programming/languages/perl/perl-Apache-DBI::summary
 msgid "Perl module for initiating a persistent database connection"
-msgstr ""
+msgstr "Módulo Perl para iniciar conexiones persistenes a bases de datos"
 
 #: programming/languages/perl/perl-Class-ISA::summary
 msgid "Perl module for reporting the search path for a class's ISA tree"
@@ -2011,7 +2011,7 @@ msgstr ""
 
 #: programming/languages/perl/perl-Archive-Zip::summary
 msgid "Perl interface to ZIP archive files"
-msgstr ""
+msgstr "Interfaz Perl a archivos compactados ZIP"
 
 #: programming/languages/perl/perl-Archive-Zip::description
 msgid "The Archive::Zip module allows a Perl program to create, manipulate, read, and write Zip archive files. This module uses the Compress::Zlib library to read and write the compressed streams inside the files."
@@ -2019,7 +2019,7 @@ msgstr "El módulo Archive::Zip permite a programas Perl la creación, manipulac
 
 #: programming/languages/perl/perl-SDL::summary
 msgid "Perl interface to SDL library"
-msgstr ""
+msgstr "Interfaz Perl a la librería SDL"
 
 #: programming/languages/perl/perl-SDL::description
 msgid "With this interface, you can write SDL applications in Perl."
@@ -2043,7 +2043,7 @@ msgstr "Digest:: modules calcula digests, tambien llamado \"fingerprints\" (huel
 
 #: programming/languages/perl/perl-Class-Autouse::summary
 msgid "A perl module for loading a class the first time you call a method in it"
-msgstr ""
+msgstr "Módulo Perl para cargar dinámicamente una clase, cuando se llama por primera vez una función de ella"
 
 #: programming/languages/perl/perl-TimeDate::summary
 msgid "A Date/Time Parsing Perl Module"
@@ -2055,7 +2055,7 @@ msgstr "El parser de fechas es muy superior al parser basado en yacc, y *mucho m
 
 #: programming/languages/perl/perl-Algorithm-Diff::summary
 msgid "Compute `intelligent' differences between two files / lists"
-msgstr ""
+msgstr "Computar de manera inteligente la diferencia entre 2 archivos/directorios"
 
 #: programming/languages/perl/perl-HTML-Parser::summary
 msgid "HTML Parser"
@@ -2075,7 +2075,7 @@ msgstr "Digest::Perl::MD4 - implementación Perl del algoritmo MD4 de Ron Rivest
 
 #: programming/languages/perl/perl-Unicode-Map::summary
 msgid "Map charsets from and to utf16 code"
-msgstr ""
+msgstr "Convertir juegos de caracteres desde  y hacia código utf16"
 
 #: programming/languages/perl/perl-Unicode-Map::description
 msgid "A Perl module converts strings from and to 2-byte Unicode UCS2 format"
@@ -2091,7 +2091,7 @@ msgstr "Digest::MD5 - interfaz Perl al algoritmo MD5. El módulo Digest::MD5 per
 
 #: programming/languages/perl/perl-XML-XQL::summary
 msgid "A perl module for querying XML tree structures with XQL"
-msgstr ""
+msgstr "Módulo Perl para consultar estructuras de arboles XML usando XQL"
 
 #: programming/languages/perl/perl-XML-XQL::description
 msgid "The XML::XQL module implements the XQL (XML Query Language) proposal submitted to the XSL Working Group in September 1998. "
@@ -2103,15 +2103,15 @@ msgstr ""
 
 #: programming/languages/perl/perl-FreezeThaw::summary
 msgid "Converting Perl structures to strings and back"
-msgstr ""
+msgstr "Conversión de estructuras de Perl a cadenas, e inverso"
 
 #: programming/languages/perl/perl-ExtUtils-CBuilder::summary
 msgid "Compile and link C code for Perl modules"
-msgstr ""
+msgstr "Compilar y enlazar código C para módulos Perl"
 
 #: programming/languages/perl/perl-ExtUtils-CBuilder::description
 msgid "ExtUtils-CBuilder can build the C portions of Perl modules by invoking the appropriate compilers and linkers in a cross-platform manner. "
-msgstr ""
+msgstr "ExtUtils-CBuilder puede construir las porciones C de módulos Perl con llamadas al compilador y enlazador adecuado, de una manera multiplataforma. "
 
 #: programming/languages/perl/perl-Email-MIME::summary
 msgid "Easy MIME message parsing"
@@ -2119,7 +2119,7 @@ msgstr ""
 
 #: programming/languages/perl/perl-Tk::summary
 msgid "A Perl module for Tkinter"
-msgstr ""
+msgstr "Módulo Perl para Tkinter"
 
 #: programming/languages/tcl/snack::summary
 msgid "The Snack Sound Toolkit"
@@ -2131,7 +2131,7 @@ msgstr ""
 
 #: programming/languages/tcl/tcl::summary
 msgid "Tcl programming language"
-msgstr ""
+msgstr "Lenguaje de programación TCL"
 
 #: programming/languages/tcl/tcl::description
 msgid "Tcl provides a powerful platform for creating integration applications that tie together diverse applications, protocols, devices, and frameworks."
@@ -2139,7 +2139,7 @@ msgstr "Tcl provee una plataforma potente para crear aplicaciones de integració
 
 #: programming/languages/pascal/fpc::summary
 msgid "Free Pascal Compiler"
-msgstr ""
+msgstr "Compilador de Pascal Libre"
 
 #: programming/languages/pascal/fpc::description
 msgid "Turbo Pascal 7.0 and Delphi compatible 32bit Pascal Compiler."
@@ -2147,19 +2147,19 @@ msgstr "Compilador Pascal 32bit compatible con Turbo Pascal 7.0 y Delphi."
 
 #: programming/languages/haskell/ghc::summary
 msgid "A state of Art Haskell compiler"
-msgstr ""
+msgstr "Compilador de vanguardia Haskell"
 
 #: programming/languages/haskell/ghc::description
 msgid "GHC is a state-of-the-art, open source, compiler and interactive environment for the functional language Haskell."
-msgstr ""
+msgstr "GHC es un entorno interactivo y compilador de vanguardia, código abierto, para el lenguaje funcional Haskell."
 
 #: programming/languages/haskell/hugs98::summary
 msgid "The Hugs98 Haskell interpreter"
-msgstr ""
+msgstr "Intérprete Hugs98 Haskell"
 
 #: programming/languages/haskell/hugs98::description
 msgid "Hugs 98 is a functional programming system based on Haskell 98."
-msgstr "Hugs 98 es un sistema funcional de programación basado en Haskell 98."
+msgstr "Hugs 98 es un sistema de programación funcional basado en Haskell 98."
 
 #: programming/languages/lisp/guile::summary
 msgid "GNU Scheme interpreter and library"
@@ -2175,19 +2175,19 @@ msgstr ""
 
 #: programming/languages/php/Smarty::summary
 msgid "A template engine for PHP"
-msgstr ""
+msgstr "Sistema de plantillas de PHP"
 
 #: programming/languages/php/Smarty::description
 msgid "Smarty is a template engine written in PHP. Smarty separates PHP from HTML and is primarily used for the generation of dynamic HTML content."
-msgstr ""
+msgstr "Smarty es un motor de plantillas escrito en PHP. Smarty separa código PHP de HTML y es usado principalmente para la generación de contenido HTML dinámico."
 
 #: programming/languages/php/php:php-common:summary
 msgid "Common config files for PHP"
-msgstr ""
+msgstr "Archivos genéricas de configuración PHP"
 
 #: programming/languages/php/php::summary
 msgid "PHP5 is an HTML-embedded scripting language. The goal of the language is to allow web developers to write dynamically generated pages quickly"
-msgstr ""
+msgstr "PHP5 es un lenguaje script, para HTML embebido. La finalidad del lenguaje es permitir a desarrolladores web escribir rápidamente páginas web conconteido dinámico"
 
 #: programming/languages/php/php::description
 msgid "PHP5 is an HTML-embedded scripting language. Much of its syntax is borrowed from C, Java and Perl with a couple of unique PHP-specific features thrown in. The goal of the language is to allow web developers to write dynamically generated pages quickly."
@@ -2195,79 +2195,79 @@ msgstr "PHP5 es un languaje interpretado que puede estar embebido en HTML. Mucha
 
 #: programming/languages/gambas/gambas:gambas-runtime:summary
 msgid "Runtime environment for gambas"
-msgstr ""
+msgstr "Librerías de ejecución de Gambas"
 
 #: programming/languages/gambas/gambas:gambas-gb-compress:summary
 msgid "Gambas component package for compress"
-msgstr ""
+msgstr "Paquete con componente Gambas para compress"
 
 #: programming/languages/gambas/gambas:gambas-gb-db:summary
 msgid "Gambas component package for db"
-msgstr ""
+msgstr "Paquete con componente Gambas para db"
 
 #: programming/languages/gambas/gambas:gambas-gb-db-mysql:summary
 msgid "Gambas component package for db.mysql"
-msgstr ""
+msgstr "Paquete con componente Gambas para db.mysql"
 
 #: programming/languages/gambas/gambas:gambas-gb-db-postgresql:summary
 msgid "Gambas component package for db.postgresql"
-msgstr ""
+msgstr "Paquete con componente Gambas para db.postgresql"
 
 #: programming/languages/gambas/gambas:gambas-gb-db-sqlite:summary
 msgid "Gambas component package for db.sqlite"
-msgstr ""
+msgstr "Paquete con componente Gambas para db.sqlite"
 
 #: programming/languages/gambas/gambas:gambas-gb-debug:summary
 msgid "Gambas component package for debug"
-msgstr ""
+msgstr "Paquete con componente Gambas para debug"
 
 #: programming/languages/gambas/gambas:gambas-gb-eval:summary
 msgid "Gambas component package for eval"
-msgstr ""
+msgstr "Paquete con componente Gambas para eval"
 
 #: programming/languages/gambas/gambas:gambas-gb-net:summary
 msgid "Gambas component package for net"
-msgstr ""
+msgstr "Paquete con componente Gambas para net"
 
 #: programming/languages/gambas/gambas:gambas-gb-net-curl:summary
 msgid "Gambas component package for net.curl"
-msgstr ""
+msgstr "Paquete con componente Gambas para net.curl"
 
 #: programming/languages/gambas/gambas:gambas-gb-qt:summary
 msgid "Gambas component package for qt"
-msgstr ""
+msgstr "Paquete con componente Gambas para qt"
 
 #: programming/languages/gambas/gambas:gambas-gb-qt-editor:summary
 msgid "Gambas component package for qt.editor"
-msgstr ""
+msgstr "Paquete con componente Gambas para qt.editor"
 
 #: programming/languages/gambas/gambas:gambas-gb-qt-ext:summary
 msgid "Gambas component package for qt.ext"
-msgstr ""
+msgstr "Paquete con componente Gambas para qt.ext"
 
 #: programming/languages/gambas/gambas:gambas-gb-qt-kde:summary
 msgid "Gambas component package for qt.kde"
-msgstr ""
+msgstr "Paquete con componente Gambas para qt.kde"
 
 #: programming/languages/gambas/gambas:gambas-gb-qt-kde-html:summary
 msgid "Gambas component package for qt.kde.html"
-msgstr ""
+msgstr "Paquete con componente Gambas para qt.kde.html"
 
 #: programming/languages/gambas/gambas:gambas-gb-sdl:summary
 msgid "Gambas component package for sdl"
-msgstr ""
+msgstr "Paquete con componente Gambas para sdl"
 
 #: programming/languages/gambas/gambas:gambas-gb-vb:summary
 msgid "Gambas component package for vb"
-msgstr ""
+msgstr "Paquete con componente Gambas para vb"
 
 #: programming/languages/gambas/gambas:gambas-gb-xml:summary
 msgid "Gambas component package for xml"
-msgstr ""
+msgstr "Paquete con componente Gambas para xml"
 
 #: programming/languages/gambas/gambas::summary
 msgid "A RAD tool for BASIC"
-msgstr ""
+msgstr "Herramienta RAD para lenguaje BASIC"
 
 #: programming/languages/gambas/gambas::description
 msgid "Gambas is a free development environment based on a Basic interpreter with object extensions."
@@ -2283,7 +2283,7 @@ msgstr ""
 
 #: programming/languages/dotnet/gtk-sharp::summary
 msgid "Gtk# is a C# language binding for the GTK2 toolkit"
-msgstr ""
+msgstr "Gtk# es una librería del lenguaje C# para acceso a las herramientas GTK2"
 
 #: programming/languages/dotnet/gecko-sharp::summary
 msgid "A Gtk# Mozilla binding"
@@ -2291,7 +2291,7 @@ msgstr ""
 
 #: programming/languages/dotnet/mono::summary
 msgid "Mono runtime and class libraries, a C# compiler/interpreter"
-msgstr ""
+msgstr "Librerías de ejecución y de clases Mono, un compilador/intérprete C#"
 
 #: programming/languages/dotnet/gmime::summary
 msgid "Utilities for creating and parsing messages using MIME"
@@ -2299,11 +2299,11 @@ msgstr ""
 
 #: programming/languages/dotnet/libgdiplus::summary
 msgid "Library for using System.Drawing with Mono"
-msgstr ""
+msgstr "Librería para usar System.Drawing con Mono"
 
 #: programming/languages/lua::summary
 msgid "A light-weight programming language"
-msgstr ""
+msgstr "Lenguaje de programación liviano"
 
 #: programming/languages/lua::description
 msgid "Lua is a powerful light-weight programming language with all the fancy tools"
@@ -2311,15 +2311,15 @@ msgstr "Lua es un lenguaje de programación liviano y potente con todas las herr
 
 #: programming/languages/R::summary
 msgid "A free software environment for statistical computing and graphics"
-msgstr ""
+msgstr "Entorno de software libre para computación de estadísticas y gráficos"
 
 #: programming/languages/erlang:erlang-emacs:summary
 msgid "Erlang integration for Emacs"
-msgstr ""
+msgstr "integración Erlang para Emacs"
 
 #: programming/languages/erlang::summary
 msgid "Erlang programming language"
-msgstr ""
+msgstr "Lenguaje de programación Erlang"
 
 #: programming/languages/erlang::description
 msgid "Erlang is a programming language designed at the Ericsson Computer Science Laboratory."
@@ -2327,35 +2327,36 @@ msgstr "Erlang es un lenguaje de programación diseñado en el laboratorio de Er
 
 #: programming/environments/eric::summary
 msgid "Full featured Python IDE"
-msgstr ""
+msgstr "Entorno de desarrollo completo (IDE) para Python"
 
 #: programming/environments/eclipse/eclipse-jdt-binary::summary
 msgid "Java Development Tools for Eclipse"
-msgstr ""
+msgstr "Herramientas de desarrollo Java para Eclipse"
 
 #: programming/environments/eclipse/eclipse-binary::summary
+# favor revisar, esta bastante libre
 msgid "Eclipse is an open source community whose projects are focused on providing an extensible development platform and application frameworks for building software"
-msgstr ""
+msgstr "Eclipse es una comunidad de software libre, cuyos proyectos están enfocados a proveer una plataforma de desarrollo extensible, y entornos de librerías para construir aplicaciones"
 
 #: programming/environments/eclipse/kde-eclipse-binary::summary
 msgid "KDE/Qt development tools for Eclipse"
-msgstr ""
+msgstr "Herramientas KDE/Qt para Eclipse"
 
 #: programming/environments/eclipse/pydev::summary
 msgid "Python Development Tools for Eclipse"
-msgstr ""
+msgstr "Herramientas de desarrollo Python para Eclipse"
 
 #: programming/environments/eclipse/eclipse-pde-binary::summary
 msgid "Plugin Development Tools (PDT) for Eclipse"
-msgstr ""
+msgstr "Herramientas para desarrollo de Agregados - Plugins (PDT) para Eclipse"
 
 #: programming/environments/eclipse/eclipse-cdt-binary::summary
 msgid "C/C++ Development Tools (CDT) for Eclipse"
-msgstr ""
+msgstr "Herramientas de desarrollo C/C++ (CDT) para Eclipse"
 
 #: programming/environments/kdevelop::summary
 msgid "An Integrated Development Enviroment from KDE"
-msgstr ""
+msgstr "Entorno de Desarrollo integrado de KDE"
 
 #: programming/environments/kdevelop::description
 msgid "Integrated Development Enviroment for Unix, supporting KDE/Qt, C/C++ and a many other languages"
@@ -2363,39 +2364,39 @@ msgstr "Entorno integrado de desarrollo (IDE) para Unix, con soporte KDE/Qt, C/C
 
 #: programming/environments/drscheme::summary
 msgid "DrScheme Programming Environment"
-msgstr ""
+msgstr "Entorno de programación DrScheme "
 
 #: programming/environments/ipython::summary
 msgid "An advanced interactive shell for Python."
-msgstr ""
+msgstr "Consola interactiva avanzada para Python"
 
 #: programming/environments/lazarus::summary
 msgid "Lazarus Component Library and IDE"
-msgstr ""
+msgstr "Lazarus IDE y Librería de componentes"
 
 #: programming/environments/lazarus::description
 msgid "Lazarus is a free and opensource RAD tool for freepascal using the lazarus component library - LCL, which is also included in this package."
-msgstr ""
+msgstr "Lazarus es una herramienta RAD libre y código abierto, para freepascal, usando la librería de componentes lazarus - LCL, que está incluida en en este paquete tambien."
 
 #: programming/libs/libgpod::summary
 msgid "A library to access the contents of an iPod"
-msgstr ""
+msgstr "Libreería para acceder el contenido de un iPod"
 
 #: programming/libs/libexif::summary
 msgid "Library for parsing, editing, and saving EXIF data"
-msgstr ""
+msgstr "Librería para analizar, editar y guardar datos EXIF"
 
 #: programming/libs/libsamplerate::summary
 msgid "Secret Rabbit Code (aka libsamplerate) is a Sample Rate Converter for audio"
-msgstr ""
+msgstr "Secret Rabbit Code (aka libsamplerate) es un conversor de tasa de muestreo para audio"
 
 #: programming/libs/libao::summary
 msgid "The audio output library"
-msgstr ""
+msgstr "Librería de salida de audio"
 
 #: programming/libs/fftw2::summary
 msgid "FFTW v2 is a library for computing the discrete Fourier transform (DFT)"
-msgstr ""
+msgstr "FFTW v2 es una librería para la computación de la transformación discreta Fourier (DFT)"
 
 #: programming/libs/fftw2::description
 msgid "FFTW v2 is a C subroutine library for computing the discrete Fourier transform (DFT) in one or more dimensions, of arbitrary input size, and of both real and complex data (as well as of even/odd data, i.e. the discrete cosine/sine transforms or DCT/DST)."
@@ -2403,7 +2404,7 @@ msgstr "FFTW v2 es una librería con subrutinas C para computar la transformaci�
 
 #: programming/libs/fftw3::summary
 msgid "FFTW v3 is a library for computing the discrete Fourier transform (DFT)"
-msgstr ""
+msgstr "FFTW v3 es una librería para la computación de la transformación discreta Fourier (DFT)"
 
 #: programming/libs/fftw3::description
 msgid "FFTW v3 is a C subroutine library for computing the discrete Fourier transform (DFT) in one or more dimensions, of arbitrary input size, and of both real and complex data (as well as of even/odd data, i.e. the discrete cosine/sine transforms or DCT/DST)."
@@ -2411,11 +2412,11 @@ msgstr "FFTW v3 es una librería con subrutinas C para computar la transformaci�
 
 #: programming/libs/unixODBC::summary
 msgid "ODBC Interface for Linux"
-msgstr ""
+msgstr "Interfaz ODBC para Linux"
 
 #: programming/libs/unixODBC::description
 msgid "The unixODBC Project goals are to develop and promote unixODBC to be the definitive standard for ODBC on non MS Windows platforms."
-msgstr ""
+msgstr "La meta del proyectoi unixODBC es de desarrollar y promover unixODBC como estándar definitivo ODBC para plataformas no-MS Windows."
 
 #: programming/libs/compface::summary
 msgid "X-Face library"
@@ -2431,27 +2432,27 @@ msgstr ""
 
 #: programming/libs/yali4-qt::summary
 msgid "Qt toolkit to be used by YALI"
-msgstr ""
+msgstr "Herramientas QT usados por YALI"
 
 #: programming/libs/yali4-qt::description
 msgid "Contains a stripped-down version of Qt for use in the installation of Pardus."
-msgstr ""
+msgstr "Contiene una versión reducida de Qt para uso durante la instalación de Pardus."
 
 #: programming/libs/libfame::summary
 msgid "MPEG-1 and MPEG-4 video encoding library"
-msgstr ""
+msgstr "Librería para codificación de video MPEG-1 y MPEG-4"
 
 #: programming/libs/libIDL::summary
 msgid "CORBA tree builder"
-msgstr ""
+msgstr "Constructor de árbol CORBA"
 
 #: programming/libs/sdl-image::summary
 msgid "SDL image file loading library"
-msgstr ""
+msgstr "Librería SDL para abrir archivos de imágenes "
 
 #: programming/libs/wxGTK::summary
 msgid "GTK+ version of wxWindows, a cross-platform C++ GUI toolkit."
-msgstr ""
+msgstr "Versión GTK+ de wxWindows, unas librerías GUI C++ multiplataforma."
 
 #: programming/libs/wxGTK::description
 msgid "wxWidgets/GTK2 is the GTK2 port of the C++ cross-platform wxWidgets GUI library, offering classes for all common GUI controls as well as a comprehensive set of helper classes for most common application tasks, ranging from networking to HTML display and image manipulation."
@@ -2467,15 +2468,15 @@ msgstr ""
 
 #: programming/libs/libmatroska::summary
 msgid "Extensible multimedia container format based on EBML"
-msgstr ""
+msgstr "Formato de contenedor multimedia extensible, basado en EBML"
 
 #: programming/libs/libevent::summary
 msgid "A library to execute a function when a specific event occurs on a file descriptor"
-msgstr ""
+msgstr "Librería que ejecuta una función, cuando un determinado evento ocurre con  un descriptor de un archivo"
 
 #: programming/libs/libvisual-plugins::summary
 msgid "Visualization plugins for use with the libvisual framework."
-msgstr ""
+msgstr "Plugin de visualización, para uso con el entorno de librerías libvisual"
 
 #: programming/libs/libvisual-plugins::description
 msgid "Libvisual is an audio visualisation library that acts as a middle layer between audio visualisation plugins and applications."
@@ -2483,7 +2484,7 @@ msgstr "Libvisual es una librería de visualización de audio que actua como una
 
 #: programming/libs/c-ares::summary
 msgid "A C library that performs DNS requests and name resolves asynchronously"
-msgstr ""
+msgstr "Librería C que realiza peticiones DNS y resoluciones de nombres de manera asíncrona"
 
 #: programming/libs/c-ares::description
 msgid "c-ares is a C library that performs DNS requests and name resolves asynchronously. c-ares is a fork of the library named 'ares', written by Greg Hudson at MIT."
@@ -2491,7 +2492,7 @@ msgstr "c-ares es una librería C que realiza consultas DNS y resolución asínc
 
 #: programming/libs/libstdc++::summary
 msgid "Compatibility package for running binaries linked against a pre gcc 3.4 libstdc++"
-msgstr ""
+msgstr "Paquete de compatibilidad para ejecutar programas binarios construidos antes de gcc 3.4 libstdc++"
 
 #: programming/libs/libstdc++::description
 msgid "The GNU Standard C++ Library. It Contains standard classes and functions such as string, vector, iostreams, and algorithms"
@@ -2499,7 +2500,7 @@ msgstr "Librería de C++ GNU Standard . Contiene clases estándar y funciones co
 
 #: programming/libs/FusionSound::summary
 msgid "Sound library"
-msgstr ""
+msgstr "Librería de sonido"
 
 #: programming/libs/FusionSound::description
 msgid "Sound library part of the DirectFB project"
@@ -2507,7 +2508,7 @@ msgstr "Librería de sonido, parte del proyecto DirectFB"
 
 #: programming/libs/libcaca::summary
 msgid "A library that creates colored ASCII-art graphics"
-msgstr ""
+msgstr "Librería que genera gráficos ASCII en colores"
 
 #: programming/libs/libcaca::description
 msgid "libcaca is a graphics library that outputs text instead of pixels, so that it can work on older video cards or text terminals"
@@ -2515,7 +2516,7 @@ msgstr "libcaca es una librería gráfica que produce una salida de texto en vez
 
 #: programming/libs/libwmf::summary
 msgid "Library for converting WMF files"
-msgstr ""
+msgstr "Librería para convertir archivos WMF"
 
 #: programming/libs/boehm-gc::summary
 msgid "The Boehm-Demers-Weiser conservative garbage collector"
@@ -2543,7 +2544,7 @@ msgstr ""
 
 #: programming/libs/libdca::summary
 msgid "Library for decoding DTS Coherent Acoustics streams"
-msgstr ""
+msgstr "Librería para decodificación de flujos acústicos coherentes DTS"
 
 #: programming/libs/libdca::description
 msgid "libdts is a free library for decoding DTS Coherent Acoustics streams."
@@ -2551,7 +2552,7 @@ msgstr "libdts es una librería libre para decodificar flujos acústicos coheren
 
 #: programming/libs/sqlite2::summary
 msgid "Embeddable SQL Database Engine (Old Version)"
-msgstr ""
+msgstr "Motor SQL de base de datos embebida (versión antigua)"
 
 #: programming/libs/hdf5::summary
 msgid "NCSA Hierarchical Data Format (HDF) Software Library and Utilities"
@@ -2567,11 +2568,11 @@ msgstr ""
 
 #: programming/libs/gd::summary
 msgid "A fast library for creating graphic images"
-msgstr ""
+msgstr "Librería rápida para la creación de imágenes gráficos"
 
 #: programming/libs/live555::summary
 msgid "Live555 is a set of C++ libraries for multimedia streaming, using open standard protocols (RTP/RTCP, RTSP, SIP)"
-msgstr ""
+msgstr "Live555 es un conjunto de librerías C++ para flujos multimedia, usando protocolos de estándares abiertos (RTP/RTCP, RTSP, SIP)"
 
 #: programming/libs/libmovtar::summary
 msgid "Movtar tools and library for MJPEG video"
@@ -2579,15 +2580,15 @@ msgstr ""
 
 #: programming/libs/libdvdread::summary
 msgid "Provides a simple foundation for reading DVD-Video images."
-msgstr ""
+msgstr "Provee librerías básicas para leer imágenes de DVD-Video"
 
 #: programming/libs/libdvdread::description
 msgid "A DVD player for the Solaris, Linux and BSD environments released under the GNU Public License (GPL).  It is includes bookmarks, time skipping, multichannel audio, SPDIF output, crop and zoom video. It supports DVD menus and navigation, reads from mounted, unmounted DVDs and hard drive and reads encrypted and unencrypted DVDs using libdvdread/libdvdcss."
-msgstr "DVD player para Solaris, Linux y BSD  liberado bajo la licencia GNU Public License (GPL).  incluye marcadores (bookmarks), time skipping, multichannel audio, salida SPDIF, video crop y zoom. soporta menús DVD y navegación, lee de DVDs y discos rígidos montados y no-montados y lee DVDs encriptados y no-encriptados usando libdvdread/libdvdcss."
+msgstr "DVD player para Solaris, Linux y BSD  liberado bajo la licencia GNU Public License (GPL).  incluye marcadores (bookmarks), time skipping, multichannel audio, salida SPDIF, video recortar y zoom. soporta menús DVD y navegación, lee de DVDs y discos rígidos montados y no-montados y lee DVDs encriptados y no-encriptados usando libdvdread/libdvdcss."
 
 #: programming/libs/libmpeg2::summary
 msgid "libmpeg2 is a free library for decoding mpeg-2 and mpeg-1 video streams"
-msgstr ""
+msgstr "libmpeg2 es una librería libre para decodificación de flujos de video mpeg-2 y mpeg-1 "
 
 #: programming/libs/libmpeg2::description
 msgid "libmpeg2 is a free library for decoding mpeg-2 and mpeg-1 video streams. ibmpeg2 is able to decode all mpeg streams that conform to certain restrictions: \"constrained parameters\" for mpeg-1, and \"main profile\" for mpeg-2."
@@ -2599,7 +2600,7 @@ msgstr ""
 
 #: programming/libs/libmpeg3::summary
 msgid "An mpeg library for linux"
-msgstr ""
+msgstr "Librería mpeg para Linux"
 
 #: programming/libs/libmpeg3::description
 msgid "LibMPEG3 decodes several MPEG standards into uncompressed data suitable for editing and playback and supports advanced editing and manipulation of MPEG streams."
@@ -2611,7 +2612,7 @@ msgstr ""
 
 #: programming/libs/nss::summary
 msgid "Network Security Services"
-msgstr ""
+msgstr "Servicios de Seguridad de Red"
 
 #: programming/libs/nss::description
 msgid "Network Security Services (NSS) is a set of libraries designed to support cross-platform development of security-enabled client and server applications. Applications built with NSS can support SSL v2 and v3, TLS, PKCS #5, PKCS #7, PKCS #11, PKCS #12, S/MIME, X.509 v3 certificates, and other security standards."
@@ -2631,11 +2632,11 @@ msgstr ""
 
 #: programming/libs/libcdio::summary
 msgid "A library to encapsulate CD-ROM reading and control"
-msgstr ""
+msgstr "Librería que engloba lectura y control de CD-ROM"
 
 #: programming/libs/icu4c::summary
 msgid "International Components for Unicode"
-msgstr ""
+msgstr "Componentes internacionales para Unicode"
 
 #: programming/libs/icu4c::description
 msgid "ICU is a mature, widely used set of C/C++ and Java libraries for Unicode support, software internationalization and globalization (i18n/g11n). This package contains the C/C++ libraries."
@@ -2667,7 +2668,7 @@ msgstr ""
 
 #: programming/libs/libdvdnav::summary
 msgid "libdvdnav is a library for developers of multimedia applications."
-msgstr ""
+msgstr "libdvdnav es una librería para desarrolladores de aplicaciones multimedia."
 
 #: programming/libs/libdvdnav::description
 msgid "libdvdnav is a library for developers of multimedia applications. It allows easy use of sophisticated DVD navigation features such as DVD menus, multiangle playback and even interactive DVD games."
@@ -2715,7 +2716,7 @@ msgstr "Service Location Protocol es un protocolo según estándar IETF, que pro
 
 #: programming/libs/libavc1394::summary
 msgid "library for the 1394 Trade Association AV/C (Audio/Video Control) Digital Interface Command Set"
-msgstr ""
+msgstr "librería para el conjunto de comandos para la interfaz 1394 Trade Association AV/C (Audio/Video Control) "
 
 #: programming/libs/libassuan::summary
 msgid "IPC library for GnuPG related projects"
@@ -2731,7 +2732,7 @@ msgstr "DSSI (pronunciado \"dizzy\") es un API para plugins de procesamiento de 
 
 #: programming/libs/libwpd::summary
 msgid "A C++ library designed to help process WordPerfect documents"
-msgstr ""
+msgstr "Librería C++ diseñada para ayudar procesar documentos WordPerfect"
 
 #: programming/libs/nspr::summary
 msgid "Netscape Portable Runtime"
@@ -2764,7 +2765,7 @@ msgstr " Libart es una librería para gráficos 2D de alta performance. Actualm
 
 #: programming/libs/libvorbis::summary
 msgid "Free Ogg Vorbis sound file format library"
-msgstr ""
+msgstr "Librería del formato de archivos de sonido libre Ogg Vorbis"
 
 #: programming/libs/glpk::summary
 msgid "GNU Linear Programming Kit"
@@ -2772,7 +2773,7 @@ msgstr ""
 
 #: programming/libs/glpk::description
 msgid "The GLPK (GNU Linear Programming Kit) package is intended for solving large-scale linear programming (LP), mixed integer programming (MIP), and other related problems. It is a set of routines written in ANSI C and organized in the form of a callable library."
-msgstr ""
+msgstr "El paquete GLPK (GNU Linear Programming Kit) está dirigido a la programación de soluciones lineares (LP) de larga escala, programación mezclada entera (MIP), y otros problemas relacionados. Es un conjunto de rutinas escritas en ANSI C y organizado en forma de una librería llamable."
 
 #: programming/libs/chmlib::summary
 msgid "A library for dealing with Microsoft ITSS/CHM format files"
@@ -2792,7 +2793,7 @@ msgstr ""
 
 #: programming/libs/tls::summary
 msgid "TLS support for TCL"
-msgstr ""
+msgstr "Soporte TLS para TCL"
 
 #: programming/libs/tls::description
 msgid "TLS support for TCL."
@@ -2884,7 +2885,7 @@ msgstr ""
 
 #: programming/libs/openobex::summary
 msgid "An implementation of the OBEX protocol used for transferring data to mobile devices"
-msgstr ""
+msgstr "implementación del protocolo OBEX para transferir datos a dispositivos móviles"
 
 #: programming/libs/openobex::description
 msgid "The overall goal of this project is to make an open source implementation of the Object Exchange (OBEX) protocol. OBEX is a session protocol and can best be described as a binary HTTP protocol."
@@ -2892,7 +2893,7 @@ msgstr "La intención final del proyecto es de realizar una implementación de c
 
 #: programming/libs/libcddb::summary
 msgid "A library for accessing a CDDB server"
-msgstr ""
+msgstr "Librería para acceder al servidor CDDB"
 
 #: programming/libs/givaro::summary
 msgid "C++ library for arithmetic and algebraic computations"
@@ -2900,15 +2901,15 @@ msgstr ""
 
 #: programming/libs/libmpcdec::summary
 msgid "Portable Musepack decoder library"
-msgstr ""
+msgstr "Librería portable decodificador Musepack"
 
 #: programming/libs/libquicktime::summary
 msgid "A library based on quicktime4linux with extensions"
-msgstr ""
+msgstr "Libería basada en quicktime4linux con extensiones"
 
 #: programming/libs/libquicktime::description
 msgid "Libquicktime is based on the great quicktime4linux library with several enhancements. All 3rd-party libraries were removed from the sourcetree. Instead, the systemwide installed libraries are detected by the configure script. All original codecs were moved into dynamically loadable modules, and new codecs are in development."
-msgstr "Libquicktime está basado enla librería quicktime4linux con varios mejoras. Todos los librerías de terceros fueron removidos de los fuentes. En su lugar el script de configure detecta las librerías ya instalados en el sistema. Todos codecs originales fueron convertido a módulos dinámicos, y nuevos codecs están en desarrollo."
+msgstr "Libquicktime está basado en la librería quicktime4linux con varios mejoras. Todos los librerías de terceros fueron removidos de los fuentes. En su lugar el script de configure detecta las librerías ya instalados en el sistema. Todos codecs originales fueron convertido a módulos dinámicos, y nuevos codecs están en desarrollo."
 
 #: programming/libs/ucl::summary
 msgid "UCL: The UCL Compression Library"
@@ -2920,11 +2921,11 @@ msgstr "UCL es una librería portable para compresión de datos sin pérdida, es
 
 #: programming/libs/ortp::summary
 msgid "RTP protocol library"
-msgstr ""
+msgstr "Librería del protocolo RTP"
 
 #: programming/libs/ortp::description
 msgid "Ortp is a LGPLv2.1 licensed C library implementing the RTP protocol (rfc1889)."
-msgstr ""
+msgstr "Ortp es una librería C, licanciada bajo LGPLv2.1 que implementa el protocolo RTP (rfc1889)."
 
 #: programming/libs/gsl::summary
 msgid "GNU scientific library"
@@ -2984,11 +2985,11 @@ msgstr "libdc1394 es una librería con intención de facilitar una interfaz de p
 
 #: programming/libs/ois::summary
 msgid "Object Oriented Input System"
-msgstr ""
+msgstr "Sistema de Entrada orientado a objetos"
 
 #: programming/libs/ois::description
 msgid "The goal of OIS is shield the application programmer from having to rewrite input systems from scratch for each project."
-msgstr ""
+msgstr "La meta de OIS es de proteger al programador de volver a programar sistemas de entrada para cada proyecto."
 
 #: programming/libs/libdv::summary
 msgid "Software codec for dv-format video (camcorders etc)."
@@ -3040,23 +3041,23 @@ msgstr ""
 
 #: programming/libs/libebml::summary
 msgid "Extensible binary format library (kinda like XML)"
-msgstr ""
+msgstr "Librería para formato binario extensible (similar XML)"
 
 #: programming/libs/lib-compat::summary
 msgid "Compatibility C++ and libc5 and libc6 libraries for programs new and old"
-msgstr ""
+msgstr "Librerías de compatibilidad C++, libc5 y libc6 para programas antiguos y actuales"
 
 #: programming/libs/sdl-net::summary
 msgid "SDL network library"
-msgstr ""
+msgstr "Librería de red SDL"
 
 #: programming/libs/libmikmod::summary
 msgid "A library to play a wide range of module formats"
-msgstr ""
+msgstr "Librería para reproducir una gran gama de formatos de módulos"
 
 #: programming/libs/libmikmod::description
 msgid "libmikmod is a portable sound library, which used to be packaged with the MikMod module player, but is now released independentely. It is capable of playing samples as well as module files, using the OSS driver for output, as well as Alsa and EsounD. Supported module format include mod, s3m, xm, it, med, mtm and 669, to name a few."
-msgstr "libmikmod es ina librería portable de sonido, que solía estar incluido con el MikMod module player, pero ahora fue lanzado independientemente. Es capaz de reproducir archivos de sonidos y de módulos, usando para la salida tanto un controlador OSS, como también Alsa y EsounD. Formatos de módulos soportados abarcan mod, s3m, xm, it, med, mtm and 669, para nombrar algunos."
+msgstr "libmikmod es una librería portable de sonido, que solía estar incluido con el MikMod module player, pero ahora fue lanzado independientemente. Es capaz de reproducir archivos de sonidos y de módulos, usando para la salida tanto un controlador OSS, como también Alsa y EsounD. Formatos de módulos soportados abarcan mod, s3m, xm, it, med, mtm and 669, para nombrar algunos."
 
 #: programming/libs/gle::summary
 msgid "GL extrusion library"
@@ -3076,7 +3077,7 @@ msgstr "Aalib es una librería gráfica ASCII que genera salidas con caracteres 
 
 #: programming/libs/egenix-mx-base::summary
 msgid "Egenix utils for Python"
-msgstr ""
+msgstr "Utilidades Egenix para Python"
 
 #: programming/libs/egenix-mx-base::description
 msgid "Egenix utils for Python."

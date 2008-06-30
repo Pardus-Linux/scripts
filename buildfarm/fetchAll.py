@@ -20,6 +20,11 @@ import pisi.context as ctx
 import pisi.specfile
 import pisi.util as util
 from pisi.fetcher import fetch_url
+from pisi.mirrors import Mirrors
+
+#Dummy method for gettext
+def _(x):
+    return x
 
 def scanPSPEC(folder):
     packages = []
@@ -36,6 +41,28 @@ def isCached(file, sha1sum):
         return util.check_file_hash(os.path.join(ctx.config.archives_dir(), file), sha1sum)
     except:
         pass
+
+def fetch_from_mirror():
+    uri = URI.get_uri()
+    sep = uri[len("mirrors://"):].split("/")
+    name = sep.pop(0)
+    archive = "/".join(sep)
+
+    mirrors = Mirrors().get_mirrors(name)
+    if not mirrors:
+        raise Error(_("%s mirrors are not defined.") % name)
+
+    for mirror in mirrors:
+        try:
+            url = os.path.join(mirror, archive)
+            ctx.ui.warning(_('Fetching source from mirror: %s') % url)
+            fetch_url(url, ctx.config.archives_dir())
+            return
+        except pisi.fetcher.FetchError:
+            pass
+
+    raise pisi.fetcher.FetchError(_('Could not fetch source from %s mirrors.') % name);
+
 
 if __name__ == "__main__":
     pisi.api.init(database=False, options='')
@@ -54,7 +81,10 @@ if __name__ == "__main__":
         if not isCached(URI.filename(), spec.source.archive.sha1sum):
             print URI, " -> " , os.path.join(ctx.config.archives_dir(), URI.filename())
             try:
-                fetch_url(URI, ctx.config.archives_dir())
+                if URI.get_uri().startswith("mirrors://"):
+                    fetch_from_mirror()
+                else:
+                    fetch_url(URI, ctx.config.archives_dir())
             except pisi.fetcher.FetchError, e:
                 print e
                 pass

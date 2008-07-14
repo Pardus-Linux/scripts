@@ -18,7 +18,7 @@ import time
 Name = "Furkan Duman"
 Email = "coderlord@gmail.com"
 Comment = "Version bump"
-MirrorURI = "mirrors://kde/stable/%s/src/kde-i18n"
+MirrorURI = "mirrors://kde/unstable/%s/src/kde-l10n"
 
 class PspecUpdater:
     header = '''<?xml version="1.0" ?>
@@ -85,18 +85,24 @@ def update(filename, version):
     updater = PspecUpdater(filename)
 
     source = updater.getSourceName()
-    try:
-        sha1sum = update_dict[source][0]
-        archiveFilename = update_dict[source][1]
-    except:
-        print "Unable to find %s package in sha1sum list!" % source
-        return
+
+    if len(sys.argv) == 4:
+        try:
+            sha1sum = update_dict[source][0]
+            archiveFilename = update_dict[source][1]
+        except:
+            print "Unable to find %s package in sha1sum list!" % source
+            return
+    else:
+        oldArchive = updater.getArchive().uri[updater.getArchive().uri.rindex("/") + 1:]
+        archiveFilename = oldArchive.replace(updater.spec.history[0].version, version)
 
     ''' Update archive '''
     archive = updater.getArchive()
     archive.uri = "%s/%s" % (MirrorURI % version, archiveFilename)
     archive.type = getArchiveType(archiveFilename)
-    archive.sha1sum = sha1sum
+    if len(sys.argv) == 4:
+        archive.sha1sum = sha1sum
 
     ''' Update dependency versions '''
     dependency = pisi.dependency.Dependency()
@@ -113,22 +119,34 @@ def update(filename, version):
     history.name = unicode(Name)
     history.email = Email
     updater.addHistory(history)
-
     updater.write(filename)
+
+    if len(sys.argv) == 3:
+        updater = PspecUpdater(filename)
+        archive = updater.getArchive()
+        print "Fetching source: %s ..." % archiveFilename
+        pisi.api.build_until(filename, "fetch")
+        print "Source fetched"
+        archive.sha1sum = sha.new(file("/var/cache/pisi/archives/%s" % archiveFilename).read()).hexdigest()
+        updater.write(filename)
+
     print "%s updated..." % source
 
 import os
 import sys
+import pisi
+import sha
 
 if __name__ == "__main__":
-    if len(sys.argv) < 4:
-        print "Usage: %s folder version sha1sum_file" % sys.argv[0]
-        print "Example: %s /home/furkan/svn 3.6.6 sha1sum.list" % sys.argv[0]
+    if len(sys.argv) > 4 or len(sys.argv) < 3:
+        print "Usage: %s folder version [sha1sum.list]" % sys.argv[0]
+        print "Example: %s /home/furkan/svn 3.6.6 sha1sum.list\n\t If sha1sum list is not given, source files are downloaded and shasums are computed from downloaded files. In this case script should be run with root privileges." % sys.argv[0]
         sys.exit()
 
     folder = sys.argv[1]
     version = sys.argv[2]
-    parseSha1sumList(sys.argv[3])
+    if len(sys.argv) == 4:
+        parseSha1sumList(sys.argv[3])
 
     for root, dirs, files in os.walk(folder):
         if "pspec.xml" in files:

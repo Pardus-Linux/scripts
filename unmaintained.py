@@ -121,7 +121,7 @@ if __name__ == "__main__":
             authors[packager_mail] = [packager_name]
             authors[packager_mail].append([])
 
-        authors[packager_mail][1].append(s)
+        authors[packager_mail][1].append(s.partition(devel_path)[-1])
 
     result = open("templates", "wb")
 

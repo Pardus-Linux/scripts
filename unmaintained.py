@@ -70,7 +70,7 @@ Number of total packages: %(total_packages)d
 def send_mails(messages):
 
     if not smtp_user or not smtp_password:
-        print "No SMTP authentication information found. Aborting.."
+        print "*** No SMTP authentication information found. Aborting.."
         return
 
     # Socket timeout
@@ -79,30 +79,30 @@ def send_mails(messages):
     try:
         session = smtplib.SMTP(smtp_server)
     except:
-        print "Failed opening session on SMTP server %s. Aborting.."
+        print "*** Failed opening session on SMTP server %s. Aborting.."
         return
 
     try:
         session.login(smtp_user, smtp_password)
     except smtplib.SMTPAuthenticationError:
-        print "Authentication failed. Check your credentials."
+        print "*** Authentication failed. Check your credentials."
         return
 
     result = None
 
     for recipient, mail in messages.items():
         try:
-            print "Sending e-mail to %s.." % recipient
+            print "*** Sending e-mail to %s.." % recipient
             result = session.sendmail(mail_from, recipient, mail)
         except KeyboardInterrupt:
-            print "Caught CTRL+C, Quiting.."
+            print "*** Caught CTRL+C, Quiting.."
             sys.exit(1)
         except:
-            print "Problem occured when sending e-mail to %s" % recipient
+            print "*** Problem occured when sending e-mail to %s" % recipient
 
     session.quit()
 
-    print "\nFailed sending e-mails to following recipients:\n"
+    print "\n*** Failed sending e-mails to following recipients:\n"
     print "\n".join(result.keys())
 
 def get_specs(path):
@@ -116,7 +116,34 @@ def get_specs(path):
 
     return specs
 
+def mark_packages(path, package_list):
+    packages = [line for line in open(package_list, "rb").read().split('\n') if line and not line.startswith('#')]
+    pattern = "        <Packager>\n            <Name>.*</Name>\n            <Email>.*</Email>\n        </Packager>\n"
+
+    for p in packages:
+        pspec = os.path.join(path, p) + '/pspec.xml'
+        if os.path.exists(pspec):
+            pspec_xml = open(pspec, "rb").read()
+            open(pspec, "wb").write(re.sub(pattern, pattern.replace('.*', 'Pardus', 1).replace('.*', 'admins@pardus.org.tr', 1), pspec_xml))
+
+    print "*** Packages to be marked:\n"
+    print "\n".join(packages)
+
+
 if __name__ == "__main__":
+
+    # Mark the packages as unmaintained in SVN
+
+    if "--mark" in sys.argv[1:]:
+        # Give the file containing the package list
+        unmaintained_packages = sys.argv[2]
+
+        mark_packages(devel_path, unmaintained_packages)
+        print "\n*** Marking process is finished."
+        sys.exit(1)
+
+
+    # Just e-mail the contributors about their packages
 
     if smtp_password == "prompt":
         smtp_password = getpass.getpass("Enter your SMTP password: ")

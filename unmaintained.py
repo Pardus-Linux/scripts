@@ -4,21 +4,26 @@
 import os
 import socket
 import smtplib
+import getpass
+import sys
 
 from pisi.specfile import SpecFile
 
 # Do the proper adjustments here before using the script.
 
 smtp_user = "USERNAME"
-smtp_password = "PASSWORD"
-smtp_server = "SMTP SERVER"
-mail_from = "EMAIL ADDRESS"
+
+# If set to prompt, the password will be prompted upon execution
+smtp_password = "prompt"
+
+smtp_server = "SMTPSERVER"
+mail_from = "MAILFROM"
 mail_from_name = "YOUR NAME"
-devel_path = "FULL PATH TO REPOSITORY"
+devel_path = "PATH TO REPOSITORY"
 
 # Mail template
 
-mail_template = """
+mail_template = """\
 From: %(mail_from_name)s <%(mail_from)s>
 To: %(mail_to)s
 Subject: [Pardus] About your packages/Paketleriniz hakkında
@@ -31,7 +36,7 @@ Dear Pardus contributor,
 As we are trying to determine unmaintained packages, please reply to this automatic
 email 'only' with a list of your packages that you will not maintain anymore.
 
-Note that, if you don't reply to this email until 01 November 2008, all of your packages
+Note that, if you don't reply to this email until 1 November 2008, all of your packages
 will be automatically marked as 'unmaintained'.
 
 Best Regards,
@@ -51,11 +56,13 @@ olarak işaretlenecektir.
 Saygılar,
 %(mail_from_name)s <%(mail_from)s>
 
-----------------------------------------
+
+----------------------------------------------
 Packager name: %(packager_name)s
 Packager e-mail: %(mail_to)s
 Number of total packages: %(total_packages)d
-----------------------------------------
+
+
 
 %(packages)s
 """
@@ -85,13 +92,17 @@ def send_mails(messages):
 
     for recipient, mail in messages.items():
         try:
-            result = session.sendmail(mail_from, "ozan@pardus.org.tr", mail)
+            print "Sending e-mail to %s.." % recipient
+            result = session.sendmail(mail_from, recipient, mail)
+        except KeyboardInterrupt:
+            print "Caught CTRL+C, Quiting.."
+            sys.exit(1)
         except:
             print "Problem occured when sending e-mail to %s" % recipient
 
     session.quit()
 
-    print "Failed sending e-mails to following recipients:\n"
+    print "\nFailed sending e-mails to following recipients:\n"
     print "\n".join(result.keys())
 
 def get_specs(path):
@@ -106,6 +117,9 @@ def get_specs(path):
     return specs
 
 if __name__ == "__main__":
+
+    if smtp_password == "prompt":
+        smtp_password = getpass.getpass("Enter your SMTP password: ")
 
     # Get pspec's found in devel_path
     specs = get_specs(devel_path)
@@ -123,8 +137,6 @@ if __name__ == "__main__":
 
         authors[packager_mail][1].append(s.partition(devel_path)[-1])
 
-    result = open("templates", "wb")
-
     for k,v in authors.items():
         # Key is email
         # Value is a list, e.g. ['name', [p1,p2,p3..pn]]
@@ -138,7 +150,5 @@ if __name__ == "__main__":
 
 
         templates[k] = mail_template % template_values
-        result.write(templates[k])
-        result.write("\n\n")
 
-    #send_mails(templates)
+    send_mails(templates)

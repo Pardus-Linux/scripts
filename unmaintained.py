@@ -14,12 +14,12 @@ smtp_password = "PASSWORD"
 smtp_server = "SMTP SERVER"
 mail_from = "EMAIL ADDRESS"
 mail_from_name = "YOUR NAME"
-devel_path = "ENTER THE FULL PATH TO THE REPOSITORY"
+devel_path = "FULL PATH TO REPOSITORY"
 
 # Mail template
 
 mail_template = """
-From: %(mail_from_name)s <%(mail_from)>
+From: %(mail_from_name)s <%(mail_from)s>
 To: %(mail_to)s
 Subject: [Pardus] About your packages/Paketleriniz hakkında
 Content-Type: text/plain;
@@ -53,7 +53,7 @@ Saygılar,
 
 ----------------------------------------
 Packager name: %(packager_name)s
-Packager e-mail:%(mail_to)s
+Packager e-mail: %(mail_to)s
 Number of total packages: %(total_packages)d
 ----------------------------------------
 

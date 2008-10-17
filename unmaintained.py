@@ -4,8 +4,8 @@
 import os
 import socket
 import smtplib
-import getpass
 import sys
+import re
 
 from pisi.specfile import SpecFile
 
@@ -118,16 +118,16 @@ def get_specs(path):
 
 def mark_packages(path, package_list):
     packages = [line for line in open(package_list, "rb").read().split('\n') if line and not line.startswith('#')]
-    pattern = "        <Packager>\n            <Name>.*</Name>\n            <Email>.*</Email>\n        </Packager>\n"
 
     for p in packages:
+        print "Marking %s" % p
         pspec = os.path.join(path, p) + '/pspec.xml'
         if os.path.exists(pspec):
-            pspec_xml = open(pspec, "rb").read()
-            open(pspec, "wb").write(re.sub(pattern, pattern.replace('.*', 'Pardus', 1).replace('.*', 'admins@pardus.org.tr', 1), pspec_xml))
-
-    print "*** Packages to be marked:\n"
-    print "\n".join(packages)
+            lines = open(pspec, "rb").readlines()
+            i = [l.strip() for l in lines].index('<Packager>') + 1
+            lines[i] = re.sub("<Name>.*</Name>", "<Name>Pardus</Name>", lines[i])
+            lines[i+1] = re.sub("<Email>.*</Email>", "<Email>admins@pardus.org.tr</Email>", lines[i+1])
+            open(pspec, "wb").writelines(lines)
 
 
 if __name__ == "__main__":
@@ -146,7 +146,8 @@ if __name__ == "__main__":
     # Just e-mail the contributors about their packages
 
     if smtp_password == "prompt":
-        smtp_password = getpass.getpass("Enter your SMTP password: ")
+        from getpass import getpass
+        smtp_password = getpass("Enter your SMTP password: ")
 
     # Get pspec's found in devel_path
     specs = get_specs(devel_path)

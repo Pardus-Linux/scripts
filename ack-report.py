@@ -9,8 +9,8 @@ from pisi.package import Package
 
 # Generates detailed statistics about pisi files
 
-test_path = "/var/cache/pisi/packages-test/"
-stable_path = "/var/cache/pisi/packages/"
+test_path = "/var/www/localhost/htdocs/pardus-2008-test/"
+stable_path = "/var/www/localhost/htdocs/pardus-2008/"
 
 def get_package_name(filename):
     return filename.rstrip(".pisi").rsplit("-", 3)[0]
@@ -21,18 +21,19 @@ def get_package_build(filename):
 def get_package_release(filename):
     return int(filename.rstrip(".pisi").rsplit("-", 3)[2])
 
-def get_latest_release(package):
+def get_latest_package(package):
     """ Returns the file name corresponding to the
     latest release of the package 'package_name' found in 'path'."""
 
     file_list = glob.glob1(stable_path, "%s-[0-9]*-[0-9]*-[0-9]*.pisi" % get_package_name(package))
     file_list.sort(cmp=lambda x,y:get_package_build(x)-get_package_build(y), reverse=True)
-    return get_package_release(file_list[0])
+    return file_list[0]
 
 def main(file_list):
 
     files = open(file_list, "rb").read().strip().split("\n")
     print "Total number of packages in '%s': %d" % (file_list, len(files))
+    print "-"*45 + "\n"
 
     d = {}
 
@@ -41,8 +42,14 @@ def main(file_list):
             continue
 
         name = get_package_name(f)
+        latest_package = get_latest_package(f)
         current_release = get_package_release(f)
-        stable_release = get_latest_release(f)
+        stable_release = get_package_release(latest_package)
+
+        if f == latest_package:
+            # File names are the same, the package has been moved or rebuilt.
+            print "%s exists both in pardus-2008 and pardus-2008-test." % f
+            continue
 
         metadata = Package(os.path.join(test_path, f)).get_metadata()
         packager = "%s <%s>" % (metadata.source.packager.name, metadata.source.packager.email.replace('@', '_at_'))
@@ -66,8 +73,7 @@ def main(file_list):
         d[name] = [current_release, stable_release, packager, changes]
 
     for p in d.keys():
-        print "\nName: %s" % p
-        print "Packager: %s" % d[p][2]
+        print "\nName: %s\nPackager: %s" % (p, d[p][2])
         print "-"*55
         print d[p][3]
 

@@ -1,4 +1,5 @@
->#!/usr/bin/python
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 import MySQLdb as mysql
 import time
@@ -78,7 +79,7 @@ def main(author, log, commit_no, changed, repo):
         cur.execute(COMMENT_SQL % {"bug_id": bug_id,
                                    "user_id": getAuthorBugzillaID(),
                                    "bug_when": cur_time,
-                                   "thetext": thetext})
+                                   "thetext": unicode(thetext)})
 
     def fixBUG(bug_id):
         commentBUG(bug_id)

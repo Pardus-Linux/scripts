@@ -14,14 +14,11 @@ test_path = "/var/www/localhost/htdocs/pardus-2008-test/"
 stable_path = "/var/www/localhost/htdocs/pardus-2008/"
 
 template = """\
-Modification time: %s
-    by %s
-Version: %s
-Release: %s
-Type: %s
-Changes:
+* Ver.: %s, Rel.: %s, Type: %s
+* %s [%s]
 
-%s\n
+    %s
+
 """
 
 def get_package_name(filename):
@@ -70,9 +67,9 @@ def main(file_list):
 
                 changes = ""
                 for h in metadata.package.history[0:current_release-stable_release]:
-                    changes += template % (h.date, ("%s <%s>" % (h.name, h.email.replace('@', '_at_'))),
-                                           h.version, h.release, h.type,
-                                           "\n".join([l.strip() for l in h.comment.split('\n')]))
+                    changes += template % (h.version, h.release, h.type,
+                                           ("%s <%s>" % (h.name, h.email.replace('@', '_at_'))), h.date,
+                                           "\n    ".join([l.strip() for l in h.comment.split('\n')]))
 
                 d[name] = [current_release, stable_release, packager, changes]
 
@@ -100,9 +97,11 @@ def main(file_list):
     stats.close()
 
 
-    for p in d.keys():
-        print "\nName: %s\nPackager: %s" % (p, d[p][2])
-        print "-"*55
+    keys = d.keys()
+    keys.sort()
+    for p in keys:
+        print "= Package : %s  [%s]" % (p, d[p][2])
+        print "="*70
         print d[p][3],
 
 if __name__ == "__main__":

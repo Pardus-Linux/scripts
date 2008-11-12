@@ -6,10 +6,10 @@ import sys
 from pisi.specfile import SpecFile
 
 # Enter your email
-maintainer_email = ""
+maintainer_email = "gokmen@pardus.org.tr"
 
 # Enter path to devel (e.g. /home/user/pardus/devel)
-devel_path = ""
+devel_path = "/home/gokmen/pardus/devel"
 
 
 def get_specs(path):

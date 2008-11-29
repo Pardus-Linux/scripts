@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="7.4"
+VERSION="7.4_${VERSION_DATE:-`date +%Y%m%d`}"
 
 for option in $*; do
     case $option in
@@ -34,22 +34,27 @@ if [ "$FILELIST" == "" ]; then
     exit
 fi
 
-if [ ! -e xorg ]; then
-    mkdir xorg
+ARCHIVES_DIR=~/xorg-archives
+
+if [ ! -e $ARCHIVES_DIR ]; then
+    mkdir $ARCHIVES_DIR
 fi
 
-mkdir $PACKAGE-$VERSION
-cd xorg
+SCRIPT_DIR=`pwd`
+TEMP_DIR=$SCRIPT_DIR/$PACKAGE-$VERSION
 
-for i in `cat ../$FILELIST`
+mkdir $TEMP_DIR
+cd $ARCHIVES_DIR
+
+for i in `cat $SCRIPT_DIR/$FILELIST`
 do
     if [ ! -e $i ]; then
         wget $MIRROR"/"$i || exit 1
         echo "$i" > $FILELIST.changes
     fi
-    tar xvf $i -C ../$PACKAGE-$VERSION
+    tar xvf $i -C $TEMP_DIR
 done
 
-cd ..
-tar cjvf $PACKAGE-$VERSION.tar.bz2 -C $PACKAGE-$VERSION .
-rm -rf  $PACKAGE-$VERSION
+cd $SCRIPT_DIR
+tar cjvf $PACKAGE-$VERSION.tar.bz2 -C $TEMP_DIR .
+rm -rf  $TEMP_DIR

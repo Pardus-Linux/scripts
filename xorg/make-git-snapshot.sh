@@ -17,7 +17,7 @@ git clone git://git.freedesktop.org/git/xorg/$PROJECT_PATH $DIRNAME
 cd $DIRNAME
 
 git log | head -1 | cut -d" " -f 2 > commit
-git-archive --format=tar --prefix=$DIRNAME/ $BRANCH | bzip2 > ../$DIRNAME.tar.bz2
+git archive --format=tar --prefix=$DIRNAME/ $BRANCH | bzip2 > ../$DIRNAME.tar.bz2
 
 cd ..
 rm -rf $DIRNAME

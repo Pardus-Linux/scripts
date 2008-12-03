@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="7.4_${VERSION_DATE:-`date +%Y%m%d`}"
+VERSION="7.5_${VERSION_DATE:-`date +%Y%m%d`}"
 
 for option in $*; do
     case $option in

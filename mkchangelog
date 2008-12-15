@@ -27,9 +27,10 @@ def _msg(source):
 
 xml = piksemel.parse(sys.argv[1])
 for node in xml.tags():
-    author = rep(node.getTagData("author"))
-    msg = _msg(rep(node.getTagData("msg").rstrip("\n")))
-    print scheme % (node.getTagData("date")[0:10],
-                    author,
-                    msg)
+    if node.getTagData("msg"):
+        author = rep(node.getTagData("author"))
+        msg = _msg(rep(node.getTagData("msg").rstrip("\n")))
+        print scheme % (node.getTagData("date")[0:10],
+                        author,
+                        msg)
 

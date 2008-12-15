@@ -23,7 +23,7 @@ def rep(source):
 def _msg(source):
     for line in source.splitlines():
         source = source.replace(line, line.lstrip(" \n\t*"))
-    return "\n".join(map(lambda x: "\t * %s" % x, filter(None,source.splitlines())))
+    return "\n".join(map(lambda x: "         * %s" % x, filter(None,source.splitlines())))
 
 xml = piksemel.parse(sys.argv[1])
 for node in xml.tags():

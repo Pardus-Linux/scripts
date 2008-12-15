@@ -1,0 +1,35 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import sys
+import piksemel
+
+if len(sys.argv) < 2:
+    print "Usage: %s logfile.xml" % sys.argv[0]
+    sys.exit()
+
+replaces = [["BUG:COMMENT:","\t* Comment added to http://bugs.pardus.org.tr/"],
+            ["BUG:FIXED:","\t* Bug fixed at http://bugs.pardus.org.tr/"],
+            ["svnusername","Your Name <your@email.com>"]]
+
+scheme = """%s %s
+%s
+"""
+def rep(source):
+    for base in replaces:
+        source = source.replace(base[0], base[1])
+    return source
+
+def _msg(source):
+    for line in source.splitlines():
+        source = source.replace(line, line.lstrip(" \n\t*"))
+    return "\n".join(map(lambda x: "\t * %s" % x, filter(None,source.splitlines())))
+
+xml = piksemel.parse(sys.argv[1])
+for node in xml.tags():
+    author = rep(node.getTagData("author"))
+    msg = _msg(rep(node.getTagData("msg").rstrip("\n")))
+    print scheme % (node.getTagData("date")[0:10],
+                    author,
+                    msg)
+

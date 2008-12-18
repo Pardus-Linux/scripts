@@ -58,3 +58,5 @@ done
 cd $SCRIPT_DIR
 tar cjvf $PACKAGE-$VERSION.tar.bz2 -C $TEMP_DIR .
 rm -rf  $TEMP_DIR
+
+sha1sum $PACKAGE-$VERSION.tar.bz2

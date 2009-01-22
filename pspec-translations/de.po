@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # FIRST AUTHOR Gökhan Akca <goekhanakca_ed_web.de>, 2007.
-# Mustafa Ölcerman <m.oelcerman@pardus-linux.de>, 2008.
+# Mustafa Ölcerman <m.oelcerman@pardus-linux.de>, 2008, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2008-01-25 11:43+0200\n"
+"PO-Revision-Date: 2009-01-22 23:47+0100\n"
 "Last-Translator: Mustafa Ölcerman <m.oelcerman@pardus-linux.de>\n"
 "Language-Team: Deutsch <pardus-translation-de@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -5696,7 +5696,7 @@ msgstr ""
 
 #: applications/network/mozilla/thunderbird::summary
 msgid "Thunderbird Email Client"
-msgstr ""
+msgstr "Thunderbird E-Mail-Programm"
 
 #: applications/network/mozilla/thunderbird::description
 msgid "Thunderbird is an email client with advanced features like skinning and plugin support."
@@ -5984,7 +5984,7 @@ msgstr ""
 
 #: applications/printing/gutenprint::summary
 msgid "High quality printer drivers"
-msgstr ""
+msgstr "High quality Druckertreiber"
 
 #: applications/printing/gutenprint::description
 msgid "High quality drivers for Canon, Epson, Lexmark, Sony, Olympus, and PCL printers for use with Ghostscript, CUPS, Foomatic, and the Gimp."
@@ -5996,7 +5996,7 @@ msgstr ""
 
 #: applications/printing/foomatic-db::summary
 msgid "Printer drivers"
-msgstr ""
+msgstr "Druckertreiber"
 
 #: applications/printing/foomatic-db::description
 msgid "Foomatic printer database and drivers"
@@ -13006,3 +13006,4 @@ msgstr ""
 #: kernel-xen/domU/kernel-domU::description
 msgid "User domain Xen-enabled kernel allows Pardus to run on the Xen virtual machine's user domain. This kernel cannot be booted as the first operating system on Xen, it must be booted from domain 0 and does not have direct access to hardware, but it's smaller than the domain 0 kernel."
 msgstr ""
+

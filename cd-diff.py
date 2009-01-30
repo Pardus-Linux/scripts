@@ -22,8 +22,8 @@ import time
 duplicates = ["kernel-headers"]
 
 comment_template = """\
-<p>Updated on <em>%s</em> by <em>%s</em> to version <b>%s</b>, release: <b>%s</b></p>
-<div style=\"border:1px solid #999999; background-color:#DDDDDD; padding:3px;\">%s</div>
+<span style=\"padding: 2px;\">Updated on <em>%s</em> by <em>%s</em> to version <b>%s</b>, release: <b>%s</b></span>
+<div style=\"border:1px solid #999999; background-color:#DDDDDD; padding:3px; margin-top:2px;\">%s</div>
 """
 
 output = """\
@@ -89,13 +89,6 @@ output = """\
 
 footer = """\
 </ol>
-<div align=\"center\">
-<br />
-<p>
-    <a href="http://validator.w3.org/check?uri=referer"><img style=\"border:0px;\"
-        src="http://www.w3.org/Icons/valid-xhtml10-blue"
-        alt="Valid XHTML 1.0 Transitional" height="31" width="88" /></a>
-  </p>
 </body>
 </html>
 """
@@ -119,7 +112,7 @@ def add_package_modifications_header(nr, nr_new):
 
 def add_package_changes(p, diffp):
     global output
-    data  = "\n<ul>\n<li><b><a name=\"%s\">%s</a></b>\n" % (p,p)
+    data  = "\n<ul>\n<li><b><a name=\"%s\">%s</a></b><br /><br />\n" % (p,p)
     for d in diffp:
         data += "%s\n" % (parse_comment(p,d).replace("\n", "<br />"))
 

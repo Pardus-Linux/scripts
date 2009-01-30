@@ -31,11 +31,11 @@ output = """\
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-<title>Detailed changelog between Pardus 2008.1 and Pardus 2008.2</title>
+<title>Detailed changelog between Pardus 2008.1 Hyaena hyaena and Pardus 2008.2 Canis aureus</title>
 </head>
 <body>
 
-<h1><a name=\"top\">Pardus 2008.2 Statistics</a></h1>
+<h1><a name=\"top\">Pardus 2008.2 Canis aureus Statistics</a></h1>
 <a href=\"http://www.pardus.org.tr/eng\">http://www.pardus.org.tr/eng</a><br />
 <em>Generated on %s</em>
 
@@ -118,8 +118,12 @@ def parse_comment(p, update):
     cve_mitre_org = "http://cve.mitre.org/cgi-bin/cvename.cgi?name="
 
     # Hardcoded hack
+    fixed_bugs = re.findall("#([0-9]+)", m_comment)
+
     if p != "e2fsprogs":
-        fixed_bugs = re.findall("#([0-9]{1,4})", m_comment)
+        for f in fixed_bugs:
+            if len(f) > 4:
+                fixed_bugs.remove(f)
 
         if fixed_bugs:
             if total_fixed_bugs.has_key(p):
@@ -148,7 +152,7 @@ def add_bugzilla_statistics():
     bugs = [(p, len(total_fixed_bugs[p])) for p in total_fixed_bugs.keys()]
     bugs.sort(cmp=lambda x,y: x[1]-y[1], reverse=True)
     for k,v in bugs:
-        data += "<li><b>%s (%d bugs fixed)</b></li>\n" % (k, v)
+        data += "<li style=\"padding:3px;\"><b>%s</b></li>\n" % k
         data += "<ul>"
         data += "\n".join(["<li><a href=\"http://bugs.pardus.org.tr/show_bug.cgi?id=%s\" target=\"_blank\">#%s</a></li>" % (b,b) for b in total_fixed_bugs[k]])
         data += "</ul>"

@@ -22,7 +22,7 @@ import time
 duplicates = ["kernel-headers"]
 
 comment_template = """\
-Updated on <em>%s</em> by <em>%s</em> to version <b>%s</b>, release: <b>%s</b>
+<p>Updated on <em>%s</em> by <em>%s</em> to version <b>%s</b>, release: <b>%s</b></p>
 <div style=\"border:1px solid #999999; background-color:#DDDDDD; padding:3px;\">%s</div>
 """
 
@@ -30,56 +30,72 @@ output = """\
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-<title>Detailed changelog between Pardus 2008.1 Hyaena hyaena and Pardus 2008.2 Canis aureus</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>Detailed changelog between Pardus 2008.1 Hyaena hyaena and Pardus 2008.2 Canis aureus</title>
 </head>
 <body>
 
-<h1><a name=\"top\">Pardus 2008.2 Canis aureus Statistics</a></h1>
-<a href=\"http://www.pardus.org.tr/eng\">http://www.pardus.org.tr/eng</a><br />
-<em>Generated on %s</em>
+    <h1><a name=\"top\">Pardus 2008.2 Canis aureus Statistics</a></h1>
+    <a href=\"http://www.pardus.org.tr/eng\">http://www.pardus.org.tr/eng</a><br />
+    <em>Generated on %s</em>
 
-<h2>Introduction</h2>
-<p>
-This is an automatically generated HTML document to provide some comparisons and statistics about a Pardus release.
-The tool which generates this document compares two ISO9660 Pardus disc images to find out the evolution of the included binary packages.
-</p>
+    <h2>Introduction</h2>
+        <p>
+        This is an automatically generated HTML document to provide some comparisons and statistics about a Pardus release.
+        The tool which generates this document compares two ISO9660 Pardus disc images to find out the evolution of the included binary packages.
+        </p>
 
-<h2>Table of Contents</h2>
-<ol>
-<li><a href="#istats">Image statistics</a></li>
-<li><a href="#pstats">New packages</a></li>
-<ol>
-%s
-</ol>
-<li><a href="#pmstats">Package modifications</a></li>
-<ol>
-%s
-</ol>
-<li><a href="#bstats">Bugzilla statistics</a></li>
-</ol>
+    <h2>Table of Contents</h2>
+    <ol>
+        <li><a href="#istats">Image statistics</a></li>
+        <li>
+            <a href="#pstats">New packages</a>
+            <ol>
+                %s
+            </ol>
+        </li>
+        <li>
+            <a href="#pmstats">Package modifications</a>
+            <ol>
+                %s
+            </ol>
+        </li>
+        <li>
+            <a href="#bstats">Bugzilla statistics</a>
+        </li>
+    </ol>
 
-<hr />
-<br />
-<ol>
-<h2><li><a name="istats">Image statistics</a> <a style=\"text-decoration:none;\" href=\"#top\">^^^</a></li></h2>
-<ul>
-<li><b>Image name:</b> <em>%s</em></li>
-<li><b>Image size:</b> <em>%s</em></li>
-<li><b>Date of release:</b> <em>%s</em></li>
-<li><b>Number of total packages:</b> <em>%d</em></li>
-<li><b>Number of new packages:</b> <em>%d</em></li>
-<li><b>Number of updated packages:</b> <em>%d</em></li>
-<li><b>Download page:</b> <a href=\"http://www.pardus.org.tr/eng/download.html\" target=\"_blank\">Click here</li>
-</ul>
-<h2><li><a name="pstats">New packages</a> <a style=\"text-decoration:none;\" href=\"#top\">^^^</a></li></h2>
-<ul>
+    <hr />
+    <br />
+    <ol>
+        <li>
+            <h2><a name="istats">Image statistics</a> <a style=\"text-decoration:none;\" href=\"#top\">^^^</a></h2>
+            <ul>
+                <li><b>Image name:</b> <em>%s</em></li>
+                <li><b>Image size:</b> <em>%s</em></li>
+                <li><b>Date of release:</b> <em>%s</em></li>
+                <li><b>Number of total packages:</b> <em>%d</em></li>
+                <li><b>Number of new packages:</b> <em>%d</em></li>
+                <li><b>Number of updated packages:</b> <em>%d</em></li>
+                <li><b>Download page:</b> <a href=\"http://www.pardus.org.tr/eng/download.html\" target=\"_blank\">Click here</a></li>
+            </ul>
+        </li>
 
+        <li>
+            <h2><a name="pstats">New packages</a> <a style=\"text-decoration:none;\" href=\"#top\">^^^</a></h2>
+            <ul>
 
 """
 
 footer = """\
 </ol>
+<div align=\"center\">
+<br />
+<p>
+    <a href="http://validator.w3.org/check?uri=referer"><img style=\"border:0px;\"
+        src="http://www.w3.org/Icons/valid-xhtml10-blue"
+        alt="Valid XHTML 1.0 Transitional" height="31" width="88" /></a>
+  </p>
 </body>
 </html>
 """
@@ -91,23 +107,23 @@ total_bugs = 0
 def add_new_package_descriptions(news):
     global output
     for k in sorted(news.keys()):
-        output += "<li><b><a name=\"%s\">%s</a></b></li>\n<p><em>%s</em></p>\n" % (k, k, news[k])
+        output += "<li><b><a name=\"%s\">%s</a></b>\n<p><em>%s</em></p></li>\n" % (k, k, news[k])
 
-    output += "</ul>"
+    output += "</ul></li>"
 
 def add_package_modifications_header(nr, nr_new):
     global output
-    header  = "<h2><li><a name=\"pmstats\">Package modification statistics</a> <a style=\"text-decoration:none;\" href=\"#top\">^^^</a></li></h2>\n"
+    header  = "\n\n<li><h2><a name=\"pmstats\">Package modification statistics</a> <a style=\"text-decoration:none;\" href=\"#top\">^^^</a></h2>\n"
     header += "<h3>%d of %d binary packages has been changed from the release of Pardus 2008.1 to this day:</h3>" % (nr_new, nr)
     output += header
 
 def add_package_changes(p, diffp):
     global output
-    data  = "<ul>\n<li><b><a name=\"%s\">%s</a></b></li>\n" % (p,p)
+    data  = "\n<ul>\n<li><b><a name=\"%s\">%s</a></b>\n" % (p,p)
     for d in diffp:
-        data += "<p>%s</p>\n" % (parse_comment(p,d).replace("\n", "<br />"))
+        data += "%s\n" % (parse_comment(p,d).replace("\n", "<br />"))
 
-    output += data + "</ul>"
+    output += data + "</li>\n</ul>"
 
 def parse_comment(p, update):
     # Sanitize comments
@@ -146,18 +162,18 @@ def parse_comment(p, update):
 def add_bugzilla_statistics():
     global output
 
-    data  = "<h2><li><a name=\"bstats\">Bugzilla statistics</a> <a style=\"text-decoration:none;\" href=\"#top\">^^^</a></li></h2>\n"
+    data  = "</li>\n\n<li><h2><a name=\"bstats\">Bugzilla statistics</a> <a style=\"text-decoration:none;\" href=\"#top\">^^^</a></h2>\n"
     data += "<h3>A total of %d bugs has been fixed from the release of Pardus 2008.1 to this day:</h3>\n<ul>\n" % total_bugs
 
     bugs = [(p, len(total_fixed_bugs[p])) for p in total_fixed_bugs.keys()]
     bugs.sort(cmp=lambda x,y: x[1]-y[1], reverse=True)
     for k,v in bugs:
-        data += "<li style=\"padding:3px;\"><b>%s</b></li>\n" % k
+        data += "<li style=\"padding:3px;\"><b>%s</b>\n" % k
         data += "<ul>"
         data += "\n".join(["<li><a href=\"http://bugs.pardus.org.tr/show_bug.cgi?id=%s\" target=\"_blank\">#%s</a></li>" % (b,b) for b in total_fixed_bugs[k]])
-        data += "</ul>"
+        data += "</ul></li>"
 
-    output += data + "</ul>"
+    output += data + "</ul></li>"
 
 
 if __name__ == "__main__":

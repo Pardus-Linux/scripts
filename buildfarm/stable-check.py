@@ -14,4 +14,4 @@ if __name__ == "__main__":
     acked = loadFile("/root/ack.txt")
     for i in acked :
         if (i):
-            os.system ("ls -1 /var/www/localhost/htdocs/pardus-2008-test/%s | grep 'Böyle'" % i)
+            os.system ("ls -1 /var/cache/pisi/packages-test/%s | grep 'Böyle'" % i)

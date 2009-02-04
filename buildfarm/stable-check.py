@@ -14,4 +14,5 @@ if __name__ == "__main__":
     acked = loadFile("/root/ack.txt")
     for i in acked :
         if (i):
-            os.system ("ls -1 /var/cache/pisi/packages-test/%s | grep 'Böyle'" % i)
+            if not os.path.exists("/var/cache/pisi/packages-test/%s" % i):
+                print "\033[01;32m * Missing binary in test repo :\033[0m %s" % i

@@ -27,6 +27,11 @@ if [ "$MIRROR" == "" ]; then
     exit
 fi
 
+if [ "$MIRRORCORE" == "" ]; then
+    echo "Use with $0 --mirror-core=ftp://tug.org/texlive/historic/2008/"
+    exit
+fi
+
 if [ "$PACKAGE" == "" ]; then
     echo "Use with $0 --package=texlive-core"
     exit
@@ -57,6 +62,10 @@ do
     fi
     tar --lzma -xv -f "texlive-module-"$i"-2008.tar.lzma" -C $TEMP_DIR
 done
+
+k="texlive-20080816-source.tar.lzma"
+wget $MIRRORCORE"/"$k || exit 1
+tar --lzma -xv -f $k -C $TEMP_DIR
 
 cd $SCRIPT_DIR
 tar cjvf $PACKAGE-$VERSION.tar.bz2 $PACKAGE-$VERSION/

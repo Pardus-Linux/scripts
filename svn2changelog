@@ -1,0 +1,148 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+# Simple parser to convert svn log to a ChangeLog file
+#
+# Copyright 2009, Onur Küçük <onur@pardus.org.tr>
+#
+
+import sys
+import subprocess
+
+# write where your accounts file is
+accountsFile = "/svn/uludag/trunk/common/accounts"
+
+
+def loadFile(_file):
+    try:
+       f = file(_file)
+       data = f.read()
+       f.close()
+    except IOError:
+        print " !!! Failed to open %s !!!" % _file
+        sys.exit(1)
+
+    return data.split("\n")
+
+def getSvnLog(svnargs=""):
+    try:
+        a = subprocess.Popen("svn log %s" % svnargs, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+        if a.wait() > 0:
+            print "Error from Subversion !"
+            print a.communicate()[1]
+            sys.exit(1)
+        else:
+            return a.communicate()[0].split("\n")
+
+    except OSError, e:
+        print " !!! Error running svn command !!!"
+        print e
+        sys.exit(1)
+
+def parseAccounts():
+    acc = {}
+    data = loadFile(accountsFile)
+    data = filter(lambda x: not (x.startswith("#") or x == ""), data)
+
+    for i in data:
+        nick, realName, email = i.split(":")[0:3]
+        acc[nick] = [realName, email]
+
+    return acc
+
+def parseHeader(_data):
+    changedate = None
+    changer = None
+
+    if " | " in _data:
+        changearray = _data.split(" | ")
+        changer = changearray[1]
+        changedate = changearray[2].split(" ")[0]
+
+    return changedate, changer
+
+def parseSections(_data):
+    sections = {}
+    currentsection = ""
+    getsection = False
+    emptyline = False
+
+    for line in _data:
+        if line == "-" * 72:
+            # start of a new section found"
+            getsection = True
+            continue
+
+        elif getsection:
+            # header found"
+            date, owner = parseHeader(line)
+
+            if owner:
+                try:
+                    svnname, svnmail = svnaccount[owner]
+                except KeyError:
+                    svnname, svnmail = owner, "nomail"
+
+                currentsection = "%s %s <%s>" % (date, svnname, svnmail)
+
+                if not currentsection in sections:
+                    sections[currentsection] = ""
+
+                getsection = False
+
+            else:
+                # EOF
+                break
+        else:
+            # starting raw data"
+            if line.strip() == "":
+                emptyline = True
+            else:
+                if emptyline:
+                    sections[currentsection] += "        * %s\n" % line
+                    emptyline = False
+                else:
+                    sections[currentsection] += "          %s\n" % line
+
+    return sections
+
+def printHistory(data):
+    timeline = data.keys()
+    timeline.sort(reverse=True)
+
+    for i in timeline:
+        print i
+        print data[i]
+
+def usage():
+    prg = sys.argv[0]
+
+    print "Simple svn to ChangeLog parser"
+    print ""
+    print "%s [fromfile <svnlogfile>] [SVN OPTIONS]" % prg
+    print ""
+
+if __name__ == "__main__":
+    logFile = ""
+    svnargs = ""
+
+    if "usage" in sys.argv or "help" in sys.argv:
+        usage()
+        sys.exit(0)
+    elif len(sys.argv) > 2 and sys.argv[1] == "fromfile":
+        logFile = sys.argv[2]
+    else:
+        if len(sys.argv) > 1:
+            for i in sys.argv[1:]:
+                svnargs += "%s " % i
+
+    if logFile:
+        allData = loadFile(logFile)
+    else:
+        allData = getSvnLog(svnargs)
+
+    svnaccount = parseAccounts()
+    history = parseSections(allData)
+    printHistory(history)
+

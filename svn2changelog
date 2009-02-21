@@ -100,10 +100,10 @@ def parseSections(_data):
                 emptyline = True
             else:
                 if emptyline:
-                    sections[currentsection] += "        * %s\n" % line
+                    sections[currentsection] += "        * %s\n" % line.lstrip()
                     emptyline = False
                 else:
-                    sections[currentsection] += "          %s\n" % line
+                    sections[currentsection] += "          %s\n" % line.lstrip()
 
     return sections
 

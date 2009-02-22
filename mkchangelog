@@ -6,6 +6,7 @@ import piksemel
 
 if len(sys.argv) < 2:
     print "Usage: %s logfile.xml" % sys.argv[0]
+    print "create logfile with svn log --xml > logfile.xml"
     sys.exit()
 
 replaces = [["BUG:COMMENT:","\t* Comment added to http://bugs.pardus.org.tr/"],

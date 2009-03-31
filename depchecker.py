@@ -43,7 +43,7 @@ def get_needed_objects(f):
     # Get full path to the objects
 
     filemap = {}
-    for l in [_l for _l in os.popen("/usr/bin/ldd \"%s\"" % f).readlines() if "=>" in _l]:
+    for l in [_l for _l in os.popen("/usr/bin/ldd \"%s\" 2> /dev/null" % f).readlines() if "=>" in _l]:
         # Filter these special objects
         if "linux-gate" in l or "ld-linux.so" in l:
             continue
@@ -85,7 +85,7 @@ if __name__ == "__main__":
         total = len(packages)
         for p in packages:
             # Iterate over packages and find the dependencies
-            print "(%d/%d) Finding out the build dependencies of %s.." % (pindex, total, p)
+            print "(%d/%d) Finding out the runtime dependencies of %s.." % (pindex, total, p)
 
             needed = set()
             actual_deps = set()

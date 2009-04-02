@@ -5,37 +5,65 @@ import os
 import sys
 import pisi
 import cPickle
+from optparse import OptionParser
 
+
+# Pisi DB instances
 installdb = pisi.db.installdb.InstallDB()
 packagedb = pisi.db.packagedb.PackageDB()
+componentdb = pisi.db.componentdb.ComponentDB()
+
+
+
+def generate_elf_cache(path):
+    # Iterate over packages and generate ELF->Package mapping cache
+    elf_to_package = {}
+    for p in pisi.api.list_installed():
+        print "Checking package %s.." % p,
+        (dyns, execs) = get_elf_list(p)
+        if len(dyns) > 0:
+            elf_to_package.update(dict((k, p) for k in dyns))
+            print " %d shared object(s) found and added to the mapping cache." % len(dyns)
+        else:
+            print " No shared object(s)."
+
+    # Dump elf mapping dictionary for further usage
+    print "Saving ELF mapping cache..",
+    f = open(path, "w")
+    cPickle.Pickler(f, protocol=2)
+    cPickle.dump(elf_to_package, f, protocol=2)
+    f.close()
+    print "Done."
+
+def load_elf_cache(path):
+    d = {}
+    if os.path.exists(path):
+        print "Loading previously cached ELF mapping..",
+        d = cPickle.Unpickler(open(path, "r")).load()
+        print "Done."
+
+    return d
 
 def get_elf_list(package):
     # Eliminate symbolic links and return a list of all the files that needs to be investigated (ELF)
-    files = [("/%s" % p.path) for p in installdb.get_files(package).list if os.path.exists("/%s" % p.path) and \
-                                                                            (p.type == 'library' or p.type == 'executable') and \
-                                                                            not os.path.islink("/%s" % p.path)]
+    files = [("/%s" % p.path) for p in installdb.get_files(package).list if os.path.exists("/%s" % p.path)]
+
     dyns = []
     execs = []
 
     for f in files:
-        lines = os.popen("/usr/bin/readelf -h \"%s\" 2>&1" % f).readlines()
-        if "Not an ELF file" in lines[0]:
-            continue
+        elf_type = os.popen("/usr/bin/readelf -h \"%s\" 2>/dev/null | grep \"^  Type:\" | gawk '{ print $2 }'" % f).read().strip()
+        if elf_type == "DYN":
+            dyns.append(f)
+        elif elf_type == "EXEC":
+            execs.append(f)
         else:
-            for line in [l.strip() for l in lines[1:]]:
-                if "Type:" in line:
-                    type = line.split()[1]
-                    if type == "DYN":
-                        dyns.append(f)
-                    elif type == "EXEC":
-                        execs.append(f)
-                    else:
-                        continue
+            continue
 
     return (dyns, execs)
 
 def get_unused_deps(f):
-    return [l.strip() for l in os.popen("/usr/bin/ldd -u \"%s\"" % f).readlines()[2:]]
+    return [l.strip() for l in os.popen("/usr/bin/ldd -r -u \"%s\"" % f).readlines()[2:]]
 
 def get_needed_objects(f):
     objs = [l.strip().split()[1] for l in os.popen("/usr/bin/objdump -p \"%s\" | grep 'NEEDED'" % f).readlines()]
@@ -59,6 +87,41 @@ def get_needed_objects(f):
 
 if __name__ == "__main__":
 
+    parser = OptionParser()
+    parser.add_option("-C", "--color",
+                      action="store_true",
+                      dest="colorize",
+                      default=False,
+                      help="Colorize output")
+
+    parser.add_option("-s", "--show-system-base",
+                      action="store_true",
+                      dest="show_system_base",
+                      default=False,
+                      help="List system.base dependencies as well")
+
+    parser.add_option("-c", "--component",
+                      action="store",
+                      dest="component",
+                      help="Check dependencies only for the given component")
+
+    parser.add_option("-g", "--generate-elf-cache",
+                      action="store_true",
+                      dest="generate_elf_cache",
+                      default=False,
+                      help="Generate elf cache for pisi packages in /var/lib/pisi")
+
+    (options, packages) = parser.parse_args()
+
+    if options.generate_elf_cache:
+        generate_elf_cache("/var/lib/pisi/elfcache.db")
+        sys.exit(0)
+
+    if options.component:
+        packages = componentdb.get_packages(options.component)
+
+
+
     elfs_to_check = []
     elf_to_package = {}
     real_deps = {}
@@ -67,72 +130,45 @@ if __name__ == "__main__":
     # Get them from pspecs
     actual_deps = {}
 
-    # Gather the list of installed packages
-    print "Gathering package list...",
-    packages = pisi.api.list_installed()
-    print "Done, found %d installed packages." % len(packages)
 
-    if os.path.exists("elf.db"):
-        print "Loading previously cached ELF mapping..",
-        elf_to_package = cPickle.Unpickler(open("elf.db", "r")).load()
-        print "Done."
+    # Create results directory
+    if not os.path.isdir("results"):
+        os.makedirs("results")
 
-        # Create results directory
-        if not os.path.isdir("results"):
-            os.makedirs("results")
+    pindex = 1
+    total = len(packages)
+    for p in packages:
+        # Iterate over packages and find the dependencies
+        print "(%d/%d) Finding out the runtime dependencies of %s.." % (pindex, total, p)
 
-        pindex = 1
-        total = len(packages)
-        for p in packages:
-            # Iterate over packages and find the dependencies
-            print "(%d/%d) Finding out the runtime dependencies of %s.." % (pindex, total, p)
+        needed = set()
+        actual_deps = set()
+        missing_deps = set()
+        needed_deps = set()
 
-            needed = set()
-            actual_deps = set()
-            missing_deps = set()
-            needed_deps = set()
+        (dyns, execs) = get_elf_list(p)
+        for elf in dyns+execs:
+            needed.update(set(get_needed_objects(elf)))
 
-            (dyns, execs) = get_elf_list(p)
-            for elf in dyns+execs:
-                needed.update(set(get_needed_objects(elf)))
+        needed_deps = set([elf_to_package.get(k, '<Not found>') for k in needed.intersection(elf_to_package.keys())])
+        try:
+            actual_deps = set([d.package for d in packagedb.get_package(p).runtimeDependencies()])
+            missing_deps = needed_deps.difference(actual_deps)
+        except:
+            print "** %s cannot be found in package DB!" % p
+            continue
 
-            needed_deps = set([elf_to_package.get(k, '<Not found>') for k in needed.intersection(elf_to_package.keys())])
-            try:
-                actual_deps = set([d.package for d in packagedb.get_package(p).runtimeDependencies()])
-                missing_deps = needed_deps.difference(actual_deps)
-            except:
-                print "** %s cannot be found in package DB!" % p
-                continue
+        # Create text file to hold dependency information
+        f = open('results/%s' % p, 'w')
+        f.write('Actual runtime dependencies in repository:\n-------------------------------------------\n')
 
-            # Create text file to hold dependency information
-            f = open('results/%s' % p, 'w')
-            f.write('Actual runtime dependencies in repository:\n-------------------------------------------\n\n')
-            f.write("\n".join(sorted(actual_deps)))
-            f.write('\nReal runtime dependencies found by depchecker:\n-----------------------------------------------\n\n')
-            f.write("\n".join(sorted(needed_deps)))
-            f.write('\nMissing runtime dependencies found by depchecker:\n--------------------------------------------------\n\n')
-            f.write("\n".join(sorted(missing_deps)))
-            f.close()
+        hede = lambda x: "  (system.base)" if x in systembase else ""
 
-            pindex += 1
-
-    else:
-        # Iterate over packages and generate ELF->Package mapping cache
-        for p in packages:
-            print "Checking package %s.." % p,
-            (dyns, execs) = get_elf_list(p)
-            elfs_to_check.extend(dyns)
-            elfs_to_check.extend(execs)
-            if len(dyns) > 0:
-                elf_to_package.update(dict((k, p) for k in dyns))
-                print " %d shared object(s) found and added to the mapping cache." % len(dyns)
-            else:
-                print " No shared object(s)."
-
-        # Dump elf mapping dictionary for further usage
-        print "Saving ELF mapping cache..",
-        f = open("elf.db", "w")
-        cPickle.Pickler(f, protocol=2)
-        cPickle.dump(elf_to_package, f, protocol=2)
+        f.write("\n".join(["%30s%s" % (l, hede(l)) for l in sorted(actual_deps)]))
+        f.write('\n\nReal runtime dependencies found by depchecker:\n-----------------------------------------------\n')
+        f.write("\n".join(["%30s%s" % (l, hede(l)) for l in sorted(needed_deps)]))
+        f.write('\n\nMissing runtime dependencies found by depchecker:\n--------------------------------------------------\n')
+        f.write("\n".join(["%30s%s" % (l, hede(l)) for l in sorted(missing_deps)]))
         f.close()
-        print "Done."
+
+        pindex += 1

@@ -74,14 +74,14 @@ def save_data_into(path, results, hide_system_base):
 
 
 def print_results(results, hide_system_base, colorize):
-    def colorize(s):
+    def _colorize(s):
         if colorize:
-            if "B" in s:
-                s = "\x1b[1;33m" + s    # system.base -> yellow
+            if "B" in s[:2]:
+                s = "\x1b[1;33m" + s + "\x1b[0m"    # system.base -> yellow
             elif s.startswith("-"):
-                s = "\x1b[1;31m" + s    # missing dep -> red
+                s = "\x1b[1;31m" + s + "\x1b[0m"    # missing dep -> red
             elif s.startswith("+"):
-                s = "\x1b[0;32m" + s    # written dep -> green
+                s = "\x1b[0;32m" + s + "\x1b[0m"    # written dep -> green
             else:
                 pass
         return s
@@ -115,9 +115,9 @@ def print_results(results, hide_system_base, colorize):
             else:
                 marker += " "
 
-            deps.append("%s  %s" % (colorize(marker), d))
+            deps.append("%s  %s" % (marker, d))
 
-        print "\n".join([d for d in sorted(deps)])
+        print "\n".join([_colorize(d) for d in sorted(deps)])
 
 
 def generate_elf_cache(path):

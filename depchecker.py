@@ -76,9 +76,14 @@ def save_data_into(path, results, hide_system_base):
 def print_results(results, hide_system_base, colorize):
     def colorize(s):
         if colorize:
-            s = s.replace("-", "\x1b[1;31m-")
-            s = s.replace("+", "\x1b[0;32m+")
-            s = s.replace("B", "\x1b[1;31mB")
+            if "B" in s:
+                s = "\x1b[1;33m" + s    # system.base -> yellow
+            elif s.startswith("-"):
+                s = "\x1b[1;31m" + s    # missing dep -> red
+            elif s.startswith("+"):
+                s = "\x1b[0;32m" + s    # written dep -> green
+            else:
+                pass
         return s
 
     # Get system.base packages
@@ -120,7 +125,7 @@ def generate_elf_cache(path):
     elf_to_package = {}
     for p in pisi.api.list_installed():
         print "Checking package %s.." % p,
-        (dyns, execs) = get_elf_list(p)
+        (dyns, execs) = get_elf_list(p, True)
         if len(dyns) > 0:
             elf_to_package.update(dict((k, p) for k in dyns))
             print " %d shared object(s) found and added to the mapping cache." % len(dyns)
@@ -142,10 +147,18 @@ def load_elf_cache(path):
 
     return d
 
-def get_elf_list(package):
+def get_elf_list(package, dont_trust_packager):
     # Eliminate symbolic links and return a list of all the files that needs to be investigated (ELF)
-    files = [("/%s" % p.path) for p in installdb.get_files(package).list if os.path.exists("/%s" % p.path)]
+    def filter_file(f):
+        if os.path.exists("/%s" % f.path):
+            if dont_trust_packager:
+                return True
+            else:
+                return (f.type == 'library' or f.type == 'executable')
+        else:
+            return False
 
+    files = [("/%s" % p.path) for p in installdb.get_files(package).list if filter_file(p)]
     dyns = []
     execs = []
 
@@ -159,9 +172,6 @@ def get_elf_list(package):
             continue
 
     return (dyns, execs)
-
-def get_unused_deps(f):
-    return [l.strip() for l in os.popen("/usr/bin/ldd -r -u \"%s\"" % f).readlines()[2:]]
 
 def get_needed_objects(f):
     objs = [l.strip().split()[1] for l in os.popen("/usr/bin/objdump -p \"%s\" | grep 'NEEDED'" % f).readlines()]
@@ -214,6 +224,12 @@ if __name__ == "__main__":
                       default=False,
                       help="Generate elf cache for pisi packages in /var/lib/pisi")
 
+    parser.add_option("-D", "--dont-trust-packager",
+                      action="store_true",
+                      dest="dont_trust_packager",
+                      default=False,
+                      help="Checks for all the files regardless of their types in pspec.xml. This will bring a performance penalty.")
+
     parser.add_option("-d", "--output-directory",
                       action="store",
                       dest="output_directory",
@@ -228,31 +244,33 @@ if __name__ == "__main__":
     # Load elf cache
     elf_to_package = load_elf_cache("/var/lib/pisi/elfcache.db")
     if not elf_to_package:
-        print "You first have to create elf cache giving -c parameter to depchecker."
+        print "You first have to create the elf cache using -c parameter."
         sys.exit(1)
 
     # Get packages from the given component
     if options.component:
         packages = componentdb.get_packages(options.component)
 
-
     # Some loop counters here
     pindex = 1
     total = len(packages)
+
+    if total > 1:
+        # Automatically fallback to directory output if there are multiple packages
+        options.output_directory = "results"
 
     # Results dictionary: (package->deps)
     results = {}
 
     # Iterate over packages and find the dependencies
     for p in packages:
-        print "(%d/%d) Finding out the runtime dependencies of %s.." % (pindex, total, p)
 
         needed = set()
         actual_deps = set()
         missing_deps = set()
         real_deps = set()
 
-        (dyns, execs) = get_elf_list(p)
+        (dyns, execs) = get_elf_list(p, options.dont_trust_packager)
         for elf in dyns+execs:
             needed.update(set(get_needed_objects(elf)))
 

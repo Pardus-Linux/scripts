@@ -7,12 +7,112 @@ import pisi
 import cPickle
 from optparse import OptionParser
 
-
 # Pisi DB instances
 installdb = pisi.db.installdb.InstallDB()
 packagedb = pisi.db.packagedb.PackageDB()
 componentdb = pisi.db.componentdb.ComponentDB()
 
+
+### Helper functions
+
+def save_data_into(path, results, hide_system_base):
+    # Create path if it doesn't exist
+    if not os.path.exists(path):
+        os.makedirs(path)
+
+    # Get system.base packages
+    system_base = componentdb.get_packages("system.base")
+
+    # Create sweet headers
+    actual_deps_header = "Actual runtime dependencies in repository:"
+    actual_deps_header += "\n%s\n" % (len(actual_deps_header)*'-')
+
+    real_deps_header = "Real runtime dependencies according to depchecker:"
+    real_deps_header += "\n%s\n" % (len(real_deps_header)*'-')
+
+    missing_deps_header = "Missing runtime dependencies according to depchecker:"
+    missing_deps_header += "\n%s\n" % (len(missing_deps_header)*'-')
+
+    for p in results.keys():
+        f = open(os.path.join(path, p), "w")
+
+        # Get the lists
+        real_deps = results[p][0]
+        actual_deps = results[p][1]
+        missing_deps = results[p][2]
+
+        # Filter system.base packages if needed
+        if hide_system_base:
+            real_deps = [d for d in real_deps if d not in system_base]
+            actual_deps = [d for d in actual_deps if d not in system_base]
+            missing_deps = [d for d in missing_deps if d not in system_base]
+        else:
+            def format(x):
+                if x in system_base:
+                    return "(*) %s" % x
+                else:
+                    return "    %s" % x
+            real_deps = [format(d) for d in real_deps]
+            actual_deps = [format(d) for d in actual_deps]
+            missing_deps = [format(d) for d in missing_deps]
+
+        try:
+            f.write(actual_deps_header)
+            f.write("\n".join(["%s" % d for d in actual_deps]))
+            f.write("\n\n"+real_deps_header)
+            f.write("\n".join(["%s" % d for d in real_deps]))
+            f.write("\n\n"+missing_deps_header)
+            f.write("\n".join(["%s" % d for d in missing_deps]))
+
+            if not hide_system_base:
+                f.write("\n\n\n(*): The package is in system.base.")
+        except IOError:
+            print "** IO Error while writing %s" % os.path.join(path, p)
+            pass
+        finally:
+            f.close()
+
+
+def print_results(results, hide_system_base, colorize):
+    def colorize(s):
+        if colorize:
+            s = s.replace("-", "\x1b[1;31m-")
+            s = s.replace("+", "\x1b[0;32m+")
+            s = s.replace("B", "\x1b[1;31mB")
+        return s
+
+    # Get system.base packages
+    system_base = componentdb.get_packages("system.base")
+
+    for p in results.keys():
+        # Get the lists
+        real_deps = results[p][0]
+        actual_deps = results[p][1]
+        missing_deps = results[p][2]
+
+        deps = []
+
+        # Filter system.base if requested
+        if hide_system_base:
+            real_deps = [d for d in real_deps if d not in system_base]
+
+        for d in real_deps:
+            marker = ""
+            if d in actual_deps:
+                marker += "+"
+            elif d in missing_deps:
+                marker += "-"
+            else:
+                marker += " "
+
+            if d in system_base:
+                marker += "B"
+            else:
+                marker += " "
+
+            deps.append("%s  %s" % (colorize(marker), d))
+
+        print "\n".join([d for d in sorted(deps)])
 
 
 def generate_elf_cache(path):
@@ -38,9 +138,7 @@ def generate_elf_cache(path):
 def load_elf_cache(path):
     d = {}
     if os.path.exists(path):
-        print "Loading previously cached ELF mapping..",
         d = cPickle.Unpickler(open(path, "r")).load()
-        print "Done."
 
     return d
 
@@ -85,7 +183,12 @@ def get_needed_objects(f):
     return objs
 
 
+### Entry point
+
 if __name__ == "__main__":
+
+    if len(sys.argv) == 1:
+        sys.argv.append("--help")
 
     parser = OptionParser()
     parser.add_option("-C", "--color",
@@ -94,11 +197,11 @@ if __name__ == "__main__":
                       default=False,
                       help="Colorize output")
 
-    parser.add_option("-s", "--show-system-base",
+    parser.add_option("-s", "--hide-system-base",
                       action="store_true",
-                      dest="show_system_base",
+                      dest="hide_system_base",
                       default=False,
-                      help="List system.base dependencies as well")
+                      help="Hide system.base dependencies")
 
     parser.add_option("-c", "--component",
                       action="store",
@@ -111,64 +214,70 @@ if __name__ == "__main__":
                       default=False,
                       help="Generate elf cache for pisi packages in /var/lib/pisi")
 
+    parser.add_option("-d", "--output-directory",
+                      action="store",
+                      dest="output_directory",
+                      help="If given, the dependency informations will be written into the output directory")
+
     (options, packages) = parser.parse_args()
 
     if options.generate_elf_cache:
         generate_elf_cache("/var/lib/pisi/elfcache.db")
         sys.exit(0)
 
+    # Load elf cache
+    elf_to_package = load_elf_cache("/var/lib/pisi/elfcache.db")
+    if not elf_to_package:
+        print "You first have to create elf cache giving -c parameter to depchecker."
+        sys.exit(1)
+
+    # Get packages from the given component
     if options.component:
         packages = componentdb.get_packages(options.component)
 
 
-
-    elfs_to_check = []
-    elf_to_package = {}
-    real_deps = {}
-    unused_deps = {}
-
-    # Get them from pspecs
-    actual_deps = {}
-
-
-    # Create results directory
-    if not os.path.isdir("results"):
-        os.makedirs("results")
-
+    # Some loop counters here
     pindex = 1
     total = len(packages)
+
+    # Results dictionary: (package->deps)
+    results = {}
+
+    # Iterate over packages and find the dependencies
     for p in packages:
-        # Iterate over packages and find the dependencies
         print "(%d/%d) Finding out the runtime dependencies of %s.." % (pindex, total, p)
 
         needed = set()
         actual_deps = set()
         missing_deps = set()
-        needed_deps = set()
+        real_deps = set()
 
         (dyns, execs) = get_elf_list(p)
         for elf in dyns+execs:
             needed.update(set(get_needed_objects(elf)))
 
-        needed_deps = set([elf_to_package.get(k, '<Not found>') for k in needed.intersection(elf_to_package.keys())])
+        real_deps = set([elf_to_package.get(k, '<Not found>') for k in needed.intersection(elf_to_package.keys())])
         try:
             actual_deps = set([d.package for d in packagedb.get_package(p).runtimeDependencies()])
-            missing_deps = needed_deps.difference(actual_deps)
+            missing_deps = real_deps.difference(actual_deps)
         except:
-            print "** %s cannot be found in package DB!" % p
+            print "**** %s cannot be found in package DB, probably the package has been deleted from the repository." % p
             continue
 
-        # Create text file to hold dependency information
-        f = open('results/%s' % p, 'w')
-        f.write('Actual runtime dependencies in repository:\n-------------------------------------------\n')
+        # Push the informations to the results dictionary filtering the current package from the sets
+        results[p] = (real_deps.difference([p]),
+                      actual_deps.difference([p]),
+                      missing_deps.difference([p]))
 
-        hede = lambda x: "  (system.base)" if x in systembase else ""
-
-        f.write("\n".join(["%30s%s" % (l, hede(l)) for l in sorted(actual_deps)]))
-        f.write('\n\nReal runtime dependencies found by depchecker:\n-----------------------------------------------\n')
-        f.write("\n".join(["%30s%s" % (l, hede(l)) for l in sorted(needed_deps)]))
-        f.write('\n\nMissing runtime dependencies found by depchecker:\n--------------------------------------------------\n')
-        f.write("\n".join(["%30s%s" % (l, hede(l)) for l in sorted(missing_deps)]))
-        f.close()
-
+        # Increment the counter
         pindex += 1
+
+    if options.output_directory:
+        print "Saving results into %s" % options.output_directory,
+        save_data_into(options.output_directory, results, options.hide_system_base)
+        print "done."
+    else:
+        # The informations will be printed to the screen
+        print_results(results, options.hide_system_base, options.colorize)
+
+    sys.exit(0)

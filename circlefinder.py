@@ -37,7 +37,7 @@ class SourceDB:
             sources[src_name] = spec.toString()
             for package in spec.tags("Package"):
                 pkgstosrc[package.getTagData("Name")] = src_name
-        
+
         return sources, pkgstosrc
 
     def has_spec(self, name):
@@ -73,7 +73,14 @@ def find_circle(sourcedb, A):
             G_f.add_vertex(str(src.name), (src.version, src.release))
 
     def pkgtosrc(pkg):
-        return sourcedb.pkgtosrc(pkg)
+        try:
+            tmp = sourcedb.pkgtosrc(pkg)
+        except KeyError, e:
+            # this is a bad hack but after we hit a problem we need to continue
+            tmp = "baselayout"
+            print "---> borks in ", e
+
+        return tmp
 
     B = A
 

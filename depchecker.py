@@ -192,6 +192,20 @@ def get_needed_objects(f):
 
     return objs
 
+def check_single_file(pspec):
+    import tempfile
+
+    # Create pisi object
+    p = pisi.package.Package(pspec)
+
+    dirname = tempfile.mkdtemp(prefix='depchecker-')
+    p.extract_install(dirname)
+
+    # Recurse in dirname to find ELF objects
+
+    # Cleanup directory
+    os.removedirs(dirname)
+
 
 ### Entry point
 
@@ -250,7 +264,7 @@ if __name__ == "__main__":
     # Load elf cache
     elf_to_package = load_elf_cache("/var/lib/pisi/elfcache.db")
     if not elf_to_package:
-        print "You first have to create the elf cache using -c parameter."
+        print "You first have to create the elf cache using -g parameter."
         sys.exit(1)
 
     # Get packages from the given component
@@ -259,8 +273,12 @@ if __name__ == "__main__":
     elif options.all_packages:
         packages = installdb.list_installed()
         print "No package given, processing all %d installed packages.." % len(packages)
-    else:
-        pass
+    elif packages and packages[0].endswith(".pisi") and os.path.exists(packages[0]):
+        # Single pisi file mode. Will check the dependencies without using a full
+        # mapping cache but only against the libraries installed on the system.
+        # Kudos goes to Fatih and Gokcen :)
+        check_single_file(packages[0])
+        sys.exit(0)
 
     # Some loop counters here
     pindex = 1

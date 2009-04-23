@@ -218,6 +218,12 @@ if __name__ == "__main__":
                       dest="component",
                       help="Check dependencies only for the given component")
 
+    parser.add_option("-a", "--all",
+                      action="store_true",
+                      dest="all_packages",
+                      default=False,
+                      help="Check dependencies for all the installed packages")
+
     parser.add_option("-g", "--generate-elf-cache",
                       action="store_true",
                       dest="generate_elf_cache",
@@ -250,6 +256,11 @@ if __name__ == "__main__":
     # Get packages from the given component
     if options.component:
         packages = componentdb.get_packages(options.component)
+    elif options.all_packages:
+        packages = installdb.list_installed()
+        print "No package given, processing all %d installed packages.." % len(packages)
+    else:
+        pass
 
     # Some loop counters here
     pindex = 1

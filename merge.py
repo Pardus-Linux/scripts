@@ -46,7 +46,7 @@ if __name__ == "__main__":
         merge_msg = sys.argv[2]
 
     if path.startswith("devel/"):
-        path = path.split("devel/")[1]
+        path = path.split("devel/", 1)[1]
 
     latest = get_latest_change("stable/%s" % path)
 
@@ -59,11 +59,11 @@ if __name__ == "__main__":
     commit_cmd = "svn ci stable/%s -F /tmp/merge.tmp" % path
 
     print "Merging from devel/%s.." % path
-    os.system(merge_cmd)
 
     print merge_msg
     print "\nAre you sure to merge the changes above to stable/%s?" % path
     if raw_input().startswith("y"):
+        os.system(merge_cmd)
         os.system(commit_cmd)
 
     os.unlink("/tmp/merge.tmp")

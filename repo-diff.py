@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005, TUBITAK/UEKAE
+# Copyright (C) 2005-2009 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -32,7 +32,7 @@ def getVersion(pspecList):
         sources[specFile.source.name] = (specFile.getSourceVersion(), specFile.getSourceRelease())
     return sources
 
-# form two sorted lists and 
+# form two sorted lists and
 # find differences in a single pass
 # over the lists
 def listCompare(firstRepo, secondRepo):
@@ -63,7 +63,7 @@ def listCompare(firstRepo, secondRepo):
            #same version and release, nothing to do
          i = i+1
          j = j+1
-    
+
     # one of the repos might not be checked to the very end if the
     # repo contents do not overlap well, so fill the rest manually
     if i!=len1:
@@ -75,7 +75,7 @@ def listCompare(firstRepo, secondRepo):
 
 def usage(miniMe):
     print """Usage:
-      %s    pathToSvn   component   (ex: %s /home/caglar/svn/pardus/ system/devel)
+      %s    pathToSvn   component   (ex: %s /home/caglar/svn/pardus/2009 system/devel)
     """ % (miniMe, miniMe)
 
     sys.exit(1)
@@ -91,12 +91,12 @@ if __name__ == "__main__":
     except IndexError:
         postfix = ""
 
-    stable = getVersion(findPspec(join_path(svnRoot,"2007/", postfix)))
+    stable = getVersion(findPspec(join_path(svnRoot,"stable/", postfix)))
     devel = getVersion(findPspec(join_path(svnRoot, "devel/", postfix)))
-    
+
     # find differences in given repos
     r = listCompare(stable, devel)
-    
+
     print "Stable --> Devel (different version)"
     for i in r[2]:
        print "    %s: %s (r%s) -> %s (r%s)" % (i, stable[i][0], stable[i][1], devel[i][0], devel[i][1])

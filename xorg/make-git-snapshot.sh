@@ -13,7 +13,7 @@ PROJECT_NAME=$(basename $PROJECT_PATH)
 DIRNAME="$PROJECT_NAME-${VERSION}_$(date +%Y%m%d)"
 
 rm -rf $DIRNAME
-git clone git://git.freedesktop.org/git/xorg/$PROJECT_PATH $DIRNAME
+git clone git://git.freedesktop.org/git/$PROJECT_PATH $DIRNAME
 cd $DIRNAME
 
 git log | head -1 | cut -d" " -f 2 > commit

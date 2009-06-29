@@ -15,62 +15,33 @@ componentdb = pisi.db.componentdb.ComponentDB()
 
 ### Helper functions
 
-def save_data_into(path, results, hide_system_base):
-    # Create path if it doesn't exist
-    if not os.path.exists(path):
-        os.makedirs(path)
-
+def dump_report_per_packager(results, output_dir):
     # Get system.base packages
     system_base = componentdb.get_packages("system.base")
 
-    # Create sweet headers
-    actual_deps_header = "Actual runtime dependencies in repository:"
-    actual_deps_header += "\n%s\n" % (len(actual_deps_header)*'-')
+    def format(x):
+        if x in system_base:
+            x = "%s (*)" % x
 
-    real_deps_header = "Real runtime dependencies according to depchecker:"
-    real_deps_header += "\n%s\n" % (len(real_deps_header)*'-')
+        return x
 
-    missing_deps_header = "Missing runtime dependencies according to depchecker:"
-    missing_deps_header += "\n%s\n" % (len(missing_deps_header)*'-')
+    output = ""
+    packagers = {}
 
-    for p in results.keys():
-        f = open(os.path.join(path, p), "w")
-
-        # Get the lists
-        real_deps = results[p][0]
-        actual_deps = results[p][1]
-        missing_deps = results[p][2]
-
-        # Filter system.base packages if needed
-        if hide_system_base:
-            real_deps = [d for d in real_deps if d not in system_base]
-            actual_deps = [d for d in actual_deps if d not in system_base]
-            missing_deps = [d for d in missing_deps if d not in system_base]
+    for p in [k for k in results.keys() if len(results[k][2]) > 0]:
+        # We have a package now
+        author = packagedb.get_package(p).source.packager.email
+        if packagers.has_key(author):
+            packagers[author] += "%s\n  %s\n\n" % (p, "\n  ".join([format(m) for m in results[p][2]]))
         else:
-            def format(x):
-                if x in system_base:
-                    return "(*) %s" % x
-                else:
-                    return "    %s" % x
-            real_deps = [format(d) for d in real_deps]
-            actual_deps = [format(d) for d in actual_deps]
-            missing_deps = [format(d) for d in missing_deps]
+            packagers[author] = "%s\n  %s\n\n" % (p, "\n  ".join([format(m) for m in results[p][2]]))
 
-        try:
-            f.write(actual_deps_header)
-            f.write("\n".join(["%s" % d for d in actual_deps]))
-            f.write("\n\n"+real_deps_header)
-            f.write("\n".join(["%s" % d for d in real_deps]))
-            f.write("\n\n"+missing_deps_header)
-            f.write("\n".join(["%s" % d for d in missing_deps]))
+    # Create path if it doesn't exist
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
 
-            if not hide_system_base:
-                f.write("\n\n\n(*): The package is in system.base.")
-        except IOError:
-            print "** IO Error while writing %s" % os.path.join(path, p)
-            pass
-        finally:
-            f.close()
+    for p in packagers.keys():
+        open(os.path.join(output_dir, p), "w").write(packagers[p])
 
 
 def print_results(results, hide_system_base, colorize):
@@ -284,7 +255,7 @@ if __name__ == "__main__":
     pindex = 1
     total = len(packages)
 
-    if total > 1:
+    if total > 1 and not options.output_directory:
         # Automatically fallback to directory output if there are multiple packages
         options.output_directory = "results"
 
@@ -320,8 +291,9 @@ if __name__ == "__main__":
         pindex += 1
 
     if options.output_directory:
-        print "Saving results into %s" % options.output_directory,
-        save_data_into(options.output_directory, results, options.hide_system_base)
+        print "Saving results..",
+        #save_data_into(options.output_directory, results, options.hide_system_base)
+        dump_report_per_packager(results, options.output_directory)
         print "done."
     else:
         # The informations will be printed to the screen

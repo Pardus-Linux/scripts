@@ -19,29 +19,29 @@ def dump_report_per_packager(results, output_dir):
     # Get system.base packages
     system_base = componentdb.get_packages("system.base")
 
-    def format(x):
+    def _format(x):
         if x in system_base:
             x = "%s (*)" % x
 
         return x
 
-    output = ""
     packagers = {}
 
     for p in [k for k in results.keys() if len(results[k][2]) > 0]:
         # We have a package now
         author = packagedb.get_package(p).source.packager.email
         if packagers.has_key(author):
-            packagers[author] += "%s\n  %s\n\n" % (p, "\n  ".join([format(m) for m in results[p][2]]))
+            packagers[author] += "%s\n  %s\n\n" % (p, "\n  ".join([_format(m) for m in results[p][2]]))
         else:
-            packagers[author] = "%s\n  %s\n\n" % (p, "\n  ".join([format(m) for m in results[p][2]]))
+            packagers[author] = "%s\n  %s\n\n" % (p, "\n  ".join([_format(m) for m in results[p][2]]))
 
     # Create path if it doesn't exist
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
     for p in packagers.keys():
-        open(os.path.join(output_dir, p, ".txt"), "w").write(packagers[p])
+        filename = os.path.join(output_dir, p).replace(".", "_").replace("@", "_")
+        open(filename, "w").write(packagers[p])
 
 
 def print_results(results, hide_system_base, colorize):

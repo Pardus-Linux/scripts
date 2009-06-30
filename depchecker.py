@@ -41,7 +41,7 @@ def dump_report_per_packager(results, output_dir):
         os.makedirs(output_dir)
 
     for p in packagers.keys():
-        open(os.path.join(output_dir, p), "w").write(packagers[p])
+        open(os.path.join(output_dir, p, ".txt"), "w").write(packagers[p])
 
 
 def print_results(results, hide_system_base, colorize):

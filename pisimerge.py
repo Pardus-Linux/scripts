@@ -48,23 +48,34 @@ if __name__ == "__main__":
     if path.startswith("devel/"):
         path = path.split("devel/", 1)[1]
 
-    latest = get_latest_change("stable/%s" % path)
+    if not os.path.exists("stable/%s" % path):
+        # New package
+        os.system("svn up devel/%s stable/%s" % (path, path))
 
-    if not merge_msg:
-        merge_msg = get_merge_log(path, latest)
+        print "Copying from devel/%s.." % path
+        os.system("svn cp devel/%s stable/%s" % (path, path))
 
-    merge_tmp = open("/tmp/merge.tmp", "w").write(merge_msg)
+        os.system("svn ci stable/%s -m 'Ready for 2009'" % path)
 
-    merge_cmd = "svn merge -r %d:HEAD devel/%s stable/%s" %  (latest, path, path)
-    commit_cmd = "svn ci stable/%s -F /tmp/merge.tmp" % path
+    else:
 
-    print "Merging from devel/%s.." % path
+        latest = get_latest_change("stable/%s" % path)
 
-    print merge_msg
-    print "\nAre you sure to merge the changes above to stable/%s?" % path
-    if raw_input().startswith("y"):
-        os.system(merge_cmd)
-        os.system(commit_cmd)
+        if not merge_msg:
+            merge_msg = get_merge_log(path, latest)
 
-    os.unlink("/tmp/merge.tmp")
+        merge_tmp = open("/tmp/merge.tmp", "w").write(merge_msg)
+
+        merge_cmd = "svn merge -r %d:HEAD devel/%s stable/%s" %  (latest, path, path)
+        commit_cmd = "svn ci stable/%s -F /tmp/merge.tmp" % path
+
+        print "Merging from devel/%s.." % path
+
+        print merge_msg
+        print "\nAre you sure to merge the changes above to stable/%s?" % path
+        if raw_input().startswith("y"):
+            os.system(merge_cmd)
+            os.system(commit_cmd)
+
+        os.unlink("/tmp/merge.tmp")
 

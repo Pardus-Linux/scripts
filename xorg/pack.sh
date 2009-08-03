@@ -55,6 +55,8 @@ do
     tar xvf $i -C $TEMP_DIR
 done
 
+cp $SCRIPT_DIR/$FILELIST $TEMP_DIR/filelist
+
 cd $SCRIPT_DIR
 tar cjvf $PACKAGE-$VERSION.tar.bz2 -C $TEMP_DIR .
 rm -rf  $TEMP_DIR

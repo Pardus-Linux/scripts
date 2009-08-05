@@ -1,0 +1,60 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+# Script to find new packages for a given repository. Binary
+# index files are parsed and packages that are in test repository
+# but not in stable repository are printed with versions
+#
+
+import os
+import sys
+import urllib2
+import piksemel
+import bz2
+
+
+distroBase = "http://packages.pardus.org.tr/pardus-2009"
+
+
+def loadUrl(_url):
+    try:
+        return urllib2.urlopen(_url).read()
+    except urllib2.URLError:
+        print "could not download %s" % _url
+        sys.exit(1)
+
+def unpackXml(url):
+    pkglist = {}
+
+    compressedData = loadUrl(url)
+    rawData = bz2.decompress(compressedData)
+    index = piksemel.parseString(rawData)
+
+    for parent in index.tags("Package"):
+        pkgname = parent.getTagData("Name")
+        pkgfile = parent.getTagData("PackageURI")
+        pkglist[pkgname] = pkgfile
+
+    return pkglist
+
+def getRepoDiff(repoTest, repoStable):
+    pkglist = []
+
+    for i in repoTest:
+        if not i in repoStable:
+            pkglist.append(i)
+
+    pkglist.sort()
+    return pkglist
+
+
+if __name__ == "__main__":
+    """ tikkat main var basmain """
+
+    stableIndex = unpackXml("%s/pisi-index.xml.bz2" % distroBase)
+    develIndex = unpackXml("%s-test/pisi-index.xml.bz2" % distroBase)
+
+    for i in getRepoDiff(develIndex, stableIndex):
+        print develIndex[i]
+
+

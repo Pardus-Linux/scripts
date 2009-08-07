@@ -17,8 +17,8 @@ while test "$1" != ""; do
         PROJECT_NAME=$2
         shift
         ;;
-    -b)
-        BRANCH=$2
+    -o)
+        OBJECT=$2
         shift
         ;;
     *)
@@ -28,29 +28,19 @@ while test "$1" != ""; do
 done
 
 if [ -z "$VERSION" ]; then
-    echo "Usage: $APP [--no-date] [--no-commit-id] [-p|--pre-release] [-n PROJECT_NAME] [-b BRANCH] <version>"
+    echo "Usage: $APP [--no-date] [--no-commit-id] [-p|--pre-release] [-n PROJECT_NAME] [-o OBJECT] <version>"
     exit
 fi
 
-if [ -z "$PROJECT_NAME" ]; then
-    PROJECT_NAME=$(basename `pwd`)
-fi
-
-if [ -z "$BRANCH" ]; then
-    BRANCH=$(git branch | sed -n "/\* /{s/^..//; p}")
-fi
-
-if [ -z "$NO_DATE" ]; then
-    DATE=_$PRE_RELEASE$(date +%Y%m%d)
-fi
-
-if [ -z "$NO_COMMIT_ID" ]; then
-    COMMIT_ID=git$(git show $BRANCH | head -1 | cut -d" " -f 2 | head -c 7)
-fi
+test -z "$PROJECT_NAME" && PROJECT_NAME=$(basename `pwd`)
+test -z "$OBJECT" && OBJECT=HEAD
+test -z "$NO_DATE" && DATE=_$PRE_RELEASE$(date +%Y%m%d)
+test -z "$NO_COMMIT_ID" &&
+    COMMIT_ID=git$(git log $OBJECT | head -1 | cut -d" " -f 2 | head -c 7)
 
 DIRNAME="$PROJECT_NAME-$VERSION$DATE"
 ARCHIVE_FILE="$DIRNAME$COMMIT_ID.tar.bz2"
 
-echo Creating archive from $BRANCH branch...
-git archive --format=tar --prefix=$DIRNAME/ $BRANCH | bzip2 > $ARCHIVE_FILE
+echo Creating archive from $OBJECT ...
+git archive --format=tar --prefix=$DIRNAME/ $OBJECT | bzip2 > $ARCHIVE_FILE
 sha1sum $ARCHIVE_FILE

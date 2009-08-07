@@ -1,23 +1,56 @@
 #!/bin/sh
 
-if [ $# -lt 3 ]; then
-    echo "Usage: $0 <project path> <version> <git branch>"
+APP=$0
+
+while test "$1" != ""; do
+    case $1 in
+    --no-date)
+        NO_DATE=1
+        ;;
+    --no-commit-id)
+        NO_COMMIT_ID=1
+        ;;
+    -p|--pre-release)
+        PRE_RELEASE=pre
+        ;;
+    -n)
+        PROJECT_NAME=$2
+        shift
+        ;;
+    -b)
+        BRANCH=$2
+        shift
+        ;;
+    *)
+        VERSION=$1
+    esac
+    shift
+done
+
+if [ -z "$VERSION" ]; then
+    echo "Usage: $APP [--no-date] [--no-commit-id] [-p|--pre-release] [-n PROJECT_NAME] [-b BRANCH] <version>"
     exit
 fi
 
-PROJECT_PATH=$1
-VERSION=$2
-BRANCH=$3
+if [ -z "$PROJECT_NAME" ]; then
+    PROJECT_NAME=$(basename `pwd`)
+fi
 
-PROJECT_NAME=$(basename $PROJECT_PATH)
-DIRNAME="$PROJECT_NAME-${VERSION}_$(date +%Y%m%d)"
+if [ -z "$BRANCH" ]; then
+    BRANCH=$(git branch | sed -n "/\* /{s/^..//; p}")
+fi
 
-rm -rf $DIRNAME
-git clone git://git.freedesktop.org/git/$PROJECT_PATH $DIRNAME
-cd $DIRNAME
+if [ -z "$NO_DATE" ]; then
+    DATE=_$PRE_RELEASE$(date +%Y%m%d)
+fi
 
-git log | head -1 | cut -d" " -f 2 > commit
-git archive --format=tar --prefix=$DIRNAME/ $BRANCH | bzip2 > ../$DIRNAME.tar.bz2
+if [ -z "$NO_COMMIT_ID" ]; then
+    COMMIT_ID=git$(git show $BRANCH | head -1 | cut -d" " -f 2 | head -c 7)
+fi
 
-cd ..
-rm -rf $DIRNAME
+DIRNAME="$PROJECT_NAME-$VERSION$DATE"
+ARCHIVE_FILE="$DIRNAME$COMMIT_ID.tar.bz2"
+
+echo Creating archive from $BRANCH branch...
+git archive --format=tar --prefix=$DIRNAME/ $BRANCH | bzip2 > $ARCHIVE_FILE
+sha1sum $ARCHIVE_FILE

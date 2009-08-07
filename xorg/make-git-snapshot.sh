@@ -1,6 +1,6 @@
 #!/bin/sh
 
-APP=$0
+APP=`basename $0`
 
 while test "$1" != ""; do
     case $1 in

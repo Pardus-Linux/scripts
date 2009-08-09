@@ -36,7 +36,7 @@ test -z "$PROJECT_NAME" && PROJECT_NAME=$(basename `pwd`)
 test -z "$OBJECT" && OBJECT=HEAD
 test -z "$NO_DATE" && DATE=_$PRE_RELEASE$(date +%Y%m%d)
 test -z "$NO_COMMIT_ID" &&
-    COMMIT_ID=git$(git log $OBJECT | head -1 | cut -d" " -f 2 | head -c 7)
+    COMMIT_ID=git$(git rev-parse --short $OBJECT)
 
 DIRNAME="$PROJECT_NAME-$VERSION$DATE"
 ARCHIVE_FILE="$DIRNAME$COMMIT_ID.tar.bz2"

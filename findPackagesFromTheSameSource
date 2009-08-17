@@ -69,7 +69,7 @@ if __name__ == "__main__":
                 print p
 
         else:
-            print "that package does not exists !"
+            print "this is not a source package!"
 
         print
 

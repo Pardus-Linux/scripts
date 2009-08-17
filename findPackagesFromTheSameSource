@@ -1,0 +1,76 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import os
+import sys
+import urllib2
+import piksemel
+import bz2
+
+
+distroBase = "http://packages.pardus.org.tr/%s/pisi-index.xml.bz2"
+release = "pardus-2009-test"
+
+def loadUrl(_url):
+    try:
+        return urllib2.urlopen(_url).read()
+    except urllib2.URLError:
+        print "could not download %s" % _url
+        sys.exit(1)
+
+def unpackXml(url):
+    compressedData = loadUrl(url)
+    rawData = bz2.decompress(compressedData)
+    index = piksemel.parseString(rawData)
+
+    return index
+
+def parseIndex(index):
+    pkglist = {}
+
+    for parent in index.tags("Package"):
+        # pkgname = parent.getTagData("Name")
+        pkgfile = parent.getTagData("PackageURI")
+        srcname = parent.getTag("Source").getTagData("Name")
+        if srcname in pkglist.keys():
+            pkglist[srcname].append(pkgfile)
+        else:
+            pkglist[srcname] = [pkgfile]
+
+    return pkglist
+
+def usage():
+    print "usage :"
+    print "          %s <repo name> <files to search for ....>" % sys.argv[0]
+    print
+    print "example : %s pardus-2009-test xulrunner qt" % sys.argv[0]
+    print
+
+if __name__ == "__main__":
+    """ tikkat main var basmain """
+
+    if len(sys.argv) < 3:
+        usage()
+        sys.exit(1)
+
+    release = sys.argv[1]
+    packages = sys.argv[2:]
+
+    repoIndex = unpackXml(distroBase % release)
+    pkgIndex = parseIndex(repoIndex)
+
+    for i in packages:
+        print "----> %s" % i
+        if pkgIndex.has_key(i):
+            tmp = pkgIndex[i]
+            tmp.sort()
+
+            for p in tmp:
+                print p
+
+        else:
+            print "that package does not exists !"
+
+        print
+
+

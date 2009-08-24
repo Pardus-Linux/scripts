@@ -71,7 +71,6 @@ if __name__ == "__main__":
 
     # Update sha1sum
     newpspec = update_sha1sum()
-    print newpspec
 
     # Add translations.xml
     if not os.path.exists("translations.xml"):

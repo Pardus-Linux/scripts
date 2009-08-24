@@ -5,12 +5,28 @@ import os
 import sys
 import locale
 import piksemel
+import tempfile
+import subprocess
 
 # You have to run this in pardus/200x folder which contains the stable and devel sub-folders.
 # Usage: ./merge.py devel/kernel/default/kernel -> Will merge the differences of that package from the stable
 # to the stable repository with a nice commit log. You can override the commit log with
 # ./merge.py devel/kernel/default/kernel  "Just commit it, no fancy commit log."
 
+def handle_user_choice(merge_tmp_file):
+    editor = os.environ.get("EDITOR", "vi")
+
+    while True:
+        print "\nSelect one of the following:\n\t[M]erge, [E]dit, [A]bort?"
+        choice = raw_input().lower()
+        if choice.startswith("m"):
+            return True
+        elif choice.startswith("e"):
+            # Edit
+            subprocess.call([editor, merge_tmp_file])
+        elif choice.startswith("a"):
+            # Abort
+            return False
 
 def get_latest_change(path):
     os.system("svn up %s" % path)
@@ -21,7 +37,7 @@ def get_merge_log(path, rev):
     p = piksemel.parseString(os.popen("svn log --xml -r %d:HEAD devel/%s" % (rev, path)).read().strip())
 
     merge_log = """\
-Merge the following commits from devel/%s:
+Merge from devel/%s:
 
 """ % path
 
@@ -58,24 +74,27 @@ if __name__ == "__main__":
         os.system("svn ci stable/%s -m 'Ready for 2009'" % path)
 
     else:
-
         latest = get_latest_change("stable/%s" % path)
 
         if not merge_msg:
             merge_msg = get_merge_log(path, latest)
 
-        merge_tmp = open("/tmp/merge.tmp", "w").write(merge_msg)
+        # Generate safe temporary file
+        (fd, merge_tmp_file) = tempfile.mkstemp(prefix='pisimerge')
 
-        merge_cmd = "svn merge -r %d:HEAD devel/%s stable/%s" %  (latest, path, path)
-        commit_cmd = "svn ci stable/%s -F /tmp/merge.tmp" % path
+        merge_tmp = open(merge_tmp_file, "w").write(merge_msg)
 
-        print "Merging from devel/%s.." % path
-
+        # Dump merge message
         print merge_msg
-        print "\nAre you sure to merge the changes above to stable/%s?" % path
-        if raw_input().startswith("y"):
-            os.system(merge_cmd)
-            os.system(commit_cmd)
 
-        os.unlink("/tmp/merge.tmp")
+        if handle_user_choice(merge_tmp_file):
+            print "Merging from devel/%s.." % path
+            merge_cmd = "svn merge -r %d:HEAD devel/%s stable/%s" %  (latest, path, path)
+            commit_cmd = "svn ci stable/%s -F %s" % (path, merge_tmp_file)
+
+        # Clean temporary file
+        try:
+            os.unlink(merge_tmp_file)
+        except:
+            pass
 

@@ -91,6 +91,8 @@ if __name__ == "__main__":
             print "Merging from devel/%s.." % path
             merge_cmd = "svn merge -r %d:HEAD devel/%s stable/%s" %  (latest, path, path)
             commit_cmd = "svn ci stable/%s -F %s" % (path, merge_tmp_file)
+            os.system(merge_cmd)
+            os.system(commit_cmd)
 
         # Clean temporary file
         try:

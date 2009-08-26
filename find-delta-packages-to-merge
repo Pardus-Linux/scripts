@@ -1,0 +1,131 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+# utility to parse binary package file list gathered from http index
+# and finds delta packages that can be merged within a new pisi file
+#
+# internal package name flow is without pisi extensions, like
+# xulrunner-devel-11-13.delta
+# zd1211-firmware-1.4-3-2
+
+
+import httplib
+import sys
+
+repoBase = "packages.pardus.org.tr"
+repoName = "pardus-2009"
+pisiPrefix = ".pisi"
+deltaPrefix = ".delta"
+
+
+def getHttp(addr):
+    root, base = addr.split("/", 1)
+    conn = httplib.HTTPConnection(root)
+
+    conn.request("GET", "/%s/" % base)
+    r = conn.getresponse()
+
+    if r.reason != "OK":
+        print "Fetching file list returned error %s %s" % (r.status, r.reason)
+        sys.exit(1)
+
+    data = r.read().split("\n")
+    return data
+
+def getFileList(addr):
+    fileList = []
+    data = getHttp(addr)
+    prefix = '%s">' % pisiPrefix
+
+    for line in data:
+        if prefix in line:
+            # this can be done with a nice html parser but it does the job for now
+            line.replace('HREF="', 'href="', 1)
+            f = line[line.find("href=")+6:line.find("%s" % prefix)]
+            fileList.append(f)
+
+    return fileList
+
+def parseFileList(fileList):
+    fileList.sort()
+
+    # deltas[module-virtualbox] = [['11', '13'], ['11', '14'], ['13', '14']]
+    deltas = {}
+
+    # normals[yasm] = ['5', 'yasm-0.8.0-2-5']
+    normals = {}
+
+    for i in fileList:
+        if i.endswith(deltaPrefix):
+            n, f, t = i.replace(deltaPrefix, "").rsplit("-", 2)
+
+            if n in deltas:
+                deltas[n].append([f, t])
+            else:
+                deltas[n] = [[f, t]]
+        else:
+            n, v, r, b = i.rsplit("-", 3)
+
+            if n in normals:
+                normals[n].append([b, i])
+            else:
+                normals[n] = [b, i]
+
+    return deltas, normals
+
+def getDeltas(target, stablePkg, testDelta, stableDelta):
+    deltalist = []
+    pkgname, v, r, buildno = target.replace(pisiPrefix, "").rsplit("-", 3)
+
+    if not testDelta.has_key(pkgname):
+        return deltalist
+
+    fromList = [a[0] for a in stablePkg[pkgname]]
+
+    for i in fromList:
+        if [i, buildno] in testDelta[pkgname]:
+            addToList = True
+
+            if stableDelta.has_key(pkgname):
+               if [i, buildno] in stableDelta[pkgname]:
+                   addToList = False
+
+            if addToList:
+                deltalist.append("%s-%s-%s%s%s" % (pkgname, i, buildno, deltaPrefix, pisiPrefix))
+                addToList = False
+        else:
+            print "could not find a delta for %s-%s-%s%s%s" % (pkgname, i, buildno, deltaPrefix, pisiPrefix)
+
+    return deltalist
+
+def usage():
+    print "please give a list of pisi files"
+
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        usage()
+        sys.exit(1)
+    else:
+        sourcePackages = sys.argv[1:]
+
+    stableFiles = getFileList("%s/%s" % (repoBase, repoName))
+    testFiles = getFileList("%s/%s-test" % (repoBase, repoName))
+
+    stableDelta, stableNormal = parseFileList(stableFiles)
+    testDelta, testNormal = parseFileList(testFiles)
+
+    foundDeltas = []
+
+    for i in sourcePackages:
+        target = i.replace(pisiPrefix, "")
+        if not target in testFiles:
+             print "package not found %s" % i
+        else:
+            foundDeltas.extend(getDeltas(target, stableNormal, testDelta, stableDelta))
+
+    foundDeltas.sort()
+    for i in foundDeltas:
+        print i
+
+

@@ -52,7 +52,7 @@ def parseFileList(fileList):
     # deltas[module-virtualbox] = [['11', '13'], ['11', '14'], ['13', '14']]
     deltas = {}
 
-    # normals[yasm] = ['5', 'yasm-0.8.0-2-5']
+    # normals[yasm] = [['5', 'yasm-0.8.0-2-5'], ['5', 'yasm-0.8.0-2-5']]
     normals = {}
 
     for i in fileList:
@@ -69,7 +69,7 @@ def parseFileList(fileList):
             if n in normals:
                 normals[n].append([b, i])
             else:
-                normals[n] = [b, i]
+                normals[n] = [[b, i]]
 
     return deltas, normals
 
@@ -77,7 +77,7 @@ def getDeltas(target, stablePkg, testDelta, stableDelta):
     deltalist = []
     pkgname, v, r, buildno = target.replace(pisiPrefix, "").rsplit("-", 3)
 
-    if not testDelta.has_key(pkgname):
+    if not testDelta.has_key(pkgname) or not stablePkg.has_key(pkgname):
         return deltalist
 
     fromList = [a[0] for a in stablePkg[pkgname]]

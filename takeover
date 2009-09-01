@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Usage: takeover.sh pardus/devel/kernel/kernel/pspec.xml
+# Usage: takeover pardus/devel/kernel/kernel/pspec.xml
 
 NAME="YOUR NAME"
 EMAIL="YOUR EMAIL"

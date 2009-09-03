@@ -40,8 +40,7 @@ if __name__ == "__main__":
         files = get_files(spec_dir)
 
         # Print the results if any
-        results = set(files).difference(patches)
+        results = ["%s/%s" % (spec_dir, p) for p in set(files).difference(patches)]
 
         if results:
-            print "Unapplied patches or unused additional files for %s are:\n" % spec_dir
             print "\n".join(results)

@@ -1,0 +1,120 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+# Pisi archives integrity checker
+#
+# Parses source repo pisi-index.xml or pisi-index.xml.bz2 file and checks sha1sum of archives
+#
+# can be given package names with components as command line parameters
+#
+
+import os
+import sys
+import piksemel
+import bz2
+import hashlib
+
+indexfile = "pisi-index.xml"
+# archiveDir = "/var/cache/pisi/archives"
+archiveDir = "/tmp/sil"
+
+
+def printColorize(p, c, s):
+        print "\x1b[1;33m%s \x1b[%sm %s\x1b[0m" % (p, c, s)
+
+def getXmlData(_file):
+    if os.path.exists(_file):
+        return piksemel.parse(_file)
+    elif os.path.exists("%s.bz2" % _file):
+        indexdata = bz2.decompress(file("%s.bz2" % _file).read())
+        return piksemel.parseString(indexdata)
+    else:
+        print "\x1b[1;31mcould not find pisi index file\x1b[0m"
+        sys.exit(1)
+
+def getPkgValues(_node):
+    pkgUri = _node.getTagData("SourceURI")
+    archiveUri = _node.getTagData("Archive")
+    archiveSum = _node.getTag("Archive").getAttribute("sha1sum")
+
+    return pkgUri.replace("/pspec.xml", ""), archiveUri, archiveSum
+
+def parseXmlData(_index):
+    tmpDict = {}
+
+    for pkg in _index.tags("SpecFile"):
+        tmpUri, tmpSrcUri, tmpHash = getPkgValues(pkg.getTag("Source"))
+        tmpDict[tmpUri] = [tmpSrcUri, tmpHash]
+
+    return tmpDict
+
+def checkHash(pkguri, pkginfo):
+    foundhash = ""
+
+    pkg = os.path.basename(pkginfo[0])
+    hash = pkginfo[1]
+
+    try:
+        h = hashlib.sha1()
+        f = open(os.path.join(archiveDir, pkg))
+        h.update(f.read())
+        foundhash = h.hexdigest()
+        f.close()
+
+        if hash == foundhash:
+            printColorize(pkg, "1;32", "OK")
+        else:
+            printColorize(pkg, "0;31", "expected %s got %s" % (hash, foundhash))
+            errorlist.append(pkguri)
+
+    except IOError:
+        if debug:
+            printColorize(pkg, "0;31", "not found !")
+        missinglist.append(pkguri)
+
+
+if __name__ == "__main__":
+    missinglist = []
+    errorlist = []
+    searchPkgs = []
+    debug = False
+
+    args = sys.argv
+
+    if len(args) > 1:
+        if args[1] == "-d":
+            args.remove("-d")
+            debug = True
+
+    if len(args) > 1:
+        searchPkgs.extend(args[1:])
+
+    xmldata = getXmlData(indexfile)
+    pkgDict = parseXmlData(xmldata)
+
+    if not len(searchPkgs):
+        searchPkgs = pkgDict.keys()
+
+    searchPkgs.sort()
+    for package in searchPkgs:
+        if package in pkgDict:
+            checkHash(package, pkgDict[package])
+        else:
+            printColorize(package, "0;31", "is not in index")
+            missinglist.append(package)
+
+    if len(errorlist):
+        print
+        print "\x1b[1;30mFound errors in ...\x1b[0m"
+        print
+        for e in errorlist:
+            print e
+
+    if debug and len(missinglist):
+        print
+        print "\x1b[1;30mCould not find ...\x1b[0m"
+        print
+        for e in missinglist:
+            print e
+
+

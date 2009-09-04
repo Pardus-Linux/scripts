@@ -15,8 +15,7 @@ import bz2
 import hashlib
 
 indexfile = "pisi-index.xml"
-# archiveDir = "/var/cache/pisi/archives"
-archiveDir = "/tmp/sil"
+archiveDir = "/var/cache/pisi/archives"
 
 
 def printColorize(p, c, s):

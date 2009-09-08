@@ -64,9 +64,9 @@ if __name__ == "__main__":
     if path.startswith("devel/"):
         path = path.split("devel/", 1)[1]
 
+    os.system("svn up devel/%s stable/%s" % (path, path))
     if not os.path.exists("stable/%s" % path):
         # New package
-        os.system("svn up devel/%s stable/%s" % (path, path))
 
         print "Copying from devel/%s.." % path
         os.system("svn cp devel/%s stable/%s" % (path, path))

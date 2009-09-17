@@ -1,0 +1,74 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+# Script to find packages that have been updated
+# Just give a pisi package list as parameter
+# then the script will parse the index and print out
+# changed packages as before and after
+
+import os
+import sys
+import urllib2
+import piksemel
+import bz2
+
+
+distroIndex = "http://packages.pardus.org.tr/pardus-2009-test/pisi-index.xml.bz2"
+
+
+def loadUrl(_url):
+    try:
+        return urllib2.urlopen(_url).read()
+    except urllib2.URLError:
+        print "could not download %s" % _url
+        sys.exit(1)
+
+def unpackXml(url):
+    pkglist = {}
+
+    compressedData = loadUrl(url)
+    rawData = bz2.decompress(compressedData)
+    index = piksemel.parseString(rawData)
+
+    for parent in index.tags("Package"):
+        pkgname = parent.getTagData("Name")
+        pkgfile = parent.getTagData("PackageURI")
+        pkgbuildno = parent.getTagData("Build")
+        pkglist[pkgname] = [pkgbuildno, pkgfile]
+
+    return pkglist
+
+def getRepoDiff(inrepo, checkfiles):
+    pkglist = []
+
+    for i in checkfiles.keys():
+        if inrepo[i][0] != checkfiles[i][0]:
+            pkglist.append(i)
+
+    pkglist.sort()
+    return pkglist
+
+def parseCheckPackages(pkgs):
+    pkglist = {}
+
+    for pkgfile in pkgs:
+        if not pkgfile.endswith("delta.pisi"):
+            pkgname, pkgversion, pkgrelease, pkgbuildno = pkgfile.rsplit("-", 3)
+            pkglist[pkgname] = [pkgbuildno.replace(".pisi", ""), pkgfile]
+
+    return pkglist
+
+if __name__ == "__main__":
+    """ tikkat main var basmain """
+
+    if len(sys.argv) < 2:
+        print "please give some pisi packages as parameter"
+        sys.exit(1)
+
+    latestIndex = unpackXml(distroIndex)
+    checkPackages = parseCheckPackages(sys.argv[1:])
+
+    for i in getRepoDiff(latestIndex, checkPackages):
+        print "%s  (was %s)" % (latestIndex[i][1], checkPackages[i][1])
+
+

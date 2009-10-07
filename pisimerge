@@ -46,7 +46,7 @@ Merge from devel/%s:
 
     for log in p.root().tags():
         rev = log.getAttribute('revision')
-        msg = log.getTagData('msg')
+        msg = log.getTagData('msg') or "<Empty log message detected! Don't speak with this author anymore.>"
         date = log.getTagData('date')
         author = log.getTagData('author')
 

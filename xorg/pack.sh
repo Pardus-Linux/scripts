@@ -34,6 +34,7 @@ if [ "$FILELIST" == "" ]; then
     exit
 fi
 
+FALLBACK_URL=http://cekirdek.pardus.org.tr/~fatih/dist/snapshots
 ARCHIVES_DIR=~/xorg-archives
 
 if [ ! -e $ARCHIVES_DIR ]; then
@@ -49,7 +50,7 @@ cd $ARCHIVES_DIR
 for i in `cat $SCRIPT_DIR/$FILELIST`
 do
     if [ ! -e $i ]; then
-        wget $MIRROR"/"$i || exit 1
+        wget $MIRROR"/"$i || wget $FALLBACK_URL"/"$i || exit 1
         echo "$i" > $FILELIST.changes
     fi
     tar xvf $i -C $TEMP_DIR

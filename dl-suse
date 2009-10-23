@@ -1,0 +1,18 @@
+#!/bin/bash
+
+URL="http://download.opensuse.org/source/factory/repo/oss/suse/src"
+
+for package in $(wget -q -O - $URL | sed -e 's/src.rpm".*/src.rpm/' -e 's/.*href="//' | grep "^$1.*src.rpm$"); do
+    wget $URL/$package
+    dirname=`echo $package | sed 's/^\(.*\)\-.*$/\1/'`
+    rpm2targz $package
+    mkdir -p $dirname
+    cd $dirname
+    tar xvf ../`echo $package | sed 's/.rpm/.tar.gz/'`
+    cd ..
+done
+
+rm -rf *.rpm
+rm -rf *.tar.gz
+
+

@@ -1,0 +1,229 @@
+# translation of es.po to spanish
+# Translation of pt_BR.po to Brazilian Portuguese
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Pedro Leite <pedro.leite@gmail.com>, 2007.
+# klemens <click3d at linuxmail org>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: es\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-02-18 22:22+0200\n"
+"PO-Revision-Date: 2007-05-27 18:30-0400\n"
+"Last-Translator: klemens <click3d at linuxmail org>\n"
+"Language-Team: spanish <es@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: src/repostats.py:178 src/repostats.py:580
+msgid "Information"
+msgstr "Información"
+
+#: src/repostats.py:179 src/repostats.py:599
+msgid "Source Packages"
+msgstr "Paquetes fuente"
+
+#: src/repostats.py:180 src/repostats.py:604
+msgid "Binary Packages"
+msgstr "Paquetes binarios"
+
+#: src/repostats.py:181
+msgid "Packagers"
+msgstr "Empaquetadores"
+
+#: src/repostats.py:240
+#, python-format
+msgid ""
+"Duplicate binary packages:\n"
+"%s\n"
+"%s\n"
+msgstr ""
+"Paquetes binarios duplicados:\n"
+"%s\n"
+"%s\n"
+
+#: src/repostats.py:284
+msgid "Package size"
+msgstr "Tamaño de paquete"
+
+#: src/repostats.py:285
+msgid "Installed size"
+msgstr "Tamaño instalado"
+
+#: src/repostats.py:310
+msgid "Source package"
+msgstr "Paquete de fuentes"
+
+#: src/repostats.py:312
+msgid "Build dependencies"
+msgstr "Dependencias de compilación"
+
+#: src/repostats.py:314
+msgid "Runtime dependencies"
+msgstr "Dependencias de ejecución"
+
+#: src/repostats.py:316
+msgid "Required by (for building)"
+msgstr "Requerido por (para compilación)"
+
+#: src/repostats.py:318
+msgid "Required by (for runtime)"
+msgstr "Requerido por (para ejecución)"
+
+#: src/repostats.py:329
+#, python-format
+msgid ""
+"Duplicate source packages:\n"
+"%s\n"
+"%s\n"
+msgstr ""
+"Paquetes de fuentes duplicados:\n"
+"%s\n"
+"%s\n"
+
+#: src/repostats.py:348
+msgid "Release"
+msgstr "Release"
+
+#: src/repostats.py:348
+msgid "Release date"
+msgstr "Fecha de release"
+
+#: src/repostats.py:348 src/repostats.py:594
+msgid "Version"
+msgstr "Versión"
+
+#: src/repostats.py:348
+msgid "Updater"
+msgstr "Actualizador"
+
+#: src/repostats.py:348
+msgid "Comment"
+msgstr "Comentario"
+
+#: src/repostats.py:375 src/repostats.py:426 src/repostats.py:583
+msgid "Packager"
+msgstr "Empaquetador"
+
+#: src/repostats.py:377
+msgid "License"
+msgstr "Licencia"
+
+#: src/repostats.py:379
+msgid "Actions"
+msgstr "Acciones"
+
+# should it be like "DO the process of build" or "files of .. build process" ?
+#: src/repostats.py:381
+msgid "Build files"
+msgstr "Archivos de compilación"
+
+#: src/repostats.py:383
+msgid "Bug reports"
+msgstr "Reportes de fallas"
+
+#: src/repostats.py:384
+msgid "Binary packages"
+msgstr "Paquetes binarios"
+
+#: src/repostats.py:386
+msgid "Release history"
+msgstr "Histórico de Release"
+
+#: src/repostats.py:388
+msgid "Patches"
+msgstr "Parches"
+
+#: src/repostats.py:433
+msgid "Maintained packages:"
+msgstr "Paquetes mantenidos:"
+
+#: src/repostats.py:440
+msgid "Package updates:"
+msgstr "Atualizaciones de paquetes:"
+
+#: src/repostats.py:492
+#, python-format
+msgid ""
+"Cannot parse '%s':\n"
+"%s\n"
+msgstr ""
+"No posible analizar '%s':\n"
+"%s\n"
+
+#: src/repostats.py:537
+msgid "Number of source packages"
+msgstr "Cantidad de paquetes de fuentes"
+
+#: src/repostats.py:538
+msgid "Number of binary packages"
+msgstr "Cantidad de paquetes binarios"
+
+#: src/repostats.py:539
+msgid "Number of patches"
+msgstr "Cantidad de parches"
+
+#: src/repostats.py:540
+msgid "Number of packagers"
+msgstr "Cantidad de empaquetadores"
+
+#: src/repostats.py:544
+msgid "Archived size of packages"
+msgstr "Tamaño comprimido de paquetes"
+
+#: src/repostats.py:545
+msgid "Installed size of packages"
+msgstr "Tamaño instalado de los paquetes:"
+
+#: src/repostats.py:556
+msgid "Most patched:"
+msgstr "Con mayor cantidad de parches:"
+
+#: src/repostats.py:566
+msgid "Longest build scripts:"
+msgstr "Mayores scripts de compilación:"
+
+#: src/repostats.py:576
+msgid "Total file sizes by file type:"
+msgstr "Tamaño total de los archivos por tipo de archivo:"
+
+#: src/repostats.py:584
+msgid "Package count"
+msgstr "Cantidad de paquetes"
+
+#: src/repostats.py:589
+msgid "Packagers (by package count)"
+msgstr "Empaquetadores (por cantidad de paquetes)"
+
+#: src/repostats.py:592
+msgid "Packagers (by name)"
+msgstr "Empaqueteadores (por nombre)"
+
+#: src/repostats.py:594
+msgid "Package name"
+msgstr "Nombre de paquete"
+
+#: src/repostats.py:594
+msgid "Summary"
+msgstr "Resumen"
+
+#: src/repostats.py:611
+msgid "Scanning source repository...\n"
+msgstr "Examinando repositorio de fuentes...\n"
+
+#: src/repostats.py:615
+msgid "Scanning binary packages...\n"
+msgstr "Examinando paquetes binarios...\n"
+
+#: src/repostats.py:629
+msgid "Usage: repostats.py [OPTIONS] source-repo-path [binary-repo-path]\n"
+msgstr ""
+"Uso: repostats.py [OPTIONS] ruta-a-repositorio-de-fuentes [ruta-a-"
+"repositorio-de-binarios]\n"
+
+#: src/repostats.py:630
+msgid "HTML output directory."
+msgstr "Directorio de salida HTML."

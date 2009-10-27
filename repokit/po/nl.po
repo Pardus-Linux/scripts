@@ -1,0 +1,225 @@
+# translation of n.po to Nederlands
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# W.P.M.H.I.A. Gielen <w.gielen@gmail.com>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: n\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-02-18 22:22+0200\n"
+"PO-Revision-Date: 2007-07-08 18:36+0200\n"
+"Last-Translator: W.P.M.H.I.A. Gielen <w.gielen@gmail.com>\n"
+"Language-Team: Nederlands <http://liste.pardus.org.tr/pardus-translation-nl/"
+">\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: src/repostats.py:178 src/repostats.py:580
+msgid "Information"
+msgstr "Informatie"
+
+#: src/repostats.py:179 src/repostats.py:599
+msgid "Source Packages"
+msgstr "Bron pakketten"
+
+#: src/repostats.py:180 src/repostats.py:604
+msgid "Binary Packages"
+msgstr "Binaire pakketten"
+
+#: src/repostats.py:181
+msgid "Packagers"
+msgstr "Pakketten"
+
+#: src/repostats.py:240
+#, python-format
+msgid ""
+"Duplicate binary packages:\n"
+"%s\n"
+"%s\n"
+msgstr ""
+"Dubbele binaire pakketten:\n"
+"%s\n"
+"%s\n"
+
+#: src/repostats.py:284
+msgid "Package size"
+msgstr "Pakket grootte"
+
+#: src/repostats.py:285
+msgid "Installed size"
+msgstr "Geïnstalleerde grootte"
+
+#: src/repostats.py:310
+msgid "Source package"
+msgstr "Bron pakket"
+
+#: src/repostats.py:312
+msgid "Build dependencies"
+msgstr "Bouw afhankelijkheden"
+
+#: src/repostats.py:314
+msgid "Runtime dependencies"
+msgstr "Runtime afhankelijkheden"
+
+#: src/repostats.py:316
+msgid "Required by (for building)"
+msgstr "Nodig voor (bij bouwen)"
+
+#: src/repostats.py:318
+msgid "Required by (for runtime)"
+msgstr "Nodig voor (bij runtime)"
+
+#: src/repostats.py:329
+#, python-format
+msgid ""
+"Duplicate source packages:\n"
+"%s\n"
+"%s\n"
+msgstr ""
+"Dubbele bron pakketten:\n"
+"%s\n"
+"%s\n"
+
+#: src/repostats.py:348
+msgid "Release"
+msgstr "Uitgave"
+
+#: src/repostats.py:348
+msgid "Release date"
+msgstr "Uitgave datum"
+
+#: src/repostats.py:348 src/repostats.py:594
+msgid "Version"
+msgstr "Versie"
+
+#: src/repostats.py:348
+msgid "Updater"
+msgstr "Updater"
+
+#: src/repostats.py:348
+msgid "Comment"
+msgstr "Opmerking"
+
+#: src/repostats.py:375 src/repostats.py:426 src/repostats.py:583
+msgid "Packager"
+msgstr "Inpakker"
+
+#: src/repostats.py:377
+msgid "License"
+msgstr "Licentie"
+
+#: src/repostats.py:379
+msgid "Actions"
+msgstr "Acties"
+
+#: src/repostats.py:381
+msgid "Build files"
+msgstr "Bouw-bestanden"
+
+#: src/repostats.py:383
+msgid "Bug reports"
+msgstr "Bug rapporten"
+
+#: src/repostats.py:384
+msgid "Binary packages"
+msgstr "Binaire pakketten"
+
+#: src/repostats.py:386
+msgid "Release history"
+msgstr "Uitgave geschiedenis"
+
+#: src/repostats.py:388
+msgid "Patches"
+msgstr "Patches"
+
+#: src/repostats.py:433
+msgid "Maintained packages:"
+msgstr "Gehandhaafde pakketten:"
+
+#: src/repostats.py:440
+msgid "Package updates:"
+msgstr "Pakket updates:"
+
+#: src/repostats.py:492
+#, python-format
+msgid ""
+"Cannot parse '%s':\n"
+"%s\n"
+msgstr ""
+"Kan niet analyseren '%s':\n"
+"%s\n"
+
+#: src/repostats.py:537
+msgid "Number of source packages"
+msgstr "Aantal bron pakketten"
+
+#: src/repostats.py:538
+msgid "Number of binary packages"
+msgstr "Aantal binaire pakketten"
+
+#: src/repostats.py:539
+msgid "Number of patches"
+msgstr "Aantal patches"
+
+#: src/repostats.py:540
+msgid "Number of packagers"
+msgstr "Aantal inpakkers"
+
+#: src/repostats.py:544
+msgid "Archived size of packages"
+msgstr "Grootte van gearchiveerde pakketten"
+
+#: src/repostats.py:545
+msgid "Installed size of packages"
+msgstr "Grootte van geïnstalleerde pakketten"
+
+#: src/repostats.py:556
+msgid "Most patched:"
+msgstr "Meest gepatched:"
+
+#: src/repostats.py:566
+msgid "Longest build scripts:"
+msgstr "Langste bouw scripten:"
+
+#: src/repostats.py:576
+msgid "Total file sizes by file type:"
+msgstr "Totale grootte op bestandstype:"
+
+#: src/repostats.py:584
+msgid "Package count"
+msgstr "Pakket telling"
+
+#: src/repostats.py:589
+msgid "Packagers (by package count)"
+msgstr "Inpakkers (op pakket telling)"
+
+#: src/repostats.py:592
+msgid "Packagers (by name)"
+msgstr "Inpakkers (op naam)"
+
+#: src/repostats.py:594
+msgid "Package name"
+msgstr "Pakket naam"
+
+#: src/repostats.py:594
+msgid "Summary"
+msgstr "Samenvatting"
+
+#: src/repostats.py:611
+msgid "Scanning source repository...\n"
+msgstr "Scannen bron repository...\n"
+
+#: src/repostats.py:615
+msgid "Scanning binary packages...\n"
+msgstr "Scannen binaire pakketten...\n"
+
+#: src/repostats.py:629
+msgid "Usage: repostats.py [OPTIONS] source-repo-path [binary-repo-path]\n"
+msgstr "Gebruik: repostats.py [OPTIES] bron-repo-pad [binair-repo-pad]\n"
+
+#: src/repostats.py:630
+msgid "HTML output directory."
+msgstr "HTML uitvoer map"

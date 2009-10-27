@@ -1,0 +1,231 @@
+# translation of de.po to Deutsch
+# translation of de.po to
+# translation of repokit.po to
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Mustafa Muhammed Ölcerman <mustafa.oelcerman@fk-koeln.de>, 2007.
+# Mustafa Ölcerman <m.oelcerman@pardus-linux.de>, 2007.
+# Heiko Pardus Translator <miltonjohn@web.de>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: de\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-02-18 22:22+0200\n"
+"PO-Revision-Date: 2009-07-09 23:35+0200\n"
+"Last-Translator: Heiko Pardus Translator <miltonjohn@web.de>\n"
+"Language-Team: Deutsch <pardus-translators@pardus.org.tr>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: src/repostats.py:178 src/repostats.py:580
+msgid "Information"
+msgstr "Information"
+
+#: src/repostats.py:179 src/repostats.py:599
+msgid "Source Packages"
+msgstr "Quell Pakete"
+
+#: src/repostats.py:180 src/repostats.py:604
+msgid "Binary Packages"
+msgstr "Binäre Pakete"
+
+#: src/repostats.py:181
+msgid "Packagers"
+msgstr "Paketler"
+
+#: src/repostats.py:240
+#, python-format
+msgid ""
+"Duplicate binary packages:\n"
+"%s\n"
+"%s\n"
+msgstr ""
+"Binäre Pakete duplizieren:\n"
+"%s\n"
+"%s\n"
+
+#: src/repostats.py:284
+msgid "Package size"
+msgstr "Paket Grösse"
+
+#: src/repostats.py:285
+msgid "Installed size"
+msgstr "Installierte Grösse"
+
+#: src/repostats.py:310
+msgid "Source package"
+msgstr "Quell Pakete"
+
+#: src/repostats.py:312
+msgid "Build dependencies"
+msgstr "Build-Abhängigkeiten"
+
+#: src/repostats.py:314
+msgid "Runtime dependencies"
+msgstr "Laufzeit-Abhängigkeiten"
+
+#: src/repostats.py:316
+msgid "Required by (for building)"
+msgstr "Benötigt von (for building)"
+
+#: src/repostats.py:318
+msgid "Required by (for runtime)"
+msgstr "Benötigt von (für Laufzeit)"
+
+#: src/repostats.py:329
+#, python-format
+msgid ""
+"Duplicate source packages:\n"
+"%s\n"
+"%s\n"
+msgstr ""
+"Quell-Pakete duplizieren:\n"
+"%s\n"
+"%s\n"
+
+#: src/repostats.py:348
+msgid "Release"
+msgstr "Release"
+
+#: src/repostats.py:348
+msgid "Release date"
+msgstr "Release Datum"
+
+#: src/repostats.py:348 src/repostats.py:594
+msgid "Version"
+msgstr "Version"
+
+#: src/repostats.py:348
+msgid "Updater"
+msgstr "Aktualisierer"
+
+#: src/repostats.py:348
+msgid "Comment"
+msgstr "Kommentar"
+
+#: src/repostats.py:375 src/repostats.py:426 src/repostats.py:583
+msgid "Packager"
+msgstr "Paketentwickler"
+
+#: src/repostats.py:377
+msgid "License"
+msgstr "Lizenz"
+
+#: src/repostats.py:379
+msgid "Actions"
+msgstr "Aktionen"
+
+#: src/repostats.py:381
+msgid "Build files"
+msgstr "Build-Dateien"
+
+#: src/repostats.py:383
+msgid "Bug reports"
+msgstr "Bug-Reporte"
+
+#: src/repostats.py:384
+msgid "Binary packages"
+msgstr "Binäre Pakete"
+
+#: src/repostats.py:386
+msgid "Release history"
+msgstr "Release Verlauf"
+
+#: src/repostats.py:388
+msgid "Patches"
+msgstr "Patches"
+
+#: src/repostats.py:433
+msgid "Maintained packages:"
+msgstr "Gewartete Pakete:"
+
+#: src/repostats.py:440
+msgid "Package updates:"
+msgstr "Paket-Updates:"
+
+#: src/repostats.py:492
+#, python-format
+msgid ""
+"Cannot parse '%s':\n"
+"%s\n"
+msgstr ""
+"Kann nicht geparst werden '%s':\n"
+"%s\n"
+
+#: src/repostats.py:537
+msgid "Number of source packages"
+msgstr "Anzahl der quell Pakete"
+
+#: src/repostats.py:538
+msgid "Number of binary packages"
+msgstr "Anzahl der binären Pakete"
+
+#: src/repostats.py:539
+msgid "Number of patches"
+msgstr "Anzahl der Patches:"
+
+#: src/repostats.py:540
+msgid "Number of packagers"
+msgstr "Anzahl der Paketentwickler"
+
+#: src/repostats.py:544
+msgid "Archived size of packages"
+msgstr "Archivierte Grösse der Pakete"
+
+#: src/repostats.py:545
+msgid "Installed size of packages"
+msgstr "Installierte Grösse der Pakete"
+
+#: src/repostats.py:556
+msgid "Most patched:"
+msgstr "Am meisten gepatcht\t"
+
+#: src/repostats.py:566
+msgid "Longest build scripts:"
+msgstr "Längstes Build-Skript:"
+
+#: src/repostats.py:576
+msgid "Total file sizes by file type:"
+msgstr "Gesamte Dateigröße bei Dateitypen:"
+
+#: src/repostats.py:584
+msgid "Package count"
+msgstr "Paket-Anzahl"
+
+#: src/repostats.py:589
+msgid "Packagers (by package count)"
+msgstr "Paketentwickler (Ordnungskriterium: Paket-Anzahl)"
+
+#: src/repostats.py:592
+msgid "Packagers (by name)"
+msgstr "Paketentwickler ( Ordnungskriterium: Name)"
+
+#: src/repostats.py:594
+msgid "Package name"
+msgstr "Paket-Name"
+
+#: src/repostats.py:594
+msgid "Summary"
+msgstr "Zusammenfassung"
+
+#: src/repostats.py:611
+msgid "Scanning source repository...\n"
+msgstr "Quell-Depots werden gescannt...\n"
+
+#: src/repostats.py:615
+msgid "Scanning binary packages...\n"
+msgstr "Binär-Pakete werden gescannt...\n"
+
+#: src/repostats.py:629
+msgid "Usage: repostats.py [OPTIONS] source-repo-path [binary-repo-path]\n"
+msgstr ""
+"Anwendung: repostats.py [OPTIONEN] source-repo-path [binäre Depot-"
+"Pfadangabe]\n"
+
+#: src/repostats.py:630
+msgid "HTML output directory."
+msgstr "HTML-Ausgabe-Verzeichnis."
+

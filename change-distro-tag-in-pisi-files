@@ -1,0 +1,66 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+# A simple script to update Distribution info on mass pisi packages
+# usage: change-distro-tag-in-pisi-files  pisi-files-directory
+#
+
+import os
+import sys
+import piksemel
+import zipfile
+
+
+Distribution = "komandos"
+DistributionRelease = "2"
+metadatafile = "metadata.xml"
+
+def getFiles(_path):
+    found = []
+    fl = os.listdir(_path)
+
+    for i in fl:
+        if i.endswith(".pisi"):
+            found.append(i)
+
+    return found
+
+def changeDistData(doc):
+    dist = doc.getTag("Package").getTag("Distribution")
+    dist.setData(Distribution)
+    distrel = doc.getTag("Package").getTag("DistributionRelease")
+    distrel.setData(DistributionRelease)
+    return doc.toPrettyString()
+
+def writeZip(pisi, data):
+    f = open(metadatafile, "w")
+    f.write(data)
+    f.close()
+    # python zipfile does not support updating
+    os.system("zip -0 -q -m %s %s" % (pisi, metadatafile))
+
+def fixFile(pisi):
+    print "processing %s" % pisi
+    zip = zipfile.ZipFile(pisi, "r")
+    data = zip.read(metadatafile)
+    nodtree = piksemel.parseString(data)
+    newdata = changeDistData(nodtree)
+    zip.close()
+    writeZip(pisi, newdata)
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print "You must give a directory name for pisi files"
+    elif not os.path.exists(sys.argv[1]):
+        print "%s does not exists" % sys.argv[1]
+    else:
+        olddir = os.getcwd()
+        os.chdir(sys.argv[1])
+
+        filelist = getFiles(sys.argv[1])
+        filelist.sort()
+
+        for i in filelist:
+            fixFile(i)
+
+

@@ -1,0 +1,17 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# Detects conflict between files shipped within pisi packages
+
+import os
+import pisi
+
+if __name__ == "__main__":
+    files = {}
+    installdb = pisi.db.installdb.InstallDB()
+    for package in sorted(installdb.list_installed()):
+        for f in ['/%s' % _f.path for _f in installdb.get_files(package).list]:
+            if not files.has_key(f):
+                files[f] = package
+            elif os.path.isfile(f):
+                print "%s from %s conflicts with %s" % (f, package, files[f])

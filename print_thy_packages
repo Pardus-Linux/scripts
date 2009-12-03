@@ -1,0 +1,72 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import os
+import sys
+from pisi.specfile import SpecFile
+from optparse import OptionParser
+
+# Enter maintainer's email
+maintainer_email = ""
+
+# Enter path to devel (e.g. /home/user/pardus/devel)
+devel_path = ""
+
+# Enter a specific component name (e.g. system.base)
+component_name="system.base"
+
+def get_specs(path, componentName=""):
+    specs = []
+    if componentName:
+        path = path + "/" + (componentName.replace(".","/"))
+
+    for root, dirs, files in os.walk(path):
+        if "pspec.xml" in files:
+            specs.append(root)
+        if ".svn" in dirs:
+            dirs.remove(".svn")
+
+    return specs
+
+if __name__ == "__main__":
+
+    usage = "usage: %s [options] " % os.path.basename(sys.argv[0])
+    parser = OptionParser(usage=usage)
+
+    parser.add_option("-p","--path", dest="devel_path", default=devel_path, type="string",
+            help="Enter path to devel")
+    parser.add_option("-m","--maintainer-email", dest="maintainer_email", default=maintainer_email, type="string",
+            help="Enter maintainer's email address")
+    parser.add_option("-c","--component", dest="component_name", default=component_name, type="string",
+            help="Enter a specific component name to search the packages")
+    parser.add_option("--plain", action="store_true", dest="plain", default=False,
+            help="Only print the package paths")
+
+    (opts, args) = parser.parse_args()
+
+    devel_path = opts.devel_path
+    maintainer_email = opts.maintainer_email
+    component_name = opts.component_name
+
+    if not maintainer_email or not devel_path:
+        print "Please write the necessary informations into %s" % sys.argv[0]
+        sys.exit(1)
+
+    specs = get_specs(devel_path, component_name)
+    packages = []
+
+    for s in specs:
+        specfile = SpecFile(s + '/pspec.xml')
+        email = specfile.source.packager.email
+        if email == maintainer_email and email not in packages:
+            packages.append(s.partition(devel_path)[-1])
+
+    if not opts.plain:
+        if not component_name:
+            print "A total of %d packages are maintained by %s:\n" % (len(packages), maintainer_email)
+        else:
+            print "A total of %d packages in %s component are maintained by %s:\n" % (len(packages), component_name, maintainer_email)
+
+    print "\n".join(packages)
+
+

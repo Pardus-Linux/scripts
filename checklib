@@ -6,6 +6,7 @@ import re
 import sys
 import pisi
 import magic
+import types
 import shutil
 import tempfile
 import subprocess
@@ -59,20 +60,21 @@ def get_needed_objects(f, ldpaths="", unused=False, undefined=False):
     # Get full path to the objects
 
     filemap = {}
+    unuseds = []
+    undefineds = []
     env = os.environ
+
     if ldpaths:
         env.update({'LD_LIBRARY_PATH': ":".join(ldpaths)})
 
     ldd_output = subprocess.Popen(["ldd", f], stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=env).communicate()[0].strip().split("\n")
 
     if unused or undefined:
-        ldd_ur_output = subprocess.Popen(["ldd", "-u", "-r", f], stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=env).communicate()[0].strip().split("\n")
+        ldd_ur_output = subprocess.Popen(["ldd", "-u", "-r", f], stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=env).communicate()[0].strip()
         if unused:
             unuseds = parse_unused(ldd_ur_output)
-            print unuseds
         if undefined:
-            undefineds = parse_undefined(ldd_ur_output)
-            print undefineds
+            undefineds = parse_undefs(ldd_ur_output)
 
     for l in [_l for _l in ldd_output if "=>" in _l]:
         # Filter these special objects
@@ -85,7 +87,7 @@ def get_needed_objects(f, ldpaths="", unused=False, undefined=False):
         if filemap.has_key(objs[i]):
             objs[i] = os.popen("readlink -f %s" % filemap[objs[i]]).read().strip()
 
-    return objs
+    return (objs, unuseds, undefineds)
 
 def get_pisi_package(f):
     """Returns the name of the PiSi package containing the file f."""
@@ -106,17 +108,22 @@ def get_systembase_packages():
 def check_installed_package(package, options):
     """Check for an installed package."""
     dependencies = {}
+    undefineds = {}
+    unuseds = {}
     objects = get_shared_objects(package=package)
 
     for obj in objects:
         needed_tuples = []
-        for needed in get_needed_objects(obj, unused=options.unused, undefined=options.undefined):
+        objs, unused, undefined = get_needed_objects(obj, unused=options.unused, undefined=options.undefined)
+        unuseds.update(dict([(obj, unused)]))
+        undefineds.update(dict([(obj, undefined)]))
+        for needed in objs:
             depname = get_pisi_package(needed)
             needed_tuples.append((needed, get_pisi_package(needed)))
 
         dependencies[obj] = needed_tuples
 
-    return dependencies
+    return (dependencies, unuseds, undefineds)
 
 def check_outoftree_package(options, pisi_file=None):
     """Traverses install_dir for the package to analyze dependencies."""
@@ -131,6 +138,8 @@ def check_outoftree_package(options, pisi_file=None):
 
     objects = get_shared_objects(directory=install_dir)
     dependencies = {}
+    undefineds = {}
+    unuseds = {}
 
     # Handle LDPATHs in /var/pisi
     ldpaths = set()
@@ -140,7 +149,10 @@ def check_outoftree_package(options, pisi_file=None):
 
     for obj in objects:
         needed_tuples = []
-        for needed in get_needed_objects(obj, list(ldpaths), options.unused, options.undefined):
+        objs, unused, undefined = get_needed_objects(obj, list(ldpaths), unused=options.unused, undefined=options.undefined)
+        unuseds.update(dict([(obj, unused)]))
+        undefineds.update(dict([(obj, undefined)]))
+        for needed in objs:
             if needed in objects:
                 # object is shipped within this package
                 depname = os.path.basename(os.getcwd())
@@ -155,7 +167,7 @@ def check_outoftree_package(options, pisi_file=None):
     if install_dir.startswith("/tmp/"):
         shutil.rmtree(install_dir)
 
-    return dependencies
+    return (dependencies, unuseds, undefineds)
 
 def format_output(dep_dict, colorize=True):
     """Pretty print the results in the dep_dict dictionary."""
@@ -168,22 +180,46 @@ def format_output(dep_dict, colorize=True):
         return colors[color if colorize else 'none'] % msg
 
     for f, deps in dep_dict.items():
-        print _colorize(f, 'red')
-        for dep in deps:
-            print " > %s [%s]" % (_colorize(dep[0], 'none'),
-                                  _colorize(dep[1], 'yellow'))
-        print
+        if deps:
+            print _colorize(f, 'red')
+            for dep in deps:
+                if type(dep)==types.TupleType:
+                    print " > %s [%s]" % (_colorize(dep[0], 'none'), _colorize(dep[1], 'yellow'))
+                else:
+                    print " > %s" % _colorize(dep, 'none')
 
-def print_results(dep_dict, show_systembase, detailed=False, colorize=True):
-    """Print results using format_output."""
+            print
+
+def print_header(msg, colorize):
+    """Print the message in green color with an underline."""
+    s = "%s\n%s\n" % (msg, '-'*len(msg))
+    if colorize:
+        print "\x1b[32;01m%s\x1b[0m" % s
+    else:
+        print s
+
+def print_results(ds, options, colorize=True):
+    """Print results."""
     systembase = get_systembase_packages()
 
-    if detailed:
-        format_output(dep_dict, colorize)
+    if ds[1]:
+        # Dump unused analysis results
+        print_header("Unused direct dependency analysis:", colorize)
+        format_output(ds[1], colorize)
+
+    if ds[2]:
+        # Dump undefined symbol analysis results
+        print_header("Undefined symbol analysis:", colorize)
+        format_output(ds[2], colorize)
+
+    print_header("Total direct dependencies:", colorize)
+
+    if options.verbose:
+        format_output(ds[0], colorize)
     else:
         deps = set()
-        for needed in dep_dict.values():
-            deps = deps.union(set(filter(lambda x: (x not in systembase) or (show_systembase and x in systembase), [d[1] for d in needed])))
+        for needed in ds[0].values():
+            deps = deps.union(set(filter(lambda x: (x not in systembase) or (options.systembase and x in systembase), [d[1] for d in needed])))
         if deps:
             print "\n".join(deps)
 
@@ -191,6 +227,7 @@ def print_results(dep_dict, show_systembase, detailed=False, colorize=True):
 ###
 if __name__ == "__main__":
 
+    # Command-line parsing
     parser = OptionParser()
 
     parser.add_option("-v", "--verbose",
@@ -225,17 +262,18 @@ if __name__ == "__main__":
     if packages:
         # An argument is passed which could be an installed package name or a *.pisi file
         if packages[0].endswith(".pisi"):
-            depdict = check_outoftree_package(packages[0], options)
+            depdict, unuseds, undefineds = check_outoftree_package(packages[0], options)
         elif packages[0] in installdb.list_installed():
-            depdict = check_installed_package(packages[0], options)
+            depdict, unuseds, undefineds = check_installed_package(packages[0], options)
 
     else:
         # else, check for the package that you've just build e.g. working directory
-        depdict = check_outoftree_package()
+        depdict, unuseds, undefineds = check_outoftree_package(options)
 
     if not depdict:
         print "No dependency information."
         sys.exit(1)
 
-    print_results(depdict, options.systembase, detailed=options.verbose, colorize=not redirected)
+    ds = [depdict, unuseds, undefineds]
+    print_results(ds, options, colorize=not redirected)
     sys.exit(0)

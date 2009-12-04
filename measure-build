@@ -1,0 +1,38 @@
+#!/bin/bash
+
+
+PACKAGE=$(basename `pwd`)
+
+prepare() {
+    rm -rf /var/pisi/$PACKAGE-*
+    clear_caches
+    pisi build pspec.xml --unpack &> /dev/null
+    echo $1
+}
+
+clear_caches() {
+    echo "Syncing dirty pages.."
+    sync
+    sleep 3
+    echo "Dropping all caches.."
+    echo 3 > /proc/sys/vm/drop_caches
+}
+
+# Tests
+
+build_without_sandbox() {
+    prepare $FUNCNAME
+    time pisi build pspec.xml $1 --ignore-sandbox &> /dev/null
+}
+
+build_with_sandbox() {
+    prepare $FUNCNAME
+    time pisi build pspec.xml $1 &> /dev/null
+}
+
+# Usage: measure-build --build (Only measures build time)
+#        measure-build --package (Measures all packaging time)
+
+echo "Measuring builds for $PACKAGE"
+build_with_sandbox $1
+build_without_sandbox $1

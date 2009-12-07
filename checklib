@@ -105,7 +105,7 @@ def get_systembase_packages():
 
     return packages
 
-def check_installed_package(package, options):
+def check_installed_package(options, package):
     """Check for an installed package."""
     dependencies = {}
     undefineds = {}
@@ -262,9 +262,9 @@ if __name__ == "__main__":
     if packages:
         # An argument is passed which could be an installed package name or a *.pisi file
         if packages[0].endswith(".pisi"):
-            depdict, unuseds, undefineds = check_outoftree_package(packages[0], options)
+            depdict, unuseds, undefineds = check_outoftree_package(options, packages[0])
         elif packages[0] in installdb.list_installed():
-            depdict, unuseds, undefineds = check_installed_package(packages[0], options)
+            depdict, unuseds, undefineds = check_installed_package(options, packages[0])
 
     else:
         # else, check for the package that you've just build e.g. working directory

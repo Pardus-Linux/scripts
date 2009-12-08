@@ -179,6 +179,11 @@ def format_output(dep_dict, colorize=True):
                  }
         return colors[color if colorize else 'none'] % msg
 
+    # If empty, return
+    if len(sum([l for l in dep_dict.values()], [])) == 0:
+        print "Clean\n"
+        return
+
     for f, deps in dep_dict.items():
         if deps:
             print _colorize(f, 'red')
@@ -202,12 +207,12 @@ def print_results(ds, options, colorize=True):
     """Print results."""
     systembase = get_systembase_packages()
 
-    if ds[1]:
+    if options.unused and ds[1]:
         # Dump unused analysis results
         print_header("Unused direct dependency analysis:", colorize)
         format_output(ds[1], colorize)
 
-    if ds[2]:
+    if options.undefined and ds[2]:
         # Dump undefined symbol analysis results
         print_header("Undefined symbol analysis:", colorize)
         format_output(ds[2], colorize)

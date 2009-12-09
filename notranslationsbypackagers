@@ -1,0 +1,32 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# Find packages with no translations.xml and print them by packagers
+
+import os
+import sys
+import pisi
+
+# Do not put '/' to the end of develDir string
+# e.g. "/mnt/Pardus_SVN" is ok but "/mnt/Pardus_SVN/" is not!!..
+develDir = "."
+d = {}
+
+for root, dirs, files in sorted(os.walk(develDir)):
+    if "pspec.xml" in files and "translations.xml" not in files:
+        pack_path = root[(len(develDir)+1):]
+        spec = pisi.specfile.SpecFile(root + "/pspec.xml")
+        p_name= spec.source.name
+        packager_name = spec.source.packager
+        if d.has_key(packager_name.__str__()):
+            d[packager_name.__str__()].append(p_name)
+        else:
+            d[packager_name.__str__()] = []
+
+for i in d.keys():
+    if len(d[i]) != 0:
+        print "-> " + i
+        for j in d[i]:
+            print "\t" + j
+        print
+

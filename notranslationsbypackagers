@@ -21,7 +21,7 @@ for root, dirs, files in sorted(os.walk(develDir)):
         if d.has_key(packager_name.__str__()):
             d[packager_name.__str__()].append(p_name)
         else:
-            d[packager_name.__str__()] = []
+            d[packager_name.__str__()] = [p_name, ]
 
 for i in d.keys():
     if len(d[i]) != 0:

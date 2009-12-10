@@ -12,9 +12,8 @@ import urllib2
 import piksemel
 import bz2
 
-
-distroIndex = "http://packages.pardus.org.tr/pardus-2009-test/pisi-index.xml.bz2"
-
+distroBase = "http://packages.pardus.org.tr/%s/pisi-index.xml.bz2"
+release = "pardus-2009-test"
 
 def loadUrl(_url):
     try:
@@ -58,15 +57,26 @@ def parseCheckPackages(pkgs):
 
     return pkglist
 
+def usage():
+    print "usage :"
+    print "          %s <repo name> <files to search for ....>" % sys.argv[0]
+    print
+    print "example : %s pardus-2009-test kernel-2.6.30.1-123-18.pisi bind-9.6.0_p1-22-2.pisi" % sys.argv[0]
+    print
+
+
 if __name__ == "__main__":
     """ tikkat main var basmain """
 
-    if len(sys.argv) < 2:
-        print "please give some pisi packages as parameter"
+    if len(sys.argv) < 3:
+        usage()
         sys.exit(1)
 
-    latestIndex = unpackXml(distroIndex)
-    checkPackages = parseCheckPackages(sys.argv[1:])
+    release = sys.argv[1]
+    packages = sys.argv[2:]
+
+    latestIndex = unpackXml(distroBase % release)
+    checkPackages = parseCheckPackages(packages)
 
     for i in getRepoDiff(latestIndex, checkPackages):
         print "%s  (was %s)" % (latestIndex[i][1], checkPackages[i][1])

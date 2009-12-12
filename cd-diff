@@ -17,6 +17,7 @@ import re
 import sys
 import pisi
 import time
+import glob
 
 # These have same histories with other packages, no need to provide redundant info.
 duplicates = ["kernel-headers"]
@@ -31,11 +32,11 @@ output = """\
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-    <title>Detailed changelog between Pardus 2008.1 Hyaena hyaena and Pardus 2008.2 Canis aureus</title>
+    <title>Detailed ChangeLog between %s and %s</title>
 </head>
 <body>
 
-    <h1><a name=\"top\">Pardus 2008.2 Canis aureus Statistics</a></h1>
+    <h1><a name=\"top\">%s Statistics</a></h1>
     <a href=\"http://www.pardus.org.tr/eng\">http://www.pardus.org.tr/eng</a><br />
     <em>Generated on %s</em>
 
@@ -104,10 +105,10 @@ def add_new_package_descriptions(news):
 
     output += "</ul></li>"
 
-def add_package_modifications_header(nr, nr_new):
+def add_package_modifications_header(nr, nr_new, release_name):
     global output
     header  = "\n\n<li><h2><a name=\"pmstats\">Package modification statistics</a> <a style=\"text-decoration:none;\" href=\"#top\">^^^</a></h2>\n"
-    header += "<h3>%d of %d binary packages has been changed from the release of Pardus 2008.1 to this day:</h3>" % (nr_new, nr)
+    header += "<h3>%d of %d binary packages has been changed from the release of %s to this day:</h3>" % (nr_new, nr, release_name)
     output += header
 
 def add_package_changes(p, diffp):
@@ -152,11 +153,11 @@ def parse_comment(p, update):
     comment_data = "\n".join([l.strip() for l in m_comment.split("\n")])
     return comment_template % (update.date, update.name, update.version, update.release, comment_data)
 
-def add_bugzilla_statistics():
+def add_bugzilla_statistics(release_name):
     global output
 
     data  = "</li>\n\n<li><h2><a name=\"bstats\">Bugzilla statistics</a> <a style=\"text-decoration:none;\" href=\"#top\">^^^</a></h2>\n"
-    data += "<h3>A total of %d bugs has been fixed from the release of Pardus 2008.1 to this day:</h3>\n<ul>\n" % total_bugs
+    data += "<h3>A total of %d bugs has been fixed from the release of %s to this day:</h3>\n<ul>\n" % (total_bugs, release_name)
 
     bugs = [(p, len(total_fixed_bugs[p])) for p in total_fixed_bugs.keys()]
     bugs.sort(cmp=lambda x,y: x[1]-y[1], reverse=True)
@@ -177,8 +178,8 @@ if __name__ == "__main__":
 
     args = sys.argv[1:]
 
-    print "Cleaning up directory.."
-    os.system("rm -rf *xml*")
+    old_release = os.path.basename(args[0].split(".iso")[0])
+    new_release = os.path.basename(args[1].split(".iso")[0])
 
     print "Comparing %s and %s.." % (args[0], args[1])
 
@@ -226,22 +227,26 @@ if __name__ == "__main__":
             diffs[p] = dh
 
     add_new_package_descriptions(dict([(ni_packages[p].name, ni_packages[p].description['en']) for p in new_packages]))
-    add_package_modifications_header(len(ni_packages), len(diffs.keys()))
+    add_package_modifications_header(len(ni_packages), len(diffs.keys()), old_release)
 
     for p in sorted(diffs.keys()):
         add_package_changes(p, diffs[p])
 
-    add_bugzilla_statistics()
+    add_bugzilla_statistics(old_release)
 
     image_size = pisi.util.human_readable_size(os.path.getsize(args[1]))
 
     print "Generating HTML output.."
     f = open("stats.html", "wb")
-    f.write(output % (time.asctime(),
+    f.write(output % (old_release, new_release, new_release, time.asctime(),
                       "\n".join(["<li><a href=\"#%s\">%s</a></li>" % (p,p) for p in sorted(new_packages)]),
                       "\n".join(["<li><a href=\"#%s\">%s</a></li>" % (p,p) for p in sorted(diffs.keys())]),
-                      args[1], "%.2f %s" % (image_size[0], image_size[1]), time.strftime("%d %b %Y"),
+                      new_release, "%.2f %s" % (image_size[0], image_size[1]), time.strftime("%d %b %Y"),
                       len(ni_package_names), len(new_packages), len(diffs.keys())))
 
     f.write(footer)
     f.close()
+
+    print "Cleaning up.."
+    os.system('find -name "*_pisi*xml*" | xargs rm -rf')
+

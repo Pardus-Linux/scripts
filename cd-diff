@@ -19,9 +19,6 @@ import pisi
 import time
 import glob
 
-# These have same histories with other packages, no need to provide redundant info.
-duplicates = ["kernel-headers"]
-
 comment_template = """\
 <span style=\"padding: 2px;\">Updated on <em>%s</em> by <em>%s</em> to version <b>%s</b>, release: <b>%s</b></span>
 <div style=\"border:1px solid #999999; background-color:#DDDDDD; padding:3px; margin-top:2px;\">%s</div>
@@ -31,6 +28,14 @@ output = """\
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <style type=\"text/css\">
+        a {text-decoration:none; size:10px; font-weight:bold;}
+        a:link {color:#3366FF}    /* unvisited link */
+        a:visited {color:#6600CC} /* visited link */
+        a:hover {color:#000066}   /* mouse over link */
+        a:active {color:#3366FF}  /* selected link */
+        body {background-color: #FFFFFF}
+    </style>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
     <title>Detailed ChangeLog between %s and %s</title>
 </head>
@@ -56,7 +61,7 @@ output = """\
             </ol>
         </li>
         <li>
-            <a href="#pmstats">Package modifications</a>
+            <a href="#pmstats">Package updates</a>
             <ol>
                 %s
             </ol>
@@ -70,7 +75,7 @@ output = """\
     <br />
     <ol>
         <li>
-            <h2><a name="istats">Image statistics</a> <a style=\"text-decoration:none;\" href=\"#top\">^^^</a></h2>
+            <h2><a name="istats">Image statistics</a> <a style=\"text-decoration:none;\" href=\"#top\">(top)</a></h2>
             <ul>
                 <li><b>Image name:</b> <em>%s</em></li>
                 <li><b>Image size:</b> <em>%s</em></li>
@@ -83,7 +88,7 @@ output = """\
         </li>
 
         <li>
-            <h2><a name="pstats">New packages</a> <a style=\"text-decoration:none;\" href=\"#top\">^^^</a></h2>
+            <h2><a name="pstats">New packages</a> <a style=\"text-decoration:none;\" href=\"#top\">(top)</a></h2>
             <ul>
 
 """
@@ -105,10 +110,10 @@ def add_new_package_descriptions(news):
 
     output += "</ul></li>"
 
-def add_package_modifications_header(nr, nr_new, release_name):
+def add_package_modifications_header(nr, nr_new, old_release, new_release):
     global output
-    header  = "\n\n<li><h2><a name=\"pmstats\">Package modification statistics</a> <a style=\"text-decoration:none;\" href=\"#top\">^^^</a></h2>\n"
-    header += "<h3>%d of %d binary packages has been changed from the release of %s to this day:</h3>" % (nr_new, nr, release_name)
+    header  = "\n\n<li><h2><a name=\"pmstats\">Package update statistics</a> <a style=\"text-decoration:none;\" href=\"#top\">(top)</a></h2>\n"
+    header += "<h3>%d of %d packages has been updated between %s and %s:</h3>" % (nr_new, nr, old_release, new_release)
     output += header
 
 def add_package_changes(p, diffp):
@@ -124,27 +129,22 @@ def parse_comment(p, update):
     m_comment = update.comment.replace("bug#", "#").replace("Bug#", "#").replace("bug #", "#").replace("Bug #", "#").replace("Fixes #", "#")\
                       .replace("fixes #", "#").replace("closes #", "#").replace("Closes #", "#").replace("bugzilla#", "#")
 
-    bugs_pardus_org_tr = "http://bugs.pardus.org.tr/show_bug.cgi?id="
+    bugs_pardus_org_tr = "http://bugs.pardus.org.tr/"
     cve_mitre_org = "http://cve.mitre.org/cgi-bin/cvename.cgi?name="
 
     # Hardcoded hack
     fixed_bugs = re.findall("#([0-9]+)", m_comment)
 
-    if p != "e2fsprogs":
-        for f in fixed_bugs:
-            if len(f) > 4:
-                fixed_bugs.remove(f)
+    if fixed_bugs:
+        if total_fixed_bugs.has_key(p):
+            total_fixed_bugs[p].extend(fixed_bugs)
+        else:
+            total_fixed_bugs[p] = fixed_bugs[:]
 
-        if fixed_bugs:
-            if total_fixed_bugs.has_key(p):
-                total_fixed_bugs[p].extend(fixed_bugs)
-            else:
-                total_fixed_bugs[p] = fixed_bugs[:]
+        global total_bugs
+        total_bugs += len(fixed_bugs)
 
-            global total_bugs
-            total_bugs += len(fixed_bugs)
-
-            m_comment = re.sub("#([0-9]{1,4})", "<a href=\"%s\\1\" target=\"_blank\">#\\1</a>" % bugs_pardus_org_tr, m_comment)
+        m_comment = re.sub("#([0-9]*)", "<a href=\"%s\\1\" target=\"_blank\">#\\1</a>" % bugs_pardus_org_tr, m_comment)
 
     # Erase URL references to CVE's.
     m_comment = re.sub("\(http://.*CVE-[0-9]+-[0-9]+.*\)", "", m_comment)
@@ -153,18 +153,18 @@ def parse_comment(p, update):
     comment_data = "\n".join([l.strip() for l in m_comment.split("\n")])
     return comment_template % (update.date, update.name, update.version, update.release, comment_data)
 
-def add_bugzilla_statistics(release_name):
+def add_bugzilla_statistics(old_release, new_release):
     global output
 
-    data  = "</li>\n\n<li><h2><a name=\"bstats\">Bugzilla statistics</a> <a style=\"text-decoration:none;\" href=\"#top\">^^^</a></h2>\n"
-    data += "<h3>A total of %d bugs has been fixed from the release of %s to this day:</h3>\n<ul>\n" % (total_bugs, release_name)
+    data  = "</li>\n\n<li><h2><a name=\"bstats\">Bugzilla statistics</a> <a style=\"text-decoration:none;\" href=\"#top\">(top)</a></h2>\n"
+    data += "<h3>A total of %d bugs has been fixed between %s and %s:</h3>\n<ul>\n" % (total_bugs, old_release, new_release)
 
     bugs = [(p, len(total_fixed_bugs[p])) for p in total_fixed_bugs.keys()]
     bugs.sort(cmp=lambda x,y: x[1]-y[1], reverse=True)
     for k,v in bugs:
         data += "<li style=\"padding:3px;\"><b>%s</b>\n" % k
         data += "<ul>"
-        data += "\n".join(["<li><a href=\"http://bugs.pardus.org.tr/show_bug.cgi?id=%s\" target=\"_blank\">#%s</a></li>" % (b,b) for b in total_fixed_bugs[k]])
+        data += "\n".join(["<li><a href=\"http://bugs.pardus.org.tr/%s\" target=\"_blank\">#%s</a></li>" % (b,b) for b in total_fixed_bugs[k]])
         data += "</ul></li>"
 
     output += data + "</ul></li>"
@@ -207,9 +207,9 @@ if __name__ == "__main__":
     oi_packages = dict([(p.name, p) for p in oi.packages])
     ni_packages = dict([(p.name, p) for p in ni.packages])
 
-    # Extract package names
-    oi_package_names = oi_packages.keys()
-    ni_package_names = ni_packages.keys()
+    # Extract source package names
+    oi_package_names = [p for p in oi_packages.keys() if oi_packages[p].source.name==p]
+    ni_package_names = [p for p in ni_packages.keys() if ni_packages[p].source.name==p]
 
     # Extract intersection/difference for statistical purposes
     dropped_packages = list(set(oi_package_names).difference(ni_package_names))
@@ -219,7 +219,7 @@ if __name__ == "__main__":
     # Now the serious part. We'll extract the package differences from history.
     print "Processing %d packages for history extraction.." % len(other_packages)
     diffs = {}
-    for p in list(set(other_packages).difference(duplicates)):
+    for p in other_packages:
         oh = oi_packages[p].history
         nh = ni_packages[p].history
         dh = nh[0:len(nh)-len(oh)]
@@ -227,12 +227,12 @@ if __name__ == "__main__":
             diffs[p] = dh
 
     add_new_package_descriptions(dict([(ni_packages[p].name, ni_packages[p].description['en']) for p in new_packages]))
-    add_package_modifications_header(len(ni_packages), len(diffs.keys()), old_release)
+    add_package_modifications_header(len(ni_packages), len(diffs.keys()), old_release, new_release)
 
     for p in sorted(diffs.keys()):
         add_package_changes(p, diffs[p])
 
-    add_bugzilla_statistics(old_release)
+    add_bugzilla_statistics(old_release, new_release)
 
     image_size = pisi.util.human_readable_size(os.path.getsize(args[1]))
 
@@ -249,4 +249,3 @@ if __name__ == "__main__":
 
     print "Cleaning up.."
     os.system('find -name "*_pisi*xml*" | xargs rm -rf')
-

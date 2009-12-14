@@ -130,11 +130,13 @@ def check_outoftree_package(options, pisi_file=None):
     if not pisi_file:
         # Checking the package in CWD
         install_dir = get_install_dir_for_package()
+        this_package = os.path.basename(os.getcwd())
     else:
         # Checking a .pisi file, unpack it to somewhere
         if os.path.exists(pisi_file):
             install_dir = tempfile.mkdtemp(prefix='checklib-')
             pisi.package.Package(pisi_file).extract_install(install_dir)
+            this_package = pisi.util.parse_package_name(pisi_file)[0]
 
     objects = get_shared_objects(directory=install_dir)
     dependencies = {}
@@ -155,7 +157,7 @@ def check_outoftree_package(options, pisi_file=None):
         for needed in objs:
             if needed in objects:
                 # object is shipped within this package
-                depname = os.path.basename(os.getcwd())
+                depname = this_package
             else:
                 depname = get_pisi_package(needed)
 

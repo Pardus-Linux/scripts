@@ -20,7 +20,7 @@ scoreLabelsEnhancement = []
 
 def parseBugsAnalyzeFile():
     if not os.path.exists("bugsAnalyze"):
-        os.system("wget http://cekirdek.pardus.org.tr/~semen/misc/bugsAnalyze")
+        os.system("wget http://cekirdek.pardus.org.tr/~semen/bugFiles/bugsAnalyze")
     bugFile = open("bugsAnalyze", "r")
     for line in bugFile.readlines():
         bugVar = line.split(" ")

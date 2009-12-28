@@ -60,8 +60,8 @@ for userid in c.fetchall():
 
         N_bug_id = c.execute("SELECT bug_id FROM `bugs` where assigned_to = %s and (bug_status = 'NEW' or bug_status = 'ASIGNED' or bug_status = 'REOPENED') order by bug_id" % userid[0])
 
-        #bugId = open("public_html/misc/%sIdOld"  % loginName.split("@")[0], "w")
-        bugId = open("public_html/misc/%sIdNew" % loginName.split("@")[0], "w")
+        #bugId = open("public_html/bugFiles/%sIdOld"  % loginName.split("@")[0], "w")
+        bugId = open("public_html/bugFiles/%sIdNew" % loginName.split("@")[0], "w")
 
         for bugid in c.fetchall():
             print bugid[0]

@@ -28,6 +28,7 @@ def copyPackageFromTestToStable(testDepoDir, testerDepoDir, packageListFile):
     for package in packageList:
         if not os.path.exists("%s/%s" % (testerDepoDir, package)):
             os.system("cp -u %s/%s %s/" % (testDepoDir, package.strip(), testerDepoDir))
+            print "cp -u %s/%s %s/" % (testDepoDir, package.strip(), testerDepoDir)
 
 def updateStableRepo(svnStableRepoDir):
     os.system("svn up %s" % svnStableRepoDir)

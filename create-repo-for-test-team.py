@@ -36,14 +36,11 @@ def updateStableRepo(svnStableRepoDir):
 def createIndex(svnStableRepoDir, testerDepoDir):
     os.system("pisi index %s  %s/ --skip-signing --skip-sources -o %s/pisi-index.xml" % (svnStableRepoDir, testerDepoDir, testerDepoDir))
 
-def sendServer():
-    os.system("ssh testci@paketler.pardus.org.tr")
-
 def usage():
     print "usage :"
     print "          %s <tester depository directory> <stable rsync address> <test depository directory> <test rsync address> <stable repo dir> " % sys.argv[0]
     print
-    print "example : %s testci-2009 rsync://192.168.3.110/2009-stable packages-test rsync://192.168.3.110/2009-test /home/x/pardus/2009/stable" % sys.argv[0]
+    print "example : %s testci-2009 rsync://x/2009-stable packages-test rsync://x/2009-test /home/x/pardus/2009/stable" % sys.argv[0]
     print
 
 
@@ -68,5 +65,3 @@ if __name__ == "__main__":
     updateStableRepo(svnStableRepoDir)
 
     createIndex(svnStableRepoDir, testerDepoDir)
-
-    sendServer()

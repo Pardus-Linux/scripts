@@ -36,8 +36,6 @@ def parseBugsAnalyzeFile():
     return bugs
 
 
-
-
 def drawChart(bugKey, bugValue, title, xTitle, yTitle, image):
     fig = plt.figure(figsize=(20,30))
     ax1 = fig.add_subplot(111)

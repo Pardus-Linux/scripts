@@ -10,8 +10,8 @@ from pisi.package import Package
 
 # Generates detailed statistics about pisi files
 
-test_path = "/var/www/localhost/htdocs/pardus-2008-test/"
-stable_path = "/var/www/localhost/htdocs/pardus-2008/"
+test_path = "/var/cache/pisi/packages-test"
+stable_path = "/var/cache/pisi/packages-stable"
 
 template = """\
 * Ver.: %s, Rel.: %s, Type: %s
@@ -47,8 +47,7 @@ def get_latest_package(package):
 
 def main(file_list):
 
-    files = open(file_list, "rb").read().strip().split("\n")
-
+    files = [_f.rstrip() for _f in open(file_list, "rb").read().strip().split("\n")]
     d = {}
 
     for f in files:

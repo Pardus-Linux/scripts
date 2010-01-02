@@ -63,12 +63,19 @@ def main(file_list):
 
                 metadata = Package(os.path.join(test_path, f)).get_metadata()
                 packager = "%s <%s>" % (metadata.source.packager.name, metadata.source.packager.email.replace('@', '_at_'))
-
                 changes = ""
-                for h in metadata.package.history[0:current_release-stable_release]:
+
+                if not latest_package and metadata.source.name != metadata.package.name:
+                    h = metadata.package.history[0]
                     changes += template % (h.version, h.release, h.type,
                                            ("%s <%s>" % (h.name, h.email.replace('@', '_at_'))), h.date,
-                                           "\n    ".join([l.strip() for l in h.comment.split('\n')]))
+                                            "Splitted from %s" % metadata.source.name)
+
+                else:
+                    for h in metadata.package.history[0:current_release-stable_release]:
+                        changes += template % (h.version, h.release, h.type,
+                                               ("%s <%s>" % (h.name, h.email.replace('@', '_at_'))), h.date,
+                                               "\n    ".join([l.strip() for l in h.comment.split('\n')]))
 
                 d[name] = [current_release, stable_release, packager, changes]
 

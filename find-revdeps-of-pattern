@@ -1,6 +1,7 @@
 #!/bin/bash
 
 export LC_ALL=C
+PATH+=:/usr/qt/4/bin:/usr/kde/4/bin:/usr/qt/3/bin:/usr/kde/3.5/bin
 
 echo "Checking reverse dependencies of libraries containing the pattern '$1'.."
 for i in $(scanelf -p -l -n -R | grep $1 | gawk '{print $3}'); do

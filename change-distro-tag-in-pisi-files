@@ -11,7 +11,7 @@ import piksemel
 import zipfile
 
 
-Distribution = "komandos"
+Distribution = "Pardus Corporate"
 DistributionRelease = "2"
 metadatafile = "metadata.xml"
 

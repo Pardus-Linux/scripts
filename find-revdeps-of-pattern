@@ -1,0 +1,8 @@
+#!/bin/bash
+
+export LC_ALL=C
+
+echo "Checking reverse dependencies of libraries containing the pattern '$1'.."
+for i in $(scanelf -p -l -n -R | grep $1 | gawk '{print $3}'); do
+    echo -e "$i from \x1b[32;01m`pisi sf $i | tail -n1 | gawk '{print $2}'`\x1b[0m"
+done

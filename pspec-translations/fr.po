@@ -3,18 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Amine Chadly <amine.chadly@gmail.com>, 2007.
+# Philippe Svetoslavsky <philsvet@gmail.com>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-08 12:58+0200\n"
-"PO-Revision-Date: 2007-05-07 09:05+0200\n"
-"Last-Translator: Amine Chadly <amine.chadly@gmail.com>\n"
-"Language-Team: french <pardus-translators@pardus.org.tr>\n"
+"PO-Revision-Date: 2010-01-10 14:07+0100\n"
+"Last-Translator: Philippe Svetoslavsky <philsvet@gmail.com>\n"
+"Language-Team: French <pardus-translators@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 0.3\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: kernel/kernel:kernel-source:summary
 msgid "Source files for the Linux kernel used by Pardus"
@@ -41,9 +43,8 @@ msgid "Debug enabled Pardus Linux kernel source"
 msgstr ""
 
 #: kernel/kernel-debug::summary
-#, fuzzy
 msgid "Debug options enabled version of the Linux kernel (the core of the Linux operating system) for Pardus Linux"
-msgstr "Noyau Linux Pardus pour machine monoprocesseur contenant les information de déverminage."
+msgstr ""
 
 #: kernel/kernel-debug::description
 msgid "This kernel package contains debug options enabled version of the Linux kernel, the core of any Linux operating system. The kernel handles the basic functions of the operating system: memory allocation, process allocation, device input and output, etc."
@@ -55,11 +56,11 @@ msgstr "Pilote sans-fil pour cartes a/b/g à chipset Atheros."
 
 #: kernel/drivers/nvidia-drivers::summary
 msgid "nVIDIA kernel and glx drivers"
-msgstr ""
+msgstr "Pilotes nVIDIA kernel et glx"
 
 #: kernel/drivers/nvidia-drivers::description
 msgid "nVIDIA kernel and glx drivers giving optimized 2d/3d performance on Linux"
-msgstr ""
+msgstr "Pilotes nVIDIA kernel et glx pour la gestion de l'affichage 3D"
 
 #: kernel/drivers/lmpcm_usb::summary
 msgid "Drivers for Logitech MediaPlay Cordless Mouse"
@@ -71,11 +72,11 @@ msgstr "Vous pouvez utiliser les boutons multimédia de la souris sans fil Media
 
 #: kernel/drivers/nvidia-drivers-old::summary
 msgid "nVIDIA kernel and glx drivers for old nVIDIA cards like TNT2"
-msgstr ""
+msgstr "Pilote nVIDIA pour vieilles cartes graphiques (TNT2 par exemple)"
 
 #: kernel/drivers/nvidia-drivers-old::description
 msgid "nVIDIA kernel and glx drivers giving optimized 2d/3d performance on Linux for old nVidia cards"
-msgstr ""
+msgstr "Pilotes nVIDIA kernel et glx pour la 3D avec de vieilles cartes graphiques nVIDIA"
 
 #: kernel/drivers/lirc::summary
 msgid "Linux Infrared Remote Control system"
@@ -155,11 +156,11 @@ msgstr "Une manière sale de contourner en passant outreles erreurs \"device is 
 
 #: kernel/drivers/nvidia-drivers-new::summary
 msgid "nVIDIA kernel and glx drivers for NV3 or better cards (Geforce FX or better)"
-msgstr ""
+msgstr "Pilotes nVIDIA kernel et glx pour les cartes graphiques à partir des NV3 (Geforce FX ou suivantes)"
 
 #: kernel/drivers/nvidia-drivers-new::description
 msgid "nVIDIA kernel and glx drivers giving optimized 2d/3d performance on Linux (For NV3X or better). Don't use this driver if your card's name doesn't contain the word FX."
-msgstr ""
+msgstr "Pilotes 3D nVIDIA kernel et glx pour cartes graphiques NV3X ou suivantes. Ne pas utliser ce pilote si la dénomination de votre carte ne contient pas 'FX'."
 
 #: kernel/drivers/acx100::summary
 msgid "Driver for Texas Instruments ACX100/ACX111 wireless network chips"
@@ -222,9 +223,8 @@ msgid "Advanced Linux Sound Architecture kernel modules"
 msgstr ""
 
 #: kernel/drivers/alsa-driver::description
-#, fuzzy
 msgid "The Advanced Linux Sound Architecture (ALSA) provides audio and MIDI functionality to the Linux operating system. ALSA has significant features like efficient support for all types of audio interfaces, fully modularized sound drivers, SMP and thread-safe design, user space library and support for the older OSS API."
-msgstr "L'Architecture de Son Avancée pour Linux (ALSA) fourni les fonctionnalités MIDI et audio au système d'exploitation Linux. ALSA a des propriétés significatives  commet un support pour tous les types d'interfaces audio, des pilots audio totallement modulaires, une conception gérant le multithread et les SMP (architectures à processeurs multiples), une librairie dans l'environnement utilisateur et supporte l'ancienne API OSS."
+msgstr "L'Architecture de Son Avancée pour Linux (ALSA) fournit les fonctionnalités MIDI et audio au système d'exploitation Linux. ALSA a des propriétés significatives  comme un support pour tous les types d'interfaces audio, des pilotes audio totalement modulaires, une conception gérant le multithread et les SMP (architectures à processeurs multiples), une librairie dans l'environnement utilisateur et supporte l'ancienne API OSS."
 
 #: kernel/drivers/r5u870::summary
 msgid "Driver for Ricoh R5U870 webcams"
@@ -235,9 +235,8 @@ msgid "Linuxant's modem driver (PCI)"
 msgstr ""
 
 #: kernel/drivers/hcfpcimodem::description
-#, fuzzy
 msgid "Linuxant's modem driver for Connexant HCF chipset (PCI)"
-msgstr "Pilote pour modems Linuxant au chipset Connexant HCF."
+msgstr "Pilote pour modems Linuxant au chipset Connexant HCF"
 
 #: kernel/drivers/et131x::summary
 msgid "Agere ET131x ethernet driver"
@@ -936,9 +935,8 @@ msgid "Python sqlite bindings"
 msgstr ""
 
 #: programming/languages/python/pysqlite::description
-#, fuzzy
 msgid "pysqlite is a DB-API 2.0-compliant database interface for SQLite. pysqlite makes the powerful embedded SQL engine SQLite available to Python programmers. It stays compatible with the Python database API specification 2.0 as much as possible, but also exposes most of SQLite's native API, so that it is for example possible to create user-defined SQL functions and aggregates in Python."
-msgstr "pysqlite est une interface pour bases de données SQLite conforme à DB-API 2.0. pysqlite rend le puissant moteur embarqué SQL SQLite disponible pour les programmeurs Python. Elle demeure aussi compatible que possible avec les spécifications de l'API de bases de données 2.0, mais expose également une large partie de l'API native de SQLite, afin qu'il soit par exemple possible de créer des fonctions et des agrégats (aggregates) SQL utilisateur depuis Python."
+msgstr "pysqlite est une interface pour bases de données SQLite conforme à DB-API 2.0. pysqlite rend le puissant moteur embarqué SQL SQLite disponible pour les programmeurs Python. Elle demeure aussi compatible que possible avec les spécifications de l'API de base de données 2.0, mais expose également une large partie de l'API native de SQLite, afin qu'il soit par exemple possible de créer des fonctions et des agrégats (aggregates) SQL utilisateur depuis Python."
 
 #: programming/languages/python/paramiko::summary
 msgid "SSH2 implementation for Python"
@@ -953,9 +951,8 @@ msgid "A Pure-Python library built as a PDF toolkit"
 msgstr ""
 
 #: programming/languages/python/pyPdf::description
-#, fuzzy
 msgid "pyPdf is a library built as a PDF toolkit. It is capable of:extracting document information (title, author, ...),splitting documents page by page,merging documents page by page,cropping pages,merging multiple pages into a single page."
-msgstr "Une librairie en pur Python construite comme une boîte à outils PDF. Elle est capable d'extraire les informations de documents (titre, auteur, etc.), découper le document page par page, fusionner des documents page par page, cropping ?, fusionner plusieurs page en une."
+msgstr "Une librairie en pur Python construite comme une boîte à outils PDF. Elle est capable d'extraire les informations de documents (titre, auteur, etc.), de découper le document page par page, de fusionner des documents page par page, de faire du cropping, de fusionner plusieurs page en une."
 
 #: programming/languages/python/python-iptables::summary
 msgid "IPTables configuration module for Python"
@@ -2622,7 +2619,6 @@ msgid "Automatically Tuned Linear Algebra Software (BLAS implementation)"
 msgstr ""
 
 #: programming/libs/atlas::description
-#, fuzzy
 msgid "The ATLAS (Automatically Tuned Linear Algebra Software) project is an ongoing research effort focusing on applying empirical techniques in order to provide portable performance.It's main job is to provide optimized libraries."
 msgstr "Le projet ATLAS (Automatically Tuned Linear Algebra Software - Logiciel d'Algèbre Linéaire Automatiquement Réglé) est un projet de recherche toujours actif se concentrant sur l'application de techniques empiriques a fin de fournir des performances portables. Son objectif principal est de fournir des librairies optimisées."
 
@@ -2751,16 +2747,14 @@ msgid "The Linux Audio Developer's Simple Plugin API (LADSPA) attempts to give p
 msgstr "La Linux Audio Developer's Simple Plugin API (LADSPA - L'API de plugin (greffon) simple pour développeurs linux audio) tente de donner aux programmeurs la possibilité d'écrire en C/C++ des processeurs audio simples sous forme de plugin' et les lier dynamiquement à différentes applications hôte."
 
 #: programming/libs/libxmlpp::summary
-#, fuzzy
 msgid "C++ wrapper for the libxml2 XML parser library"
-msgstr "wrapper (enrobe en) C++ la librairie d'analyse XML libxml."
+msgstr "C++ wrapper for the libxml2 XML parser library"
 
 #: programming/libs/libart_lgpl::summary
 msgid "A LGPL version of libart"
 msgstr ""
 
 #: programming/libs/libart_lgpl::description
-#, fuzzy
 msgid "Libart is a library for high-performance 2D graphics. It is currently being used as the antialiased rendering engine for the Gnome Canvas. Libart supports a very powerful imaging model, basically the same as SVG and the Java 2D API."
 msgstr "Libart est une librairie pour graphiques 2D à hautes performances. Elle est actuellement utilisé comme moteur de rendu anti-aliassé pour le Canvas Gnome. Libart fournit le support pour un modèle image très puissant, simplement le même que SVG et l'API (Interface de Programmation d'Application) Java 2D."
 
@@ -2925,9 +2919,8 @@ msgid "RTP protocol library"
 msgstr ""
 
 #: programming/libs/ortp::description
-#, fuzzy
 msgid "Ortp is a LGPLv2.1 licensed C library implementing the RTP protocol (rfc1889)."
-msgstr "Ortp est une librairie C sous licence LGPL implémentant le protocole RTP (rfc 1889)."
+msgstr "Ortp est une librairie C sous licence LGPL implémentant le protocole RTP (rfc1889)."
 
 #: programming/libs/gsl::summary
 msgid "GNU scientific library"
@@ -3390,9 +3383,8 @@ msgid "A software package for computer-aided number theory"
 msgstr ""
 
 #: programming/libs/libupnp::summary
-#, fuzzy
 msgid "Portable UPnP library"
-msgstr "Librairie UPnP."
+msgstr "Librairie UPnP portable"
 
 #: programming/libs/libsidplay2::summary
 msgid "C64 SID player library"
@@ -3535,9 +3527,8 @@ msgid "XML parser library"
 msgstr ""
 
 #: programming/libs/iksemel::description
-#, fuzzy
 msgid "XML parser library designed for Jabber applications."
-msgstr "iksemel est une librairie d'analyse XML (eXtensible Markup Language) conçue pour les applications Jabber."
+msgstr "Librairie d'analyse XML (eXtensible Markup Language) conçue pour les applications Jabber."
 
 #: programming/libs/pth::summary
 msgid "GNU Portable Threads"
@@ -4076,9 +4067,8 @@ msgid "The GNU Compiler Collection, includes C, C++, Objective-C and Fortran com
 msgstr ""
 
 #: system/devel/gcc::description
-#, fuzzy
 msgid "The GNU Compiler Collection includes front ends for C, C++, Objective-C, Fortran, as well as libraries for these languages"
-msgstr "La collection de compilateurs GNU inclus des façades pour le C, C++, Objective-C, Fortran, hava et Ada ainsi que des librairies pour ces langages (libstdc++, libgcj...)"
+msgstr "La collection de compilateurs GNU inclut des façades pour le C, C++, Objective-C, Fortran, hava et Ada ainsi que des librairies pour ces langages (libstdc++, libgcj...)"
 
 #: system/devel/gmp::summary
 msgid "Arbitrary precision arithmetic library"
@@ -4601,9 +4591,8 @@ msgid "Another uncompressor for compatibility"
 msgstr "Un autre outil de décompression de données pour compatibilité"
 
 #: system/base/db4::summary
-#, fuzzy
 msgid "An embeddable database engine that provides developers with fast, reliable, local persistence with zero administration"
-msgstr "Quatrième version de Berkeley DB"
+msgstr ""
 
 #: system/base/lzma::summary
 msgid "LZMA utils for Unix"
@@ -4902,9 +4891,8 @@ msgid "Utility to change hard drive performance parameters"
 msgstr ""
 
 #: system/base/hdparm::description
-#, fuzzy
 msgid "hdparm has some useful utilities that allows you to get/set hard disk parameters for Linux IDE drives in runtime."
-msgstr "le paquet hdparm dispose d'outils utiles permettant d'obtenir/établir les paramètres de disques durs IDE sous Linux en cours d'éxécution."
+msgstr "hdparm permet d'obtenir/d'établir les paramètres de disques durs IDE en cours d'utilisation."
 
 #: system/base/bash::summary
 msgid "The standard GNU Bourne again shell"
@@ -6248,7 +6236,7 @@ msgstr ""
 
 #: applications/multimedia/imposter::description
 msgid "Imposter is a standalone viewer for presentations created using OpenOffice.org Impress."
-msgstr ""
+msgstr "Imposter est un visionneur de présentations OpenOffice."
 
 #: applications/multimedia/vorbis-tools::summary
 msgid "Tools for using the Ogg Vorbis sound file format"
@@ -6899,9 +6887,8 @@ msgid "Framebuffer screenshot utility"
 msgstr ""
 
 #: applications/multimedia/fbgrab::description
-#, fuzzy
 msgid "FBGrab is a framebuffer screenshot program, capturing the linux frambuffer and converting it to a PNG image."
-msgstr "FNGrab est un programme de capture d'écran framebuffer. Il permet de capturer le framebuffer linux et de le convertir en image png."
+msgstr "FBGrab est un programme de capture d'écran framebuffer. Il permet de capturer le framebuffer linux et de le convertir en image png."
 
 #: applications/games/gnugo::summary
 msgid "A GO game server and player"
@@ -9237,19 +9224,19 @@ msgstr ""
 
 #: applications/openoffice:openoffice-dicts:summary
 msgid "OpenOffice.org dictionaries"
-msgstr ""
+msgstr "Dictionnaires pour OpenOffice."
 
 #: applications/openoffice:openoffice-help:summary
 msgid "OpenOffice.org help files"
-msgstr ""
+msgstr "Aide d'OpenOffice."
 
 #: applications/openoffice::summary
 msgid "OpenOffice.org office suite"
-msgstr ""
+msgstr "Suite bureautique OpenOffice.org"
 
 #: applications/openoffice::description
 msgid "OpenOffice.org (the product) is a multi-platform office productivity suite. It includes key desktop applications such as a word processor, a spreadsheet application, a presentation creator-viewer, and a drawing program, with a user interface and feature set similar to other office suites. Sophisticated and flexible, OpenOffice.org also works transparently with a variety of file formats, including those of Microsoft Office."
-msgstr ""
+msgstr "OpenOffice.org est une suite bureautique multi-plateforme. Elle comprend un traitement de texte, un tableur, un créateur-visionneur de présentation, un créateur de base de données et une application de dessin, le tout dans une interface utilisateur similaire aux autres suites bureautiques. OpenOffice.org permet de travailler avec des fichiers aux formats très divers, dont les formats de Microsoft Office."
 
 #: applications/util/screen::summary
 msgid "Screen is a full-screen window manager that multiplexes a physical terminal between several processes"
@@ -11192,9 +11179,8 @@ msgid "A BitTorrent program for KDE"
 msgstr ""
 
 #: desktop/kde/ktorrent::description
-#, fuzzy
 msgid "KTorrent is a BitTorrent (P2P file distribution protocol) program for KDE."
-msgstr "KTorrent est le programme KDE permettant de distribuer de fichier P2P en utilisant le protocol BitTorrent."
+msgstr "KTorrent est le programme KDE permettant de distribuer de fichier P2P en utilisant le protocole BitTorrent."
 
 #: desktop/kde/kaffeine::summary
 msgid "Kaffeine media player"
@@ -12233,9 +12219,8 @@ msgid "PDF rendering library"
 msgstr ""
 
 #: desktop/freedesktop/poppler::description
-#, fuzzy
 msgid "Poppler is a PDF rendering library based on the xpdf."
-msgstr "Poppler est une librairie de rendu PDF basée sur le code source de xpdf-3.0."
+msgstr "Poppler est une librairie de rendu PDF basée sur le code source de xpdf."
 
 #: desktop/freedesktop/shared-mime-info::summary
 msgid "The shared MIME info database"
@@ -13020,3 +13005,4 @@ msgstr ""
 #: kernel-xen/domU/kernel-domU::description
 msgid "User domain Xen-enabled kernel allows Pardus to run on the Xen virtual machine's user domain. This kernel cannot be booted as the first operating system on Xen, it must be booted from domain 0 and does not have direct access to hardware, but it's smaller than the domain 0 kernel."
 msgstr "noyau avec Xen activé pour le domaine utilisateur permet à Pardus de pouvoir tourner dans le domaine utilisateur de la machine virtuelle Xen. Ce noyau ne peut pas être lancé comme le premier système d'exploitation sur Xen, il doit être démarré depuis le domaine 0 et n'a pas un accès direct aux périphériques, mais il est plus petit que le noyau du domaine 0."
+

@@ -1,0 +1,227 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Patrik Karlsson <patrik@pardus.nu>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: repokit\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-02-18 22:22+0200\n"
+"PO-Revision-Date: 2010-01-10 15:03+0100\n"
+"Last-Translator: Patrik Karlsson <patrik@pardus.nu>\n"
+"Language-Team: Swedish <pardus-translators@pardus.org.tr>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 0.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/repostats.py:178 src/repostats.py:580
+msgid "Information"
+msgstr "Information"
+
+#: src/repostats.py:179 src/repostats.py:599
+msgid "Source Packages"
+msgstr "Källkodspaket"
+
+#: src/repostats.py:180 src/repostats.py:604
+msgid "Binary Packages"
+msgstr "Binärpaket"
+
+#: src/repostats.py:181
+msgid "Packagers"
+msgstr "Paketerare"
+
+#: src/repostats.py:240
+#, python-format
+msgid ""
+"Duplicate binary packages:\n"
+"%s\n"
+"%s\n"
+msgstr ""
+"Dublett av binärpaket:\n"
+"%s\n"
+"%s\n"
+
+#: src/repostats.py:284
+msgid "Package size"
+msgstr "Paketstorlek"
+
+#: src/repostats.py:285
+msgid "Installed size"
+msgstr "Installerad storlek"
+
+#: src/repostats.py:310
+msgid "Source package"
+msgstr "Källkodspaket"
+
+#: src/repostats.py:312
+msgid "Build dependencies"
+msgstr "Byggberoenden"
+
+#: src/repostats.py:314
+msgid "Runtime dependencies"
+msgstr "Körberoenden"
+
+#: src/repostats.py:316
+msgid "Required by (for building)"
+msgstr "Krävs av (för byggande)"
+
+#: src/repostats.py:318
+msgid "Required by (for runtime)"
+msgstr "Krävs av (för körning)"
+
+#: src/repostats.py:329
+#, python-format
+msgid ""
+"Duplicate source packages:\n"
+"%s\n"
+"%s\n"
+msgstr ""
+"Dublett av källkodspaket:\n"
+"%s\n"
+"%s\n"
+
+#: src/repostats.py:348
+msgid "Release"
+msgstr "Utgåva"
+
+#: src/repostats.py:348
+msgid "Release date"
+msgstr "Utgivningsdatum"
+
+#: src/repostats.py:348 src/repostats.py:594
+msgid "Version"
+msgstr "Version"
+
+#: src/repostats.py:348
+msgid "Updater"
+msgstr "Uppdaterare"
+
+#: src/repostats.py:348
+msgid "Comment"
+msgstr "Kommentar"
+
+#: src/repostats.py:375 src/repostats.py:426 src/repostats.py:583
+msgid "Packager"
+msgstr "Paketerare"
+
+#: src/repostats.py:377
+msgid "License"
+msgstr "Licens"
+
+#: src/repostats.py:379
+msgid "Actions"
+msgstr "Åtgärder"
+
+#: src/repostats.py:381
+msgid "Build files"
+msgstr "Byggfiler"
+
+#: src/repostats.py:383
+msgid "Bug reports"
+msgstr "Felrapporter"
+
+#: src/repostats.py:384
+msgid "Binary packages"
+msgstr "Binärpaket"
+
+#: src/repostats.py:386
+msgid "Release history"
+msgstr "Utgivningshistorik"
+
+#: src/repostats.py:388
+msgid "Patches"
+msgstr "Patchar"
+
+#: src/repostats.py:433
+msgid "Maintained packages:"
+msgstr "Underhållna paket:"
+
+#: src/repostats.py:440
+msgid "Package updates:"
+msgstr "Paketuppdateringar"
+
+#: src/repostats.py:492
+#, python-format
+msgid ""
+"Cannot parse '%s':\n"
+"%s\n"
+msgstr ""
+"Kan inte tolka '%s':\n"
+"%s\n"
+
+#: src/repostats.py:537
+msgid "Number of source packages"
+msgstr "Antal källkodspaket"
+
+#: src/repostats.py:538
+msgid "Number of binary packages"
+msgstr "Antal binärpaket"
+
+#: src/repostats.py:539
+msgid "Number of patches"
+msgstr "Antal patchar"
+
+#: src/repostats.py:540
+msgid "Number of packagers"
+msgstr "Antal paketerare"
+
+#: src/repostats.py:544
+msgid "Archived size of packages"
+msgstr "Paketens arkivstorlek"
+
+#: src/repostats.py:545
+msgid "Installed size of packages"
+msgstr "Installerad paketstorlek"
+
+#: src/repostats.py:556
+msgid "Most patched:"
+msgstr "Mest patchade:"
+
+#: src/repostats.py:566
+msgid "Longest build scripts:"
+msgstr "Längsta byggskript:"
+
+#: src/repostats.py:576
+msgid "Total file sizes by file type:"
+msgstr "Total filstorlek av typen: "
+
+#: src/repostats.py:584
+msgid "Package count"
+msgstr "Paketräknare"
+
+#: src/repostats.py:589
+msgid "Packagers (by package count)"
+msgstr "Paketerare (antal paket)"
+
+#: src/repostats.py:592
+msgid "Packagers (by name)"
+msgstr "Paketerare (namn)"
+
+#: src/repostats.py:594
+msgid "Package name"
+msgstr "Paketnamn"
+
+#: src/repostats.py:594
+msgid "Summary"
+msgstr "Summering"
+
+#: src/repostats.py:611
+msgid "Scanning source repository...\n"
+msgstr "Genomsöker källförråd...\n"
+
+#: src/repostats.py:615
+msgid "Scanning binary packages...\n"
+msgstr "Genomsöker binärpaket...\n"
+
+#: src/repostats.py:629
+msgid "Usage: repostats.py [OPTIONS] source-repo-path [binary-repo-path]\n"
+msgstr ""
+"Användning: repostats.py [ALTERNATIV] source-repo-path "
+"[binärpaketssökväg]\n"
+
+#: src/repostats.py:630
+msgid "HTML output directory."
+msgstr "Katalog för HTML-utmatning."
+

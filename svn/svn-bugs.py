@@ -121,11 +121,10 @@ if __name__ == "__main__":
         cmd = '%s author -r %s %s' % (SVNLOOK, commit_no, repo)
         author = os.popen(cmd, 'r').readline().rstrip('\n')
 
-    cmd = '%s changed -r %s %s' % (SVNLOOK, commit_no, repo)
-    changed = os.popen(cmd, 'r').readlines()
+        cmd = '%s changed -r %s %s' % (SVNLOOK, commit_no, repo)
+        changed = os.popen(cmd, 'r').readlines()
 
         main(author, log, commit_no, changed, repo)
 
     except Exception, e:
         open("/tmp/svn-bugs.err", "w").write("error\n%s" % e)
-

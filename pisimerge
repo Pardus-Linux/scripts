@@ -58,14 +58,13 @@ Merge from devel/%s:
 
 if __name__ == "__main__":
     locale.setlocale(locale.LC_ALL, "C")
+    tmp_files = {}
 
     usage = "Usage: %prog [options] path1 [path2...]"
     parser = OptionParser(usage)
     parser.add_option("-m", "--message", dest="message", help="Commit message for merge operation")
 
     (options, paths) = parser.parse_args()
-
-    merge_msg = options.message
 
     #no path given
     if len(paths) == 0:
@@ -86,15 +85,17 @@ if __name__ == "__main__":
             print "\nCopying from devel/%s.." % path
             os.system("svn cp devel/%s stable/%s" % (path, path))
 
-            os.system("svn ci stable/%s -m 'Ready for stable'" % path)
+            so.system("svn ci stable/%s -m 'Ready for stable'" % path)
 
         else:
             latest = get_latest_change("stable/%s" % path)
 
-            if not merge_msg:
+            if not options.message:
                 merge_msg = get_merge_log(path, latest)
+            else:
+                merge_msg = options.message
 
-            tmp_files = {}
+            tmp_files.clear()
 
             # Generate safe temporary files
             (m_fd, tmp_files["merge"]) = tempfile.mkstemp(prefix='pisimerge')

@@ -85,7 +85,10 @@ if __name__ == "__main__":
             print "\nCopying from devel/%s.." % path
             os.system("svn cp devel/%s stable/%s" % (path, path))
 
-            os.system("svn ci stable/%s -m 'Ready for stable'" % path)
+            if not options.message:
+                os.system("svn ci stable/%s -m 'Ready for stable'" % path)
+            else:
+                os.system("svn ci stable/%s -m '%s'" % (path, options.message))
 
         else:
             latest = get_latest_change("stable/%s" % path)

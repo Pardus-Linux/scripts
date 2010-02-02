@@ -1,0 +1,79 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import pisi
+import MySQLdb as mysql
+
+# Database attributes
+HOST = "localhost"
+USERNAME = ""
+PASSWORD = ""
+DB = ""
+
+# DB
+PRODUCT_REVIEW = "Review"
+
+# Where to fetch components.xml
+# FIXME: Currently this checks against 2009/devel/components.xml
+URL = "http://svn.pardus.org.tr/pardus/2009/devel"
+LOCALURL = "/root/2009/devel"
+
+def connect_DB():
+    # First, connect to DB
+    db = mysql.connect(host=HOST,
+                       user=USERNAME,
+                       passwd=PASSWORD,
+                       db=DB)
+    # Get handle
+    return db
+
+def add_and_update_components(cur, components, product_id):
+    """Update components table in DB to reflect the current components layout."""
+    for name in components:
+        cur.execute("UPDATE components SET product_id='%d',description='%s' WHERE name='%s'" % (product_id,
+                                                                                                name,
+                                                                                                components[name]['description'],
+                                                                                                ))
+
+def update_components_cc_list(cur, components):
+    """components_cc: (user_id,component_id). We have to fetch the user_id for specific e-mails"""
+    for name,values in components.items:
+        cur.execute("UPDATE profiles,components,component_cc SET component_cc.user_id=profiles.userid, component_cc.component_id=components.id \
+                     WHERE profiles.login_name='%s' AND components.name='%s'" % (values['email'], name))
+
+
+if __name__ == "__main__":
+    components = []
+    components_dict = {}
+    try:
+        components = pisi.component.Components("%s/components.xml" % URL).components
+    except:
+        # Don't touch old informations in DB in case of failure
+        pass
+    else:
+        for comp in components:
+            components_dict[comp.name] = dict([('maintainer',comp.maintainer.email),
+                                              ('description',comp.description)])
+
+    # Connect to DB
+    db_handle = connect_DB()
+    cursor = db_handle.cursor()
+
+    # Get Product ID for 'Review'
+    if cursor.execute("SELECT id FROM products WHERE name='%s'" % PRODUCT_REVIEW) == 1:
+        review_product_id = cursor.fetchone()[0]
+        print "DEBUG: ", review_product_id
+
+        # Update components
+        add_and_update_components(cursor, components_dict, review_product_id)
+        db_handle.commit()
+
+        # Now, update CC list
+        update_components_cc_list(cursor, components_dict)
+        db_handle.commit()
+
+        # Close connection
+        db_handle.close()
+
+    else:
+        print "DEBUG: Could not fetch %s' ID from products table, exiting." % PRODUCT_REVIEW

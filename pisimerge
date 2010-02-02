@@ -9,11 +9,6 @@ import tempfile
 import subprocess
 from optparse import OptionParser
 
-# You have to run this in pardus/200x folder which contains the stable and devel sub-folders.
-# Usage: ./merge.py devel/kernel/default/kernel -> Will merge the differences of that package from the stable
-# to the stable repository with a nice commit log. You can override the commit log with
-# ./merge.py devel/kernel/default/kernel  "Just commit it, no fancy commit log."
-
 def handle_user_choice(info):
     editor = os.environ.get("EDITOR", "vi")
 
@@ -60,9 +55,15 @@ if __name__ == "__main__":
     locale.setlocale(locale.LC_ALL, "C")
     tmp_files = {}
 
-    usage = "Usage: %prog [options] path1 [path2...]"
+
+    note = """You have to run this in pardus/200x folder which contains the stable and devel sub-folders.
+\nExample: %s devel/kernel/default/kernel\n\ncommand will merge the differences of that package from the stable
+to the stable repository with a nice commit log.""" % sys.argv[0]
+
+    usage = "%%prog [options] path1 [path2...] \n\nWarning! %s" % note
     parser = OptionParser(usage)
     parser.add_option("-m", "--message", dest="message", help="Commit message for merge operation")
+    parser.add_option("-y", "--yes-all", dest="yesAll", default=False, action="store_true", help="Answer 'Merge' to all questions")
 
     (options, paths) = parser.parse_args()
 
@@ -71,12 +72,11 @@ if __name__ == "__main__":
         parser.print_help()
         sys.exit()
 
-    for path in paths:
+    for p in paths:
         if len(paths) > 1:
-            print "* Processing %s..." % path
+            print "* Processing %s..." % p
 
-        if path.startswith("devel/"):
-            path = path.split("devel/", 1)[1]
+        path = p.split("devel/", 1)[1] if p.startswith("devel/") else p
 
         os.system("svn up devel/%s stable/%s" % (path, path))
         if not os.path.exists("stable/%s" % path):
@@ -93,38 +93,47 @@ if __name__ == "__main__":
         else:
             latest = get_latest_change("stable/%s" % path)
 
-            if not options.message:
-                merge_msg = get_merge_log(path, latest)
+            diffResult = os.popen("svn diff -r %d:HEAD devel/%s" % (latest, path)).read().strip()
+
+            if diffResult == '':
+                print "* Warning! '%s' path seems to be merged already. Skipping..." % path
+
             else:
-                merge_msg = options.message
+                if not options.message:
+                    merge_msg = get_merge_log(path, latest)
+                else:
+                    merge_msg = options.message
 
-            tmp_files.clear()
+                tmp_files.clear()
 
-            # Generate safe temporary files
-            (m_fd, tmp_files["merge"]) = tempfile.mkstemp(prefix='pisimerge')
-            (d_fd, tmp_files["diff"]) = tempfile.mkstemp(prefix='pisimerge')
+                # Generate safe temporary files
+                (m_fd, tmp_files["merge"]) = tempfile.mkstemp(prefix='pisimerge')
+                (d_fd, tmp_files["diff"]) = tempfile.mkstemp(prefix='pisimerge')
 
-            # Save merge message
-            open(tmp_files["merge"], "w").write(merge_msg)
+                # Save merge message
+                open(tmp_files["merge"], "w").write(merge_msg)
 
-            # Save diff
-            open(tmp_files["diff"], "w").write(os.popen("svn diff -r %d:HEAD devel/%s" % (latest, path)).read().strip())
+                # Save diff
+                open(tmp_files["diff"], "w").write(diffResult)
 
-            # Dump details
-            merge_msg += "\n\n---\n%s" % os.popen("diffstat -q %s" % tmp_files["diff"]).read()
-            print "\n%s" % merge_msg
+                # Dump details
+                merge_msg += "\n\n---\n%s" % os.popen("diffstat -q %s" % tmp_files["diff"]).read()
+                print "\n%s" % merge_msg
 
-            # Handle user choice
-            if handle_user_choice(tmp_files):
-                print "\nMerging from devel/%s.." % path
-                merge_cmd = "svn merge -r %d:HEAD devel/%s stable/%s" %  (latest, path, path)
-                commit_cmd = "svn ci stable/%s -F %s" % (path, tmp_files["merge"])
-                os.system(merge_cmd)
-                os.system(commit_cmd)
+                # Handle user choice
+                if options.yesAll or handle_user_choice(tmp_files):
+                    print "\nMerging from devel/%s.." % path
+                    merge_cmd = "svn merge -r %d:HEAD devel/%s stable/%s" %  (latest, path, path)
+                    commit_cmd = "svn ci stable/%s -F %s" % (path, tmp_files["merge"])
+                    os.system(merge_cmd)
+                    os.system(commit_cmd)
 
-            # Clean temporary files
-            for tmp in tmp_files.values():
-                try:
-                    os.unlink(tmp)
-                except:
-                    pass
+                # Clean temporary files
+                for tmp in tmp_files.values():
+                    try:
+                        os.unlink(tmp)
+                    except:
+                        pass
+
+        if p != paths[-1]:
+            print "\n***"

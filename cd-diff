@@ -226,7 +226,7 @@ if __name__ == "__main__":
         if dh:
             diffs[p] = dh
 
-    add_new_package_descriptions(dict([(ni_packages[p].name, ni_packages[p].description['en']) for p in new_packages]))
+    add_new_package_descriptions(dict([(ni_packages[p].name, ni_packages[p].description.get('en', 'Not available') for p in new_packages]))
     add_package_modifications_header(len(ni_packages), len(diffs.keys()), old_release, new_release)
 
     for p in sorted(diffs.keys()):

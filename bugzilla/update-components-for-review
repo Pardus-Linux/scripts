@@ -1,22 +1,77 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import sys
 import pisi
+import copy
+import urllib2
+import piksemel
 import MySQLdb as mysql
 
+# WHAT'S THIS?
+#
+# First it parses components.xml from a remote URL to get Component maintainers. Then
+# it expands the maintainers so that A.B.C's maintainer list also includes the maintainers
+# of A and A.B (This is done in flatten_cc_list())
+#
+# Second, it connects to the bugzilla's internal mySQL database to create component informations
+# into the 'components' table.
+#
+# Finally it updates 'component_cc' table to insert (user_id, component_id) matchings for
+# creating the default CC list for every repository component.
+
+# KNOWN BUGS
+# 1. It only looks at a predefined remote repository (currently Corporate2)
+# 2. When the name of a package and a component is the same (e.g. kernel), inserting the CC
+#    matching into 'component_cc' table fails as the unique index is duplicate. This should
+#    only cause problems when the maintainers of both packages are different.
+
 # Database attributes
+DB = ""
 HOST = "localhost"
 USERNAME = ""
 PASSWORD = ""
-DB = ""
 
-# DB
+# The name of the product to use for package reviewing
 PRODUCT_REVIEW = "Review"
 
 # Where to fetch components.xml
 # FIXME: Currently this checks against 2009/devel/components.xml
-URL = "http://svn.pardus.org.tr/pardus/2009/devel"
-LOCALURL = "/root/2009/devel"
+URL = "http://svn.pardus.org.tr/pardus/corporate2/devel"
+
+# Enum for printing messages
+(INFO, WARN, ERROR) = range(3)
+is_debugged = False
+
+#### Methods
+
+def dump_components(components):
+    for comp,values in components.items():
+        print "%s [%s]\n  %s" % (comp, values['description'], values['maintainers'])
+
+def flatten_cc_list(components):
+    d = copy.deepcopy(components)
+    for c in components.keys():
+        # parents == ['kernel', 'default', 'drivers'] for "kernel.default.drivers"
+        parents = c.split(".")
+        if len(parents) > 1:
+            for i in range(1,len(parents)):
+                parent = ".".join(parents[:i])
+                d[c]['maintainers'] = d[c]['maintainers'].union(components[parent]['maintainers'])
+    return d
+
+def sanity_check(components):
+    for comp,values in components.items():
+        if not values['maintainers']:
+            print_msg("Missing maintainer(s) for %s" % comp, WARN)
+
+def print_msg(msg, type=INFO):
+    if is_debugged and type == INFO:
+        print "INFO: %s" % msg
+    elif type == WARN:
+        print "** WARNING **\n %s" % msg
+    elif type == ERROR:
+        print "** ERROR **\n %s" % msg
 
 def connect_DB():
     # First, connect to DB
@@ -29,51 +84,98 @@ def connect_DB():
 
 def add_and_update_components(cur, components, product_id):
     """Update components table in DB to reflect the current components layout."""
-    for name in components:
-        cur.execute("UPDATE components SET product_id='%d',description='%s' WHERE name='%s'" % (product_id,
-                                                                                                name,
-                                                                                                components[name]['description'],
-                                                                                                ))
 
-def update_components_cc_list(cur, components):
-    """components_cc: (user_id,component_id). We have to fetch the user_id for specific e-mails"""
-    for name,values in components.items:
-        cur.execute("UPDATE profiles,components,component_cc SET component_cc.user_id=profiles.userid, component_cc.component_id=components.id \
-                     WHERE profiles.login_name='%s' AND components.name='%s'" % (values['email'], name))
+    print_msg("add_and_update_components()\n")
 
+    if cur.execute("SELECT name FROM components WHERE product_id='%d'" % product_id) > 0:
+        existing_components = [r for (r, ) in cur.fetchall()]
+
+        for comp in set(existing_components).difference(components.keys()):
+            print_msg("Deleting %s from 'components'" % c)
+            cur.execute("DELETE FROM components WHERE name='%s'" % c)
+
+    for name,values in components.items():
+        # This query updates the current table on a duplicate key/index or inserts a new one
+        ret = cur.execute("INSERT INTO components (name,initialowner,description,product_id) VALUES ('%s',1,'%s',%d) \
+                           ON DUPLICATE KEY UPDATE description='%s'" % (name, values['description'],
+                                                                        product_id,
+                                                                        values['description']))
+        if ret > 0:
+            print_msg("%s (%d row(s)) is affected" % (name, ret))
+
+
+def update_components_cc_list(cur, components, product_id):
+
+    print_msg("update_components_cc_list()\n")
+
+    # First clean all CC lists
+    ret = cur.execute("DELETE FROM component_cc USING components INNER JOIN component_cc \
+                       WHERE components.product_id='%d' AND components.id=component_cc.component_id" % product_id)
+
+    if ret > 0:
+        print_msg("Cleaned 'component_cc' table, affected row(s): %d\n" % ret)
+
+    # And re-generate CC lists
+    for name,values in components.items():
+        for maintainer in values['maintainers']:
+            query = "INSERT INTO component_cc "\
+                    "SELECT userid, id FROM profiles INNER JOIN components "\
+                    "WHERE profiles.login_name='%s' AND components.name='%s'" % (maintainer, name)
+            try:
+                ret = cur.execute(query)
+            except:
+                print_msg("Failed query: '%s'" % query.replace("\n\t", " "), WARN)
+            else:
+                if ret > 0:
+                    print_msg("%s (%d row(s)) is affected" % (name, ret))
+
+
+#### Entry point
 
 if __name__ == "__main__":
-    components = []
+    components = None
     components_dict = {}
+
+    is_debugged = len(sys.argv) > 1 and sys.argv[1].startswith("-d")
+
     try:
-        components = pisi.component.Components("%s/components.xml" % URL).components
+        components = piksemel.parseString(urllib2.urlopen("%s/components.xml" % URL).read())
     except:
         # Don't touch old informations in DB in case of failure
         pass
     else:
-        for comp in components:
-            components_dict[comp.name] = dict([('maintainer',comp.maintainer.email),
-                                              ('description',comp.description)])
+        if components:
+            for comp in components.getTag('Components').tags():
+                components_dict[comp.getTagData('Name')] = dict([('maintainers', set([comp.getTag('Maintainer').getTagData('Email')])),
+                                                                 ('description',comp.getTagData('Description'))])
 
-    # Connect to DB
-    db_handle = connect_DB()
-    cursor = db_handle.cursor()
+        # Check for sanity
+        sanity_check(components_dict)
 
-    # Get Product ID for 'Review'
-    if cursor.execute("SELECT id FROM products WHERE name='%s'" % PRODUCT_REVIEW) == 1:
-        review_product_id = cursor.fetchone()[0]
-        print "DEBUG: ", review_product_id
+        # Flatten component responsibles e.g.
+        # Add X's responsible to X.x1, X.x2, ... , X.xn
+        components_dict = flatten_cc_list(components_dict)
 
-        # Update components
-        add_and_update_components(cursor, components_dict, review_product_id)
-        db_handle.commit()
+        # Connect to DB
+        db_handle = connect_DB()
+        cursor = db_handle.cursor()
 
-        # Now, update CC list
-        update_components_cc_list(cursor, components_dict)
-        db_handle.commit()
+        # Get Product ID for 'Review'
+        if cursor.execute("SELECT id FROM products WHERE name='%s'" % PRODUCT_REVIEW) == 1:
+            product_review_id = cursor.fetchone()[0]
+            print_msg("Product '%s' ID: %d" % (PRODUCT_REVIEW, product_review_id))
 
-        # Close connection
-        db_handle.close()
+            # Update components
+            add_and_update_components(cursor, components_dict, product_review_id)
+            db_handle.commit()
 
-    else:
-        print "DEBUG: Could not fetch %s' ID from products table, exiting." % PRODUCT_REVIEW
+            # Now, update CC list
+            update_components_cc_list(cursor, components_dict, product_review_id)
+            db_handle.commit()
+
+        else:
+            print_msg("Could not fetch '%s' ID from products table, exiting." % PRODUCT_REVIEW, ERROR)
+
+        if db_handle:
+            db_handle.commit()
+            db_handle.close()

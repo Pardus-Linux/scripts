@@ -287,8 +287,11 @@ class Source(AutoPiksemel):
     isa         = zero_or_more_tag("IsA")
     partof      = optional_tag("PartOf")
     icon        = optional_tag("Icon")
+    exclude_arch= zero_or_more_tag("ExcludeArch")
     license     = one_or_more_tag("License")
-    archive     = tag("Archive", t_class=Archive)
+    archive     = one_or_more_tag("Archive", t_class=Archive)
+    additionals = optional_tag("AdditionalFiles",
+                                  contains=one_or_more_tag("AdditionalFile", t_class=AdditionalFile))
     patches     = optional_tag("Patches", contains=one_or_more_tag("Patch", t_class=Patch))
     build_deps  = optional_tag("BuildDependencies",
                                   contains=one_or_more_tag("Dependency", t_class=Dependency))

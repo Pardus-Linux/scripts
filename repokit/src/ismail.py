@@ -246,6 +246,7 @@ class Archive(AutoPiksemel):
     uri     = tag_data()
     type    = attribute("type")
     sha1sum = attribute("sha1sum")
+    target  = optional_attribute("target")
 
 
 class Path(AutoPiksemel):

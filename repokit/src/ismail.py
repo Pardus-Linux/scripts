@@ -165,14 +165,17 @@ class AutoPiksemel:
                         setattr(self, obj.varname, c)
                 else:
                     node = tag.firstChild()
-                    if node.type() != piksemel.DATA or node.next() != None:
-                        piksError(doc, errors, "This tag should only contain character data")
-                    if obj.is_multiple:
-                        tmp = getattr(self, obj.varname)
-                        tmp.append(node.data())
-                        setattr(self, obj.varname, tmp)
+                    if not node:
+                        piksError(doc, errors, "%s tag is empty" % name)
                     else:
-                        setattr(self, obj.varname, node.data())
+                        if node.type() != piksemel.DATA or node.next() != None:
+                            piksError(doc, errors, "This tag should only contain character data")
+                        if obj.is_multiple:
+                            tmp = getattr(self, obj.varname)
+                            tmp.append(node.data())
+                            setattr(self, obj.varname, tmp)
+                        else:
+                            setattr(self, obj.varname, node.data())
             else:
                 piksError(doc, errors, "Unknown tag <%s>" % name)
         for name in tags:

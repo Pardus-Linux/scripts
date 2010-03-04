@@ -1,0 +1,49 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import os
+import glob
+import pisi
+import tempfile
+
+installdb = pisi.db.installdb.InstallDB()
+
+if __name__ == "__main__":
+
+    old_list = tempfile.mkstemp()[1]
+    new_list = tempfile.mkstemp()[1]
+    results  = tempfile.mkstemp()[1]
+    packages = []
+
+    for p in glob.glob("*.pisi"):
+        package_name = pisi.util.parse_package_name(p)[0]
+        if installdb.has_package(package_name):
+            # Compare for every .pisi package
+
+            old_package_files = ["/%s" % _path.path for _path in pisi.package.Package(p).get_files().list]
+            old_package_files.sort()
+            open(old_list, "w").write("\n".join(old_package_files))
+
+            new_package_files = ["/%s" % _path.path for _path in installdb.get_files(package_name).list]
+            new_package_files.sort()
+            open(new_list, "w").write("\n".join(new_package_files))
+
+            diff = os.popen("diff -u %s %s" % (old_list, new_list)).read().strip()
+            if diff:
+                f = open(results, "w")
+                f.write("List of path differences for the package %s:\n\n" % package_name)
+                f.write(diff)
+                f.close()
+
+                # Spawn editor
+                subprocess.call([os.getenv("EDITOR", "vim"), results])
+
+        else:
+            print "Skipping %s as it's not installed.." % package_name
+
+    try:
+        os.unlink(old_list)
+        os.unlink(new_list)
+        os.unlink(results)
+    except:
+        pass

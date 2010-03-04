@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2005-2009 TUBITAK/UEKAE
+# Copyright (C) 2005-2010 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -12,107 +12,111 @@
 
 import os
 import sys
-from pisi.specfile import SpecFile
-from pisi.util import join_path
+import pisi
 
-def findPspec(folder):
-    pspecList = []
-    for root, dirs, files in os.walk(folder):
+def _print(msg, title=False):
+    print msg
+    if title:
+        print "%s\n" % ("-"*len(msg))
+
+def get_pspec_list(svn_root, folder, component):
+    pspec_list = []
+    for root, dirs, files in os.walk(pisi.util.join_path(svn_root, folder, component)):
         if "pspec.xml" in files:
-            pspecList.append(root)
+            # append (full_path, component)
+            pspec_list.append((root, root.split(pisi.util.join_path(svn_root, folder))[1].strip("/")))
         # dont walk into the versioned stuff
         if ".svn" in dirs:
             dirs.remove(".svn")
-    return pspecList
+    return pspec_list
 
-def getVersion(pspecList):
-    sources = {}
-    for pspec in pspecList:
-        specFile = SpecFile(join_path(pspec, "pspec.xml"))
-        sources[specFile.source.name] = (specFile.getSourceVersion(), specFile.getSourceRelease())
-    return sources
+def acquire_version_info(pspec_list):
+    result = {}
+    for pspec in pspec_list:
+        spec_file = pisi.specfile.SpecFile(pisi.util.join_path(pspec[0], "pspec.xml"))
+        result[spec_file.source.name] = (spec_file.getSourceVersion(),
+                                         spec_file.getSourceRelease(),
+                                         pspec[1])
+    return result
 
-# form two sorted lists and
-# find differences in a single pass
-# over the lists
-def listCompare(firstRepo, secondRepo):
-    keys1 = list(firstRepo.keys())
-    keys2 = list(secondRepo.keys())
-    keys1.sort()
-    keys2.sort()
-    onlyinFR = list()
-    onlyinSR = list()
-    diffVersion = list()
-    diffRelease = list()
-    i=j=0
-    len1 = len(keys1) # I just hope len is const time
-    len2 = len(keys2)
-    while i < len1 and j< len2:
-       if keys1[i] < keys2[j]:
-          onlyinFR.append(keys1[i])
-          i=i+1
-       elif keys1[i] > keys2[j]:
-          onlyinSR.append(keys2[j])
-          j=j+1
+def compare_repos(first_repo, second_repo):
+    keys_first          = sorted(first_repo.keys())
+    keys_second         = sorted(second_repo.keys())
+    len_first           = len(keys_first)
+    len_second          = len(keys_second)
+
+    only_in_first       = []
+    only_in_second      = []
+    different_versions  = []
+    different_releases  = []
+    i = j = 0
+
+    while i < len_first and j < len_second:
+       if keys_first[i] < keys_second[j]:
+          only_in_first.append(first_repo[keys_first[i]][2])
+          i += 1
+       elif keys_first[i] > keys_second[j]:
+          only_in_second.append(second_repo[keys_second[j]][2])
+          j += 1
        else:
-         if firstRepo[keys1[i]][0] != secondRepo[keys2[j]][0]:
-           diffVersion.append(keys1[i])
-         elif firstRepo[keys1[i]][1] != secondRepo[keys2[j]][1]:
-           diffRelease.append(keys1[i])
-         #else:
-           #same version and release, nothing to do
-         i = i+1
-         j = j+1
+         if first_repo[keys_first[i]][0] != second_repo[keys_second[j]][0]:
+           different_versions.append(keys_first[i])
+         elif first_repo[keys_first[i]][1] != second_repo[keys_second[j]][1]:
+           different_releases.append(keys_first[i])
+         i += 1
+         j += 1
 
     # one of the repos might not be checked to the very end if the
     # repo contents do not overlap well, so fill the rest manually
-    if i!=len1:
-       onlyinFR += keys1[i:]
-    elif j!=len2:
-       onlyinSR += keys2[j:]
+    if i != len_first:
+       only_in_first += keys_first[i:]
+    elif j != len_second:
+       only_in_second += keys_second[j:]
 
-    return (onlyinFR, onlyinSR, diffVersion, diffRelease)
+    only_in_first.sort()
+    only_in_second.sort()
+    return (only_in_first, only_in_second, different_versions, different_releases)
 
-def usage(miniMe):
-    print """Usage:
-      %s    pathToSvn   component   (ex: %s /home/caglar/svn/pardus/2009 system/devel)
-    """ % (miniMe, miniMe)
-
-    sys.exit(1)
 
 if __name__ == "__main__":
     try:
-        svnRoot = sys.argv[1]
+        svn_root = sys.argv[1]
     except IndexError:
-        usage(sys.argv[0])
+        print "Usage: %s <path_to_svn> [component]\n   Example: %s ~/2009 system/devel [first] [second]" % ((sys.argv[0],)*2)
+        sys.exit(1)
 
     try:
-        postfix = sys.argv[2]
+        component = sys.argv[2]
     except IndexError:
-        postfix = ""
+        component = ""
 
-    stable = getVersion(findPspec(join_path(svnRoot,"stable/", postfix)))
-    devel = getVersion(findPspec(join_path(svnRoot, "devel/", postfix)))
+    try:
+        first  = sys.argv[3] + "/"
+        second = sys.argv[4] + "/"
+    except IndexError:
+        first  = "stable/"
+        second = "devel/"
 
-    # find differences in given repos
-    r = listCompare(stable, devel)
+    first_repo  = acquire_version_info(get_pspec_list(svn_root, first, component))
+    second_repo = acquire_version_info(get_pspec_list(svn_root, second, component))
 
-    print "Stable --> Devel (different version)"
-    for i in r[2]:
-       print "    %s: %s (r%s) -> %s (r%s)" % (i, stable[i][0], stable[i][1], devel[i][0], devel[i][1])
-    print
+    # Find differences in given repos
+    only_in_first, only_in_second, different_versions, different_releases = compare_repos(first_repo, second_repo)
 
-    print "Stable --> Devel (different release)"
-    for i in r[3]:
-       print "    %s: %s (r%s) -> %s (r%s)" % (i, stable[i][0], stable[i][1], devel[i][0], devel[i][1])
-    print
+    # Dump results
 
-    print "Stable has, Devel hasn't"
-    for i in r[0]:
+    _print("%s --> %s (Different versions)" % (first, second), True)
+    for i in different_versions:
+       print "    %s: %s (%s) -> %s (%s)" % (first_repo[i][2], first_repo[i][0], first_repo[i][1], second_repo[i][0], second_repo[i][1])
+
+    _print("\n%s --> %s (Different releases)" % (first, second), True)
+    for i in different_releases:
+       print "    %s: %s (%s) -> %s (%s)" % (first_repo[i][2], first_repo[i][0], first_repo[i][1], second_repo[i][0], second_repo[i][1])
+
+    _print("\n%s has, %s has not" % (first, second), True)
+    for i in only_in_first:
        print "    %s" % i
-    print
 
-    print "Devel has, Stable hasn't"
-    for i in r[1]:
+    _print("\n%s has, %s has not" % (second, first), True)
+    for i in only_in_second:
        print "    %s" % i
-    print

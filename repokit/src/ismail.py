@@ -218,6 +218,7 @@ class Patch(AutoPiksemel):
     filename    = tag_data()
     compression = optional_attribute("compressionType")
     level       = optional_attribute("level", default="0")
+    reverse     = optional_attribute("reverse", choices=("true", "false"))
     target      = optional_attribute("target")
 
 

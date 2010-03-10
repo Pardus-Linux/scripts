@@ -44,7 +44,7 @@ def increment_release(pspec, ver, comment):
     return pspec.replace("<History>\n", "<History>\n%s" % new_release)
 
 def update_sha1sum():
-    fl = os.path.basename(pisi.specfile.SpecFile('pspec.xml').source.archive.uri)
+    fl = os.path.basename(pisi.specfile.SpecFile('pspec.xml').source.archive[0].uri)
     sh = os.popen("sha1sum /var/cache/pisi/archives/%s" % fl).read().split()[0]
     print sh
 

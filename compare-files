@@ -5,6 +5,7 @@ import os
 import glob
 import pisi
 import tempfile
+import subprocess
 
 installdb = pisi.db.installdb.InstallDB()
 
@@ -20,23 +21,28 @@ if __name__ == "__main__":
         if installdb.has_package(package_name):
             # Compare for every .pisi package
 
-            old_package_files = ["/%s" % _path.path for _path in pisi.package.Package(p).get_files().list]
-            old_package_files.sort()
-            open(old_list, "w").write("\n".join(old_package_files))
-
-            new_package_files = ["/%s" % _path.path for _path in installdb.get_files(package_name).list]
+            new_package_files = ["/%s" % _path.path for _path in pisi.package.Package(p).get_files().list]
             new_package_files.sort()
             open(new_list, "w").write("\n".join(new_package_files))
 
-            diff = os.popen("diff -u %s %s" % (old_list, new_list)).read().strip()
+            old_package_files = ["/%s" % _path.path for _path in installdb.get_files(package_name).list]
+            old_package_files.sort()
+            open(old_list, "w").write("\n".join(old_package_files))
+
+            diff = os.popen("diff -U 0 %s %s" % (old_list, new_list)).read().strip().split("\n")
             if diff:
+                diff = diff[3:]
                 f = open(results, "w")
-                f.write("List of path differences for the package %s:\n\n" % package_name)
-                f.write(diff)
+                f.write("# List of path differences for the package %s:\n\n" % package_name)
+                f.write("\n".join(diff))
                 f.close()
+                os.rename(results, "%s.diff" % results)
+                results += ".diff"
 
                 # Spawn editor
                 subprocess.call([os.getenv("EDITOR", "vim"), results])
+            else:
+                print "No file/path differences for %s" % package_name
 
         else:
             print "Skipping %s as it's not installed.." % package_name
@@ -44,6 +50,6 @@ if __name__ == "__main__":
     try:
         os.unlink(old_list)
         os.unlink(new_list)
-        os.unlink(results)
+        os.unlink("%s.diff" % results)
     except:
         pass

@@ -30,7 +30,7 @@ if __name__ == "__main__":
             open(old_list, "w").write("\n".join(old_package_files))
 
             diff = os.popen("diff -U 0 %s %s" % (old_list, new_list)).read().strip().split("\n")
-            if diff:
+            if len(diff) > 1:
                 diff = diff[3:]
                 f = open(results, "w")
                 f.write("# List of path differences for the package %s:\n\n" % package_name)

@@ -27,8 +27,8 @@ import MySQLdb as mysql
 #    only cause problems when the maintainers of both packages are different.
 
 # Database attributes
-DB = ""
 HOST = "localhost"
+DB = ""
 USERNAME = ""
 PASSWORD = ""
 
@@ -52,6 +52,7 @@ def dump_components(components):
 def flatten_cc_list(components):
     d = copy.deepcopy(components)
     for c in components.keys():
+        print "** %s" % c
         # parents == ['kernel', 'default', 'drivers'] for "kernel.default.drivers"
         parents = c.split(".")
         if len(parents) > 1:
@@ -91,8 +92,8 @@ def add_and_update_components(cur, components, product_id):
         existing_components = [r for (r, ) in cur.fetchall()]
 
         for comp in set(existing_components).difference(components.keys()):
-            print_msg("Deleting %s from 'components'" % c)
-            cur.execute("DELETE FROM components WHERE name='%s'" % c)
+            print_msg("Deleting %s from 'components'" % comp)
+            cur.execute("DELETE FROM components WHERE name='%s'" % comp)
 
     for name,values in components.items():
         # This query updates the current table on a duplicate key/index or inserts a new one

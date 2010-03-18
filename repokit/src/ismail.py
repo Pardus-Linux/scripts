@@ -406,9 +406,24 @@ class Source(AutoPiksemel):
             if isa not in valid_isas:
                 piksError(doc, errors, "Invalid IsA value '%s'" % isa)
 
-class Action(AutoPiksemel):
-    actionChoice = tag_data()
+class Type(AutoPiksemel):
+    type    = tag_data()
+    package = optional_attribute("package")
 
+class Action(AutoPiksemel):
+    action  = tag_data()
+    package = optional_attribute("package")
+    target  = optional_attribute("target")
+
+    def validate(self, doc, errors):
+        valid_actions = (
+            "reverseDependencyUpdate",
+            "serviceRestart",
+            "systemRestart"
+        )
+
+        if self.action not in valid_actions:
+            piksError(doc, errors, "Invalid Action value '%s'" % self.action)
 
 class Update(AutoPiksemel):
     release     = attribute("release")
@@ -418,6 +433,7 @@ class Update(AutoPiksemel):
     name        = tag("Name")
     email       = tag("Email")
     comment     = tag("Comment")
+    types       = zero_or_more_tag("Type", t_class=Type)
     requires    = optional_tag("Requires", contains=one_or_more_tag("Action", t_class=Action))
 
     def validate(self, doc, errors):

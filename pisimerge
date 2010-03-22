@@ -29,7 +29,7 @@ def handle_user_choice(info):
 
 def get_latest_change(path):
     os.system("svn up %s" % path)
-    return int(os.popen("svn info %s | grep 'Last Changed Rev'" % path).read().strip().split(": ")[1])+1
+    return int(os.popen("svn info %s | grep 'Last Changed Rev'" % path).read().strip().split(": ")[1])
 
 def get_merge_log(path, rev):
     os.system("svn up devel/%s" % path)

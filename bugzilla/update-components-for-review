@@ -122,8 +122,22 @@ def update_components_cc_list(cur, components, product_id):
             query = "INSERT INTO component_cc "\
                     "SELECT userid, id FROM profiles INNER JOIN components "\
                     "WHERE profiles.login_name='%s' AND components.name='%s'" % (maintainer, name)
+
             try:
                 ret = cur.execute(query)
+            except:
+                print_msg("Failed query: '%s'" % query.replace("\n\t", " "), WARN)
+            else:
+                if ret > 0:
+                    print_msg("%s (%d row(s)) is affected" % (name, ret))
+
+            # adding review@pardus.org.tr to review product defaultcc
+            review = "INSERT INTO component_cc "\
+                     "SELECT userid, id FROM profiles INNER JOIN components "\
+                     "WHERE profiles.login_name='review@pardus.org.tr' AND components.name='%s'" % name
+
+            try:
+                ret = cur.execute(review)
             except:
                 print_msg("Failed query: '%s'" % query.replace("\n\t", " "), WARN)
             else:

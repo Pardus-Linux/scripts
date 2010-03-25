@@ -177,6 +177,7 @@ def check_outoftree_package(options, package_name, pisi_file=None):
     dependencies = {}
     undefineds = {}
     unuseds = {}
+    broken = []
 
     # Handle LDPATHs in /var/pisi
     ldpaths = set()

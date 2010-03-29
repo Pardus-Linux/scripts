@@ -55,12 +55,12 @@ def flatten_cc_list(components):
         print "** %s" % c
         # parents == ['kernel', 'default', 'drivers'] for "kernel.default.drivers"
         parents = c.split(".")
+        # Add review@pardus.org.tr by default
+        d[c]['maintainers'].add("review@pardus.org.tr")
         if len(parents) > 1:
             for i in range(1,len(parents)):
                 parent = ".".join(parents[:i])
                 d[c]['maintainers'] = d[c]['maintainers'].union(components[parent]['maintainers'])
-                # Add review@pardus.org.tr by default
-                d[c]['maintainers'].add("review@pardus.org.tr")
     return d
 
 def sanity_check(components):
@@ -123,7 +123,7 @@ def update_components_cc_list(cur, components, product_id):
         for maintainer in values['maintainers']:
             query = "INSERT INTO component_cc "\
                     "SELECT userid, id FROM profiles INNER JOIN components "\
-                    "WHERE profiles.login_name='%s' AND components.name='%s'" % (maintainer, name)
+                    "WHERE profiles.login_name='%s' AND components.name='%s' AND components.product_id='%s'" % (maintainer, name, product_id)
 
             try:
                 ret = cur.execute(query)

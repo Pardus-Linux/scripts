@@ -39,6 +39,14 @@ ch.setLevel(logging.DEBUG)
 ch.setFormatter(logging.Formatter("%(asctime)s - %(name)s - %(levelname)s: %(message)s"))
 log.addHandler(ch)
 
+def arrayTostring(data):
+    output = ""
+    for i in data:
+        output += i
+
+    # do not include last \n
+    return output.rstrip("\n")
+
 def checkBUG(line):
     line = line.strip().split(':')
     if len(line) != 3:
@@ -54,6 +62,9 @@ def checkLOG(log):
             yield checkBUG(line)
 
 def main(author, log, commit_no, changed, repo):
+    changed = arrayTostring(changed)
+    log = arrayTostring(log)
+
     thetext = BUG_COMMENT_TEMPLATE % {"author":author, "repo":os.path.basename(repo), "commit_no":commit_no, "changed": changed, "log": log}
 
     thetext=thetext.replace("'", "\"")
@@ -66,10 +77,6 @@ def main(author, log, commit_no, changed, repo):
     bugzilla = Bugzilla(c.bugzillaurl, c.username, c.password)
     bugzilla.login()
 
-    print thetext
-    print type(thetext)
-    sys.exit()
-
     def commentBUG(bug_id):
         log.info("Modifying bug...")
         bugzilla.modify(bug_id=bug_id,
@@ -77,7 +84,7 @@ def main(author, log, commit_no, changed, repo):
 
     def fixBUG(bug_id):
         log.info("Fixing bug..")
-        bugzilla.modify(bug_id=bug_id
+        bugzilla.modify(bug_id=bug_id,
                         status="RESOLVED",
                         resolution="FIXED",
                         comment=thetext)

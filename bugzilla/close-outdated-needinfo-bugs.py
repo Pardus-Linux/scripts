@@ -4,12 +4,6 @@
 import MySQLdb
 import os
 
-## Configs
-db_server = "localhost"
-db_user   = ""
-db_pass   = ""
-db_name   = ""
-
 bugzilla_user_id = 1
 how_many_days = 30
 
@@ -22,7 +16,7 @@ This bug report is closed as INVALID due to the lack of feedback from the report
 ##
 print message
 
-db = MySQLdb.connect(db_server, db_user, db_pass, db_name)
+db = mysql.connect(**dict([line.split("=") for line in open("\x61\x75\x74\x68").read().strip().split("\n") if line != "" and not line.startswith("#")]))
 
 # filter bugs
 c = db.cursor()

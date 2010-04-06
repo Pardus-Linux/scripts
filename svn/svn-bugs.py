@@ -93,8 +93,7 @@ def main(author, log, commit_no, changed, repo):
         print thetext
 
     # Connect to DB
-    db = mysql.connect(**dict([line.split("=") for line in open("\x61\x75\x74\x68").read().strip().split("\n") \
-                               if line != "" and not line.startswith("#")]))
+    db = mysql.connect(**dict([line.split("=") for line in open("\x61\x75\x74\x68").read().strip().split("\n") if line != "" and not line.startswith("#")]))
     cur = db.cursor()
 
     def getAuthorBugzillaID():

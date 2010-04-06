@@ -125,8 +125,7 @@ def main(author, log, commit_no, changed, repo):
             commentBUG(bug_id)
         elif cmd == "FIXED":
             fixBUG(bug_id)
-        os.chdir("/var/www/bugzilla.pardus.org.tr/bugzilla-3.4.4")
-        os.system("perl -T contrib/sendbugmail.pl %s admins@pardus.org.tr" % bug_id)
+        os.system("perl -T /var/www/bugzilla.pardus.org.tr/bugzilla/contrib/sendbugmail.pl %s admins@pardus.org.tr" % bug_id)
 
 if __name__ == "__main__":
     SVNLOOK='/usr/bin/svnlook'

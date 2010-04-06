@@ -147,7 +147,8 @@ def main(author, log, commit_no, changed, repo):
         # Send e-mail
         if verbose:
             print "Sending e-mail.."
-        os.system("perl -T -I/var/www/bugzilla.pardus.org.tr/bugzilla /var/www/bugzilla.pardus.org.tr/bugzilla/contrib/sendbugmail.pl %s admins@pardus.org.tr" % bug_id)
+        os.chdir("/var/www/bugzilla.pardus.org.tr/bugzilla")
+        os.system("perl -T contrib/sendbugmail.pl %s admins@pardus.org.tr" % bug_id)
 
 
 if __name__ == "__main__":

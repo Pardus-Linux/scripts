@@ -117,15 +117,6 @@ def main(author, log, commit_no, changed, repo):
         if verbose:
             print "commentBUG(%s)" % bug_id
 
-        fieldid = 8
-        added = "RESOLVED"
-        cur.execute(BUG_ACTIVITY_STATUS_SQL % {"bug_id": bug_id, "user_id": getAuthorBugzillaID(), "bug_when": cur_time, "fieldid" : fieldid, "added" : added, "removed": getOldBugStatus()})
-        db.commit()
-
-        fieldid = 11
-        added = "FIXED"
-        cur.execute(BUG_ACTIVITY_RESOLUTION_SQL % {"bug_id": bug_id, "user_id": getAuthorBugzillaID(), "bug_when": cur_time, "fieldid" : fieldid, "added" : added, "removed": getOldBugResolution()})
-        db.commit()
 
         cur.execute(BUG_COMMENT_SQL % {"bug_id": bug_id, "user_id": getAuthorBugzillaID(), "bug_when": cur_time, "thetext": thetext})
         db.commit()
@@ -135,6 +126,10 @@ def main(author, log, commit_no, changed, repo):
         if verbose:
             print "fixBug(%s)" % bug_id
         commentBUG(bug_id)
+        cur.execute(BUG_ACTIVITY_STATUS_SQL % {"bug_id": bug_id, "user_id": getAuthorBugzillaID(), "bug_when": cur_time, "fieldid" : 8, "added" : "RESOLVED", "removed": getOldBugStatus()})
+        cur.execute(BUG_ACTIVITY_RESOLUTION_SQL % {"bug_id": bug_id, "user_id": getAuthorBugzillaID(), "bug_when": cur_time, "fieldid" : 11, "added" : "FIXED", "removed": getOldBugResolution()})
+        db.commit()
+
         cur.execute(BUG_FIXED_SQL % {"bug_id": bug_id})
         db.commit()
 

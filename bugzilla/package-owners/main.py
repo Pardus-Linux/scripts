@@ -1,18 +1,13 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import MySQLdb
+import MySQLdb as mysql
 import listRepoPackages
 import sys
-
-server = "localhost"
-user = ""
-passwd = ""
-db = ""
+import os
 
 # Product Id of "Packages"
 pId = 7
-
 
 try:
     # get pisi index file full path
@@ -25,7 +20,7 @@ Usage: python main.py <full_path_of_pisi_index_file>
 
 # Connect DB
 print "---connecting DB"
-db = MySQLdb.connect(server, user, passwd, db)
+db = mysql.connect(**dict([line.split("=") for line in open("%s/\x61\x75\x74\x68" % os.path.dirname(sys.argv[0])).read().strip().split("\n") if line != "" and not line.startswith("#")]))
 
 # Get package names and maintainer addresses
 print "---parse index file"

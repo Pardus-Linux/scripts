@@ -1,9 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import MySQLdb
 import os
 import sys
+import MySQLdb as mysql
 
 bugzilla_user_id = 1
 how_many_days = 30

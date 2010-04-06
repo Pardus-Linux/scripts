@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import os
 import sys
 import pisi
 import copy
@@ -72,7 +73,7 @@ def print_msg(msg, type=INFO):
 
 def connect_DB():
     # First, connect to DB
-    db = mysql.connect(**dict([line.split("=") for line in open("\x61\x75\x74\x68").read().strip().split("\n") if line != "" and not line.startswith("#")]))
+    db = mysql.connect(**dict([line.split("=") for line in open("%s/\x61\x75\x74\x68" % os.path.dirname(sys.argv[0])).read().strip().split("\n") if line != "" and not line.startswith("#")]))
 
     # Get handle
     return db

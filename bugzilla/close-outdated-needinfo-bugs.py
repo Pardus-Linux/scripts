@@ -3,6 +3,7 @@
 
 import MySQLdb
 import os
+import sys
 
 bugzilla_user_id = 1
 how_many_days = 30
@@ -16,7 +17,7 @@ This bug report is closed as INVALID due to the lack of feedback from the report
 ##
 print message
 
-db = mysql.connect(**dict([line.split("=") for line in open("\x61\x75\x74\x68").read().strip().split("\n") if line != "" and not line.startswith("#")]))
+db = mysql.connect(**dict([line.split("=") for line in open("%s/\x61\x75\x74\x68" % os.path.dirname(sys.argv[0])).read().strip().split("\n") if line != "" and not line.startswith("#")]))
 
 # filter bugs
 c = db.cursor()

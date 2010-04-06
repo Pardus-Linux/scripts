@@ -65,7 +65,7 @@ def checkBUG(line):
     return (cmd, bug_id)
 
 def checkLOG(log):
-    for line in log:
+    for line in log.split("\n"):
         if line.startswith("BUG:"):
             yield checkBUG(line)
 
@@ -129,7 +129,7 @@ def main(author, log, commit_no, changed, repo):
 
         cur.execute(BUG_COMMENT_SQL % {"bug_id": bug_id, "user_id": getAuthorBugzillaID(), "bug_when": cur_time, "thetext": thetext})
         db.commit()
-        cur.execute(BUG_UPDATE_LASTDIFFED_SQL % {"bug_id": bug_id, "cur_time": cur_time})
+        #cur.execute(BUG_UPDATE_LASTDIFFED_SQL % {"bug_id": bug_id, "cur_time": cur_time})
 
     def fixBUG(bug_id):
         if verbose:
@@ -158,7 +158,7 @@ if __name__ == "__main__":
         repo = sys.argv[1]
         commit_no = sys.argv[2]
         cmd = '%s log -r %s %s' % (SVNLOOK, commit_no, repo)
-        log = os.popen(cmd).read().strip()
+        log = os.popen(cmd).read()
 
         cmd = '%s author -r %s %s' % (SVNLOOK, commit_no, repo)
         author = os.popen(cmd).readline().rstrip('\n')

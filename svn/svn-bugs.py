@@ -30,7 +30,8 @@ BUG_RESOLUTION_SQL = "SELECT resolution FROM `bugs` WHERE bug_id='%(bug_id)s'"
 
 BUG_COMMENT_TEMPLATE = u"""Author: %(author)s
 Repository: %(repo)s
-Commit: %(commit_no)s
+Revision: %(commit_no)s
+Date: %(when)s
 
 Changed Files:
 %(changed)s
@@ -39,17 +40,19 @@ Commit Message:
 %(log)s
 
 See the changes at:
-  http://websvn.pardus.org.tr/pardus?view=revision&revision=%(commit_no)s
+  http://websvn.pardus.org.tr/%(repo)s?view=revision&revision=%(commit_no)s
 """
 
+verbose = False
+
 def getAuthorMail(author):
-        accounts = urllib2.urlopen("http://svn.pardus.org.tr/uludag/trunk/common/accounts").readlines()
-        for a in [l for l in accounts if l and not l.startswith("#")]:
-          try:
+    accounts = urllib2.urlopen("http://svn.pardus.org.tr/uludag/trunk/common/accounts").readlines()
+    for a in [l for l in accounts if l and not l.startswith("#")]:
+        try:
             if a.split(":")[0] == author:
-              # Match!
-              return a.split(":")[2].replace(" [at] ", "@")
-          except:
+                # Match!
+                return a.split(":")[2].replace(" [at] ", "@")
+        except:
             pass
 
 def checkBUG(line):
@@ -67,20 +70,31 @@ def checkLOG(log):
             yield checkBUG(line)
 
 def main(author, log, commit_no, changed, repo):
-    thetext = BUG_COMMENT_TEMPLATE % {"author":author, "repo":os.path.basename(repo), "commit_no":commit_no, "changed": changed, "log": log}
-
-    thetext=thetext.replace("'", "\"")
-    thetext=thetext.replace(")", "\\)")
-    thetext=thetext.replace("(", "\\(")
-    thetext=thetext.replace(";", "")
-    open("/tmp/svn-bugs.log", "w").write(thetext)
-
-    # Connect to DB
-    db = mysql.connect(host="localhost", user="", passwd="", db="")
-    cur = db.cursor()
-
     cur_time = time.strftime("%Y-%m-%d %H:%M:%S")
 
+    # repo is something like e.g. pisi or uludag after this
+    repo = os.path.basename(repo)
+
+    # FIXME: pardus repository is at /svn/pisi so we have to tweak this..
+    repolink = "pardus" if repo == "pisi" else repo
+
+    thetext = BUG_COMMENT_TEMPLATE % {
+                                        "author"    : author,
+                                        "repo"      : repolink,
+                                        "commit_no" : commit_no,
+                                        "changed"   : changed,
+                                        "log"       : log,
+                                        "when"      : cur_time,
+                                     }
+
+    thetext=thetext.replace("'", "\"").replace(")", "\\)").replace("(", "\\(").replace(";", "")
+
+    if verbose:
+        print thetext
+
+    # Connect to DB
+    db = mysql.connect(host="", user="", passwd="", db="")
+    cur = db.cursor()
 
     def getAuthorBugzillaID():
         author_mail = getAuthorMail(author)
@@ -93,13 +107,15 @@ def main(author, log, commit_no, changed, repo):
             return cur.fetchone()[0]
         return 1
 
-    def getOldResolution():
+    def getOldBugResolution():
          if cur.execute(BUG_RESOLUTION_SQL % {"bug_id": bug_id}) == 1:
              return cur.fetchone()[0]
          return 1
 
     def commentBUG(bug_id):
         # FIXME author is 1...
+        if verbose:
+            print "commentBUG(%s)" % bug_id
 
         fieldid = 8
         added = "RESOLVED"
@@ -113,9 +129,11 @@ def main(author, log, commit_no, changed, repo):
 
         cur.execute(BUG_COMMENT_SQL % {"bug_id": bug_id, "user_id": getAuthorBugzillaID(), "bug_when": cur_time, "thetext": thetext})
         db.commit()
-        #cur.execute(BUG_UPDATE_LASTDIFFED_SQL % {"bug_id": bug_id, "cur_time": cur_time})
+        cur.execute(BUG_UPDATE_LASTDIFFED_SQL % {"bug_id": bug_id, "cur_time": cur_time})
 
     def fixBUG(bug_id):
+        if verbose:
+            print "fixBug(%s)" % bug_id
         commentBUG(bug_id)
         cur.execute(BUG_FIXED_SQL % {"bug_id": bug_id})
         db.commit()
@@ -125,24 +143,32 @@ def main(author, log, commit_no, changed, repo):
             commentBUG(bug_id)
         elif cmd == "FIXED":
             fixBUG(bug_id)
-        os.system("perl -T /var/www/bugzilla.pardus.org.tr/bugzilla/contrib/sendbugmail.pl %s admins@pardus.org.tr" % bug_id)
+
+        # Send e-mail
+        if verbose:
+            print "Sending e-mail.."
+        os.system("perl -T -I/var/www/bugzilla.pardus.org.tr/bugzilla /var/www/bugzilla.pardus.org.tr/bugzilla/contrib/sendbugmail.pl %s admins@pardus.org.tr" % bug_id)
+
 
 if __name__ == "__main__":
     SVNLOOK='/usr/bin/svnlook'
+    verbose = os.environ.has_key("VERBOSE")
 
     try:
         repo = sys.argv[1]
         commit_no = sys.argv[2]
         cmd = '%s log -r %s %s' % (SVNLOOK, commit_no, repo)
-        log = os.popen(cmd).readlines()
+        log = os.popen(cmd).read().strip()
 
         cmd = '%s author -r %s %s' % (SVNLOOK, commit_no, repo)
         author = os.popen(cmd).readline().rstrip('\n')
 
         cmd = '%s changed -r %s %s' % (SVNLOOK, commit_no, repo)
-        changed = os.popen(cmd).readlines()
+        changed = os.popen(cmd).read().strip()
 
         main(author, log, commit_no, changed, repo)
 
     except Exception, e:
         open("/tmp/svn-bugs.err", "w").write("error\n%s" % e)
+        if verbose:
+            print "error: %s" % e

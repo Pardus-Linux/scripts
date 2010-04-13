@@ -121,7 +121,10 @@ def get_systembase_packages():
     packages = []
     cdb = pisi.db.componentdb.ComponentDB()
     for repo in pisi.db.repodb.RepoDB().list_repos():
-        packages.extend(cdb.get_packages('system.base', repo))
+        try:
+            packages.extend(cdb.get_packages('system.base', repo))
+        except:
+            pass
 
     return packages
 

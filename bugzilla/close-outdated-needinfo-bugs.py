@@ -40,5 +40,5 @@ for result in c.fetchall():
     c.execute("INSERT INTO longdescs(bug_id, who, bug_when, thetext) VALUES (%d, %d, NOW(), '%s')" % (bug_id, bugzilla_user_id, message))
 
     db.commit()
-    os.chdir("/var/www/bugzilla.pardus.org.tr/bugzilla-3.2/")
+    os.chdir("/var/www/bugzilla.pardus.org.tr/bugzilla")
     os.system("perl -T contrib/sendbugmail.pl %s admins@pardus.org.tr" % bug_id)

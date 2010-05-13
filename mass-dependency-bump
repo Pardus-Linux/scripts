@@ -1,0 +1,157 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+# This script parses pspec.xml files and writes dependency information defined
+# in newDependency dict.
+#
+
+
+import os
+import sys
+import time
+import re
+import piksemel
+
+from optparse import OptionParser
+
+packagerfile = ".pisipackager"
+
+releaseTemplate = """\
+        <Update release="%(newrelease)s">
+            <Date>%(date)s</Date>
+            <Version>%(version)s</Version>
+            <Comment>%(comment)s</Comment>
+            <Name>%(packagerName)s</Name>
+            <Email>%(packagerEmail)s</Email>
+        </Update>
+"""
+
+newDependency = {
+              "kdelibs":           'versionFrom="4.4.3"',
+              "qt":                'versionFrom="4.6.2"',
+              "kdelibs-devel":     'versionFrom="4.4.3"',
+              "kdebase":           'versionFrom="4.4.3"',
+              "kdebase-runtime":   'versionFrom="4.4.3"',
+              "kdebase-workspace": 'versionFrom="4.4.3"',
+              "kdepimlibs-devel":  'versionFrom="4.4.3"',
+              "kdepimlibs":        'versionFrom="4.4.3"'
+}
+
+cfg = {"date": time.strftime("%Y-%m-%d"),
+       "year": time.strftime("%Y"),
+       "comment": "Write strict dependency to new version of %s" % ",".join(newDependency.keys()).rstrip(",")
+}
+
+
+def myprint(mystr):
+    if cfg["debug"]:
+        print mystr
+
+def writeFile(fname, data):
+    psfile = open(fname, "w")
+    psfile.write(data)
+    psfile.close()
+
+def findFiles(d, filePattern="pspec.xml"):
+    fileList = []
+
+    for root, dirs, files in os.walk(d):
+        for name in files:
+            if name == filePattern:
+                fileList.append(os.path.join(root, name))
+
+    return fileList
+
+def readPackagerConfig():
+    home = os.getenv("HOME", "")
+    cfg = "%s/%s" % (home, packagerfile)
+    d = {"name": "", "email": ""}
+
+    if home != "" and os.path.exists(cfg):
+        for line in file(cfg):
+            if line != "" and not line.startswith("#") and "=" in line:
+                l, m = line.split("=", 1)
+                k = l.strip()
+                v = m.strip()
+                if k in ["name", "email"]:
+                    if v.startswith('"') or v.startswith("'"):
+                        v = v[1:-1]
+                    d[k.strip()] = v.strip()
+
+    return d["name"], d["email"]
+
+def getPspecInfo(pspecData):
+    hasNeededDependencies = False
+
+    doc = piksemel.parseString(pspecData)
+    pkgname = doc.getTag("Source").getTagData("Name")
+
+    lastRelease = doc.getTag("History").tags("Update").next()
+    newRelease = int(lastRelease.getAttribute("release"))+1
+    lastVersion = lastRelease.getTagData("Version")
+
+    builddep = doc.getTag("Source").getTag("BuildDependencies")
+    if builddep:
+        for node in builddep.tags("Dependency"):
+            if node.firstChild().data() in newDependency.keys():
+                hasNeededDependencies = True
+
+    rundep = doc.getTag("Package").getTag("RuntimeDependencies")
+    if rundep:
+        for node in rundep.tags("Dependency"):
+            if node.firstChild().data() in newDependency.keys():
+                hasNeededDependencies = True
+
+    return pkgname, str(newRelease), lastVersion, hasNeededDependencies
+
+
+def updatePspec(pspecFile):
+    #myprint("* Working on %s" % pspecFile)
+    pspec = file(pspecFile).read()
+    newpspec = pspec
+
+    cfg["pkgname"], cfg["newrelease"], cfg["version"], needsToChange = getPspecInfo(pspec)
+    newRelease = releaseTemplate % cfg
+
+    if needsToChange:
+        myprint("* Found related dependencies on %s" % pspecFile)
+        for i in newDependency.keys():
+            newpspec = re.sub('<Dependency.*>%s</Dependency>' % i, '<Dependency %s>%s</Dependency>' % (newDependency[i], i), newpspec)
+
+        if newpspec != pspec:
+            myprint("  pspec is changed, updating history")
+            newpspec = newpspec.replace("<History>\n", "<History>\n%s" % newRelease)
+            if cfg["dryrun"]:
+                print newpspec
+            else:
+                writeFile(pspecFile, newpspec)
+
+
+if __name__ == "__main__":
+
+    usage = "usage: %prog [options] [pspec.xml files]"
+
+    parser = OptionParser(usage=usage)
+    parser.add_option("-n", "--dry-run", action="store_true", dest="dryrun", default=False,
+                      help="do not perform any action, just show what will be done")
+    parser.add_option("-d", "--debug",action="store_true", dest="debug", default=False,
+                      help="print extra debug info")
+    parser.add_option("-r", "--recursive", action="store_true", dest="recursive", default=False,
+                      help="recursively find pspec.xml files from current dir")
+
+    (opts, args) = parser.parse_args()
+    if len(args) != 1 and not opts.recursive:
+        parser.error("Please either supply pspec.xml files or use recursive option\n")
+
+    cfg["debug"] = opts.debug or opts.dryrun
+    cfg["dryrun"] = opts.dryrun
+    cfg["packagerName"], cfg["packagerEmail"] = readPackagerConfig()
+
+
+    if opts.recursive:
+        for i in findFiles(os.path.curdir):
+            updatePspec(i)
+    else:
+        for i in args:
+            updatePspec(i)
+

@@ -427,7 +427,7 @@ class Action(AutoPiksemel):
 
 class Update(AutoPiksemel):
     release     = attribute("release")
-    type        = optional_attribute("type", choices=("security", "bug"))
+    type        = optional_attribute("type", choices=("critical", "security"))
     date        = tag("Date")
     version     = tag("Version")
     name        = tag("Name")

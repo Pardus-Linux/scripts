@@ -275,6 +275,10 @@ def print_results(ds, package_name, options, colorize=True):
             # Dump the dependencies (as pisi packages)
             missing_deps = [mdep for mdep in set(deps).difference(ds[3])]
 
+            # Filter out self dependency
+            if package_name in missing_deps:
+                missing_deps.remove(package_name)
+
             print "\n".join(["%s (missing)" % p for p in missing_deps])
             print "\n".join([odep for odep in set(deps).difference(missing_deps)])
 

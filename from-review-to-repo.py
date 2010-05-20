@@ -1,0 +1,47 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import os
+import sys
+
+PREFIX = "https://svn.pardus.org.tr/pardus"
+REVIEW = "playground/review"
+
+def run(cmd):
+    print "DEBUG: %s" % cmd
+    os.system(cmd)
+
+def usage():
+    print "%s <package> repo1 repo2 repo3 .. repoN" % sys.argv[0]
+
+if __name__ == "__main__":
+    package = ""
+    repos = []
+
+    try:
+        package = sys.argv[1]
+        repos = sys.argv[2:]
+    except IndexError:
+        usage()
+
+    if package.startswith(PREFIX):
+        # Full path given
+        target = os.path.dirname(package.replace(REVIEW, "%s/devel" % repos[0]))
+        cmd = "svn move %s %s" % (package, target)
+        run(cmd)
+        for repo in repos[1:]:
+            # Copy to other repositories
+            cmd = "svn copy %s %s" % (os.path.join(target, os.path.basename(package)), target.replace(repos[0], repo))
+            run(cmd)
+
+    else:
+        # Relative path from review is given e.g. util/admin/cgroup
+        src = os.path.join(PREFIX, REVIEW, package)
+        target = os.path.dirname(src.replace(REVIEW, "%s/devel" % repos[0]))
+        cmd = "svn move %s %s" % (src, target)
+        run(cmd)
+        #os.system(cmd)
+        for repo in repos[1:]:
+            # Copy to other repositories
+            cmd = "svn copy %s %s" % (os.path.join(target, os.path.basename(package)), target.replace(repos[0], repo))
+            run(cmd)

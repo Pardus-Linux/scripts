@@ -1,0 +1,66 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+# a small script to change build dependencies of files
+# just give pspec.xml files as parameters
+
+
+import os
+import sys
+
+changeFrom = "qt"
+changeTo = "qt-devel"
+
+
+def loadFile(_file):
+    try:
+        f = file(_file)
+        d = f.readlines()
+        f.close()
+        return d
+    except:
+        return []
+
+def writeFile(fname, data):
+    print fname
+    psfile = open(fname, "w")
+    psfile.write(data)
+    psfile.close()
+
+
+def updatePspec(_file):
+    nf = ""
+    change = False
+
+    for i in loadFile(_file):
+        if i.strip().startswith("<BuildDependencies>"):
+            change = True
+        elif i.strip().startswith("</BuildDependencies>"):
+            change = False
+
+        if change and "<Dependency" in i and ">qt</Dependency>" in i:
+            i = i.replace(">%s<" % changeFrom, ">%s<" % changeTo)
+            change = False
+
+        nf += "%s" % i
+
+    writeFile(_file, nf)
+
+
+def usage():
+    print "usage :"
+    print "          %s <pspec.xml files to change ....>" % sys.argv[0]
+    print
+
+if __name__ == "__main__":
+    """ tikkat main var basmain """
+
+    if len(sys.argv) < 2:
+        usage()
+        sys.exit(1)
+
+    packages = sys.argv[1:]
+
+    for i in packages:
+        updatePspec(i.rstrip("\n"))
+

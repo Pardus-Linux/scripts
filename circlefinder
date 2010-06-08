@@ -77,7 +77,7 @@ def find_circle(sourcedb, A):
             tmp = sourcedb.pkgtosrc(pkg)
         except KeyError, e:
             # this is a bad hack but after we hit a problem we need to continue
-            tmp = "baselayout"
+            tmp = "e3"
             print "---> borks in ", e
 
         return tmp

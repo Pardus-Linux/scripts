@@ -273,14 +273,15 @@ def print_results(ds, package_name, options, colorize=True):
             deps = deps.union(set(filter(lambda x: (x not in systembase) or (options.systembase and x in systembase), [d[1] for d in needed])))
         if deps:
             # Dump the dependencies (as pisi packages)
-            missing_deps = [mdep for mdep in set(deps).difference(ds[3])]
+            missing_deps = sorted([mdep for mdep in set(deps).difference(ds[3])])
 
             # Filter out self dependency
             if package_name in missing_deps:
                 missing_deps.remove(package_name)
 
-            print "\n".join(["%s (missing)" % p for p in missing_deps])
-            print "\n".join([odep for odep in set(deps).difference(missing_deps)])
+            if missing_deps:
+                print "\n".join(["%s (missing)" % p for p in missing_deps])
+            print "\n".join([odep for odep in sorted(set(deps).difference(missing_deps))])
 
 ###
 if __name__ == "__main__":

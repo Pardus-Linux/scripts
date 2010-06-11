@@ -161,8 +161,9 @@ def check_outoftree_package(options, package_name, pisi_file=None):
             print "Error: Make sure pspec.xml exists in CWD and the package is installed into /var/pisi."
             sys.exit(1)
 
-        # Get current dependencies from pspec.xml
-        written_deps = [dep.name() for dep in pisi.specfile.SpecFile('pspec.xml').source.buildtimeDependencies()]
+        # Collect all the written runtime dependencies
+        written_deps = sum([[dep.name() for dep in pkg.runtimeDependencies()] \
+                for pkg in pisi.specfile.SpecFile('pspec.xml').packages], [])
     else:
         # Checking a .pisi file, unpack it to somewhere
         if os.path.exists(pisi_file):

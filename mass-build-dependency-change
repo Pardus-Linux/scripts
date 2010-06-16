@@ -38,7 +38,7 @@ def updatePspec(_file):
         elif i.strip().startswith("</BuildDependencies>"):
             change = False
 
-        if change and "<Dependency" in i and ">qt</Dependency>" in i:
+        if change and "<Dependency" in i and ">%s</Dependency>" % changeFrom in i:
             i = i.replace(">%s<" % changeFrom, ">%s<" % changeTo)
             change = False
 

@@ -1,0 +1,70 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import os
+import sys
+import pisi
+
+FW_PATH = "/lib/firmware"
+
+def colorize(msg, color):
+    colors = {
+                'red'        : '\x1b[31;01m',
+                'blue'       : '\x1b[34;01m',
+                'green'      : '\x1b[32;01m',
+                'light'      : '\x1b[37;01m',
+                'yellow'     : '\x1b[33;01m',
+                'normal'     : '\x1b[0m'
+             }
+
+    return "%s%s%s" % (colors[color], msg, colors['normal'])
+
+
+def get_firmwares():
+    print colorize("Extracting firmware list for %s..." % os.uname()[2], "green")
+    d = {}
+    modules = [os.path.basename(mod.replace(".ko", "")) for mod in \
+            os.popen("modprobe -l").read().strip().split("\n")]
+    for mod in modules:
+        fws = os.popen("modinfo -F firmware %s" % mod).read().strip()
+        if fws:
+            try:
+                d[mod].extend(fws.split("\n"))
+            except KeyError:
+                d[mod] = fws.split("\n")
+
+    return d
+
+def get_firmware_package(firmware):
+    try:
+        package = pisi.api.search_file(firmware)[0][0]
+    except:
+        pass
+    else:
+        return package
+
+
+if __name__ == "__main__":
+
+    search_repo = "--packages" in sys.argv
+
+    # First check for the installed packages
+    install_db = pisi.db.installdb.InstallDB()
+    component_db = pisi.db.componentdb.ComponentDB()
+
+    fw_packages = component_db.get_packages("hardware.firmware")
+    unavailable_fw_packages = set(fw_packages).difference(install_db.list_installed())
+
+    if unavailable_fw_packages:
+        print colorize("The following firmwares are not installed:", "yellow")
+        print "\n".join(unavailable_fw_packages)
+        print
+
+    for module, firmwares in get_firmwares().items():
+        print "\n %s requires the following firmwares:" % module
+        for fw in firmwares:
+            print "  * %s" % fw,
+            if search_repo:
+                firmware = get_firmware_package(fw)
+                print " (%s)" % (colorize(firmware, 'green') if firmware else \
+                        colorize("missing", 'red'))

@@ -50,6 +50,6 @@ if __name__ == "__main__":
     try:
         os.unlink(old_list)
         os.unlink(new_list)
-        os.unlink("%s.diff" % results)
+        os.unlink(results)
     except:
         pass

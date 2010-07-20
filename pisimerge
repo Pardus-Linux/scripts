@@ -1,5 +1,20 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+#
+# This program is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by the
+# Free Software Foundation; either version 2 of the License, or (at your
+# option) any later version. Please read the COPYING file.
+#
+# A tool for merging packages easily between Pardus repositories.
+#
+# Authors:
+#   Ozan Çağlayan   <ozan_at_pardus.org.tr>
+#   Gökçen Eraslan  <gokcen_at_pardus.org.tr>
+
+"""
+A tool for merging packages easily between Pardus repositories.
+"""
 
 import os
 import sys
@@ -10,10 +25,13 @@ import subprocess
 from optparse import OptionParser
 
 def handle_user_choice(info):
+    """Asks the user what to do right now."""
+
     editor = os.environ.get("EDITOR", "vi")
 
     while True:
-        print "\nSelect one of the following:\n\t[D]iff, [M]erge, [E]dit, [A]bort?"
+        print "\nSelect one of the following:\n\t"\
+        "[D]iff, [M]erge, [E]dit, [A]bort?"
         choice = raw_input().lower()
         if choice.startswith("d"):
             # Show diff
@@ -27,26 +45,35 @@ def handle_user_choice(info):
             # Abort
             return False
 
-def get_latest_change(path):
-    os.system("svn up %s" % path)
-    return int(os.popen("svn info %s | grep 'Last Changed Rev'" % path).read().strip().split(": ")[1])
+def get_latest_change(ppath):
+    """Gets the latest change from the path."""
 
-def get_merge_log(path, rev):
-    os.system("svn up devel/%s" % path)
-    p = piksemel.parseString(os.popen("svn log --xml -r %d:HEAD devel/%s" % (rev, path)).read())
+    os.system("svn up %s" % ppath)
+    ccmd = "svn info %s | grep 'Last Changed Rev'" % ppath
+    return int(os.popen(ccmd).read().strip().split(": ")[1])
+
+def get_merge_log(ppath, rev):
+    """Generates a merge log for the path@rev."""
+
+    os.system("svn up %s" % ppath)
+    ccmd = "svn log --xml -r %d:HEAD %s" % (rev, ppath)
+    print ccmd
+    log_xml = piksemel.parseString(os.popen(ccmd).read())
 
     merge_log = """\
-Merge from devel/%s:
+Merge from %s:
 
-""" % path
+""" % ppath
 
-    for log in p.root().tags():
+    for log in log_xml.root().tags():
         rev = log.getAttribute('revision')
-        msg = log.getTagData('msg') or "<Empty log message detected! Don't speak with this author anymore.>"
+        msg = log.getTagData('msg') or \
+            "<Empty log message, please warn the author.>"
         date = log.getTagData('date')
         author = log.getTagData('author')
 
-        merge_log += "rev. %s, by %s on %s\n%s\n\n" % (rev, author, date[:10], msg.rstrip("\n"))
+        merge_log += "rev. %s, by %s on %s\n%s\n\n" % \
+                (rev, author, date[:10], msg.rstrip("\n"))
 
     return merge_log.rstrip("\n")
 
@@ -55,19 +82,28 @@ if __name__ == "__main__":
     locale.setlocale(locale.LC_ALL, "C")
     tmp_files = {}
 
-
-    note = """You have to run this in pardus/200x folder which contains the stable and devel sub-folders.
-\nExample: %s devel/kernel/default/kernel\n\ncommand will merge the differences of that package from the stable
-to the stable repository with a nice commit log.""" % sys.argv[0]
+    note = """\
+You have to run this in pardus/200x folder which contains the
+stable and devel sub-folders.
+\nExample: %s devel/kernel/default/kernel\n\ncommand will merge
+the differences of that package from the stable to the stable
+repository with a nice commit log.
+""" % sys.argv[0]
 
     usage = "%%prog [options] path1 [path2...] \n\nWarning! %s" % note
     parser = OptionParser(usage)
-    parser.add_option("-m", "--message", dest="message", help="Commit message for merge operation")
-    parser.add_option("-y", "--yes-all", dest="yesAll", default=False, action="store_true", help="Answer 'Merge' to all questions")
+    parser.add_option("-y", "--yes-all", dest="yesAll",
+                      default=False,
+                      action="store_true",
+                      help="Answer 'Merge' to all questions")
+    parser.add_option("-m", "--message", dest="message",
+                      help="Commit message for merge operation")
+    parser.add_option("-t", "--target", dest="target",
+                      help="Target repository to which changes will be applied")
 
     (options, paths) = parser.parse_args()
 
-    #no path given
+    # No path given
     if len(paths) == 0:
         parser.print_help()
         sys.exit()
@@ -76,63 +112,80 @@ to the stable repository with a nice commit log.""" % sys.argv[0]
         if len(paths) > 1:
             print "* Processing %s..." % p
 
-        path = p.split("devel/", 1)[1] if p.startswith("devel/") else p
+        # path becomes system/base/pam if it was devel/system/base/pam
 
-        os.system("svn up devel/%s stable/%s" % (path, path))
-        if not os.path.exists("stable/%s" % path):
+        target = options.target
+        src = p
+        dest = ""
+
+        if target:
+            # Merge to the specified folder
+            dest = "%s/%s" % (target, "/".join(p.split("/")[1:]))
+            path = p
+            print "***** %s %s" % (src, dest)
+        else:
+            path = p.split("devel/", 1)[1] if p.startswith("devel/") else p
+            src = "devel/%s" % path
+            dest = "stable/%s" % path
+
+
+        os.system("svn up %s %s" % (src, dest))
+
+        if not os.path.exists(dest):
             # New package
+            print "\nCopying from %s.." % src
 
-            print "\nCopying from devel/%s.." % path
-            os.system("svn cp devel/%s stable/%s" % (path, path))
+            os.system("svn cp %s %s" % (src, dest))
 
             if not options.message:
-                os.system("svn ci stable/%s -m 'Ready for stable'" % path)
+                os.system("svn ci %s -m 'Package is ready.'" % dest)
             else:
-                os.system("svn ci stable/%s -m '%s'" % (path, options.message))
+                os.system("svn ci %s -m '%s'" % (dest, options.message))
 
         else:
-            latest = get_latest_change("stable/%s" % path)
+            latest = get_latest_change(dest)
+            cmd = "svn diff -r %d:HEAD %s" % (latest, src)
+            diff_result = os.popen(cmd).read().strip()
 
-            diffResult = os.popen("svn diff -r %d:HEAD devel/%s" % (latest, path)).read().strip()
-
-            if diffResult == '':
-                print "* Warning! '%s' path seems to be merged already. Skipping..." % path
+            if not diff_result:
+                print "WARNING: Skipping '%s' is it's probably merged." % src
 
             else:
                 if not options.message:
-                    merge_msg = get_merge_log(path, latest)
+                    merge_msg = get_merge_log(src, latest)
                 else:
                     merge_msg = options.message
 
                 tmp_files.clear()
 
                 # Generate safe temporary files
-                (m_fd, tmp_files["merge"]) = tempfile.mkstemp(prefix='pisimerge')
-                (d_fd, tmp_files["diff"]) = tempfile.mkstemp(prefix='pisimerge')
+                m_fd, tmp_files["merge"] = tempfile.mkstemp(prefix='pisimerge')
+                d_fd, tmp_files["diff"] = tempfile.mkstemp(prefix='pisimerge')
 
                 # Save merge message
                 open(tmp_files["merge"], "w").write(merge_msg)
 
                 # Save diff
-                open(tmp_files["diff"], "w").write(diffResult)
+                open(tmp_files["diff"], "w").write(diff_result)
 
                 # Dump details
-                merge_msg += "\n\n---\n%s" % os.popen("diffstat -q %s" % tmp_files["diff"]).read()
+                cmd = "diffstat -q %s" % tmp_files["diff"]
+                merge_msg += "\n\n---\n%s" % os.popen(cmd).read()
                 print "\n%s" % merge_msg
 
                 # Handle user choice
                 if options.yesAll or handle_user_choice(tmp_files):
-                    print "\nMerging from devel/%s.." % path
-                    merge_cmd = "svn merge -r %d:HEAD devel/%s stable/%s" %  (latest, path, path)
-                    commit_cmd = "svn ci stable/%s -F %s" % (path, tmp_files["merge"])
-                    os.system(merge_cmd)
-                    os.system(commit_cmd)
+                    print "\nMerging from %s.." % src
+                    mr_cmd = "svn merge -r %d:HEAD %s %s" % (latest, src, dest)
+                    ci_cmd = "svn ci %s -F %s" % (dest, tmp_files["merge"])
+                    os.system(mr_cmd)
+                    os.system(ci_cmd)
 
                 # Clean temporary files
                 for tmp in tmp_files.values():
                     try:
                         os.unlink(tmp)
-                    except:
+                    except OSError:
                         pass
 
         if p != paths[-1]:

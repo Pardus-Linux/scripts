@@ -1,6 +1,11 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+"""\
+checklib analyzes and dumps a report for the shared dependencies
+of ELF shared libraries or executables.
+"""
+
 import os
 import re
 import sys
@@ -13,106 +18,36 @@ import subprocess
 
 from optparse import OptionParser
 
-installdb = pisi.db.installdb.InstallDB()
+# PiSi objects
+INSTALLDB = pisi.db.installdb.InstallDB()
+CONSTANTS = pisi.constants.Constants()
+CONFIG = pisi.config.Config()
 
 VERBOSE = False
+SHOWSYSTEMBASE = False
 
-# Outputs the undefined symbols and unused direct dependencies of every installed package or the packages
-# given through the command line.
+###
+### Helper functions
+###
+
 
 def printv(msg):
+    """Prints the message if verbose mode is on."""
     if VERBOSE:
         print msg
 
-def get_shared_objects(package='', directory=None):
-    """Returns the list of shared objects in a directory or in an installed package."""
-    ms = magic.open(magic.MAGIC_NONE)
-    ms.load()
-    shared_objects = []
-
-    if directory:
-        files = os.popen("find %s" % directory).read().strip().split("\n")
+def print_header(msg):
+    """Print the message in green color with an underline."""
+    retval = "%s\n%s\n" % (msg, '-'*len(msg))
+    if sys.stdout.isatty():
+        print "\x1b[32;01m%s\x1b[0m" % retval
     else:
-        files = set([os.path.realpath("/"+f.path) for f in installdb.get_files(package).list])
+        print retval
 
-    print "Searching for shared objects.."
-
-    for f in files:
-        fileinfo = ms.file(f)
-        if "SB shared object" in fileinfo or "SB executable" in fileinfo:
-            printv("  %s" % f)
-            shared_objects.append(f)
-
-    print "Found %d objects" % len(shared_objects)
-
-    ms.close()
-    return shared_objects
-
-def get_install_dir_for_package():
-    if os.path.exists("pspec.xml"):
-        spec = pisi.specfile.SpecFile("pspec.xml")
-        install_dir = "/var/pisi/%s-%s-%s/install" % (spec.source.name, spec.history[0].version, spec.history[0].release)
-        if os.path.exists(install_dir):
-            return install_dir
-
-def get_needed_objects(f, ldpaths="", unused=False, undefined=False):
-    """Returns the NEEDED objects for f including the additional LDPATHs."""
-
-    def parse_unused(s):
-        if s:
-            return [l.strip() for l in s.replace("\t", "").split("\n") if l][1:]
-
-    def parse_undefs(s):
-        if s:
-            return [re.sub("^undefined symbol: (.*)\((.*)\)$", "\\1", l) \
-                    for l in s.replace("\t", "").split("\n") if l.startswith("undefined symbol:")]
-
-
-    objs = [l.strip().split()[1] for l in os.popen("objdump -p \"%s\" | grep 'NEEDED'" % f).readlines()]
-
-    # Get full path to the objects
-    ldd_delim = "=>"
-    broken = []
-    filemap = {}
-    unuseds = []
-    undefineds = []
-    env = os.environ
-
-    if ldpaths:
-        env.update({'LD_LIBRARY_PATH': ":".join(ldpaths)})
-
-    ldd_output = subprocess.Popen(["ldd", f], stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=env).communicate()[0].strip().split("\n")
-
-    if unused or undefined:
-        ldd_ur_output = subprocess.Popen(["ldd", "-u", "-r", f],
-                                         stdout=subprocess.PIPE,
-                                         stderr=subprocess.PIPE,
-                                         env=env).communicate()[0].strip()
-        if unused:
-            unuseds = parse_unused(ldd_ur_output)
-        if undefined:
-            undefineds = parse_undefs(ldd_ur_output)
-
-    for l in [_l for _l in ldd_output if ldd_delim in _l]:
-        # Filter these special objects
-        if "linux-gate" in l or "ld-linux" in l or "linux-vdso" in l:
-            continue
-
-        ls = l.split(ldd_delim)
-
-        if "not found" in ls[1]:
-            # One of the dynamic dependencies is missing
-            broken.append(ls[0].strip())
-        else:
-            filemap[ls[0].strip()] = ls[1].split(" (")[0].strip()
-
-    objs = map(lambda x: os.popen("readlink -f %s" % filemap[x]).read().strip() if filemap.has_key(x) else x, objs)
-    return (objs, unuseds, undefineds, broken)
-
-def get_pisi_package(f):
-    """Returns the name of the PiSi package containing the file f."""
+def get_pisi_package(file_name):
+    """Returns the name of the PiSi package containing the file file_name."""
     try:
-        return pisi.api.search_file(f)[0][0]
+        return pisi.api.search_file(file_name)[0][0]
     except:
         return "Deleted or not provided by a pisi package"
 
@@ -128,31 +63,139 @@ def get_systembase_packages():
 
     return packages
 
-def check_installed_package(options, package):
+def get_install_dir_for_package():
+    """Returns the install directory of a package under /var/pisi."""
+    if os.path.exists("pspec.xml"):
+        pspec = pisi.specfile.SpecFile("pspec.xml")
+        install_dir = "%s/%s-%s-%s%s" % (CONFIG.tmp_dir(),
+                                         pspec.source.name,
+                                         pspec.history[0].version,
+                                         pspec.history[0].release,
+                                         CONSTANTS.install_dir_suffix)
+        if os.path.exists(install_dir):
+            return install_dir
+
+###
+### Core functionality
+###
+
+def get_shared_objects(package='', directory=None):
+    """Returns the list of shared objects in a
+       directory or in an installed package."""
+    shared_objects = []
+
+    magic_db = magic.open(magic.MAGIC_NONE)
+    magic_db.load()
+
+    if directory:
+        printv("Searching directory %s.." % directory)
+        files = os.popen("find %s" % directory).read().strip().split("\n")
+    else:
+        files = set([os.path.realpath("/%s" % file_name.path) \
+                for file_name in INSTALLDB.get_files(package).list])
+
+    print "Searching for shared objects.."
+
+    for file_name in files:
+        file_info = magic_db.file(file_name)
+        if "LSB shared object" in file_info or "LSB executable" in file_info:
+            printv("  %s" % file_name)
+            shared_objects.append(file_name)
+
+    print "Found %d objects" % len(shared_objects)
+
+    magic_db.close()
+    return shared_objects
+
+def get_needed_objects(file_name, ld_library_paths=[]):
+    """Returns the NEEDED objects for f including the additional LDPATHs."""
+
+    def parse_unused(output):
+        """Parses unused direct dependencies from ldd -u -r output."""
+        if output:
+            return [line.strip() for line in \
+                    output.replace("\t", "").split("\n") if line][1:]
+
+    def parse_undefs(output):
+        """Parses undefined symbols from ldd -u -r output."""
+        if output:
+            return [re.sub("^undefined symbol: (.*)\((.*)\)$", "\\1", line) \
+                    for line in output.replace("\t", "").split("\n") \
+                    if line.startswith("undefined symbol:")]
+
+
+    objs = [line.strip().split()[1] for line in \
+            os.popen("objdump -p \"%s\" | grep 'NEEDED'" % file_name).readlines()]
+
+    # Get full path to the objects
+    broken = []
+    filemap = {}
+    unuseds = []
+    undefineds = []
+    env = os.environ
+
+    if ld_library_paths:
+        env.update({'LD_LIBRARY_PATH': ":".join(ld_library_paths)})
+
+    ldd_output = subprocess.Popen(["ldd", file_name],
+                                  stdout=subprocess.PIPE,
+                                  stderr=subprocess.PIPE,
+                                  env=env).communicate()[0].strip().split("\n")
+
+    ldd_ur_output = subprocess.Popen(["ldd", "-u", "-r", file_name],
+                                     stdout=subprocess.PIPE,
+                                     stderr=subprocess.PIPE,
+                                     env=env).communicate()[0].strip()
+
+    unuseds = parse_unused(ldd_ur_output)
+    undefineds = parse_undefs(ldd_ur_output)
+
+    for line in ldd_output:
+        if "=>" in line:
+            # Filter these special objects
+            if "linux-gate" in line or \
+                    "ld-linux" in line or "linux-vdso" in line:
+                continue
+
+            so_name, so_path = line.split("=>")
+
+            if "not found" in so_path:
+                # One of the dynamic dependencies is missing
+                broken.append(so_name.strip())
+            else:
+                filemap[so_name.strip()] = so_path.split(" (")[0].strip()
+
+    # FIXME
+    objs = map(lambda x: os.popen("readlink -f %s" % filemap[x]).read().strip() \
+            if filemap.has_key(x) else x, objs)
+    return (objs, unuseds, undefineds, broken)
+
+def check_installed_package(package):
     """Check for an installed package."""
     dependencies = {}
     undefineds = {}
     unuseds = {}
     brokens = set()
-    objects = get_shared_objects(package=package)
 
-    written_deps = [dep.name() for dep in pisi.db.installdb.InstallDB().get_package(package).runtimeDependencies()]
+    # When an installed package is checked we only care
+    # about its runtime dependencies.
+    written_deps = [dep.name() for dep \
+            in INSTALLDB.get_package(package).runtimeDependencies()]
 
-    for obj in objects:
+    for obj in get_shared_objects(package=package):
         needed_tuples = []
-        objs, unused, undefined, broken = get_needed_objects(obj, unused=options.unused, undefined=options.undefined)
+        objs, unused, undefined, broken = get_needed_objects(obj)
         unuseds.update(dict([(obj, unused)]))
         undefineds.update(dict([(obj, undefined)]))
         brokens.update(broken)
         for needed in objs:
-            depname = get_pisi_package(needed)
             needed_tuples.append((needed, get_pisi_package(needed)))
 
         dependencies[obj] = needed_tuples
 
     return (dependencies, unuseds, undefineds, written_deps, brokens)
 
-def check_outoftree_package(options, package_name, pisi_file=None):
+def check_standalone_package(package_name, pisi_file=None):
     """Traverses install_dir for the package to analyze dependencies."""
     if not pisi_file:
         # Checking the package in CWD
@@ -162,8 +205,14 @@ def check_outoftree_package(options, package_name, pisi_file=None):
             sys.exit(1)
 
         # Collect all the written runtime dependencies
-        written_deps = sum([[dep.name() for dep in pkg.runtimeDependencies()] \
-                for pkg in pisi.specfile.SpecFile('pspec.xml').packages], [])
+        # classified by possible sub packages
+        written_deps = {}
+        pspec = pisi.specfile.SpecFile("pspec.xml")
+        for pkg in pspec.packages:
+            written_deps[pkg] = [dep.name() for dep in \
+                    pkg.runtimeDependencies()]
+
+        #written_deps = sum(all_dependencies.values(), [])
     else:
         # Checking a .pisi file, unpack it to somewhere
         if os.path.exists(pisi_file):
@@ -174,7 +223,8 @@ def check_outoftree_package(options, package_name, pisi_file=None):
             pisi_package.extract_install(install_dir)
 
             # Parse runtime dependencies from metadata.xml
-            written_deps = [dep.name() for dep in pisi_package.get_metadata().package.runtimeDependencies()]
+            written_deps = [dep.name() for dep in \
+                    pisi_package.get_metadata().package.runtimeDependencies()]
 
 
     objects = get_shared_objects(directory=install_dir)
@@ -184,17 +234,18 @@ def check_outoftree_package(options, package_name, pisi_file=None):
     broken = []
 
     # Handle LDPATHs in /var/pisi
-    ldpaths = set()
+    ld_library_paths = set()
     for obj in objects:
         if obj.endswith(".so") or ".so." in obj:
-            ldpaths.add(os.path.dirname(obj))
+            ld_library_paths.add(os.path.dirname(obj))
 
     for obj in objects:
-        printv("Analyzing %s" % obj)
         needed_tuples = []
-        objs, unused, undefined, broken = get_needed_objects(obj, list(ldpaths), unused=options.unused, undefined=options.undefined)
-        unuseds.update(dict([(obj, unused)]))
-        undefineds.update(dict([(obj, undefined)]))
+
+        printv("Analyzing %s" % obj)
+        objs, unused, undefined, broken = get_needed_objects(obj, list(ld_library_paths))
+        unuseds.update(dict([(object, unused)]))
+        undefineds.update(dict([(object, undefined)]))
         for needed in objs:
             if needed in objects:
                 # object is shipped within this package
@@ -212,80 +263,84 @@ def check_outoftree_package(options, package_name, pisi_file=None):
 
     return (dependencies, unuseds, undefineds, written_deps, broken)
 
-def format_output(dep_dict, colorize=True):
+def format_output(dep_dict):
     """Pretty print the results in the dep_dict dictionary."""
-    def _colorize(msg, color):
+    def colorize(msg, color):
+        """Colorizes the given message."""
         colors = {'green'   : '\x1b[32;01m%s\x1b[0m',
                   'red'     : '\x1b[31;01m%s\x1b[0m',
                   'yellow'  : '\x1b[33;01m%s\x1b[0m',
                   'none'    : '\x1b[0m%s\x1b[0m',
                  }
-        return colors[color if colorize else 'none'] % msg
+        return colors[color if sys.stdout.isatty() else 'none'] % msg
 
     # If empty, return
-    if len(sum([l for l in dep_dict.values()], [])) == 0:
+    if len(sum([line for line in dep_dict.values()], [])) == 0:
         print "Clean\n"
         return
 
     for filename, filedatas in dep_dict.items():
         if filedatas:
-            print _colorize(filename, 'red')
+            print colorize(filename, 'red')
             for fdata in filedatas:
-                if type(fdata)==types.TupleType:
-                    print " > %s [%s]" % (_colorize(fdata[0], 'none'), _colorize(fdata[1], 'yellow'))
+                if type(fdata) == types.TupleType:
+                    print " > %s [%s]" % (colorize(fdata[0], 'none'), colorize(fdata[1], 'yellow'))
                 else:
-                    print " > %s" % _colorize(fdata, 'none')
+                    print " > %s" % colorize(fdata, 'none')
 
             print
 
-def print_header(msg, colorize):
-    """Print the message in green color with an underline."""
-    s = "%s\n%s\n" % (msg, '-'*len(msg))
-    if colorize:
-        print "\x1b[32;01m%s\x1b[0m" % s
-    else:
-        print s
-
-def print_results(ds, package_name, options, colorize=True):
+def print_results(ds, package_name):
     """Print results."""
     systembase = get_systembase_packages()
 
-    if options.unused and ds[1]:
+    if ds[1]:
         # Dump unused analysis results
-        print_header("Unused direct dependency analysis:", colorize)
-        for k,v in ds[1].items():
+        print_header("Unused direct dependency analysis:")
+        for k, v in ds[1].items():
             # Spot broken ones and mark them
             ds[1][k] = map(lambda x: ("%s (broken)" % x) if x in ds[4] else x, v)
 
-        format_output(ds[1], colorize)
+        format_output(ds[1])
 
-    if options.undefined and ds[2]:
+    if ds[2]:
         # Dump undefined symbol analysis results
-        print_header("Undefined symbol analysis:", colorize)
-        format_output(ds[2], colorize)
+        print_header("Undefined symbol analysis:")
+        format_output(ds[2])
 
-    print_header("Total direct dependencies:", colorize)
+    print_header("Total direct dependencies:")
 
-    if options.verbose:
-        format_output(ds[0], colorize)
+    if VERBOSE:
+        format_output(ds[0])
     else:
         deps = set()
         for needed in ds[0].values():
-            deps = deps.union(set(filter(lambda x: (x not in systembase) or (options.systembase and x in systembase), [d[1] for d in needed])))
+            # FIXME
+            deps = deps.union(set(filter(lambda x: (x not in systembase) or (SHOWSYSTEMBASE and x in systembase), [d[1] for d in needed])))
         if deps:
             # Dump the dependencies (as pisi packages)
-            missing_deps = sorted([mdep for mdep in set(deps).difference(ds[3])])
+            if isinstance(ds[3], list):
+                missing_deps = sorted([mdep for mdep in \
+                        set(deps).difference(ds[3])])
+            elif isinstance(ds[3], dict):
+                # A package which has sub packages
+                missing_deps = sorted([mdep for mdep in \
+                        set(deps).difference(sum(ds[3].values(), []))])
 
             # Filter out self dependency
             if package_name in missing_deps:
                 missing_deps.remove(package_name)
 
             if missing_deps:
-                print "\n".join(["%s (missing)" % p for p in missing_deps])
-            print "\n".join([odep for odep in sorted(set(deps).difference(missing_deps))])
+                print "\n".join(["Missing dependency %s" % package \
+                        for package in missing_deps])
+                print
+            print "\n".join([odep for odep in \
+                    sorted(set(deps).difference(missing_deps))])
 
-###
-if __name__ == "__main__":
+
+def main():
+    """Entry point for checklib."""
 
     # Command-line parsing
     parser = OptionParser()
@@ -296,18 +351,6 @@ if __name__ == "__main__":
                       default=False,
                       help="Dump per-file dependency information")
 
-    parser.add_option("-u", "--print-unused",
-                      action="store_true",
-                      dest="unused",
-                      default=False,
-                      help="Dump per-file unused direct dependencies")
-
-    parser.add_option("-n", "--print-undefined",
-                      action="store_true",
-                      dest="undefined",
-                      default=False,
-                      help="Dump per-file undefined symbols")
-
     parser.add_option("-s", "--show-system-base",
                       action="store_true",
                       dest="systembase",
@@ -315,30 +358,41 @@ if __name__ == "__main__":
                       help="Show system.base dependencies")
 
     (options, packages) = parser.parse_args()
-    VERBOSE = options.verbose
 
-    redirected = not sys.stdout.isatty()
-    package_name = ""
+    global VERBOSE
+    global SHOWSYSTEMBASE
+    VERBOSE = options.verbose
+    SHOWSYSTEMBASE = options.systembase
+
     depdict = {}
 
     if packages:
         # An argument is passed which could be an installed package name or a *.pisi file
         if packages[0].endswith(".pisi"):
             package_name = pisi.util.parse_package_name(packages[0])[0]
-            depdict, unuseds, undefineds, written_deps, broken_deps = check_outoftree_package(options, package_name, packages[0])
-        elif packages[0] in installdb.list_installed():
+            # FIXME: weird usage
+            depdict, unuseds, undefineds, written_deps, broken_deps = check_standalone_package(package_name, packages[0])
+        elif packages[0] in INSTALLDB.list_installed():
             package_name = packages[0]
-            depdict, unuseds, undefineds, written_deps, broken_deps = check_installed_package(options, packages[0])
+            depdict, unuseds, undefineds, written_deps, broken_deps = check_installed_package(package_name)
 
     else:
-        # else, check for the package that you've just build e.g. working directory
+        # Check for the package that you've
+        # just build e.g. working directory
         package_name = os.path.basename(os.getcwd())
-        depdict, unuseds, undefineds, written_deps, broken_deps = check_outoftree_package(options, package_name)
+        depdict, unuseds, undefineds, written_deps, broken_deps = check_standalone_package(package_name)
 
     if not depdict:
         print "No dependency information."
-        sys.exit(1)
+        return 1
 
     ds = [depdict, unuseds, undefineds, written_deps, broken_deps]
-    print_results(ds, package_name, options, colorize=not redirected)
-    sys.exit(0)
+    print_results(ds, package_name)
+
+    return 0
+
+
+###
+if __name__ == "__main__":
+    sys.exit(main())
+

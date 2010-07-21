@@ -304,9 +304,9 @@ def print_results(depdict, unused, undefined, written_deps, broken_deps, package
     if unused:
         # Dump unused analysis results
         print_header("Unused direct dependency analysis:")
-        for k, v in unused.items():
+        for key, value in unused.items():
             # Spot broken ones and mark them
-            unused[k] = map(lambda x: ("%s (broken)" % x) if x in broken_deps else x, v)
+            unused[key] = map(lambda x: ("%s (broken)" % x) if x in broken_deps else x, value)
 
         format_output(unused)
 
@@ -382,12 +382,11 @@ def main():
         if packages[0].endswith(".pisi"):
             retval = check_standalone_package(packages[0], is_pisi_file=True)
         elif packages[0] in INSTALLDB.list_installed():
-            package_name = packages[0]
-            retval = check_installed_package(package_name)
+            retval = check_installed_package(packages[0])
 
     else:
         # Check for the package that you've
-        # just build e.g. working directory
+        # just built e.g. working directory
         package_name = os.path.basename(os.getcwd())
         retval = check_standalone_package(package_name)
 

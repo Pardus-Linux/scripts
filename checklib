@@ -193,11 +193,12 @@ def check_installed_package(package):
 
         dependencies[obj] = needed_tuples
 
-    return (dependencies, unuseds, undefineds, written_deps, brokens)
+    return print_results(dependencies, unuseds, undefineds, written_deps, brokens, package)
 
-def check_standalone_package(package_name, pisi_file=None):
+def check_standalone_package(package, is_pisi_file=False):
     """Traverses install_dir for the package to analyze dependencies."""
-    if not pisi_file:
+    package_name = package
+    if not is_pisi_file:
         # Checking the package in CWD
         install_dir = get_install_dir_for_package()
         if not install_dir:
@@ -215,11 +216,12 @@ def check_standalone_package(package_name, pisi_file=None):
         #written_deps = sum(all_dependencies.values(), [])
     else:
         # Checking a .pisi file, unpack it to somewhere
-        if os.path.exists(pisi_file):
+        package_name = pisi.util.parse_package_name(package)[0]
+        if os.path.exists(package):
             install_dir = tempfile.mkdtemp(prefix='checklib-')
 
             # Analyze .pisi and extract it
-            pisi_package = pisi.package.Package(pisi_file)
+            pisi_package = pisi.package.Package(package)
             pisi_package.extract_install(install_dir)
 
             # Parse runtime dependencies from metadata.xml
@@ -231,7 +233,7 @@ def check_standalone_package(package_name, pisi_file=None):
     dependencies = {}
     undefineds = {}
     unuseds = {}
-    broken = []
+    brokens = []
 
     # Handle LDPATHs in /var/pisi
     ld_library_paths = set()
@@ -243,7 +245,7 @@ def check_standalone_package(package_name, pisi_file=None):
         needed_tuples = []
 
         printv("Analyzing %s" % obj)
-        objs, unused, undefined, broken = get_needed_objects(obj, list(ld_library_paths))
+        objs, unused, undefined, brokens = get_needed_objects(obj, list(ld_library_paths))
         unuseds.update(dict([(object, unused)]))
         undefineds.update(dict([(object, undefined)]))
         for needed in objs:
@@ -261,7 +263,7 @@ def check_standalone_package(package_name, pisi_file=None):
     if install_dir.startswith("/tmp/"):
         shutil.rmtree(install_dir)
 
-    return (dependencies, unuseds, undefineds, written_deps, broken)
+    return print_results(dependencies, unuseds, undefineds, written_deps, brokens, package_name)
 
 def format_output(dep_dict):
     """Pretty print the results in the dep_dict dictionary."""
@@ -290,42 +292,48 @@ def format_output(dep_dict):
 
             print
 
-def print_results(ds, package_name):
+def print_results(depdict, unused, undefined, written_deps, broken_deps, package_name):
     """Print results."""
+
+    if not depdict:
+        print "No dependency information."
+        return 1
+
     systembase = get_systembase_packages()
 
-    if ds[1]:
+    if unused:
         # Dump unused analysis results
         print_header("Unused direct dependency analysis:")
-        for k, v in ds[1].items():
+        for k, v in unused.items():
             # Spot broken ones and mark them
-            ds[1][k] = map(lambda x: ("%s (broken)" % x) if x in ds[4] else x, v)
+            unused[k] = map(lambda x: ("%s (broken)" % x) if x in broken_deps else x, v)
 
-        format_output(ds[1])
+        format_output(unused)
 
-    if ds[2]:
+    if undefined:
         # Dump undefined symbol analysis results
         print_header("Undefined symbol analysis:")
-        format_output(ds[2])
+        format_output(undefined)
 
     print_header("Total direct dependencies:")
 
     if VERBOSE:
-        format_output(ds[0])
+        format_output(depdict)
     else:
         deps = set()
-        for needed in ds[0].values():
+        for needed in depdict.values():
             # FIXME
-            deps = deps.union(set(filter(lambda x: (x not in systembase) or (SHOWSYSTEMBASE and x in systembase), [d[1] for d in needed])))
+            deps = deps.union(set(filter(lambda x: (x not in systembase) or \
+                    (SHOWSYSTEMBASE and x in systembase), [d[1] for d in needed])))
         if deps:
             # Dump the dependencies (as pisi packages)
-            if isinstance(ds[3], list):
+            if isinstance(written_deps, list):
                 missing_deps = sorted([mdep for mdep in \
-                        set(deps).difference(ds[3])])
-            elif isinstance(ds[3], dict):
+                        set(deps).difference(written_deps)])
+            elif isinstance(written_deps, dict):
                 # A package which has sub packages
                 missing_deps = sorted([mdep for mdep in \
-                        set(deps).difference(sum(ds[3].values(), []))])
+                        set(deps).difference(sum(written_deps.values(), []))])
 
             # Filter out self dependency
             if package_name in missing_deps:
@@ -337,6 +345,8 @@ def print_results(ds, package_name):
                 print
             print "\n".join([odep for odep in \
                     sorted(set(deps).difference(missing_deps))])
+
+    return 0
 
 
 def main():
@@ -365,32 +375,23 @@ def main():
     SHOWSYSTEMBASE = options.systembase
 
     depdict = {}
+    retval = 0
 
     if packages:
         # An argument is passed which could be an installed package name or a *.pisi file
         if packages[0].endswith(".pisi"):
-            package_name = pisi.util.parse_package_name(packages[0])[0]
-            # FIXME: weird usage
-            depdict, unuseds, undefineds, written_deps, broken_deps = check_standalone_package(package_name, packages[0])
+            retval = check_standalone_package(packages[0], is_pisi_file=True)
         elif packages[0] in INSTALLDB.list_installed():
             package_name = packages[0]
-            depdict, unuseds, undefineds, written_deps, broken_deps = check_installed_package(package_name)
+            retval = check_installed_package(package_name)
 
     else:
         # Check for the package that you've
         # just build e.g. working directory
         package_name = os.path.basename(os.getcwd())
-        depdict, unuseds, undefineds, written_deps, broken_deps = check_standalone_package(package_name)
+        retval = check_standalone_package(package_name)
 
-    if not depdict:
-        print "No dependency information."
-        return 1
-
-    ds = [depdict, unuseds, undefineds, written_deps, broken_deps]
-    print_results(ds, package_name)
-
-    return 0
-
+    return retval
 
 ###
 if __name__ == "__main__":

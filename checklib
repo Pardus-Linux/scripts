@@ -50,24 +50,22 @@ def get_pisi_package(file_name):
         return pisi.api.search_file(file_name)[0][0]
     except IndexError:
         # Not found in any package
-        return "%s (probably broken dependency)" file_name
+        return "%s (probably broken dependency)" % file_name
 
 def get_systembase_packages():
     """Returns the list of system.base packages."""
     packages = []
     cdb = pisi.db.componentdb.ComponentDB()
     for repo in pisi.db.repodb.RepoDB().list_repos():
-        try:
+        if cdb.has_component("system.base"):
             packages.extend(cdb.get_packages('system.base', repo))
-        except:
-            pass
 
     return packages
 
 def get_install_dir_for_package():
     """Returns the install directory of a package under /var/pisi."""
-    if os.path.exists("pspec.xml"):
-        pspec = pisi.specfile.SpecFile("pspec.xml")
+    if os.path.exists(CONSTANTS.pspec_file):
+        pspec = pisi.specfile.SpecFile(CONSTANTS.pspec_file)
         install_dir = "%s/%s-%s-%s%s" % (CONFIG.tmp_dir(),
                                          pspec.source.name,
                                          pspec.history[0].version,
@@ -76,24 +74,51 @@ def get_install_dir_for_package():
         if os.path.exists(install_dir):
             return install_dir
 
+def parse_ldd_output(ldd_output):
+    """Parses ldd's output."""
+
+    broken_dependencies = []
+    so_map = {}
+
+    for line in ldd_output:
+        if "=>" in line:
+            # Filter these special objects
+            if "linux-gate" in line or \
+                    "ld-linux" in line or "linux-vdso" in line:
+                continue
+
+            so_name, so_path = line.split("=>")
+
+            if "not found" in so_path:
+                # One of the dynamic dependencies is missing
+                broken_dependencies.append(so_name.strip())
+            else:
+                so_map[so_name.strip()] = so_path.split(" (")[0].strip()
+
+    return broken_dependencies, so_map
+
+
 ###
 ### Core functionality
 ###
 
-def get_shared_objects(package='', directory=None):
-    """Returns the list of shared objects in a
-       directory or in an installed package."""
+def get_elf_files(where, is_directory=False):
+    """
+    Returns the list of ELF files in a directory/installed package:
+    ['/usr/lib/libfoo.so.3', '/usr/bin/foo-cli']
+    """
+
     shared_objects = []
 
     magic_db = magic.open(magic.MAGIC_NONE)
     magic_db.load()
 
-    if directory:
-        printv("Searching directory %s.." % directory)
-        files = os.popen("find %s" % directory).read().strip().split("\n")
+    if is_directory:
+        printv("Searching directory %s.." % where)
+        files = os.popen("find %s" % where).read().strip().split("\n")
     else:
         files = set([os.path.realpath("/%s" % file_name.path) \
-                for file_name in INSTALLDB.get_files(package).list])
+                for file_name in INSTALLDB.get_files(where).list])
 
     print "Searching for shared objects.."
 
@@ -108,8 +133,8 @@ def get_shared_objects(package='', directory=None):
     magic_db.close()
     return shared_objects
 
-def get_needed_objects(file_name, ld_library_paths=[]):
-    """Returns the NEEDED objects for f including the additional LDPATHs."""
+def get_needed_objects(file_name, ld_library_paths=None):
+    """Returns the NEEDED objects for file_name including the additional LDPATHs."""
 
     def parse_unused(output):
         """Parses unused direct dependencies from ldd -u -r output."""
@@ -125,17 +150,16 @@ def get_needed_objects(file_name, ld_library_paths=[]):
                     if line.startswith("undefined symbol:")]
 
 
+    # Use objdump for DT_NEEDED parsing
     objs = [line.strip().split()[1] for line in \
             os.popen("objdump -p \"%s\" | grep 'NEEDED'" % file_name).readlines()]
 
     # Get full path to the objects
-    broken = []
-    filemap = {}
     unuseds = []
     undefineds = []
     env = os.environ
 
-    if ld_library_paths:
+    if ld_library_paths is not None:
         env.update({'LD_LIBRARY_PATH': ":".join(ld_library_paths)})
 
     ldd_output = subprocess.Popen(["ldd", file_name],
@@ -151,25 +175,16 @@ def get_needed_objects(file_name, ld_library_paths=[]):
     unuseds = parse_unused(ldd_ur_output)
     undefineds = parse_undefs(ldd_ur_output)
 
-    for line in ldd_output:
-        if "=>" in line:
-            # Filter these special objects
-            if "linux-gate" in line or \
-                    "ld-linux" in line or "linux-vdso" in line:
-                continue
 
-            so_name, so_path = line.split("=>")
 
-            if "not found" in so_path:
-                # One of the dynamic dependencies is missing
-                broken.append(so_name.strip())
-            else:
-                filemap[so_name.strip()] = so_path.split(" (")[0].strip()
+    broken_dependencies, so_map = parse_ldd_output(ldd_output)
+
 
     # FIXME
-    objs = map(lambda x: os.popen("readlink -f %s" % filemap[x]).read().strip() \
-            if filemap.has_key(x) else x, objs)
-    return (objs, unuseds, undefineds, broken)
+    objs = map(lambda x: os.popen("readlink -f %s" % so_map[x]).read().strip() \
+            if so_map.has_key(x) else x, objs)
+
+    return (objs, unuseds, undefineds, broken_dependencies)
 
 def check_installed_package(package):
     """Check for an installed package."""
@@ -178,21 +193,22 @@ def check_installed_package(package):
     unuseds = {}
     brokens = set()
 
-    # When an installed package is checked we only care
+    # When an installed package is checked, we only care
     # about its runtime dependencies.
     written_deps = [dep.name() for dep \
             in INSTALLDB.get_package(package).runtimeDependencies()]
 
-    for obj in get_shared_objects(package=package):
+    for shobj in get_elf_files(package):
+        # shobj is full path to an ELF file
         needed_tuples = []
-        objs, unused, undefined, broken = get_needed_objects(obj)
-        unuseds.update(dict([(obj, unused)]))
-        undefineds.update(dict([(obj, undefined)]))
+        shobjs, unused, undefined, broken = get_needed_objects(shobj)
+        unuseds.update(dict([(shobj, unused)]))
+        undefineds.update(dict([(shobj, undefined)]))
         brokens.update(broken)
-        for needed in objs:
+        for needed in shobjs:
             needed_tuples.append((needed, get_pisi_package(needed)))
 
-        dependencies[obj] = needed_tuples
+        dependencies[shobj] = needed_tuples
 
     return print_results(dependencies, unuseds, undefineds, written_deps, brokens, package)
 
@@ -209,7 +225,7 @@ def check_standalone_package(package, is_pisi_file=False):
         # Collect all the written runtime dependencies
         # classified by possible sub packages
         written_deps = {}
-        pspec = pisi.specfile.SpecFile("pspec.xml")
+        pspec = pisi.specfile.SpecFile(CONSTANTS.pspec_file)
         for pkg in pspec.packages:
             written_deps[pkg] = [dep.name() for dep in \
                     pkg.runtimeDependencies()]
@@ -230,7 +246,7 @@ def check_standalone_package(package, is_pisi_file=False):
                     pisi_package.get_metadata().package.runtimeDependencies()]
 
 
-    objects = get_shared_objects(directory=install_dir)
+    objects = get_elf_files(install_dir, is_directory=True)
     dependencies = {}
     undefineds = {}
     unuseds = {}
@@ -238,18 +254,18 @@ def check_standalone_package(package, is_pisi_file=False):
 
     # Handle LDPATHs in /var/pisi
     ld_library_paths = set()
-    for obj in objects:
-        if obj.endswith(".so") or ".so." in obj:
-            ld_library_paths.add(os.path.dirname(obj))
+    for shobj in objects:
+        if shobj.endswith(".so") or ".so." in shobj:
+            ld_library_paths.add(os.path.dirname(shobj))
 
-    for obj in objects:
+    for shobj in objects:
         needed_tuples = []
 
-        printv("Analyzing %s" % obj)
-        objs, unused, undefined, brokens = get_needed_objects(obj, list(ld_library_paths))
-        unuseds.update(dict([(object, unused)]))
-        undefineds.update(dict([(object, undefined)]))
-        for needed in objs:
+        printv("Analyzing %s" % shobj)
+        shobjs, unused, undefined, brokens = get_needed_objects(shobj, list(ld_library_paths))
+        unuseds.update(dict([(shobj, unused)]))
+        undefineds.update(dict([(shobj, undefined)]))
+        for needed in shobjs:
             if needed in objects:
                 # object is shipped within this package
                 depname = package_name
@@ -258,7 +274,7 @@ def check_standalone_package(package, is_pisi_file=False):
 
             needed_tuples.append((needed, depname))
 
-        dependencies[obj] = needed_tuples
+        dependencies[shobj] = needed_tuples
 
     # Cleanup temporary directory
     if install_dir.startswith("/tmp/"):
@@ -375,12 +391,11 @@ def main():
     VERBOSE = options.verbose
     SHOWSYSTEMBASE = options.systembase
 
-    depdict = {}
     retval = 0
 
     if packages:
         # An argument is passed which could be an installed package name or a *.pisi file
-        if packages[0].endswith(".pisi"):
+        if packages[0].endswith(CONSTANTS.package_suffix):
             retval = check_standalone_package(packages[0], is_pisi_file=True)
         elif packages[0] in INSTALLDB.list_installed():
             retval = check_installed_package(packages[0])

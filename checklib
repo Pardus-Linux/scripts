@@ -48,8 +48,9 @@ def get_pisi_package(file_name):
     """Returns the name of the PiSi package containing the file file_name."""
     try:
         return pisi.api.search_file(file_name)[0][0]
-    except:
-        return "Deleted or not provided by a pisi package"
+    except IndexError:
+        # Not found in any package
+        return "%s (probably broken dependency)" file_name
 
 def get_systembase_packages():
     """Returns the list of system.base packages."""

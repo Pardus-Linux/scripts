@@ -1,0 +1,65 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+# A script to check if packages history tag is in the future
+# Currently comparison is done with current date, modify if you prefer something else
+#
+
+import os
+import time
+import sys
+import piksemel
+import bz2
+
+
+def dateIsAfter(timeNow, timeTest):
+    return time.strptime(timeNow, "%Y-%m-%d") < time.strptime(timeTest, "%Y-%m-%d")
+
+def getXmlData(_file):
+    if _file.endswith(".bz2"):
+        indexdata = bz2.decompress(open(_file).read())
+        return piksemel.parseString(indexdata)
+
+    else:
+        return piksemel.parse(_file)
+
+def parseXmlData(_index):
+    pkgdict = {}
+    hasSpecFile = _index.getTag("SpecFile")
+
+    if hasSpecFile:
+        for parent in _index.tags("SpecFile"):
+            pkgname = parent.getTag("Source").getTagData("Name")
+
+            lastRelease = parent.getTag("History").tags("Update").next()
+            lastDate = lastRelease.getTagData("Date")
+
+            pkgdict[pkgname] = lastDate
+
+    else:
+        for parent in _index.tags("Package"):
+            pkgname = parent.getTagData("Name")
+
+            lastRelease = parent.getTag("History").tags("Update").next()
+            lastDate = lastRelease.getTagData("Date")
+
+            pkgdict[pkgname] = lastDate
+
+    return pkgdict
+
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2 or not os.path.exists(sys.argv[1]):
+        print "please give a valid pisi-index.xml file as parameter"
+        sys.exit(1)
+
+    currentTime = time.strftime("%Y-%m-%d", time.gmtime())
+    print "*** Current time is %s\n" % currentTime
+
+    ix = getXmlData(sys.argv[1])
+    pkgDates = parseXmlData(ix)
+
+    for i in pkgDates:
+        if dateIsAfter(currentTime, pkgDates[i]):
+            print "%s looks in future: %s" % (i, pkgDates[i])
+

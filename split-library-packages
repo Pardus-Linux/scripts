@@ -48,7 +48,7 @@ def split_devel_package(package_name):
             <Name>%s</Name>
             <Email>%s</Email>
         </Update>
-    """
+"""
 
     addition = """\
     <Package>

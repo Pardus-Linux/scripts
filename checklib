@@ -137,18 +137,26 @@ def get_needed_objects(file_name, ld_library_paths=None):
     """Returns the NEEDED objects for file_name including the additional LDPATHs."""
 
     def parse_unused(output):
-        """Parses unused direct dependencies from ldd -u -r output."""
-        if output:
-            return [line.strip() for line in \
-                    output.replace("\t", "").split("\n") if line][1:]
+        """
+        Parses unused direct dependencies from ldd -u -r output.
+        Filter out broken dependencies if any as ldd shows them as unused
+        direct dependencies.
+        """
+        result = []
+        for line in output.replace("\t", "").split("\n"):
+            result.append(line.strip())
+
+        return result[1:]
 
     def parse_undefs(output):
         """Parses undefined symbols from ldd -u -r output."""
+        result = []
         if output:
-            return [re.sub("^undefined symbol: (.*)\((.*)\)$", "\\1", line) \
-                    for line in output.replace("\t", "").split("\n") \
-                    if line.startswith("undefined symbol:")]
+            for line in output.replace("\t", "").split("\n"):
+                if line.startswith("undefined symbol:"):
+                    result.append(re.sub("^undefined symbol: (.*)\((.*)\)$", "\\1", line))
 
+        return result
 
     # Use objdump for DT_NEEDED parsing
     objs = [line.strip().split()[1] for line in \
@@ -164,21 +172,17 @@ def get_needed_objects(file_name, ld_library_paths=None):
 
     ldd_output = subprocess.Popen(["ldd", file_name],
                                   stdout=subprocess.PIPE,
-                                  stderr=subprocess.PIPE,
+                                  stderr=subprocess.STDOUT,
                                   env=env).communicate()[0].strip().split("\n")
 
-    ldd_ur_output = subprocess.Popen(["ldd", "-u", "-r", file_name],
-                                     stdout=subprocess.PIPE,
-                                     stderr=subprocess.PIPE,
-                                     env=env).communicate()[0].strip()
+    ldd_ur_output_unused, ldd_ur_output_undefs = subprocess.Popen(["ldd", "-u", "-r", file_name],
+                                                                  stdout=subprocess.PIPE,
+                                                                  stderr=subprocess.PIPE,
+                                                                  env=env).communicate()
 
-    unuseds = parse_unused(ldd_ur_output)
-    undefineds = parse_undefs(ldd_ur_output)
-
-
-
+    unuseds = parse_unused(ldd_ur_output_unused.strip())
+    undefineds = parse_undefs(ldd_ur_output_undefs.strip())
     broken_dependencies, so_map = parse_ldd_output(ldd_output)
-
 
     # FIXME
     objs = map(lambda x: os.popen("readlink -f %s" % so_map[x]).read().strip() \

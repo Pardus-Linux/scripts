@@ -1,0 +1,52 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import sys
+
+TRACKERS = ['http://proje.pardus.org.tr:50030']
+
+if len(sys.argv) == 1:
+    print ' Usage: %s PROJECT_KEY ' % sys.argv[0]
+    sys.exit()
+
+if __name__ == '__main__':
+
+    import piksemel
+    import urlgrabber
+
+    tracker = 1
+    if len(TRACKERS) > 1:
+        print 'There are following trackers available:'
+        print
+        for id, tracker in enumerate(TRACKERS):
+            print '   [%s] %s' % (id+1, tracker)
+        print
+
+        tracker = None
+        while not type(tracker) == int:
+            tracker = int(raw_input(' Which tracker do you want to use ?'))
+
+    __issues = urlgrabber.urlopen('%s/projects/%s/issues.atom' % (TRACKERS[tracker-1], sys.argv[1])).read()
+    __piks_obj = piksemel.parseString(unicode(__issues))
+    __result = filter(lambda x:x, [tag.getTagData('title') for tag in __piks_obj.tags()])
+
+    def seperateIssues(raw):
+        issues = {}
+        for issue in raw:
+            key = issue.split()[0]
+            if not issues.has_key(key):
+                issues[key] = []
+            issues[key].append(issue.lstrip(key))
+        return issues
+
+    def printIssues(issues):
+        print
+        for key in issues.keys():
+            print ' - %ss ' % key, '-' * (76 - len(key))
+            print
+            for issue in issues[key]:
+                print ' -', issue
+            print
+
+    printIssues(seperateIssues(__result))
+

@@ -88,7 +88,8 @@ def split_devel_package(package_name):
     with open("pspec.xml", "r") as _file:
         for line in _file:
             if 'fileType="header"' in line or \
-                '/pkgconfig' in line:
+                '/pkgconfig' in line or \
+                '/share/aclocal' in line:
                     files.append(line.rstrip("\n"))
                     continue
             if "<History>" in line:

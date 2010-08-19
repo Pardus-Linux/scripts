@@ -230,6 +230,8 @@ def check_installed_package(package):
 
     for shobj in get_elf_files(package):
         # shobj is full path to an ELF file
+        printv("    Analyzing %s" % shobj)
+
         needed_tuples = []
         shobjs, unused, undefined, broken = get_needed_objects(shobj)
         unuseds.update(dict([(shobj, unused)]))
@@ -242,6 +244,7 @@ def check_installed_package(package):
 
     for pc_file in get_pc_files(package):
         #os.environ["PKG_CONFIG_PATH"]
+        printv("    Analyzing %s" % pc_file)
 
         needed_tuples = []
         requires = set(os.popen("pkg-config --print-requires %s | gawk '{ print $1 }'" % os.path.basename(pc_file).replace(".pc", "")).read().split("\n")[:-1])
@@ -308,7 +311,7 @@ def check_standalone_package(package, is_pisi_file=False):
     for shobj in objects:
         needed_tuples = []
 
-        printv("Analyzing %s" % shobj)
+        printv("    Analyzing %s" % shobj)
         shobjs, unused, undefined, brokens = get_needed_objects(shobj, list(ld_library_paths))
         unuseds.update(dict([(shobj, unused)]))
         undefineds.update(dict([(shobj, undefined)]))
@@ -325,6 +328,8 @@ def check_standalone_package(package, is_pisi_file=False):
 
     for pc_file in get_pc_files(install_dir, is_directory=True):
         os.environ["PKG_CONFIG_PATH"] = os.path.dirname(pc_file)
+
+        printv("    Analyzing %s" % pc_file)
 
         needed_tuples = []
         requires = set(os.popen("pkg-config --print-requires %s | gawk '{ print $1 }'" % os.path.basename(pc_file).replace(".pc", "")).read().split("\n")[:-1])

@@ -250,10 +250,10 @@ def check_installed_package(package):
         requires = set(os.popen("pkg-config --print-requires %s | gawk '{ print $1 }'" % os.path.basename(pc_file).replace(".pc", "")).read().split("\n")[:-1])
 
         for require in requires:
-            require_file = "/usr/lib/pkgconfig/%s.pc" % require
+            require_file = "/usr/share/pkgconfig/%s.pc" % require
 
             if not os.path.exists(require_file):
-                require_file = "/usr/share/pkgconfig/%s.pc" % require
+                require_file = "/usr/lib/pkgconfig/%s.pc" % require
 
 
             needed_tuples.append((require_file, get_pisi_package(require_file)))
@@ -335,11 +335,10 @@ def check_standalone_package(package, is_pisi_file=False):
         requires = set(os.popen("pkg-config --print-requires %s | gawk '{ print $1 }'" % os.path.basename(pc_file).replace(".pc", "")).read().split("\n")[:-1])
 
         for require in requires:
-            require_file = "/usr/lib/pkgconfig/%s.pc" % require
+            require_file = "/usr/share/pkgconfig/%s.pc" % require
 
             if not os.path.exists(require_file):
-                require_file = "/usr/share/pkgconfig/%s.pc" % require
-
+                require_file = "/usr/lib/pkgconfig/%s.pc" % require
 
             needed_tuples.append((require_file, get_pisi_package(require_file)))
 

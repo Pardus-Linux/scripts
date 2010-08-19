@@ -7,6 +7,8 @@ of ELF shared libraries or executables.
 """
 
 import os
+import glob
+import fnmatch
 import re
 import sys
 import pisi
@@ -133,6 +135,29 @@ def get_elf_files(where, is_directory=False):
     magic_db.close()
     return shared_objects
 
+def get_pc_files(where, is_directory=False):
+    """
+    Returns the list of pkgconfig files in /usr/{lib,share}/pkgconfig/*.pc files
+    ['/usr/lib/', '/usr/bin/foo-cli']
+    """
+
+    pc_files = []
+
+
+    print "Searching for pkgconfig files.."
+
+    if is_directory:
+        pc_files = glob.glob("%s/usr/*/pkgconfig/*.pc" % where)
+    else:
+        pc_files = set([os.path.realpath("/%s" % file_name.path) \
+            for file_name in INSTALLDB.get_files(where).list \
+            if fnmatch.fnmatch(file_name.path, "*/pkgconfig/*.pc")])
+
+    print "Found %d pc files" % len(pc_files)
+
+    return pc_files
+
+
 def get_needed_objects(file_name, ld_library_paths=None):
     """Returns the NEEDED objects for file_name including the additional LDPATHs."""
 
@@ -196,6 +221,7 @@ def check_installed_package(package):
     undefineds = {}
     unuseds = {}
     brokens = set()
+    requires = set()
 
     # When an installed package is checked, we only care
     # about its runtime dependencies.
@@ -213,6 +239,23 @@ def check_installed_package(package):
             needed_tuples.append((needed, get_pisi_package(needed)))
 
         dependencies[shobj] = needed_tuples
+
+    for pc_file in get_pc_files(package):
+        #os.environ["PKG_CONFIG_PATH"]
+
+        needed_tuples = []
+        requires = set(os.popen("pkg-config --print-requires %s | gawk '{ print $1 }'" % os.path.basename(pc_file).replace(".pc", "")).read().split("\n")[:-1])
+
+        for require in requires:
+            require_file = "/usr/lib/pkgconfig/%s.pc" % require
+
+            if not os.path.exists(require_file):
+                require_file = "/usr/share/pkgconfig/%s.pc" % require
+
+
+            needed_tuples.append((require_file, get_pisi_package(require_file)))
+
+        dependencies[pc_file] = needed_tuples
 
     return print_results(dependencies, unuseds, undefineds, written_deps, brokens, package)
 
@@ -279,6 +322,23 @@ def check_standalone_package(package, is_pisi_file=False):
             needed_tuples.append((needed, depname))
 
         dependencies[shobj] = needed_tuples
+
+    for pc_file in get_pc_files(install_dir, is_directory=True):
+        os.environ["PKG_CONFIG_PATH"] = os.path.dirname(pc_file)
+
+        needed_tuples = []
+        requires = set(os.popen("pkg-config --print-requires %s | gawk '{ print $1 }'" % os.path.basename(pc_file).replace(".pc", "")).read().split("\n")[:-1])
+
+        for require in requires:
+            require_file = "/usr/lib/pkgconfig/%s.pc" % require
+
+            if not os.path.exists(require_file):
+                require_file = "/usr/share/pkgconfig/%s.pc" % require
+
+
+            needed_tuples.append((require_file, get_pisi_package(require_file)))
+
+        dependencies[pc_file] = needed_tuples
 
     # Cleanup temporary directory
     if install_dir.startswith("/tmp/"):

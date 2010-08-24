@@ -58,7 +58,7 @@ def getPackageProperties(parent, pkgDict):
     providedPackages = []
 
     sourceTag = parent.getTag("Source")
-    sourcePartOf = sourceTag.getTagData("PartOf")
+    sourcePartOf = sourceTag.getTagData("PartOf").replace(".", "/")
     sourceName = sourceTag.getTagData("Name")
     maintainerName = sourceTag.getTag("Packager").getTagData("Name")
 

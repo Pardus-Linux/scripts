@@ -1,0 +1,188 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+# A script to find which packages are needed to merge the given package(s)
+# This is usually used for new distribution roadmaps
+#
+
+import piksemel
+import bz2
+import sys
+import os
+
+
+def loadFile(_file):
+    try:
+        f = file(_file)
+        d = [a.lstrip().rstrip("\n") for a in f]
+        d = filter(lambda x: not (x.startswith("#") or x == ""), d)
+        f.close()
+        return d
+    except:
+        return []
+
+def uniq(seq, loopback=None):
+    seen = {}
+    result = []
+
+    if loopback is None:
+        def loopback(x): return x
+
+    for item in seq:
+        marker = loopback(item)
+        if marker in seen:
+            continue
+
+        seen[marker] = 1
+        result.append(item)
+
+    return result
+
+def getXmlData(_file):
+    if os.path.exists(_file):
+        if _file.endswith(".bz2"):
+            indexdata = bz2.decompress(file(_file).read())
+            return piksemel.parseString(indexdata)
+        else:
+            return piksemel.parse(_file)
+    else:
+        print "%s not found" % _file
+        sys.exit(1)
+
+def getPackageProperties(parent, pkgDict):
+    dependencies = []
+    providedPackages = []
+
+    sourceTag = parent.getTag("Source")
+    sourcePartOf = sourceTag.getTagData("PartOf")
+    sourceName = sourceTag.getTagData("Name")
+    maintainerName = sourceTag.getTag("Packager").getTagData("Name")
+
+    buildDependencies = sourceTag.getTag("BuildDependencies")
+    if buildDependencies:
+        for dep in buildDependencies.tags("Dependency"):
+            dependencies.append(dep.firstChild().data())
+
+    packageTag = parent.tags("Package")
+    for node in packageTag:
+        providedPackages.append(node.getTagData("Name"))
+        runtimeDependencies = node.getTag("RuntimeDependencies")
+        if runtimeDependencies:
+            for dep in runtimeDependencies.tags("Dependency"):
+                dependencies.append(dep.firstChild().data())
+
+
+    for i in providedPackages:
+        pkgDict[i] = maintainerName, sourcePartOf, sourceName, uniq(dependencies)
+
+def parsePackageTree(_file):
+    pkgDict = {}
+    ix = getXmlData(_file)
+
+    for i in ix.tags("SpecFile"):
+        getPackageProperties(i, pkgDict)
+
+    return pkgDict
+
+def parsePackageNames(_file):
+    pkglist = []
+    ix = getXmlData(_file)
+
+    for node in ix.tags("SpecFile"):
+        for pkgnode in node.tags("Package"):
+            pkglist.append(pkgnode.getTagData("Name"))
+
+    return uniq(pkglist)
+
+def hasDeps(package):
+    global neededPackages
+    nodeps = ""
+    depsOfPackage = set(repoIndexFull[package][3])
+    depsToMerge = set(neededPackages)
+    if len(depsOfPackage.intersection(depsToMerge)) == 0:
+        return " (has no dependencies)"
+    else:
+        return ""
+
+    # return len(Set(repoIndexFull[packageName][3])
+
+def printOwners(ownerDict):
+    ownerlist = ownerDict.keys()
+    ownerlist.sort()
+
+    for i in ownerlist:
+        print
+        packages = ownerDict[i]
+        packages.sort()
+
+        print "%s (%d)" % (i, len(packages))
+
+        for k in packages:
+            nodeps = hasDeps(k.split("/")[-1])
+            print "    %s%s" % (k, nodeps)
+
+
+class Dependency:
+    def __init__(self):
+        self.depList = []
+        self.depPosition = 0
+        self.indexMissing = []
+        self.indexFull = {}
+        self.ownerDict = {}
+
+
+    def _addNewDep(self, newdeps):
+        for i in newdeps:
+            if i not in self.indexMissing and i not in self.depList:
+                self.depList.append(i)
+
+    def add(self, newPackages):
+        for i in newPackages:
+            if i not in self.indexMissing and i not in self.depList:
+                newdeps = self.indexFull[i][3]
+                self._addNewDep(newdeps)
+
+    def solve(self):
+        while self.depPosition != len(self.depList):
+            newdeps = self.indexFull[self.depList[self.depPosition]][3]
+
+            self._addNewDep(newdeps)
+            self.depPosition += 1
+
+    def setOwners(self):
+        for i in self.depList:
+            pkgowner = self.indexFull[i][0]
+            fullpath = "%s/%s" % (self.indexFull[i][1:3])
+
+            if pkgowner not in self.ownerDict:
+                self.ownerDict[pkgowner] = [fullpath]
+            else:
+                self.ownerDict[pkgowner].append(fullpath)
+
+
+if __name__ == "__main__":
+    if len(sys.argv) < 4:
+        print " usage:"
+        print " %s <full repo indexfile> <missing repo indexfile> <required packages ...>" % sys.argv[0]
+    else:
+        # repoIndexFull[PackageName] = { Maintainer, SourcePartOf, SourceName, Dependencies }
+        repoIndexFull = parsePackageTree(sys.argv[1])
+
+        # repoIndexMissing = [pkname1, pkgname2, ...]
+        repoIndexMissing = parsePackageNames(sys.argv[2])
+
+        # list of target packages
+        packagesToSearch = sys.argv[3:]
+
+        deptree = Dependency()
+        deptree.indexMissing = repoIndexMissing
+        deptree.indexFull = repoIndexFull
+
+        deptree.add(packagesToSearch)
+        deptree.solve()
+        neededPackages = deptree.depList
+        deptree.setOwners()
+
+        printOwners(deptree.ownerDict)
+
+

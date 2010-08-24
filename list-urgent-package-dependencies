@@ -90,13 +90,18 @@ def parsePackageTree(_file):
 
 def parsePackageNames(_file):
     pkglist = []
+    obsoletelist = []
     ix = getXmlData(_file)
 
     for node in ix.tags("SpecFile"):
         for pkgnode in node.tags("Package"):
             pkglist.append(pkgnode.getTagData("Name"))
 
-    return uniq(pkglist)
+    obsoleteParent = ix.getTag("Distribution").getTag("Obsoletes")
+    for node in obsoleteParent.tags("Package"):
+        obsoletelist.append(node.firstChild().data())
+
+    return uniq(pkglist), uniq(obsoletelist)
 
 def hasDeps(package):
     global neededPackages
@@ -135,20 +140,18 @@ class Dependency:
         self.depList = []
         self.depPosition = 0
         self.indexMissing = []
+        self.obsoletes = []
         self.indexFull = {}
         self.ownerDict = {}
 
 
     def _addNewDep(self, newdeps):
         for i in newdeps:
-            if i not in self.indexMissing and i not in self.depList:
+            if i not in self.indexMissing and i not in self.depList and i not in self.obsoletes:
                 self.depList.append(i)
 
     def add(self, newPackages):
-        for i in newPackages:
-            if i not in self.indexMissing and i not in self.depList:
-                newdeps = self.indexFull[i][3]
-                self._addNewDep(newdeps)
+        self.depList.extend(newPackages)
 
     def solve(self):
         while self.depPosition != len(self.depList):
@@ -176,7 +179,7 @@ if __name__ == "__main__":
         repoIndexFull = parsePackageTree(sys.argv[1])
 
         # repoIndexMissing = [pkname1, pkgname2, ...]
-        repoIndexMissing = parsePackageNames(sys.argv[2])
+        repoIndexMissing, obsoleteList = parsePackageNames(sys.argv[2])
 
         # list of target packages
         packagesToSearch = sys.argv[3:]
@@ -184,6 +187,7 @@ if __name__ == "__main__":
         deptree = Dependency()
         deptree.indexMissing = repoIndexMissing
         deptree.indexFull = repoIndexFull
+        deptree.obsoletes = obsoleteList
 
         deptree.add(packagesToSearch)
         deptree.solve()

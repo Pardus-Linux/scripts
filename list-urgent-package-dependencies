@@ -108,22 +108,25 @@ def hasDeps(package):
     else:
         return ""
 
-    # return len(Set(repoIndexFull[packageName][3])
-
 def printOwners(ownerDict):
     ownerlist = ownerDict.keys()
     ownerlist.sort()
 
     for i in ownerlist:
         print
+        srcpackages = []
         packages = ownerDict[i]
-        packages.sort()
 
-        print "%s (%d)" % (i, len(packages))
+        for src in packages:
+            fullpath = "%s/%s" % repoIndexFull[src][1:3]
+            srcpackages.append(fullpath)
 
-        for k in packages:
-            nodeps = hasDeps(k.split("/")[-1])
-            print "    %s%s" % (k, nodeps)
+        srcpackages = uniq(srcpackages)
+        srcpackages.sort()
+
+        print "%s (%d)" % (i, len(srcpackages))
+        for k in srcpackages:
+            print "    %s" % k
 
 
 class Dependency:
@@ -154,14 +157,13 @@ class Dependency:
             self.depPosition += 1
 
     def setOwners(self):
-        for i in self.depList:
-            pkgowner = self.indexFull[i][0]
-            fullpath = "%s/%s" % (self.indexFull[i][1:3])
+        for pkgname in self.depList:
+            pkgowner = self.indexFull[pkgname][0]
 
             if pkgowner not in self.ownerDict:
-                self.ownerDict[pkgowner] = [fullpath]
+                self.ownerDict[pkgowner] = [pkgname]
             else:
-                self.ownerDict[pkgowner].append(fullpath)
+                self.ownerDict[pkgowner].append(pkgname)
 
 
 if __name__ == "__main__":

@@ -100,13 +100,11 @@ def parsePackageNames(_file):
 
 def hasDeps(package):
     global neededPackages
-    nodeps = ""
+
     depsOfPackage = set(repoIndexFull[package][3])
     depsToMerge = set(neededPackages)
-    if len(depsOfPackage.intersection(depsToMerge)) == 0:
-        return " (has no dependencies)"
-    else:
-        return ""
+
+    return ",".join(depsOfPackage.intersection(depsToMerge))
 
 def printOwners(ownerDict):
     ownerlist = ownerDict.keys()
@@ -116,18 +114,21 @@ def printOwners(ownerDict):
         print
         srcpackages = []
         packages = ownerDict[i]
+        pkglist = {}
 
         for src in packages:
             fullpath = "%s/%s" % repoIndexFull[src][1:3]
             srcpackages.append(fullpath)
+            pkglist[fullpath] = src
 
         srcpackages = uniq(srcpackages)
         srcpackages.sort()
 
         print "%s (%d)" % (i, len(srcpackages))
         for k in srcpackages:
-            print "    %s" % k
+            print "    %s (%s)" % (k, hasDeps(pkglist[k]))
 
+    print
 
 class Dependency:
     def __init__(self):

@@ -79,7 +79,7 @@ def getPackageProperties(parent, pkgDict):
     for i in providedPackages:
         pkgDict[i] = maintainerName, sourcePartOf, sourceName, uniq(dependencies)
 
-def parsePackageTree(_file):
+def parseOldRepo(_file):
     pkgDict = {}
     ix = getXmlData(_file)
 
@@ -88,7 +88,7 @@ def parsePackageTree(_file):
 
     return pkgDict
 
-def parsePackageNames(_file):
+def parseNewRepo(_file):
     pkglist = []
     obsoletelist = []
     ix = getXmlData(_file)
@@ -96,6 +96,12 @@ def parsePackageNames(_file):
     for node in ix.tags("SpecFile"):
         for pkgnode in node.tags("Package"):
             pkglist.append(pkgnode.getTagData("Name"))
+
+            # replaced packages are also obsoleted packages, and the package is in target repo
+            replacedPackages = pkgnode.getTag("Replaces")
+            if replacedPackages:
+                for replaced in replacedPackages.tags("Package"):
+                    obsoletelist.append(replaced.firstChild().data())
 
     obsoleteParent = ix.getTag("Distribution").getTag("Obsoletes")
     for node in obsoleteParent.tags("Package"):
@@ -176,10 +182,10 @@ if __name__ == "__main__":
         print " %s <full repo indexfile> <missing repo indexfile> <required packages ...>" % sys.argv[0]
     else:
         # repoIndexFull[PackageName] = { Maintainer, SourcePartOf, SourceName, Dependencies }
-        repoIndexFull = parsePackageTree(sys.argv[1])
+        repoIndexFull = parseOldRepo(sys.argv[1])
 
         # repoIndexMissing = [pkname1, pkgname2, ...]
-        repoIndexMissing, obsoleteList = parsePackageNames(sys.argv[2])
+        repoIndexMissing, obsoleteList = parseNewRepo(sys.argv[2])
 
         # list of target packages
         packagesToSearch = sys.argv[3:]

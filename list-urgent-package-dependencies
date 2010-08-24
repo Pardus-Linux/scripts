@@ -157,7 +157,9 @@ class Dependency:
                 self.depList.append(i)
 
     def add(self, newPackages):
-        self.depList.extend(newPackages)
+        for i in newPackages:
+            if i not in self.indexMissing:
+                self.depList.append(i)
 
     def solve(self):
         while self.depPosition != len(self.depList):

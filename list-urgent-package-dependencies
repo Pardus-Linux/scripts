@@ -4,6 +4,10 @@
 # A script to find which packages are needed to merge the given package(s)
 # This is usually used for new distribution roadmaps
 #
+# usage example:
+# list-urgent-package-dependencies 2009/devel/pisi-index.xml 2011/devel/pisi-index.xml.bz2 mplayer kdebase kdenetwork
+#
+
 
 import piksemel
 import bz2

@@ -75,7 +75,6 @@ def getPackageProperties(parent, pkgDict):
             for dep in runtimeDependencies.tags("Dependency"):
                 dependencies.append(dep.firstChild().data())
 
-
     for i in providedPackages:
         pkgDict[i] = maintainerName, sourcePartOf, sourceName, uniq(dependencies)
 
@@ -83,10 +82,12 @@ def parseOldRepo(_file):
     pkgDict = {}
     ix = getXmlData(_file)
 
+    distro = "%s %s" % (ix.getTag("Distribution").getTagData("SourceName"), ix.getTag("Distribution").getTagData("Version"))
+
     for i in ix.tags("SpecFile"):
         getPackageProperties(i, pkgDict)
 
-    return pkgDict
+    return pkgDict, distro
 
 def parseNewRepo(_file):
     pkglist = []
@@ -103,11 +104,12 @@ def parseNewRepo(_file):
                 for replaced in replacedPackages.tags("Package"):
                     obsoletelist.append(replaced.firstChild().data())
 
+    distro = "%s %s" % (ix.getTag("Distribution").getTagData("SourceName"), ix.getTag("Distribution").getTagData("Version"))
     obsoleteParent = ix.getTag("Distribution").getTag("Obsoletes")
     for node in obsoleteParent.tags("Package"):
         obsoletelist.append(node.firstChild().data())
 
-    return uniq(pkglist), uniq(obsoletelist)
+    return uniq(pkglist), uniq(obsoletelist), distro
 
 def hasDeps(package):
     global neededPackages
@@ -141,6 +143,14 @@ def printOwners(ownerDict):
 
     print
 
+def printRepoName(sourceRepo, targetRepo, targetPackages):
+    print
+    print "Base Repository   : %s" % sourceRepo
+    print "Target Repository : %s" % targetRepo
+    print "Target Packages   : %s" % " ".join(targetPackages)
+    print
+
+
 class Dependency:
     def __init__(self):
         self.depList = []
@@ -149,7 +159,6 @@ class Dependency:
         self.obsoletes = []
         self.indexFull = {}
         self.ownerDict = {}
-
 
     def _addNewDep(self, newdeps):
         for i in newdeps:
@@ -184,13 +193,15 @@ if __name__ == "__main__":
         print " %s <full repo indexfile> <missing repo indexfile> <required packages ...>" % sys.argv[0]
     else:
         # repoIndexFull[PackageName] = { Maintainer, SourcePartOf, SourceName, Dependencies }
-        repoIndexFull = parseOldRepo(sys.argv[1])
+        repoIndexFull, repoFull = parseOldRepo(sys.argv[1])
 
         # repoIndexMissing = [pkname1, pkgname2, ...]
-        repoIndexMissing, obsoleteList = parseNewRepo(sys.argv[2])
+        repoIndexMissing, obsoleteList, repoMissing = parseNewRepo(sys.argv[2])
 
         # list of target packages
         packagesToSearch = sys.argv[3:]
+
+        printRepoName(repoFull, repoMissing, packagesToSearch)
 
         deptree = Dependency()
         deptree.indexMissing = repoIndexMissing

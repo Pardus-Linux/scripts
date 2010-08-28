@@ -217,15 +217,15 @@ if __name__ == "__main__":
         indexFileMissing = getIndexFile(sys.argv[2])
 
         # repoIndexFull[PackageName] = { Maintainer, SourcePartOf, SourceName, Dependencies }
-        repoIndexFull, repoFull = parseOldRepo(indexFileFull)
+        repoIndexFull, repoInfoFull = parseOldRepo(indexFileFull)
 
         # repoIndexMissing = [pkname1, pkgname2, ...]
-        repoIndexMissing, obsoleteList, repoMissing = parseNewRepo(indexFileMissing)
+        repoIndexMissing, obsoleteList, repoInfoMissing = parseNewRepo(indexFileMissing)
 
         # list of target packages
         packagesToSearch = sys.argv[3:]
 
-        printRepoName(repoFull, repoMissing, packagesToSearch)
+        printRepoName(repoInfoFull, repoInfoMissing, packagesToSearch)
 
         deptree = Dependency()
         deptree.indexMissing = repoIndexMissing

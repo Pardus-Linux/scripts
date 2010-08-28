@@ -100,12 +100,12 @@ def parseOldRepo(_file):
     pkgDict = {}
     ix = getXmlData(_file)
 
-    distro = "%s %s" % (ix.getTag("Distribution").getTagData("SourceName"), ix.getTag("Distribution").getTagData("Version"))
+    distroInfo = "%s %s" % (ix.getTag("Distribution").getTagData("SourceName"), ix.getTag("Distribution").getTagData("Version"))
 
     for i in ix.tags("SpecFile"):
         getPackageProperties(i, pkgDict)
 
-    return pkgDict, distro
+    return pkgDict, distroInfo
 
 def parseNewRepo(_file):
     pkglist = []
@@ -125,12 +125,13 @@ def parseNewRepo(_file):
                 for replaced in replacedPackages.tags("Package"):
                     obsoletelist.append(replaced.firstChild().data())
 
-    distro = "%s %s" % (ix.getTag("Distribution").getTagData("SourceName"), ix.getTag("Distribution").getTagData("Version"))
+    distroInfo = "%s %s" % (ix.getTag("Distribution").getTagData("SourceName"), ix.getTag("Distribution").getTagData("Version"))
+
     obsoleteParent = ix.getTag("Distribution").getTag("Obsoletes")
     for node in obsoleteParent.tags("Package"):
         obsoletelist.append(node.firstChild().data())
 
-    return uniq(pkglist), uniq(obsoletelist), distro
+    return uniq(pkglist), uniq(obsoletelist), distroInfo
 
 def hasDeps(package):
     global neededPackages
@@ -222,8 +223,11 @@ if __name__ == "__main__":
         # repoIndexMissing = [pkname1, pkgname2, ...]
         repoIndexMissing, obsoleteList, repoInfoMissing = parseNewRepo(indexFileMissing)
 
-        # list of target packages
-        packagesToSearch = sys.argv[3:]
+        # list of target packages, silently ignore obsoleted packages
+        packagesToSearch = []
+        for i in sys.argv[3:]:
+            if i not in obsoleteList:
+                packagesToSearch.append(i)
 
         printRepoName(repoInfoFull, repoInfoMissing, packagesToSearch)
 

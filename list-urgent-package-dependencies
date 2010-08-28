@@ -89,6 +89,10 @@ def getPackageProperties(parent, pkgDict):
             for dep in runtimeDependencies.tags("Dependency"):
                 dependencies.append(dep.firstChild().data())
 
+    # some packages provide packages that don't have the original package name
+    if sourceName not in providedPackages:
+        providedPackages.append(sourceName)
+
     for i in providedPackages:
         pkgDict[i] = maintainerName, sourcePartOf, sourceName, uniq(dependencies)
 

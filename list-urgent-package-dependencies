@@ -165,11 +165,13 @@ def printOwners(ownerDict):
 
     print
 
-def printRepoName(sourceRepo, targetRepo, targetPackages):
+def printRepoInfo(sourceRepo, targetRepo, targetPackages, ignoredPackages):
     print
-    print "Base Repository   : %s" % sourceRepo
-    print "Target Repository : %s" % targetRepo
-    print "Target Packages   : %s" % " ".join(targetPackages)
+    print "Base Repository    : %s" % sourceRepo
+    print "Target Repository  : %s" % targetRepo
+    if len(ignoredPackages):
+        print "Obsoleted Packages : %s" % " ".join(ignoredPackages)
+    print "Target Packages    : %s" % " ".join(targetPackages)
     print
 
 
@@ -225,11 +227,14 @@ if __name__ == "__main__":
 
         # list of target packages, silently ignore obsoleted packages
         packagesToSearch = []
+        ignoredPackages = []
         for i in sys.argv[3:]:
-            if i not in obsoleteList:
+            if i in obsoleteList:
+                ignoredPackages.append(i)
+            else:
                 packagesToSearch.append(i)
 
-        printRepoName(repoInfoFull, repoInfoMissing, packagesToSearch)
+        printRepoInfo(repoInfoFull, repoInfoMissing, packagesToSearch, ignoredPackages)
 
         deptree = Dependency()
         deptree.indexMissing = repoIndexMissing

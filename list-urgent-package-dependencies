@@ -109,6 +109,9 @@ def parseNewRepo(_file):
     ix = getXmlData(_file)
 
     for node in ix.tags("SpecFile"):
+        # Some packages have source name that does not match package name, see gfxtheme-pardus, icontheme-milky etc.
+        pkglist.append(node.getTag("Source").getTagData("Name"))
+
         for pkgnode in node.tags("Package"):
             pkglist.append(pkgnode.getTagData("Name"))
 

@@ -169,8 +169,7 @@ def printRepoInfo(sourceRepo, targetRepo, targetPackages, ignoredPackages):
     print
     print "Base Repository    : %s" % sourceRepo
     print "Target Repository  : %s" % targetRepo
-    if len(ignoredPackages):
-        print "Obsoleted Packages : %s" % " ".join(ignoredPackages)
+    print "Obsoleted Packages : %s" % " ".join(ignoredPackages)
     print "Target Packages    : %s" % " ".join(targetPackages)
     print
 

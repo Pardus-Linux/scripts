@@ -25,6 +25,20 @@ def loadFile(_file):
     except:
         return []
 
+def getIndexFile(_file):
+    # TODO: add support for remote fetching
+    if os.path.isfile(_file):
+        result = _file
+    else:
+        weguess = os.path.join(_file, "pisi-index.xml")
+        if os.path.exists(weguess):
+            result = weguess
+        else:
+            print "%s is not a valid file" % _file
+            sys.exit(1)
+
+    return result
+
 def uniq(seq, loopback=None):
     seen = {}
     result = []
@@ -192,11 +206,14 @@ if __name__ == "__main__":
         print " usage:"
         print " %s <full repo indexfile> <missing repo indexfile> <required packages ...>" % sys.argv[0]
     else:
+        indexFileFull = getIndexFile(sys.argv[1])
+        indexFileMissing = getIndexFile(sys.argv[2])
+
         # repoIndexFull[PackageName] = { Maintainer, SourcePartOf, SourceName, Dependencies }
-        repoIndexFull, repoFull = parseOldRepo(sys.argv[1])
+        repoIndexFull, repoFull = parseOldRepo(indexFileFull)
 
         # repoIndexMissing = [pkname1, pkgname2, ...]
-        repoIndexMissing, obsoleteList, repoMissing = parseNewRepo(sys.argv[2])
+        repoIndexMissing, obsoleteList, repoMissing = parseNewRepo(indexFileMissing)
 
         # list of target packages
         packagesToSearch = sys.argv[3:]

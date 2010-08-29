@@ -8,6 +8,8 @@ import time
 
 dont_bump = False
 
+#available_packages = pisi.api.list_available()
+
 def is_in_system_base(package_name):
     """Checks whether the given package is in system.base."""
     packages = []
@@ -19,6 +21,12 @@ def is_in_system_base(package_name):
             pass
 
     return package_name in packages
+
+def is_in_repositories(package_name):
+    """Checks whether the given package is in the repositories."""
+    if package_name not in available_packages:
+        print "%s is not in the repositories, skipping rename operation" % package_name
+
 
 def split_translations(package_name):
     addition = """\
@@ -80,13 +88,29 @@ def split_devel_package(package_name):
     next_release = int(pspec.history[0].release) + (0 if dont_bump else 1)
     current_version = pspec.history[0].version
 
+    # Check whether the package is already split
+    for pkg in pspec.packages:
+        if pkg.name.endswith("-devel"):
+            print "The package seems already be split, exiting."
+            return
+
     packager_name, packager_email = get_and_save_user_info()
 
     files = []
     new_pspec = ""
+    are_runtime_deps = False
 
     with open("pspec.xml", "r") as _file:
         for line in _file:
+            if "<Dependency" in line and not are_runtime_deps \
+                    and not "-devel</Dependency>" in line:
+                # Change build dep into -devel one
+                line = line.replace("</Dependency", "-devel</Dependency")
+
+            # Check whether we've crossed the build dep list
+            if "<RuntimeDependencies>" in line:
+                are_runtime_deps = True
+
             if 'fileType="header"' in line or \
                 '/pkgconfig' in line or \
                 '/share/aclocal' in line:

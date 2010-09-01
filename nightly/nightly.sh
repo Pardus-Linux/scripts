@@ -13,9 +13,16 @@ DISTRO_URL="http://svn.pardus.org.tr/uludag/trunk/distribution/2011"
 PROJECT=installation.xml
 DESTDIR=$PWD
 
+KEEP_WORKDIR=
+
 if [ -z "$1" ]; then
-    echo "Usage: $0 <config file>"
+    echo "Usage: $0 [--keep-workdir] <config file>"
     exit 0
+fi
+
+if [ "x$1" = "x--keep-workdir" ]; then
+    KEEP_WORKDIR=1
+    shift
 fi
 
 # Source config file
@@ -58,9 +65,11 @@ sed -i "s:<Title>.*<\/Title>:<Title>$TITLE [$TODAY]</Title>:" $PROJECT_FILE
 
 WORKDIR=$(grep "<WorkDir>" $PROJECT_FILE | sed 's/^ *<WorkDir>\(.*\)<\/WorkDir>/\1/')
 
-# Clean up WorkDir
-echo "Cleaning $WORKDIR"
-test -d $WORKDIR && rm -rf $WORKDIR
+#if [ -n "$KEEP_WORKDIR" ]; then
+#    # Clean up WorkDir
+#    echo "Cleaning $WORKDIR"
+#    test -d $WORKDIR && rm -rf $WORKDIR
+#fi
 
 # Create working directory
 mkdir -p $WORKDIR
@@ -78,8 +87,10 @@ pushd $DESTDIR
 # Get the ISO file
 mv $WORKDIR/$ISO $TODAY/
 
-# Clean up WorkDir
-rm -rf $WORKDIR
+if [ -n "$KEEP_WORKDIR" ]; then
+    # Clean up WorkDir
+    rm -rf $WORKDIR
+fi
 
 test -L current && YESTERDAY=$(readlink current) || YESTERDAY=
 

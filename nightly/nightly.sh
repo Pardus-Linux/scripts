@@ -65,8 +65,8 @@ sed -i "s:<Title>.*<\/Title>:<Title>$TITLE [$TODAY]</Title>:" $PROJECT_FILE
 WORKDIR=$(grep "<WorkDir>" $PROJECT_FILE | sed 's/^ *<WorkDir>\(.*\)<\/WorkDir>/\1/')
 
 # Clean up WorkDir
-#echo "Cleaning $WORKDIR"
-#rm -rf $WORKDIR
+echo "Cleaning $WORKDIR"
+test -d $WORKDIR && rm -rf $WORKDIR
 
 # Create working directory
 mkdir -p $WORKDIR
@@ -85,7 +85,7 @@ pushd $DESTDIR
 mv $WORKDIR/$ISO $TODAY/
 
 # Clean up WorkDir
-#rm -rf $WORKDIR
+rm -rf $WORKDIR
 
 test -L current && YESTERDAY=$(readlink current) || YESTERDAY=
 

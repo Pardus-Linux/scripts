@@ -30,9 +30,6 @@ XDELTA=$(which xdelta 2>/dev/null| sed 's|^[^/]*||' 2>/dev/null)
 
 TODAY=$(date +%Y%m%d)
 
-# a head symlink must be created to the first ISO
-#HEAD=$(readlink head)
-
 #############################################
 echo "Preparing nightly build for $TODAY"
 
@@ -58,9 +55,6 @@ fi
 
 # Set title in $PROJECT_FILE
 sed -i "s:<Title>.*<\/Title>:<Title>$TITLE [$TODAY]</Title>:" $PROJECT_FILE
-
-# Set ReleaseFiles in $PROJECT_FILE
-#sed -i "s:<ReleaseFiles>.*<\/ReleaseFiles>:<ReleaseFiles>$PWD/media-content</ReleaseFiles>:" $PROJECT_FILE
 
 WORKDIR=$(grep "<WorkDir>" $PROJECT_FILE | sed 's/^ *<WorkDir>\(.*\)<\/WorkDir>/\1/')
 
@@ -100,18 +94,6 @@ if [[ x$YESTERDAY != "x" ]]; then
 
     # Move changes
     mv stats.html $TODAY/CHANGES.$YESTERDAY.html
-
-    #if [[ $HEAD != $YESTERDAY ]]; then
-    #    # Create changes between the new one and the very first iso
-    #    HEAD_ISO="$HEAD/$(basename `ls $HEAD/*.iso`)"
-    #    $CDDIFF $HEAD_ISO $TODAY/$ISO
-    #
-    #    # Sed some stuff
-    #    sed -i -e 's#http://www.pardus.org.tr/eng/download.html#..#' stats.html
-    #
-    #    # Move the file
-    #    mv stats.html $TODAY/CHANGES.$HEAD.html
-    #fi
 
     # Create incremental xdelta
     if [[ -x $XDELTA ]]; then

@@ -64,7 +64,7 @@ sed -i "s:<Title>.*<\/Title>:<Title>$TITLE [$TODAY]</Title>:" $PROJECT_FILE
 
 WORKDIR=$(grep "<WorkDir>" $PROJECT_FILE | sed 's/^ *<WorkDir>\(.*\)<\/WorkDir>/\1/')
 
-#if [ -n "$KEEP_WORKDIR" ]; then
+#if [ -z "$KEEP_WORKDIR" ]; then
 #    # Clean up WorkDir
 #    echo "Cleaning $WORKDIR"
 #    test -d $WORKDIR && rm -rf $WORKDIR
@@ -86,7 +86,7 @@ pushd $DESTDIR
 # Get the ISO file
 mv $WORKDIR/$ISO $TODAY/
 
-if [ -n "$KEEP_WORKDIR" ]; then
+if [ -z "$KEEP_WORKDIR" ]; then
     # Clean up WorkDir
     rm -rf $WORKDIR
 fi

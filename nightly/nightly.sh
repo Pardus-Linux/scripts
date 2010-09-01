@@ -37,8 +37,7 @@ XDELTA=$(which xdelta 2>/dev/null| sed 's|^[^/]*||' 2>/dev/null)
 
 TODAY=$(date +%Y%m%d)
 
-#############################################
-echo "Preparing nightly build for $TODAY"
+echo "========== Preparing nightly build for $PROJECT on $TODAY =========="
 
 # Create a temp dir
 TMPDIR=`mktemp -d /tmp/nightly-build.XXXXXXXXXX`

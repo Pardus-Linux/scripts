@@ -94,7 +94,7 @@ fi
 
 test -L current && YESTERDAY=$(readlink current) || YESTERDAY=
 
-if [[ x$YESTERDAY != "x" ]]; then
+if [[ x$YESTERDAY != "x" -a "$YESTERDAY" != "$TODAY" ]]; then
     # Create ISO diff from previous snapshot
     echo "Generating CHANGES between incremental ISO images.."
     YESTERDAY_ISO="$YESTERDAY/$(basename `ls $YESTERDAY/*.iso`)"

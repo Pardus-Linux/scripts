@@ -97,7 +97,7 @@ if [ -n "$YESTERDAY" -a "$YESTERDAY" != "$TODAY" ]; then
     # Create ISO diff from previous snapshot
     echo "Generating CHANGES between incremental ISO images.."
     YESTERDAY_ISO="$YESTERDAY/$(basename `ls $YESTERDAY/*.iso`)"
-    $CDDIFF $YESTERDAY_ISO $TODAY/$ISO
+    $CDDIFF $YESTERDAY_ISO $TODAY/$ISO || echo "$CDDIFF failed!"
 
     # Sed some stuff
     sed -i -e 's#http://www.pardus.org.tr/eng/download.html#..#' stats.html

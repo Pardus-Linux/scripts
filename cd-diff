@@ -127,13 +127,14 @@ def add_package_changes(p, diffp):
 def parse_comment(p, update):
     # Sanitize comments
     m_comment = update.comment.replace("bug#", "#").replace("Bug#", "#").replace("bug #", "#").replace("Bug #", "#").replace("Fixes #", "#")\
-                      .replace("fixes #", "#").replace("closes #", "#").replace("Closes #", "#").replace("bugzilla#", "#")
+                      .replace("fixes #", "#").replace("closes #", "#").replace("Closes #", "#").replace("bugzilla#", "#") \
+                      .replace("%", "&#37;")
 
     bugs_pardus_org_tr = "http://bugs.pardus.org.tr/"
     cve_mitre_org = "http://cve.mitre.org/cgi-bin/cvename.cgi?name="
 
     # Hardcoded hack
-    fixed_bugs = re.findall("#([0-9]+)", m_comment)
+    fixed_bugs = re.findall("[^&]#([0-9]+)", m_comment)
 
     if fixed_bugs:
         if total_fixed_bugs.has_key(p):
@@ -144,7 +145,7 @@ def parse_comment(p, update):
         global total_bugs
         total_bugs += len(fixed_bugs)
 
-        m_comment = re.sub("#([0-9]*)", "<a href=\"%s\\1\" target=\"_blank\">#\\1</a>" % bugs_pardus_org_tr, m_comment)
+        m_comment = re.sub("[^&]#([0-9]*)", "<a href=\"%s\\1\" target=\"_blank\">#\\1</a>" % bugs_pardus_org_tr, m_comment)
 
     # Erase URL references to CVE's.
     m_comment = re.sub("\(http://.*CVE-[0-9]+-[0-9]+.*\)", "", m_comment)
@@ -226,7 +227,7 @@ if __name__ == "__main__":
         if dh:
             diffs[p] = dh
 
-    add_new_package_descriptions(dict([(ni_packages[p].name, ni_packages[p].description.get('en', 'Not available') for p in new_packages]))
+    add_new_package_descriptions(dict([(ni_packages[p].name, ni_packages[p].description.get('en', 'Not available')) for p in new_packages]))
     add_package_modifications_header(len(ni_packages), len(diffs.keys()), old_release, new_release)
 
     for p in sorted(diffs.keys()):

@@ -99,11 +99,13 @@ if [ -n "$YESTERDAY" -a "$YESTERDAY" != "$TODAY" ]; then
     YESTERDAY_ISO="$YESTERDAY/$(basename `ls $YESTERDAY/*.iso`)"
     $CDDIFF $YESTERDAY_ISO $TODAY/$ISO || echo "$CDDIFF failed!"
 
-    # Sed some stuff
-    sed -i -e 's#http://www.pardus.org.tr/eng/download.html#..#' stats.html
+    if [ -f stats.html ]; then
+        # Sed some stuff
+        sed -i -e 's#http://www.pardus.org.tr/eng/download.html#..#' stats.html
 
-    # Move changes
-    mv stats.html $TODAY/CHANGES.$YESTERDAY.html
+        # Move changes
+        mv stats.html $TODAY/CHANGES.$YESTERDAY.html
+    fi
 
     # Create incremental xdelta
     if [[ -x $XDELTA ]]; then

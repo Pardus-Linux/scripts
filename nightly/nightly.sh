@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -e
 #set -x
 
 # Paths
@@ -117,8 +116,6 @@ fi
 pushd $TODAY
 sha1sum $(ls *.iso *.xdelta) > SHA1SUMS
 popd  # $TODAY
-
-set +e
 
 # Update the current symlink
 unlink current

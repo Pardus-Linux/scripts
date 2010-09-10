@@ -73,9 +73,17 @@ WORKDIR=$(grep "<WorkDir>" $PROJECT_FILE | sed 's/^ *<WorkDir>\(.*\)<\/WorkDir>/
 mkdir -p $WORKDIR
 
 # Run pardusman
-python $PARDUSMAN make $PROJECT_FILE
+PARDUSMAN_FAILED=
+python $PARDUSMAN make $PROJECT_FILE || PARDUSMAN_FAILED=1
 
 popd  # $TMPDIR
+
+if [ -n "$PARDUSMAN_FAILED" ]; then
+    # Remove temp dir
+    rm -rf $TMPDIR
+
+    exit 1
+fi
 
 ISO=$(basename $WORKDIR/*.iso)
 mkdir -p $DESTDIR$TODAY

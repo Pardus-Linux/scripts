@@ -247,7 +247,7 @@ def check_installed_package(package):
         printv("    Analyzing %s" % pc_file)
 
         needed_tuples = []
-        requires = set(os.popen("pkg-config --print-requires %s | gawk '{ print $1 }'" % os.path.basename(pc_file).replace(".pc", "")).read().split("\n")[:-1])
+        requires = set(os.popen("pkg-config --print-requires --print-requires-private %s | gawk '{ print $1 }'" % os.path.basename(pc_file).replace(".pc", "")).read().split("\n")[:-1])
 
         for require in requires:
             require_file = "/usr/share/pkgconfig/%s.pc" % require

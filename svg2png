@@ -8,6 +8,9 @@ import os
 import sys
 import shutil
 
+#TODO: take srcDir and targetDir as input arguments
+#TODO: handle svgz files
+
 srcDir = "/tmp/sil/milky/scalable"
 targetDir = "/tmp/sil/milky-png"
 
@@ -18,7 +21,6 @@ inkscapecmd = "inkscape --without-gui --export-dpi=72 --export-background-opacit
 convertcmd = "convert -filter Sinc -resize %sx%s %s %s"
 
 typeDirs = ["actions",
-            "alternativ",
             "animations",
             "apps",
             "categories",
@@ -29,8 +31,6 @@ typeDirs = ["actions",
             "intl",
             "mimetypes",
             "places",
-            "scalable",
-            "small",
             "status"]
 
 sizes = ["16", "22", "32", "48", "64", "128"]

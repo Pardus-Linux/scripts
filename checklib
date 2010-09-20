@@ -207,13 +207,18 @@ def get_needed_objects(file_name, ld_library_paths=None):
 
     unuseds = parse_unused(ldd_ur_output_unused.strip())
     undefineds = parse_undefs(ldd_ur_output_undefs.strip())
+
     broken_dependencies, so_map = parse_ldd_output(ldd_output)
 
-    # FIXME
-    objs = map(lambda x: os.popen("readlink -f %s" % so_map[x]).read().strip() \
-            if so_map.has_key(x) else x, objs)
+    _objs = []
+    for obj in objs:
+        # Find the absolute path of libraries from their SONAME's
+        if so_map.has_key(obj):
+            _objs.append(os.popen("readlink -f %s" % so_map[obj]).read().strip())
+        else:
+            _objs.append(obj)
 
-    return (objs, unuseds, undefineds, broken_dependencies)
+    return (_objs, unuseds, undefineds, broken_dependencies)
 
 def check_installed_package(package):
     """Check for an installed package."""

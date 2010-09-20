@@ -10,6 +10,7 @@ import shutil
 
 #TODO: take srcDir and targetDir as input arguments
 #TODO: handle svgz files
+#TODO: fix both directory and file permissions
 
 srcDir = "/tmp/sil/milky/scalable"
 targetDir = "/tmp/sil/milky-png"

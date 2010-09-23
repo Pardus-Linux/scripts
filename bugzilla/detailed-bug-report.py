@@ -97,7 +97,8 @@ for line in devFile.readlines():
 
                 # how many bugs the person fix since last week
                 # bugs_activity.fieldid = 8 means bug_status was changed.
-                fixedBug_N = c.execute("select bugs.bug_id from bugs, bugs_activity where bugs.bug_id = bugs_activity.bug_id and bugs_activity.fieldid = 8 and bugs.bug_status = 'RESOLVED' and bugs_activity.who = %s and bugs_activity.bug_when >= DATE_SUB(CURDATE(), INTERVAL 1 WEEK)" %(userid[0]))
+                # bugs_activity.fieldid = 11 means resolution was changed.
+                fixedBug_N = c.execute("select bugs.bug_id from bugs, bugs_activity where bugs.bug_id = bugs_activity.bug_id and (bugs_activity.fieldid = 8 or (bugs_activity.fieldid = 8 and bugs_activity.fieldid = 11)) and bugs_activity.who = %s and bugs_activity.bug_when >= DATE_SUB(CURDATE(), INTERVAL 1 WEEK)" %(userid[0]))
 
                 #for fixedBug in c.fetchall():
                 #    print fixedBug[0]

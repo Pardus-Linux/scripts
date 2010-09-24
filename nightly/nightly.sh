@@ -2,10 +2,6 @@
 
 #set -x
 
-# Paths
-PARDUSMAN="/uludag/trunk/kde/pardusman/pardusman.py"
-CDDIFF="/uludag/trunk/scripts/cd-diff"
-
 # Defaults
 TITLE="Pardus Nightly"
 DISTRO_URL="http://svn.pardus.org.tr/uludag/trunk/distribution/2011"
@@ -43,8 +39,17 @@ TMPDIR=`mktemp -d /tmp/nightly-build.XXXXXXXXXX`
 
 pushd $TMPDIR
 
-# Checkout distro directory
+echo "Checking out distribution project..."
 svn co $DISTRO_URL .
+
+echo "Checking out pardusman..."
+svn co http://svn.pardus.org.tr/uludag/trunk/kde/pardusman
+PARDUSMAN=$PWD/pardusman/pardusman.py
+
+echo "Downloading cd-diff script..."
+wget http://svn.pardus.org.tr/uludag/trunk/scripts/cd-diff
+chmod +x cd-diff
+CDDIFF=$PWD/cd-diff
 
 PROJECT_FILE=project-files/$PROJECT
 

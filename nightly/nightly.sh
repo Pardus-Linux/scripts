@@ -77,7 +77,7 @@ WORKDIR=$(grep "<WorkDir>" $PROJECT_FILE | sed 's/^ *<WorkDir>\(.*\)<\/WorkDir>/
 # Create working directory
 mkdir -p $WORKDIR
 
-# Run pardusman
+echo "Running pardusman..."
 PARDUSMAN_FAILED=
 python $PARDUSMAN make $PROJECT_FILE || PARDUSMAN_FAILED=1
 
@@ -127,18 +127,22 @@ if [ -n "$YESTERDAY" -a "$YESTERDAY" != "$TODAY" ]; then
 fi
 
 pushd $TODAY
-sha1sum $(ls *.iso *.xdelta) > SHA1SUMS
+FILES=$(ls *.iso *.xdelta 2>/dev/null)
+if test -n "$FILES"; then
+    echo "Generating SHA1SUMS..."
+    sha1sum $FILES > SHA1SUMS
+fi
 popd  # $TODAY
 
-# Update the current symlink
-unlink current
+echo "Updating current link..."
+test -e current && rm -f current
 ln -sf $TODAY current
 
-# Remove old images
+echo "Removing the oldest image..."
 OLDDIR=$(date +%Y%m%d --date="3 days ago")
 test -d $OLDDIR && rm -rf $OLDDIR
 
 popd  # $DESTDIR
 
-# Remove temp dir
+echo "Removing temporary files..."
 rm -rf $TMPDIR

@@ -139,8 +139,13 @@ test -e current && rm -f current
 ln -sf $TODAY current
 
 echo "Removing the oldest image..."
-OLDDIR=$(date +%Y%m%d --date="3 days ago")
-test -d $OLDDIR && rm -rf $OLDDIR
+for i in 8 7 6 5 4 3; do
+    OLDDIR=$(date +%Y%m%d --date="$i days ago")
+    if test -d "$OLDDIR"; then
+        rm -rf "$OLDDIR"
+        break
+    fi
+done
 
 popd  # $DESTDIR
 

@@ -116,13 +116,13 @@ if [ -n "$YESTERDAY" -a "$YESTERDAY" != "$TODAY" ]; then
         sed -i -e 's#http://www.pardus.org.tr/eng/download.html#..#' stats.html
 
         # Move changes
-        mv stats.html $TODAY/CHANGES.$YESTERDAY.html
+        mv stats.html $TODAY/Changes-$YESTERDAY-$TODAY.html
     fi
 
     # Create incremental xdelta
     if [[ -x $XDELTA ]]; then
         echo "Generating xdelta between incremental ISO images.."
-        $XDELTA delta -9 $YESTERDAY_ISO $TODAY/$ISO $TODAY/$ISO.xdelta
+        $XDELTA delta -9 $YESTERDAY_ISO $TODAY/$ISO $TODAY/${ISO/$TODAY/$YESTERDAY-$TODAY}.xdelta
     fi
 fi
 

@@ -6,8 +6,8 @@ import listRepoPackages
 import sys
 import os
 
-# Product Id of "Packages"
-pId = 7
+# Pardus Technologies' packages will be removed from the distribution products
+packTech = ["boot-manager", "network-manager", "comar", "disk-manager", "kaptan", "user-manager", "mudur", "package-manager", "pisi", "service-manager", "system-manager", "tasma", "yali" ]
 
 try:
     # get pisi index file full path
@@ -18,9 +18,17 @@ Usage: python main.py <full_path_of_pisi_index_file>
 """
     sys.exit(0)
 
+# Product Id of "Packages"
+if "2009" in index_file:
+    pId=50
+if "2011" in index_file:
+    pId=51
+if "corporate2" in index_file:
+    pId=52
+
 # Connect DB
 print "---connecting DB"
-db = mysql.connect(**dict([line.split("=") for line in open("%s/\x61\x75\x74\x68" % os.path.dirname(sys.argv[0])).read().strip().split("\n") if line != "" and not line.startswith("#")]))
+db = mysql.connect(**dict([line.split("=") for line in open("\x61\x75\x74\x68").read().strip().split("\n") if line != "" and not line.startswith("#")]))
 
 # Get package names and maintainer addresses
 print "---parse index file"
@@ -48,16 +56,21 @@ for id, mail in cProfiles.fetchall():
 errors = {'db':[], 'mail':[]}
 procs = {'update':0, 'insert':0}
 
+#cPackage = db.cursor()
+#cPackage.execute("INSERT INTO components(name, product_id, initialowner, description) VALUES ('Paket listede yok / Package is not in the list', %s, 4981, 'Paket listede yok / Package is not in the list')", (str(pId)))
+#db.commit()
+
 for pack in packDict.iterkeys():
     cPackage = db.cursor()
 
     # pack = package name
     # profiles[ packDict[pack] ] = userid
-    
+
     try:
        id = profiles[packDict[pack]]
 
-       numRows = cPackage.execute("SELECT id FROM components WHERE name = '%s'" % pack)
+       numRows = cPackage.execute("SELECT id FROM components WHERE name = '%s' and product_id = '%s'" % (pack, str(pId)))
+
 
        if not numRows == 0:
            print "---updating %s package, package owner is %s" % (pack, packDict[pack])
@@ -68,12 +81,15 @@ for pack in packDict.iterkeys():
            cPackage.execute("INSERT INTO components(name, product_id, initialowner, description) VALUES (%s, %s, %s, %s)",(str(pack), str(pId), id, str(pack)))
            procs['insert'] += 1
 
+       if pack in packTech and not numRows == 0:
+           cPackage.execute("delete from components where name = '%s' and product_id = '%s'" % (pack, str(pId)))
        db.commit()
 
-    except MySQLdb.Error, e:
+    except mysql.Error, e:
         errors['db'].append(e.__str__())
     except KeyError, e:
         errors['mail'].append(str(e))
+
 
 print "\nThere are %s packages in repo" % packDict.keys().__len__()
 print "%s packages inserted, %s packages updated\n" % (procs["insert"], procs["update"])

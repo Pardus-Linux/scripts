@@ -7,7 +7,7 @@ import sys
 import os
 
 # Pardus Technologies' packages will be removed from the distribution products
-packTech = ["boot-manager", "network-manager", "comar", "disk-manager", "kaptan", "user-manager", "mudur", "package-manager", "pisi", "service-manager", "system-manager", "tasma", "yali" ]
+packTech = ["boot-manager", "network-manager", "comar", "disk-manager", "kaptan", "user-manager", "mudur", "package-manager", "pisi", "service-manager", "system-manager", "tasma", "yali", "display-settings", "firewall-manager"]
 
 try:
     # get pisi index file full path

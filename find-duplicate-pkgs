@@ -4,11 +4,30 @@
 # Prints duplicate packages that exist in both binary repositories.
 #
 #
+#
+# http://paketler.pardus.org.tr/pardus-2009/pisi-index.xml.bz2
+# http://paketler.pardus.org.tr/contrib-2009/pisi-index.xml.bz2
 
 import os
 import sys
 import piksemel
 import bz2
+import urllib2
+
+def loadUrlData(_url):
+    try:
+        downloaded_data = urllib2.urlopen(_url).read()
+    except urllib2.URLError:
+        print "could not download %s" % _url
+        sys.exit(1)
+
+    print "Remote file %s has been downloaded." % _url
+
+    if _url.endswith(".bz2"):
+        rawData = bz2.decompress(downloaded_data)
+        return piksemel.parseString(rawData)
+    else:
+        return piksemel.parseString(downloaded_data)
 
 def getXmlData(_file):
     if os.path.exists(_file):
@@ -17,7 +36,8 @@ def getXmlData(_file):
         indexdata = bz2.decompress(file("%s.bz2" % _file).read())
         return piksemel.parseString(indexdata)
     else:
-        print "please give the index file as parameter or go to that folder"
+        print "please give the index file as a parameter or go to that folder."
+        print "    Can it be a remote file?"
         sys.exit(1)
 
 def parseXmlData(_index):
@@ -36,14 +56,24 @@ if __name__ == "__main__":
         print "Usage: %s first_index_file second_index_file" % sys.argv[0]
         sys.exit(1)
 
-    first_xmldata = getXmlData(first_index_file)
-    first_packagesIndex= parseXmlData(first_xmldata)
+    try:
+        first_xmldata = getXmlData(first_index_file)
+    except:
+        first_xmldata = loadUrlData(first_index_file)
 
-    second_xmldata = getXmlData(second_index_file)
+    first_packagesIndex= parseXmlData(first_xmldata)
+    
+    try:
+        second_xmldata = getXmlData(second_index_file)
+    except:
+        second_xmldata = loadUrlData(second_index_file)
+
     second_packagesIndex= parseXmlData(second_xmldata)
 
     duplicate_pkgs = list(set(first_packagesIndex) & set(second_packagesIndex))
 
-    #print "Duplicate Packages between %s and %s are:" % (sys.argv[1], sys.argv[2])
+    print "-----------------------------------------------------------------------"
+    print "Duplicate Packages between \n%s\n\t\t\tand \n%s are:" % (sys.argv[1], sys.argv[2])
+    print "-----------------------------------------------------------------------"
     for i in duplicate_pkgs:
         print i

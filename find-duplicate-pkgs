@@ -1,0 +1,49 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+# Prints duplicate packages that exist in both binary repositories.
+#
+#
+
+import os
+import sys
+import piksemel
+import bz2
+
+def getXmlData(_file):
+    if os.path.exists(_file):
+        return piksemel.parse(_file)
+    elif os.path.exists("%s.bz2" % _file):
+        indexdata = bz2.decompress(file("%s.bz2" % _file).read())
+        return piksemel.parseString(indexdata)
+    else:
+        print "please give the index file as parameter or go to that folder"
+        sys.exit(1)
+
+def parseXmlData(_index):
+    pkglist = []
+
+    for pkg in _index.tags("Package"):
+        pkglist.append(pkg.getTagData("Name"))
+
+    return pkglist
+
+if __name__ == "__main__":
+    if len(sys.argv) == 3:
+        first_index_file = sys.argv[1]
+        second_index_file = sys.argv[2]
+    else:
+        print "Usage: %s first_index_file second_index_file" % sys.argv[0]
+        sys.exit(1)
+
+    first_xmldata = getXmlData(first_index_file)
+    first_packagesIndex= parseXmlData(first_xmldata)
+
+    second_xmldata = getXmlData(second_index_file)
+    second_packagesIndex= parseXmlData(second_xmldata)
+
+    duplicate_pkgs = list(set(first_packagesIndex) & set(second_packagesIndex))
+
+    #print "Duplicate Packages between %s and %s are:" % (sys.argv[1], sys.argv[2])
+    for i in duplicate_pkgs:
+        print i

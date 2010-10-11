@@ -237,6 +237,7 @@ def colorize(msg, color, nocolor=False):
         return colors[color if sys.stdout.isatty() else 'none'] % msg
 
 def main(arg):
+    print arg
     '''Initialize packages and get the results. Prints them out '''
     # This is of type dictionary, it includes all the options from the parser such as option.directory, options.missing, etc.
     option = arg[0]
@@ -263,6 +264,13 @@ def main(arg):
             # No recursion is used, just get the pisi files from directory specified with -d
             pisi_files = glob.glob("%s/*.pisi" % option.directory)
             packages.extend(pisi_files)
+
+    if option.component:
+        cdb = pisi.db.componentdb.ComponentDB()
+        for repo in pisi.db.repodb.RepoDB().list_repos():
+            if cdb.has_component(option.component):
+                packages.extend(cdb.get_packages(option.component, repo))
+
 
 
     # Checklib support several mixed arguments. You can look for a installed package, for a single pisi file. etc.
@@ -416,6 +424,12 @@ def argument():
                      dest="systembase",
                      default=False,
                      help="show system.base dependencies")
+
+    parser.add_option("-c", "--component",
+                     action="store",
+                     dest="component",
+                     type="string",
+                     help="check a whole component")
 
     parser.add_option("-d","--directory",
                      action="store",

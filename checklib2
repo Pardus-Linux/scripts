@@ -192,6 +192,7 @@ def output_result(package_name, package_deps, package_dir):
     result_unused = {}
     result_undefined = {}
     result_broken = None
+    result_runpath = {}
     for elf_file in package_elf_files:
         ldd_output = subprocess.Popen(["ldd", elf_file],
                                       stdout=subprocess.PIPE,
@@ -201,16 +202,22 @@ def output_result(package_name, package_deps, package_dir):
                                                    stdout=subprocess.PIPE,
                                                    stderr=subprocess.PIPE).communicate()
 
+        runpath  = subprocess.Popen(["chrpath", "-l", elf_file],
+                                      stdout=subprocess.PIPE,
+                                      stderr=subprocess.STDOUT).communicate()[0].strip().split(": ")
+
         objdump_needed = [line.strip().split()[1] for line in \
                 os.popen("objdump -p \"%s\" | grep 'NEEDED'" % elf_file).readlines()]
+
 
         # Process the various ldd and objdump outputs
         processed_needed, processed_broken, processed_unused, processed_undefined = \
         process_ldd(objdump_needed, ldd_output, ldd_unused, ldd_undefined)
-
+ 
         # association with each single elf file
         result_unused.update(dict([(elf_file,processed_unused)]))
         result_undefined.update(dict([(elf_file,processed_undefined)]))
+        result_runpath.update(dict([(elf_file,runpath)]))
         result_broken = processed_broken
         result_dependencies[elf_file] =  check_objdump(processed_needed, package_elf_files, package_name)
 
@@ -218,8 +225,7 @@ def output_result(package_name, package_deps, package_dir):
     for pc_file in package_pc_files:
         result_dependencies[pc_file] = check_pc_files(pc_file)
 
-
-    return (result_dependencies, result_broken, result_unused, result_undefined)
+    return (result_dependencies, result_broken, result_unused, result_undefined, result_runpath)
 
 def colorize(msg, color, nocolor=False):
     """Colorizes the given message."""
@@ -291,7 +297,7 @@ def main(arg):
             package_pisi.extract_install(package_tempdir)
 
             # Get results from objdump,ldd,etc...
-            result_dependencies, result_broken, result_unused, result_undefined = \
+            result_dependencies, result_broken, result_unused, result_undefined, result_runpath = \
             output_result(package_name, package_deps, package_tempdir)
 
             # Look for intersections of the packages(i.e. do not include system.base packages)
@@ -300,7 +306,7 @@ def main(arg):
             result_lists = check_intersections(result_dependencies, package_deps, package_name, option.systembase)
 
             # Print the results in a fancy output
-            print_results(result_broken, result_unused, result_undefined, result_lists, package_name, option)
+            print_results(result_broken, result_unused, result_undefined, result_lists, result_runpath, package_name, option)
 
             # Delet the created temporary directory
             if package_tempdir.startswith("/tmp/"):
@@ -315,16 +321,16 @@ def main(arg):
             package_tempdir = False # There is no need of temporary directory, hence we look for files that are installed
 
             # Same functions in the above part. You can read them
-            result_dependencies, result_broken, result_unused, result_undefined = \
+            result_dependencies, result_broken, result_unused, result_undefined, result_runpath = \
             output_result(package_name, package_deps, package_tempdir)
 
             result_lists = check_intersections(result_dependencies, package_deps, package_name, option.systembase)
-            print_results(result_broken, result_unused, result_undefined, result_lists, package_name, option)
+            print_results(result_broken, result_unused, result_undefined, result_lists, result_runpath, package_name, option)
 
         else:
             print "Error: '%s' is not a valid .pisi file or an installed package\nPlease use -d <path> option for a directory" % package
 
-def print_results(result_broken, result_unused, result_undefined, result_lists, package_name, option):
+def print_results(result_broken, result_unused, result_undefined, result_lists, result_runpath, package_name, option):
     '''print the final results in fancy colors'''
 
     def print_unused(result_unused, result_broken):
@@ -340,7 +346,7 @@ def print_results(result_broken, result_unused, result_undefined, result_lists, 
                 for data in libs:
                     print "--> ", data
 
-    def print_undefined(result_undefined):
+    def print_undefined(result_undefined): 
         print colorize("\nUndefined symbol analysis", 'green', option.nocolor)
         print colorize("-------------------------", 'green', option.nocolor)
         for elf_file,libs in result_undefined.items():
@@ -348,6 +354,14 @@ def print_results(result_broken, result_unused, result_undefined, result_lists, 
                 print colorize(elf_file, 'red')
                 for data in libs:
                     print "--> ", data
+
+    def print_runpath(result_runpath):
+        print colorize("\nRunpath settings", 'green', option.nocolor)
+        print colorize("----------------", 'green', option.nocolor)
+        for elf_file,libs in result_runpath.items():
+            if libs:
+                print colorize(elf_file, 'red')
+                print "--> ", libs[1]
 
     def print_dependencies(result_lists):
         print colorize("\nWritten dependencies          Detected dependencies         Missing dependencies", 'green', option.nocolor)
@@ -371,15 +385,19 @@ def print_results(result_broken, result_unused, result_undefined, result_lists, 
     # This part is for the behavior of checklib argument parsing
     # If no options are used at all, than we show all options
     # If any of the other options is used, only the choosen ones are showwd
-    if not option.unused and not option.undefined and not option.missing:
+    if not option.unused and not option.undefined and not option.missing and not option.runpath:
         print_unused(result_unused, result_broken)
         print_undefined(result_undefined)
+        print_runpath(result_runpath)
         print_dependencies(result_lists)
+
     else:
         if option.unused:
             print_unused(result_unused, result_broken)
         if option.undefined:
             print_undefined(result_undefined)
+        if option.runpath:
+            print_runpath(result_runpath)
         if option.missing:
             print_dependencies(result_lists)
 
@@ -418,6 +436,12 @@ def argument():
                      dest="missing",
                      default=False,
                      help="show only missing dependencies")
+
+    parser.add_option("-p", "--runpath",
+                     action="store_true",
+                     dest="runpath",
+                     default=False,
+                     help="show runpath settings(via chrpath)")
 
     parser.add_option("-s", "--systembase",
                      action="store_true",

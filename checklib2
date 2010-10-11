@@ -191,6 +191,7 @@ def output_result(package_name, package_deps, package_dir):
     result_dependencies = {}
     result_unused = {}
     result_undefined = {}
+    result_broken = None
     for elf_file in package_elf_files:
         ldd_output = subprocess.Popen(["ldd", elf_file],
                                       stdout=subprocess.PIPE,

@@ -243,7 +243,6 @@ def colorize(msg, color, nocolor=False):
         return colors[color if sys.stdout.isatty() else 'none'] % msg
 
 def main(arg):
-    print arg
     '''Initialize packages and get the results. Prints them out '''
     # This is of type dictionary, it includes all the options from the parser such as option.directory, options.missing, etc.
     option = arg[0]
@@ -360,8 +359,9 @@ def print_results(result_broken, result_unused, result_undefined, result_lists, 
         print colorize("----------------", 'green', option.nocolor)
         for elf_file,libs in result_runpath.items():
             if libs:
-                print colorize(elf_file, 'red')
-                print "--> ", libs[1]
+                if "RPATH" in libs[1]:
+                    print colorize(elf_file, 'red')
+                    print "--> ", libs[1]
 
     def print_dependencies(result_lists):
         print colorize("\nWritten dependencies          Detected dependencies         Missing dependencies", 'green', option.nocolor)

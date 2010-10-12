@@ -28,7 +28,7 @@ import MySQLdb as mysql
 #    only cause problems when the maintainers of both packages are different.
 
 # The name of the product to use for package reviewing
-PRODUCT_REVIEW = "Package Review / Paket Gözden Geçirme"
+PRODUCT_REVIEW = "Paket Gözden Geçirme / Package Review"
 
 # Where to fetch components.xml
 # FIXME: Currently this checks against 2009/devel/components.xml

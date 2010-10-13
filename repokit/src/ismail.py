@@ -289,7 +289,7 @@ class Source(AutoPiksemel):
     homepage    = tag("Homepage")
     packager    = tag("Packager", t_class=Packager)
     summary     = one_or_more_tag("Summary")
-    description = zero_or_more_tag("Description")
+    description = one_or_more_tag("Description")
     isa         = zero_or_more_tag("IsA")
     partof      = optional_tag("PartOf")
     icon        = optional_tag("Icon")

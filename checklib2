@@ -8,12 +8,12 @@
 # Software Foundation; either version 2 of the License, or (at your option)
 # any later version.
 
-# For more information execute "checklib --help" 
+# For more information execute "checklib --help"
 
 import os
 import sys
 import glob
-import pisi 
+import pisi
 import magic
 import fnmatch
 import tempfile
@@ -157,11 +157,11 @@ def check_intersections(result_dependencies, package_deps, package_name, systemb
     # create a sorted iteration object.
     # the lists may have variable lengths, thus we fill the smallers one with empty strings.
     # at the end all the lists are in the same length. This makes it easy to print it like a table
-    result_lists = itertools.izip_longest(sorted(list(set(package_deps))), 
+    result_lists = itertools.izip_longest(sorted(list(set(package_deps))),
                                        sorted(result_deps),
                                        sorted(result_section),
                                        fillvalue="")
-    return result_lists  
+    return result_lists
 
 def output_result(package_name, package_deps, package_dir):
     '''execute ldd on elf files and returns them'''
@@ -283,7 +283,7 @@ def main(arg):
 
 
     # Checklib support several mixed arguments. You can look for a installed package, for a single pisi file. etc.
-    # For example : checklib gcc rekonq-0.6.0-9.pisi -d tempdir/ 
+    # For example : checklib gcc rekonq-0.6.0-9.pisi -d tempdir/
     # It looks for the installed package gcc, for the specified pisi file and for pisi file in the directory tempdir
     for package in packages:
         # Check loop for .pisi files

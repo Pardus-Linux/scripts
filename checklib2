@@ -276,6 +276,8 @@ def main(arg):
             if cdb.has_component(option.component):
                 packages.extend(cdb.get_packages(option.component, repo))
 
+    if option.installedlist:
+        packages.extend(INSTALLDB.list_installed())
 
 
     # Checklib support several mixed arguments. You can look for a installed package, for a single pisi file. etc.
@@ -454,6 +456,12 @@ def argument():
                      dest="component",
                      type="string",
                      help="check a whole component")
+
+    parser.add_option("-a", "--all",
+                     action="store_true",
+                     dest="installedlist",
+                     default=False,
+                     help="check all installed packages")
 
     parser.add_option("-d","--directory",
                      action="store",

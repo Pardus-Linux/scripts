@@ -270,12 +270,14 @@ def main(arg):
             pisi_files = glob.glob("%s/*.pisi" % option.directory)
             packages.extend(pisi_files)
 
+    # check for components , like system.base, tex.language ,etc.
     if option.component:
         cdb = pisi.db.componentdb.ComponentDB()
         for repo in pisi.db.repodb.RepoDB().list_repos():
             if cdb.has_component(option.component):
                 packages.extend(cdb.get_packages(option.component, repo))
 
+    # check for all packages installed on the machine
     if option.installedlist:
         packages.extend(INSTALLDB.list_installed())
 
@@ -343,7 +345,7 @@ def print_results(result_broken, result_unused, result_undefined, result_lists, 
             result_unused[elf_file] = map(lambda x: ("%s (broken)" % x) if x in result_broken else x, libs)
         for elf_file,libs in result_unused.items():
             if libs:
-                print colorize(elf_file, 'red')
+                print colorize(elf_file, 'red', option.nocolor)
                 for data in libs:
                     print "--> ", data
 
@@ -352,7 +354,7 @@ def print_results(result_broken, result_unused, result_undefined, result_lists, 
         print colorize("-------------------------", 'green', option.nocolor)
         for elf_file,libs in result_undefined.items():
             if libs:
-                print colorize(elf_file, 'red')
+                print colorize(elf_file, 'red',option.nocolor)
                 for data in libs:
                     print "--> ", data
 
@@ -362,7 +364,7 @@ def print_results(result_broken, result_unused, result_undefined, result_lists, 
         for elf_file,libs in result_runpath.items():
             if libs:
                 if "RPATH" in libs[1]:
-                    print colorize(elf_file, 'red')
+                    print colorize(elf_file, 'red', option.nocolor)
                     print "--> ", libs[1]
 
     def print_dependencies(result_lists):

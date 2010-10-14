@@ -200,20 +200,23 @@ def output_result(package_name, package_deps, package_dir):
         for elf_file in package_elf_files:
             if elf_file.endswith(".so") or ".so." in elf_file:
                 ld_library_paths.add(os.path.dirname(elf_file))
-        env.update({'LD_LIBRARY_PATH': ":".join(ld_library_paths)})
+        os.environ.update({'LD_LIBRARY_PATH': ":".join(ld_library_paths)})
 
     for elf_file in package_elf_files:
         ldd_output = subprocess.Popen(["ldd", elf_file],
                                       stdout=subprocess.PIPE,
-                                      stderr=subprocess.STDOUT).communicate()[0].strip().split("\n")
+                                      stderr=subprocess.STDOUT,
+                                      env = os.environ).communicate()[0].strip().split("\n")
 
         ldd_unused, ldd_undefined = subprocess.Popen(["ldd", "-u", "-r", elf_file],
                                                    stdout=subprocess.PIPE,
-                                                   stderr=subprocess.PIPE).communicate()
+                                                   stderr=subprocess.PIPE,
+                                                   env = os.environ).communicate()
 
         runpath  = subprocess.Popen(["chrpath", "-l", elf_file],
                                       stdout=subprocess.PIPE,
-                                      stderr=subprocess.STDOUT).communicate()[0].strip().split(": ")
+                                      stderr=subprocess.STDOUT,
+                                      env = os.environ).communicate()[0].strip().split(": ")
 
         objdump_needed = [line.strip().split()[1] for line in \
                 os.popen("objdump -p \"%s\" | grep 'NEEDED'" % elf_file).readlines()]

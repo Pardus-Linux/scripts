@@ -123,7 +123,7 @@ def check_intersections(result_dependencies, package_deps, package_name, systemb
            systembase_packages.extend(cdb.get_packages('system.base', repo))
 
     # look for packages that are system.base but are written as dependency
-    # mark them with "*" color
+    # mark them with "*"
     result_must_removed = list(set(package_deps) & set(systembase_packages))
     for deps in package_deps:
         if deps in result_must_removed:
@@ -154,7 +154,7 @@ def check_intersections(result_dependencies, package_deps, package_name, systemb
     # remove packages that already are written in metadata.xml (runtime dependencies written in pspec.xml)
     result_section = list(set(result_deps) -  set(package_deps))
 
-    # create a sorted iteration object.
+    # create a sorted iteration object of the final results variables
     # the lists may have variable lengths, thus we fill the smallers one with empty strings.
     # at the end all the lists are in the same length. This makes it easy to print it like a table
     result_lists = itertools.izip_longest(sorted(list(set(package_deps))),
@@ -352,7 +352,7 @@ def main(arg):
             print "Error: '%s' is not a valid .pisi file or an installed package\nPlease use -d <path> option for a directory" % package
 
 def print_results(result_broken, result_unused, result_undefined, result_lists, result_runpath, package_name, option):
-    '''print the final results in fancy colors'''
+    '''Print the final results in fancy colors'''
 
     def print_unused(result_unused, result_broken):
         print colorize("\nUnused direct dependency analysis", 'green', option.nocolor)
@@ -400,14 +400,29 @@ def print_results(result_broken, result_unused, result_undefined, result_lists, 
                     sys.stdout.write(deps.ljust(30))
             sys.stdout.write("\n")
 
+    def print_missing(result_lists):
+        print colorize("\nMissing dependencies", 'green', option.nocolor)
+        print colorize("(should be added to pspec.xml)", 'green', option.nocolor)
+        print colorize("------------------------------", 'green', option.nocolor)
+
+        # We use sys.stdout.write() instead of print. We want print the content of the tuple in a row
+        # But unfortunately print() add a newline at the end, but that's not the case in sys.stdout.write()
+        for tuple_deps  in result_lists:
+            if "*" in tuple_deps[2]:
+                sys.stdout.write(colorize(tuple_deps[2], 'red', option.nocolor))
+            else:
+                sys.stdout.write(tuple_deps[2])
+            sys.stdout.write("\n")
+
     print colorize("%s" % "-"*(len(package_name) + 9), 'bold', option.nocolor)
     print colorize("Package: %s" % package_name , 'bold', option.nocolor)
     print colorize("%s" % "-"*(len(package_name) + 9), 'bold', option.nocolor)
 
     # This part is for the behavior of checklib argument parsing
     # If no options are used at all, than we show all options
-    # If any of the other options is used, only the choosen ones are showwd
-    if not option.unused and not option.undefined and not option.missing and not option.runpath:
+    # If any of the other options is used, only the choosen ones are showed
+    if not option.unused and not option.undefined and not option.dependencies \
+    and not option.runpath and not option.missing:
         print_unused(result_unused, result_broken)
         print_undefined(result_undefined)
         print_runpath(result_runpath)
@@ -420,8 +435,10 @@ def print_results(result_broken, result_unused, result_undefined, result_lists, 
             print_undefined(result_undefined)
         if option.runpath:
             print_runpath(result_runpath)
-        if option.missing:
+        if option.dependencies:
             print_dependencies(result_lists)
+        if option.missing:
+            print_missing(result_lists)
 
     print "\n"
 
@@ -458,6 +475,12 @@ def argument():
                      dest="missing",
                      default=False,
                      help="show only missing dependencies")
+
+    parser.add_option("-t", "--dependencies",
+                     action="store_true",
+                     dest="dependencies",
+                     default=False,
+                     help="show dependencies relations in a table")
 
     parser.add_option("-p", "--runpath",
                      action="store_true",

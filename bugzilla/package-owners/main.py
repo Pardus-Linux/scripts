@@ -37,65 +37,37 @@ packDict = listRepoPackages.getFullList(index_file)
 #for value in packDict.itervalues():
 #    print value
 
-# Get all profiles from db to find userids of maintaners
-print "---match bugzilla users and package maintainers"
-profiles = {}
-
-cProfiles = db.cursor()
-cProfiles.execute("SELECT userid, login_name FROM profiles")
-
-for id, mail in cProfiles.fetchall():
-    profiles[mail] = id
-
-#print profiles
-
-# Execute a query to insert/update components infos
-# packDict = {"package_name":"maintainer@foo.bar"}
-# profiles = {"maintainer@foo.bar":id}
-
-errors = {'db':[], 'mail':[]}
+errors= []
 procs = {'update':0, 'insert':0}
 
-#cPackage = db.cursor()
-#cPackage.execute("INSERT INTO components(name, product_id, initialowner, description) VALUES ('Paket listede yok / Package is not in the list', %s, 4981, 'Paket listede yok / Package is not in the list')", (str(pId)))
-#db.commit()
-
-for pack in packDict.iterkeys():
+for pack, user in packDict.iteritems():
     cPackage = db.cursor()
 
-    # pack = package name
-    # profiles[ packDict[pack] ] = userid
+    userrow = cPackage.execute("SELECT userid FROM profiles where login_name='%s'" % user)
 
-    try:
-       id = profiles[packDict[pack]]
+    if userrow==1:
+        for row in cPackage.fetchall():
+           userid = row[0]
 
-       numRows = cPackage.execute("SELECT id FROM components WHERE name = '%s' and product_id = '%s'" % (pack, str(pId)))
+        numRows = cPackage.execute("SELECT id FROM components WHERE name = '%s' and product_id = '%s'" % (pack, str(pId)))
 
+        if not numRows == 0:
+            print "---updating %s package, package owner is %s" % (pack, user)
+            cPackage.execute("UPDATE components SET initialowner = '%s' WHERE name = '%s'" % (userid, str(pack)))
+            procs['update'] += 1
+        else:
+            print "---inserting %s package, package owner is %s" % (pack, user)
+            cPackage.execute("INSERT INTO components(name, product_id, initialowner, description) VALUES (%s, %s, %s, %s)",(str(pack), str(pId), userid, str(pack)))
+            procs['insert'] += 1
 
-       if not numRows == 0:
-           print "---updating %s package, package owner is %s" % (pack, packDict[pack])
-           cPackage.execute("UPDATE components SET initialowner = '%s' WHERE name = '%s'" % (id, str(pack)))
-           procs['update'] += 1
-       else:
-           print "---inserting %s package, package owner is %s" % (pack, packDict[pack])
-           cPackage.execute("INSERT INTO components(name, product_id, initialowner, description) VALUES (%s, %s, %s, %s)",(str(pack), str(pId), id, str(pack)))
-           procs['insert'] += 1
+        #if pack in packTech and not numRows == 0:
+        #    cPackage.execute("delete from components where name = '%s' and product_id = '%s'" % (pack, str(pId)))
+        db.commit()
+    else:
+        errors.append(user)
 
-       if pack in packTech and not numRows == 0:
-           cPackage.execute("delete from components where name = '%s' and product_id = '%s'" % (pack, str(pId)))
-       db.commit()
-
-    except mysql.Error, e:
-        errors['db'].append(e.__str__())
-    except KeyError, e:
-        errors['mail'].append(str(e))
-
-
+print "\n"
+print errors
+print "are not added to database please add these people first and rerun the script."
 print "\nThere are %s packages in repo" % packDict.keys().__len__()
 print "%s packages inserted, %s packages updated\n" % (procs["insert"], procs["update"])
-
-print "---DB Errors (%s)" % errors['db'].__len__()
-print "\n".join(errors['db'])
-
-print "---Unknown Mail Addresses (%s)" % errors['mail'].__len__()
-print "\n".join(list(set(errors['mail'])))

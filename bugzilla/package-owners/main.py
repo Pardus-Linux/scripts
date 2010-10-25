@@ -53,7 +53,7 @@ for pack, user in packDict.iteritems():
 
         if not numRows == 0:
             print "---updating %s package, package owner is %s" % (pack, user)
-            cPackage.execute("UPDATE components SET initialowner = '%s' WHERE name = '%s'" % (userid, str(pack)))
+            cPackage.execute("UPDATE components SET initialowner = '%s' WHERE name = '%s' and product_id = '%s'" % (userid, str(pack), str(pId)))
             procs['update'] += 1
         else:
             print "---inserting %s package, package owner is %s" % (pack, user)

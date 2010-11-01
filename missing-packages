@@ -1,0 +1,33 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# Finds out possible leaks from buildfarm queues
+
+import os
+import sys
+import pisi
+
+def usage():
+    print "%s <source repository> <directory of binary packages>" % sys.argv[0]
+    return 1
+
+if __name__ == "__main__":
+
+    if len(sys.argv) < 3:
+        sys.exit(usage())
+
+    source_repo = sys.argv[1]
+    binary_dir = sys.argv[2]
+
+    print "Searching source packages.."
+    pspec_list = os.popen("find %s -name 'pspec.xml'" % source_repo).read().strip().split("\n")
+    print "Found %d packages in %s" % (len(pspec_list), source_repo)
+
+    for pkg in pspec_list:
+        spec = pisi.specfile.SpecFile(pkg)
+        ver = spec.history[0].version
+        release = spec.history[0].release
+
+        for subpkg in spec.packages:
+            expected_file = pisi.util.package_filename(subpkg.name, ver, release)
+            print expected_file

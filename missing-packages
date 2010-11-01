@@ -19,6 +19,8 @@ if __name__ == "__main__":
     source_repo = sys.argv[1]
     binary_dir = sys.argv[2]
 
+    missing_pkgs = set()
+
     print "Searching source packages.."
     pspec_list = os.popen("find %s -name 'pspec.xml'" % source_repo).read().strip().split("\n")
     print "Found %d packages in %s" % (len(pspec_list), source_repo)
@@ -30,4 +32,7 @@ if __name__ == "__main__":
 
         for subpkg in spec.packages:
             expected_file = pisi.util.package_filename(subpkg.name, ver, release)
-            print expected_file
+            if not os.path.exists(os.path.join(binary_dir, expected_file)):
+                missing_pkgs.add(pkg)
+
+    print "\n".join(missing_pkgs)

@@ -7,7 +7,7 @@ import sys
 import os
 
 # Pardus Technologies' packages will be removed from the distribution products
-packTech = ["boot-manager", "network-manager", "comar", "disk-manager", "kaptan", "user-manager", "mudur", "package-manager", "pisi", "service-manager", "system-manager", "tasma", "yali", "display-settings", "firewall-manager"]
+packTech = ["boot-manager", "network-manager", "comar", "disk-manager", "kaptan", "user-manager", "mudur", "package-manager", "pisi", "service-manager", "system-manager", "tasma", "yali4", "yali", "display-settings", "firewall-manager"]
 
 try:
     # get pisi index file full path
@@ -60,8 +60,8 @@ for pack, user in packDict.iteritems():
             cPackage.execute("INSERT INTO components(name, product_id, initialowner, description) VALUES (%s, %s, %s, %s)",(str(pack), str(pId), userid, str(pack)))
             procs['insert'] += 1
 
-        #if pack in packTech and not numRows == 0:
-        #    cPackage.execute("delete from components where name = '%s' and product_id = '%s'" % (pack, str(pId)))
+        if pack in packTech and not numRows == 0:
+            cPackage.execute("delete from components where name = '%s' and product_id = '%s'" % (pack, str(pId)))
         db.commit()
     else:
         errors.append(user)

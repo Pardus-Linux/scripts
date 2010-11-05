@@ -11,6 +11,7 @@
 # Please read the COPYING file.
 
 import sys
+import lzma
 import bz2
 import piksemel
 import urllib
@@ -19,7 +20,8 @@ countPackages = 0
 myPackages = {}
 
 def panic():
-    print "Usage: list-my-packages <sourceRepoIndexFileURL.bz2> <name> <surname>"
+    print "Usage: list-my-packages <sourceRepoIndexFileURL.xz> <name> <surname>"
+    print "       list-my-packages <sourceRepoIndexFileURL.bz2> <name> <surname>"
     sys.exit(1)
 
 def downloadIndex(url, fileName):
@@ -31,7 +33,9 @@ def downloadIndex(url, fileName):
 
 def getMyPackages(index, me):
     global countPackages
-    if index.endswith("bz2"):
+    if index.endswith("xz"):
+        doc = piksemel.parseString(lzma.decompress(file(index).read()))
+    elif index.endswith("bz2"):
         doc = piksemel.parseString(bz2.decompress(file(index).read()))
     else:
         panic()

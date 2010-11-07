@@ -18,7 +18,6 @@ import magic
 import fnmatch
 import tempfile
 import optparse
-import magic
 import subprocess
 import re
 import shutil
@@ -32,12 +31,12 @@ def process_ldd(objdump_needed, ldd_output, ldd_unused, ldd_undefined):
     result_unused = []
     result_undefined = []
     result_broken = []
-    result_main_ldd= {}
+    result_main_ldd = {}
     result_needed = []
 
     for line in ldd_unused.replace("\t", "").split("\n"):
         if not line == "" and not "Unused" in line:
-                result_unused.append(line.strip())
+            result_unused.append(line.strip())
 
     for line in ldd_undefined.replace("\t", "").split("\n"):
         if line.startswith("undefined symbol:"):
@@ -120,7 +119,7 @@ def check_intersections(result_dependencies, package_deps, package_name, systemb
     cdb = pisi.db.componentdb.ComponentDB()
     for repo in pisi.db.repodb.RepoDB().list_repos():
         if cdb.has_component("system.base"):
-           systembase_packages.extend(cdb.get_packages('system.base', repo))
+            systembase_packages.extend(cdb.get_packages('system.base', repo))
 
     # look for packages that are system.base but are written as dependency
     # mark them with "*"
@@ -193,7 +192,7 @@ def output_result(package_name, package_deps, package_dir):
     result_undefined = {}
     result_broken = None
     result_runpath = {}
-    ld_library_paths= set()
+    ld_library_paths = set()
 
     # Add library paths for unpacked pisi files
     if package_dir:
@@ -227,9 +226,9 @@ def output_result(package_name, package_deps, package_dir):
         process_ldd(objdump_needed, ldd_output, ldd_unused, ldd_undefined)
 
         # association with each single elf file
-        result_unused.update(dict([(elf_file,processed_unused)]))
-        result_undefined.update(dict([(elf_file,processed_undefined)]))
-        result_runpath.update(dict([(elf_file,runpath)]))
+        result_unused.update(dict([(elf_file, processed_unused)]))
+        result_undefined.update(dict([(elf_file, processed_undefined)]))
+        result_runpath.update(dict([(elf_file, runpath)]))
         result_broken = processed_broken
         result_dependencies[elf_file] =  check_objdump(processed_needed, package_elf_files, package_name)
 
@@ -273,10 +272,10 @@ def main(arg):
     # For recursive use at the end os.path.join to get a full path of the pisi package
     if option.directory:
         if option.recursive:
-            for root, dirs,files in os.walk(option.directory):
+            for root, dirs, files in os.walk(option.directory):
                 for data in files:
                     if data.endswith("pisi"):
-                        packages.append(os.path.join(root,data))
+                        packages.append(os.path.join(root, data))
         else:
             # No recursion is used, just get the pisi files from directory specified with -d
             pisi_files = glob.glob("%s/*.pisi" % option.directory)
@@ -359,9 +358,9 @@ def print_results(result_broken, result_unused, result_undefined, result_lists, 
         print colorize("---------------------------------", 'green', option.nocolor)
 
         # Mark broken libs
-        for elf_file,libs in result_unused.items():
+        for elf_file, libs in result_unused.items():
             result_unused[elf_file] = map(lambda x: ("%s (broken)" % x) if x in result_broken else x, libs)
-        for elf_file,libs in result_unused.items():
+        for elf_file, libs in result_unused.items():
             if libs:
                 print colorize(elf_file, 'red', option.nocolor)
                 for data in libs:
@@ -370,16 +369,16 @@ def print_results(result_broken, result_unused, result_undefined, result_lists, 
     def print_undefined(result_undefined): 
         print colorize("\nUndefined symbol analysis", 'green', option.nocolor)
         print colorize("-------------------------", 'green', option.nocolor)
-        for elf_file,libs in result_undefined.items():
+        for elf_file, libs in result_undefined.items():
             if libs:
-                print colorize(elf_file, 'red',option.nocolor)
+                print colorize(elf_file, 'red', option.nocolor)
                 for data in libs:
                     print "--> ", data
 
     def print_runpath(result_runpath):
         print colorize("\nRunpath settings", 'green', option.nocolor)
         print colorize("----------------", 'green', option.nocolor)
-        for elf_file,libs in result_runpath.items():
+        for elf_file, libs in result_runpath.items():
             if libs:
                 if "RPATH" in libs[1]:
                     print colorize(elf_file, 'red', option.nocolor)
@@ -447,7 +446,7 @@ def argument():
     parser = optparse.OptionParser(usage="Usage:  %prog [options] foo.pisi foo2.pisi \n \t%prog [options] -d  <path>\n \t%prog [options]\n \t%prog [options] foo",
                                   version="%prog 0.1",
                                   prog="checklib")
-    '''Group options'''
+    # Group options
     check_options = optparse.OptionGroup(parser, "Check Options")
 
     parser.add_option("-n", "--no-color",
@@ -504,14 +503,14 @@ def argument():
                      default=False,
                      help="check all installed packages")
 
-    parser.add_option("-d","--directory",
+    parser.add_option("-d", "--directory",
                      action="store",
                      dest="directory",
                      type="string",
                      metavar="<path>",
                      help="specify a folder to check")
 
-    parser.add_option("-r","--recursive",
+    parser.add_option("-r", "--recursive",
                      action="store_true",
                      dest="recursive",
                      default=False,

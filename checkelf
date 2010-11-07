@@ -362,32 +362,42 @@ def print_results(result_broken, result_unused, result_undefined, result_lists, 
         print colorize("%s" % (len(title) * '-'), color, nocolor)
 
     def print_unused(result_unused, result_broken):
-        print_header("Unused direct dependency analysis", option.nocolor, 'green')
+        header_dumped = False
 
         # Mark broken libs
         for elf_file, libs in result_unused.items():
             result_unused[elf_file] = map(lambda x: ("%s (broken)" % x) if x in result_broken else x, libs)
+
         for elf_file, libs in result_unused.items():
             if libs:
+                if not header_dumped:
+                    print_header("Unused direct dependency analysis", option.nocolor, 'green')
+                    header_dumped = True
                 print colorize(elf_file, 'red', option.nocolor)
                 for data in libs:
-                    print "--> ", data
+                    print "  ", data
 
     def print_undefined(result_undefined):
-        print_header("Undefined symbol analysis", option.nocolor, 'green')
+        header_dumped = False
         for elf_file, libs in result_undefined.items():
             if libs:
+                if not header_dumped:
+                    print_header("Undefined symbol analysis", option.nocolor, 'green')
+                    header_dumped = True
                 print colorize(elf_file, 'red', option.nocolor)
                 for data in libs:
-                    print "--> ", data
+                    print "  ", data
 
     def print_runpath(result_runpath):
-        print_header("Runpath analysis", option.nocolor, 'green')
+        header_dumped = False
         for elf_file, libs in result_runpath.items():
             if libs:
                 if "RPATH" in libs[1]:
+                    if not header_dumped:
+                        print_header("Runpath analysis", option.nocolor, 'green')
+                        header_dumped = True
                     print colorize(elf_file, 'red', option.nocolor)
-                    print "--> ", libs[1]
+                    print "  ", libs[1]
 
     def print_dependencies(result_lists):
         print colorize("\nWritten dependencies           Detected dependencies          Missing dependencies", 'green', option.nocolor)

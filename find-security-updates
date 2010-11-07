@@ -1,0 +1,91 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+# Script to list security udpates for a given repository.
+#
+# Usage: (can work for both source and binary)
+#
+#   script -> to search for default target
+#   script pardus-2009 -> to search in pardus-2009 repos
+#   script http://packages.pardus.org.tr/pardus-2009-test/pisi-index.xml.bz2  /svn/stable/pisi-index.xml.bz2 -> to search using test repo and source stable index
+#
+
+
+import os
+import sys
+import urllib2
+import piksemel
+import bz2
+
+
+distroBase = "http://packages.pardus.org.tr/pardus-2009"
+
+
+def loadUrl(_url):
+    try:
+        return urllib2.urlopen(_url).read()
+    except urllib2.URLError:
+        print "could not download %s" % _url
+        sys.exit(1)
+
+def getLastSecurity(parent):
+    xnode = parent.getTag("History").tags("Update")
+    for tag in xnode:
+        release = tag.getAttribute("release")
+        if tag.getAttribute("type") == "security":
+            return release
+
+def unpackXml(url):
+    pkglist = {}
+
+    if url.startswith("http"):
+        compressedData = loadUrl(url)
+    else:
+        compressedData = open(url).read()
+
+    if url.endswith("bz2"):
+        rawData = bz2.decompress(compressedData)
+    else:
+        rawData = compressedData
+
+    index = piksemel.parseString(rawData)
+    hasSpecFile = index.getTag("SpecFile")
+
+    if hasSpecFile:
+        for parent in index.tags("SpecFile"):
+            pkgname = parent.getTag("Source").getTagData("Name")
+            pkglist[pkgname] = getLastSecurity(parent)
+    else:
+        for parent in index.tags("Package"):
+            pkgname = parent.getTagData("Name")
+            pkglist[pkgname] = getLastSecurity(parent)
+
+    return pkglist
+
+
+if __name__ == "__main__":
+    if len(sys.argv) == 3:
+        toIndex = sys.argv[2]
+        fromIndex = sys.argv[1]
+
+    elif len(sys.argv) == 2:
+        distroBase = "http://packages.pardus.org.tr/%s" % sys.argv[1]
+        toIndex = "%s/pisi-index.xml.bz2" % distroBase
+        fromIndex= "%s-test/pisi-index.xml.bz2" % distroBase
+
+    else:
+        toIndex = "%s/pisi-index.xml.bz2" % distroBase
+        fromIndex= "%s-test/pisi-index.xml.bz2" % distroBase
+
+    stableIndex = unpackXml(toIndex)
+    develIndex = unpackXml(fromIndex)
+
+    stablePackages = stableIndex.keys()
+    stablePackages.sort()
+
+    for i in stablePackages:
+        if develIndex.has_key(i):
+            if develIndex[i] > stableIndex[i]:
+                print "%s (release %s)" % (i, develIndex[i])
+
+

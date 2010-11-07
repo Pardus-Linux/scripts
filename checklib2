@@ -126,7 +126,7 @@ def check_intersections(result_dependencies, package_deps, package_name, systemb
     result_must_removed = list(set(package_deps) & set(systembase_packages))
     for deps in package_deps:
         if deps in result_must_removed:
-            package_deps[package_deps.index(deps)] = "%s *" % deps
+            package_deps[package_deps.index(deps)] = "%s (base)" % deps
 
     # extract the dependency package names and store them in result_deps
     # dependencies tagged as broken or given itself are eliminated
@@ -147,7 +147,7 @@ def check_intersections(result_dependencies, package_deps, package_name, systemb
         result_must_removed = list(set(result_deps) & set(systembase_packages))
         for deps in result_deps:
             if deps in result_must_removed:
-                result_deps[result_deps.index(deps)] = "%s *" % deps
+                result_deps[result_deps.index(deps)] = "%s (base)" % deps
         result_deps = list(set(result_deps))
 
     # remove packages that already are written in metadata.xml (runtime dependencies written in pspec.xml)
@@ -156,10 +156,10 @@ def check_intersections(result_dependencies, package_deps, package_name, systemb
     # create a sorted iteration object of the final results variables
     # the lists may have variable lengths, thus we fill the smallers one with empty strings.
     # at the end all the lists are in the same length. This makes it easy to print it like a table
-    result_lists = itertools.izip_longest(sorted(list(set(package_deps))),
-                                       sorted(result_deps),
-                                       sorted(result_section),
-                                       fillvalue="")
+    result_lists = itertools.izip_longest(sorted(list(set(package_deps)), cmp=lambda x,y: len(x)-len(y)),
+                                          sorted(result_deps, cmp=lambda x,y: len(x)-len(y)),
+                                          sorted(result_section, cmp=lambda x,y: len(x)-len(y)),
+                                          fillvalue="")
     return result_lists
 
 def output_result(package_name, package_deps, package_dir):
@@ -255,21 +255,23 @@ def colorize(msg, color, nocolor=False):
 
 def main(arg):
     '''Initialize packages and get the results. Prints them out '''
-    # This is of type dictionary, it includes all the options from the parser such as option.directory, options.missing, etc.
+    # This is of type dictionary, it includes all the
+    # options from the parser such as option.directory, etc.
     option = arg[0]
 
-    # Arguments are stored here, such as the path of -d, or the pisi file.
+    # Arguments are stored here,
+    # such as the path of -d, or the pisi file.
     packages = arg[1]
 
-    # checklib is executed plain only, no packages are defined
-    # It will look for pisi files inside that directory where checklib is executed
+    # checklib is executed plain only, no packages are
+    # defined. It will look for pisi files inside that directory
+    # where checklib is executed
     if not packages:
         pisi_files = glob.glob("*.pisi")
         if pisi_files:
             packages.extend(pisi_files)
 
     # If directory is used as option
-    # For recursive use at the end os.path.join to get a full path of the pisi package
     if option.directory:
         if option.recursive:
             for root, dirs, files in os.walk(option.directory):
@@ -277,11 +279,12 @@ def main(arg):
                     if data.endswith("pisi"):
                         packages.append(os.path.join(root, data))
         else:
-            # No recursion is used, just get the pisi files from directory specified with -d
+            # No recursion is used, just get the pisi
+            # files from directory specified with -d
             pisi_files = glob.glob("%s/*.pisi" % option.directory)
             packages.extend(pisi_files)
 
-    # check for components , like system.base, tex.language ,etc.
+    # check for components, like system.base, tex.language, etc.
     if option.component:
         cdb = pisi.db.componentdb.ComponentDB()
         for repo in pisi.db.repodb.RepoDB().list_repos():
@@ -386,12 +389,12 @@ def print_results(result_broken, result_unused, result_undefined, result_lists, 
                     print "--> ", libs[1]
 
     def print_dependencies(result_lists):
-        print colorize("\nWritten dependencies          Detected dependencies         Missing dependencies", 'green', option.nocolor)
-        print colorize("--------------------------    ------------------------      ------------------------------", 'green', option.nocolor)
+        print colorize("\nWritten dependencies           Detected dependencies          Missing dependencies", 'green', option.nocolor)
+        print colorize("----------------------------------------------------------------------------------", 'green', option.nocolor)
 
         for tuple_deps in result_lists:
             for deps in tuple_deps:
-                if "*" in deps:
+                if "(base)" in deps:
                     print "%s" % colorize(deps.ljust(30), 'red', option.nocolor),
                 else:
                     print deps.ljust(30),
@@ -402,7 +405,7 @@ def print_results(result_broken, result_unused, result_undefined, result_lists, 
 
         for tuple_deps in result_lists:
             pkg = tuple_deps[2]
-            if "*" in pkg:
+            if "(base)" in pkg:
                 print "%s" % colorize(pkg, 'red', option.nocolor)
             elif pkg:
                 print pkg

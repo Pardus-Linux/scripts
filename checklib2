@@ -405,14 +405,12 @@ def print_results(result_broken, result_unused, result_undefined, result_lists, 
         print colorize("(should be added to pspec.xml)", 'green', option.nocolor)
         print colorize("------------------------------", 'green', option.nocolor)
 
-        # We use sys.stdout.write() instead of print. We want print the content of the tuple in a row
-        # But unfortunately print() add a newline at the end, but that's not the case in sys.stdout.write()
-        for tuple_deps  in result_lists:
+        for tuple_deps in result_lists:
             if "*" in tuple_deps[2]:
-                sys.stdout.write(colorize(tuple_deps[2], 'red', option.nocolor))
+                print "%s" % colorize(tuple_deps[2], 'red', option.nocolor),
             else:
-                sys.stdout.write(tuple_deps[2])
-            sys.stdout.write("\n")
+                print tuple_deps[2],
+            print
 
     print colorize("%s" % "-"*(len(package_name) + 9), 'bold', option.nocolor)
     print colorize("Package: %s" % package_name , 'bold', option.nocolor)

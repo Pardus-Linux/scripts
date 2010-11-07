@@ -8,9 +8,6 @@ import sys
 import pisi
 import time
 
-PACKAGER = "YOUR NAME"
-PACKAGER_EMAIL = "YOUR EMAIL"
-
 RELEASE = """\
         <Update release="%s">
             <Date>%s</Date>
@@ -21,25 +18,45 @@ RELEASE = """\
         </Update>
 """
 
-
 TRANSLATIONS = """\
 <?xml version="1.0" ?>
 <PISI>
     <Source>
         <Name>%s</Name>
-        <Summary xml:lang="tr">FIXME</Summary>
-        <Description xml:lang="tr">FIXME</Description>
+        <Summary xml:lang="tr">Add a summary for the package</Summary>
+        <Description xml:lang="tr">Add a description for the package.</Description>
     </Source>
 </PISI>
 """
 
+def get_and_save_user_info():
+    name = "PACKAGER_NAME"
+    email = "PACKAGER_EMAIL"
 
-def increment_release(pspec, ver, comment):
+    conf_file = os.path.expanduser("~/.packagerinfo")
+    if os.path.exists(conf_file):
+        # Read from it
+        name, email = open(conf_file, "r").read().strip().split(",")
+
+    else:
+        print "Please enter your full name as seen in pspec files"
+        name = raw_input("> ")
+        print "Please enter your e-mail as seen in pspec files"
+        email = raw_input("> ")
+        print "Saving packager info into %s" % conf_file
+
+        open(conf_file, "w").write("%s,%s" % (name, email))
+
+    return name, email
+
+def increment_release(pspec, ver, comment, packager_name, packager_email):
     release = int(pisi.specfile.SpecFile('pspec.xml').history[0].release)+1
     date = time.strftime("%Y-%m-%d")
 
     global RELEASE
-    new_release = RELEASE % (release, date, ver, comment, PACKAGER, PACKAGER_EMAIL)
+    new_release = RELEASE % (release, date, ver, comment,
+                             packager_name,
+                             packager_email)
 
     return pspec.replace("<History>\n", "<History>\n%s" % new_release)
 
@@ -83,6 +100,8 @@ if __name__ == "__main__":
         open("translations.xml", "w").write(TRANSLATIONS % os.path.basename(os.getcwd()))
         os.system("svn add translations.xml")
 
+    packager_name, packager_email = get_and_save_user_info()
+
     # Increment release
-    newpspec = increment_release(newpspec, sys.argv[1], sys.argv[2])
-    open("pspec.xml", "w").write(newpspec)
+    new_pspec = increment_release(newpspec, sys.argv[1], sys.argv[2], packager_name, packager_email)
+    open("pspec.xml", "w").write(new_pspec)

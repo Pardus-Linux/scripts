@@ -1,3 +1,7 @@
 ldd2dep
 --------
  replaced by checklib
+
+checklib
+--------
+ replaced by checkelf

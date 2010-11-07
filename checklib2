@@ -353,9 +353,12 @@ def main(arg):
 def print_results(result_broken, result_unused, result_undefined, result_lists, result_runpath, package_name, option):
     '''Print the final results in fancy colors'''
 
+    def print_header(title, nocolor, color):
+        print colorize("\n%s" % title, color , nocolor)
+        print colorize("%s" % (len(title) * '-'), color, nocolor)
+
     def print_unused(result_unused, result_broken):
-        print colorize("\nUnused direct dependency analysis", 'green', option.nocolor)
-        print colorize("---------------------------------", 'green', option.nocolor)
+        print_header("Unused direct dependency analysis", option.nocolor, 'green')
 
         # Mark broken libs
         for elf_file, libs in result_unused.items():
@@ -366,9 +369,8 @@ def print_results(result_broken, result_unused, result_undefined, result_lists, 
                 for data in libs:
                     print "--> ", data
 
-    def print_undefined(result_undefined): 
-        print colorize("\nUndefined symbol analysis", 'green', option.nocolor)
-        print colorize("-------------------------", 'green', option.nocolor)
+    def print_undefined(result_undefined):
+        print_header("Undefined symbol analysis", option.nocolor, 'green')
         for elf_file, libs in result_undefined.items():
             if libs:
                 print colorize(elf_file, 'red', option.nocolor)
@@ -376,8 +378,7 @@ def print_results(result_broken, result_unused, result_undefined, result_lists, 
                     print "--> ", data
 
     def print_runpath(result_runpath):
-        print colorize("\nRunpath settings", 'green', option.nocolor)
-        print colorize("----------------", 'green', option.nocolor)
+        print_header("Runpath analysis", option.nocolor, 'green')
         for elf_file, libs in result_runpath.items():
             if libs:
                 if "RPATH" in libs[1]:
@@ -386,34 +387,27 @@ def print_results(result_broken, result_unused, result_undefined, result_lists, 
 
     def print_dependencies(result_lists):
         print colorize("\nWritten dependencies          Detected dependencies         Missing dependencies", 'green', option.nocolor)
-        print colorize("(extracted from pspec.xml)    (use -s for system.base)      (should be added to pspec.xml)", 'green', option.nocolor)
         print colorize("--------------------------    ------------------------      ------------------------------", 'green', option.nocolor)
 
-        # We use sys.stdout.write() instead of print. We want print the content of the tuple in a row
-        # But unfortunately print() add a newline at the end, but that's not the case in sys.stdout.write()
-        for tuple_deps  in result_lists:
+        for tuple_deps in result_lists:
             for deps in tuple_deps:
                 if "*" in deps:
-                    sys.stdout.write(colorize(deps.ljust(30), 'red', option.nocolor))
+                    print "%s" % colorize(deps.ljust(30), 'red', option.nocolor),
                 else:
-                    sys.stdout.write(deps.ljust(30))
-            sys.stdout.write("\n")
-
-    def print_missing(result_lists):
-        print colorize("\nMissing dependencies", 'green', option.nocolor)
-        print colorize("(should be added to pspec.xml)", 'green', option.nocolor)
-        print colorize("------------------------------", 'green', option.nocolor)
-
-        for tuple_deps in result_lists:
-            if "*" in tuple_deps[2]:
-                print "%s" % colorize(tuple_deps[2], 'red', option.nocolor),
-            else:
-                print tuple_deps[2],
+                    print deps.ljust(30),
             print
 
-    print colorize("%s" % "-"*(len(package_name) + 9), 'bold', option.nocolor)
-    print colorize("Package: %s" % package_name , 'bold', option.nocolor)
-    print colorize("%s" % "-"*(len(package_name) + 9), 'bold', option.nocolor)
+    def print_missing(result_lists):
+        print_header("Missing dependencies", option.nocolor, 'green')
+
+        for tuple_deps in result_lists:
+            pkg = tuple_deps[2]
+            if "*" in pkg:
+                print "%s" % colorize(pkg, 'red', option.nocolor)
+            elif pkg:
+                print pkg
+
+    print_header("Package: %s" % package_name, option.nocolor, 'bold')
 
     # This part is for the behavior of checklib argument parsing
     # If no options are used at all, than we show all options

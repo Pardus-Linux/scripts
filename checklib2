@@ -11,17 +11,17 @@
 # For more information execute "checklib --help"
 
 import os
+import re
 import sys
 import glob
 import pisi
 import magic
+import shutil
 import fnmatch
 import tempfile
 import optparse
-import subprocess
-import re
-import shutil
 import itertools
+import subprocess
 
 INSTALLDB = pisi.db.installdb.InstallDB()
 CONSTANTS = pisi.constants.Constants()

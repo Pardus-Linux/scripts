@@ -70,8 +70,8 @@ def process_ldd(objdump_needed, ldd_output, ldd_unused, ldd_undefined):
     return (result_needed, result_broken, result_unused, result_undefined)
 
 def check_objdump(processed_needed, package_elf_files, package_name):
-    '''check the objdump needed libraries with the ldd libraries'''
-    '''the libraries that are needed can be used for dependencies'''
+    '''check the objdump needed libraries with the ldd libraries
+       the libraries that are needed can be used for dependencies'''
     result_needed = []
     # check  if the libraries are shipped with the package
     # then associate each library(with his package_name)  with the given elf_file
@@ -91,11 +91,11 @@ def check_objdump(processed_needed, package_elf_files, package_name):
     return result_needed
 
 def check_pc_files(pc_file):
-    '''check for .pc files created by pkgconfig and shipped with the package'''
-    '''these .pc files have requirements tags that can be used for dependencies'''
-
+    '''check for .pc files created by pkgconfig and shipped with the package
+       these .pc files have requirements tags that can be used for dependencies'''
     result_needed = []
-    requires = set(os.popen("pkg-config --print-requires --print-requires-private %s | gawk '{ print $1 }'" % os.path.basename(pc_file).replace(".pc", "")).read().split("\n")[:-1])
+    requires = set(os.popen("pkg-config --print-requires --print-requires-private %s | gawk '{ print $1 }'" % \
+            os.path.basename(pc_file).replace(".pc", "")).read().split("\n")[:-1])
 
     for require in requires:
         require_file = "/usr/share/pkgconfig/%s.pc" % require
@@ -156,13 +156,14 @@ def check_intersections(result_dependencies, package_deps, package_name, systemb
     # create a sorted iteration object of the final results variables
     # the lists may have variable lengths, thus we fill the smallers one with empty strings.
     # at the end all the lists are in the same length. This makes it easy to print it like a table
-    result_lists = itertools.izip_longest(sorted(list(set(package_deps)), cmp=lambda x,y: len(x)-len(y)),
-                                          sorted(result_deps, cmp=lambda x,y: len(x)-len(y)),
-                                          sorted(result_section, cmp=lambda x,y: len(x)-len(y)),
+    cmp_func = lambda x, y: len(x) - len(y)
+    result_lists = itertools.izip_longest(sorted(list(set(package_deps)), cmp=cmp_func),
+                                          sorted(result_deps, cmp=cmp_func),
+                                          sorted(result_section, cmp=cmp_func),
                                           fillvalue="")
     return result_lists
 
-def output_result(package_name, package_deps, package_dir):
+def output_result(package_name, package_dir):
     '''execute ldd on elf files and returns them'''
     #Initialize magic for using "file" in python
     magic_db = magic.open(magic.MAGIC_NONE)
@@ -317,7 +318,7 @@ def main(arg):
 
             # Get results from objdump,ldd,etc...
             result_dependencies, result_broken, result_unused, result_undefined, result_runpath = \
-            output_result(package_name, package_deps, package_tempdir)
+            output_result(package_name, package_tempdir)
 
             # Look for intersections of the packages(i.e. do not include system.base packages)
             # result_lists is a iteration object which contains tuples of length 3
@@ -345,7 +346,7 @@ def main(arg):
 
                 # Same functions in the above part. You can read them
                 result_dependencies, result_broken, result_unused, result_undefined, result_runpath = \
-                output_result(package_name, package_deps, package_tempdir)
+                output_result(package_name, package_tempdir)
 
                 result_lists = check_intersections(result_dependencies, package_deps, package_name, option.systembase)
                 print_results(result_broken, result_unused, result_undefined, result_lists, result_runpath, package_name, option)
@@ -444,13 +445,13 @@ def argument():
                                   version="%prog 0.1",
                                   prog="checklib")
     # Group options
-    check_options = optparse.OptionGroup(parser, "Check Options")
+    # check_options = optparse.OptionGroup(parser, "Check Options")
 
     parser.add_option("-n", "--no-color",
                      action="store_true",
                      dest="nocolor",
                      default=False,
-                     help="do not colorize the output (useful for piping the output)")
+                     help="Do not colorize the output (useful for piping the output)")
 
     parser.add_option("-l", "--plain-list",
                      action="store_true",
@@ -462,62 +463,62 @@ def argument():
                      action="store_true",
                      dest="unused",
                      default=False,
-                     help="show only unused direct dependencies")
+                     help="Show only unused direct dependencies")
 
     parser.add_option("-f", "--undefined",
                      action="store_true",
                      dest="undefined",
                      default=False,
-                     help="show only undefined symbols")
+                     help="Show only undefined symbols")
 
     parser.add_option("-m", "--missing",
                      action="store_true",
                      dest="missing",
                      default=False,
-                     help="show only missing dependencies")
+                     help="Show only missing dependencies")
 
     parser.add_option("-t", "--dependencies",
                      action="store_true",
                      dest="dependencies",
                      default=False,
-                     help="show dependencies relations in a table")
+                     help="Show dependencies in a table")
 
     parser.add_option("-p", "--runpath",
                      action="store_true",
                      dest="runpath",
                      default=False,
-                     help="show runpath settings(via chrpath)")
+                     help="Show RPATH status")
 
     parser.add_option("-s", "--systembase",
                      action="store_true",
                      dest="systembase",
                      default=False,
-                     help="show system.base dependencies")
+                     help="Don't hide system.base dependencies")
 
     parser.add_option("-c", "--component",
                      action="store",
                      dest="component",
                      type="string",
-                     help="check a whole component")
+                     help="Check a whole component")
 
     parser.add_option("-a", "--all",
                      action="store_true",
                      dest="installedlist",
                      default=False,
-                     help="check all installed packages")
+                     help="Check all installed packages")
 
     parser.add_option("-d", "--directory",
                      action="store",
                      dest="directory",
                      type="string",
                      metavar="<path>",
-                     help="specify a folder to check")
+                     help="Specify a folder to check")
 
     parser.add_option("-r", "--recursive",
                      action="store_true",
                      dest="recursive",
                      default=False,
-                     help="check recursively in the specified folder")
+                     help="Check recursively in the specified folder")
 
     return parser.parse_args()
 

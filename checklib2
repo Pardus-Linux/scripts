@@ -85,7 +85,7 @@ def check_objdump(processed_needed, package_elf_files, package_name):
             try:
                 dependency_name = pisi.api.search_file(objdump_needed)[0][0]
             except IndexError:
-                dependency_name = "broken" 
+                dependency_name = "broken"
                 #print "%s (probably broken dependency)" % needed
         result_needed.append((objdump_needed, dependency_name))
     return result_needed
@@ -400,8 +400,9 @@ def print_results(result_broken, result_unused, result_undefined, result_lists, 
                     print deps.ljust(30),
             print
 
-    def print_missing(result_lists):
-        print_header("Missing dependencies", option.nocolor, 'green')
+    def print_missing(result_lists, plain_list):
+        if not plain_list:
+            print_header("Missing dependencies", option.nocolor, 'green')
 
         for tuple_deps in result_lists:
             pkg = tuple_deps[2]
@@ -410,7 +411,8 @@ def print_results(result_broken, result_unused, result_undefined, result_lists, 
             elif pkg:
                 print pkg
 
-    print_header("Package: %s" % package_name, option.nocolor, 'bold')
+    if not option.plain_list:
+        print_header("Package: %s" % package_name, option.nocolor, 'bold')
 
     # This part is for the behavior of checklib argument parsing
     # If no options are used at all, than we show all options
@@ -432,9 +434,7 @@ def print_results(result_broken, result_unused, result_undefined, result_lists, 
         if option.dependencies:
             print_dependencies(result_lists)
         if option.missing:
-            print_missing(result_lists)
-
-    print "\n"
+            print_missing(result_lists, option.plain_list)
 
 def argument():
     '''Command line argument parsing'''
@@ -451,6 +451,12 @@ def argument():
                      dest="nocolor",
                      default=False,
                      help="do not colorize the output (useful for piping the output)")
+
+    parser.add_option("-l", "--plain-list",
+                     action="store_true",
+                     dest="plain_list",
+                     default=False,
+                     help="Don't prettify the outputs, only a list of packages")
 
     parser.add_option("-u", "--unused",
                      action="store_true",

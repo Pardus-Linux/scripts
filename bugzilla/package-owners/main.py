@@ -41,30 +41,29 @@ errors= []
 procs = {'update':0, 'insert':0}
 
 for pack, user in packDict.iteritems():
-    cPackage = db.cursor()
+    if pack in packTech and not numRows == 0:
+        cPackage = db.cursor()
 
-    userrow = cPackage.execute("SELECT userid FROM profiles where login_name='%s'" % user)
+        userrow = cPackage.execute("SELECT userid FROM profiles where login_name='%s'" % user)
 
-    if userrow==1:
-        for row in cPackage.fetchall():
-           userid = row[0]
+        if userrow==1:
+            for row in cPackage.fetchall():
+               userid = row[0]
 
-        numRows = cPackage.execute("SELECT id FROM components WHERE name = '%s' and product_id = '%s'" % (pack, str(pId)))
+            numRows = cPackage.execute("SELECT id FROM components WHERE name = '%s' and product_id = '%s'" % (pack, str(pId)))
 
-        if not numRows == 0:
-            print "---updating %s package, package owner is %s" % (pack, user)
-            cPackage.execute("UPDATE components SET initialowner = '%s' WHERE name = '%s' and product_id = '%s'" % (userid, str(pack), str(pId)))
-            procs['update'] += 1
+            if not numRows == 0:
+                print "---updating %s package, package owner is %s" % (pack, user)
+                cPackage.execute("UPDATE components SET initialowner = '%s' WHERE name = '%s' and product_id = '%s'" % (userid, str(pack), str(pId)))
+                procs['update'] += 1
+            else:
+                print "---inserting %s package, package owner is %s" % (pack, user)
+                cPackage.execute("INSERT INTO components(name, product_id, initialowner, description) VALUES (%s, %s, %s, %s)",(str(pack), str(pId), userid, str(pack)))
+                procs['insert'] += 1
+
+            db.commit()
         else:
-            print "---inserting %s package, package owner is %s" % (pack, user)
-            cPackage.execute("INSERT INTO components(name, product_id, initialowner, description) VALUES (%s, %s, %s, %s)",(str(pack), str(pId), userid, str(pack)))
-            procs['insert'] += 1
-
-        if pack in packTech and not numRows == 0:
-            cPackage.execute("delete from components where name = '%s' and product_id = '%s'" % (pack, str(pId)))
-        db.commit()
-    else:
-        errors.append(user)
+            errors.append(user)
 
 print "\n"
 print errors

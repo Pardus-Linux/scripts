@@ -118,8 +118,9 @@ def check_intersections(result_dependencies, package_deps, package_name, systemb
     systembase_packages = []
     cdb = pisi.db.componentdb.ComponentDB()
     for repo in pisi.db.repodb.RepoDB().list_repos():
-        if cdb.has_component("system.base"):
-            systembase_packages.extend(cdb.get_packages('system.base', repo))
+        for component in cdb.list_components(repo):
+            if component == "system.base":
+                systembase_packages.extend(cdb.get_packages('system.base', repo))
 
     # look for packages that are system.base but are written as dependency
     # mark them with "*"

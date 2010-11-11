@@ -1,0 +1,118 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# An automatic script that increase the release number of the package
+# It has support of taken multiple pspec.xml files at once
+# The packager info's are taken automatically from the programmerinfo file,
+# if not available a new one is created.
+#
+# There are several options to modify further the process. These are:
+# -c, --comment: to specify explicit a comment, i.e. -c "Release bump for mass build"
+# -i:   this option makes it possible to change the content of release or version attribute to "current"
+#       i.e , release="5.12.1" is changed to release="current"
+
+
+import os
+import sys
+import pisi
+import time
+import re
+import optparse
+from xml.dom import minidom
+
+def get_and_save_user_info():
+    '''Takes packager info directly from .packagerinfo'''
+    name = "PACKAGER_NAME"
+    email = "PACKAGER_EMAIL"
+
+    conf_file = os.path.expanduser("~/.packagerinfo")
+    if os.path.exists(conf_file):
+        # Read from it
+        name, email = open(conf_file, "r").read().strip().split(",")
+
+    else:
+        print "Please enter your full name as seen in pspec files"
+        name = raw_input("> ")
+        print "Please enter your e-mail as seen in pspec files"
+        email = raw_input("> ")
+        print "Saving packager info into %s" % conf_file
+
+        open(conf_file, "w").write("%s,%s" % (name, email))
+
+    return name, email
+
+def increment_release(pspec_files,option):
+    '''Increment and replace release attributes'''
+    if option.comment:
+        comment = option.comment
+    else:
+        comment = "Increased release for re-compile"
+
+    packager, packager_email = get_and_save_user_info()
+
+    release_template = """\
+        <Update release="%s">
+            <Date>%s</Date>
+            <Version>%s</Version>
+            <Comment>%s</Comment>
+            <Name>%s</Name>
+            <Email>%s</Email>
+        </Update>\n"""
+
+    dependency_re = re.compile(r"<Dependency +(release|version)=\".*\".*>(.*?)</Dependency>")
+
+    for pspec_file in pspec_files:
+        pspec = pisi.specfile.SpecFile(pspec_file)
+        release = int(pspec.history[0].release) + 1
+        package_name = pspec.source.name
+        ver = pspec.history[0].version
+        date = time.strftime("%Y-%m-%d")
+
+        sub_packages = [package.name for package in pspec.packages]
+        new_release = release_template % (release, date, ver, comment, packager, packager_email)
+
+        ret = []
+        for line in open(pspec_file, "r").readlines():
+            matched = dependency_re.search(line)
+            if matched and matched.groups()[1] in sub_packages:
+                p = re.compile(r'\".*\"') # Match anyting ins quotes
+                line = p.sub("\"current\"", line) # replace the match in p with "current"
+
+            ret.append(line)
+
+        newspec = "".join(ret) # Form a single string from the list items
+        
+        # Add the new release to the top of the previous one
+        newspec = newspec.replace("<History>\n", "<History>\n%s" % new_release) 
+        open(pspec_file, "w").write(newspec)
+
+        print '%s (%s) is increased to release=\"%s\"' % (pspec_file, package_name, release)
+
+def argument():
+    '''Command line argument parsing'''
+
+    parser = optparse.OptionParser(usage="Usage:  %prog [options] pspec.xml pspec-foo2.xml ..",
+                                  prog="rbump")
+
+    parser.add_option("-c", "--comment",
+                     action="store",
+                     dest="comment",
+                     type="string",
+                     help="specify comment for all pspec.xml files")
+
+    parser.add_option("-i", "--increase-sub-release",
+                     action="store_true",
+                     dest="subrelease",
+                     default=False,
+                     help="increase the release of sub packages inside the pspec.xml")
+
+    return parser.parse_args()
+
+if __name__ == "__main__":
+    arg = argument()
+    option = arg[0]
+    pspec_files = arg[1]
+
+    increment_release(pspec_files, option)
+
+    

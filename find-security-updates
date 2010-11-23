@@ -32,8 +32,11 @@ def getLastSecurity(parent):
     xnode = parent.getTag("History").tags("Update")
     for tag in xnode:
         release = tag.getAttribute("release")
+        updatetime = tag.getTagData("Date")
         if tag.getAttribute("type") == "security":
-            return release
+            return int(release), updatetime
+
+    return 0, "never"
 
 def unpackXml(url):
     pkglist = {}
@@ -54,11 +57,17 @@ def unpackXml(url):
     if hasSpecFile:
         for parent in index.tags("SpecFile"):
             pkgname = parent.getTag("Source").getTagData("Name")
-            pkglist[pkgname] = getLastSecurity(parent)
+            pkguri = None # this is source repo
+            lastSecurity, securityUpdate = getLastSecurity(parent)
+            if lastSecurity:
+                pkglist[pkgname] = [lastSecurity, securityUpdate, pkguri]
     else:
         for parent in index.tags("Package"):
             pkgname = parent.getTagData("Name")
-            pkglist[pkgname] = getLastSecurity(parent)
+            pkguri = parent.getTagData("PackageURI")
+            lastSecurity, securityUpdate = getLastSecurity(parent)
+            if lastSecurity:
+                pkglist[pkgname] = [lastSecurity, securityUpdate, pkguri]
 
     return pkglist
 
@@ -85,7 +94,8 @@ if __name__ == "__main__":
 
     for i in stablePackages:
         if develIndex.has_key(i):
-            if develIndex[i] > stableIndex[i]:
-                print "%s (release %s)" % (i, develIndex[i])
+            if develIndex[i][0] > stableIndex[i][0]:
+                print "%s (%s, release %d)" % (i, develIndex[i][1], develIndex[i][0])
+                print "    %s" % develIndex[i][2]
 
 

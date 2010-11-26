@@ -73,7 +73,7 @@ def update_sha1sum():
     if len(sums) > 0:
         ret = []
         for line in open("pspec.xml", "r").readlines():
-            if "<Archive" in line:
+            if " <Archive" in line:
                 nls = line.split("sha1sum=\"")
                 nl = nls[0] + "sha1sum=\"%s\"" % sums[sumi] + nls[1].split("\"", 1)[1]
                 ret.append(nl)

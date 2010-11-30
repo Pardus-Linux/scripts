@@ -14,7 +14,7 @@ import piksemel
 
 from optparse import OptionParser
 
-packagerfile = ".pisipackager"
+packagerfile = ".packagerinfo"
 
 releaseTemplate = """\
         <Update release="%(newrelease)s">
@@ -39,7 +39,7 @@ newDependency = {
 
 cfg = {"date": time.strftime("%Y-%m-%d"),
        "year": time.strftime("%Y"),
-       "comment": "Write strict dependency to new version of %s" % ",".join(newDependency.keys()).rstrip(",")
+       "comment": "Write strict dependent to latest %s" % ",".join(newDependency.keys()).rstrip(",")
 }
 
 
@@ -62,7 +62,7 @@ def findFiles(d, filePattern="pspec.xml"):
 
     return fileList
 
-def readPackagerConfig():
+def readPackagerConfigOld():
     home = os.getenv("HOME", "")
     cfg = "%s/%s" % (home, packagerfile)
     d = {"name": "", "email": ""}
@@ -79,6 +79,19 @@ def readPackagerConfig():
                     d[k.strip()] = v.strip()
 
     return d["name"], d["email"]
+
+def readPackagerConfig():
+    home = os.getenv("HOME", "")
+    cfg = "%s/%s" % (home, packagerfile)
+    pname, pmail = "", ""
+
+    if home != "" and os.path.exists(cfg):
+        try:
+            pname, pmail = open(cfg, "r").read().split(",", 2)
+        except:
+            pass
+
+    return pname, pmail
 
 def getPspecInfo(pspecData):
     hasNeededDependencies = False

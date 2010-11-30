@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ x$1 == "x" ]; then
+    echo "Usage: $0 <pkgname>"
+else
+    git clone git://pkgs.fedoraproject.org/$1.git fedora-$1
+fi

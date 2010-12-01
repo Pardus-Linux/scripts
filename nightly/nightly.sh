@@ -91,7 +91,7 @@ if [ -n "$PARDUSMAN_FAILED" ]; then
 fi
 
 ISO=$(basename $WORKDIR/*.iso)
-mkdir -p $DESTDIR$TODAY
+mkdir -p $DESTDIR/$TODAY
 
 pushd $DESTDIR
 

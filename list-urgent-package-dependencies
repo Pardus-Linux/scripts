@@ -7,6 +7,11 @@
 # usage example:
 # list-urgent-package-dependencies 2009/devel/pisi-index.xml 2011/devel/pisi-index.xml.bz2 mplayer kdebase kdenetwork
 #
+#   or
+#
+# list-urgent-package-dependencies 2009/devel/pisi-index.xml 2011/devel/pisi-index.xml.bz2 -a
+# (the example above checkes for all packages that belong to the first repo argument )
+#
 
 
 import piksemel
@@ -223,15 +228,24 @@ if __name__ == "__main__":
 
         # repoIndexMissing = [pkname1, pkgname2, ...]
         repoIndexMissing, obsoleteList, repoInfoMissing = parseNewRepo(indexFileMissing)
+        repoIndexMissingOld, obsoleteListOld, repoInfoMissingOld = parseNewRepo(indexFileFull)
 
         # list of target packages, silently ignore obsoleted packages
         packagesToSearch = []
         ignoredPackages = []
-        for i in sys.argv[3:]:
-            if i in obsoleteList:
-                ignoredPackages.append(i)
-            else:
-                packagesToSearch.append(i)
+
+        if sys.argv[3] == "-a":
+            for i in repoIndexMissingOld:
+                if i in obsoleteList:
+                    ignoredPackages.append(i)
+                else:
+                    packagesToSearch.append(i)
+        else:
+            for i in sys.argv[3:]:
+                if i in obsoleteList:
+                    ignoredPackages.append(i)
+                else:
+                    packagesToSearch.append(i)
 
         printRepoInfo(repoInfoFull, repoInfoMissing, packagesToSearch, ignoredPackages)
 

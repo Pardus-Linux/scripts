@@ -4,18 +4,18 @@
 # A script to find which packages are needed to merge the given package(s)
 # This is usually used for new distribution roadmaps
 #
-# usage example:
+# usage examples:
 # list-urgent-package-dependencies 2009/devel/pisi-index.xml 2011/devel/pisi-index.xml.bz2 mplayer kdebase kdenetwork
 #
 #   or
 #
-# list-urgent-package-dependencies 2009/devel/pisi-index.xml 2011/devel/pisi-index.xml.bz2 -a
-# (the example above checkes for all packages that belong to the first repo argument )
+# list-urgent-package-dependencies 2009/devel/pisi-index.xml 2011/devel/pisi-index.xml.bz2 -user "Name Surname" "Name2 Surname2"
 #
 #   or
 #
-# list-urgent-package-dependencies 2009/devel/pisi-index.xml 2011/devel/pisi-index.xml.bz2 -p Name Surname
-# (list only the packages from the packager that has to be merged)
+# list-urgent-package-dependencies 2009/devel/pisi-index.xml 2011/devel/pisi-index.xml.bz2
+# (search for all packages)
+
 
 
 import piksemel
@@ -155,7 +155,6 @@ def printOwners(ownerDict, pkgowner=False):
     ownerlist.sort()
 
     for i in ownerlist:
-        print
         srcpackages = []
         packages = ownerDict[i]
         pkglist = {}
@@ -169,25 +168,31 @@ def printOwners(ownerDict, pkgowner=False):
         srcpackages.sort()
 
         if pkgowner:
-            if i == pkgowner:
-                print "%s (%d)" % (i, len(srcpackages))
-                for k in srcpackages:
-                    print "    %s (%s)" % (k, hasDeps(pkglist[k]))
-            else:
-                pass
+            for packager in pkgowner:
+                if i == packager:
+                    print
+                    print "%s (%d)" % (i, len(srcpackages))
+                    for k in srcpackages:
+                        print "    %s (%s)" % (k, hasDeps(pkglist[k]))
+                else:
+                    pass
         else:
+            print
             print "%s (%d)" % (i, len(srcpackages))
             for k in srcpackages:
                 print "    %s (%s)" % (k, hasDeps(pkglist[k]))
 
     print
 
-def printRepoInfo(sourceRepo, targetRepo, targetPackages, ignoredPackages):
+def printRepoInfo(sourceRepo, targetRepo, targetPackages, ignoredPackages, singlePackages=False):
     print
     print "Base Repository    : %s" % sourceRepo
     print "Target Repository  : %s" % targetRepo
     print "Obsoleted Packages : %s" % " ".join(ignoredPackages)
-    print "Target Packages    : %s" % " ".join(targetPackages)
+    if singlePackages:
+        print "Target Packages    : %s" % " ".join(targetPackages)
+    else:
+        print "Target Packages    : All packages"
     print
 
 
@@ -228,9 +233,14 @@ class Dependency:
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 4:
-        print " usage:"
+    if len(sys.argv) < 3:
+        print " usages:"
+        print " %s <full repo indexfile> <missing repo indexfile>" % sys.argv[0]
+        print "     all packages are searched\n"
         print " %s <full repo indexfile> <missing repo indexfile> <required packages ...>" % sys.argv[0]
+        print "     only the written packages are searched\n"
+        print " %s <full repo indexfile> <missing repo indexfile> --user \"Name1 Surname2\" \"Name2 Surname2\" ..."  % sys.argv[0]
+        print "     only packages that belongs to the packager are searched"
     else:
         indexFileFull = getIndexFile(sys.argv[1])
         indexFileMissing = getIndexFile(sys.argv[2])
@@ -246,30 +256,31 @@ if __name__ == "__main__":
         packagesToSearch = []
         ignoredPackages = []
 
-        #TODO: The conditions below are ugly, should be fixed
         pkgowner = False
-        if sys.argv[3] == "-p":
-            pkgowner = ' '.join(sys.argv[4:])
-            for i in repoIndexMissingOld:
-                if i in obsoleteList:
-                    ignoredPackages.append(i)
-                else:
-                    packagesToSearch.append(i)
-
-        elif sys.argv[3] == "-a":
+        singlePackages = False
+        if len(sys.argv) < 4:
             for i in repoIndexMissingOld:
                 if i in obsoleteList:
                     ignoredPackages.append(i)
                 else:
                     packagesToSearch.append(i)
         else:
-            for i in sys.argv[3:]:
-                if i in obsoleteList:
-                    ignoredPackages.append(i)
-                else:
-                    packagesToSearch.append(i)
+            if sys.argv[3] == "--user":
+                pkgowner = sys.argv[4:]
+                for i in repoIndexMissingOld:
+                    if i in obsoleteList:
+                        ignoredPackages.append(i)
+                    else:
+                        packagesToSearch.append(i)
+            else:
+                for i in sys.argv[3:]:
+                    singlePackages = True
+                    if i in obsoleteList:
+                        ignoredPackages.append(i)
+                    else:
+                        packagesToSearch.append(i)
 
-        printRepoInfo(repoInfoFull, repoInfoMissing, packagesToSearch, ignoredPackages)
+        printRepoInfo(repoInfoFull, repoInfoMissing, packagesToSearch, ignoredPackages, singlePackages)
 
         deptree = Dependency()
         deptree.indexMissing = repoIndexMissing

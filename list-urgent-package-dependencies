@@ -12,6 +12,10 @@
 # list-urgent-package-dependencies 2009/devel/pisi-index.xml 2011/devel/pisi-index.xml.bz2 -a
 # (the example above checkes for all packages that belong to the first repo argument )
 #
+#   or
+#
+# list-urgent-package-dependencies 2009/devel/pisi-index.xml 2011/devel/pisi-index.xml.bz2 -p Name Surname
+# (list only the packages from the packager that has to be merged)
 
 
 import piksemel
@@ -146,7 +150,7 @@ def hasDeps(package):
 
     return ",".join(depsOfPackage.intersection(depsToMerge))
 
-def printOwners(ownerDict):
+def printOwners(ownerDict, pkgowner=False):
     ownerlist = ownerDict.keys()
     ownerlist.sort()
 
@@ -164,9 +168,17 @@ def printOwners(ownerDict):
         srcpackages = uniq(srcpackages)
         srcpackages.sort()
 
-        print "%s (%d)" % (i, len(srcpackages))
-        for k in srcpackages:
-            print "    %s (%s)" % (k, hasDeps(pkglist[k]))
+        if pkgowner:
+            if i == pkgowner:
+                print "%s (%d)" % (i, len(srcpackages))
+                for k in srcpackages:
+                    print "    %s (%s)" % (k, hasDeps(pkglist[k]))
+            else:
+                pass
+        else:
+            print "%s (%d)" % (i, len(srcpackages))
+            for k in srcpackages:
+                print "    %s (%s)" % (k, hasDeps(pkglist[k]))
 
     print
 
@@ -234,7 +246,17 @@ if __name__ == "__main__":
         packagesToSearch = []
         ignoredPackages = []
 
-        if sys.argv[3] == "-a":
+        #TODO: The conditions below are ugly, should be fixed
+        pkgowner = False
+        if sys.argv[3] == "-p":
+            pkgowner = ' '.join(sys.argv[4:])
+            for i in repoIndexMissingOld:
+                if i in obsoleteList:
+                    ignoredPackages.append(i)
+                else:
+                    packagesToSearch.append(i)
+
+        elif sys.argv[3] == "-a":
             for i in repoIndexMissingOld:
                 if i in obsoleteList:
                     ignoredPackages.append(i)
@@ -259,6 +281,6 @@ if __name__ == "__main__":
         neededPackages = deptree.depList
         deptree.setOwners()
 
-        printOwners(deptree.ownerDict)
+        printOwners(deptree.ownerDict, pkgowner)
 
 

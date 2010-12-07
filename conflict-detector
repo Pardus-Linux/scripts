@@ -8,10 +8,19 @@ import pisi
 
 if __name__ == "__main__":
     files = {}
+    conflicts = {}
     installdb = pisi.db.installdb.InstallDB()
     for package in sorted(installdb.list_installed()):
         for f in ['/%s' % _f.path for _f in installdb.get_files(package).list]:
             if not files.has_key(f):
                 files[f] = package
             elif os.path.isfile(f):
+                try:
+                    conflicts[f].extend([package, files[f]])
+                except KeyError:
+                    conflicts[f] = [package, files[f]]
                 print "%s from %s conflicts with %s" % (f, package, files[f])
+
+    for _file, packages in conflicts.items():
+        print _file
+        print packages

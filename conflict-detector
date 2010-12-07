@@ -4,6 +4,7 @@
 # Detects conflict between files shipped within pisi packages
 
 import os
+import sys
 import pisi
 import optparse
 
@@ -51,9 +52,6 @@ def send_mail(msg):
 """
 
 def dump_results(conflicts, no_color=False, send_mail=False):
-    # conflicts now contains conflicting files as key
-    # and conflicting packages as list elements
-
     def colorize(msg, color, nocolor=False):
         """Colorizes the given message."""
         if nocolor:
@@ -67,11 +65,17 @@ def dump_results(conflicts, no_color=False, send_mail=False):
                      }
             return colors[color if sys.stdout.isatty() else 'none'] % msg
 
+    # conflicts now contains conflicting files as key
+    # and conflicting packages as list elements
 
-    for _file, packages in conflicts.items():
-        for p in packages:
-            print p,
-        print colorize(_file, 'red', no_color)
+    for packages, files in conflicts.items():
+        files.sort()
+        for package in packages.split(","):
+            print colorize(package, 'green', no_color)
+        print "-----------"
+        for _file in files:
+            print colorize(" * %s" % _file, 'red', no_color)
+        print
 
 
 if __name__ == "__main__":
@@ -97,16 +101,28 @@ if __name__ == "__main__":
 
     files = {}
     conflicts = {}
+    rconflicts = {}
     installdb = pisi.db.installdb.InstallDB()
 
     for package in sorted(installdb.list_installed()):
-        for f in ['/%s' % _f.path for _f in installdb.get_files(package).list]:
+        package_file_list = ['/%s' % _f.path for _f in \
+                installdb.get_files(package).list]
+        for f in package_file_list:
             if not files.has_key(f):
                 files[f] = package
             elif os.path.isfile(f):
+                value = [package, files[f]]
                 try:
-                    conflicts[f].extend([package, files[f]])
+                    conflicts[f].extend(value)
                 except KeyError:
-                    conflicts[f] = [package, files[f]]
+                    conflicts[f] = value
 
-    dump_results(conflicts, not options.nocolor, options.sendmail)
+    # Convert conflicts into rconflicts
+    for k,v in conflicts.items():
+        key = ",".join(v)
+        try:
+            rconflicts[key].append(k)
+        except KeyError:
+            rconflicts[key] = [k]
+
+    dump_results(rconflicts, options.nocolor, options.sendmail)

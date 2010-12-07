@@ -5,11 +5,100 @@
 
 import os
 import pisi
+import optparse
+
+mail_template = """\
+From: %(distribution)s %(release)s %(arch)s Buildfarm <%(mailFrom)s>
+To: %(mail_to)s
+Subject: [%(subjectID)s] Package Conflict Status
+Content-Type: text/plain;
+            charset="utf-8"
+
+Dear Pardus contributors,
+
+You are probably receiving this e-mail because some of your packages ships
+files that conflicts with other packages. Below is the list of those packages
+along with the list of conflicting files:
+
+%(conflicts)s
+
+Please fix these conflicts as soon as possible to keep Pardus repositories
+as consistent as possible.
+
+Thanks
+Pardus Buildfarm
+
+"""
+
+"""
+def send_mail(msg):
+    import smtplib
+    try:
+        session = smtplib.SMTP(smtp_server)
+    except:
+        print "*** Failed opening session on SMTP server %s. Aborting.."
+        return
+
+    try:
+        session.login(smtp_user, smtp_password)
+    except smtplib.SMTPAuthenticationError:
+        print "*** Authentication failed. Check your credentials."
+        return
+
+    #result = session.sendmail(mail_from, recipient, mail)
+
+    session.quit()
+"""
+
+def dump_results(conflicts, no_color=False, send_mail=False):
+    # conflicts now contains conflicting files as key
+    # and conflicting packages as list elements
+
+    def colorize(msg, color, nocolor=False):
+        """Colorizes the given message."""
+        if nocolor:
+            return msg
+        else:
+            colors = {'green'   : '\x1b[32;01m%s\x1b[0m',
+                      'red'     : '\x1b[31;01m%s\x1b[0m',
+                      'yellow'  : '\x1b[33;01m%s\x1b[0m',
+                      'bold'    : '\x1b[1;01m%s\x1b[0m',
+                      'none'    : '\x1b[0m%s\x1b[0m',
+                     }
+            return colors[color if sys.stdout.isatty() else 'none'] % msg
+
+
+    for _file, packages in conflicts.items():
+        for p in packages:
+            print p,
+        print colorize(_file, 'red', no_color)
+
 
 if __name__ == "__main__":
+
+    parser = optparse.OptionParser(usage="Usage:  %prog [options]",
+                                   version="%prog 0.1",
+                                   prog="conflict-detector")
+
+    parser.add_option("-m", "--send-mail",
+                      action="store_true",
+                      dest="sendmail",
+                      default=False,
+                      help="Send an e-mail to the buildfarm list and the packagers")
+
+    parser.add_option("-n", "--no-color",
+                      action="store_true",
+                      dest="nocolor",
+                      default=False,
+                      help="Do not colorize output")
+
+
+    (options, arguments) = parser.parse_args()
+
     files = {}
     conflicts = {}
     installdb = pisi.db.installdb.InstallDB()
+
     for package in sorted(installdb.list_installed()):
         for f in ['/%s' % _f.path for _f in installdb.get_files(package).list]:
             if not files.has_key(f):
@@ -19,8 +108,5 @@ if __name__ == "__main__":
                     conflicts[f].extend([package, files[f]])
                 except KeyError:
                     conflicts[f] = [package, files[f]]
-                print "%s from %s conflicts with %s" % (f, package, files[f])
 
-    for _file, packages in conflicts.items():
-        print _file
-        print packages
+    dump_results(conflicts, not options.nocolor, options.sendmail)

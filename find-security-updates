@@ -58,19 +58,37 @@ def unpackXml(url):
         for parent in index.tags("SpecFile"):
             pkgname = parent.getTag("Source").getTagData("Name")
             pkguri = None # this is source repo
+            srcname = pkgname
             lastSecurity, securityUpdate = getLastSecurity(parent)
             if lastSecurity:
-                pkglist[pkgname] = [lastSecurity, securityUpdate, pkguri]
+                pkglist[pkgname] = [lastSecurity, securityUpdate, pkguri, srcname]
     else:
         for parent in index.tags("Package"):
             pkgname = parent.getTagData("Name")
             pkguri = parent.getTagData("PackageURI")
+            srcname = parent.getTag("Source").getTagData("Name")
             lastSecurity, securityUpdate = getLastSecurity(parent)
             if lastSecurity:
-                pkglist[pkgname] = [lastSecurity, securityUpdate, pkguri]
+                pkglist[pkgname] = [lastSecurity, securityUpdate, pkguri, srcname]
 
     return pkglist
 
+
+def parsePackages(stablePackages, develPackages):
+    updateDict = {}
+    stablePackages = stableIndex.keys()
+    stablePackages.sort()
+
+    for i in stablePackages:
+        if develIndex.has_key(i):
+            if develIndex[i][0] > stableIndex[i][0]:
+                pkg = develIndex[i]
+                if updateDict.has_key(pkg[3]):
+                    updateDict[pkg[3]][2].append(pkg[2])
+                else:
+                    updateDict[pkg[3]] = pkg[1], pkg[0], [pkg[2]]
+
+    return updateDict
 
 if __name__ == "__main__":
     if len(sys.argv) == 3:
@@ -89,13 +107,16 @@ if __name__ == "__main__":
     stableIndex = unpackXml(toIndex)
     develIndex = unpackXml(fromIndex)
 
-    stablePackages = stableIndex.keys()
-    stablePackages.sort()
+    pkg = parsePackages(stableIndex, develIndex)
+    pkglist = pkg.keys()
+    pkglist.sort()
 
-    for i in stablePackages:
-        if develIndex.has_key(i):
-            if develIndex[i][0] > stableIndex[i][0]:
-                print "%s (%s, release %d)" % (i, develIndex[i][1], develIndex[i][0])
-                print "    %s" % develIndex[i][2]
+    print ""
+    for i in pkglist:
+        print "%s (%s, release %d)" % (i, pkg[i][0], pkg[i][1])
+        for p in pkg[i][2]:
+            if p:
+                print "    %s" % p
 
+        print ""
 

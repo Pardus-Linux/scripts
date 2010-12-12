@@ -18,7 +18,8 @@ def get_blacklist_pkgs(BFILE):
     blacklist_pkgs = []
 
     for pkg in bfile.readlines():
-        blacklist_pkgs.append(pkg.strip("\n"))
+        if not pkg.startswith("#"):
+            blacklist_pkgs.append(pkg.strip("\n"))
 
     return blacklist_pkgs
 

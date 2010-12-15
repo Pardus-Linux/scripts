@@ -172,12 +172,12 @@ def output_result(package_name, package_dir):
 
     package_elf_files = []
 
-    #Two options are available. Checking for a pisi file or an installed package in the database
+    # Two options are available. Checking for a pisi file or an installed package in the database
     if package_dir:
         package_files = os.popen("find %s" % package_dir).read().strip().split("\n")
         package_pc_files = glob.glob("%s/usr/*/pkgconfig/*.pc" % package_dir)
     else:
-        package_files = set([os.path.realpath("/%s" % file_name.path) \
+        package_files = set(["/%s" % file_name.path \
             for file_name in INSTALLDB.get_files(package_name).list])
         package_pc_files = set([os.path.realpath("/%s" % file_name.path) \
                 for file_name in INSTALLDB.get_files(package_name).list \
@@ -185,7 +185,9 @@ def output_result(package_name, package_dir):
 
     for package_file in package_files:
         package_file_info = magic_db.file(package_file) #Return file type
-        if "LSB shared object" in package_file_info or "LSB executable" in package_file_info:
+        if "LSB shared object" in package_file_info:
+            package_elf_files.append(os.path.realpath(package_file))
+        elif "LSB executable" in package_file_info:
             package_elf_files.append(package_file)
 
     #There maybe more than one elf file, check for each one

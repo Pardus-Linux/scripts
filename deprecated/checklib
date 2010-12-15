@@ -119,14 +119,17 @@ def get_elf_files(where, is_directory=False):
         printv("Searching directory %s.." % where)
         files = os.popen("find %s" % where).read().strip().split("\n")
     else:
-        files = set([os.path.realpath("/%s" % file_name.path) \
+        files = set(["/%s" % file_name.path \
                 for file_name in INSTALLDB.get_files(where).list])
 
     print "Searching for shared objects.."
 
     for file_name in files:
         file_info = magic_db.file(file_name)
-        if "LSB shared object" in file_info or "LSB executable" in file_info:
+        if "LSB shared object" in file_info:
+            shared_objects.append(os.path.realpath(file_name))
+            printv("  %s" % file_name)
+        elif "LSB executable" in file_info:
             printv("  %s" % file_name)
             shared_objects.append(file_name)
 

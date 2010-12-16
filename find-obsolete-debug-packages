@@ -1,0 +1,114 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+#
+# A script to find debug packages of obsoleted packages. Give distro version
+# as parameter to the script for other distro releases.
+#
+#
+
+
+import sys
+
+import urllib
+import lzma
+import bz2
+import piksemel
+
+
+repoOf = {'2009' : 'http://packages.pardus.org.tr/pardus-2009-debug/pisi-index.xml.bz2',
+          '2011' : 'http://packages.pardus.org.tr/pardus/2011/devel/x86_64-debug/pisi-index.xml.xz',
+          '2011-i686' : 'http://packages.pardus.org.tr/pardus/2011/devel/i686-debug/pisi-index.xml.xz',
+          'Corporate2' : 'http://packages.pardus.org.tr/pardus/corporate2/devel/x86_64-debug/pisi-index.xml.xz',
+          'Corporate2-i686' : 'http://packages.pardus.org.tr/pardus/corporate2/devel/i686-debug/pisi-index.xml.xz'
+}
+
+
+form = """
+Source Name  : %s
+Debug Package : %s
+"""
+
+
+def fail(message):
+    print message
+    sys.exit(1)
+
+def downloadFile(_url):
+    global data
+
+    try:
+        response = urllib.urlopen(_url)
+
+    except  IOError:
+        fail("Could not connect to %s" % _url)
+
+    data = response.read()
+    response.close()
+
+
+def getDocument():
+    global document
+
+    if url.endswith("xz"):
+        cmp_data = lzma.decompress( data )
+
+    elif url.endswith("bz2"):
+        cmp_data = bz2.decompress( data )
+
+    else:
+        fail("not support filetype %s for decompress" % url.rsplit(".", 1)[1])
+
+    document = piksemel.parseString(cmp_data)
+
+
+def getObsoletePackageList():
+    global document
+
+    obsolete_package_list = []
+
+    package_elements = document.getTag("Distribution").getTag("Obsoletes").tags("Package")
+
+    for package in package_elements:
+        package_name = package.firstChild().data()
+        obsolete_package_list.append( package_name )
+
+    return obsolete_package_list
+
+
+
+if __name__ == "__main__":
+    data = None
+    document = None
+    which_release = "2009"
+    len_dbginfo = len("-dbginfo")
+
+
+    if len(sys.argv) > 1 :
+        which_release = sys.argv[1]
+    else:
+        print "Using default repo %s" % which_release
+
+    print
+
+
+    if which_release in repoOf.keys():
+        url = repoOf.get(which_release)
+    else:
+        fail("Could not find release %s\nknown releases are %s\n" % (which_release, ", ".join(repoOf.keys())))
+
+    downloadFile(url)
+    getDocument()
+
+    obsolete_package_list =  getObsoletePackageList()
+    package_elements = document.tags( "Package" )
+
+    for package in package_elements:
+        package_src_name = package.getTag( "Source" ).getTagData( "Name" )
+        package_name =  package.getTagData("Name")
+
+        if package_src_name in obsolete_package_list or package_name[:-len_dbginfo] in obsolete_package_list :
+            packageURI = package.getTagData( "PackageURI" )
+
+            print form % (package_src_name, packageURI)
+

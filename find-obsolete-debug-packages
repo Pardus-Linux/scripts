@@ -80,14 +80,14 @@ def getObsoletePackageList():
 if __name__ == "__main__":
     data = None
     document = None
-    which_release = "2009"
     len_dbginfo = len("-dbginfo")
 
 
-    if len(sys.argv) > 1 :
-        which_release = sys.argv[1]
+    if len(sys.argv) != 2 :
+        print "Usage: %s PardusRelease\n\nFinds obsolete debug packages in PardusRelease (which is one of %s)" % (sys.argv[0], ', '.join(sorted(repoOf.keys())))
+        sys.exit()
     else:
-        print "Using default repo %s" % which_release
+        which_release = sys.argv[1]
 
     print
 

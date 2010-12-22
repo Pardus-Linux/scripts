@@ -113,7 +113,12 @@ def main(file_list):
 if __name__ == "__main__":
 
     if len(sys.argv) != 2:
-        print "Usage: %s <file_list>" % sys.argv[0]
+        print "Generates ACK/NACK list by looking difference of these directories:"
+        print "  %s" % test_path
+        print "  %s" % stable_path
+        print
+        print "Usage:"
+        print "  %s <file_list>" % sys.argv[0]
         sys.exit(1)
 
     else:

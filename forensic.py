@@ -86,6 +86,8 @@ def main():
     try:
         rootdir = sys.argv[1]
     except IndexError:
+        print "Find unowned, changed and missing files."
+        print
         print "Usage: %s /path [last-log.txt]" % sys.argv[0]
         print
         print "Example:"

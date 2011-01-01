@@ -1,6 +1,8 @@
 #!/bin/bash
 
-if [ x$1 == "x" ]; then
+if ! type -P git > /dev/null; then
+    echo "You should install git package to use $0"
+elif [ x$1 == "x" ]; then
     echo "Usage: $0 <pkgname>"
 else
     git clone git://pkgs.fedoraproject.org/$1.git fedora-$1

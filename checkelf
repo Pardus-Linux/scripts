@@ -9,6 +9,9 @@
 # any later version.
 
 # For more information execute run with '--help'
+#
+# A detailed documentation about checkelf can be found on:
+# http://developer.pardus.org.tr/guides/packaging/checkelf.html
 
 import os
 import re
@@ -280,7 +283,7 @@ def main(arg):
         if option.recursive:
             for root, dirs, files in os.walk(option.directory):
                 for data in files:
-                    if data.endswith("pisi"):
+                    if data.endswith(".pisi"):
                         packages.append(os.path.join(root, data))
         else:
             # No recursion is used, just get the pisi
@@ -299,14 +302,10 @@ def main(arg):
     if option.installedlist:
         packages.extend(INSTALLDB.list_installed())
 
-
-    # Checklib support several mixed arguments. You can look for a installed package, for a single pisi file. etc.
-    # For example : checklib gcc rekonq-0.6.0-9.pisi -d tempdir/
-    # It looks for the installed package gcc, for the specified pisi file and for pisi file in the directory tempdir
-    used_pisi = False
+    used_pisi = False # Do not check for a pisi binary file and for a package installed on the system
     for package in packages:
         # Check loop for .pisi files
-        if package.endswith("pisi"):
+        if package.endswith(".pisi"):
             used_pisi = True
             package_pisi = pisi.package.Package(package)
             package_meta = package_pisi.get_metadata()
@@ -335,7 +334,7 @@ def main(arg):
             if package_tempdir.startswith("/tmp/"):
                 shutil.rmtree(package_tempdir)
 
-        # Check for the installed package
+        # Check for a installed package in the system
         elif package in INSTALLDB.list_installed():
             if used_pisi:
                 print "You've checked for a pisi file before\nPlease do not check for a installed package and pisi file at the same time"

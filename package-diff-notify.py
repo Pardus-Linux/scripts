@@ -90,6 +90,7 @@ def process_cmd_line():
     parser.add_option("-p", "--packager", dest = "packager", action = "store", type = "string", help = "filter the output to show details about specified packager(s) only")
     parser.add_option("-k", "--package", dest = "package", action = "store", type = "string", help = "filter the output to show details about the specified packager only")
     parser.add_option("-x", "--exclude", dest = "exclude", action = "store", type = "string", help = "filter out the given comma-separated component list")
+    parser.add_option("-d", "--dump", dest = "dump", action = "store_true", default = False, help = "dump the content to the standard output")
 
     # Parse the command line
     (OPTIONS, args) = parser.parse_args()
@@ -407,6 +408,10 @@ def traverse_repos():
                 print "Generating report for packager %s..." % packager
                 fp = open("_".join(packager.split()), "w")
                 fp.write("%s" % content_body)
+
+            # Dumping to stdout is ok if only one packager's info is requested
+            if OPTIONS.dump and OPTIONS.packager:
+                print "%s's package(s):\n%s" %(packager, content_body)
 
     return True
 

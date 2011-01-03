@@ -162,12 +162,15 @@ import subprocess
 
 buf = vim.current.buffer
 
-svn_output = subprocess.Popen(["svn", "st", "files/"],
-                              stdout=subprocess.PIPE,
-                              stderr=subprocess.STDOUT).communicate()[0].strip().split("\n")
+if os.path.exists(".svn"):
+    cmd = ["svn", "st", "files/"]
+else:
+    cmd = ["git", "status", "-s", "files/"]
+
+output = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT).communicate()[0].strip().split("\n")
 
 patches = []
-for patch in svn_output:
+for patch in output:
     if patch[0] == "?" or patch[0] == "A":
         if patch.endswith("patch") or patch.endswith("diff"):
             patch = patch.split("/", 1)[1]

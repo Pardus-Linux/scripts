@@ -128,6 +128,11 @@ for row, line in enumerate(buf[:]):
                                                                                     email,
                                                                                     update))
 win.cursor = (comment_row, 21)
+
+def normal(str):
+    vim.command("normal "+str)
+
+normal("i")
 EOF
 endfunction
 

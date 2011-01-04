@@ -157,7 +157,7 @@ def check_intersections(result_dependencies, package_deps, package_name, systemb
     # mark packages that are common to system.base and result_deps with *
     if not systembase:
         result_deps = list(set(result_deps) - set(systembase_packages))
-    if not systemdevel:
+    if not systemdevel and package_name.endswith('-devel'):
         result_deps = list(set(result_deps) - set(systemdevel_packages))
     if systemdevel or systembase:
         result_must_removed = list(set(result_deps) & set(systembase_packages))
@@ -529,7 +529,7 @@ def argument():
                      action="store_true",
                      dest="systemdevel",
                      default=False,
-                     help="Don't hide system.devel dependencies")
+                     help="Show(colorize) system.devel dependencies")
 
     parser.add_option("-c", "--component",
                      action="store",

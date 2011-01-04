@@ -315,7 +315,7 @@ def main(arg):
             package_deps = [dep.name() for dep in package_meta.package.runtimeDependencies()]
 
             # Contains extracted package content
-            package_tempdir = tempfile.mkdtemp(prefix=sys.argv[0] + '-')
+            package_tempdir = tempfile.mkdtemp(prefix=os.path.basename(sys.argv[0]) + '-')
             package_pisi.extract_install(package_tempdir)
 
             # Get results from objdump,ldd,etc...

@@ -208,7 +208,7 @@ if __name__ == "__main__":
                                 different_owners[pkgr] = [pkg]
                         else:
                             pass
-                    else:
+                    elif not pkg in OBSLIST2:
                         if pkgr in missing_packs:
                             missing_packs[pkgr].append(pkg)
                         else:

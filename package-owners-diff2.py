@@ -95,6 +95,18 @@ def print_pack_dict(the_dict):
             print "\t" + pack
         print
 
+def print_different_owners(diff_owner_dict):
+    '''Prints the {packager:[(package, new_pkgr, replaced_name)]}
+    '''
+    for packgr, pack_sets in diff_owner_dict.iteritems():
+        print packgr
+        for packset in pack_sets:
+            if packset[0] == packset[2]:
+                print "\t%-30s%-30s" % ( packset[0], packset[1] )
+            else:
+                print "\t%-30s%-35s%-30s" % ( packset[0], packset[1], packset[2] )
+
+
 def find_pkgr(the_package, packageDist):
     '''Return the name of the packager of the_package
     in given packageDist.
@@ -203,9 +215,11 @@ if __name__ == "__main__":
                     if second_repo_pkgr:
                         if pkgr != second_repo_pkgr:
                             if pkgr in different_owners:
-                                different_owners[pkgr].append(pkg)
+                                different_owners[pkgr].append( ( pkg, \
+                                                second_repo_pkgr, search_pkg) )
                             else:
-                                different_owners[pkgr] = [pkg]
+                                different_owners[pkgr] = [ ( pkg, \
+                                                second_repo_pkgr, search_pkg) ]
                         else:
                             pass
                     elif not pkg in OBSLIST2:
@@ -215,7 +229,7 @@ if __name__ == "__main__":
                             missing_packs[pkgr] = [pkg]
 
     print "********************************************"
-    print_pack_dict(different_owners)
+    print_different_owners(different_owners)
 
     if options.print_missing:
         print "********************************************"

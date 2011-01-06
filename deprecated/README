@@ -5,3 +5,7 @@ ldd2dep
 checklib
 --------
  replaced by checkelf
+
+package-owners-diff.py
+--------
+replaced by package-owners-diff2.py

@@ -78,19 +78,53 @@ def process_cmd_line():
     args = []
 
     # Initialization of option parser object
-    usage_str = "Usage: package-diff-notify [options] [repoURL [repoURL ...]]"
+    usage_str = "Usage: %prog [options] [repoURL [repoURL ...]]"
     des_str = "This is a notifier script to give detailed info to packagers about their packages."
     epi_str = "repoURL:\t  compressed pisi-index file path in URL format as xz or bz2"
 
     parser = OptionParser(prog = "package-diff-notify", version = "%prog 1.0", usage = usage_str, description = des_str, epilog = epi_str)
 
-    parser.add_option("-u", "--uselocal", dest = "uselocal", action = "store_true", default = False, help = "use local pisi-index files as xz or bz2. Use without <repoURL>")
-    parser.add_option("-m", "--mail", dest = "mail", action = "store_true", default = False, help = "allow the util to send e-mails to packagers")
-    parser.add_option("-n", "--noreport", dest = "noreport", action = "store_true", default = False, help = "prevent the output from being dumped into separate files")
-    parser.add_option("-p", "--packager", dest = "packager", action = "store", type = "string", help = "filter the output to show details about specified packager(s) only")
-    parser.add_option("-k", "--package", dest = "package", action = "store", type = "string", help = "filter the output to show details about the specified packager only")
-    parser.add_option("-x", "--exclude", dest = "exclude", action = "store", type = "string", help = "filter out the given comma-separated component list")
-    parser.add_option("-d", "--dump", dest = "dump", action = "store_true", default = False, help = "dump the content to the standard output")
+    parser.add_option("-u", "--uselocal",
+                     dest = "uselocal",
+                     action = "store_true",
+                     default = False,
+                     help = "use local pisi-index files as xz or bz2. Use without <repoURL>")
+
+    parser.add_option("-m", "--mail",
+                      dest = "mail",
+                      action = "store_true",
+                      default = False,
+                      help = "allow the util to send e-mails to packagers")
+
+    parser.add_option("-n", "--noreport",
+                      dest = "noreport", 
+                      action = "store_true",
+                      default = False,
+                      help = "prevent the output from being dumped into separate files")
+
+    parser.add_option("-p", "--packager",
+                     dest = "packager",
+                     action = "store",
+                     type = "string",
+                     help = "filter the output to show details about specified packager(s) only")
+
+    parser.add_option("-k", "--package",
+                     dest = "package",
+                     action = "store",
+                     type = "string",
+                     help = "filter the output to show details about the specified packager only")
+
+    parser.add_option("-x", "--exclude",
+                     dest = "exclude",
+                     action = "store",
+                     type = "string",
+                     help = "filter out the given comma-separated component list")
+
+    parser.add_option("-d", "--dump",
+                     dest = "dump",
+                     action = "store_true",
+                     default = False,
+                     help = "dump the content to the standard output")
 
     # Parse the command line
     (OPTIONS, args) = parser.parse_args()

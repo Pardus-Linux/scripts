@@ -126,6 +126,12 @@ def process_cmd_line():
                      default = False,
                      help = "dump the content to the standard output")
 
+    parser.add_option("-a", "--all",
+                     dest = "allpackages",
+                     action = "store_true",
+                     default = False,
+                     help = "lists all packages even their attributes are same between repos")
+
     # Parse the command line
     (OPTIONS, args) = parser.parse_args()
 
@@ -301,6 +307,20 @@ def is_summary_dict_empty(summary_dict):
 
     return True
 
+def is_summary_dict_diff(summary_dict, package):
+    section_list = ("Package Names", "Packager", "Email", "Release", "Version", "Number of Sub-Package", "Number of Patches")
+
+    first_summary_item = summary_dict.values()[0]
+    rest_summary_items = summary_dict.values()[1:]
+
+    for order,section in enumerate(section_list):
+        if not section == "Release":
+            for item in rest_summary_items:
+                if not first_summary_item[order] == item[order]:
+                    return True
+
+    return False
+
 def prepare_content_body(packager):
     ''' This function generates info about all packages of given packager '''
 
@@ -360,6 +380,9 @@ def prepare_content_body(packager):
                                         if distro in REPOS[pckgr][obsolete][DISTROS]:
                                             summary_dict[distro] = create_summary_entry(pckgr, obsolete, distro)
         if not is_summary_dict_empty(summary_dict):
+            if not OPTIONS.allpackages:
+                if not is_summary_dict_diff(summary_dict, package):
+                    continue
             package_history.append(package)
             content = "%s%s\n%s\n%s\n\n" % (content, package, len(package) * "-", create_stanza(summary_dict))
 

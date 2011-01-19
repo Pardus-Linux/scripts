@@ -326,11 +326,12 @@ def prepare_content_body(packager):
 
     content = ""
     package_history = []
+    package_list = []
 
     if OPTIONS.package:
         # Trim input coming from cmd line
-        package_list = package_list.extend([pkg.strip() \
-                for pkg in OPTIONS.package.split(",")])
+        package_list.extend([pkg.strip() \
+            for pkg in OPTIONS.package.split(",")])
     else:
         package_list = REPOS[packager].keys()
 

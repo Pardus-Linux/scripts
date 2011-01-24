@@ -13,7 +13,7 @@ def main():
     os.system("pisi ur")
 
     # filter out out-of-repo packages
-    for package in install_db.list_installed_without_buildno():
+    for package in install_db.list_installed_with_build_host("localhost"):
         try:
             package_info = pisi.api.info_name(package)
         except:

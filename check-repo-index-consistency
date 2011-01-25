@@ -1,0 +1,107 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+# tool to find dependency inconsistencies in repositories
+# can work on both source and binary index
+# can work with local or remote files
+# supports multiple inputs
+#
+
+import os
+import sys
+
+import urllib2
+import bz2
+import lzma
+
+import pisi
+import piksemel
+
+
+def getIndex(uri):
+    try:
+        if "://" in uri:
+            rawdata = urllib2.urlopen(uri).read()
+        else:
+            rawdata = open(uri, "r").read()
+    except IOError:
+        print "could not fetch %s" % uri
+        return None
+
+    if uri.endswith("bz2"):
+        data = bz2.decompress(rawdata)
+    elif uri.endswith("xz") or uri.endswith("lzma"):
+        data = lzma.decompress(rawdata)
+    else:
+        data = rawdata
+
+    return data
+
+def convertToRepoDB(ix):
+    doc = piksemel.parseString(ix)
+    dbobj = pisi.index.Index()
+    dbobj.decode(doc, [])
+
+    return dbobj
+
+def printMissing(pkgname, pkgprop, latest, isruntime):
+    depstr = "runtime dep" if isruntime else "build dep"
+
+    if latest != pkgname:
+        print "\n    %s" % pkgname
+    print "        %s %s" % (depstr, pkgprop)
+
+def checkRepoDB(repodb):
+    if len(repodb.specs):
+        print "found source index"
+
+        repodict = {}
+        for spec in repodb.specs:
+            for package in spec.packages:
+                package.version = spec.history[0].version
+                package.release = spec.history[0].release
+                repodict[package.name] = package
+
+        latest = ""
+        for spec in repodb.specs:
+            for d in spec.source.buildDependencies:
+                if not d.satisfied_by_dict_repo(repodict):
+                    printMissing(spec.source.name, str(d), latest, False)
+                    latest = spec.source.name
+
+            for package in spec.packages:
+                for d in package.runtimeDependencies():
+                    if not d.satisfied_by_dict_repo(repodict):
+                        printMissing(package.name, str(d), latest, True)
+                        latest = package.name
+
+    else:
+        print "found binary index"
+
+        repodict = dict((pkg.name, pkg) for pkg in repodb.packages)
+        latest = ""
+        for package in repodb.packages:
+            for d in package.runtimeDependencies():
+                if not d.satisfied_by_dict_repo(repodict):
+                    printMissing(package.name, str(d), latest, True)
+                    latest = package.name
+
+
+if __name__ == "__main__":
+    print
+
+    if len(sys.argv) > 1:
+        targets = sys.argv[1:]
+    else:
+        targets = ["pisi-index.xml"]
+
+
+    for indexfile in targets:
+        print "* working on %s" % indexfile
+        srcstring = getIndex(indexfile)
+        if srcstring:
+            repo = convertToRepoDB(srcstring)
+            checkRepoDB(repo)
+        print
+
+

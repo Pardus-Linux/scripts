@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd texlive-bin
+for s in source texmf; do
+  tar -cJf texlive-bin-$s-`date +%Y%m%d`.tar.xz $s/
+done
+cd ..

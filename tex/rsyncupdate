@@ -1,0 +1,99 @@
+#!/bin/bash
+RS_OPTS=$1 || ''
+
+myrsync="rsync -a --chmod=Dugo-s,Dug=rwx,Do=rx --progress --delete $RS_OPTS"
+
+if [ ! -d texlive-bin ] ; then
+  echo "directory texlive-bin does not exist. exiting!"
+  echo "(you should run this from the root of the texlive build tree)"
+  exit 1
+else
+  cd texlive-bin
+fi
+
+if [ ! -d source ] ; then
+  echo "directory source does not exist, exiting!"
+  echo "(if you want to rsync from scratch, create the source dir first)"
+  cd ..
+  exit 1
+fi
+
+if [ -d source/Work ]; then
+  echo "removing Work dir, be patient..."
+  rm -rf source/Work/
+fi
+
+$myrsync --exclude=.svn tug.org::tldevsrc/Build/source .
+
+TEXMFEXCLUDE=`mktemp`
+cat <<EOF > $TEXMFEXCLUDE
+.svn
+doc/tetex
+doc/texlive
+doc/texworks
+doc/gzip
+asymptote
+asy-faq.info
+asymptote.info
+dvipng.pdf
+dvips.pdf
+kpathsea.pdf
+web2c.pdf
+ttf2pk.txt
+ttf2tfm.txt
+asy.1
+xasy.1
+*.man1.pdf
+*.man5.pdf
+Makefile
+t1ascii.1
+t1asm.1
+t1binary.1
+t1disasm.1
+t1mac.1
+t1unmac.1
+epsffit.1
+extractres.1
+fixdlsrps.1
+fixfmps.1
+fixmacps.1
+fixpsditps.1
+fixpspps.1
+fixscribeps.1
+fixtpps.1
+fixwfwps.1
+fixwpps.1
+fixwwps.1
+getafm.1
+includeres.1
+psbook.1
+psmerge.1
+psnup.1
+psresize.1
+psselect.1
+pstops.1
+lambda.1
+odvicopy.1
+odvitype.1
+ofm2opl.1
+opl2ofm.1
+otp2ocp.1
+outocp.1
+ovf2ovp.1
+ovp2ovf.1
+tlmgr.1
+install-tl.1
++ scripts/texlive/rungs.tlu
+scripts/texlive/*
+scripts/tetex/updmap.pl
+scripts/tlgs
+texdocrc-win32.defaults
+config-win32
+ls-R
+EOF
+
+$myrsync --exclude-from=$TEXMFEXCLUDE tug.org::tldevsrc/Master/texmf .
+
+cd ..
+
+echo "Done. Now you may run 'create-bin-source-tarballs'"

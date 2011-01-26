@@ -23,13 +23,6 @@ repoOf = {'2009' : 'http://packages.pardus.org.tr/pardus-2009-debug/pisi-index.x
           'Corporate2-i686' : 'http://packages.pardus.org.tr/pardus/corporate2/devel/i686-debug/pisi-index.xml.xz'
 }
 
-
-form = """
-Source Name  : %s
-Debug Package : %s
-"""
-
-
 def fail(message):
     print message
     sys.exit(1)
@@ -80,7 +73,6 @@ def getObsoletePackageList():
 if __name__ == "__main__":
     data = None
     document = None
-    len_dbginfo = len("-dbginfo")
 
 
     if len(sys.argv) != 2 :
@@ -88,9 +80,6 @@ if __name__ == "__main__":
         sys.exit()
     else:
         which_release = sys.argv[1]
-
-    print
-
 
     if which_release in repoOf.keys():
         url = repoOf.get(which_release)
@@ -104,11 +93,10 @@ if __name__ == "__main__":
     package_elements = document.tags( "Package" )
 
     for package in package_elements:
-        package_src_name = package.getTag( "Source" ).getTagData( "Name" )
-        package_name =  package.getTagData("Name")
+        package_src_name = package.getTag( "Source" ).getTagData( "Name" ) #kdeutils
+        package_name =  package.getTagData("Name") # kdeutils-kwallet-dbginfo
 
-        if package_src_name in obsolete_package_list or package_name[:-len_dbginfo] in obsolete_package_list :
+        if package_name.replace("-dbginfo", "") in obsolete_package_list:
             packageURI = package.getTagData( "PackageURI" )
-
-            print form % (package_src_name, packageURI)
+            print packageURI
 

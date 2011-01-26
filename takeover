@@ -1,5 +1,23 @@
 #!/bin/bash
 
+# in order to list the paths
+# find -name pspec.xml | xargs grep -B2 '<Email><packager email></Email>' | grep Packager > <packagelistfile>
+
+#in order to change all files run the below script
+
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+#import os
+
+#f = open('<packagelistfile>')
+#lines = f.readlines()
+#f.close()
+
+#for line in lines:
+#    print line
+#    os.system('./takeover %s' %line)
+
 # Usage: takeover pardus/devel/kernel/kernel/pspec.xml
 
 NAME="YOUR NAME"

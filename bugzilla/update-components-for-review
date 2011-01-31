@@ -175,4 +175,6 @@ if __name__ == "__main__":
 
         if db_handle:
             db_handle.commit()
+            cursor.close()
             db_handle.close()
+

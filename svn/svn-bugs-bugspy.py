@@ -11,8 +11,8 @@ import logging
 from bugspy.bugzilla import Bugzilla
 from bugspy.config import BugspyConfig
 
-SVN_LOG_FILE = "/home/eren/svn.log"
-SVN_ERROR_FILE = "/home/eren/svn.error"
+SVN_LOG_FILE = "/var/www/bugzilla.pardus.org.tr/scripts/svn/svn.log"
+SVN_ERROR_FILE = "/var/www/bugzilla.pardus.org.tr/scripts/svn/svn.error"
 
 BUGSPY_CONFIG_FILE = os.path.expanduser("~/.bugspy.conf")
 
@@ -56,16 +56,16 @@ def checkBUG(line):
     bug_id = line[2]
     return (cmd, bug_id)
 
-def checkLOG(log):
-    for line in log:
+def checkLOG(msg):
+    for line in msg:
         if line.startswith("BUG:"):
             yield checkBUG(line)
 
-def main(author, log, commit_no, changed, repo):
+def main(author, msg, commit_no, changed, repo):
     changed = arrayTostring(changed)
-    log = arrayTostring(log)
+    msg = arrayTostring(msg)
 
-    thetext = BUG_COMMENT_TEMPLATE % {"author":author, "repo":os.path.basename(repo), "commit_no":commit_no, "changed": changed, "log": log}
+    thetext = BUG_COMMENT_TEMPLATE % {"author":author, "repo":os.path.basename(repo), "commit_no":commit_no, "changed": changed, "log": msg}
 
     thetext=thetext.replace("'", "\"")
     thetext=thetext.replace(")", "\\)")
@@ -89,7 +89,8 @@ def main(author, log, commit_no, changed, repo):
                         resolution="FIXED",
                         comment=thetext)
 
-    for cmd, bug_id in checkLOG(log):
+    for cmd, bug_id in checkLOG(msg.split('\n')):
+        print cmd, bug_id
         if cmd == "COMMENT":
             commentBUG(bug_id)
         elif cmd == "FIXED":
@@ -102,7 +103,7 @@ if __name__ == "__main__":
         repo = sys.argv[1]
         commit_no = sys.argv[2]
         cmd = '%s log -r %s %s' % (SVNLOOK, commit_no, repo)
-        log = os.popen(cmd).readlines()
+        msg = os.popen(cmd).readlines()
 
         cmd = '%s author -r %s %s' % (SVNLOOK, commit_no, repo)
         author = os.popen(cmd).readline().rstrip('\n')
@@ -110,7 +111,9 @@ if __name__ == "__main__":
         cmd = '%s changed -r %s %s' % (SVNLOOK, commit_no, repo)
         changed = os.popen(cmd).readlines()
 
-        main(author, log, commit_no, changed, repo)
+        main(author, msg, commit_no, changed, repo)
 
     except Exception, e:
         open(SVN_ERROR_FILE, "w").write("error\n%s" % e)
+
+    sys.exit(0)

@@ -14,7 +14,7 @@ from bugspy.config import BugspyConfig
 SVN_LOG_FILE = "/var/www/bugzilla.pardus.org.tr/scripts/svn/svn.log"
 SVN_ERROR_FILE = "/var/www/bugzilla.pardus.org.tr/scripts/svn/svn.error"
 
-BUGSPY_CONFIG_FILE = os.path.expanduser("~/.bugspy.conf")
+BUGSPY_CONFIG_FILE = "/var/www/bugzilla.pardus.org.tr/scripts/svn/bugspy.conf"
 
 BUG_COMMENT_TEMPLATE = u"""Author: %(author)s
 Repository: %(repo)s
@@ -27,7 +27,7 @@ Commit Message:
 %(log)s
 
 See the changes at:
-  http://websvn.pardus.org.tr/pardus?view=revision&revision=%(commit_no)s
+  http://websvn.pardus.org.tr/%(repo)s?view=revision&revision=%(commit_no)s
 """
 
 # FIXME: Use FileHandler to write logs into file.
@@ -38,6 +38,16 @@ ch = logging.StreamHandler()
 ch.setLevel(logging.DEBUG)
 ch.setFormatter(logging.Formatter("%(asctime)s - %(name)s - %(levelname)s: %(message)s"))
 log.addHandler(ch)
+
+def getAuthorName(author):
+    accounts = urllib2.urlopen("http://svn.pardus.org.tr/uludag/trunk/common/accounts").readlines()
+    for a in [l for l in accounts if l and not l.startswith("#")]:
+        try:
+            if a.split(":")[0] == author:
+                # Match!
+                return a.split(":")[1]
+        except:
+            pass
 
 def arrayTostring(data):
     output = ""
@@ -65,7 +75,15 @@ def main(author, msg, commit_no, changed, repo):
     changed = arrayTostring(changed)
     msg = arrayTostring(msg)
 
-    thetext = BUG_COMMENT_TEMPLATE % {"author":author, "repo":os.path.basename(repo), "commit_no":commit_no, "changed": changed, "log": msg}
+    repo_name = os.path.basename(repo)
+    if repo_name == "pisi":
+        repo_name = "pardus"
+
+    author_name = getAuthorName(author)
+    if author_name:
+        author = author_name
+
+    thetext = BUG_COMMENT_TEMPLATE % {"author":author, "repo": repo_name, "commit_no": commit_no, "changed": changed, "log": msg}
 
     thetext=thetext.replace("'", "\"")
     thetext=thetext.replace(")", "\\)")
@@ -90,7 +108,6 @@ def main(author, msg, commit_no, changed, repo):
                         comment=thetext)
 
     for cmd, bug_id in checkLOG(msg.split('\n')):
-        print cmd, bug_id
         if cmd == "COMMENT":
             commentBUG(bug_id)
         elif cmd == "FIXED":
@@ -115,5 +132,6 @@ if __name__ == "__main__":
 
     except Exception, e:
         open(SVN_ERROR_FILE, "w").write("error\n%s" % e)
+        sys.exit(e)
 
     sys.exit(0)

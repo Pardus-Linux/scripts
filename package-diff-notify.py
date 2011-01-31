@@ -106,13 +106,13 @@ def process_cmd_line():
                      dest = "packager",
                      action = "store",
                      type = "string",
-                     help = "filter the output to show details about specified packager(s) only")
+                     help = "filter the output to show details about specified packager only")
 
     parser.add_option("-k", "--package",
                      dest = "package",
                      action = "store",
                      type = "string",
-                     help = "filter the output to show details about the specified packager only")
+                     help = "filter the output to show details about specified package(s) only")
 
     parser.add_option("-x", "--exclude",
                      dest = "exclude",

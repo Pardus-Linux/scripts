@@ -38,7 +38,7 @@ def getLastSecurity(parent):
 
     return 0, "never"
 
-def unpackXml(url):
+def unpackXml(url, isStable):
     pkglist = {}
 
     if url.startswith("http"):
@@ -60,7 +60,7 @@ def unpackXml(url):
             pkguri = None # this is source repo
             srcname = pkgname
             lastSecurity, securityUpdate = getLastSecurity(parent)
-            if lastSecurity:
+            if lastSecurity or isStable:
                 pkglist[pkgname] = [lastSecurity, securityUpdate, pkguri, srcname]
     else:
         for parent in index.tags("Package"):
@@ -68,7 +68,7 @@ def unpackXml(url):
             pkguri = parent.getTagData("PackageURI")
             srcname = parent.getTag("Source").getTagData("Name")
             lastSecurity, securityUpdate = getLastSecurity(parent)
-            if lastSecurity:
+            if lastSecurity or isStable:
                 pkglist[pkgname] = [lastSecurity, securityUpdate, pkguri, srcname]
 
     return pkglist
@@ -104,8 +104,8 @@ if __name__ == "__main__":
         toIndex = "%s/pisi-index.xml.bz2" % distroBase
         fromIndex= "%s-test/pisi-index.xml.bz2" % distroBase
 
-    stableIndex = unpackXml(toIndex)
-    develIndex = unpackXml(fromIndex)
+    stableIndex = unpackXml(toIndex, True) # True means it is a target repo
+    develIndex = unpackXml(fromIndex, False)
 
     pkg = parsePackages(stableIndex, develIndex)
     pkglist = pkg.keys()

@@ -191,16 +191,20 @@ def fetch_repos():
 
             if repo.endswith(".bz2"):
                 decompressed_index = bz2.decompress(open(repo, "r").read())
-            else:
-                # Must be .xz
+            elif repo.endswith(".xz"):
                 decompressed_index = lzma.decompress(open(repo, "r").read())
+            else:
+                decompressed_index = open(repo, "r").read()
         else:
             # Use the remote index files
 
             if repo.endswith(".bz2"):
                 decompressed_index = bz2.decompress(urllib2.urlopen(repo).read())
-            else:
+            elif repo.endswith(".xz"):
                 decompressed_index = lzma.decompress(urllib2.urlopen(repo).read())
+            else:
+                decompressed_index = urllib2.urlopen(repo).read()
+
         doc = piksemel.parseString(decompressed_index)
         pisi_index.decode(doc, [])
 

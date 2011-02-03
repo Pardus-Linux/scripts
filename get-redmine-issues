@@ -3,7 +3,7 @@
 
 import sys
 
-TRACKERS = ['http://proje.pardus.org.tr:50030']
+TRACKERS = ['http://tracker.pardus.org.tr']
 
 if len(sys.argv) == 1:
     print ' Usage: %s PROJECT_KEY ' % sys.argv[0]

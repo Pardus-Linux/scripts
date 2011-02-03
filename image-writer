@@ -1,0 +1,251 @@
+#!/usr/bin/python -ttu
+# vim: ai ts=4 sts=4 et sw=4
+
+#    Copyright (c) 2008 Intel Corporation
+#
+#    This program is free software; you can redistribute it and/or modify it
+#    under the terms of the GNU General Public License as published by the Free
+#    Software Foundation; version 2 of the License
+#
+#    This program is distributed in the hope that it will be useful, but
+#    WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+#    or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+#    for more details.
+#
+#    You should have received a copy of the GNU General Public License along
+#    with this program; if not, write to the Free Software Foundation, Inc., 59
+#    Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+
+import sys
+import os
+import gettext
+import re
+import subprocess
+import time
+import select
+
+_ = gettext.lgettext
+PROG_NAME = "image-writer"
+COLOR_BLACK = "\033[00m"
+COLOR_RED =   "\033[1;31m"
+COLOR_BLUE =  "\033[1;34m"
+
+def main():
+
+    # Python version check
+    if sys.hexversion < 0x2040000:
+        print >> sys.stderr, _("Error: %s depends on a Python " \
+                               "v2.4 or greater!") % (PROG_NAME)
+        sys.exit(1)
+
+    # Check for root priveleges
+    if not are_we_root():
+        print >> sys.stderr, _("%s must be run using " \
+                               "root priveleges") % (PROG_NAME)
+        sys.exit(1)
+
+    # Parameters check
+    if len(sys.argv) != 2:
+        display_help()
+        sys.exit(1)
+
+    # Check image validity
+    image = os.path.realpath(os.path.abspath(sys.argv[1]))
+    if not is_valid_image(image):
+        sys.exit(1)
+
+    # Get USB drive
+    usbd=get_usb_disk()
+    if len(usbd)==0:
+        sys.exit(1)
+
+    # Unmount USB drive
+    if not umount_device(usbd):
+        sys.exit(1)
+
+    # Warn of pending USB content doom
+    msg = _("Warning:  The USB drive (%s) will be completely erased!") % usbd
+    if not user_confirm (msg, COLOR_RED):
+        sys.exit(1)
+
+    # Write image to USB drive
+    if not write_image_to_disk (image, usbd):
+        sys.exit(1)
+
+    print _("You may now boot your mobile device with this USB drive\n")
+    return 0
+
+#-----------------------------------------------------------------------
+
+def display_help():
+    print _("\nUsage: image-writer <full-path-to-image>\n")
+
+# ret True = running as root
+def are_we_root():
+    if os.getuid() == 0:
+        return True
+    return False
+
+def is_valid_image(image):
+    if not os.path.isfile(image):
+        print _("The image path does not point to a file")
+        return False;
+    if not (os.path.getsize(image) > (180*1024*1024)):
+        msg = _("The file specified does not appear to be " \
+                "large enough to be a valid image.")
+        if not user_confirm (msg):
+            return False;
+    return True
+
+def user_confirm(msg, text_color=COLOR_BLACK,
+                 confirm=_(" Do you want to continue anyway? (y/n) ")):
+    print _("%s%s%s") % (text_color, msg, COLOR_BLACK)
+    confirm_msg = _("%s%s%s") % (text_color, confirm, COLOR_BLACK)
+    name=""
+    while name!="n" and name!="y":
+        name = raw_input(confirm_msg)
+        name = name.lower()
+    if name=="n":
+        return False;
+    return True
+
+def get_usb_disk():
+    usbd = ""
+    udisks = get_current_udisks();
+    if len(udisks)==0:
+        print _("No USB drives detected.")
+        print _("Please insert a USB drive large enough to store the " \
+                "given image")
+        return ""
+    elif len(udisks)==1:
+        usbd=udisks[0]
+    elif len(udisks)>0:
+        print _("\nMultiple USB drives discovered:")
+        i=1
+        for usbd in udisks:
+            print "%s) %s" % (i, usbd)
+            i+=1
+        sel_usb = ""
+        while sel_usb not in range (1,len(udisks)+1):
+            try:
+                sel_usb = int(raw_input(" Select the USB " \
+                                        "drive to use (1-%s): " % (len(udisks))))
+            except ValueError:
+                continue
+        usbd = udisks[sel_usb-1]
+    #print "Drive selected: '%s'" % (usbd)
+    return usbd
+
+def get_current_udisks():
+    usb_devices = []
+    dirname = os.path.realpath(os.path.abspath('/sys/bus/scsi'))
+    work_list = get_usb_dir_tree(dirname)
+    usb_list = [ x for x in work_list if re.search(r'usb', x) ]
+    for filename in usb_list:
+        #print _("usb_list file is %s") % filename
+        device_dir = os.path.join('/sys/devices', filename)
+        block_dir = os.path.join(device_dir, 'block')
+        if (os.path.isdir(block_dir)) :
+            for result in os.listdir(block_dir):
+                #print result
+                usb_dev = os.path.join('/dev',result)
+                if os.path.exists(usb_dev):
+                    usb_devices.append(usb_dev)
+                break
+        elif os.path.isdir(device_dir):
+            for device_file in os.listdir(device_dir):
+                full_path = os.path.join(device_dir, device_file)
+                result = re.search(r'^block:(?P<dev>.*)', device_file)
+                if result:
+                    usb_dev = os.path.join('/dev', result.group('dev'))
+                    if os.path.exists(usb_dev):
+                        usb_devices.append(usb_dev)
+                    break
+    return usb_devices
+
+def get_usb_dir_tree(dirname):
+    file_set = set()
+    for filename in os.listdir(dirname):
+        full_path = os.path.join(dirname, filename)
+        if os.path.islink(full_path):
+            file_set.add(os.path.realpath(full_path))
+        elif os.path.isdir(full_path):
+            file_set.update(get_usb_dir_tree(full_path))
+        else:
+            file_set.add(full_path)
+    return file_set
+
+def umount_device(device):
+    """umount a device if it is mounted"""
+    dev_path = "%s1 " % os.path.realpath(os.path.abspath(device))
+
+    if is_mounted(dev_path):
+        print _("Unmounting %s...") % (dev_path) , 
+        result = os.system("umount %s" % (dev_path))
+        if result and is_mounted(dev_path):
+            print _("Failed.\n%s could not be unmounted") % device
+            return False
+        print _("Done.")
+    return True
+
+def is_mounted (dirname):
+    mount_file = open('/proc/mounts', 'r')
+    for line in mount_file:
+        if line.find(dirname) == 0:
+            #return True  (causes failures later)
+            return False
+    return False
+
+def write_image_to_disk (image_filename, usb_disk):
+# image write timings
+#   200 == 78s
+#   422 == 165s
+#  1036 == 413s
+    size = os.path.getsize(image_filename)
+    print _("Source:      %s") % image_filename
+    print _("Size:        %s MB") % (int(size/(1024*1024)))
+    print _("Destination: %s") % usb_disk
+    #(tbd, get usb capacity): print _("Capacity:    %s") % ("1GB")
+
+    # get time estimate based on image size (assume 10MB/sec)
+    totsec = int(size / (5*1024*1024))
+    min,sec = divmod(totsec, 60)
+
+    msg = _("Writing image (Est. %smin %ssec)...    ") % (min,sec)
+    print _("%s%s%s") % (COLOR_BLUE, msg, COLOR_BLACK) ,
+
+    cmd = "dd bs=4096 if=%s of=%s" % (image_filename, usb_disk)
+
+    p = subprocess.Popen(cmd.split(), 
+                         stdout = subprocess.PIPE, 
+                         stderr = subprocess.STDOUT, 
+                         stdin = subprocess.PIPE, 
+                         close_fds = True)
+
+    # show progress (percentage ticking)
+    poll = select.poll()
+    poll.register(p.stdout, select.POLLIN)
+    interval = (totsec / 100.0)
+    perc = 0
+    while p.poll() == None:
+        print _("%s\b\b\b\b%2s%%%s") % (COLOR_BLUE, perc, COLOR_BLACK) ,
+        time.sleep(interval)
+        if perc < 99:
+            perc+=1
+    print _("%s\b\b\b\b100%%%s") % (COLOR_BLUE, COLOR_BLACK)
+
+    # show output of command
+    (sout,serr) = p.communicate()
+    for line in sout.split('\n'):
+        print line
+
+    result = p.returncode
+    if result != 0:
+        print _("Error:  The image could not be written to the USB drive")
+        return False
+    print _("The image was successfully written to the USB drive")
+    return True
+
+
+if __name__ == '__main__':
+    sys.exit(main())

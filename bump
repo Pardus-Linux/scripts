@@ -49,18 +49,22 @@ def get_and_save_user_info():
 
     return name, email
 
-def increment_release(pspec, ver, comment, packager_name, packager_email):
-    release = int(pisi.specfile.SpecFile('pspec.xml').history[0].release)+1
+def increment_release(pspec, comment, packager_name, packager_email, version=None):
+    last = pisi.specfile.SpecFile("pspec.xml").history[0]
+    release = int(last.release) + 1
+    if not version:
+        version = last.version
+
     date = time.strftime("%Y-%m-%d")
 
     global RELEASE
-    new_release = RELEASE % (release, date, ver, comment,
+    new_release = RELEASE % (release, date, version, comment,
                              packager_name,
                              packager_email)
 
     return pspec.replace("<History>\n", "<History>\n%s" % new_release)
 
-def update_sha1sum():
+def update_sha1sum(pspec):
     sums = []
     for archive in pisi.specfile.SpecFile('pspec.xml').source.archive:
         uri = os.path.basename(archive.uri)
@@ -72,7 +76,7 @@ def update_sha1sum():
 
     if len(sums) > 0:
         ret = []
-        for line in open("pspec.xml", "r").readlines():
+        for line in pspec.split("\n"):
             if " <Archive" in line:
                 nls = line.split("sha1sum=\"")
                 nl = nls[0] + "sha1sum=\"%s\"" % sums[sumi] + nls[1].split("\"", 1)[1]
@@ -81,19 +85,28 @@ def update_sha1sum():
             else:
                 ret.append(line)
 
-        return "".join(ret)
+        return "\n".join(ret)
 
 if __name__ == "__main__":
 
-    if len(sys.argv) < 3:
-        print "Usage: %s <Bumped version> <Release comment>" % sys.argv[0]
+    if len(sys.argv) < 2:
+        print "Usage: %s <Release comment> [Bumped version]" % sys.argv[0]
         sys.exit(1)
 
-    # First fetch the tarball
-    os.system("pisi build pspec.xml --fetch")
+    comment = sys.argv[1]
+    version = None
 
-    # Update sha1sum
-    newpspec = update_sha1sum()
+    pspec = open("pspec.xml", "r").read().strip()
+    try:
+        version = sys.argv[2]
+    except IndexError:
+        pass
+    else:
+        # First fetch the tarball
+        os.system("pisi build pspec.xml --fetch")
+
+        # Update sha1sum
+        pspec = update_sha1sum(pspec)
 
     # Add translations.xml
     if not os.path.exists("translations.xml"):
@@ -103,5 +116,5 @@ if __name__ == "__main__":
     packager_name, packager_email = get_and_save_user_info()
 
     # Increment release
-    new_pspec = increment_release(newpspec, sys.argv[1], sys.argv[2], packager_name, packager_email)
+    new_pspec = increment_release(pspec, comment, packager_name, packager_email, version)
     open("pspec.xml", "w").write(new_pspec)

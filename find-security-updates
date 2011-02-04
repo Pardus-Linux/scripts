@@ -33,7 +33,7 @@ def getLastSecurity(parent):
     for tag in xnode:
         release = tag.getAttribute("release")
         updatetime = tag.getTagData("Date")
-        if tag.getAttribute("type") == "security":
+        if tag.getAttribute("type") == "security" or tag.getTagData("Type") == "security":
             return int(release), updatetime
 
     return 0, "never"

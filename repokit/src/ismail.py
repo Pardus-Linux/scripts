@@ -484,9 +484,6 @@ class Package(AutoPiksemel):
         for c in self.name:
             if not c in valid_name_chars:
                 piksError(doc, errors, "Package name '%s' has invalid char '%s'" % (self.name, c))
-        for part in self.name.split("-")[1:]:
-            if part[0] in string.digits:
-                piksError(doc, errors, "Package name '%s' has a number after '-'" % self.name)
 
         for additional in self.additionals:
             filename = additional.filename

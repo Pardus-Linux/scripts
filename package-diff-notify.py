@@ -29,9 +29,9 @@ REPO_LIST = (
 
 
 # Details about packages
-# Structure : {packager_name -> {package_name -> [[[release1, version1],..,[releaseX, versionX]], [#package1,..,#packageX], [#patch1,..,#patchX], [distro_version1,..,distro_versionX] [packager_mail1,..,packager_mailX]]},..}
+# Structure : {packager_name -> {package_name -> [[[release1, version1],..,[releaseX, versionX]], [#package1,..,#packageX], [#patch1,..,#patchX], [distro_version1,..,distro_versionX], [packager_mail1,..,packager_mailX], [component1,..,componentX]]},..}
 REPOS = {}
-RELEASES, NRPACKAGES, NRPATCHES, DISTROS, MAILS = range(5)
+RELEASES, NRPACKAGES, NRPATCHES, DISTROS, MAILS, COMPONENTS = range(6)
 
 # Option parser object
 OPTIONS = None
@@ -229,7 +229,7 @@ def fetch_repos():
             if not REPOS.has_key(spec.source.packager.name):
                 REPOS[spec.source.packager.name] = {}
             if not REPOS[spec.source.packager.name].has_key(spec.source.name):
-                REPOS[spec.source.packager.name][spec.source.name] = [[], [], [], [], []]
+                REPOS[spec.source.packager.name][spec.source.name] = [[], [], [], [], [], []]
 
             REPOS[spec.source.packager.name][spec.source.name][RELEASES].append([spec.history[0].release, spec.history[0].version])
             REPOS[spec.source.packager.name][spec.source.name][NRPACKAGES].append(len(spec.packages))
@@ -237,6 +237,7 @@ def fetch_repos():
             REPOS[spec.source.packager.name][spec.source.name][DISTROS].append(DISTRO_LIST[order])
             if spec.source.packager.email not in REPOS[spec.source.packager.name][spec.source.name][MAILS]:
                 REPOS[spec.source.packager.name][spec.source.name][MAILS].append(spec.source.packager.email)
+            REPOS[spec.source.packager.name][spec.source.name][COMPONENTS].append(spec.source.partOf)
 
             # We may have multiple packagers as owner of the same package
             # residing on different repositories
@@ -266,12 +267,13 @@ def create_summary_entry(packager, package, distro):
 
     summary_entry = [
                     package,
+                    REPOS[packager][package][COMPONENTS][order],
                     packager,
                     REPOS[packager][package][MAILS],
                     REPOS[packager][package][RELEASES][order][0],
                     REPOS[packager][package][RELEASES][order][1],
                     REPOS[packager][package][NRPACKAGES][order],
-                    REPOS[packager][package][NRPATCHES][order],
+                    REPOS[packager][package][NRPATCHES][order]
                     ]
 
     return summary_entry
@@ -279,7 +281,7 @@ def create_summary_entry(packager, package, distro):
 def create_stanza(summary_dict):
     ''' This function creates a stanza including info for each package '''
 
-    section_list = ("Package Names", "Packager", "Email", "Release", "Version", "Number of Sub-Package", "Number of Patches")
+    section_list = ("Package Names", "Component", "Packager", "Email", "Release", "Version", "Number of Sub-Package", "Number of Patches")
     content = ""
 
     # Indexing to traverse summary_dict as in sectionList manner
@@ -287,17 +289,25 @@ def create_stanza(summary_dict):
         tmp_content = ""
         last_item = ""
         # Ignoring 'Email' item in sectionList, because handled it in prev loop
-        if section == "Email":
+        if section == "Email" or section == "Component":
             continue
         for distro in DISTRO_LIST:
             if summary_dict.has_key(distro):
                 # Prevent content replication
-                if not summary_dict[distro][order] == last_item:
-                    if section == "Packager":
-                        tmp_content += "    %-30s: %s <%s>\n" % (distro, summary_dict[distro][order], ",".join(summary_dict[distro][order + 1]))
+                if section == "Package Names":
+                    component = " %s" % summary_dict[distro][order + 1]
+                else:
+                    component = ""
+                if not "%s%s" % (summary_dict[distro][order], component) == last_item:
+                    if section == "Package Names":
+                        tmp_content += "    %-30s: %s <%s>\n" % (distro, summary_dict[distro][order], summary_dict[distro][order + 1])
+                        last_item = "%s %s" % (summary_dict[distro][order], summary_dict[distro][order + 1])
                     else:
-                        tmp_content += "    %-30s: %s\n" % (distro, summary_dict[distro][order])
-                    last_item = summary_dict[distro][order]
+                        if section == "Packager":
+                            tmp_content += "    %-30s: %s <%s>\n" % (distro, summary_dict[distro][order], ",".join(summary_dict[distro][order + 1]))
+                        else:
+                            tmp_content += "    %-30s: %s\n" % (distro, summary_dict[distro][order])
+                        last_item = summary_dict[distro][order]
                 else:
                     tmp_content += "    %-30s:\n" % distro
         content += " %s:\n%s" % (section_list[order], tmp_content)
@@ -312,7 +322,7 @@ def is_summary_dict_empty(summary_dict):
     return True
 
 def is_summary_dict_diff(summary_dict, package):
-    section_list = ("Package Names", "Packager", "Email", "Release", "Version", "Number of Sub-Package", "Number of Patches")
+    section_list = ("Package Names", "Component", "Packager", "Email", "Release", "Version", "Number of Sub-Package", "Number of Patches")
 
     first_summary_item = summary_dict.values()[0]
     rest_summary_items = summary_dict.values()[1:]

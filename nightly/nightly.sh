@@ -89,14 +89,15 @@ python $PARDUSMAN make $PROJECT_FILE || PARDUSMAN_FAILED=1
 
 popd  # $TMPDIR
 
-if [ -n "$PARDUSMAN_FAILED" ]; then
+ISO=$(basename $WORKDIR/*.iso)
+
+if [ -n "$PARDUSMAN_FAILED" -o ! -f "$ISO" ]; then
     # Remove temp dir
     rm -rf $TMPDIR
 
     exit 1
 fi
 
-ISO=$(basename $WORKDIR/*.iso)
 mkdir -p $DESTDIR/$TODAY
 
 pushd $DESTDIR

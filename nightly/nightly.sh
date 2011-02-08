@@ -6,6 +6,7 @@
 TITLE="Pardus Nightly"
 DISTRO_URL="http://svn.pardus.org.tr/uludag/trunk/distribution/2011"
 PROJECT=installation.xml
+REPO_URI=
 DESTDIR=$PWD
 
 KEEP_WORKDIR=
@@ -65,6 +66,11 @@ fi
 
 # Set title in $PROJECT_FILE
 sed -i "s:<Title>.*<\/Title>:<Title>$TITLE [$TODAY]</Title>:" $PROJECT_FILE
+
+if [ -n "$REPO_URI" ]; then
+    # Replace repo_uri
+    sed -i 's#<PackageSelection repo_uri=".*">#<PackageSelection repo_uri="$REPO_URI">#' $PROJECT_FILE
+fi
 
 WORKDIR=$(grep "<WorkDir>" $PROJECT_FILE | sed 's/^ *<WorkDir>\(.*\)<\/WorkDir>/\1/')
 

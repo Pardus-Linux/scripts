@@ -186,8 +186,8 @@ if __name__ == "__main__":
 
     # Extract the two index files.
 
-    old_index = "%s_%s" % (args[0], "pisi-index.xml")
-    new_index = "%s_%s" % (args[1], "pisi-index.xml")
+    old_index = "/tmp/%s_%s" % (args[0], "pisi-index.xml")
+    new_index = "/tmp/%s_%s" % (args[1], "pisi-index.xml")
 
     os.system("/usr/bin/iso-read -i %s -e /repo/pisi-index.xml.bz2 -o %s.bz2" % (args[0], old_index))
     os.system("/usr/bin/iso-read -i %s -e /repo/pisi-index.xml.bz2 -o %s.bz2" % (args[1], new_index))

@@ -18,6 +18,8 @@ import sys
 import pisi
 import time
 import glob
+import shutil
+import tempfile
 
 comment_template = """\
 <span style=\"padding: 2px;\">Updated on <em>%s</em> by <em>%s</em> to version <b>%s</b>, release: <b>%s</b></span>
@@ -184,10 +186,13 @@ if __name__ == "__main__":
 
     print "Comparing %s and %s.." % (args[0], args[1])
 
+    # Create a temp dir
+    temp_dir = tempfile.mkdtemp(prefix="cd-diff.")
+
     # Extract the two index files.
 
-    old_index = "/tmp/%s_%s" % (args[0], "pisi-index.xml")
-    new_index = "/tmp/%s_%s" % (args[1], "pisi-index.xml")
+    old_index = os.path.join(temp_dir, "old-pisi-index.xml")
+    new_index = os.path.join(temp_dir, "new-pisi-index.xml")
 
     os.system("/usr/bin/iso-read -i %s -e /repo/pisi-index.xml.bz2 -o %s.bz2" % (args[0], old_index))
     os.system("/usr/bin/iso-read -i %s -e /repo/pisi-index.xml.bz2 -o %s.bz2" % (args[1], new_index))
@@ -250,3 +255,4 @@ if __name__ == "__main__":
 
     print "Cleaning up.."
     os.system('find -name "*_pisi*xml*" | xargs rm -rf')
+    shutil.rmtree(temp_dir)

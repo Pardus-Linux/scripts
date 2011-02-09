@@ -258,5 +258,4 @@ if __name__ == "__main__":
     f.close()
 
     print "Cleaning up.."
-    os.system('find -name "*_pisi*xml*" | xargs rm -rf')
     shutil.rmtree(temp_dir)

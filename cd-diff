@@ -194,8 +194,12 @@ if __name__ == "__main__":
     old_index = os.path.join(temp_dir, "old-pisi-index.xml")
     new_index = os.path.join(temp_dir, "new-pisi-index.xml")
 
-    os.system("/usr/bin/iso-read -i %s -e /repo/pisi-index.xml.bz2 -o %s.bz2" % (args[0], old_index))
-    os.system("/usr/bin/iso-read -i %s -e /repo/pisi-index.xml.bz2 -o %s.bz2" % (args[1], new_index))
+    ret = os.system("/usr/bin/iso-read -i %s -e /repo/pisi-index.xml.bz2 -o %s.bz2" % (args[0], old_index))
+    ret += os.system("/usr/bin/iso-read -i %s -e /repo/pisi-index.xml.bz2 -o %s.bz2" % (args[1], new_index))
+    if not ret:
+        print "Cannot read index file(s)"
+        shutil.rmtree(temp_dir)
+        sys.exit(1)
 
     print "Extracting index files.."
     os.system("/bin/bunzip2 -k -d %s.bz2" % old_index)

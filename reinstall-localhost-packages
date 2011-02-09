@@ -21,20 +21,21 @@ def main():
         else:
             packages.append(package)
 
-    print "\nThe following packages will be reinstalled:"
-    print "\n".join(packages)
+    if packages:
+        print "\nThe following packages will be reinstalled:"
+        print "\n".join(packages)
 
-    while True:
-        try:
-            print "\nDo you want to continue? (y/n)",
-            input = raw_input()
-            if input.startswith("n"):
+        while True:
+            try:
+                print "\nDo you want to continue? (y/n)",
+                input = raw_input()
+                if input.startswith("n"):
+                    return 1
+                elif input.startswith("y"):
+                    os.system("pisi install %s --reinstall -vd" % " ".join(packages))
+                    return 0
+            except KeyboardInterrupt:
                 return 1
-            elif input.startswith("y"):
-                os.system("pisi install %s --reinstall -vd" % " ".join(packages))
-                return 0
-        except KeyboardInterrupt:
-            return 1
 
 if __name__ == "__main__":
     sys.exit(main())

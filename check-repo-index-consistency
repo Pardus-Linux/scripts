@@ -35,7 +35,7 @@ def getIndex(uri):
     else:
         data = rawdata
 
-    return data
+    return data.replace("<PISI>", "").replace("</PISI>", "")
 
 def convertToRepoDB(ix):
     doc = piksemel.parseString(ix)
@@ -95,13 +95,19 @@ if __name__ == "__main__":
     else:
         targets = ["pisi-index.xml"]
 
+    print "* working on"
+    for i in targets:
+        print "    %s" % i
 
+    # FIXME: find a way to update iksemel object with another one
+    srcstring = "<PISI>"
     for indexfile in targets:
-        print "* working on %s" % indexfile
-        srcstring = getIndex(indexfile)
-        if srcstring:
-            repo = convertToRepoDB(srcstring)
-            checkRepoDB(repo)
-        print
+        srcstring += getIndex(indexfile)
+
+    srcstring += "</PISI>"
+    if srcstring != "":
+        repo = convertToRepoDB(srcstring)
+        checkRepoDB(repo)
+    print
 
 

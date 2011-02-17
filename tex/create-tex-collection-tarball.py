@@ -17,7 +17,7 @@ mirror = "http://mirror.informatik.uni-mannheim.de/pub/mirrors/tex-archive/syste
 # Create several packages
 name = sys.argv[1]
 collection_name = "collection-" + name
-collection_package = sys.argv[1] + ".tar.xz"
+collection_package = collection_name + ".tar.xz"
 collection_url = mirror + collection_package
 
 # Donload and extract main collection tarball
@@ -43,22 +43,24 @@ for line in open("tlpkg/tlpobj/%s.tlpobj" % collection_name, "r").readlines():
 
 # Download each modules from the module_names list
 for module in module_names:
-   os.system("wget %s/%s" % (mirror, module))
+   os.system("wget %s%s.tar.xz" % (mirror, module))
 
 # Create dir for packaging
-package_name = "texlive"
-if not os.path.exists(packagename):
-    os.mkdir(packagename)
+package_name = "texlive_" + name + "_2011_" + revision
 
 # Extract and remove archive packages
-for module in os.listdir("."):
-    if module.endswith("tar.xz"):
-        os.system("tar Jxf %s -C %s" % (module,packagename))
-        os.remove(module)
+if not os.path.exists(package_name):
+    os.mkdir(package_name)
+
+for module in module_names:
+    os.system("tar Jxf %s.tar.xz -C %s" % (module,package_name))
+    os.remove(module + ".tar.xz")
 
 # Compress files to tar.bz2 package
-#print "Compressing files ..."
-#os.system("tar cjf %s.tar.bz2 %s" % (packagename,packagename))
+print "Compressing files ..."
+os.system("tar cjf %s.tar.bz2 %s" % (package_name,package_name))
 
-
-
+# Remove unused files
+print "Removing unused files ..."
+shutil.rtree(package_name)
+shutil.rmtree("tlpkg")

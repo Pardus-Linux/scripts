@@ -126,8 +126,10 @@ def main():
             module, revsion = extract_module(collection)
             module_names.extend(module)
 
-    print module_names
-#    download_module(module_names, False)
+            # The collection packages contain just information, no need anymore
+            os.remove(collection)
+
+    download_module(module_names, False)
 
 if __name__ == "__main__":
     sys.exit(main())

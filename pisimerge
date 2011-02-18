@@ -139,14 +139,11 @@ repository with a nice commit log.
             svn_info_xml = piksemel.parseString(output)
             svn_url = svn_info_xml.getTag("entry").getTag("url").firstChild().data()
 
-            if "2011" in svn_url:
-                dest = "testing/%s" % path
-
-            elif "2009" in svn_url:
+            if "2009" in svn_url:
                 dest = "stable/%s" % path
             else:
-                #fallback
-                dest = "stable/%s" % path
+                #fallback for 2011 and C2
+                dest = "testing/%s" % path
 
 
         os.system("svn up %s %s" % (src, dest))

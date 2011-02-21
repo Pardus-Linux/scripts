@@ -467,6 +467,7 @@ class Package(AutoPiksemel):
     description           = zero_or_more_tag("Description")
     isa                   = zero_or_more_tag("IsA")
     partof                = optional_tag("PartOf")
+    buildType             = optional_tag("BuildType")
     icon                  = optional_tag("Icon")
     license               = zero_or_more_tag("License")
     runtimeDependencies   = optional_tag("RuntimeDependencies", t_class=RuntimeDependencies)

@@ -470,7 +470,8 @@ class Package(AutoPiksemel):
     partof                = optional_tag("PartOf")
     icon                  = optional_tag("Icon")
     license               = zero_or_more_tag("License")
-    buildDependencies     = optional_tag("BuildDependencies", t_class=BuildDependencies)
+    build_deps            = optional_tag("BuildDependencies",
+                                        contains=one_or_more_tag("Dependency", t_class=Dependency))
     runtimeDependencies   = optional_tag("RuntimeDependencies", t_class=RuntimeDependencies)
     files                 = tag("Files", contains=one_or_more_tag("Path", t_class=Path))
     conflicts             = optional_tag("Conflicts", contains=one_or_more_tag("Package"))

@@ -80,7 +80,7 @@ class PendingPackages():
         self.packagerList.sort(cmp=locale.strcoll)
         for packager in self.packagerList:
 
-            print "\n%s " % packager
+            print "\n%s" % packager
 
             if packager in self.listofPackagesByOwned:
                 self.listofPackagesByOwned[packager].sort()

@@ -34,12 +34,14 @@ def readFileFrom(_url):
         fail("could not connect %s" % _url)
 
 
-def getDocument( filetype, _url ):
+def getDocument( _url ):
     rawdata = readFileFrom( _url )
+    filetype = _url.split(".")[-1]
+
     if filetype == "xz":
         data = lzma.decompress( rawdata.read() )
 
-    elif filetype == "bzip2":
+    elif filetype == "bz2":
         data = bz2.decompress( rawdata.read() )
 
     else:
@@ -106,7 +108,6 @@ if __name__ == "__main__":
         repos = repoOf.get( which_release )
         stable_repo_url = repos[0]
         test_repo_url = repos[1]
-        filetype = repos[2]
     else:
         fail("Could not find release %s\nknown releases are:  \n  %s  " % (which_release, ", ".join(repoOf.keys())))
 
@@ -115,7 +116,7 @@ if __name__ == "__main__":
     '''get packageList of stable repo'''
     listofStablePackages = {} 
 
-    doc = getDocument( filetype, stable_repo_url )
+    doc = getDocument( stable_repo_url )
 
     packages_elements = doc.tags( "Package" )
 
@@ -127,7 +128,7 @@ if __name__ == "__main__":
         listofStablePackages[ package_name ] = packageURI
 
     '''compare with test repo'''
-    doc = getDocument( filetype, test_repo_url )
+    doc = getDocument( test_repo_url )
 
     package_elements = doc.tags( "Package" )
 

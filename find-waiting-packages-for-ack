@@ -15,8 +15,8 @@ locale.setlocale(locale.LC_ALL, "tr_TR.UTF-8")
 
 repoOf = {
           '2009' : ('http://packages.pardus.org.tr/pardus-2009/pisi-index.xml.bz2', 'http://packages.pardus.org.tr/pardus-2009-test/pisi-index.xml.bz2', 'bzip2' ),
-          #'2011' : ('http://packages.pardus.org.tr/pardus/2011/devel/x86_64-debug/pisi-index.xml.xz'),
-          #'Corporate2' : ('http://packages.pardus.org.tr/pardus/corporate2/devel/x86_64-debug/pisi-index.xml.xz'),
+          '2011' : ('http://packages.pardus.org.tr/pardus/2011/stable/x86_64/pisi-index.xml.xz', 'http://packages.pardus.org.tr/pardus/2011/testing/x86_64/pisi-index.xml.xz', 'xz' ),
+          'kurumsal2' : ('http://packages.pardus.org.tr/pardus/kurumsal2/stable/x86_64/pisi-index.xml.xz', 'http://packages.pardus.org.tr/pardus/kurumsal2/testing/x86_64/pisi-index.xml.xz', 'xz'),
 }
 
 usage = " %s PardusRelease\n    Finds packages that waiting for ACK in PardusRelease (which is one of %s)" % (sys.argv[0], ', '.join(sorted(repoOf.keys())))

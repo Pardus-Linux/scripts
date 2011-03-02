@@ -13,6 +13,8 @@ import shutil
 
 # List of mirrors are: http://www.ctan.org/tex-archive/CTAN.sites
 
+# TeXLive collections in the texlive-core package:
+# (corresponds to the "medium scheme" of TeX Live)
 core_collections = [ "basic",
                      "context",
                      "genericrecommended",
@@ -34,6 +36,8 @@ core_collections = [ "basic",
                      "metapost",
                      "texinfo",
                      "xetex"]
+
+core_collections.extend(["langhungarian", "langlithuanian"])
 
 other_collections = [ "bibtexextra",
                       "fontsextra",
@@ -89,6 +93,27 @@ def extract_module(collection_name):
 
     return (module_names, revision)
 
+def collection_with_runfiles_pattern(collection_name):
+
+    collection_name = collection_name[:-7]
+
+    runfiles = []
+    for line in open("tlpkg/tlpobj/%s.tlpobj" % collection_name, "r").readlines():
+        if "runfiles" in line:
+            runfiles_found = True
+            continue
+
+        if runfiles_found:
+            if line.startswith(" "):
+                runfiles_found.append(line.strip())
+
+    module_names = []
+    for line in runfiles:
+        if line.contains("texmf-dist"):
+            module_names.append(collection_name)
+
+    return module_names
+
 
 # Create dir for packaging
 #package_name = "texlive_" + name + "_2011_" + revision
@@ -118,6 +143,7 @@ def extract_module(collection_name):
 
 def main():
     download_module(core_collections , True)
+#    download_module(["binextra"] , True)
     extract_lxma()
 
     module_names = []

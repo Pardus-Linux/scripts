@@ -16,7 +16,7 @@ def parseXML(index):
     ix = pisi.index.Index(index)
 
     for pkg in ix.packages:
-        pkglist[pkg.name] = [pkg.release, pkg.name + "-" + pkg.version + "-" + pkg.release + "-" + pkg.distribution + "-" + pkg.architecture + ".pisi"]
+        pkglist[pkg.name] = [pkg.release, pkg.packageURI]
     #print pkglist
 
     return pkglist

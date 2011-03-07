@@ -148,6 +148,8 @@ def collection_with_runfiles_pattern(collection_name):
 def main():
     download_module(core_collections , True)
     download_module(["binextra", "fontutils"] , True)
+
+    # Extract collection-* files to obtain tlpobj files
     extract_lxma()
 
     core_modules = []
@@ -155,29 +157,18 @@ def main():
     for collection in os.listdir("."):
         if collection.endswith("tar.xz"):
 
-            module, revsion = extract_module(collection)
-            core_modules.extend(module)
-
             # save the modules to look for runfile patterns later
             if "binextra" in collection or "fontutils" in collection:
+                module, revsion = extract_module(collection)
                 extra_modules.extend(module)
+            else:
+                module, revsion = extract_module(collection)
+                core_modules.extend(module)
 
             os.remove(collection)
 
-    download_module(core_modules, False)
-    print core_modules
-    print extra_modules
-
-#    extra_modules = ['a2ping', 'asymptote', 'bibtex8', 'bibtexu', 'bundledoc', \
-#                     'chktex', 'ctie', 'cweb', 'de-macro', 'detex', 'dtl', 'dvi2tty', 'dviasm', \
-#                     'dvicopy', 'dvidvi', 'dviljk', 'dvipng', 'dvipos', 'dvisvgm', 'findhyph', \
-#                     'fragmaster', 'installfont', 'lacheck', 'latex2man', 'latexdiff', 'latexmk', \
-#                     'listings-ext', 'mkjobtexmf', 'patgen', 'pdfcrop', 'pdfjam', 'pdftools', \
-#                     'pkfix', 'pkfix-helper', 'purifyeps', 'seetexk', 'sty2dtx', 'synctex', \
-#                     'texcount', 'texdiff', 'texdirflatten', 'texdoc', 'texloganalyser', 'texware', \
-#                     'tie', 'tpic2pdftex', 'web', 'xindy', 'accfonts', 'afm2pl', 'epstopdf', \
-#                     'fontware', 'lcdftypetools', 'ps2pkm', 'pstools', 'psutils', 'dvipsconfig', \
-#                     'fontinst', 'fontools', 'getafm', 't1utils', 'ttfutils']
+    # We need to download the extra modules to obtain modules that have runfiles pattern
+    download_module(extra_modules, False)
 
     module_with_runfiles = []
     for module in extra_modules:
@@ -186,8 +177,14 @@ def main():
         module = collection_with_runfiles_pattern(module)
         module_with_runfiles.extend(module)
 
-    print module_with_runfiles
+    # Remove modules that does not match to the runfiles pattern
+    modules_without_runfiles = set(extra_modules) - set(module_with_runfiles)
+    for module in modules_without_runfiles:
+        os.remove(module + ".tar.xz")
 
+    # Finally download the core modules. We now have download the core modules and
+    # the remaining extra modules obtained from binextra and fontutils
+    download_module(core_modules, False)
 
 if __name__ == "__main__":
     sys.exit(main())

@@ -68,11 +68,16 @@ def download_module(module_names, collection=False):
             module = "collection-" + module
         os.system("wget %s%s.tar.xz" % (mirror, module))
 
-def extract_lxma():
+def extract_lxma(module=False):
     # Extract all compressed packages, for future use
-    for collection in os.listdir("."):
-        if collection.endswith("tar.xz"):
-            os.system("tar Jxf %s" % collection)
+    if not module:
+        for collection in os.listdir("."):
+            if collection.endswith("tar.xz"):
+                os.system("tar Jxf %s" % collection)
+    else:
+        os.system("tar Jxf %s.tar.xz" % module)
+
+
 
 
 def extract_module(collection_name):
@@ -94,10 +99,8 @@ def extract_module(collection_name):
     return (module_names, revision)
 
 def collection_with_runfiles_pattern(collection_name):
-
-    collection_name = collection_name[:-7]
-
     runfiles = []
+    runfiles_found = False
     for line in open("tlpkg/tlpobj/%s.tlpobj" % collection_name, "r").readlines():
         if "runfiles" in line:
             runfiles_found = True
@@ -105,14 +108,15 @@ def collection_with_runfiles_pattern(collection_name):
 
         if runfiles_found:
             if line.startswith(" "):
-                runfiles_found.append(line.strip())
+                runfiles.append(line.strip())
 
     module_names = []
     for line in runfiles:
-        if line.contains("texmf-dist"):
+        if "texmf-dist" in line:
             module_names.append(collection_name)
 
-    return module_names
+    return list(set(module_names))
+#    return module_names
 
 
 # Create dir for packaging
@@ -143,19 +147,47 @@ def collection_with_runfiles_pattern(collection_name):
 
 def main():
     download_module(core_collections , True)
-#    download_module(["binextra"] , True)
+    download_module(["binextra", "fontutils"] , True)
     extract_lxma()
 
-    module_names = []
+    core_modules = []
+    extra_modules = []
     for collection in os.listdir("."):
         if collection.endswith("tar.xz"):
-            module, revsion = extract_module(collection)
-            module_names.extend(module)
 
-            # The collection packages contain just information, no need anymore
+            module, revsion = extract_module(collection)
+            core_modules.extend(module)
+
+            # save the modules to look for runfile patterns later
+            if "binextra" in collection or "fontutils" in collection:
+                extra_modules.extend(module)
+
             os.remove(collection)
 
-    download_module(module_names, False)
+    download_module(core_modules, False)
+    print core_modules
+    print extra_modules
+
+#    extra_modules = ['a2ping', 'asymptote', 'bibtex8', 'bibtexu', 'bundledoc', \
+#                     'chktex', 'ctie', 'cweb', 'de-macro', 'detex', 'dtl', 'dvi2tty', 'dviasm', \
+#                     'dvicopy', 'dvidvi', 'dviljk', 'dvipng', 'dvipos', 'dvisvgm', 'findhyph', \
+#                     'fragmaster', 'installfont', 'lacheck', 'latex2man', 'latexdiff', 'latexmk', \
+#                     'listings-ext', 'mkjobtexmf', 'patgen', 'pdfcrop', 'pdfjam', 'pdftools', \
+#                     'pkfix', 'pkfix-helper', 'purifyeps', 'seetexk', 'sty2dtx', 'synctex', \
+#                     'texcount', 'texdiff', 'texdirflatten', 'texdoc', 'texloganalyser', 'texware', \
+#                     'tie', 'tpic2pdftex', 'web', 'xindy', 'accfonts', 'afm2pl', 'epstopdf', \
+#                     'fontware', 'lcdftypetools', 'ps2pkm', 'pstools', 'psutils', 'dvipsconfig', \
+#                     'fontinst', 'fontools', 'getafm', 't1utils', 'ttfutils']
+
+    module_with_runfiles = []
+    for module in extra_modules:
+        extract_lxma(module)
+
+        module = collection_with_runfiles_pattern(module)
+        module_with_runfiles.extend(module)
+
+    print module_with_runfiles
+
 
 if __name__ == "__main__":
     sys.exit(main())

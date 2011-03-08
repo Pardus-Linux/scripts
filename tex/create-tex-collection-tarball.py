@@ -110,7 +110,7 @@ def collection_with_runfiles_pattern(collection_name):
 
     module_names = []
     for line in runfiles:
-        if "texmf-dist" in line:
+        if "texmf-dist" in line or "RELOC" in line:
             module_names.append(collection_name)
 
     return list(set(module_names))
@@ -123,45 +123,38 @@ def main():
     # Extract collection-* files to obtain tlpobj files
     extract_lxma()
 
-    core_modules = []
-    extra_modules = []
+    modules = []
     for collection in os.listdir("."):
         if collection.endswith("tar.xz"):
-
             # save the modules to look for runfile patterns later
-            if "binextra" in collection or "fontutils" in collection:
-                module, revsion = extract_module(collection)
-                extra_modules.extend(module)
-            else:
-                module, revsion = extract_module(collection)
-                core_modules.extend(module)
+            module, revsion = extract_module(collection)
+            modules.extend(module)
 
             # collection files are not needed anymore. These contains just plain tlpobj files
             os.remove(collection)
 
-    # Download modules
-    download_module(core_modules, False)
-    download_module(extra_modules, False)
+    # Additional core modules
+    core_additional = ["bidi", "iftex", "pgf", "ruhyphen", "ukrhyph"]
+    modules.extend(core_additional)
 
+    # Download modules
+    download_module(modules, False)
+
+    # Check for patterns
     module_with_runfiles = []
-    for module in extra_modules:
+    for module in modules:
         extract_lxma(module)
 
         module = collection_with_runfiles_pattern(module)
         module_with_runfiles.extend(module)
 
     # Remove modules that does not match to the runfiles pattern
-    modules_without_runfiles = set(extra_modules) - set(module_with_runfiles)
+    modules_without_runfiles = set(modules) - set(module_with_runfiles)
     for module in modules_without_runfiles:
         os.remove(module + ".tar.xz")
 
 
-    # Additional core modules
-    core_additional = ["bidi", "iftex", "pgf", "ruhyphen", "ukrhyph"]
-    core_modules.extend(core_additional)
-    
 
-#    return module_names
 
 
 # Create dir for packaging

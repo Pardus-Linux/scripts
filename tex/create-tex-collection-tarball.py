@@ -10,6 +10,8 @@ import os
 import sys
 import commands
 import shutil
+import tarfile
+import glob
 
 # List of mirrors are: http://www.ctan.org/tex-archive/CTAN.sites
 
@@ -153,34 +155,22 @@ def main():
     for module in modules_without_runfiles:
         os.remove(module + ".tar.xz")
 
+    ###############################################
+    # All modules are now ready to ship
+    # Next step is packaging them to a tarfile
+    ###############################################
 
+    # Archive naming TODO:use datetime module later
+    name = "core"
+    package_name = "texlive_" + name + "_2011.0308"
 
+    # Create tar archive
+    tar_files = glob.glob("*.tar.xz")
+    tar = tarfile.open(package_name + ".tar.gz" , "w:gz")
+    for name in tar_files:
+        tar.add(name)
+    tar.close()
 
-
-# Create dir for packaging
-#package_name = "texlive_" + name + "_2011_" + revision
-
-## Extract and remove archive packages
-#if not os.path.exists(package_name):
-#    os.mkdir(package_name)
-
-#for module in module_names:
-#    os.system("tar Jxf %s.tar.xz -C %s" % (module,package_name))
-
-## Compress files to tar.bz2 package
-#print "Compressing files ..."
-#os.system("tar cjf %s.tar.bz2 %s" % (package_name,package_name))
-
-#def cleanup():
-#    # Remove unused files
-#    print "Removing unused files ..."
-#    shutil.rtree(package_name)
-#    shutil.rmtree("tlpkg")
-
-#        os.remove(module + ".tar.xz")
-#    # Remove collection tarball, it should not interrupt with module tarballs later
-#    print "Removing base collection file ..."
-#    os.remove(collection_package)
 
 
 if __name__ == "__main__":

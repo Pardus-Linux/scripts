@@ -85,10 +85,13 @@ def main(author, msg, commit_no, changed, repo):
 
     thetext = BUG_COMMENT_TEMPLATE % {"author":author, "repo": repo_name, "commit_no": commit_no, "changed": changed, "log": msg}
 
+    # These shouldn't be needed anymore
+    """
     thetext=thetext.replace("'", "\"")
     thetext=thetext.replace(")", "\\)")
     thetext=thetext.replace("(", "\\(")
     thetext=thetext.replace(";", "")
+    """
     open(SVN_LOG_FILE, "w").write(thetext)
 
     c = BugspyConfig(BUGSPY_CONFIG_FILE)

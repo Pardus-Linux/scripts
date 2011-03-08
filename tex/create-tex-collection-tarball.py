@@ -56,8 +56,6 @@ other_collections = [ "bibtexextra",
                       "pstricks",
                       "publishers",
                       "science"]
-# Create several packages
-
 
 def download_module(module_names, collection=False):
     # Download modules
@@ -141,7 +139,8 @@ def main():
             # collection files are not needed anymore. These contains just plain tlpobj files
             os.remove(collection)
 
-    # We need to download the extra modules to obtain modules that have runfiles pattern
+    # Download modules
+    download_module(core_modules, False)
     download_module(extra_modules, False)
 
     module_with_runfiles = []
@@ -156,9 +155,11 @@ def main():
     for module in modules_without_runfiles:
         os.remove(module + ".tar.xz")
 
-    # Finally download the core modules. We now have download the core modules and
-    # the remaining extra modules obtained from binextra and fontutils
-    download_module(core_modules, False)
+
+    # Additional core modules
+    core_additional = ["bidi", "iftex", "pgf", "ruhyphen", "ukrhyph"]
+    core_modules.extend(core_additional)
+    
 
 #    return module_names
 

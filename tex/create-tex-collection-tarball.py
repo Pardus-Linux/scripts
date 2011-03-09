@@ -77,9 +77,6 @@ def extract_lxma(module=False):
     else:
         os.system("tar Jxf %s.tar.xz" % module)
 
-
-
-
 def extract_module(collection_name):
     # Extract module information from the collection tarballs
 
@@ -170,8 +167,6 @@ def main():
     for name in tar_files:
         tar.add(name)
     tar.close()
-
-
 
 if __name__ == "__main__":
     sys.exit(main())

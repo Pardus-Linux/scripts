@@ -5,6 +5,10 @@
 # Execute it in */tlpkg/tlpobj folder
 
 import glob
+import os
+
+# TODO: naming should be argument parameter
+map_file = "texlive-core.maps"
 
 tlpobj_files = glob.glob("*.tlpobj")
 
@@ -20,6 +24,20 @@ for files in  tlpobj_files:
                 map_list.append(parameter)
             elif command == "addMixedMap":
                 mixedmap_list.append(parameter)
+
+if os.path.exists(map_file):
+    os.remove(map_file)
+
+temp_file = open(map_file, "a")
+for entry in map_list:
+    line = "Map " + entry + "\n"
+    temp_file.write(line)
+
+for entry in mixedmap_list:
+    line = "MixedMap " + entry + "\n"
+    temp_file.write(line)
+
+temp_file.close()
 
 print map_list
 print mixedmap_list

@@ -168,6 +168,11 @@ def main():
         tar.add(name)
     tar.close()
 
+    print "******************************************"
+    print "* Don't remove the residual tar.xz files *"
+    print "* You will need them to create maps file *"
+    print "******************************************"
+
 if __name__ == "__main__":
     sys.exit(main())
 

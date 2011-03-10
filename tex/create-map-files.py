@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-
 # Execute it in */tlpkg/tlpobj folder
 
 import glob

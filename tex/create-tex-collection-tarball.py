@@ -8,10 +8,10 @@ Collections are disjoint, that means no collections conflicts with another
 
 import os
 import sys
-import commands
+import glob
 import shutil
 import tarfile
-import glob
+import commands
 
 # List of mirrors are: http://www.ctan.org/tex-archive/CTAN.sites
 
@@ -39,7 +39,7 @@ core_collections = [ "basic",
                      "texinfo",
                      "xetex"]
 
-core_collections.extend(["langhungarian", "langlithuanian"])
+core_collections.extend(["langhungarian", "langlithuanian", "bibtexextra", "fontutils"])
 
 other_collections = [ "bibtexextra",
                       "fontsextra",
@@ -59,114 +59,119 @@ other_collections = [ "bibtexextra",
                       "publishers",
                       "science"]
 
-def download_module(module_names, collection=False):
+def download_tarxz(package, isCollection=False, dl_location="."):
     # Download modules
     mirror = "http://mirror.informatik.uni-mannheim.de/pub/mirrors/tex-archive/systems/texlive/tlnet/archive/"
 
-    for module in module_names:
-        if collection:
-            module = "collection-" + module
-        os.system("wget %s%s.tar.xz" % (mirror, module))
+    if isCollection:
+        package = "collection-" + package
 
-def extract_lxma(module=False):
+    os.system("wget %s%s.tar.xz -P %s" % (mirror, package, dl_location))
+
+def extract_tarxz(module, extract_loc="."):
     # Extract all compressed packages, for future use
-    if not module:
-        for collection in os.listdir("."):
-            if collection.endswith("tar.xz"):
-                os.system("tar Jxf %s" % collection)
-    else:
-        os.system("tar Jxf %s.tar.xz" % module)
+    os.system("tar Jxfv %s/%s -C %s" % (extract_loc, module, extract_loc))
 
-def extract_module(collection_name):
-    # Extract module information from the collection tarballs
+def parse_modules(build_dir):
+    modules = []
+    for collection in glob.glob("%s/tlpkg/tlpobj/collection-*.tlpobj" % build_dir):
+        # save the modules to look for runfile patterns later
+        for line in open(collection, "r").readlines():
+            if "depend" in line:
+                line = line.strip().split(" ")
+                if not line[1].startswith("collection") and not line[1].startswith("hyphen"):
+                    modules.append(line[1])
+            elif "revision" in line:
+                line = line.strip().split(" ")
+                # For future need
+                revision = line[1]
 
-    # Remove .tar.xz extension, we could also use os.path.splitext()
-    collection_name = collection_name[:-7]
+    return modules
 
-    module_names = []
-    for line in open("tlpkg/tlpobj/%s.tlpobj" % collection_name, "r").readlines():
-        if "depend" in line:
-            line = line.strip().split(" ")
-            if not line[1].startswith("collection") and not line[1].startswith("hyphen"):
-                module_names.append(line[1])
-        elif "revision" in line:
-            line = line.strip().split(" ")
-            revision = line[1]
-
-    return (module_names, revision)
-
-def collection_with_runfiles_pattern(collection_name):
+def collection_with_runfiles_pattern(build_dir):
     runfiles = []
     runfiles_found = False
-    for line in open("tlpkg/tlpobj/%s.tlpobj" % collection_name, "r").readlines():
-        if "runfiles" in line:
-            runfiles_found = True
-            continue
 
-        if runfiles_found:
-            if line.startswith(" "):
-                runfiles.append(line.strip())
+    for collection in glob.glob("%s/tlpkg/tlpobj/*.tlpobj" % build_dir):
+        # gives us the "texdiff" from the "texlive_core/tlpkg/tlpobj/texdiff.tlpobj" string
+        module_name = os.path.basename(os.path.splitext(collection)[0])
 
-    module_names = []
-    for line in runfiles:
-        if "texmf-dist" in line or "RELOC" in line:
-            module_names.append(collection_name)
+        for line in open(collection, "r").readlines():
+            if "runfiles" in line:
+                runfiles_found = True
+                continue
 
-    return list(set(module_names))
+            if runfiles_found:
+                if line.startswith(" "):
+                    runfiles.append(line.strip())
+
+        matched_modules = []
+        for line in runfiles:
+            if "texmf-dist" in line or "RELOC" in line:
+                matched_modules.append(module_name)
+
+    return list(set(matched_modules))
+
+def create_souce_file(source_name, build_dir):
+    tar_files = glob.glob("%s/*.tar.xz" % build_dir)
+    tar = tarfile.open(source_name + ".tar.gz" , "w:gz")
+    for name in tar_files:
+        tar.add(name)
+    tar.close()
 
 
 def main():
-    download_module(core_collections , True)
-    download_module(["binextra", "fontutils"] , True)
+    ############################
+    # core collection packaging
+    ############################
 
-    # Extract collection-* files to obtain tlpobj files
-    extract_lxma()
+    build_dir = "texlive_core"
+    for package in core_collections:
+        download_tarxz(package, isCollection=True, dl_location=build_dir)
 
-    modules = []
-    for collection in os.listdir("."):
-        if collection.endswith("tar.xz"):
-            # save the modules to look for runfile patterns later
-            module, revsion = extract_module(collection)
-            modules.extend(module)
+    for package in os.listdir(build_dir):
+        if package.endswith("tar.xz"):
+            extract_tarxz(package, build_dir)
 
-            # collection files are not needed anymore. These contains just plain tlpobj files
-            os.remove(collection)
+    modules = parse_modules(build_dir)
 
-    # Additional core modules
+    print modules
+
+    # Remove files that are associated with collections
+    shutil.rmtree("%s/tlpkg" % build_dir)
+    filelist = glob.glob("%s/collection-*" % build_dir)
+    for f in filelist:
+        os.remove(f)
+
+    # include these modules too
     core_additional = ["bidi", "iftex", "pgf", "ruhyphen", "ukrhyph"]
     modules.extend(core_additional)
 
-    # Download modules
-    download_module(modules, False)
+#    for package in modules:
+#        download_tarxz(package, isCollection=False, dl_location=build_dir)
 
-    # Check for patterns
-    module_with_runfiles = []
-    for module in modules:
-        extract_lxma(module)
+    for package in os.listdir(build_dir):
+        if package.endswith("tar.xz"):
+            extract_tarxz(package, build_dir)
 
-        module = collection_with_runfiles_pattern(module)
-        module_with_runfiles.extend(module)
+    # check for patterns
+    modules_with_runfiles = collection_with_runfiles_pattern(build_dir)
 
     # Remove modules that does not match to the runfiles pattern
-    modules_without_runfiles = set(modules) - set(module_with_runfiles)
+    modules_without_runfiles = set(modules) - set(modules_with_runfiles)
+
+    print modules_without_runfiles
+
     for module in modules_without_runfiles:
-        os.remove(module + ".tar.xz")
+        os.remove("%s/%s.tar.xz" % (build_dir, module))
 
     ###############################################
     # All modules are now ready to ship
     # Next step is packaging them to a tarfile
     ###############################################
 
-    # Archive naming TODO:use datetime module later
-    name = "core"
-    package_name = "texlive_" + name + "_2011.0308"
-
-    # Create tar archive
-    tar_files = glob.glob("*.tar.xz")
-    tar = tarfile.open(package_name + ".tar.gz" , "w:gz")
-    for name in tar_files:
-        tar.add(name)
-    tar.close()
+    source_name = sys.argv[1]
+    create_souce_file(source_name, build_dir)
 
     print "******************************************"
     print "* Don't remove the residual tar.xz files *"
@@ -175,6 +180,7 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+
 
 
 

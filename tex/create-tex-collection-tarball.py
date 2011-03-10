@@ -9,6 +9,7 @@ Collections are disjoint, that means no collections conflicts with another
 import os
 import sys
 import glob
+import time
 import shutil
 import tarfile
 import commands
@@ -161,13 +162,12 @@ def main():
     for module in modules_without_runfiles:
         os.remove("%s/%s.tar.xz" % (build_dir, module))
 
-    ###############################################
-    # All modules are now ready to ship
-    # Next step is packaging them to a tarfile
-    ###############################################
-
-    source_name = sys.argv[1]
+    source_name = "texlive-core-" + time.strftime("%Y.%m%d")
     create_souce_file(source_name, build_dir)
+
+    ############################
+    # other collection packaging
+    ############################
 
     print "******************************************"
     print "* Don't remove the residual tar.xz files *"
@@ -175,7 +175,17 @@ def main():
     print "******************************************"
 
 if __name__ == "__main__":
-    sys.exit(main())
+
+    for package in other_collections:
+        build_dir = "texlive-" + package
+        download_tarxz(package, isCollection=True, dl_location=build_dir)
+
+        extract_tarxz("collection-" + package + ".tar.xz", build_dir)
+        modules = parse_modules(build_dir)
+
+        shutil.rmtree("%s/tlpkg" % build_dir)
+
+#    sys.exit(main())
 
 
 

@@ -1,0 +1,166 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# A semi-automatic Perl pisi package generator from CPAN.
+# Usage: create-perl-package http://search.cpan.org/CPAN/authors/id/O/OP/OPI/Class-Member-1.6.tar.gz
+
+import os
+import re
+import sys
+import pisi
+import time
+
+ACTIONS_PY = """\
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+# Licensed under the GNU General Public License, version 2.
+# See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
+
+from pisi.actionsapi import perlmodules
+from pisi.actionsapi import pisitools
+
+def setup():
+    perlmodules.configure()
+
+def build():
+    perlmodules.make()
+
+def check():
+    perlmodules.make("test")
+
+def install():
+    perlmodules.install()
+
+    pisitools.dodoc("README", "Changes")
+"""
+
+TRANSLATIONS_XML = """\
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>%(package_name)s</Name>
+        <Summary xml:lang="tr">FIXME için Perl modülü</Summary>
+        <Description xml:lang="tr">%(package_name)s FIXME için Perl modülüdür.</Description>
+    </Source>
+</PISI>
+"""
+
+PSPEC_XML = """\
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>%(package_name)s</Name>
+        <Homepage>%(package_homepage)s</Homepage>
+        <Packager>
+            <Name>%(packager_name)s</Name>
+            <Email>%(packager_email)s</Email>
+        </Packager>
+        <!-- FIXME: Check licenses before merging to review -->
+        <License>Artistic-2</License>
+        <License>GPLv1</License>
+        <IsA>library</IsA>
+        <Summary>Perl module to FIXME</Summary>
+        <Description>%(package_name)s is a Perl module which FIXME.</Description>
+        <Archive sha1sum="%(archive_sum)s" type="%(archive_type)s">%(archive_url)s</Archive>
+        <BuildDependencies>
+            <Dependency version="%(perl_ver)s">perl</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>%(package_name)s</Name>
+        <RuntimeDependencies>
+            <Dependency version="%(perl_ver)s">perl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>%(today)s</Date>
+            <Version>%(package_version)s</Version>
+            <Comment>Initial release.</Comment>
+            <Name>%(packager_name)s</Name>
+            <Email>%(packager_email)s</Email>
+        </Update>
+    </History>
+</PISI>
+"""
+
+def get_and_save_user_info():
+    name = "PACKAGER_NAME"
+    email = "PACKAGER_EMAIL"
+
+    conf_file = os.path.expanduser("~/.packagerinfo")
+    if os.path.exists(conf_file):
+        # Read from it
+        name, email = open(conf_file, "r").read().strip().split(",")
+
+    else:
+        print "Please enter your full name as seen in pspec files"
+        name = raw_input("> ")
+        print "Please enter your e-mail as seen in pspec files"
+        email = raw_input("> ")
+        print "Saving packager info into %s" % conf_file
+
+        open(conf_file, "w").write("%s,%s" % (name, email))
+
+    return name, email
+
+def usage():
+    print "Usage: %s <archive-url>" % (sys.argv[0])
+    return 1
+
+if __name__ == "__main__":
+
+    if len(sys.argv) < 2:
+        sys.exit(usage())
+
+    # Dictionaries for pspec.xml and translations.xml templates
+    pdict = {}
+    tdict = {}
+
+    # Ex: http://search.cpan.org/CPAN/authors/id/O/OP/OPI/Class-Member-1.6.tar.gz
+    pdict["archive_url"] = sys.argv[1]
+
+    # Extract package name, package version, archive extension
+    # Ex: perl-Class-Member, 1.16, tar.gz
+    (module_name, pdict["package_version"], archive_extension) = \
+            re.search("(.*?)-([0-9\._]*)\.(.*)", os.path.basename(pdict["archive_url"])).groups()
+
+    tdict["package_name"] = pdict["package_name"] = "perl-%s" % module_name
+    pdict["archive_type"] = archive_extension.replace(".", "")
+
+    # Generate homepage
+    pdict["package_homepage"] = "http://search.cpan.org/dist/%s" % module_name
+
+    # Get packager info
+    pdict["packager_name"], pdict["packager_email"] = get_and_save_user_info()
+
+    # Today's date
+    pdict["today"] = time.strftime("%Y-%m-%d")
+
+    # Get Perl version
+    pdict["perl_ver"] = pisi.db.installdb.InstallDB().get_version("perl")[0]
+
+    print "Fetching %s..." % pdict["archive_url"]
+    os.system("aria2c %s -q -d /var/cache/pisi/archives" % pdict["archive_url"])
+    pdict["archive_sum"] = os.popen("sha1sum /var/cache/pisi/archives/%s" % os.path.basename(pdict["archive_url"])).read().strip().split()[0]
+
+    try:
+        os.makedirs(pdict["package_name"])
+    except OSError:
+        print "Directory %s already exists." % pdict["package_name"]
+
+    # Write files
+    open(os.path.join(pdict["package_name"], "actions.py"), "w").write(ACTIONS_PY)
+    open(os.path.join(pdict["package_name"], "pspec.xml"), "w").write(PSPEC_XML % pdict)
+    open(os.path.join(pdict["package_name"], "translations.xml"), "w").write(TRANSLATIONS_XML % tdict)
+
+    os.system("svn add %s" % pdict["package_name"])

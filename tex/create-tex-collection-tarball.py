@@ -74,6 +74,7 @@ def extract_tarxz(module, extract_loc="."):
 
 def parse_modules(build_dir):
     modules = []
+
     for collection in glob.glob("%s/tlpkg/tlpobj/collection-*.tlpobj" % build_dir):
         # save the modules to look for runfile patterns later
         for line in open(collection, "r").readlines():
@@ -89,9 +90,9 @@ def parse_modules(build_dir):
     return modules
 
 def collection_with_runfiles_pattern(build_dir):
-    runfiles = []
     runfiles_found = False
 
+    matched_modules = []
     for collection in glob.glob("%s/tlpkg/tlpobj/*.tlpobj" % build_dir):
         # gives us the "texdiff" from the "texlive_core/tlpkg/tlpobj/texdiff.tlpobj" string
         module_name = os.path.basename(os.path.splitext(collection)[0])
@@ -101,11 +102,11 @@ def collection_with_runfiles_pattern(build_dir):
                 runfiles_found = True
                 continue
 
+            runfiles = []
             if runfiles_found:
                 if line.startswith(" "):
                     runfiles.append(line.strip())
 
-        matched_modules = []
         for line in runfiles:
             if "texmf-dist" in line or "RELOC" in line:
                 matched_modules.append(module_name)
@@ -135,9 +136,7 @@ def main():
 
     modules = parse_modules(build_dir)
 
-    print modules
-
-    # Remove files that are associated with collections
+    # remove files that are associated with collections
     shutil.rmtree("%s/tlpkg" % build_dir)
     filelist = glob.glob("%s/collection-*" % build_dir)
     for f in filelist:
@@ -147,9 +146,8 @@ def main():
     core_additional = ["bidi", "iftex", "pgf", "ruhyphen", "ukrhyph"]
     modules.extend(core_additional)
 
-#    for package in modules:
-#        download_tarxz(package, isCollection=False, dl_location=build_dir)
-
+    for package in modules:
+        download_tarxz(package, isCollection=False, dl_location=build_dir)
     for package in os.listdir(build_dir):
         if package.endswith("tar.xz"):
             extract_tarxz(package, build_dir)
@@ -159,8 +157,6 @@ def main():
 
     # Remove modules that does not match to the runfiles pattern
     modules_without_runfiles = set(modules) - set(modules_with_runfiles)
-
-    print modules_without_runfiles
 
     for module in modules_without_runfiles:
         os.remove("%s/%s.tar.xz" % (build_dir, module))

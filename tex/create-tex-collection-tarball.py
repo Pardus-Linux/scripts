@@ -114,7 +114,31 @@ def collection_with_runfiles_pattern(build_dir):
 
     return list(set(matched_modules))
 
-def create_souce_file(source_name, build_dir):
+def parse_tlpobj_other(build_dir):
+    modules = []
+
+    for collection in glob.glob("%s/tlpkg/tlpobj/collection-*.tlpobj" % build_dir):
+        # save the modules to look for runfile patterns later
+        module_name = os.path.basename(os.path.splitext(collection)[0])
+
+        for line in open(collection, "r").readlines():
+            if "depend" in line:
+                line = line.strip().split(" ")
+                if line[1].startswith("pgf") and module_name == "pictures":
+                    continue
+
+                if line[1].startswith("iftex") and module_name == "genericextra":
+                    continue
+
+                if (line[1].startswith("iftex") or line[1].startswith("ruhyphen")) \
+                    and module_name == "langcyrillic":
+                    continue
+
+                modules.append(line[1])
+
+    return modules
+
+def create_archive_file(source_name, build_dir):
     tar_files = glob.glob("%s/*.tar.xz" % build_dir)
     tar = tarfile.open(source_name + ".tar.gz" , "w:gz")
     for name in tar_files:
@@ -163,7 +187,7 @@ def main():
         os.remove("%s/%s.tar.xz" % (build_dir, module))
 
     source_name = "texlive-core-" + time.strftime("%Y.%m%d")
-    create_souce_file(source_name, build_dir)
+    create_archive_file(source_name, build_dir)
 
     ############################
     # other collection packaging

@@ -153,6 +153,11 @@ if __name__ == "__main__":
     os.system("aria2c %s -q -d /var/cache/pisi/archives" % pdict["archive_url"])
     pdict["archive_sum"] = os.popen("sha1sum /var/cache/pisi/archives/%s" % os.path.basename(pdict["archive_url"])).read().strip().split()[0]
 
+    # Replace with mirrors://cpan/ if starts with http://search.cpan.org
+    pdict["archive_url"] = "mirrors://cpan/%s" % \
+            pdict["archive_url"].replace("http://search.cpan.org/CPAN/", "") if \
+            pdict["archive_url"].startswith("http://search.cpan.org") else pdict["archive_url"]
+
     try:
         os.makedirs(pdict["package_name"])
     except OSError:

@@ -134,7 +134,9 @@ def parse_tlpobj_other(build_dir):
                     and module_name == "langcyrillic":
                     continue
 
-                modules.append(line[1])
+                # Finally add the dependency to the list
+                if not line[1].startswith("collection") and not line[1].startswith("hyphen"):
+                    modules.append(line[1])
 
     return modules
 
@@ -193,24 +195,34 @@ def main():
     # other collection packaging
     ############################
 
+    for package in other_collections:
+        build_dir = "texlive-" + package
+        download_tarxz(package, isCollection=True, dl_location=build_dir)
+        extract_tarxz("collection-" + package + ".tar.xz", build_dir)
+        modules = parse_tlpobj_other(build_dir)
+
+        # remove files that are associated with collections
+        shutil.rmtree("%s/tlpkg" % build_dir)
+        filelist = glob.glob("%s/collection-*" % build_dir)
+        for f in filelist:
+            os.remove(f)
+
+        for package in modules:
+            download_tarxz(package, isCollection=False, dl_location=build_dir)
+
+        for package in os.listdir(build_dir):
+            if package.endswith("tar.xz"):
+                extract_tarxz(package, build_dir)
+
+        source_name = "texlive-" + package + "-" + time.strftime("%Y.%m%d")
+        create_archive_file(source_name, build_dir)
+
+    print ""
     print "******************************************"
     print "* Don't remove the residual tar.xz files *"
     print "* You will need them to create maps file *"
     print "******************************************"
 
 if __name__ == "__main__":
-
-    for package in other_collections:
-        build_dir = "texlive-" + package
-        download_tarxz(package, isCollection=True, dl_location=build_dir)
-
-        extract_tarxz("collection-" + package + ".tar.xz", build_dir)
-        modules = parse_modules(build_dir)
-
-        shutil.rmtree("%s/tlpkg" % build_dir)
-
-#    sys.exit(main())
-
-
-
+    sys.exit(main())
 

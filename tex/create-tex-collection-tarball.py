@@ -188,7 +188,7 @@ def main():
     for module in modules_without_runfiles:
         os.remove("%s/%s.tar.xz" % (build_dir, module))
 
-    source_name = "texlive-core-" + time.strftime("%Y.%m%d")
+    source_name = "texlive-core-" + time.strftime("%Y%m%d")
     create_archive_file(source_name, build_dir)
 
     ############################
@@ -214,7 +214,7 @@ def main():
             if package.endswith("tar.xz"):
                 extract_tarxz(package, build_dir)
 
-        source_name = "texlive-" + package + "-" + time.strftime("%Y.%m%d")
+        source_name = "texlive-" + package + "-" + time.strftime("%Y%m%d")
         create_archive_file(source_name, build_dir)
 
     print ""

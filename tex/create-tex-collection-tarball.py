@@ -124,14 +124,15 @@ def parse_tlpobj_other(build_dir):
         for line in open(collection, "r").readlines():
             if "depend" in line:
                 line = line.strip().split(" ")
-                if line[1].startswith("pgf") and module_name == "pictures":
+
+                # These packages are included to texlive-core, don't ship with them
+                if line[1] == "pgf" and module_name == "collection-pictures":
                     continue
 
-                if line[1].startswith("iftex") and module_name == "genericextra":
+                if line[1] == "iftex" and module_name == "collection-genericextra":
                     continue
 
-                if (line[1].startswith("iftex") or line[1].startswith("ruhyphen")) \
-                    and module_name == "langcyrillic":
+                if (line[1] == "iftex" or line[1] == "ruhyphen") and module_name == "collection-langcyrillic":
                     continue
 
                 # Finally add the dependency to the list

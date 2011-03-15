@@ -126,6 +126,10 @@ def parse_tlpobj_other(build_dir):
                 line = line.strip().split(" ")
 
                 # These packages are included to texlive-core, don't ship with them
+                if (line[1] == "aleph" or line[1] == "ocherokee" or line[1] == "oinuit") and \
+                    module_name == "collection-fontsextra":
+                        continue
+
                 if line[1] == "pgf" and module_name == "collection-pictures":
                     continue
 
@@ -149,12 +153,12 @@ def create_archive_file(source_name, build_dir):
     tar.close()
 
 
-def main():
+def core_packaging():
     ############################
     # core collection packaging
     ############################
 
-    build_dir = "texlive_core"
+    build_dir = "texlive-core"
     for package in core_collections:
         download_tarxz(package, isCollection=True, dl_location=build_dir)
 
@@ -192,6 +196,13 @@ def main():
     source_name = "texlive-core-" + time.strftime("%Y%m%d")
     create_archive_file(source_name, build_dir)
 
+    print ""
+    print "******************************************"
+    print "* Don't remove the residual tar.xz files *"
+    print "* You will need them to create maps file *"
+    print "******************************************"
+
+def other_packaging():
     ############################
     # other collection packaging
     ############################
@@ -223,6 +234,9 @@ def main():
     print "* Don't remove the residual tar.xz files *"
     print "* You will need them to create maps file *"
     print "******************************************"
+
+def main():
+    core_packaging()
 
 if __name__ == "__main__":
     sys.exit(main())

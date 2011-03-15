@@ -60,6 +60,17 @@ other_collections = [ "bibtexextra",
                       "publishers",
                       "science"]
 
+langextra_collections = ["langafrican",
+                         "langarabic",
+                         "langarmenian",
+                         "langcroatian",
+                         "langhebrew",
+                         "langindic",
+                         "langmongolian",
+                         "langtibetan",
+                         "langturkmen",
+                         "langvietnamese"]
+
 def download_tarxz(package, isCollection=False, dl_location="."):
     # Download modules
     mirror = "http://mirror.informatik.uni-mannheim.de/pub/mirrors/tex-archive/systems/texlive/tlnet/archive/"
@@ -137,6 +148,26 @@ def parse_tlpobj_other(build_dir):
                     continue
 
                 if (line[1] == "iftex" or line[1] == "ruhyphen") and module_name == "collection-langcyrillic":
+                    continue
+
+                # Finally add the dependency to the list
+                if not line[1].startswith("collection") and not line[1].startswith("hyphen"):
+                    modules.append(line[1])
+
+    return modules
+
+def parse_tlpobj_langextra(build_dir):
+
+    modules = []
+    for collection in glob.glob("%s/tlpkg/tlpobj/collection-*.tlpobj" % build_dir):
+        # save the modules to look for runfile patterns later
+        module_name = os.path.basename(os.path.splitext(collection)[0])
+
+        for line in open(collection, "r").readlines():
+            if "depend" in line:
+                line = line.strip().split(" ")
+
+                if line[1] in ("omega-devanagari", "otibet", "bidi"):
                     continue
 
                 # Finally add the dependency to the list
@@ -235,8 +266,42 @@ def other_packaging():
     print "* You will need them to create maps file *"
     print "******************************************"
 
+def langextra_packaging():
+    ################################
+    # langextra collection packaging
+    ################################
+
+    build_dir = "texlive-langextra"
+    for package in langextra_collections:
+        download_tarxz(package, isCollection=True, dl_location=build_dir)
+        extract_tarxz("collection-" + package + ".tar.xz", build_dir)
+
+    modules = parse_tlpobj_langextra(build_dir)
+
+    # remove files that are associated with collections
+    shutil.rmtree("%s/tlpkg" % build_dir)
+    filelist = glob.glob("%s/collection-*" % build_dir)
+    for f in filelist:
+        os.remove(f)
+
+    for package in modules:
+        download_tarxz(package, isCollection=False, dl_location=build_dir)
+
+    for package in os.listdir(build_dir):
+        if package.endswith("tar.xz"):
+            extract_tarxz(package, build_dir)
+
+    source_name = "texlive-langextra-" + time.strftime("%Y%m%d")
+    create_archive_file(source_name, build_dir)
+
+    print ""
+    print "******************************************"
+    print "* Don't remove the residual tar.xz files *"
+    print "* You will need them to create maps file *"
+    print "******************************************"
+
 def main():
-    core_packaging()
+    langextra_packaging()
 
 if __name__ == "__main__":
     sys.exit(main())

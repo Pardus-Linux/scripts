@@ -1,0 +1,32 @@
+Texlive Packages in Pardus
+--------------------------
+
+**Current state of Texlive 2009**
+
+We have actionsapi module named _texlivemodules_ that has several file
+generating and populating scripts for thexlive collections. This module is a one
+a one copy of the Gentoo texlive eclasses. The texlive tarballs are all created
+custom from the depending Gentoo ebuilds. This was done with a script that
+parses the gentoo ebuilds and created a tarball for pisi packaging.
+
+The main problem with this main workflow is the dependence to Gentoo ebuilds.
+Also it and hacky and ugly way to create this packages. We dont even know what
+the source of this packages are. This worklfow was also the same in Pardus 2008,
+pardus 2009. We just continued it in Pardus 2011. Our whole Texlive
+infrastructure was based on Gentoo.
+
+We have a component named "Tex" that contains all TeX spesific packages and
+applications. The component itself has five directories (that is the current
+state and will change with the upcoming Texlive 2011). These directories are:
+
+addon:      contains texlive collections and latex spesific modules
+base:       contains basic and essential texlive collections and binaries
+doc:        contains texlive documentations about languages
+language:   contains texlive's langfoo collections
+tool:       contains several tools and applications (such as kile,lyx) to work with
+            tex itself
+
+As you see four of the sub components are depending on Texlive itself. The addon
+itself contains modules that are not Texlive spesific. Texlive collections are
+mixed up with non-Texlive modules.
+

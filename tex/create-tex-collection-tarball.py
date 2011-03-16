@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Download collection, parse TLPOBJ files and creates tarball for pisi files
+Download collection, parse TLPOBJ files and creates tarball for pisi packages,
 Collections are disjoint, that means no collections conflicts with another
 """
 

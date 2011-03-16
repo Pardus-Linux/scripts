@@ -95,8 +95,36 @@ collections included are:
     texinfo
     xetex
 
+We have automated script that make the packages. This script download
+collection, parse TLPOBJ files and creates tarball for pisi packages. The
+script name is:
 
-more later ..
+    create-tex-collection-tarball.py
+
+You can open it and examine. The script do not just create the texlive-core
+package. It also creates other collections and the merges texlive-langeextra
+package. The basic workflow for the texlive-core package is:
+
+
+    1.) Download each collection-foo package from the essential list (as given
+        above)
+    2.) Extract them to obtain the TLPOBJ file
+    3.) Parse the necessary modules from each collection and create a
+        list of these modules
+    4.) Download each module from the previous populated list (step 3)
+    5.) Extract again, this time to look for runtime patterns. All modules that
+        contains these matches are returned
+    6.) Discard and remove modules that are no in the list created in step
+    7.) Create a final tarball to be shipped with texlive-core package
+
+The workflow is similar for other packaging. Just examine the script. I've
+seperated each package workflow in a single module. That will make it easire to
+mantain for several conditions that might happen in the future.
+
+A sidenote, collections are disjoint, that means no collections conflicts with
+another. You should not face any file conflict with texlive packages. If there
+exist any file conflict, than please look and fix the function that parses and
+crates the dependency list along with the function that return runtime patterns.
 
 
 **New Component structure**

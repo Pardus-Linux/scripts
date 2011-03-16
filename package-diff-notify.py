@@ -104,6 +104,7 @@ def process_cmd_line():
 
     parser.add_option("-p", "--packager",
                      dest = "packager",
+                     metavar = "PACKAGER NAME",
                      action = "store",
                      type = "string",
                      help = "filter the output to show details about specified packager only")
@@ -146,7 +147,7 @@ def process_cmd_line():
             for root, dirs, files in os.walk(os.getcwd()):
                 for name in files:
                     if name.endswith(".bz2") or name.endswith(".xz"):
-                        REPO_LIST.append(name)
+                        REPO_LIST.append(os.path.join(root, name))
             if not REPO_LIST:
                 parser.print_help()
                 return False
@@ -198,12 +199,16 @@ def fetch_repos():
         else:
             # Use the remote index files
 
-            if repo.endswith(".bz2"):
-                decompressed_index = bz2.decompress(urllib2.urlopen(repo).read())
-            elif repo.endswith(".xz"):
-                decompressed_index = lzma.decompress(urllib2.urlopen(repo).read())
-            else:
-                decompressed_index = urllib2.urlopen(repo).read()
+            try:
+                if repo.endswith(".bz2"):
+                    decompressed_index = bz2.decompress(urllib2.urlopen(repo).read())
+                elif repo.endswith(".xz"):
+                    decompressed_index = lzma.decompress(urllib2.urlopen(repo).read())
+                else:
+                    decompressed_index = urllib2.urlopen(repo).read()
+            except:
+                print "The URL you entered seems to be invalid. Terminating.."
+                return False
 
         doc = piksemel.parseString(decompressed_index)
         pisi_index.decode(doc, [])
@@ -259,6 +264,8 @@ def fetch_repos():
 
             # Replaces check and handling
             handle_replaces(spec)
+
+    return True
 
 def create_summary_entry(packager, package, distro):
     ''' This function creates a summary entry for given repo, say 2011 '''
@@ -490,7 +497,8 @@ def traverse_repos():
 def main():
     if not process_cmd_line():
         return 1
-    fetch_repos()
+    if not fetch_repos():
+        return 1
     if not traverse_repos():
         return 1
 

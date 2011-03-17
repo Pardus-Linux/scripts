@@ -4,7 +4,7 @@ Texlive Packages in Pardus
 **Current state of Texlive 2009**
 
 We have actionsapi module named _texlivemodules_ that has several file
-generating and populating scripts for thexlive collections. This module is a one
+generating and populating scripts for texlive collections. This module is a one
 a one copy of the Gentoo texlive eclasses. The texlive tarballs are all created
 custom from the depending Gentoo ebuilds. This was done with a script that
 parses the gentoo ebuilds and created a tarball for pisi packaging.
@@ -134,8 +134,8 @@ three subcomponents with the following structure:
 
 base:       contains the main Texlive collection ( binaries and "medium" scheme
             of TexLive infrastructure
-addon:      contains extra Texlive collections modules that are used with
-            Texlive ( it will also use non-Texlive modules)
+extra:      contains extra Texlive collections modules
+addon:      contains non-Texlive modules, such as latex-beamer, latex-hevea
 tool:       contains several tools and applications (such as kile,lyx) to work
             with tex itself
 

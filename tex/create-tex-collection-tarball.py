@@ -147,7 +147,7 @@ def parse_tlpobj_other(build_dir):
                 if line[1] == "iftex" and module_name == "collection-genericextra":
                     continue
 
-                if (line[1] == "iftex" or line[1] == "ruhyphen") and module_name == "collection-langcyrillic":
+                if (line[1] == "ukrhyph" or line[1] == "ruhyphen") and module_name == "collection-langcyrillic":
                     continue
 
                 # Finally add the dependency to the list

@@ -1,0 +1,133 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+# Pretty printer for repo index components
+# Can work with either pisi-index.xml in CWD or remote index given as first parameter
+#
+# TODO:
+#       really pretty print
+#       work with binary index
+#       parameters for verbose, and / or one component
+#
+
+import os
+import sys
+import urllib2
+import bz2
+import lzma
+import piksemel
+
+defaultIndexFile = "pisi-index.xml"
+
+
+def getIndex(uri):
+    try:
+        if "://" in uri:
+            rawdata = urllib2.urlopen(uri).read()
+        else:
+            rawdata = open(uri, "r").read()
+    except IOError:
+        print "could not fetch %s" % uri
+        return None
+
+    if uri.endswith("bz2"):
+        data = bz2.decompress(rawdata)
+    elif uri.endswith("xz") or uri.endswith("lzma"):
+        data = lzma.decompress(rawdata)
+    else:
+        data = rawdata
+
+    return piksemel.parseString(data)
+
+
+def fillPackageDict(tag, _hasSpecFile, packageOf):
+    PackagePartOf = tag.getTagData("PartOf")
+    PackageName = tag.getTagData("Name")
+
+    if _hasSpecFile:
+        PackagePackagerName = tag.getTag("Packager").getTagData("Name")
+    else:
+        PackagePackagerName = tag.getTag("Source").getTag("Packager").getTagData("Name")
+
+    fullpath = [PackagePartOf, PackageName]
+
+    if not PackagePackagerName in packageOf:
+        packageOf[PackagePackagerName] = []
+
+    packageOf[PackagePackagerName].append(fullpath)
+
+
+def fillComponentDict(tag, _hasSpecFile, componentDict):
+    componentName = tag.getTagData("Name")
+    maintainerName = tag.getTag("Maintainer").getTagData("Name")
+
+    componentDict[componentName] = maintainerName
+
+
+def parseIndexData(_index):
+    packageOf = {}
+    componentDict = {}
+    hasSpecFile = _index.getTag("SpecFile")
+
+    if hasSpecFile:
+        for i in _index.tags("SpecFile"):
+            parent = i.getTag("Source")
+            fillPackageDict(parent, hasSpecFile, packageOf)
+
+        for k in _index.tags("Component"):
+            fillComponentDict(k, hasSpecFile, componentDict)
+
+    else:
+        for parent in _index.tags("Package"):
+            fillPackageDict(parent, hasSpecFile, packageOf)
+
+    return packageOf, componentDict
+
+
+def printComponentStats(packager, component):
+    packagerByComponent = {}
+    componentList = component.keys()
+    componentList.sort()
+
+
+    for p in packager:
+        for pkgcomponent, pkgname in packager[p]:
+            if pkgcomponent in packagerByComponent:
+                packagerByComponent[pkgcomponent].append(p)
+            else:
+                packagerByComponent[pkgcomponent] = [p]
+
+
+    for i in componentList:
+        print
+        stroffset = " " * 4 * i.count(".")
+        componentName = i.split(".")[-1]
+        componentOwner = component[i]
+
+        print "%s* %s (%s)" % (stroffset, componentName, componentOwner)
+
+        try:
+            packagerList = packagerByComponent[i]
+            packagerList = list(set(packagerList))
+            packagerList.sort()
+
+            for k in packagerList:
+                print "    %s%s  (%i)" % (stroffset, k, packagerByComponent[i].count(k))
+
+        except KeyError:
+            continue
+
+
+if __name__ == "__main__":
+
+    if len(sys.argv) > 1:
+        indexFile = sys.argv[1]
+    else:
+        indexFile = defaultIndexFile
+
+    xmldata = getIndex(indexFile)
+    packagers, components = parseIndexData(xmldata)
+
+    printComponentStats(packagers, components)
+
+

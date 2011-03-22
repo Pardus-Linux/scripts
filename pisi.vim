@@ -33,8 +33,10 @@ import piksemel
 
 buf = vim.current.buffer
 
+correct_syntax = False
 for row, line in enumerate(buf[:]):
     if "<Archive sha1sum=" in line:
+        correct_syntax = True
         tag = piksemel.parseString(line)
         hash = tag.getAttribute("sha1sum")
         uri = tag.firstChild().data()
@@ -50,6 +52,9 @@ for row, line in enumerate(buf[:]):
         new_hash = hashlib.sha1(open(file_path, "r").read()).hexdigest()
         tag.setAttribute("sha1sum", new_hash)
         buf[row] = " " * 8 + tag.toString()
+
+if not correct_syntax:
+    print "Error: The Archive attribute 'sha1sum' must come first."
 EOF
 endfunction
 

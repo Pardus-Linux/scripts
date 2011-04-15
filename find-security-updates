@@ -16,6 +16,7 @@ import sys
 import urllib2
 import piksemel
 import bz2
+import lzma
 
 
 distroBase = "http://packages.pardus.org.tr/pardus-2009"
@@ -48,6 +49,8 @@ def unpackXml(url, isStable):
 
     if url.endswith("bz2"):
         rawData = bz2.decompress(compressedData)
+    if url.endswith("xz"):
+        rawData = lzma.decompress(compressedData)
     else:
         rawData = compressedData
 

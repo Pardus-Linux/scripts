@@ -174,8 +174,11 @@ def handle_replaces(spec):
                         tmp_packager_list = CONFLICT_DICT[replace.package]
                         del CONFLICT_DICT[replace.package]
                         for tmp_packager in tmp_packager_list:
-                            if tmp_packager not in CONFLICT_DICT[spec.source.name]:
-                                CONFLICT_DICT[spec.source.name].append(tmp_packager)
+                            try:
+                                if tmp_packager not in CONFLICT_DICT[spec.source.name]:
+                                    CONFLICT_DICT[spec.source.name].append(tmp_packager)
+                            except KeyError:
+                                pass
 
 def fetch_repos():
     ''' This function reads source pisi index file as remote or local and constructs "repos" structure based on this file '''
@@ -383,13 +386,16 @@ def prepare_content_body(packager):
                     else:
                         pck = package
 
-                    for pckgr in CONFLICT_DICT[pck]:
-                        if REPOS[pckgr].has_key(pck):
-                            if distro in REPOS[pckgr][pck][DISTROS]:
-                                summary_dict[distro] = create_summary_entry(pckgr, pck, distro)
-                        if OBSOLETE_DICT.has_key(package) and REPOS[pckgr].has_key(package):
-                            if distro in REPOS[pckgr][package][DISTROS]:
-                                summary_dict[distro] = create_summary_entry(pckgr, package, distro)
+                    try:
+                        for pckgr in CONFLICT_DICT[pck]:
+                            if REPOS[pckgr].has_key(pck):
+                                if distro in REPOS[pckgr][pck][DISTROS]:
+                                    summary_dict[distro] = create_summary_entry(pckgr, pck, distro)
+                            if OBSOLETE_DICT.has_key(package) and REPOS[pckgr].has_key(package):
+                                if distro in REPOS[pckgr][package][DISTROS]:
+                                    summary_dict[distro] = create_summary_entry(pckgr, package, distro)
+                    except KeyError:
+                        pass
 
                     # Look for obsolete packages if no new package in distro
                     for obsolete, new in OBSOLETE_DICT.items():

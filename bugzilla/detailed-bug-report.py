@@ -26,14 +26,17 @@ db = MySQLdb.connect(db_server, db_user, db_pass, db_name)
 # filter bugs
 c = db.cursor()
 
+print "Weekly Bug Report"
+print "~~~~~~~~~~~~~~~~~"
+
 N_allBugs = c.execute("SELECT * FROM `bugs`")
-print "%s bugs found in total" % N_allBugs
+#print "%s bugs found in total\n" % N_allBugs
 
 N_allNotResolvedBugs = c.execute("SELECT * FROM `bugs` where bug_status = 'NEW' or bug_status = 'ASSIGNED' or bug_status = 'REOPENED'")
-print "%s bugs new, assigned or reopened." % N_allNotResolvedBugs
+#print "%s bugs new, assigned or reopened.\n" % N_allNotResolvedBugs
 
 N_allReslovedBugs = c.execute("select bugs.bug_id from bugs, bugs_activity where bugs.bug_id = bugs_activity.bug_id and bugs_activity.fieldid = 8 and bugs.bug_status = 'RESOLVED' and bugs_activity.bug_when >= DATE_SUB(CURDATE(), INTERVAL 7 month)")
-print "%s bugs resolved." % N_allReslovedBugs
+#print "%s bugs resolved.\n" % N_allReslovedBugs
 
 if not os.path.exists("accounts"):
     os.system("wget http://svn.pardus.org.tr/uludag/trunk/common/accounts")
@@ -95,14 +98,75 @@ for line in devFile.readlines():
 
                 #print "%s bug added since last week." % N_bug_last_week
 
+                openedBugs = []
+                for openedbug in c.fetchall():
+                    openedBugs.append(openedbug[0])
+
                 # how many bugs the person fix since last week
                 # bugs_activity.fieldid = 8 means bug_status was changed.
-                # bugs_activity.fieldid = 11 means resolution was changed.
-                fixedBug_N = c.execute("select bugs.bug_id from bugs, bugs_activity where bugs.bug_id = bugs_activity.bug_id and (bugs_activity.fieldid = 8 or (bugs_activity.fieldid = 8 and bugs_activity.fieldid = 11)) and bugs_activity.who = %s and bugs_activity.bug_when >= DATE_SUB(CURDATE(), INTERVAL 1 WEEK)" %(userid[0]))
 
-                #for fixedBug in c.fetchall():
-                #    print fixedBug[0]
+                query = """
+                (
+                SELECT bugs.bug_id
+                FROM bugs, bugs_activity
+                WHERE bugs.bug_id = bugs_activity.bug_id
+                AND (
+                bugs_activity.fieldid =8
+                OR bugs_activity.fieldid =11
+                )
+                AND bugs.bug_status = 'RESOLVED'
+                AND bugs_activity.who = $$userid$$
+                AND bugs.delta_ts = bugs_activity.bug_when
+                AND bugs_activity.bug_when >= DATE_SUB( CURDATE( ) , INTERVAL 1 WEEK )
+                )
+                UNION (
 
-                # name, total bug number, old bug number, longest comment bug id, comment long, newly bugs added since last week
-                print "%s & %s & %s &  %s & %s & %s & %s \\\ " % (devName, N_bug, oldBug, comment[0][0], comment[0][1], N_bug_last_week, fixedBug_N)
+                SELECT bugs.bug_id
+                FROM longdescs, bugs_activity, bugs
+                WHERE longdescs.bug_id = bugs_activity.bug_id
+                AND bugs.bug_id = bugs_activity.bug_id
+                AND (
+                bugs_activity.fieldid =8
+                OR bugs_activity.fieldid =11
+                )
+                AND bugs.bug_status = 'RESOLVED'
+                AND longdescs.who =6726
+                AND longdescs.thetext LIKE '%$$devname$$%'
+                AND bugs.delta_ts = bugs_activity.bug_when
+                AND bugs_activity.bug_when >= DATE_SUB( CURDATE( ) , INTERVAL 1 WEEK )
+                )
+                LIMIT 0 , 30 """
 
+                query = query.replace("$$userid$$", str(userid[0]))
+                query = query.replace("$$devname$$", devName)
+
+                fixedBug_N = c.execute(query)
+
+
+                # name, total bug number, old bug number, longest comment bug id, comment long, newly bugs added since last week, fixed bug number
+                print "%s" % devName
+                print "============================================\n"
+                print "New, Opened, Reopened Bug Number:"
+                print "%s\n" % N_bug
+                print "Oldest Bug Id:\n"
+                print "http://bugs.pardus.org.tr/show_bug.cgi?id=%s\n" % oldBug
+                print "Bug id that has longest comment:\n"
+                print "http://bugs.pardus.org.tr/show_bug.cgi?id=%s\n" % comment[0][0]
+                print "Comment Number of this bug comment: %s\n" % comment[0][1]
+                print "Bugs reported since last week:"
+                print "%s\n" % N_bug_last_week
+                print "Resolved bug numbers since last week:"
+                print "%s\n" % fixedBug_N
+
+                print "Resolved Bug Links since Last Week:"
+                print "-----------------------------------\n"
+                for fixedBug in c.fetchall():
+                    print "#. http://bugs.pardus.org.tr/show_bug.cgi?id=%s" % fixedBug[0]
+
+                print "\n"
+                print "New Bug Report Links since Last Week:"
+                print "-------------------------------------"
+
+                for bug in openedBugs:
+                    print "#. http://bugs.pardus.org.tr/show_bug.cgi?id=%s" % bug
+                print "\n"

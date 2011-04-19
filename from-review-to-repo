@@ -23,6 +23,7 @@ if __name__ == "__main__":
         repos = sys.argv[2:]
     except IndexError:
         usage()
+        exit(1)
 
     if package.startswith(PREFIX):
         # Full path given

@@ -49,7 +49,7 @@ def unpackXml(url, isStable):
 
     if url.endswith("bz2"):
         rawData = bz2.decompress(compressedData)
-    if url.endswith("xz"):
+    elif url.endswith("xz"):
         rawData = lzma.decompress(compressedData)
     else:
         rawData = compressedData

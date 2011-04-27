@@ -10,6 +10,8 @@
 import MySQLdb
 from operator import itemgetter
 import os
+from sets import Set
+
 
 ## Configs
 ## Configs
@@ -104,8 +106,9 @@ for line in devFile.readlines():
 
                 # how many bugs the person fix since last week
                 # bugs_activity.fieldid = 8 means bug_status was changed.
+                # bugs_activity.fieldid = 11 means resolution was changed
 
-                query = """
+                queryFixedBug= """
                 (
                 SELECT bugs.bug_id
                 FROM bugs, bugs_activity
@@ -137,36 +140,70 @@ for line in devFile.readlines():
                 )
                 LIMIT 0 , 30 """
 
-                query = query.replace("$$userid$$", str(userid[0]))
-                query = query.replace("$$devname$$", devName)
+                queryFixedBug = queryFixedBug.replace("$$userid$$", str(userid[0]))
+                queryFixedBug = queryFixedBug.replace("$$devname$$", devName)
 
-                fixedBug_N = c.execute(query)
+                fixedBug_N = c.execute(queryFixedBug)
 
+                fixedBugs = []
+                for fixedbug in c.fetchall():
+                    fixedBugs.append(fixedbug[0])
+
+
+                queryBugActivity = """
+                SELECT bugs.bug_id
+                FROM bugs, longdescs
+                WHERE longdescs.bug_id = bugs.bug_id
+                AND (
+                        (
+                            longdescs.who =6726
+                            AND longdescs.thetext LIKE '%$$devname$$%'
+                            )
+                        OR longdescs.who = $$userid$$
+                        )
+                AND longdescs.bug_when >= DATE_SUB( CURDATE( ) , INTERVAL 1 WEEK )
+                LIMIT 0 , 30 """
+
+                queryBugActivity = queryBugActivity.replace("$$devname$$", devName)
+                queryBugActivity = queryBugActivity.replace("$$userid$$", str(userid[0]))
+                bugActivity = c.execute(queryBugActivity)
+
+                bugActivities = Set([])
+                for bugactivity in c.fetchall():
+                    bugActivities.add(bugactivity[0])
 
                 # name, total bug number, old bug number, longest comment bug id, comment long, newly bugs added since last week, fixed bug number
                 print "%s" % devName
                 print "============================================\n"
-                print "New, Opened, Reopened Bug Number:"
+                print "Total New, Opened, Reopened Bug Number:"
                 print "%s\n" % N_bug
                 print "Oldest Bug Id:\n"
                 print "http://bugs.pardus.org.tr/show_bug.cgi?id=%s\n" % oldBug
                 print "Bug id that has longest comment:\n"
                 print "http://bugs.pardus.org.tr/show_bug.cgi?id=%s\n" % comment[0][0]
-                print "Comment Number of this bug comment: %s\n" % comment[0][1]
-                print "Bugs reported since last week:"
-                print "%s\n" % N_bug_last_week
-                print "Resolved bug numbers since last week:"
-                print "%s\n" % fixedBug_N
+                print "Number of comments of this bug: %s\n" % comment[0][1]
 
-                print "Resolved Bug Links since Last Week:"
-                print "-----------------------------------\n"
-                for fixedBug in c.fetchall():
-                    print "#. http://bugs.pardus.org.tr/show_bug.cgi?id=%s" % fixedBug[0]
+                print "Number of bugs reported since last week: %s\n" % N_bug_last_week
 
-                print "\n"
                 print "New Bug Report Links since Last Week:"
                 print "-------------------------------------"
+                for openedBug in openedBugs:
+                    print "#. http://bugs.pardus.org.tr/show_bug.cgi?id=%s" % openedBug
+                print "\n"
 
-                for bug in openedBugs:
-                    print "#. http://bugs.pardus.org.tr/show_bug.cgi?id=%s" % bug
+                print "Number of resolved bugs since last week: %s\n" % fixedBug_N
+
+                print "Resolved Bug Links since Last Week:"
+                print "---------------------------------\n"
+                for fixedBug in fixedBugs:
+                    print "#. http://bugs.pardus.org.tr/show_bug.cgi?id=%s" % fixedBug
+
+                print "\n"
+                print "Number of commented bugs since last week: %s\n" % bugActivity
+
+                print "Commented bug links since Last Week:"
+                print "-------------------------------"
+
+                for bugActivity in bugActivities:
+                    print "#. http://bugs.pardus.org.tr/show_bug.cgi?id=%s" % bugActivity
                 print "\n"

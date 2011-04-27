@@ -64,8 +64,11 @@ if [ ! -d media-content ]; then
     exit 1
 fi
 
-# Set title in $PROJECT_FILE
-sed -i "s:<Title>.*<\/Title>:<Title>$TITLE [$TODAY]</Title>:" $PROJECT_FILE
+# Set title in $PROJECT_FILE (Only for the first <Title> after <PardusmanProject>)
+sed -i "/<PardusmanProject.*>$/{
+N
+s:<Title>.*</Title>:<Title>$TITLE [$TODAY]</Title>:
+}" $PROJECT_FILE
 
 if [ -n "$REPO_URI" ]; then
     # Replace repo_uri

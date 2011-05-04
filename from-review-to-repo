@@ -37,6 +37,8 @@ if __name__ == "__main__":
 
     else:
         # Relative path from review is given e.g. util/admin/cgroup
+        if package.startswith("review"):
+            package = package.replace("review/", "")
         src = os.path.join(PREFIX, REVIEW, package)
         target = os.path.dirname(src.replace(REVIEW, "%s/devel" % repos[0]))
         cmd = "svn move %s %s" % (src, target)

@@ -1,0 +1,131 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import os
+import sys
+
+import bz2
+import lzma # install python-pyliblzma if you are using Pardus 2009
+import urllib2
+
+import piksemel
+import pisi
+
+defaultNextRepoURI = "http://packages.pardus.org.tr/pardus/2011/testing/i686/pisi-index.xml.xz"
+
+
+def loadFile(_file):
+    try:
+        f = file(_file)
+        d = [a.lstrip().rstrip("\n") for a in f]
+        d = filter(lambda x: not (x.startswith("#") or x == ""), d)
+        f.close()
+        return d
+    except:
+        return []
+
+def uniq(i):
+    return list(set(i))
+
+def getIndex(uri):
+    try:
+        if "://" in uri:
+            rawdata = urllib2.urlopen(uri).read()
+        else:
+            rawdata = open(uri, "r").read()
+    except IOError:
+        print "could not fetch %s" % uri
+        return None
+
+    if uri.endswith("bz2"):
+        data = bz2.decompress(rawdata)
+    elif uri.endswith("xz") or uri.endswith("lzma"):
+        data = lzma.decompress(rawdata)
+    else:
+        data = rawdata
+
+    return piksemel.parseString(data)
+
+
+def parseRepoIndex(_file):
+    pkgprop = {}
+    obsoletelist = []
+    ix = getIndex(_file)
+
+    obsoleteParent = ix.getTag("Distribution").getTag("Obsoletes")
+    for node in obsoleteParent.tags("Package"):
+        obsoletelist.append(node.firstChild().data())
+
+    for i in ix.tags("Package"):
+        replaceslist = []
+
+        pkgName = i.getTagData("Name")
+        pkgURI = i.getTagData("PackageURI")
+        pkgSize = i.getTagData("PackageSize")
+        pkgHash = i.getTagData("PackageHash")
+        pkgInstalledSize = i.getTagData("InstalledSize")
+
+        replacedPackages = i.getTag("Replaces")
+
+        if replacedPackages:
+            for replaced in replacedPackages.tags("Package"):
+                replaceslist.append(replaced.firstChild().data())
+
+        pkgprop[pkgName] = [replaceslist, pkgURI, pkgSize, pkgInstalledSize, pkgHash]
+
+    return pkgprop, obsoletelist
+
+def getInstalledPackages():
+    a = pisi.api.list_installed()
+    a.sort()
+
+    return a
+
+def getDistroDiff(installed, nextRepo, obsoletes):
+    pkglist = []
+    replacedBy = {}
+    neededPackages = []
+
+    # we make a cache of replaced packages, not to iterate over and over on package dict
+    for i in nextRepo:
+        pkglist.append(i)
+        for r in nextRepo[i][0]:
+            pkglist.append(r)
+            if r in replacedBy:
+                replacedBy[r].append(i)
+            else:
+                replacedBy[r] = [i]
+
+    pkglist.extend(obsoletes)
+    uniqpkglist = uniq(pkglist)
+
+    for i in installed:
+        if i not in uniqpkglist:
+            neededPackages.append(i)
+
+    return neededPackages
+
+def findMissingPackagesForDistupdate(nextRepoURI):
+    # parseRepoIndex returns dictionary as package[NAME] = [Replaces, PISIfile, Size, Installedsize, Checksum]
+    # and obsoleted package name list as second arg
+    nextRepo, nextRepoObsoletes = parseRepoIndex(nextRepoURI)
+    installedPackages = getInstalledPackages()
+
+    neededPackages = getDistroDiff(installedPackages, nextRepo, nextRepoObsoletes)
+    return neededPackages
+
+if __name__ == "__main__":
+
+    if len(sys.argv) > 1:
+        newRepoURI = sys.argv[1]
+    else:
+        newRepoURI = defaultNextRepoURI
+
+    print "working on %s" % newRepoURI
+
+    neededPackages = findMissingPackagesForDistupdate(newRepoURI)
+
+    for i in neededPackages:
+        print i
+
+

@@ -1,0 +1,388 @@
+#!/bin/bash
+#
+# lxc-pardus: A shell script to create ready-to-use LXC containers
+#
+# This program is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by the
+# Free Software Foundation; either version 2 of the License, or (at your
+# option) any later version. Please read the COPYING file.
+#
+# AUTHORS:
+#  Erdem Bayer      <ebayer_at_pardus.org.tr>
+#  Ozan Caglayan    <ozan_at_pardus.org.tr>
+#
+#
+# Some portions and ideas have been grabbed from
+# http://en.opensuse.org/LXC
+
+
+version="1.0"
+
+LC_ALL=C
+
+run_chroot()
+{
+    chroot $target $@
+}
+
+write_local_start()
+{
+    cat >${target}/etc/conf.d/local.start <<%%
+#!/bin/bash
+# FIXME: The default route will be handled by lxc in future versions
+route add default gw $default_gw &> /dev/null
+
+# Symlink mtab to /proc/mounts for df to work
+rm -f /etc/mtab
+ln -s /proc/mounts /etc/mtab
+%%
+}
+
+write_inittab()
+{
+    cat >${target}/etc/inittab <<%%
+# Default runlevel.
+id:3:initdefault:
+
+# System initialization, mount local filesystems, etc.
+si::sysinit:/sbin/mudur.py sysinit
+
+# Further system initialization, brings up the boot runlevel.
+rc::bootwait:/sbin/mudur.py boot
+
+l0:0:wait:/sbin/mudur.py shutdown
+l1:S1:wait:/sbin/mudur.py single
+l2:2:wait:/sbin/mudur.py nonetwork
+l3:3:wait:/sbin/mudur.py default
+l4:4:wait:/sbin/mudur.py default
+l5:5:wait:/sbin/mudur.py default
+l6:6:wait:/sbin/mudur.py reboot
+
+cons:2345:respawn:/sbin/mingetty --noclear console
+%%
+}
+
+write_resolv_conf()
+{
+    [ -n "$primary_dns" ] && echo "nameserver $primary_dns" > ${target}/etc/resolv.conf
+    [ -n "$secondary_dns" ] && echo "nameserver $secondary_dns" >> ${target}/etc/resolv.conf
+    [ -z "$primary_dns$secondary_dns" ] && cp /etc/resolv.conf ${target}/etc/resolv.conf
+}
+
+enable_root_ssh_login()
+{
+    sed -i 's/^PermitRootLogin.*no$/PermitRootLogin yes/' ${target}/etc/ssh/sshd_config
+}
+
+write_lxc_config()
+{
+    # Create the config directory
+    mkdir -p $CF
+
+    # Dump the configuration
+    cat >${CF}/config <<%%
+lxc.utsname = $CN
+lxc.network.type = veth
+lxc.network.flags = up
+lxc.network.link = $bridge_name
+lxc.network.ipv4 = $ip_address
+lxc.mount = ${CF}/fstab
+lxc.rootfs = $target
+lxc.tty = 1
+lxc.arch = $arch
+# Drop some capabilities for security
+# lxc.cap.drop = sys_module
+%%
+
+    # fstab file for container
+    # it's outside of the container fs so that the container
+    # can not change it
+    cat >${CF}/fstab <<%%
+none ${target}/dev/pts  devpts defaults  0 0
+none ${target}/proc     proc   defaults  0 0
+none ${target}/sys      sysfs  defaults  0 0
+none ${target}/dev/shm  tmpfs  defaults  0 0
+%%
+}
+
+##################
+
+usage()
+{
+    cat<<EOF
+Usage: lxc-pardus [OPTION]
+
+known values for OPTION are:
+
+  --target-dir=DIR                Set the directory into which Pardus
+                                  will be installed.
+  --repo-url=URL                  Set the repository URL from which the
+                                  packages will be installed.
+  --container-name=NAME           Provide a name for the final LXC container.
+  --container-arch=ARCH           Provide an architecture for the LXC container (i686/x86_64).
+  --username=NAME                 Add a user with the given NAME into the
+                                  target installation.
+  --net-address=ADDR/PREFIX       ip_addressv4 address of the virtual interface inside
+                                  the LXC container. PREFIX is the routing prefix
+                                  e.g. 24 for setting a mask equivalent to 255.255.255.0
+  --net-gateway=default_gw        The default gateway of the virtual interface
+                                  inside the LXC container.
+  --net-primary-dns=NS            Primary DNS server that will be queried inside
+                                  the LXC container.
+  --net-secondary-dns=NS          Secondary DNS server that will be queried inside
+                                  the LXC container.
+  --net-bridge=bridge_name        Name of the bridge device that this host's network
+                                  device will be added to.
+  --extra-packages="pkg1 pkg2"    Name of the bridge device that this host's network
+                                  device will be added to.
+  --enable-root-ssh               Enables SSH logins with the root username.
+  --install-devel                 Install system.devel component into container
+  --setup-host                    Setup the host to run lxc container properly
+  --help                          display this help and exit
+  --version                       output version information
+EOF
+  exit $1
+}
+
+if test $# -eq 0; then
+    usage 1 1>&2
+fi
+
+root_ssh=0
+setup_host=0
+install_devel=0
+user_name="pardus"
+extra_pkgs="kernel vim screen rsync sudo"
+bridge_name="virbr0"
+
+while test $# -gt 0; do
+    case "$1" in
+        -*=*) optarg=`echo "$1" | sed 's/[-_a-zA-Z0-9]*=//'` ;;
+        *) optarg= ;;
+    esac
+
+    case $1 in
+        --target-dir=*)
+            target=$optarg
+            ;;
+        --repo-url=*)
+            repo_url=$optarg
+            ;;
+        --container-name=*)
+            CN=$optarg
+            ;;
+        --container-arch=*)
+            arch=$optarg
+            ;;
+        --username=*)
+            user_name=$optarg
+            ;;
+        --net-gateway=*)
+            default_gw=$optarg
+            ;;
+        --net-address=*)
+            ip_address=$optarg
+            ;;
+        --net-primary-dns=*)
+            primary_dns=$optarg
+            ;;
+        --net-secondary-dns=*)
+            secondary_dns=$optarg
+            ;;
+        --net-bridge=*)
+            bridge_name=$optarg
+            ;;
+        --extra-packages=*)
+            extra_pkgs="${extra_pkgs} ${optarg}"
+            ;;
+        --enable-root-ssh)
+            root_ssh=1
+            ;;
+        --setup-host)
+            setup_host=1
+            ;;
+        --install-devel)
+            install_devel=1
+            ;;
+        --version)
+            echo $version
+            exit 0
+            ;;
+        --help|--usage)
+            usage 0
+            ;;
+        *)
+            usage 1 1>&2
+            ;;
+    esac
+
+    shift
+done
+
+if [ "x$setup_host" == "x1" ]; then
+    # Setup the host to mount cgroup by default and mount
+    # it for this time
+    awk 'BEGIN{E=1}($3=="cgroup"){E=0;exit}END{exit E}' /etc/fstab ||
+        echo "cgroup /sys/fs/cgroup cgroup defaults 0 0" >> /etc/fstab
+    grep -q /sys/fs/cgroup /proc/mounts || mount /sys/fs/cgroup
+    exit 0
+fi
+
+if [ "x$CN" == "x" ]; then
+    echo "Use with $0 --container-name=NAME"
+    exit 1
+fi
+
+if [ "x$target" == "x" ]; then
+    target="/lxc/$CN"           # path to container's rootfs
+fi
+
+if [ "x$repo_url" == "x" ]; then
+    echo "Use with $0 --repo-url=http://packages.pardus.org.tr/pardus-2009/pisi-index.xml.bz2"
+    exit 1
+fi
+
+if [ "x$ip_address" == "x" ]; then
+    echo "Use with $0 --net-address=ADDR/PREFIX"
+    exit 1
+fi
+
+if [ "x$arch" == "x" ]; then
+    echo "Use with $0 --container-arch=ARCH"
+    exit 1
+fi
+
+CF="/var/lib/lxc/$CN"       # path to container's lxc config
+
+# mkdir the container's rootfs
+echo "Installing container into $target"
+mkdir -p $target
+
+# Create container's /dev directory
+# Grabbed from http://en.opensuse.org/LXC
+echo "Creating necessary devices"
+mkdir -p $target/dev
+cd $target/dev
+mkdir -m 755 pts &> /dev/null
+mkdir -m 1777 shm &> /dev/null
+mkdir -m 755 mapper &> /dev/null
+mkdir -m 755 net &> /dev/null
+
+mknod -m 666 null c 1 3 &> /dev/null
+mknod -m 666 zero c 1 5 &> /dev/null
+mknod -m 666 random c 1 8 &> /dev/null
+mknod -m 666 urandom c 1 9 &> /dev/null
+mknod -m 600 console c 5 1 &> /dev/null
+mknod -m 666 tty c 5 0 &> /dev/null
+mknod -m 666 tty0 c 4 0 &> /dev/null
+mknod -m 666 full c 1 7 &> /dev/null
+mknod -m 600 initctl p &> /dev/null
+mknod -m 666 ptmx c 5 2 &> /dev/null
+mknod -m 600 mapper/control c 10 60 &> /dev/null
+mknod -m 666 net/tun c 10 200 &> /dev/null
+
+ln -s null tty10 &> /dev/null
+ln -s /proc/self/fd fd &> /dev/null
+ln -s /proc/kcore core &> /dev/null
+cd "$OLDPWD"
+
+# Add repository
+echo "Adding repository"
+pisi ar pardus $repo_url -y -D $target --ignore-check &> /dev/null
+
+# Install base system
+echo "Installing base system"
+pisi it -c system.base -D $target --ignore-comar -y --ignore-check
+
+if [ ! -f $target/usr/share/baselayout/hosts ]; then
+    echo "The base system does not seem to be installed. Aborting..."
+    exit 1
+fi
+
+# Install system.devel if requested
+[ "x$install_devel" == "x1" ] && echo "Installing development libraries" && pisi it -c system.devel -D $target --ignore-comar -y --ignore-check
+
+# Install additional packages
+echo "Installing these extra packages: $extra_pkgs"
+pisi it $extra_pkgs -D $target --ignore-comar -y --ignore-check
+
+# Setup nameservers
+echo "Configuring DNS resolver"
+write_resolv_conf
+
+# Set timezone in the container
+echo "Configuring timezone"
+cp /etc/localtime $target/etc/localtime
+
+# Copy over things to bootstrap the target system
+echo "Copying bootstrap system"
+cp $target/usr/share/baselayout/hosts $target/etc/hosts
+cp $target/usr/share/baselayout/ld.so.conf $target/etc/ld.so.conf
+
+cp $target/usr/share/baselayout/passwd $target/etc/passwd
+cp $target/usr/share/baselayout/group $target/etc/group
+
+cp $target/usr/share/baselayout/shadow $target/etc/shadow
+chmod 0600 $target/etc/shadow
+
+touch $target/var/log/lastlog
+
+touch $target/var/run/utmp
+chmod 664 $target/var/run/utmp
+chgrp utmp $target/var/run/utmp
+
+touch $target/var/run/wtmp
+chmod 664 $target/var/run/wtmp
+chgrp utmp $target/var/run/wtmp
+
+# Launch dbus inside the chroot
+echo "Starting DBUS inside container"
+run_chroot /bin/service dbus start
+
+# Configure pending packages
+echo "Configuring packages"
+run_chroot pisi configure-pending
+
+# Start openssh by default
+run_chroot /bin/service openssh on &> /dev/null
+
+# Allow root login if requested
+[ "x$root_ssh" == "x1" ] && enable_root_ssh_login
+
+# Write local.start
+echo "Configuring container startup operations"
+write_local_start
+
+# Set lxc_guest to "yes" for mudur
+#sed -i 's/^lxc_guest.*$/lxc_guest="yes"/' $target/etc/conf.d/mudur
+echo 'lxc_guest="yes"' >> $target/etc/conf.d/mudur
+
+# Add console to /etc/securetty
+echo "console" >> $target/etc/securetty
+
+# Add user
+echo -n "Enter password for the user '$user_name': "
+read -s -r password
+echo "Removing user $user_name"
+run_chroot /sbin/deluser -r $user_name &> /dev/null
+echo "Adding user $user_name"
+run_chroot /sbin/adduser -G wheel --password=$password $user_name
+unset password
+
+echo
+
+# Change root passwd
+echo "Changing password for the root user"
+run_chroot passwd
+
+# Stop dbus inside the chroot
+echo "Stopping DBUS inside container"
+run_chroot /bin/service dbus stop
+
+# Write the container's inittab
+echo "Generating container's inittab"
+write_inittab
+
+# Finally write down the lxc config
+echo "Generating lxc config"
+write_lxc_config

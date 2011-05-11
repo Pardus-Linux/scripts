@@ -35,7 +35,7 @@ fixedBugsLW = []
 activityLW = []
 
 print "Weekly Bug Report"
-print "~~~~~~~~~~~~~~~~~"
+print "~~~~~~~~~~~~~~~~~\n"
 
 N_allBugs = c.execute("SELECT * FROM `bugs`")
 #print "%s bugs found in total\n" % N_allBugs
@@ -108,10 +108,6 @@ for line in devFile.readlines():
 
                 #print "%s bug added since last week." % N_bug_last_week
 
-                openedBugs = []
-                for openedbug in c.fetchall():
-                    openedBugs.append(openedbug[0])
-
                 # how many bugs the person fix since last week
                 # bugs_activity.fieldid = 8 means bug_status was changed.
                 # bugs_activity.fieldid = 11 means resolution was changed
@@ -153,11 +149,6 @@ for line in devFile.readlines():
 
                 fixedBug_N = c.execute(queryFixedBug)
 
-                fixedBugs = []
-                for fixedbug in c.fetchall():
-                    fixedBugs.append(fixedbug[0])
-
-
                 queryBugActivity = """
                 SELECT bugs.bug_id
                 FROM bugs, longdescs
@@ -176,42 +167,86 @@ for line in devFile.readlines():
                 queryBugActivity = queryBugActivity.replace("$$userid$$", str(userid[0]))
                 bugActivity = c.execute(queryBugActivity)
 
-                bugActivities = Set([])
-                for bugactivity in c.fetchall():
-                    bugActivities.add(bugactivity[0])
+                devNames.append(devName.decode('utf-8'))
+                totalOpenedBugs.append(N_bug)
+                openedBugsLW.append(N_bug_last_week)
+                fixedBugsLW.append(fixedBug_N)
+                activityLW.append(bugActivity)
 
-                # name, total bug number, old bug number, longest comment bug id, comment long, newly bugs added since last week, fixed bug number
-                print "%s" % devName
-                print "============================================\n"
-                print "Total New, Opened, Reopened Bug Number:"
-                print "%s\n" % N_bug
-                print "Oldest Bug Id:\n"
-                print "http://bugs.pardus.org.tr/show_bug.cgi?id=%s\n" % oldBug
-                print "Bug id that has longest comment:\n"
-                print "http://bugs.pardus.org.tr/show_bug.cgi?id=%s\n" % comment[0][0]
-                print "Number of comments of this bug: %s\n" % comment[0][1]
+"""
+print devNames
+print totalOpenedBugs
+print openedBugsLW
+print fixedBugsLW
+print activityLW
+"""
+print("Number of Bugs Fixed Since Last Week")
+print("=====================================")
 
-                print "Number of bugs reported since last week: %s\n" % N_bug_last_week
+import numpy as np
+import matplotlib.pyplot as plt
 
-                print "New Bug Report Links since Last Week:"
-                print "-------------------------------------"
-                for openedBug in openedBugs:
-                    print "#. http://bugs.pardus.org.tr/show_bug.cgi?id=%s" % openedBug
-                print "\n"
+fig = plt.figure(figsize=(20,30))
 
-                print "Number of resolved bugs since last week: %s\n" % fixedBug_N
+N = len(devNames)
+ind = np.arange(N)  # the x locations for the groups
+width = 0.5       # the width of the bars
 
-                print "Resolved Bug Links since Last Week:"
-                print "-----------------------------------\n"
-                for fixedBug in fixedBugs:
-                    print "#. http://bugs.pardus.org.tr/show_bug.cgi?id=%s" % fixedBug
+devStd =[]
+for devName in devNames:
+    devStd.append(0)
 
-                print "\n"
-                print "Number of commented bugs since last week: %s\n" % bugActivity
+rects2 = plt.bar(0, 0.5, fixedBugsLW , ind+width, width,
+                    color='y',
+                    xerr=devStd,
+                    error_kw=dict(elinewiadth=6, ecolor='yellow'), orientation="horizontal", align="center")
 
-                print "Commented bug links since Last Week:"
-                print "------------------------------------"
+# add some
+plt.xlabel('Number of Bugs')
+plt.title('Number of bugs fixed since last week')
+plt.yticks(ind+width, devNames )
 
-                for commentActivity in bugActivities:
-                    print "#. http://bugs.pardus.org.tr/show_bug.cgi?id=%s" % commentActivity
-                print "\n"
+
+
+def autolabel(rects):
+    # attach some text labels
+    for rect in rects:
+        height = rect.get_height()
+        plt.text( 1.05*rect.get_width(), rect.get_y()+rect.get_height()/2., '%d'%int(rect.get_width()), ha='center', va='bottom')
+
+autolabel(rects2)
+
+plt.savefig("fixed_bugs_lw.png")
+print(".. image:: fixed_bugs_lw.png")
+
+print("Number of Bugs Commented Since Last Week")
+print("========================================")
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig = plt.figure(figsize=(20,30))
+
+N = len(devNames)
+ind = np.arange(N)  # the x locations for the groups
+width = 0.5       # the width of the bars
+
+devStd =[]
+for devName in devNames:
+    devStd.append(0)
+
+rects3 = plt.bar(0, 0.5, activityLW, ind+width, width,
+                    color='y',
+                    xerr=devStd,
+                    error_kw=dict(elinewiadth=6, ecolor='yellow'), orientation="horizontal", align="center")
+
+# add some
+plt.xlabel('Number of Bugs')
+plt.title('Number of bugs fixed since last week')
+plt.yticks(ind+width, devNames )
+
+
+autolabel(rects3)
+
+plt.savefig("commented_bugs_lw.png")
+print(".. image:: commented_bugs_lw.png")

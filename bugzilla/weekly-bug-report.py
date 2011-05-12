@@ -242,7 +242,7 @@ rects3 = plt.bar(0, 0.5, activityLW, ind+width, width,
 
 # add some
 plt.xlabel('Number of Bugs')
-plt.title('Number of bugs fixed since last week')
+plt.title('Number of commented bugs since last week')
 plt.yticks(ind+width, devNames )
 
 

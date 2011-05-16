@@ -78,31 +78,6 @@ for line in devFile.readlines():
 
             if N_bug != 0:
 
-                # total bugs of the person
-                #print "%s has %s bugs new, assigned or reopened." % (loginName.split("@")[0], N_bug)
-
-                # oldest bug of the person
-                N_bug_id = c.execute("SELECT bug_id FROM `bugs` where assigned_to = %s and (bug_status = 'NEW' or bug_status = 'ASSIGNED' or bug_status = 'REOPENED') order by creation_ts" % userid[0])
-
-                oldBug = c.fetchone()[0]
-                #print "%s is the oldest bug" % oldBug
-
-                N_bug_id = c.execute("SELECT bug_id FROM `bugs` where assigned_to = %s and (bug_status = 'NEW' or bug_status = 'ASSIGNED' or bug_status = 'REOPENED')" % userid[0])
-
-                comment = {}
-                # long commented bug of the person
-                for bugid in c.fetchall():
-                    #print bugid[0]
-                    N_comment = c.execute("SELECT comment_id FROM `longdescs` WHERE bug_id = %s" % bugid[0])
-                    #print N_comment
-                    comment[bugid[0]] = int(N_comment)
-
-
-                # sort the bug_id is according to its comment number.
-                comment = sorted(comment.items(), key=itemgetter(1), reverse = True)
-                #print "%s is the most longest commented bug with %s comments" % (comment[0][0], comment[0][1])
-
-
                 # newly created bug for the person
                 N_bug_last_week = c.execute("SELECT bug_id FROM `bugs` where assigned_to = %s and (bug_status = 'NEW' or bug_status = 'ASSIGNED' or bug_status = 'REOPENED') and creation_ts >= DATE_SUB(CURDATE(), INTERVAL 1 WEEK)" % userid[0])
 
@@ -141,8 +116,7 @@ for line in devFile.readlines():
                 AND longdescs.thetext LIKE '%$$devname$$%'
                 AND bugs.delta_ts = bugs_activity.bug_when
                 AND bugs_activity.bug_when >= DATE_SUB( CURDATE( ) , INTERVAL 1 WEEK )
-                )
-                LIMIT 0 , 30 """
+                )"""
 
                 queryFixedBug = queryFixedBug.replace("$$userid$$", str(userid[0]))
                 queryFixedBug = queryFixedBug.replace("$$devname$$", devName)
@@ -160,16 +134,13 @@ for line in devFile.readlines():
                             )
                         OR longdescs.who = $$userid$$
                         )
-                AND longdescs.bug_when >= DATE_SUB( CURDATE( ) , INTERVAL 1 WEEK )
-                LIMIT 0 , 30 """
+                AND longdescs.bug_when >= DATE_SUB( CURDATE( ) , INTERVAL 1 WEEK )"""
 
                 queryBugActivity = queryBugActivity.replace("$$devname$$", devName)
                 queryBugActivity = queryBugActivity.replace("$$userid$$", str(userid[0]))
                 bugActivity = c.execute(queryBugActivity)
 
                 devNames.append(devName.decode('utf-8'))
-                totalOpenedBugs.append(N_bug)
-                openedBugsLW.append(N_bug_last_week)
                 fixedBugsLW.append(fixedBug_N)
                 activityLW.append(bugActivity)
 
@@ -219,7 +190,7 @@ autolabel(rects2)
 plt.savefig("fixed_bugs_lw.png")
 print(".. image:: fixed_bugs_lw.png")
 
-print("Number of Bugs Commented Since Last Week")
+print("\nNumber of Bugs Commented Since Last Week")
 print("========================================")
 
 import numpy as np

@@ -34,8 +34,8 @@ openedBugsLW = []
 fixedBugsLW = []
 activityLW = []
 
-print "Weekly Bug Report"
-print "~~~~~~~~~~~~~~~~~"
+print "Weekly Detail Bug Report"
+print "~~~~~~~~~~~~~~~~~~~~~~~~"
 
 N_allBugs = c.execute("SELECT * FROM `bugs`")
 #print "%s bugs found in total\n" % N_allBugs
@@ -146,7 +146,7 @@ for line in devFile.readlines():
                 AND bugs.delta_ts = bugs_activity.bug_when
                 AND bugs_activity.bug_when >= DATE_SUB( CURDATE( ) , INTERVAL 1 WEEK )
                 )
-                LIMIT 0 , 30 """
+                """
 
                 queryFixedBug = queryFixedBug.replace("$$userid$$", str(userid[0]))
                 queryFixedBug = queryFixedBug.replace("$$devname$$", devName)
@@ -170,7 +170,7 @@ for line in devFile.readlines():
                         OR longdescs.who = $$userid$$
                         )
                 AND longdescs.bug_when >= DATE_SUB( CURDATE( ) , INTERVAL 1 WEEK )
-                LIMIT 0 , 30 """
+                 """
 
                 queryBugActivity = queryBugActivity.replace("$$devname$$", devName)
                 queryBugActivity = queryBugActivity.replace("$$userid$$", str(userid[0]))

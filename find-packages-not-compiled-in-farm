@@ -15,7 +15,7 @@ import lzma
 
 import piksemel
 
-pisirepouri = "http://kafam/pardus-2009-test/pisi-index.xml.bz2"
+pisirepouri = "http://buildfarm/pardus-2009-test/pisi-index.xml.bz2"
 svnrepouri  = "http://svn.pardus.org.tr/pardus/2009/stable/pisi-index.xml.bz2"
 
 def getIndex(uri):

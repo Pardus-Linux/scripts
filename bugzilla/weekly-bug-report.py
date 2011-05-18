@@ -78,11 +78,6 @@ for line in devFile.readlines():
 
             if N_bug != 0:
 
-                # newly created bug for the person
-                N_bug_last_week = c.execute("SELECT bug_id FROM `bugs` where assigned_to = %s and (bug_status = 'NEW' or bug_status = 'ASSIGNED' or bug_status = 'REOPENED') and creation_ts >= DATE_SUB(CURDATE(), INTERVAL 1 WEEK)" % userid[0])
-
-                #print "%s bug added since last week." % N_bug_last_week
-
                 # how many bugs the person fix since last week
                 # bugs_activity.fieldid = 8 means bug_status was changed.
                 # bugs_activity.fieldid = 11 means resolution was changed

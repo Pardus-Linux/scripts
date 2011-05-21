@@ -10,10 +10,11 @@
 #
 # Please read the COPYING file.
 
-import sys
-import lzma
 import bz2
+import lzma
+import os
 import piksemel
+import sys
 import urllib
 
 countPackages = 0
@@ -23,6 +24,26 @@ def panic():
     print "Usage: list-my-packages <sourceRepoIndexFileURL.xz> <name> <surname>"
     print "       list-my-packages <sourceRepoIndexFileURL.bz2> <name> <surname>"
     sys.exit(1)
+
+def get_and_save_user_info():
+    name = "PACKAGER_NAME"
+    email = "PACKAGER_EMAIL"
+
+    conf_file = os.path.expanduser("~/.packagerinfo")
+    if os.path.exists(conf_file):
+        # Read from it
+        name, email = open(conf_file, "r").read().strip().split(",")
+
+    else:
+        print "Please enter your full name as seen in pspec files"
+        name = raw_input("> ")
+        print "Please enter your e-mail as seen in pspec files"
+        email = raw_input("> ")
+        print "Saving packager info into %s" % conf_file
+
+        open(conf_file, "w").write("%s,%s" % (name, email))
+
+    return name
 
 def downloadIndex(url, fileName):
     file_to_download = urllib.urlopen(url)
@@ -74,13 +95,16 @@ def listMyPackages():
     for i in range(len(message)-2): dashes += "-"
     print "\n" + dashes + "\n" + message + "\n"  + dashes + "\n"
 
-if len(sys.argv) == 4:
+if __name__ == "__main__":
+
+    if len(sys.argv) < 2:
+        panic()
+        sys.exit(1)
+
     indexURL = sys.argv[1]
     indexName = sys.argv[1].split('/')[-1]
-    me = sys.argv[2] + " " + sys.argv[3]
+    me = get_and_save_user_info()
 
     downloadIndex(indexURL, indexName)
     getMyPackages(indexName, me)
     listMyPackages()
-else:
-    panic()

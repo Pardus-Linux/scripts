@@ -137,6 +137,8 @@ known values for OPTION are:
                                   device will be added to.
   --enable-root-ssh               Enables SSH logins with the root username.
   --install-devel                 Install system.devel component into container
+  --use-host-cache                Use packages from host's /var/cache/pisi/packages
+  --use-package-dir=DIR           Use packages in directory DIR
   --setup-host                    Setup the host to run lxc container properly
   --help                          display this help and exit
   --version                       output version information
@@ -151,6 +153,7 @@ fi
 root_ssh=0
 setup_host=0
 install_devel=0
+host_cache=0
 user_name="pardus"
 extra_pkgs="kernel vim screen rsync sudo"
 bridge_name="virbr0"
@@ -204,6 +207,12 @@ while test $# -gt 0; do
         --install-devel)
             install_devel=1
             ;;
+        --use-host-cache)
+            host_cache=1
+            ;;
+        --use-packages-dir=*)
+            packages_dir=$optarg
+            ;;
         --version)
             echo $version
             exit 0
@@ -254,6 +263,16 @@ fi
 
 CF="/var/lib/lxc/$CN"       # path to container's lxc config
 
+if [ -d "$CF" ]; then
+    echo "There is already a container named $CN"
+    exit 1
+fi
+
+if [ -d "$target" ]; then
+    echo "There is already a container in $target"
+    exit 1
+fi
+
 # mkdir the container's rootfs
 echo "Installing container into $target"
 mkdir -p $target
@@ -289,6 +308,20 @@ cd "$OLDPWD"
 # Add repository
 echo "Adding repository"
 pisi ar pardus $repo_url -y -D $target --ignore-check &> /dev/null
+
+mkdir $target/var/cache/pisi/packages/
+
+if [ "x$host_cache" == "x1" ]; then
+    # Copy packages from host's /var/cache/pisi/packages
+    echo "Copying packages from host's package cache"
+    cp /var/cache/pisi/packages/*.pisi $target/var/cache/pisi/packages
+fi
+
+if [ "x$packages_dir" != "x" ]; then
+    # Copy packages from given dir
+    echo "Copying packages from ${packages_dir%/}/"
+    cp ${packages_dir%/}/*.pisi $target/var/cache/pisi/packages/
+fi
 
 # Install base system
 echo "Installing base system"

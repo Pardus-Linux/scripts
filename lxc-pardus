@@ -138,7 +138,7 @@ known values for OPTION are:
   --enable-root-ssh               Enables SSH logins with the root username.
   --install-devel                 Install system.devel component into container
   --use-host-cache                Use packages from host's /var/cache/pisi/packages
-  --use-package-dir=DIR           Use packages in directory DIR
+  --use-packages-dir=DIR          Use packages in directory DIR
   --setup-host                    Setup the host to run lxc container properly
   --help                          display this help and exit
   --version                       output version information

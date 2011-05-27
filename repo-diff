@@ -36,7 +36,8 @@ def acquire_version_info(pspec_list):
         spec_file = pisi.specfile.SpecFile(pisi.util.join_path(pspec[0], "pspec.xml"))
         result[spec_file.source.name] = (spec_file.getSourceVersion(),
                                          spec_file.getSourceRelease(),
-                                         pspec[1])
+                                         pspec[1],
+                                         spec_file.source.packager.name)
     return result
 
 def compare_repos(first_repo, second_repo):
@@ -107,11 +108,11 @@ if __name__ == "__main__":
 
     _print("%s --> %s (Different versions)" % (first, second), True)
     for i in different_versions:
-       print "    %s: %s (%s) -> %s (%s)" % (first_repo[i][2], first_repo[i][0], first_repo[i][1], second_repo[i][0], second_repo[i][1])
+       print "    %s: %s (%s) -> %s (%s) [%s]" % (first_repo[i][2], first_repo[i][0], first_repo[i][1], second_repo[i][0], second_repo[i][1], first_repo[i][3])
 
     _print("\n%s --> %s (Different releases)" % (first, second), True)
     for i in different_releases:
-       print "    %s: %s (%s) -> %s (%s)" % (first_repo[i][2], first_repo[i][0], first_repo[i][1], second_repo[i][0], second_repo[i][1])
+       print "    %s: %s (%s) -> %s (%s) [%s]" % (first_repo[i][2], first_repo[i][0], first_repo[i][1], second_repo[i][0], second_repo[i][1], first_repo[i][3])
 
     _print("\n%s has, %s has not" % (first, second), True)
     for i in only_in_first:

@@ -133,18 +133,16 @@ if __name__ == "__main__":
     package_elements = doc.tags( "Package" )
 
     for package in package_elements:
+        dont_add = False
         package_name = package.getTagData('Name')
         packageURI = package.getTagData("PackageURI")
 
-        if package_name in listofStablePackages.keys():
-            # update_element = package.getTag("History").tags("Update").next()
-            # testRepoPackageLastUpdataRelease = update_element.getAttribute("release")
-            if listofStablePackages[ package_name ] != packageURI:
-                package_owner = package.getTag("Source").getTag("Packager").getTagData("Name")
-                updateBy = package.getTag("History").tags("Update").next().getTagData('Name')
+        try:
+            dont_add = (listofStablePackages[ package_name ] == packageURI)
+        except KeyError:
+            pass
 
-                pendingPackages.addModifiedPackage( packageURI, package_owner, updateBy )
-        else:
+        if not dont_add:
             package_owner = package.getTag("Source").getTag("Packager").getTagData("Name")
             updateBy = package.getTag("History").tags("Update").next().getTagData('Name')
 

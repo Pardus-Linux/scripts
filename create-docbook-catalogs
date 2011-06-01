@@ -25,6 +25,26 @@ xmlcatalog --noout --add "delegateURI" \
 "file:///etc/xml/docbook" \
 "${catalog}"
 
+#docbook-xsl
+xmlcatalog --noout --add "rewriteSystem" \
+"http://docbook.sourceforge.net/release/xsl/" \
+"/usr/share/xml/docbook/xsl-stylesheets" \
+"${catalog}"
+
+xmlcatalog --noout --add "rewriteURI" \
+"http://docbook.sourceforge.net/release/xsl/" \
+"/usr/share/xml/docbook/xsl-stylesheets" \
+"${catalog}"
+
+xmlcatalog --noout --add "rewriteSystem" \
+"http://docbook.sourceforge.net/release/xsl/current" \
+"/usr/share/xml/docbook/xsl-stylesheets" \
+"${catalog}"
+
+xmlcatalog --noout --add "rewriteURI" \
+"http://docbook.sourceforge.net/release/xsl/current" \
+"/usr/share/xml/docbook/xsl-stylesheets" \
+"${catalog}"
 
 # Create and populate the /etc/xml/docbook catalog
 xmlcatalog --noout --create "${docbook}"

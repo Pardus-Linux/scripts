@@ -20,7 +20,12 @@ import urllib2
 import sys
 import datetime as dt
 
-from BeautifulSoup import BeautifulSoup
+try:
+    from BeautifulSoup import BeautifulSoup
+except ImportError:
+    print "Please install python-beautifulsoup package"
+    sys.exit(1)
+
 from optparse import OptionParser
 
 from pisi.db.componentdb import ComponentDB

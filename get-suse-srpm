@@ -2,6 +2,11 @@
 
 URL="http://download.opensuse.org/source/factory/repo/oss/suse/src"
 
+if ! type -P rpm2targz > /dev/null; then
+    echo "You should install rpm2targz package to use $0"
+    exit 0
+fi
+
 for package in $(wget -q -O - $URL | sed -e 's/src.rpm".*/src.rpm/' -e 's/.*href="//' | grep "^$1.*src.rpm$"); do
     wget $URL/$package
     dirname=`echo $package | sed 's/^\(.*\)\-.*$/\1/'`

@@ -49,6 +49,10 @@ def  main(argv):
         underline3 = "========================================"
         commentedBugChartName = "Number of commented bugs since last week"
         commentedBugImage = "commented_bugs_lw.png"
+        triagedBugTitle = "\nNumber of Bugs Triaged Since Last Week"
+        underline4 = "========================================"
+        triagedBugChartName = "Number of triaged bugs since last week"
+        triagedBugImage = "triaged_bugs_lw.png"
     if sys.argv[1] == "monthly":
         title = "Monthly Bug Report"
         underline1 = "~~~~~~~~~~~~~~~~~~~~\n"
@@ -61,6 +65,10 @@ def  main(argv):
         underline3 = "========================================="
         commentedBugChartName = "Number of commented bugs since last month"
         commentedBugImage = "commented_bugs_lm.png"
+        triagedBugTitle = "\nNumber of Bugs Triaged Since Last Month"
+        underline4 = "========================================="
+        triagedBugChartName = "Number of triaged bugs since last month"
+        triagedBugImage = "triaged_bugs_lm.png"
     if sys.argv[1] == "half-yearly":
         title = "Half Yearly Bug Report"
         underline1 = "~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
@@ -73,6 +81,10 @@ def  main(argv):
         underline3 = "==========================================="
         commentedBugChartName = "Number of commented bugs since last 6 month"
         commentedBugImage = "commented_bugs_l6m.png"
+        triagedBugTitle = "\nNumber of Bugs Triaged Since Last 6 month"
+        underline4 = "==========================================="
+        triagedBugChartName = "Number of triaged bugs since last 6 month"
+        triagedBugImage = "triaged_bugs_l6m.png"
     if sys.argv[1] == "yearly":
         title = "Yearly Bug Report"
         underline1 = "~~~~~~~~~~~~~~~~~~~~~~~\n"
@@ -85,6 +97,10 @@ def  main(argv):
         underline3 = "========================================"
         commentedBugChartName = "Number of commented bugs since last year"
         commentedBugImage = "commented_bugs_ly.png"
+        triagedBugTitle = "\nNumber of Bugs Triaged Since Last Year"
+        underline4 = "========================================"
+        triagedBugChartName = "Number of triaged bugs since last year"
+        triagedBugImage = "triaged_bugs_ly.png"
 
     db = MySQLdb.connect(db_server, db_user, db_pass, db_name)
 
@@ -96,6 +112,7 @@ def  main(argv):
     openedBugsLW = []
     fixedBugsLW = []
     activityLW = []
+    activityTriage = []
 
     print title
     print underline1
@@ -186,9 +203,29 @@ def  main(argv):
 
                     bugActivity = c.execute(queryBugActivity)
 
+                    queryBugTriaged= """
+                    (
+                    SELECT bugs.bug_id
+                    FROM bugs, bugs_activity
+                    WHERE bugs.bug_id = bugs_activity.bug_id
+                    AND bugs_activity.fieldid =10
+                    AND bugs.keywords = 'TRIAGED'
+                    AND bugs_activity.who = $$userid$$
+                    AND bugs.delta_ts = bugs_activity.bug_when
+                    AND bugs_activity.bug_when >= DATE_SUB( CURDATE( ) , INTERVAL $$TimeInterval$$)
+                    )"""
+
+                    #AND bugs_activity.bug_when >= DATE_SUB( CURDATE( ) , INTERVAL $$Interval$$)
+                    queryBugTriaged = queryBugTriaged.replace("$$userid$$", str(userid[0]))
+                    queryBugTriaged = queryBugTriaged.replace("$$devname$$", devName)
+                    queryBugTriaged = queryBugTriaged.replace("$$TimeInterval$$", timeinterval)
+
+                    bugTriaged = c.execute(queryBugTriaged)
+
                     devNames.append(devName.decode('utf-8'))
                     fixedBugsLW.append(fixedBug_N)
                     activityLW.append(bugActivity)
+                    activityTriage.append(bugTriaged)
     """
     print devNames
     print totalOpenedBugs
@@ -254,6 +291,36 @@ def  main(argv):
 
     plt.savefig(commentedBugImage)
     print(".. image:: %s" % commentedBugImage)
+
+    print triagedBugTitle
+    print underline4
+
+
+    fig = plt.figure(figsize=(20,30))
+
+    N = len(devNames)
+    ind = np.arange(N)  # the x locations for the groups
+    width = 0.5       # the width of the bars
+
+    devStd =[]
+    for devName in devNames:
+        devStd.append(0)
+
+    rects3 = plt.bar(0, 0.5, activityTriage, ind+width, width,
+                    color='y',
+                    xerr=devStd,
+                    error_kw=dict(elinewiadth=6, ecolor='yellow'), orientation="horizontal", align="center")
+
+    # add some
+    plt.xlabel('Number of Bugs')
+    plt.title(triagedBugChartName)
+    plt.yticks(ind+width, devNames )
+
+
+    autolabel(rects3)
+
+    plt.savefig(triagedBugImage)
+    print(".. image:: %s" % triagedBugImage)
 
 if __name__ == '__main__':
     main(sys.argv)

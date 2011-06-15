@@ -180,6 +180,30 @@ for line in devFile.readlines():
                 for bugactivity in c.fetchall():
                     bugActivities.add(bugactivity[0])
 
+
+                queryBugTriaged= """
+                (
+                SELECT bugs.bug_id
+                FROM bugs, bugs_activity
+                WHERE bugs.bug_id = bugs_activity.bug_id
+                AND bugs_activity.fieldid =10
+                AND bugs.keywords = 'TRIAGED'
+                AND bugs_activity.who = $$userid$$
+                AND bugs.delta_ts = bugs_activity.bug_when
+                AND bugs_activity.bug_when >= DATE_SUB( CURDATE( ) , INTERVAL 1 WEEK)
+                )"""
+
+                #AND bugs_activity.bug_when >= DATE_SUB( CURDATE( ) , INTERVAL $$Interval$$)
+                queryBugTriaged = queryBugTriaged.replace("$$userid$$", str(userid[0]))
+                queryBugTriaged = queryBugTriaged.replace("$$devname$$", devName)
+
+                bugTriaged = c.execute(queryBugTriaged)
+
+                triagedBugs = []
+                for triagedbug in c.fetchall():
+                    triagedBugs.append(triagedbug[0])
+
+
                 # name, total bug number, old bug number, longest comment bug id, comment long, newly bugs added since last week, fixed bug number
                 print "%s" % devName
                 print "============================================\n"
@@ -212,6 +236,17 @@ for line in devFile.readlines():
                 print "Commented bug links since Last Week:"
                 print "------------------------------------"
 
+                print "\n"
                 for commentActivity in bugActivities:
                     print "#. http://bugs.pardus.org.tr/show_bug.cgi?id=%s" % commentActivity
+
+                print "\n"
+                print "Number of triaged bugs since last week: %s\n" % bugTriaged
+
+                print "Triaged bug links since Last Week:"
+                print "------------------------------------"
+
+                print "\n"
+                for triageActivity in triagedBugs:
+                    print "#. http://bugs.pardus.org.tr/show_bug.cgi?id=%s" % triageActivity
                 print "\n"

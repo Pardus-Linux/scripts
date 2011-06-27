@@ -56,7 +56,7 @@ Best regards,
 %(packages)s
 """
 
-def send_mails(messages):
+def send_mails(recipient, mail):
 
     if not smtp_user or not smtp_password:
         print "*** No SMTP authentication information found. Aborting.."
@@ -79,20 +79,16 @@ def send_mails(messages):
 
     result = None
 
-    for recipient, mail in messages.items():
-        try:
-            print "*** Sending e-mail to %s.." % recipient
-            result = session.sendmail(mail_from, recipient, mail)
-        except KeyboardInterrupt:
-            print "*** Caught CTRL+C, Quiting.."
-            sys.exit(1)
-        except:
-            print "*** Problem occured when sending e-mail to %s" % recipient
+    try:
+        print "*** Sending e-mail to %s.." % recipient
+        result = session.sendmail(mail_from, recipient, mail)
+    except KeyboardInterrupt:
+        print "*** Caught CTRL+C, Quiting.."
+        sys.exit(1)
+    except:
+        print "*** Problem occured when sending e-mail to %s" % recipient
 
     session.quit()
-
-    print "\n*** Failed sending e-mails to following recipients:\n"
-    print "\n".join(result.keys())
 
 def usage():
     print "Usage: %s <temporary-stable> <public-stable>" % sys.argv[0]
@@ -165,11 +161,11 @@ if __name__ == "__main__":
                 print "Error happened for %s" % pkg_name
 
 
-        template_values = {'mail_from'      : mail_from,
-                       'mail_from_name' : mail_from_name,
-                       'mail_to'        : "loker@pardus.org.tr",
-                       'packages'       : report}
+        template_values = {"mail_from"      : mail_from,
+                           "mail_from_name" : mail_from_name,
+                           "mail_to"        : "loker@pardus.org.tr",
+                           "packages"       : report}
 
         templates = mail_template % template_values
 
-        send_mails(templates)
+        send_mails (template_values["mail_to"], templates)

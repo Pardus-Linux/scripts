@@ -311,8 +311,10 @@ if __name__ == "__main__":
     weddingplanner = DistupdatePlanner(nextRepoUri=targetrepo, Debug=True)
     weddingplanner.plan()
 
+    print
     print "*** Conclusion ***"
     print
+
     if len(weddingplanner.missingPackages):
         weddingplanner.printDebug("  found packages preventing distupdate")
         weddingplanner.printDebug(weddingplanner.missingPackages)

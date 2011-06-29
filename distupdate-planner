@@ -35,6 +35,7 @@ class DistupdatePlanner:
         self.nextRepoObsoletes = []
 
         self.installedPackages = []
+        self.packagesToInstall = []
         self.forceInstallPackages = []
         self.missingPackages = []
         self.graphobj = None
@@ -44,7 +45,6 @@ class DistupdatePlanner:
         self.sizeOfPackagesToDownload = 0
         self.sizeOfBiggestPackage = 0
         self.sizeOfNeededTotalSpace = 0
-        self.packagesToInstall = []
 
     def printDebug(self, debugstr):
         if self.debug:
@@ -170,7 +170,7 @@ class DistupdatePlanner:
 
         neededspace = 0
         neededspace += self.sizeOfPackagesToDownload
-        neededspace += (self.sizeOfInstalledPackagesAfterUpdate - self.sizeOfInstalledPackagesAfterUpdate)
+        neededspace += (self.sizeOfInstalledPackagesAfterUpdate - self.sizeOfInstalledPackages)
         neededspace += 2 * self.sizeOfBiggestPackage
 
         self.sizeOfNeededTotalSpace = neededspace
@@ -323,6 +323,7 @@ if __name__ == "__main__":
     print "  installed size %d" % weddingplanner.sizeOfInstalledPackages
     print "  installed size after update %d" % weddingplanner.sizeOfInstalledPackagesAfterUpdate
     print "  download size %d" % weddingplanner.sizeOfPackagesToDownload
+    print "  biggest package size %d" % weddingplanner.sizeOfBiggestPackage
     print "  total space needed for distupdate %d" % weddingplanner.sizeOfNeededTotalSpace
 
 

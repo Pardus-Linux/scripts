@@ -3,12 +3,111 @@
 
 import os
 import sys
+import socket
 import subprocess
+import smtplib
 
 import pisi
 
+# Do the proper adjustments here before using the script.
+
+
+# If set to prompt, the password will be prompted upon execution
+smtp_password = "prompt"
+
+smtp_server = "mail.pardus.org.tr"
+
+mail_from = sys.argv[1]
+smtp_user = mail_from.split("@")[0]
+mail_from_en = "pardus-announce@pardus.org.tr"
+mail_from_name_en = "Pardus Announcements"
+mail_from_tr = "duyuru@pardus.org.tr"
+mail_from_name_tr = "Pardus Duyuruları"
+
+# If set to prompt, the password will be prompted upon execution
+smtp_password = "prompt"
+
+# Mail template
+
+mail_template_en = """\
+From: %(mail_from_name_en)s <%(mail_from_en)s>
+To: %(mail_to_en)s
+Subject: [Pardus] Updates in stable %(arch)s repo
+Content-Type: text/plain;
+            charset="utf-8"
+
+Dear Pardus users,
+
+    Below, you will find the list of packages that will be updated in the stable repo.
+We strongly recommend you to update your system in order to experience a more reliable
+Pardus with a better performance.
+
+Best regards,
+Pardus team
+
+----------------------------------------------
+
+%(packages)s
+"""
+
+mail_template_tr = """\
+From: %(mail_from_name_tr)s <%(mail_from_tr)s>
+To: %(mail_to_tr)s
+Subject: [Pardus] %(arch)s kararlı depo güncellemeleri
+Content-Type: text/plain;
+            charset="utf-8"
+
+Değerli Pardus kullanıcıları,
+
+    Aşağıda yer alan listede görebileceğiniz paketler gün içinde kararlı depodan
+yayınlanmaya başlayacaktır. Sisteminizin kararlı olması ve daha iyi performans
+sağlamanız için bu güncellemeleri yapmanızı öneririz.
+
+İyi çalışmalar,
+Pardus ekibi
+
+----------------------------------------------
+
+%(packages)s
+"""
+
+
+def send_mails(recipient, mail):
+
+    if not smtp_user or not smtp_password:
+        print "*** No SMTP authentication information found. Aborting.."
+        return
+
+    # Socket timeout
+    socket.setdefaulttimeout(10)
+
+    try:
+        session = smtplib.SMTP(smtp_server)
+    except:
+        print "*** Failed opening session on SMTP server %s. Aborting.."
+        return
+
+    try:
+        session.login(smtp_user, smtp_password)
+    except smtplib.SMTPAuthenticationError:
+        print "*** Authentication failed. Check your credentials."
+        return
+
+    result = None
+
+    try:
+        print "*** Sending e-mail to %s.." % recipient
+        result = session.sendmail(mail_from, recipient, mail)
+    except KeyboardInterrupt:
+        print "*** Caught CTRL+C, Quiting.."
+        sys.exit(1)
+    except:
+        print "*** Problem occured when sending e-mail to %s" % recipient
+
+    session.quit()
+
 def usage():
-    print "Usage: %s <temporary-stable> <public-stable>" % sys.argv[0]
+    print "Usage: %s <your-mail-address> <temporary-stable> <public-stable>" % sys.argv[0]
     sys.exit(1)
 
 def generate_package_report(package_name, last_history):
@@ -27,23 +126,31 @@ def parse_package_name(package_name):
 
     return name
 
-def main():
+if __name__ == "__main__":
+
+    # Just e-mail the contributors about their packages
+
+    if smtp_password == "prompt":
+        from getpass import getpass
+        smtp_password = getpass("Enter your SMTP password: ")
+
+    # Determine the packages to be updated in the stable repo
     try:
-        temp_stable_dir = sys.argv[1]
-        cur_stable_dir = sys.argv[2]
+        temp_stable_dir = sys.argv[2]
+        cur_stable_dir = sys.argv[3]
     except IndexError:
         usage()
 
     architectures = ["i686", "x86_64"]
-
+    arch_map = {"i686":"32bit", "x86_64":"64bit"}
+    
     for arch in architectures:
         if not os.path.exists(os.path.join(temp_stable_dir, arch)):
             print "Skipping %s as it doesn't exist.." % arch
 
         temp_stable_packages = {}
-        report_file = "%s-stable-updates.txt" % arch
 
-        f = open(report_file, "w")
+        report = ""
 
         print "creating index for %s" % arch
         temp_stable_index = pisi.index.Index(os.path.join(temp_stable_dir,
@@ -53,7 +160,6 @@ def main():
         different_packages = get_different_packages(os.path.join(temp_stable_dir, arch),
                                                     os.path.join(cur_stable_dir, arch))
 
-
         # Create a package mapping between package names
         # and the history information
         for package in temp_stable_index.packages:
@@ -62,17 +168,24 @@ def main():
         for pkg in different_packages:
             # Traverse the list of the packages that will
             # be transferred to the remote repository
-            pkg_name = parse_package_name(os.path.basename(pkg))
+            pkg_filename = os.path.basename(pkg)
+            pkg_name = parse_package_name(pkg_filename)
 
             # Generate a report of what changed
             try:
-                f.write("%s\n%s\n\n" % (pkg_name, temp_stable_packages[pkg_name][0].comment))
+                report += "%s (%s)\n%s\n\n" % (pkg_name, pkg_filename, temp_stable_packages[pkg_name][0].comment)
             except KeyError:
                 print "Error happened for %s" % pkg_name
 
-        f.close()
 
-    return 0
+        template_values = {"mail_from_en"      : mail_from_en,
+                           "mail_from_name_en" : mail_from_name_en,
+                           "mail_from_tr"      : mail_from_tr,
+                           "mail_from_name_tr" : mail_from_name_tr,
+                           "mail_to_tr"        : "duyuru@pardus.org.tr",
+                           "mail_to_en"        : "pardus-announce@pardus.org.tr",
+                           "packages"          : report,
+                           "arch"              : arch_map[arch]}
 
-if __name__ == "__main__":
-    sys.exit(main())
+        send_mails (template_values["mail_to_tr"], mail_template_tr % template_values)
+        send_mails (template_values["mail_to_en"], mail_template_en % template_values)

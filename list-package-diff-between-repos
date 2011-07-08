@@ -1,6 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
+# Package Difference Extractor
+#
+# Parses pisi-index files of given repositories to yield the status of packages
+# between those repositories. It is also able to filter only the packages that 
+# have differences among repositories in terms of packager name or version.
+#
 # Copyright (C) 2010 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
@@ -79,10 +85,10 @@ def process_cmd_line():
 
     # Initialization of option parser object
     usage_str = "Usage: %prog [options] [repoURL [repoURL ...]]"
-    des_str = "This is a notifier script to give detailed info to packagers about their packages."
+    des_str = "This is a Python script that gives detailed info to packagers about their packages' status in different repositories given."
     epi_str = "repoURL:\t  compressed pisi-index file path in URL format as xz or bz2"
 
-    parser = OptionParser(prog = "list-packages", version = "%prog 1.0", usage = usage_str, description = des_str, epilog = epi_str)
+    parser = OptionParser(prog = "list-package-diff-between-repos", version = "%prog 1.0", usage = usage_str, description = des_str, epilog = epi_str)
 
     parser.add_option("-u", "--uselocal",
                      dest = "uselocal",

@@ -190,28 +190,18 @@ def fetch_repos():
     pisi_index = pisi.index.Index()
     for order, repo in enumerate(REPO_LIST):
         print "Parsing index file %s" % repo
+
         if OPTIONS.uselocal:
-            # Use the local index files
-
-            if repo.endswith(".bz2"):
-                decompressed_index = bz2.decompress(open(repo, "r").read())
-            elif repo.endswith(".xz"):
-                decompressed_index = lzma.decompress(open(repo, "r").read())
-            else:
-                decompressed_index = open(repo, "r").read()
+            rawdata = open(repo, "r").read()
         else:
-            # Use the remote index files
+            rawdata = urllib2.urlopen(repo).read()
 
-            try:
-                if repo.endswith(".bz2"):
-                    decompressed_index = bz2.decompress(urllib2.urlopen(repo).read())
-                elif repo.endswith(".xz"):
-                    decompressed_index = lzma.decompress(urllib2.urlopen(repo).read())
-                else:
-                    decompressed_index = urllib2.urlopen(repo).read()
-            except:
-                print "The URL you entered seems to be invalid. Terminating.."
-                return False
+        if repo.endswith(".bz2"):
+            decompressed_index = bz2.decompress(rawdata)
+        elif repo.endswith(".xz"):
+            decompressed_index = lzma.decompress(rawdata)
+        else:
+            decompressed_index = rawdata
 
         doc = piksemel.parseString(decompressed_index)
         pisi_index.decode(doc, [])

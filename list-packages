@@ -203,6 +203,7 @@ def fetch_repos():
         else:
             decompressed_index = rawdata
 
+
         doc = piksemel.parseString(decompressed_index)
         pisi_index.decode(doc, [])
 

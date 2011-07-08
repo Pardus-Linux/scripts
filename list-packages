@@ -82,7 +82,7 @@ def process_cmd_line():
     des_str = "This is a notifier script to give detailed info to packagers about their packages."
     epi_str = "repoURL:\t  compressed pisi-index file path in URL format as xz or bz2"
 
-    parser = OptionParser(prog = "package-diff-notify", version = "%prog 1.0", usage = usage_str, description = des_str, epilog = epi_str)
+    parser = OptionParser(prog = "list-packages", version = "%prog 1.0", usage = usage_str, description = des_str, epilog = epi_str)
 
     parser.add_option("-u", "--uselocal",
                      dest = "uselocal",

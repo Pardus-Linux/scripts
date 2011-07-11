@@ -232,7 +232,7 @@ class PspecXML:
                         self.issues["S"].append('Summary for %s package mustnt contain the package name' % pkg_name)
 
                     elif pkg_sum[0].islower():
-                        self.issues["S"].append('First character of the %s for Source package should be capitalized' % pkg_name)
+                        self.issues["S"].append('First character of the Summary for %s package should be capitalized' % pkg_name)
 
                     if pkg_sum.endswith(" "):
                         self.issues["C"].append('Summary for %s package has trailing whitespace' % pkg_name)
@@ -392,6 +392,37 @@ class TranslationsXML:
             if summary[i].strip().endswith("."):
                 self.issues["S"].append("Summary should[%s] not end with a period" % i)
 
+        for pkg in self.t_doc.tags("Package"):
+            pkg_name = pkg.getTagData("Name")
+            pkg_sum = pkg.getTagData("Summary")
+            if pkg_name == self.s_name:
+                if pkg_sum:
+                    self.issues["S"].append('Summary for %s package is not neccessary since it is defined in Source package' % pkg_name)
+            else:
+                if not pkg_sum:
+                    self.issues["M"].append('Summary for %s package does not exist' % pkg_name)
+                else:
+                    if "\n" in pkg_sum:
+                        self.issues["M"].append('Summary for %s package has multiple lines' % pkg_name)
+
+                    if len(pkg_sum) > 79:
+                        self.issues["S"].append('Summary for %s package is too long' % pkg_name)
+
+                    if pkg_sum.startswith(" "):
+                        self.issues["C"].append('Summary for %s package has leading whitespace' % pkg_name)
+
+                    if pkg_name.lower() in pkg_sum.split(" ")[0].lower():
+                        self.issues["S"].append('Summary for %s package mustnt contain the package name' % pkg_name)
+
+                    elif pkg_sum[0].islower():
+                        self.issues["S"].append('First character of the Summary for %s package should be capitalized' % pkg_name)
+
+                    if pkg_sum.endswith(" "):
+                        self.issues["C"].append('Summary for %s package has trailing whitespace' % pkg_name)
+
+                    if pkg_sum.strip().endswith("."):
+                        self.issues["S"].append('Summary for %s package should not end with a period' % pkg_name)
+
     def check_description(self):
         """ Many checks for Description such as leading/trailing whitespaces etc. """
 
@@ -427,6 +458,28 @@ class TranslationsXML:
             if self.s_name and not self.s_name.lower() in description[i].split(" ")[0].lower():
                 if description[i][0].islower():
                     self.issues["S"].append("First character of the Description[%s] should be capitalized" % i)
+
+        for pkg in self.t_doc.tags("Package"):
+            pkg_name = pkg.getTagData("Name")
+            pkg_desc = pkg.getTagData("Description")
+            if pkg_name == self.s_name and pkg_desc:
+                self.issues["M"].append('Description for %s package is not neccessary since it is defined in Source package' % pkg_name)
+            elif pkg_desc:
+                if pkg_desc.startswith(" "):
+                    self.issues["C"].append('Description for %s package has leading whitespace' % pkg_name)
+
+                if pkg_desc.endswith(" "):
+                    self.issues["C"].append('Description for %s package has trailing whitespace' % pkg_name)
+
+                if not pkg_desc.strip().endswith("."):
+                    self.issues["S"].append('Description for %s package should end with a period' % pkg_name)
+
+                if self.s_name.lower() not in pkg_desc.split(" ")[0].lower():
+                    self.issues["S"].append('Description for %s package should contain the package name' % pkg_name)
+
+                if not self.s_name.lower() in pkg_desc.split(" ")[0].lower():
+                    if pkg_desc[0].islower():
+                        self.issues["S"].append('First character of the Description for %s package should be capitalized' % pkg_name)
 
 
 class Package:

@@ -1,6 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+# pisilint is a pisi package and spec checker which is written for doing
+# the automatic checks of the packages which are in review process.
+
 import os
 import sys
 import glob

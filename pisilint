@@ -70,6 +70,9 @@ class ActionsPY:
             elif "os.system" in line:
                 self.issues["M"].append('Avoid using "os.system". Use Pisi ActionsAPI instead')
 
+    def actions_issues(self):
+        return sum((map(lambda x: len(x), self.issues.values())))
+
 
 class PspecXML:
 
@@ -324,6 +327,9 @@ class PspecXML:
         if shallow_path:
             self.issues["S"].append('/usr/share is shallow, widen the path into more specific paths')
 
+    def pspec_issues(self):
+        return sum((map(lambda x: len(x), self.issues.values())))
+
 
 class TranslationsXML:
 
@@ -487,6 +493,9 @@ class TranslationsXML:
                 if not self.s_name.lower() in pkg_desc.split(" ")[0].lower():
                     if pkg_desc[0].islower():
                         self.issues["S"].append('First character of the Description for %s package should be capitalized' % pkg_name)
+
+    def translations_issues(self):
+        return sum((map(lambda x: len(x), self.issues.values())))
 
 
 class Package:
@@ -894,6 +903,9 @@ class Package:
             except ConfigParser.NoOptionError:
                 self.issues["S"].append('%s is missing "Comment[tr]" entry' % desktop_file)
 
+    def package_issues(self):
+        return sum((map(lambda x: len(x), self.issues.values())))
+
 
 class DesktopParser(ConfigParser.ConfigParser):
     """ An obvious class to get the desktop file's localized entries """
@@ -985,6 +997,8 @@ if __name__ == '__main__':
     global no_color
     no_color = False
 
+    total_issues = 0
+
     if "-N" in sys.argv:
         no_color = True
         sys.argv.remove("-N")
@@ -1001,14 +1015,19 @@ if __name__ == '__main__':
     for pkg in pkgs:
         package = Package(filename=pkg)
         package.check_all()
+        total_issues += package.package_issues()
 
     actions = ActionsPY()
     actions.check_all()
+    total_issues += actions.actions_issues()
 
     pxml = PspecXML()
     pxml.check_all()
+    total_issues += pxml.pspec_issues()
 
     txml = TranslationsXML()
     txml.check_all()
+    total_issues += txml.translations_issues()
 
-    print_legend()
+    if not no_color and total_issues:
+        print_legend()

@@ -5,6 +5,7 @@
 # the automatic checks of the packages which are in review process.
 
 import os
+import re
 import sys
 import glob
 import pisi
@@ -25,6 +26,7 @@ import ConfigParser
     #   should contain summaries at least
     # * SUID bit check
     # * Use ArgParse for argument parsing
+    # * Use pisi Constants class to get actions.py pspec.xml and translations.xml names
 
 
 class ActionsPY:
@@ -54,16 +56,19 @@ class ActionsPY:
     def check_actions(self):
         """ Check actions.py for unused imports and os.system() usage """
 
+        #calling qmake* via shelltools.system, os.system is redundant
         try:
             st = get_status_output(('/usr/bin/sfood-checker', self.filename), False)
             for line in st[1].splitlines():
                 self.issues["S"].append(line.split(": ")[1].strip())
-
-            for line in self.actions.splitlines():
-                if "os.system" in line:
-                    self.issues["M"].append('Avoid using "os.system". Use Pisi ActionsAPI instead')
         except OSError:
             print "You must install 'snakefood' package to review actions.py"
+
+        for line in self.actions.splitlines():
+            if re.search('.*system\(.*qmake.*', line):
+                self.issues["M"].append('Use qt4 ActionsAPI module to configure the project')
+            elif "os.system" in line:
+                self.issues["M"].append('Avoid using "os.system". Use Pisi ActionsAPI instead')
 
 
 class PspecXML:
@@ -192,7 +197,7 @@ class PspecXML:
             self.issues["M"].append('Summary for Source package has multiple lines')
 
         if len(s_sum) > 79:
-            self.issues["S"].append('Summary for Source package is too long')
+            self.issues["C"].append('Summary for Source package is too long')
 
         if s_sum.startswith(" "):
             self.issues["C"].append('Summary for Source package has leading whitespace')
@@ -223,7 +228,7 @@ class PspecXML:
                         self.issues["M"].append('Summary for %s package has multiple lines' % pkg_name)
 
                     if len(pkg_sum) > 79:
-                        self.issues["S"].append('Summary for %s package is too long' % pkg_name)
+                        self.issues["C"].append('Summary for %s package is too long' % pkg_name)
 
                     if pkg_sum.startswith(" "):
                         self.issues["C"].append('Summary for %s package has leading whitespace' % pkg_name)
@@ -257,7 +262,9 @@ class PspecXML:
 
         unused_patches = list(set(files_patches).difference(set(pspec_patches)))
 
-        if unused_patches:
+        if len(unused_patches) == 1:
+            self.issues["S"].append('There is an unused patch: %s' % unused_patches)
+        elif len(unused_patches) > 1:
             self.issues["S"].append('There are unused patches: %s' % unused_patches)
 
     def check_description(self):
@@ -276,7 +283,7 @@ class PspecXML:
         if not s_desc.strip().endswith("."):
             self.issues["S"].append('Description for Source package should end with a period')
 
-        if self.s_name.lower() not in s_desc.split(" ")[0].lower():
+        if self.s_name.lower() not in s_desc.lower():
             self.issues["S"].append('Description for Source package should contain the package name')
 
         if not self.s_name.lower() in s_desc.split(" ")[0].lower():
@@ -375,7 +382,7 @@ class TranslationsXML:
                 self.issues["S"].append("Summary[%s] has multiple lines" % i)
 
             if len(summary[i]) > 79:
-                self.issues["S"].append("Summary[%s] is too long" % i)
+                self.issues["C"].append("Summary[%s] is too long" % i)
 
             if summary[i].startswith(" "):
                 self.issues["C"].append("Summary[%s] has leading whitespace" % i)
@@ -406,7 +413,7 @@ class TranslationsXML:
                         self.issues["M"].append('Summary for %s package has multiple lines' % pkg_name)
 
                     if len(pkg_sum) > 79:
-                        self.issues["S"].append('Summary for %s package is too long' % pkg_name)
+                        self.issues["C"].append('Summary for %s package is too long' % pkg_name)
 
                     if pkg_sum.startswith(" "):
                         self.issues["C"].append('Summary for %s package has leading whitespace' % pkg_name)
@@ -452,7 +459,7 @@ class TranslationsXML:
             if not description[i].strip().endswith("."):
                 self.issues["S"].append("Description[%s] should end with a period" % i)
 
-            if self.s_name and self.s_name.lower() not in description[i].split(" ")[0].lower():
+            if self.s_name and self.s_name.lower() not in description[i].lower():
                 self.issues["S"].append("Description[%s] should contain the package name" % i)
 
             if self.s_name and not self.s_name.lower() in description[i].split(" ")[0].lower():
@@ -474,7 +481,7 @@ class TranslationsXML:
                 if not pkg_desc.strip().endswith("."):
                     self.issues["S"].append('Description for %s package should end with a period' % pkg_name)
 
-                if self.s_name.lower() not in pkg_desc.split(" ")[0].lower():
+                if self.s_name.lower() not in pkg_desc.lower():
                     self.issues["S"].append('Description for %s package should contain the package name' % pkg_name)
 
                 if not self.s_name.lower() in pkg_desc.split(" ")[0].lower():
@@ -556,22 +563,22 @@ class Package:
         # - second one holds the paths which aren't correctly marked.
         # e.g.: usr/lib/libnaber.so.3 is a shared object but marked as 'data'. This
         # path is both in the 1st and 2nd array.
+        self.ftypes = {"exe_files":      [[], []],
+                       "xdg_apps":       [[], []],
+                       "desktop_files":  [[], []],
+                       "header_files":   [[], []],
+                       "macro_files":    [[], []],
+                       "shared_libs":    [[], []],
+                       "static_libs":    [[], []],
+                       "config_files":   [[], []],
+                       "pc_files":       [[], []],
+                       "locale_files":   [[], []],
+                       "cache_files":    [[], []],
+                       "man_files":      [[], []],
+                       "doc_files":      [[], []],
+                       "all":            [[], []]
+                       }
 
-        self.ftypes = {}
-        self.ftypes["exe_files"] = [[], []]
-        self.ftypes["xdg_apps"] = [[], []]
-        self.ftypes["desktop_files"] = [[], []]
-        self.ftypes["header_files"] = [[], []]
-        self.ftypes["macro_files"] = [[], []]
-        self.ftypes["shared_libs"] = [[], []]
-        self.ftypes["static_libs"] = [[], []]
-        self.ftypes["config_files"] = [[], []]
-        self.ftypes["pc_files"] = [[], []]
-        self.ftypes["locale_files"] = [[], []]
-        self.ftypes["cache_files"] = [[], []]
-        self.ftypes["man_files"] = [[], []]
-        self.ftypes["doc_files"] = [[], []]
-        self.ftypes["all"] = [[], []]
 
         # fileType=all is a punishment
         self.punishment = False
@@ -726,7 +733,7 @@ class Package:
         # install files are useless since we already ship the package to users
         redundant_files = [f for f in self.ftypes["doc_files"][0] if "install" in f.lower() or "install.txt" in f.lower()]
         if redundant_files:
-            self.issues["M"].append('Unnecessary to distribute files list: %s' % redundant_files)
+            self.issues["S"].append('Unnecessary to distribute files list: %s' % redundant_files)
 
         # shared libraries must be in the -devel package
         if self.p_metadata.name.endswith("-devel") and self.ftypes["shared_libs"][0]:
@@ -791,7 +798,7 @@ class Package:
             self.issues["M"].append('Package has documentation but there is no "IsA->data:doc" tag')
 
         # there are executable files but no app:console IsA
-        if not self.ftypes["xdg_apps"][0] and self.ftypes["exe_files"][0] and "app:console" not in self.p_metadata.isA:
+        if not self.ftypes["xdg_apps"][0] and self.ftypes["exe_files"][0] and "service" not in self.p_metadata.isA and "app:console" not in self.p_metadata.isA:
             self.issues["M"].append('Package has executable file but there is no "IsA->app:console" tag')
 
         # no executable file but app:console IsA
@@ -962,11 +969,16 @@ def check_xml_wf(filename):
             print colorize(" *", "red"), err_line
 
 
-def usage():
+def print_usage():
     print 'Run the script in the directory where source files and pisi packages exist'
     print 'You can pass "-N" parameter to disable colored output. Easy for copy/pasting.'
     return 1
 
+def print_legend():
+    print colorize("Legend:", "bold"), \
+            colorize("*", "red"), "Must fix /", \
+            colorize("*", "yellow"), "Should fix /", \
+            colorize("*"), "Cosmetic fix"
 
 if __name__ == '__main__':
 
@@ -983,7 +995,7 @@ if __name__ == '__main__':
         sys.exit(1)
 
     if not os.path.exists("actions.py") or not os.path.exists("pspec.xml") or len(sys.argv) != 1:
-        usage()
+        print_usage()
         sys.exit(1)
 
     for pkg in pkgs:
@@ -998,3 +1010,5 @@ if __name__ == '__main__':
 
     txml = TranslationsXML()
     txml.check_all()
+
+    print_legend()

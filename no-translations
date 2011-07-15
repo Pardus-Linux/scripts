@@ -4,7 +4,6 @@
 # Find packages with no translations.xml and print them by packagers
 
 import os
-import sys
 import pisi
 
 # Do not put '/' to the end of develDir string
@@ -14,19 +13,18 @@ d = {}
 
 for root, dirs, files in sorted(os.walk(develDir)):
     if "pspec.xml" in files and "translations.xml" not in files:
-        pack_path = root[(len(develDir)+1):]
-        spec = pisi.specfile.SpecFile(root + "/pspec.xml")
+        spec = pisi.specfile.SpecFile(os.path.join(root, "pspec.xml"))
         p_name= spec.source.name
-        packager_name = spec.source.packager
-        if d.has_key(packager_name.__str__()):
-            d[packager_name.__str__()].append(p_name)
+        packager_name = str(spec.source.packager.name)
+        if packager_name in d:
+            d[str(packager_name)].append(p_name)
         else:
-            d[packager_name.__str__()] = [p_name, ]
+            d[str(packager_name)] = [p_name]
 
-for i in d.keys():
-    if len(d[i]) != 0:
-        print "-> " + i
+for i in d:
+    if len(d[i]):
+        print i, "(%s)" % len(d[i])
         for j in d[i]:
-            print "\t" + j
+            print "    ", j
         print
 

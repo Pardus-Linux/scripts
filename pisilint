@@ -56,7 +56,8 @@ class ActionsPY:
     def check_actions(self):
         """ Check actions.py for unused imports and os.system() usage """
 
-        #calling qmake* via shelltools.system, os.system is redundant
+        # Calling qmake* via shelltools.system, os.system is redundant since
+        # the API provides the related methods
         try:
             st = get_status_output(('/usr/bin/sfood-checker', self.filename), False)
             for line in st[1].splitlines():
@@ -122,6 +123,7 @@ class PspecXML:
     def check_build_deps(self):
         """ Check if the build dependencies has system.devel or system.base dependencies """
 
+        pdb = pisi.db.packagedb.PackageDB()
         build_deps = []
         build_deps_tag = self.p_doc.getTag("Source").getTag("BuildDependencies")
         if build_deps_tag:
@@ -130,7 +132,10 @@ class PspecXML:
 
         already_in_sys_dev = []
         already_in_sys_base = []
+        use_devel_pkg = []
         for build_dep in build_deps:
+            if pdb.has_package("%s-devel" % build_dep):
+                use_devel_pkg.append(build_dep)
             if build_dep in self.sys_devel:
                 already_in_sys_dev.append(build_dep)
             elif build_dep in self.sys_base:
@@ -139,8 +144,11 @@ class PspecXML:
         if already_in_sys_dev:
             self.issues["S"].append('There is no need to write "%s" as build dependency since it is already in system.devel' % already_in_sys_dev)
 
-        if already_in_sys_base:
+        elif already_in_sys_base:
             self.issues["S"].append('There is no need to write "%s" as build dependency since it is already in system.base' % already_in_sys_base)
+
+        elif use_devel_pkg:
+            self.issues["M"].append('%s package list has "-devel" counterparts in repo to be written as build dependencies' % use_devel_pkg)
 
     def check_runtime_deps(self):
         """ Check if the runtime dependencies has system.base dependencies and
@@ -744,7 +752,7 @@ class Package:
         if redundant_files:
             self.issues["S"].append('Unnecessary to distribute files list: %s' % redundant_files)
 
-        # shared libraries must be in the -devel package
+        # shared libraries must not be in the -devel package
         if self.p_metadata.name.endswith("-devel") and self.ftypes["shared_libs"][0]:
             self.issues["M"].append('Libraries must not be in the -devel package')
 
@@ -781,36 +789,36 @@ class Package:
         if not self.p_metadata.isA:
             self.issues["M"].append('There must be at least one "IsA" tag')
 
-        # there are desktop files but no app:gui tag
+        # there are desktop files but no IsA->app:gui
         if self.ftypes["xdg_apps"][0] and "app:gui" not in self.p_metadata.isA:
             self.issues["M"].append('Package has a desktop file in XDG_DATA_DIRS but there is no "IsA->app:gui" tag')
 
-        # no desktop file but app:gui tag
+        # no desktop file but IsA->app:gui
         if not self.ftypes["xdg_apps"][0] and "app:gui" in self.p_metadata.isA:
             self.issues["M"].append('Package has no desktop file but there is an "IsA->app:gui" tag')
 
-        # there is an app:gui tag but no icon tag
+        # there is an app:gui tag but no Icon tag
         if "app:gui" in self.p_metadata.isA and not self.p_metadata.icon:
             self.issues["M"].append('Package has an IsA->app:gui tag but there is no "Icon" tag')
 
-        # there are libraries but no library tag
+        # there are libraries but no IsA->library
         if (self.ftypes["shared_libs"][0] or self.ftypes["static_libs"][0]) and "library" not in self.p_metadata.isA:
             self.issues["M"].append('Package has libraries but there is no "IsA->library" tag')
 
-        # there is no library (shared or static) and library tag exist
+        # there is no library (shared or static) however IsA->library tag exists
         if not self.p_metadata.name.endswith("-devel"):  # -devel package considered library
             if not self.ftypes["shared_libs"][0] and not self.ftypes["static_libs"][0] and "library" in self.p_metadata.isA:
                 self.issues["M"].append('Package has no library but there is an "IsA->library" tag')
 
-        # -docs package exist but no data:doc IsA
+        # -docs package exists but no data:doc IsA
         if self.p_metadata.name.endswith("-docs") and "data:doc" not in self.p_metadata.isA:
             self.issues["M"].append('Package has documentation but there is no "IsA->data:doc" tag')
 
-        # there are executable files but no app:console IsA
+        # there are executable files but no IsA->app:console
         if not self.ftypes["xdg_apps"][0] and self.ftypes["exe_files"][0] and "service" not in self.p_metadata.isA and "app:console" not in self.p_metadata.isA:
             self.issues["M"].append('Package has executable file but there is no "IsA->app:console" tag')
 
-        # no executable file but app:console IsA
+        # no executable file but IsA->app:console
         if not self.ftypes["exe_files"][0] and "app:console" in self.p_metadata.isA:
             self.issues["M"].append('Package has no executable file but there is an "IsA->app:console" tag')
 
@@ -876,7 +884,7 @@ class Package:
                     if 'error: ' in line:
                         self.issues["M"].append('%s %s' % (desktop_file, line.split("error: ")[1]))
                     if 'warning: ' in line:
-                        self.issues["M"].append('%s %s' % (desktop_file, line.split("warning: ")[1]))
+                        self.issues["S"].append('%s %s' % (desktop_file, line.split("warning: ")[1]))
             except OSError:
                 print "You must install 'desktop-file-utils' package to review desktop files."
 
@@ -982,9 +990,8 @@ def check_xml_wf(filename):
 
 
 def print_usage():
-    print 'Run the script in the directory where source files and pisi packages exist'
-    print 'You can pass "-N" parameter to disable colored output. Easy for copy/pasting.'
-    return 1
+    print 'Run the script in the directory where source files and pisi packages exist.'
+    print 'You can pass "-N" parameter to disable colored output. Easy for redirecting the output to a file.'
 
 def print_legend():
     print colorize("Legend:", "bold"), \

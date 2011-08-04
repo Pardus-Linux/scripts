@@ -238,10 +238,8 @@ import piksemel
 def normal(str):
     vim.command("normal "+str)
 
-pspec_xml = piksemel.parse("pspec.xml")
-history_tag = pspec_xml.getTag("History")
-comment_tag = history_tag.getTag("Update").getTag("Comment")
-comment_data = comment_tag.firstChild().data()
+pspec = piksemel.parse("pspec.xml")
+comment_data = pspec.getTag("History").getTag("Update").getTagData("Comment")
 
 file_name = "commit-msg.tmp"
 if os.path.exists(file_name):

@@ -47,7 +47,11 @@ for row, line in enumerate(buf[:]):
             if os.path.exists("tmp.xml"):
                 os.unlink("tmp.xml")
             vim.command("w tmp.xml")
-            vim.command("!sudo pisi -d bi --fetch tmp.xml; rm -f tmp.xml")
+            # dont call sudo if invoked as root
+            if os.geteuid():
+                vim.command("!%spisi -d bi --fetch tmp.xml; rm -f tmp.xml")
+            else:
+                vim.command("!pisi -d bi --fetch tmp.xml; rm -f tmp.xml")
 
         new_hash = hashlib.sha1(open(file_path, "r").read()).hexdigest()
         tag.setAttribute("sha1sum", new_hash)

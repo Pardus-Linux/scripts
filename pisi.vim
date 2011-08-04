@@ -235,6 +235,7 @@ endfunction
 
 function! CreateCommit()
 python << EOF
+import re
 import os
 import vim
 import piksemel
@@ -251,6 +252,12 @@ if os.path.exists(file_name):
 
 commit_file  = open(file_name, "w")
 commit_file.write(comment_data)
+
+# \D matches any non-digit chars. we need the bug numbers. so...
+bug_comments = [re.sub("\D", "", i) for i in comment_data.split() if "pb#" in i]
+if bug_comments:
+    for i in bug_comments:
+        commit_file.write("\nBUG:COMMENT:%s" % i)
 commit_file.close()
 
 vim.command(":vs commit-msg.tmp")

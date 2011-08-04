@@ -49,7 +49,7 @@ for row, line in enumerate(buf[:]):
             vim.command("w tmp.xml")
             # dont call sudo if invoked as root
             if os.geteuid():
-                vim.command("!%spisi -d bi --fetch tmp.xml; rm -f tmp.xml")
+                vim.command("!sudo pisi -d bi --fetch tmp.xml; rm -f tmp.xml")
             else:
                 vim.command("!pisi -d bi --fetch tmp.xml; rm -f tmp.xml")
 

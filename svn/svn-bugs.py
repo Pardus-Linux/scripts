@@ -19,6 +19,9 @@ BUG_UPDATE_LASTDIFFED_SQL = "UPDATE bugs SET lastdiffed='%(cur_time)s' WHERE bug
 # Query to set the status of a bug to RESOLVED:FIXED
 BUG_FIXED_SQL = "UPDATE bugs SET bug_status='RESOLVED',resolution='FIXED' WHERE bug_id=%(bug_id)s"
 
+# Query to set the status of a bug to CLOSED
+BUG_CLOSED_SQL = "UPDATE bugs SET bug_status='CLOSED' WHERE bug_id=%(bug_id)s"
+
 # Fetch User id
 BUG_USERID_SQL = "SELECT userid FROM `profiles` WHERE login_name='%(mail)s'"
 
@@ -133,11 +136,23 @@ def main(author, log, commit_no, changed, repo):
         cur.execute(BUG_FIXED_SQL % {"bug_id": bug_id})
         db.commit()
 
+    def closeBUG(bug_id):
+        if verbose:
+            print "closeBug(%s)" % bug_id
+        commentBUG(bug_id)
+        cur.execute(BUG_ACTIVITY_STATUS_SQL % {"bug_id": bug_id, "user_id": getAuthorBugzillaID(), "bug_when": cur_time, "fieldid" : 8, "added" : "CLOSED", "removed": getOldBugStatus()})
+        db.commit()
+
+        cur.execute(BUG_CLOSED_SQL % {"bug_id": bug_id})
+        db.commit()
+
     for cmd, bug_id in checkLOG(log):
         if cmd == "COMMENT":
             commentBUG(bug_id)
         elif cmd == "FIXED":
             fixBUG(bug_id)
+        elif cmd == "CLOSED":
+            closeBUG(bug_id)
 
         # Send e-mail
         if verbose:

@@ -13,6 +13,8 @@ BUG_COMMENT_SQL = """INSERT INTO longdescs (bug_id, who, bug_when, thetext, work
 BUG_ACTIVITY_STATUS_SQL = """INSERT INTO bugs_activity (bug_id, who, bug_when, fieldid, added, removed) VALUES ('%(bug_id)s', %(user_id)d, '%(bug_when)s', %(fieldid)d, '%(added)s', '%(removed)s')"""
 BUG_ACTIVITY_RESOLUTION_SQL = """INSERT INTO bugs_activity (bug_id, who, bug_when, fieldid, added, removed) VALUES ('%(bug_id)s', %(user_id)d, '%(bug_when)s', %(fieldid)d, '%(added)s', '%(removed)s')"""
 
+BUG_KEYWORDS_INSERT_SQL = """INSERT INTO keywords (bug_id, keywordid) VALUES ('%(bug_id)s', '%(keywordid)d')"""
+
 # Update lastdiffed timestamp
 BUG_UPDATE_LASTDIFFED_SQL = "UPDATE bugs SET lastdiffed='%(cur_time)s' WHERE bug_id=%(bug_id)s"
 
@@ -30,6 +32,9 @@ BUG_STATUS_SQL = "SELECT bug_status FROM `bugs` WHERE bug_id='%(bug_id)s'"
 
 # Fetch Bug resolution
 BUG_RESOLUTION_SQL = "SELECT resolution FROM `bugs` WHERE bug_id='%(bug_id)s'"
+
+# Fetch Keyword ID
+BUG_KEYWORDS_SELECT_SQL = "SELECT id FROM `keyworddefs` WHERE name='%(name)s'"
 
 BUG_COMMENT_TEMPLATE = u"""Author: %(author)s
 Repository: %(repo)s
@@ -71,6 +76,16 @@ def checkLOG(log):
     for line in log.split("\n"):
         if line.startswith("BUG:"):
             yield checkBUG(line)
+
+def splitIDAndKEY(id_key):
+    bug_id = ""
+    for ch in id_key:
+        if ch in string.digits:
+            bug_id += ch
+        else:
+            index = id_key.find(ch)
+            keyword = id_key[index:len(id_key)]
+            return bug_id, keyword
 
 def main(author, log, commit_no, changed, repo):
     cur_time = time.strftime("%Y-%m-%d %H:%M:%S")
@@ -115,6 +130,11 @@ def main(author, log, commit_no, changed, repo):
              return cur.fetchone()[0]
          return 1
 
+    def getKeyID(name):
+         if cur.execute(BUG_KEYWORDS_SELECT_SQL % {"name": name}) == 1:
+             return cur.fetchone()[0]
+         return -1
+
     def commentBUG(bug_id):
         # FIXME author is 1...
         if verbose:
@@ -146,6 +166,16 @@ def main(author, log, commit_no, changed, repo):
         cur.execute(BUG_CLOSED_SQL % {"bug_id": bug_id})
         db.commit()
 
+    def addKEY(bug_id):
+        if verbose:
+            print "addKEY(%s)" % bug_id
+        bug_id, keyword = splitIDAndKEY(bug_id)
+        keywordid = getKeyID(keyword)
+        if keywordid == -1:
+            return
+        cur.execute(BUG_KEYWORDS_INSERT_SQL % {"bug_id": bug_id, "keywordid": keywordid})
+        db.commit()
+
     for cmd, bug_id in checkLOG(log):
         if cmd == "COMMENT":
             commentBUG(bug_id)
@@ -153,6 +183,8 @@ def main(author, log, commit_no, changed, repo):
             fixBUG(bug_id)
         elif cmd == "CLOSED":
             closeBUG(bug_id)
+        elif cmd == "KEY":
+            addKEY(bug_id)
 
         # Send e-mail
         if verbose:

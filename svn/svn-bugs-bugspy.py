@@ -16,7 +16,7 @@ SVN_ERROR_FILE = "/var/www/bugzilla.pardus.org.tr/scripts/svn/svn.error"
 
 BUGSPY_CONFIG_FILE = "/var/www/bugzilla.pardus.org.tr/scripts/svn/bugspy.conf"
 
-BUG_COMMENT_TEMPLATE = u"""Author: %(author)s
+BUG_COMMENT_TEMPLATE = u"""Author: %(author)s%(author_full)s
 Repository: %(repo)s
 Commit: %(commit_no)s
 
@@ -79,11 +79,11 @@ def main(author, msg, commit_no, changed, repo):
     if repo_name == "pisi":
         repo_name = "pardus"
 
-    author_name = getAuthorName(author)
-    if author_name:
-        author = author_name
+    author_name = " (%s)" % getAuthorName(author)
+    if not author_name:
+        author_name = ""
 
-    thetext = BUG_COMMENT_TEMPLATE % {"author":author, "repo": repo_name, "commit_no": commit_no, "changed": changed, "log": msg}
+    thetext = BUG_COMMENT_TEMPLATE % {"author": author, "author_full": author_name, "repo": repo_name, "commit_no": commit_no, "changed": changed, "log": msg}
 
     # These shouldn't be needed anymore
     """

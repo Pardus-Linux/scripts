@@ -110,11 +110,19 @@ def main(author, msg, commit_no, changed, repo):
                         resolution="FIXED",
                         comment=thetext)
 
+    def closeBUG(bug_id):
+        log.info("Closing bug..")
+        bugzilla.modify(bug_id=bug_id,
+                        status="CLOSED",
+                        comment=thetext)
+
     for cmd, bug_id in checkLOG(msg.split('\n')):
         if cmd == "COMMENT":
             commentBUG(bug_id)
         elif cmd == "FIXED":
             fixBUG(bug_id)
+        elif cmd == "CLOSED":
+            closeBUG(bug_id)
 
 if __name__ == "__main__":
     SVNLOOK='/usr/bin/svnlook'

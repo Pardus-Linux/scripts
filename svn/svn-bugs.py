@@ -5,6 +5,7 @@ import os
 import sys
 import time
 import urllib2
+import string
 
 import MySQLdb as mysql
 

@@ -5,6 +5,7 @@ import os
 import sys
 import time
 import urllib2
+import string
 
 import logging
 
@@ -71,6 +72,16 @@ def checkLOG(msg):
         if line.startswith("BUG:"):
             yield checkBUG(line)
 
+def splitIDAndKEY(id_key):
+    bug_id = ""
+    for ch in id_key:
+        if ch in string.digits:
+            bug_id += ch
+        else:
+            index = id_key.find(ch)
+            keyword = id_key[index:len(id_key)]
+            return bug_id, keyword
+
 def main(author, msg, commit_no, changed, repo):
     changed = arrayTostring(changed)
     msg = arrayTostring(msg)
@@ -116,6 +127,13 @@ def main(author, msg, commit_no, changed, repo):
                         status="CLOSED",
                         comment=thetext)
 
+    def addKEY(bug_id):
+        log.info("Adding key..")
+        bug_id, keyword = splitIDAndKEY(bug_id)
+        bugzilla.modify(bug_id=bug_id,
+                        keywords="%s" % keyword,
+                        comment=thetext)
+
     for cmd, bug_id in checkLOG(msg.split('\n')):
         if cmd == "COMMENT":
             commentBUG(bug_id)
@@ -123,6 +141,8 @@ def main(author, msg, commit_no, changed, repo):
             fixBUG(bug_id)
         elif cmd == "CLOSED":
             closeBUG(bug_id)
+        elif cmd == "KEY":
+            addKEY(bug_id)
 
 if __name__ == "__main__":
     SVNLOOK='/usr/bin/svnlook'

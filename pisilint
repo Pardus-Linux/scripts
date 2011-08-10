@@ -16,6 +16,9 @@ import subprocess
 import ConfigParser
 
 # TODO:
+    # * Check for INSTALL, COPYING etc in source and recommend them to bundle
+    #   if they are not already. check for pythonmodules.py for an example of the
+    #   usage.
     # * Consider moving summary and description checks to Package class
     # * Check for dodoc'ed files in WorkDir (except INSTALL and etc.)
     # * Check for man pages by their extensions and look for their directory if
@@ -26,20 +29,22 @@ import ConfigParser
     #   should contain summaries at least
     # * SUID bit check
     # * Use ArgParse for argument parsing
-    # * Use pisi Constants class to get actions.py pspec.xml and translations.xml names
 
 
-class ActionsPY:
+class CheckActionsPY:
+    """ Checks actions.py if they contains unused imports or system() usage """
+
     def __init__(self, filename="actions.py"):
         self.filename = filename
 
         # Must, Should, Cosmetic fixes
         self.issues = {"M": [], "S": [], "C": []}
 
-        with open(filename, "r") as f:
-            self.actions = f.read()
+        with open(filename, "r") as f_actions:
+            self.actions = f_actions.read()
 
     def check_all(self):
+        """ Call all check functions """
         self.check_actions()
 
         if any(map(lambda x: not x == [], self.issues.values())):
@@ -56,15 +61,15 @@ class ActionsPY:
     def check_actions(self):
         """ Check actions.py for unused imports and os.system() usage """
 
-        # Calling qmake* via shelltools.system, os.system is redundant since
-        # the API provides the related methods
         try:
-            st = get_status_output(('/usr/bin/sfood-checker', self.filename), False)
-            for line in st[1].splitlines():
+            status = get_status_output(('/usr/bin/sfood-checker', self.filename), False)
+            for line in status[1].splitlines():
                 self.issues["S"].append(line.split(": ")[1].strip())
         except OSError:
             print "You must install 'snakefood' package to review actions.py"
 
+        # Calling qmake* via system() is redundant since
+        # the API provides the related methods
         for line in self.actions.splitlines():
             if re.search('.*system\(.*qmake.*', line):
                 self.issues["M"].append('Use qt4 ActionsAPI module to configure the project')
@@ -72,18 +77,20 @@ class ActionsPY:
                 self.issues["M"].append('Avoid using "os.system". Use Pisi ActionsAPI instead')
 
     def actions_issues(self):
+        """ Total issues reported by the CheckActionsPY class """
         return sum((map(lambda x: len(x), self.issues.values())))
 
 
-class PspecXML:
+class CheckPspecXML:
+    """ All methods related to pspec.xml checking like summary, description, archive and etc. """
 
     def __init__(self, filename="pspec.xml"):
 
         # Must, Should, Cosmetic fixes
         self.issues = {"M": [], "S": [], "C": []}
 
-        with open(filename, "r") as f:
-            self.filename = f.read()
+        with open(filename, "r") as f_pspec:
+            self.filename = f_pspec.read()
 
         self.p_doc = piksemel.parseString(self.filename)
         self.s_name = self.p_doc.getTag("Source").getTagData("Name")
@@ -100,6 +107,8 @@ class PspecXML:
                     self.sys_devel.extend(self.cdb.get_packages('system.devel', repo))
 
     def check_all(self):
+        """ Call all check functions """
+
         self.check_build_deps()
         self.check_runtime_deps()
         self.check_packager_name()
@@ -141,14 +150,19 @@ class PspecXML:
             elif build_dep in self.sys_base:
                 already_in_sys_base.append(build_dep)
 
+        #FIXME
+        """
         if already_in_sys_dev:
             self.issues["S"].append('There is no need to write "%s" as build dependency since it is already in system.devel' % already_in_sys_dev)
 
         elif already_in_sys_base:
             self.issues["S"].append('There is no need to write "%s" as build dependency since it is already in system.base' % already_in_sys_base)
 
-        elif use_devel_pkg:
-            self.issues["M"].append('%s package list has "-devel" counterparts in repo to be written as build dependencies' % use_devel_pkg)
+        if len(use_devel_pkg) == 1:
+            self.issues["M"].append('%s has "-devel" counterpart in repo to be written as build dependencies' % use_devel_pkg)
+        elif len(use_devel_pkg) > 1:
+            self.issues["M"].append('%s packages have "-devel" counterparts in repo to be written as build dependencies' % use_devel_pkg)
+        """
 
     def check_runtime_deps(self):
         """ Check if the runtime dependencies has system.base dependencies and
@@ -269,14 +283,14 @@ class PspecXML:
                 pspec_patches.append(patch.firstChild().data())
 
         for root, dirs, files in os.walk("files"):
-            files_patches = [patch for patch in files if patch.endswith(".patch") or patch.endswith(".diff")]
+            [files_patches.append(patch) for patch in files if patch.endswith(".patch") or patch.endswith(".diff")]
 
         unused_patches = list(set(files_patches).difference(set(pspec_patches)))
 
         if len(unused_patches) == 1:
-            self.issues["S"].append('There is an unused patch: %s' % unused_patches)
+            self.issues["S"].append('There is an unapplied patch: %s' % unused_patches)
         elif len(unused_patches) > 1:
-            self.issues["S"].append('There are unused patches: %s' % unused_patches)
+            self.issues["S"].append('There are unapplied patches: %s' % unused_patches)
 
     def check_description(self):
         """ Many checks for Description such as leading/trailing whitespaces etc. """
@@ -336,10 +350,12 @@ class PspecXML:
             self.issues["S"].append('/usr/share is shallow, widen the path into more specific paths')
 
     def pspec_issues(self):
+        """ Total issues reported by the CheckPspecXML class """
         return sum((map(lambda x: len(x), self.issues.values())))
 
 
-class TranslationsXML:
+class CheckTranslationsXML:
+    """ Cosmetic checks of summary and description lines """
 
     def __init__(self, filename="translations.xml"):
 
@@ -347,8 +363,8 @@ class TranslationsXML:
         self.issues = {"M": [], "S": [], "C": []}
 
         try:
-            with open(filename, "r") as f:
-                self.t_doc = piksemel.parseString(f.read())
+            with open(filename, "r") as f_translations:
+                self.t_doc = piksemel.parseString(f_translations.read())
         except IOError:
             print colorize("translations.xml")
             print colorize("----------------")
@@ -358,6 +374,8 @@ class TranslationsXML:
         self.s_name = self.t_doc.getTag("Source").getTagData("Name")
 
     def check_all(self):
+        """ Call all check functions """
+
         self.check_package_name()
         self.check_summary()
         self.check_description()
@@ -503,10 +521,12 @@ class TranslationsXML:
                         self.issues["S"].append('First character of the Description for %s package should be capitalized' % pkg_name)
 
     def translations_issues(self):
+        """ Total issues reported by the CheckTranslationsXML class """
         return sum((map(lambda x: len(x), self.issues.values())))
 
 
-class Package:
+class CheckPackage:
+    """ Grand class of the script. Checks for filetypes, permission, desktop files etc. """
 
     def __init__(self, filename):
 
@@ -541,6 +561,8 @@ class Package:
         shutil.rmtree(self.package_tmpdir)
 
     def check_all(self):
+        """ Call all check functions """
+
         self.check_filetype()
         self.check_isa()
         self.check_package_name()
@@ -830,6 +852,7 @@ class Package:
             self.issues["M"].append('Length of the package name must be lesser than 64 characters to fit in a CD')
 
     def check_permission(self):
+        """ Checks the permission related stuff of the files """
 
         # TODO:
         # - Package contains weird file/dir permissions like 744 etc.
@@ -842,7 +865,6 @@ class Package:
         """ Checks for the empty files. """
 
         for _file in self.files:
-
             if not _file.size and _file.mode != "0755":  # Check only empty files, not dirs
                 if not _file.path.endswith(".py"):  # __init__.py files are mostly empty nowadays :(
                     self.issues["S"].append("%s is an empty file" % _file.path)
@@ -869,22 +891,22 @@ class Package:
                     self.issues["S"].append('Package contains version control system directories (%s)' % scm_dir)
 
     def check_desktop_file(self):
-        """ Validates the desktop file by execution desktop-file-validate command.
-        Besides checks for the Turkish translation of the localized enties such as GenericName and Comment."""
+        """ Validates the desktop file by executing desktop-file-validate command.
+        Besides, checks the Turkish translation of the localized entries such as GenericName and Comment."""
 
         for desktop_file in self.ftypes["desktop_files"][0]:
 
             desktop_file_path = os.path.join(self.package_tmpdir, desktop_file)
 
             try:
-                st = get_status_output(('/usr/bin/desktop-file-validate', desktop_file_path), True)
+                status = get_status_output(('/usr/bin/desktop-file-validate', desktop_file_path), True)
                 got_error = False
                 got_warning = False
-                for line in st[1].splitlines():
+                for line in status[1].splitlines():
                     if 'error: ' in line:
                         self.issues["M"].append('%s %s' % (desktop_file, line.split("error: ")[1]))
                     if 'warning: ' in line:
-                        self.issues["S"].append('%s %s' % (desktop_file, line.split("warning: ")[1]))
+                        self.issues["M"].append('%s %s' % (desktop_file, line.split("warning: ")[1]))
             except OSError:
                 print "You must install 'desktop-file-utils' package to review desktop files."
 
@@ -912,6 +934,7 @@ class Package:
                 self.issues["S"].append('%s is missing "Comment[tr]" entry' % desktop_file)
 
     def package_issues(self):
+        """ Total issues reported by the CheckPackage class """
         return sum((map(lambda x: len(x), self.issues.values())))
 
 
@@ -994,6 +1017,8 @@ def print_usage():
     print 'You can pass "-N" parameter to disable colored output. Easy for redirecting the output to a file.'
 
 def print_legend():
+    """ Prints the meanings of M, S and C, a.k.a legend """
+
     print colorize("Legend:", "bold"), \
             colorize("*", "red"), "Must fix /", \
             colorize("*", "yellow"), "Should fix /", \
@@ -1020,19 +1045,19 @@ if __name__ == '__main__':
         sys.exit(1)
 
     for pkg in pkgs:
-        package = Package(filename=pkg)
+        package = CheckPackage(filename=pkg)
         package.check_all()
         total_issues += package.package_issues()
 
-    actions = ActionsPY()
+    actions = CheckActionsPY()
     actions.check_all()
     total_issues += actions.actions_issues()
 
-    pxml = PspecXML()
+    pxml = CheckPspecXML()
     pxml.check_all()
     total_issues += pxml.pspec_issues()
 
-    txml = TranslationsXML()
+    txml = CheckTranslationsXML()
     txml.check_all()
     total_issues += txml.translations_issues()
 

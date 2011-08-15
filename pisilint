@@ -16,15 +16,8 @@ import subprocess
 import ConfigParser
 
 # TODO:
-    # * Check for INSTALL, COPYING etc in source and recommend them to bundle
-    #   if they are not already. check for pythonmodules.py for an example of the
-    #   usage.
-    # * Consider moving summary and description checks to Package class
     # * Check for dodoc'ed files in WorkDir (except INSTALL and etc.)
-    # * Check for man pages by their extensions and look for their directory if
-    #   it is correct.
-    # * Check for documentation files and sum all the files and check if its is
-    #   greater than 1MB. Then suggest making -docs package
+    # * Consider moving summary and description checks to Package class
     # * If the source package has more than one package, the sub packages
     #   should contain summaries at least
     # * SUID bit check
@@ -188,9 +181,14 @@ class CheckPspecXML:
     def check_packager_name(self):
         """ Check if the packager name has uppercased words """
         faulty_packager_name = []
-        for i in self.p_doc.getTag("Source").getTag("Packager").getTagData("Name").split(" "):
-            if len(i) > 2 and i.isupper():  # Consider abbreviations
-                faulty_packager_name.append(i)
+
+        packager_name = self.p_doc.getTag("Source").getTag("Packager").getTagData("Name")
+        if packager_name.lower() == "pardus":
+            self.issues["M"].append('Packager name is "%s". Why don\'t you take over the package?' % packager_name)
+        else:
+            for i in packager_name.split(" "):
+                if len(i) > 2 and i.isupper():  # Consider abbreviations
+                    faulty_packager_name.append(i)
 
         if faulty_packager_name:
             self.issues["M"].append('Packager-name contains uppercased word (%s)' % ' '.join(faulty_packager_name))
@@ -743,7 +741,7 @@ class CheckPackage:
 
         # .cache files, like icon-theme.cache or ld.so.cache, must be generated in the user system.
         if self.ftypes["cache_files"][0]:
-            self.issues["M"].append('Package contains a cache file which must be generated in the user system. It mustnt be in the package')
+            self.issues["M"].append('Package contains a cache file (%s) which could be generated in the user system. It might not  be in the package' % self.ftypes["cache_files"][0])
 
         # shared libraries must be marked as library
         if self.ftypes["shared_libs"][1]:
@@ -901,12 +899,10 @@ class CheckPackage:
             try:
                 status = get_status_output(('/usr/bin/desktop-file-validate', desktop_file_path), True)
                 got_error = False
-                got_warning = False
                 for line in status[1].splitlines():
+                    # Consider just errors, not warning since they piss of the packagers.
                     if 'error: ' in line:
                         self.issues["M"].append('%s %s' % (desktop_file, line.split("error: ")[1]))
-                    if 'warning: ' in line:
-                        self.issues["M"].append('%s %s' % (desktop_file, line.split("warning: ")[1]))
             except OSError:
                 print "You must install 'desktop-file-utils' package to review desktop files."
 

@@ -17,7 +17,9 @@ import sys
 import pisi
 import pisi.dependency as dependency
 from pisi.graph import CycleException
+
 import piksemel
+import multiprocessing
 
 class SourceDB:
     def __init__(self, index):
@@ -119,6 +121,19 @@ def find_circle(sourcedb, A):
 
     return ""
 
+def processPackage(pkg, sourcesLength, counter):
+    global sourcedb
+
+    sys.stdout.write("\r(%04d/%d) Calculating build dep of %s                       " % (counter, sourcesLength, pkg))
+    sys.stdout.flush()
+
+    return find_circle(sourcedb, [pkg])
+
+def updateStatus(circleResult):
+    global cycles
+    cycles.add(circleResult)
+
+
 if __name__ == "__main__":
 
     if len(sys.argv) < 2:
@@ -126,15 +141,28 @@ if __name__ == "__main__":
         sys.exit(1)
 
     sourcedb = SourceDB(sys.argv[1])
-    cycles = set()
     sources = sourcedb.list_specs()
-    ls = len(sources)
-    i = 0
-    for pkg in sources:
-        i += 1
-        sys.stdout.write("\r(%04d/%d) Calculating build dep of %s                       " % (i, ls, pkg))
-        sys.stdout.flush()
-        cycles.add(find_circle(sourcedb, [pkg]))
 
-    for cycle in cycles:
-        print cycle
+    sourcesLength = len(sources)
+    counter = 0
+
+    global cycles
+    cycles = set()
+
+    pool = multiprocessing.Pool()
+
+    for pkg in sources:
+        counter += 1
+        pool.apply_async(processPackage, (pkg, sourcesLength, counter), callback=updateStatus)
+
+    pool.close()
+    pool.join()
+
+    if len(cycles):
+        print
+        for cycle in cycles:
+            print cycle
+    else:
+        print "No circular dep found"
+
+

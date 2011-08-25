@@ -13,13 +13,18 @@
 #
 
 import sys
+import multiprocessing
+
+import urllib2
+import bz2
+import lzma
+
+import piksemel
 
 import pisi
 import pisi.dependency as dependency
 from pisi.graph import CycleException
 
-import piksemel
-import multiprocessing
 
 class SourceDB:
     def __init__(self, index):
@@ -27,7 +32,7 @@ class SourceDB:
         self.__source_nodes = {}
         self.__pkgstosrc = {}
 
-        doc = piksemel.parse(index)
+        doc = piksemel.parseString(index)
         self.__source_nodes, self.__pkgstosrc = self.__generate_sources(doc)
 
     def __generate_sources(self, doc):
@@ -121,6 +126,25 @@ def find_circle(sourcedb, A):
 
     return ""
 
+def getIndex(uri):
+    try:
+        if "://" in uri:
+            rawdata = urllib2.urlopen(uri).read()
+        else:
+            rawdata = open(uri, "r").read()
+    except IOError:
+        print "could not fetch %s" % uri
+        return None
+
+    if uri.endswith("bz2"):
+        data = bz2.decompress(rawdata)
+    elif uri.endswith("xz") or uri.endswith("lzma"):
+        data = lzma.decompress(rawdata)
+    else:
+        data = rawdata
+
+    return data
+
 def processPackage(pkg, sourcesLength, counter):
     global sourcedb
 
@@ -140,7 +164,8 @@ if __name__ == "__main__":
         print "Usage: circlefinder.py <source repo pisi-index.xml file>"
         sys.exit(1)
 
-    sourcedb = SourceDB(sys.argv[1])
+    rawIndex = getIndex(sys.argv[1])
+    sourcedb = SourceDB(rawIndex)
     sources = sourcedb.list_specs()
 
     sourcesLength = len(sources)

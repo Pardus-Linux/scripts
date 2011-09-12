@@ -9,9 +9,6 @@ import subprocess
 
 import pisi
 
-# Do the proper adjustments here before using the script.
-
-
 # If set to prompt, the password will be prompted upon execution
 smtp_password = "prompt"
 
@@ -19,20 +16,13 @@ smtp_server = "mail.pardus.org.tr"
 
 mail_from = sys.argv[1]
 smtp_user = mail_from.split("@")[0]
-mail_from_en = "pardus-announce@pardus.org.tr"
-mail_from_name_en = "Pardus Announcements"
-mail_from_tr = "duyuru@pardus.org.tr"
-mail_from_name_tr = "Pardus Duyuruları"
-
-# If set to prompt, the password will be prompted upon execution
-smtp_password = "prompt"
 
 # Mail template
 
 mail_template_en = """\
 From: %(mail_from_name_en)s <%(mail_from_en)s>
 To: %(mail_to_en)s
-Subject: [Pardus] Updates in stable %(arch)s repository
+Subject: %(arch)s %(desc_en)s - Stable Updates
 Content-Type: text/plain;
             charset="utf-8"
 
@@ -52,7 +42,7 @@ Pardus Team
 mail_template_tr = """\
 From: %(mail_from_name_tr)s <%(mail_from_tr)s>
 To: %(mail_to_tr)s
-Subject: [Pardus] %(arch)s kararlı depo güncellemeleri
+Subject: %(arch)s %(desc_tr)s - Kararlı Güncellemeler
 Content-Type: text/plain;
             charset="utf-8"
 
@@ -108,16 +98,9 @@ def usage():
 
 def get_different_packages(temp_stable, cur_stable):
     p = subprocess.Popen(["rsync", "-an", "--out-format=%f", temp_stable+"/", cur_stable+"/"],
-                          stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+                          stdout=subprocess.PIPE, stderr=subprocess.PIPE).stdout.read().strip()
 
-    return [line for line in p[0].split("\n") if line.endswith(".pisi")]
-
-def parse_package_name(package_name):
-    # Strip extension if exists
-    package_name.replace(".pisi", "")
-    name, version, release, distro_id, archi = package_name.rsplit("-", 4)
-
-    return name
+    return [line for line in p.split("\n") if line.endswith(".pisi")]
 
 if __name__ == "__main__":
 
@@ -135,9 +118,10 @@ if __name__ == "__main__":
         usage()
 
     arch_map = {
-        "i686"  :   "32bit",
-        "x86_64":   "64bit",
+        "i686"  :   "32-bit",
+        "x86_64":   "64-bit",
         }
+    descriptions = {}
 
     for arch in arch_map.keys():
         if not os.path.exists(os.path.join(temp_stable_dir, arch)):
@@ -152,6 +136,8 @@ if __name__ == "__main__":
                                                           arch,
                                                           "pisi-index.xml"))
 
+        descriptions = temp_stable_index.distribution.description
+
         different_packages = get_different_packages(os.path.join(temp_stable_dir, arch),
                                                     os.path.join(cur_stable_dir, arch))
 
@@ -164,21 +150,26 @@ if __name__ == "__main__":
             # Traverse the list of the packages that will
             # be transferred to the remote repository
             pkg_filename = os.path.basename(pkg)
-            pkg_name = parse_package_name(pkg_filename)
+            pkg_name = pkg_filename.replace(".pisi", "").rsplit("-", 4)[0]
 
-            # Generate a report of what changed
+            # Generate a report of package changes
+            update = temp_stable_packages[pkg_name][0].comment
+            update = "\n".join([line.strip() for line in \
+                                update.split("\n")])
             try:
-                report += "%s (%s)\n%s\n\n" % (pkg_name, pkg_filename, temp_stable_packages[pkg_name][0].comment)
+                report += "%s (%s)\n%s\n\n" % (pkg_name, pkg_filename, update)
             except KeyError:
                 print "Error happened for %s" % pkg_name
 
 
-        template_values = {"mail_from_en"      : mail_from_en,
-                           "mail_from_name_en" : mail_from_name_en,
-                           "mail_from_tr"      : mail_from_tr,
-                           "mail_from_name_tr" : mail_from_name_tr,
+        template_values = {"mail_from_en"      : "pardus-announce@pardus.org.tr",
+                           "mail_from_name_en" : "Pardus Team",
+                           "mail_from_tr"      : "duyuru@pardus.org.tr",
+                           "mail_from_name_tr" : "Pardus Ekibi",
                            "mail_to_tr"        : "duyuru@pardus.org.tr",
                            "mail_to_en"        : "pardus-announce@pardus.org.tr",
+                           "desc_en"           : descriptions['en'],
+                           "desc_tr"           : descriptions['tr'],
                            "packages"          : report,
                            "arch"              : arch_map[arch]}
 

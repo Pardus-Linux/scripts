@@ -4,8 +4,8 @@
 import os
 import sys
 import socket
-import subprocess
 import smtplib
+import subprocess
 
 import pisi
 
@@ -32,18 +32,17 @@ smtp_password = "prompt"
 mail_template_en = """\
 From: %(mail_from_name_en)s <%(mail_from_en)s>
 To: %(mail_to_en)s
-Subject: [Pardus] Updates in stable %(arch)s repo
+Subject: [Pardus] Updates in stable %(arch)s repository
 Content-Type: text/plain;
             charset="utf-8"
 
-Dear Pardus users,
+Dear Pardus Community,
 
-    Below, you will find the list of packages that will be updated in the stable repo.
-We strongly recommend you to update your system in order to experience a more reliable
-Pardus with a better performance.
+    Below, you will find the list of updates that will be published in stable repositories.
+We strongly recommend you to update your system in order to improve the overall reliability of your system.
 
 Best regards,
-Pardus team
+Pardus Team
 
 ----------------------------------------------
 
@@ -59,12 +58,11 @@ Content-Type: text/plain;
 
 Değerli Pardus kullanıcıları,
 
-    Aşağıda yer alan listede görebileceğiniz paketler gün içinde kararlı depodan
-yayınlanmaya başlayacaktır. Sisteminizin kararlı olması ve daha iyi performans
-sağlamanız için bu güncellemeleri yapmanızı öneririz.
+    Aşağıda yer alan listedeki güncellemeler, gün içinde kararlı depodan yayınlanacaktır.
+Sisteminizin kararlılığını arttırmak için, güncellemeleri mutlaka yapmanızı öneririz.
 
 İyi çalışmalar,
-Pardus ekibi
+Pardus Ekibi
 
 ----------------------------------------------
 
@@ -93,13 +91,11 @@ def send_mails(recipient, mail):
         print "*** Authentication failed. Check your credentials."
         return
 
-    result = None
-
     try:
         print "*** Sending e-mail to %s.." % recipient
-        result = session.sendmail(mail_from, recipient, mail)
+        session.sendmail(mail_from, recipient, mail)
     except KeyboardInterrupt:
-        print "*** Caught CTRL+C, Quiting.."
+        print "*** Caught CTRL+C, Exiting.."
         sys.exit(1)
     except:
         print "*** Problem occured when sending e-mail to %s" % recipient
@@ -110,9 +106,6 @@ def usage():
     print "Usage: %s <your-mail-address> <temporary-stable> <public-stable>" % sys.argv[0]
     sys.exit(1)
 
-def generate_package_report(package_name, last_history):
-    return
-
 def get_different_packages(temp_stable, cur_stable):
     p = subprocess.Popen(["rsync", "-an", "--out-format=%f", temp_stable+"/", cur_stable+"/"],
                           stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
@@ -122,7 +115,7 @@ def get_different_packages(temp_stable, cur_stable):
 def parse_package_name(package_name):
     # Strip extension if exists
     package_name.replace(".pisi", "")
-    name, version, release, distro_id, arch = package_name.rsplit("-", 4)
+    name, version, release, distro_id, archi = package_name.rsplit("-", 4)
 
     return name
 
@@ -141,10 +134,12 @@ if __name__ == "__main__":
     except IndexError:
         usage()
 
-    architectures = ["i686", "x86_64"]
-    arch_map = {"i686":"32bit", "x86_64":"64bit"}
-    
-    for arch in architectures:
+    arch_map = {
+        "i686"  :   "32bit",
+        "x86_64":   "64bit",
+        }
+
+    for arch in arch_map.keys():
         if not os.path.exists(os.path.join(temp_stable_dir, arch)):
             print "Skipping %s as it doesn't exist.." % arch
 

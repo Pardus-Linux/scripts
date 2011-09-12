@@ -34,7 +34,8 @@ We strongly recommend you to update your system in order to improve the overall 
 Best regards,
 Pardus Team
 
-----------------------------------------------
+---
+
 
 %(packages)s
 """
@@ -54,7 +55,8 @@ Sisteminizin kararlılığını arttırmak için, güncellemeleri mutlaka yapman
 İyi çalışmalar,
 Pardus Ekibi
 
-----------------------------------------------
+---
+
 
 %(packages)s
 """

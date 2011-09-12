@@ -153,14 +153,13 @@ if __name__ == "__main__":
             pkg_name = pkg_filename.replace(".pisi", "").rsplit("-", 4)[0]
 
             # Generate a report of package changes
-            update = temp_stable_packages[pkg_name][0].comment
-            update = "\n".join([line.strip() for line in \
-                                update.split("\n")])
-            try:
-                report += "%s (%s)\n%s\n\n" % (pkg_name, pkg_filename, update)
-            except KeyError:
-                print "Error happened for %s" % pkg_name
+            update_lines = temp_stable_packages[pkg_name][0].comment.split("\n")
+            # Put 2-space tabs at line beginnings
+            update_lines[0] = "  %s" % update_lines[0]
+            updates = "\n  ".join([line.strip() for line in update_lines])
 
+            first_line = "%s (%s)" % (pkg_name, pkg_filename)
+            report += "%s\n%s\n%s\n\n" % (first_line, ('-'*len(first_line)), updates)
 
         template_values = {"mail_from_en"      : "pardus-announce@pardus.org.tr",
                            "mail_from_name_en" : "Pardus Team",

@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2007, TUBITAK/UEKAE
+# Copyright (C) 2007-2011 TUBITAK/UEKAE
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free
@@ -17,41 +17,33 @@ import piksemel
 
 tubitak_devel = {}
 non_tubitak_devel = {}
-packagestats = {"tubitak_maintained":0,
-                "nontubitak_maintained":0}
+packagestats = {"tubitak_maintained"    : 0,
+                "nontubitak_maintained" : 0,
+               }
 
 # TUBITAK employees who are maintainers of at least one package
-TUBITAK = ["S.Çağlar Onur",
-           "İsmail Dönmez",
-           "Onur Küçük",
-           "Bahadır Kandemir",
-           "Fatih Aşıcı",
-           "Gökmen Göksel",
-           "Faik Uygur",
-           "Ekin Meroğlu",
-           "Koray Löker",
-           "Gökçen Eraslan",
-           "Pınar Yanardağ",
-           "Ozan Çağlayan",
-           "Bertan Gündoğdu",
-           "Beyza Ermis",
-           "Çağlar Kilimci",
-           "Ekin Meroğlu",
-           "Erdem Bayer",
-           "Eren Türkay",
-           "Fatih Arslan",
-           "Gökhan Özbulak",
-           "H. İbrahim Güngör",
-           "Koray Löker",
-           "Mehmet Emre Atasever",
-           "Mehmet Özdemir",
-           "Meltem Parmaksız",
-           "Mete Alpaslan",
-           "Mete Bilgin",
-           "Metin Akdere",
-           "Renan Çakırerk",
-           "Semen Cirit",
-           "Serdar Dalgıç"
+TUBITAK = [
+            "H. İbrahim Güngör",
+            "Meltem Parmaksız",
+            "Gökhan Özbulak",
+            "Serdar Dalgıç",
+            "Ozan Çağlayan",
+            "Fatih Aşıcı",
+            "Fatih Arslan",
+            "Bertan Gündoğdu",
+            "Gökçen Eraslan",
+            "Renan Çakırerk",
+            "Metin Akdere",
+            "Gökmen Göksel",
+            "Mehmet Özdemir",
+            "Beyza Ermis",
+            "Çağlar Kilimci",
+            "Eren Türkay",
+            "Ekin Meroğlu",
+            "Koray Löker",
+            "Mehmet Emre Atasever",
+            "Mete Bilgin",
+            "Semen Cirit",
            ]
 
 def parseRepoIndex(index):
@@ -63,6 +55,7 @@ def parseRepoIndex(index):
     for spec in doc.tags("SpecFile"):
         pkgr = spec.getTag("Source").getTag("Packager")
         name = pkgr.getTagData("Name")
+        email = pkgr.getTagData("Email")
         curdict = None
         if name not in TUBITAK:
             curdict = non_tubitak_devel
@@ -102,7 +95,7 @@ print
 
 total_maintained = packagestats["tubitak_maintained"] + packagestats["nontubitak_maintained"]
 
-print "Total source pisi packages in given Pardus 2007 repositories are %d.\n" % total_maintained
+print "Total source pisi packages in given Pardus repositories are %d.\n" % total_maintained
 
 print "%4d (%.0f%%) are maintained by non-TUBITAK developers." % (packagestats["nontubitak_maintained"], 100.0*packagestats["nontubitak_maintained"]/total_maintained)
 print "%4d (%.0f%%) are maintained by TUBITAK developers.\n" % (packagestats["tubitak_maintained"], 100.0*packagestats["tubitak_maintained"]/total_maintained)

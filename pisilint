@@ -21,11 +21,13 @@ import ConfigParser
     # * If the source package has more than one package, the sub packages
     #   should contain summaries at least
     # * SUID bit check
+    # * Package contains weird file/dir permissions like 744 etc.
+    # * Documents contains executable bit
     # * Use ArgParse for argument parsing
 
 
 class CheckActionsPY:
-    """ Checks actions.py if they contains unused imports or system() usage """
+    """ Check actions.py if it has unused imports or system() usage """
 
     def __init__(self, filename="actions.py"):
         self.filename = filename
@@ -52,7 +54,7 @@ class CheckActionsPY:
             print
 
     def check_actions(self):
-        """ Check actions.py for unused imports and os.system() usage """
+        """ Check actions.py for unused imports and system() usage """
 
         try:
             status = get_status_output(('/usr/bin/sfood-checker', self.filename), False)
@@ -122,8 +124,9 @@ class CheckPspecXML:
                 print colorize(" *"), issue
             print
 
+    # FIXME: Rewrite these method
     def check_build_deps(self):
-        """ Check if the build dependencies has system.devel or system.base dependencies """
+        """ Check if the BuildDependencies tag has system.devel or system.base dependencies """
 
         pdb = pisi.db.packagedb.PackageDB()
         build_deps = []
@@ -143,7 +146,6 @@ class CheckPspecXML:
             elif build_dep in self.sys_base:
                 already_in_sys_base.append(build_dep)
 
-        #FIXME
         """
         if already_in_sys_dev:
             self.issues["S"].append('There is no need to write "%s" as build dependency since it is already in system.devel' % already_in_sys_dev)
@@ -158,7 +160,7 @@ class CheckPspecXML:
         """
 
     def check_runtime_deps(self):
-        """ Check if the runtime dependencies has system.base dependencies and
+        """ Check if the RuntimeDependencies tag has system.base dependencies and
         check for release="current" attribute in -devel package's dependency tags """
 
         deps = {}
@@ -202,12 +204,12 @@ class CheckPspecXML:
         # There is no clean way to detect if the archive is supported by mirrors,
         # So just check for Sourceforge since it is the most common mistake packagers do.
         archives = self.p_doc.getTag("Source").tags("Archive")
-        archive_len = 0
+        archive_count = 0
 
         for archive in archives:
             if not archive.firstChild().data().startswith("mirrors://") and "sourceforge" in archive.firstChild().data():
-                self.issues["M"].append('Use "mirrors://sourceforge/<project-name>" in Archive[%s] to keep advantage of Sourceforge mirrors' % archive_len)
-            archive_len += 1
+                self.issues["M"].append('Use "mirrors://sourceforge/<project-name>" in Archive[%s] to keep advantage of Sourceforge mirrors' % archive_count)
+            archive_count += 1
 
     def check_summary(self):
         """ Many checks for Summary such as leading/trailing whitespaces etc. """
@@ -717,7 +719,7 @@ class CheckPackage:
             if _file.type == "all":
                 self.punishment = True
 
-        # Check filetypes in here
+        # Fill the issue list here
         #########################
 
         if self.punishment:
@@ -830,6 +832,10 @@ class CheckPackage:
             if not self.ftypes["shared_libs"][0] and not self.ftypes["static_libs"][0] and "library" in self.p_metadata.isA:
                 self.issues["M"].append('Package has no library but there is an "IsA->library" tag')
 
+        # -doc package does not conform to package naming guideline
+        if self.p_metadata.name.endswith("-doc"):
+            self.issues["M"].append('-doc package name must be -docs to conform to package naming guideline')
+
         # -docs package exists but no data:doc IsA
         if self.p_metadata.name.endswith("-docs") and "data:doc" not in self.p_metadata.isA:
             self.issues["M"].append('Package has documentation but there is no "IsA->data:doc" tag')
@@ -848,16 +854,6 @@ class CheckPackage:
         # Package name length must be lesser than 64 character to fit in a CD (Joliet FS restriction)
         if len(self.p_metadata.name) > 64:
             self.issues["M"].append('Length of the package name must be lesser than 64 characters to fit in a CD')
-
-    def check_permission(self):
-        """ Checks the permission related stuff of the files """
-
-        # TODO:
-        # - Package contains weird file/dir permissions like 744 etc.
-        # - Documents contains executable bit
-        # - SUID bit check
-
-        pass
 
     def check_empty_file(self):
         """ Checks for the empty files. """

@@ -271,7 +271,7 @@ class CheckPspecXML:
                         self.issues["S"].append('Summary for %s package should not end with a period' % pkg_name)
 
     def check_patches(self):
-        """ Check for *.patch and *.diff in files/ directory and compare them with Patches tag. """
+        """ Check for *.patch and *.diff in files/ directory and compare them with the patches in Patches tag. """
 
         pspec_patches = []
         files_patches = []
@@ -283,7 +283,7 @@ class CheckPspecXML:
                 pspec_patches.append(patch.firstChild().data())
 
         for root, dirs, files in os.walk("files"):
-            [files_patches.append(patch) for patch in files if patch.endswith(".patch") or patch.endswith(".diff")]
+            [files_patches.append(os.path.join(root[len('files/'):], patch)) for patch in files if patch.endswith(".patch") or patch.endswith(".diff")]
 
         unused_patches = list(set(files_patches).difference(set(pspec_patches)))
 
@@ -640,7 +640,7 @@ class CheckPackage:
                 if "%s/applications" % _appdir in os.path.join("/", _file.path):
                     self.ftypes["xdg_apps"][0].append(_file.path)
 
-            # All desktop files to validate
+            # All desktop files to be validated
             if _file.path.endswith(".desktop"):
                 self.ftypes["desktop_files"][0].append(_file.path)
 

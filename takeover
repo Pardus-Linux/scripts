@@ -1,32 +1,55 @@
-#!/bin/bash
-
-# in order to list the paths
-# find -name pspec.xml | xargs grep -B2 '<Email><packager email></Email>' | grep Packager > <packagelistfile>
-
-#in order to change all files run the below script
-
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
+#-*- coding: utf-8 -*-
 
-#import os
+import os
+import sys
 
-#f = open('<packagelistfile>')
-#lines = f.readlines()
-#f.close()
-
-#for line in lines:
-#    print line
-#    os.system('./takeover %s' %line)
-
-# Usage: takeover pardus/devel/kernel/kernel/pspec.xml
-
-NAME="YOUR NAME"
-EMAIL="YOUR EMAIL"
-
-sed -i "/<Packager>$/{
+TEMPLATE = """sed -i "/<Packager>$/{
 N
 N
 N
-s/<Name>.*<\/Name>\n/<Name>$NAME<\/Name>\n/
-s/<Email>.*<\/Email>\n/<Email>$EMAIL<\/Email>\n/
-}" $*
+s/<Name>.*<\/Name>\\n/<Name>%s<\/Name>\\n/
+s/<Email>.*<\/Email>\\n/<Email>%s<\/Email>\\n/
+}" %s """
+
+def get_and_save_user_info():
+    name = "PACKAGER_NAME"
+    email = "PACKAGER_EMAIL"
+
+    conf_file = os.path.expanduser("~/.packagerinfo")
+    if os.path.exists(conf_file):
+        # Read from it
+        name, email = open(conf_file, "r").read().strip().split(",")
+
+    else:
+        print "Please enter your full name as seen in pspec files"
+        name = raw_input("> ")
+        print "Please enter your e-mail as seen in pspec files"
+        email = raw_input("> ")
+        print "Saving packager info into %s" % conf_file
+
+        open(conf_file, "w").write("%s,%s" % (name, email))
+
+    return name, email
+
+def takeover(path):
+    packager_name, packager_email = get_and_save_user_info()
+    if os.path.isdir(path):
+        path = os.path.join(path, 'pspec.xml')
+    os.system(TEMPLATE % (packager_name, packager_email, path))
+    print "Taking over %s ... done" % path
+
+if __name__=='__main__':
+
+    if len(sys.argv) == 1:
+        print "Usage: takeover PATH_TO_PSPEC_FILE_TO_TAKE | PATH_TO_PACKAGE_LIST"
+        sys.exit(1)
+
+    for arg in sys.argv[1:]:
+        if arg.endswith('.xml'):
+            takeover(arg)
+        else:
+            paths = open(arg).readlines()
+            for path in paths:
+                takeover(path.strip())
+

@@ -1,0 +1,106 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import os
+import re
+import sys
+import hashlib
+import datetime
+
+maintainer_name = ""
+maintainer_mail = ""
+
+def bump_spec(spec, ver):
+    lines = open(spec).readlines()
+    name_line = -1
+    archive_line = -1
+    dep_line = -1
+    update_line = -1
+    dep_lines = []
+
+    for n, line in enumerate(lines):
+        if "<Source>" in line:
+            name_line = n + 1
+
+        elif "<Archive" in line:
+            archive_line = n
+
+        elif "<Dependency" in line:
+            dep_lines.append(n)
+
+        elif "<History>" in line:
+            update_line = n + 1
+
+    m = re.match(r" *<Name>(.+)</Name>", lines[name_line])
+    name = m.groups()[0]
+    lang = name.split("-", 1)[-1]
+
+    m = re.match(r' *<Archive type=".+" sha1sum="(.+)">(.+)</Archive>', lines[archive_line])
+    if m is None:
+        m = re.match(r' *<Archive sha1sum="(.+)" type=".+">(.+)</Archive>', lines[archive_line])
+
+    sha1sum, uri = m.groups()
+    archive_name = os.path.basename(uri)
+
+    m = re.match(r' *<Update release="(.*?)"', lines[update_line])
+    release = int(m.groups()[0])
+
+    m = re.match(r" *<Version>(.+)</Version>", lines[update_line + 2])
+    old_version = m.groups()[0]
+
+    if old_version == version:
+        print "%s is already at version %s" % (name, version)
+        return
+
+    lines[archive_line] = lines[archive_line].replace(old_version, version)
+    new_archive_name = archive_name.replace(old_version, version)
+
+    if not os.path.exists("/var/cache/pisi/archives/%s" % new_archive_name):
+        print "Archive not found downloading via pisi..."
+
+        tmp_spec_file = spec_file.replace("pspec", "tmp_pspec")
+        open(tmp_spec_file, "w").writelines(lines)
+        os.system("sudo pisi build %s --fetch" % tmp_spec_file)
+        os.unlink(tmp_spec_file)
+    else:
+        print "Using existing archive from cache..."
+
+    new_sha1sum = hashlib.sha1(open("/var/cache/pisi/archives/%s" % new_archive_name).read()).hexdigest()
+    lines[archive_line] = lines[archive_line].replace(sha1sum, new_sha1sum)
+
+
+    for dep_line in dep_lines:
+        m = re.match(r' *<Dependency versionFrom="(.*)">.*', lines[dep_line])
+        if m:
+            dep_version = m.groups()[0]
+            if dep_version == old_version:
+                lines[dep_line] = lines[dep_line].replace(old_version, version)
+
+    update_lines = [
+            '        <Update release="%d">\n' % (release + 1),
+            '            <Date>%s</Date>\n' % datetime.date.isoformat(datetime.date.today()),
+            '            <Version>%s</Version>\n' % version,
+            '            <Comment>Version bump to %s</Comment>\n' % version,
+            '            <Name>%s</Name>\n' % maintainer_name,
+            '            <Email>%s</Email>\n' % maintainer_mail,
+            '        </Update>\n']
+
+    lines[update_line:update_line] = update_lines
+
+    open(spec_file, "w").writelines(lines)
+    print "%s updated" % spec_file
+
+if __name__ == "__main__":
+    if len(sys.argv) <3:
+        print "%s version file1 file2 ..." % sys.argv[0]
+        sys.exit(1)
+
+    try:
+        version = sys.argv[1]
+        files = sys.argv[2:]
+    except IOError:
+        print "%s version file1 file2 ..." % sys.argv[0]
+        sys.exit(1)
+
+    for spec_file in files:
+        bump_spec(spec_file, version)

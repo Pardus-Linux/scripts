@@ -59,9 +59,9 @@ class CheckActionsPY:
         try:
             status = get_status_output(('/usr/bin/sfood-checker', self.filename), False)
             for line in status[1].splitlines():
-                self.issues["S"].append(line.split(": ")[1].strip())
+                self.issues["C"].append(line.split(": ")[1].strip())
         except OSError:
-            print "You must install 'snakefood' package to review actions.py"
+            print colorize('You must install "snakefood" package to review actions.py', 'red')
 
         # Calling qmake* via system() is redundant since
         # the API provides the related methods
@@ -288,9 +288,9 @@ class CheckPspecXML:
         unused_patches = list(set(files_patches).difference(set(pspec_patches)))
 
         if len(unused_patches) == 1:
-            self.issues["S"].append('There is an unapplied patch: %s' % unused_patches)
+            self.issues["C"].append('There is an unapplied patch: %s' % unused_patches)
         elif len(unused_patches) > 1:
-            self.issues["S"].append('There are unapplied patches: %s' % unused_patches)
+            self.issues["C"].append('There are unapplied patches: %s' % unused_patches)
 
     def check_description(self):
         """ Many checks for Description such as leading/trailing whitespaces etc. """
@@ -596,6 +596,9 @@ class CheckPackage:
 
         self.env_path = os.getenv("PATH").split(":")
 
+        # FIXME: Consider looking at ld.so.conf.d directory and append the library directoris to the list
+        self.lib_dir = ("/lib/", "/usr/lib/")
+
         # ftypes dictionary holds the files' types that package contains. all
         # keys' value is a 2 dimensional array:
         # - first one holds the paths.
@@ -635,6 +638,16 @@ class CheckPackage:
                     if _file.type != "executable":
                         self.ftypes["exe_files"][1].append(_file.path)
 
+            # Shared libraries
+            for _libdir in self.lib_dir:
+                if os.path.join("/", _file.path).startswith(_libdir):
+                    if len(os.path.join("/", _file.path).split(_libdir)[1].split("/")) == 1 and \
+                            _file.path.endswith(".so") or ".so." in _file.path:
+                        self.ftypes["shared_libs"][0].append(_file.path)
+
+                        if _file.type != "library":
+                            self.ftypes["shared_libs"][1].append(_file.path)
+
             # Desktop files in XDG_DATA_DIRS
             for _appdir in self.env_xdg_data_dirs:
                 if "%s/applications" % _appdir in os.path.join("/", _file.path):
@@ -659,13 +672,6 @@ class CheckPackage:
 
                 if _file.type != "data":
                     self.ftypes["macro_files"][1].append(_file.path)
-
-            # Shared libraries
-            if _file.path.endswith(".so") or ".so." in _file.path:
-                self.ftypes["shared_libs"][0].append(_file.path)
-
-                if _file.type != "library":
-                    self.ftypes["shared_libs"][1].append(_file.path)
 
             # Static libraries
             if _file.path.endswith(".a"):
@@ -861,7 +867,7 @@ class CheckPackage:
         for _file in self.files:
             if not _file.size and _file.mode != "0755":  # Check only empty files, not dirs
                 if not _file.path.endswith(".py"):  # __init__.py files are mostly empty nowadays :(
-                    self.issues["S"].append("%s is an empty file" % _file.path)
+                    self.issues["S"].append("/%s is an empty file" % _file.path)
 
     def check_redundant_file(self):
         """ Checks for SCM dirs (.git, .cvs, .svn etc.) and pisi tmp_dir in file paths """
@@ -900,30 +906,22 @@ class CheckPackage:
                     if 'error: ' in line:
                         self.issues["M"].append('%s %s' % (desktop_file, line.split("error: ")[1]))
             except OSError:
-                print "You must install 'desktop-file-utils' package to review desktop files."
+                print colorize('You must install "desktop-file-utils" package to review desktop files.', 'red')
 
             parser = DesktopParser()
             parser.read(desktop_file_path)
 
-            try:
-                parser.get("Desktop Entry", "GenericName")
-            except ConfigParser.NoOptionError:
-                self.issues["S"].append('%s is missing "GenericName" entry' % desktop_file)
+            # Groupless desktop files are not valid according to fd.o desktop spec.
+            if not parser.sections():
+                self.issues["S"].append('%s has no group. There must be, according to the fd.o desktop file specification' % desktop_file)
 
-            try:
-                parser.get_locale("Desktop Entry", "GenericName", "tr")
-            except ConfigParser.NoOptionError:
-                self.issues["S"].append('%s is missing "GenericName[tr]" entry' % desktop_file)
+            if parser.has_section("Desktop Entry"):
+                if parser.has_option("Desktop Entry", "GenericName") and not parser.has_option("Desktop Entry", "GenericName[tr]"):
+                    self.issues["S"].append('%s has GenericName entry but no Turkish translation"' % desktop_file)
 
-            try:
-                parser.get("Desktop Entry", "Comment")
-            except ConfigParser.NoOptionError:
-                self.issues["S"].append('%s is missing "Comment" entry' % desktop_file)
-
-            try:
-                parser.get_locale("Desktop Entry", "Comment", "tr")
-            except ConfigParser.NoOptionError:
-                self.issues["S"].append('%s is missing "Comment[tr]" entry' % desktop_file)
+            if parser.has_section("Desktop Entry"):
+                if parser.has_option("Desktop Entry", "Comment") and not parser.has_option("Desktop Entry", "Comment[tr]"):
+                    self.issues["S"].append('%s has Comment entry but no Turkish translation"' % desktop_file)
 
     def package_issues(self):
         """ Total issues reported by the CheckPackage class """
@@ -936,17 +934,9 @@ class DesktopParser(ConfigParser.ConfigParser):
     def __init__(self, defaults=None):
         ConfigParser.ConfigParser.__init__(self, defaults)
 
+    # Desktop files are case sensitive so override this method to make it work
     def optionxform(self, optionstr):
-        # Desktop files are case sensitive so override this method to make it work
         return optionstr
-
-    def __localize(self, option, locale):
-        if locale:
-            self.option = option + '[%s]' % locale
-        return self.option
-
-    def get_locale(self, section, option, locale):
-        return self.get(section, self.__localize(option, locale))
 
 
 def colorize(msg, color=False):

@@ -221,8 +221,8 @@ class CheckPspecXML:
         if "\n" in s_sum:
             self.issues["M"].append('Summary for Source package has multiple lines')
 
-        if len(s_sum) > 79:
-            self.issues["C"].append('Summary for Source package is too long')
+        if len(s_sum) < 10:
+            self.issues["C"].append('Summary for Source package is too short')
 
         if s_sum.startswith(" "):
             self.issues["C"].append('Summary for Source package has leading whitespace')
@@ -252,8 +252,8 @@ class CheckPspecXML:
                     if "\n" in pkg_sum:
                         self.issues["M"].append('Summary for %s package has multiple lines' % pkg_name)
 
-                    if len(pkg_sum) > 79:
-                        self.issues["C"].append('Summary for %s package is too long' % pkg_name)
+                    if len(pkg_sum) < 10:
+                        self.issues["C"].append('Summary for %s package is too short' % pkg_name)
 
                     if pkg_sum.startswith(" "):
                         self.issues["C"].append('Summary for %s package has leading whitespace' % pkg_name)
@@ -413,8 +413,8 @@ class CheckTranslationsXML:
             if "\n" in summary[i]:
                 self.issues["S"].append("Summary[%s] has multiple lines" % i)
 
-            if len(summary[i]) > 79:
-                self.issues["C"].append("Summary[%s] is too long" % i)
+            if len(summary[i]) < 10:
+                self.issues["C"].append("Summary[%s] is too short" % i)
 
             if summary[i].startswith(" "):
                 self.issues["C"].append("Summary[%s] has leading whitespace" % i)
@@ -444,8 +444,8 @@ class CheckTranslationsXML:
                     if "\n" in pkg_sum:
                         self.issues["M"].append('Summary for %s package has multiple lines' % pkg_name)
 
-                    if len(pkg_sum) > 79:
-                        self.issues["C"].append('Summary for %s package is too long' % pkg_name)
+                    if len(pkg_sum) < 10:
+                        self.issues["C"].append('Summary for %s package is too short' % pkg_name)
 
                     if pkg_sum.startswith(" "):
                         self.issues["C"].append('Summary for %s package has leading whitespace' % pkg_name)

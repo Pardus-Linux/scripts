@@ -36,7 +36,9 @@ def takeover(path):
     packager_name, packager_email = get_and_save_user_info()
     if os.path.isdir(path):
         path = os.path.join(path, 'pspec.xml')
-    if not os.system(TEMPLATE % (packager_name, packager_email, path)):
+    if not os.path.exists(path):
+        print "Taking over %s failed, package not found !" % path
+    elif not os.system(TEMPLATE % (packager_name, packager_email, path)):
         print "Taking over %s ... done" % path
 
 if __name__=='__main__':

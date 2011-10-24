@@ -7,12 +7,13 @@ import os
 import sys
 import pisi
 import time
+from optparse import OptionParser
 
 RELEASE = """\
-        <Update release="%s">
+        <Update release="%s"%s>
             <Date>%s</Date>
             <Version>%s</Version>
-            <Comment>%s</Comment>
+            <Comment>%s</Comment>%s
             <Name>%s</Name>
             <Email>%s</Email>
         </Update>
@@ -49,7 +50,10 @@ def get_and_save_user_info():
 
     return name, email
 
-def increment_release(pspec, comment, packager_name, packager_email, version=None):
+def increment_release(pspec, comment, packager_name, packager_email,
+                      critical_packages, sec_packages,
+                      bumptype, version):
+
     last = pisi.specfile.SpecFile("pspec.xml").history[0]
     release = int(last.release) + 1
     if not version:
@@ -57,8 +61,23 @@ def increment_release(pspec, comment, packager_name, packager_email, version=Non
 
     date = time.strftime("%Y-%m-%d")
 
+    if bumptype:
+        updatetype = " type=\"%s\"" % bumptype
+    else:
+        updatetype=""
+
+    crit_or_sec = ""
+
+    if sec_packages:
+        for pkg in sec_packages:
+            crit_or_sec += "\n            <Type package=\"%s\">security</Type>" % pkg
+    elif critical_packages:
+        for pkg in critical_packages:
+            crit_or_sec += "\n            <Type package=\"%s\">critical</Type>" % pkg
+
     global RELEASE
-    new_release = RELEASE % (release, date, version, comment,
+    new_release = RELEASE % (release, updatetype, date, version, comment,
+                             crit_or_sec,
                              packager_name,
                              packager_email)
 
@@ -89,24 +108,53 @@ def update_sha1sum(pspec):
 
 if __name__ == "__main__":
 
-    if len(sys.argv) < 2:
-        print "Usage: %s <Release comment> [Bumped version]" % sys.argv[0]
-        sys.exit(1)
+    usage = "Usage: %s [options]"
+    parser = OptionParser(usage)
+    parser.add_option("-m", "--message",
+                      dest="message",
+                      help="Commit message for merge operation.")
+    parser.add_option("-n", "--no-increment",
+                      dest="no_increment",
+                      default=False,
+                      help="Do not increment release, just update sha1sums.",
+                      action="store_true")
+    parser.add_option("-c", "--critical",
+                      dest="critical",
+                      default=None,
+                      help="Mark update as critical and add Type=critical for those packages",
+                      action="append")
+    parser.add_option("-s", "--security",
+                      dest="security",
+                      default=None,
+                      help="Mark update as security and add Type=security for those packages",
+                      action="append")
+    parser.add_option("--all-critical",
+                      dest="bumptype",
+                      action="store_const",
+                      const="critical",
+                      help="Mark the update critical for all packages [old way]")
+    parser.add_option("--all-security",
+                      dest="bumptype",
+                      action="store_const",
+                      const="security",
+                      help="Mark the update security for all packages [old way]")
+    parser.add_option("-v", "--version",
+                      dest="version",
+                      help="Version of the package. If none specified \
+                            it is the version of the latest update")
 
-    comment = sys.argv[1]
-    version = None
+    (options,paths) = parser.parse_args()
 
     pspec = open("pspec.xml", "r").read().strip()
-    try:
-        version = sys.argv[2]
-    except IndexError:
-        pass
+
+    # First fetch the tarball
+    if os.getenv("USER") != "root":
+        os.system("sudo pisi build pspec.xml --fetch")
     else:
-        # First fetch the tarball
         os.system("pisi build pspec.xml --fetch")
 
-        # Update sha1sum
-        pspec = update_sha1sum(pspec)
+    # Update sha1sum
+    pspec = update_sha1sum(pspec)
 
     # Add translations.xml
     if not os.path.exists("translations.xml"):
@@ -115,6 +163,14 @@ if __name__ == "__main__":
 
     packager_name, packager_email = get_and_save_user_info()
 
-    # Increment release
-    new_pspec = increment_release(pspec, comment, packager_name, packager_email, version)
+    if options.no_increment:
+        new_pspec = pspec
+    else:
+        # Increment release
+        new_pspec = increment_release(pspec, options.message, packager_name, packager_email,
+                                      options.critical, options.security,
+                                      options.bumptype, options.version)
+
     open("pspec.xml", "w").write(new_pspec)
+    # To put a newline at the end of the pspec.xml
+    open("pspec.xml", "a").write("\n")

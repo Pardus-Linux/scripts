@@ -58,6 +58,10 @@ def increment_release(pspec, comment, packager_name, packager_email,
     release = int(last.release) + 1
     if not version:
         version = last.version
+        if not comment:
+            comment = last.comment
+    else:
+        comment = "Version bump."
 
     date = time.strftime("%Y-%m-%d")
 

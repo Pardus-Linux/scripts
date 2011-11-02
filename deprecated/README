@@ -9,3 +9,7 @@ checklib
 package-owners-diff.py
 --------
 replaced by package-owners-diff2.py
+
+bump
+----
+Old version of bump without cmdline parameters at all.

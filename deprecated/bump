@@ -1,0 +1,120 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# A semi-automatic bump script
+
+import os
+import sys
+import pisi
+import time
+
+RELEASE = """\
+        <Update release="%s">
+            <Date>%s</Date>
+            <Version>%s</Version>
+            <Comment>%s</Comment>
+            <Name>%s</Name>
+            <Email>%s</Email>
+        </Update>
+"""
+
+TRANSLATIONS = """\
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>%s</Name>
+        <Summary xml:lang="tr">Add a summary for the package</Summary>
+        <Description xml:lang="tr">Add a description for the package.</Description>
+    </Source>
+</PISI>
+"""
+
+def get_and_save_user_info():
+    name = "PACKAGER_NAME"
+    email = "PACKAGER_EMAIL"
+
+    conf_file = os.path.expanduser("~/.packagerinfo")
+    if os.path.exists(conf_file):
+        # Read from it
+        name, email = open(conf_file, "r").read().strip().split(",")
+
+    else:
+        print "Please enter your full name as seen in pspec files"
+        name = raw_input("> ")
+        print "Please enter your e-mail as seen in pspec files"
+        email = raw_input("> ")
+        print "Saving packager info into %s" % conf_file
+
+        open(conf_file, "w").write("%s,%s" % (name, email))
+
+    return name, email
+
+def increment_release(pspec, comment, packager_name, packager_email, version=None):
+    last = pisi.specfile.SpecFile("pspec.xml").history[0]
+    release = int(last.release) + 1
+    if not version:
+        version = last.version
+
+    date = time.strftime("%Y-%m-%d")
+
+    global RELEASE
+    new_release = RELEASE % (release, date, version, comment,
+                             packager_name,
+                             packager_email)
+
+    return pspec.replace("<History>\n", "<History>\n%s" % new_release)
+
+def update_sha1sum(pspec):
+    sums = []
+    for archive in pisi.specfile.SpecFile('pspec.xml').source.archive:
+        uri = os.path.basename(archive.uri)
+        sh = os.popen("sha1sum /var/cache/pisi/archives/%s" % uri).read().split()[0]
+        sums.append(sh)
+
+    print sums
+    sumi = 0
+
+    if len(sums) > 0:
+        ret = []
+        for line in pspec.split("\n"):
+            if " <Archive" in line:
+                nls = line.split("sha1sum=\"")
+                nl = nls[0] + "sha1sum=\"%s\"" % sums[sumi] + nls[1].split("\"", 1)[1]
+                ret.append(nl)
+                sumi += 1
+            else:
+                ret.append(line)
+
+        return "\n".join(ret)
+
+if __name__ == "__main__":
+
+    if len(sys.argv) < 2:
+        print "Usage: %s <Release comment> [Bumped version]" % sys.argv[0]
+        sys.exit(1)
+
+    comment = sys.argv[1]
+    version = None
+
+    pspec = open("pspec.xml", "r").read().strip()
+    try:
+        version = sys.argv[2]
+    except IndexError:
+        pass
+    else:
+        # First fetch the tarball
+        os.system("pisi build pspec.xml --fetch")
+
+        # Update sha1sum
+        pspec = update_sha1sum(pspec)
+
+    # Add translations.xml
+    if not os.path.exists("translations.xml"):
+        open("translations.xml", "w").write(TRANSLATIONS % os.path.basename(os.getcwd()))
+        os.system("svn add translations.xml")
+
+    packager_name, packager_email = get_and_save_user_info()
+
+    # Increment release
+    new_pspec = increment_release(pspec, comment, packager_name, packager_email, version)
+    open("pspec.xml", "w").write(new_pspec)

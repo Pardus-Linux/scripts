@@ -59,13 +59,8 @@ def increment_release(pspec, comment, packager_name, packager_email,
 
     # FIXME: Write something useful to guess version from source archive
     # And add comment = "Version bump."
-
     if not version:
         version = last.version
-        if not comment:
-            comment = last.comment
-    else:
-        comment = "Version bump."
 
     date = time.strftime("%Y-%m-%d")
 
@@ -116,11 +111,8 @@ def update_sha1sum(pspec):
 
 if __name__ == "__main__":
 
-    usage = "Usage: %s [options]"
+    usage = "Usage: %s <Release comment> [Bumped version] [options]"
     parser = OptionParser(usage)
-    parser.add_option("-m", "--message",
-                      dest="message",
-                      help="Commit message for merge operation.")
     parser.add_option("-n", "--no-increment",
                       dest="no_increment",
                       default=False,
@@ -146,16 +138,19 @@ if __name__ == "__main__":
                       action="store_const",
                       const="security",
                       help="Mark the update security for all packages [old way]")
-    parser.add_option("-v", "--version",
-                      dest="version",
-                      help="Version of the package. If none specified \
-                            it is the version of the latest update")
 
-    (options,paths) = parser.parse_args()
+    (options,args) = parser.parse_args()
 
-    if len(sys.argv) == 1:
-        print("*** Incrementing release with default behaviour ***")
-        print("*** Please specify options to change comment and version ***")
+    try:
+        comment = args[0]
+    except IndexError:
+        print "You should write a comment for the bump!!"
+        sys.exit(1)
+
+    if len(args) > 1:
+        version = args[1]
+    else:
+        version = None
 
     pspec = open("pspec.xml", "r").read().strip()
 
@@ -179,9 +174,9 @@ if __name__ == "__main__":
         new_pspec = pspec
     else:
         # Increment release
-        new_pspec = increment_release(pspec, options.message, packager_name, packager_email,
+        new_pspec = increment_release(pspec, comment, packager_name, packager_email,
                                       options.critical, options.security,
-                                      options.bumptype, options.version)
+                                      options.bumptype, version)
 
     open("pspec.xml", "w").write(new_pspec)
     # To put a newline at the end of the pspec.xml

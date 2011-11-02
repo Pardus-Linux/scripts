@@ -42,6 +42,9 @@ TUBITAK = [
             "Mehmet Emre Atasever",
             "Mete Bilgin",
             "Semen Cirit",
+            "Akın Ömeroğlu",
+            "Kaan Özdinçer",
+            "Pamir Talazan",
            ]
 
 def parseRepoIndex(index):

@@ -99,7 +99,7 @@ def usage():
     sys.exit(1)
 
 def get_different_packages(temp_stable, cur_stable):
-    p = subprocess.Popen(["rsync", "-an", "--out-format=%f", temp_stable+"/", cur_stable+"/"],
+    p = subprocess.Popen(["rsync", "--exclude=*.delta.pisi", "-an", "--out-format=%f", temp_stable+"/", cur_stable+"/"],
                           stdout=subprocess.PIPE, stderr=subprocess.PIPE).stdout.read().strip()
 
     return [line for line in p.split("\n") if line.endswith(".pisi")]

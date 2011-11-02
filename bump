@@ -59,9 +59,9 @@ def increment_release(pspec, comment, packager_name, packager_email,
     if not version:
         version = last.version
         if not comment:
-            comment = last.comment
+            comment = "Version bump."
     else:
-        comment = "Version bump."
+        comment = "Write your comment here!!"
 
     date = time.strftime("%Y-%m-%d")
 
@@ -148,6 +148,10 @@ if __name__ == "__main__":
                             it is the version of the latest update")
 
     (options,paths) = parser.parse_args()
+
+    if len(sys.argv) == 1:
+        print("*** Incrementing release with default behaviour ***")
+        print("*** Please specify options to change comment and version ***")
 
     pspec = open("pspec.xml", "r").read().strip()
 

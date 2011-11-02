@@ -56,10 +56,14 @@ def increment_release(pspec, comment, packager_name, packager_email,
 
     last = pisi.specfile.SpecFile("pspec.xml").history[0]
     release = int(last.release) + 1
+
+    # FIXME: Write something useful to guess version from source archive
+    # And add comment = "Version bump."
+
     if not version:
         version = last.version
         if not comment:
-            comment = "Version bump."
+            comment = last.comment
     else:
         comment = "Write your comment here!!"
 

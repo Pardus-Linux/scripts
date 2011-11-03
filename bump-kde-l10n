@@ -7,10 +7,27 @@ import sys
 import hashlib
 import datetime
 
-maintainer_name = ""
-maintainer_mail = ""
+def get_and_save_user_info():
+    name = "PACKAGER_NAME"
+    email = "PACKAGER_EMAIL"
 
-def bump_spec(spec, ver):
+    conf_file = os.path.expanduser("~/.packagerinfo")
+    if os.path.exists(conf_file):
+        # Read from it
+        name, email = open(conf_file, "r").read().strip().split(",")
+
+    else:
+        print "Please enter your full name as seen in pspec files"
+        name = raw_input("> ")
+        print "Please enter your e-mail as seen in pspec files"
+        email = raw_input("> ")
+        print "Saving packager info into %s" % conf_file
+
+        open(conf_file, "w").write("%s,%s" % (name, email))
+
+    return name, email
+
+def bump_spec(spec, ver, packager_name, packager_mail):
     lines = open(spec).readlines()
     name_line = -1
     archive_line = -1
@@ -81,8 +98,8 @@ def bump_spec(spec, ver):
             '            <Date>%s</Date>\n' % datetime.date.isoformat(datetime.date.today()),
             '            <Version>%s</Version>\n' % version,
             '            <Comment>Version bump to %s</Comment>\n' % version,
-            '            <Name>%s</Name>\n' % maintainer_name,
-            '            <Email>%s</Email>\n' % maintainer_mail,
+            '            <Name>%s</Name>\n' % packager_name,
+            '            <Email>%s</Email>\n' % packager_email,
             '        </Update>\n']
 
     lines[update_line:update_line] = update_lines
@@ -102,5 +119,7 @@ if __name__ == "__main__":
         print "%s version file1 file2 ..." % sys.argv[0]
         sys.exit(1)
 
+    packager_name, packager_email = get_and_save_user_info()
+
     for spec_file in files:
-        bump_spec(spec_file, version)
+        bump_spec(spec_file, version, packager_name, packager_email)

@@ -1,0 +1,18 @@
+#!/bin/bash
+
+for pkg in $(find devel/ -name "pspec.xml"); do
+    NAME=`grep -A2 "<Packager>" $pkg | grep "<Name>" | sed 's:.*<Name>\(.*\)<\/Name>:\1:'`
+    EMAIL=`grep -A2 "<Packager>" $pkg | grep "<Email>" | sed 's:.*<Email>\(.*\)<\/Email>:\1:'`
+
+    DEST=`echo $pkg | sed 's:devel\/:testing\/:'`
+    echo $DEST $NAME $EMAIL
+
+    sed -i "/<Packager>$/{
+    N
+    N
+    N
+    s/<Name>.*<\/Name>\n/<Name>$NAME<\/Name>\n/
+    s/<Email>.*<\/Email>\n/<Email>$EMAIL<\/Email>\n/
+}" $DEST
+
+done

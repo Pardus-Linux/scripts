@@ -85,7 +85,7 @@ output = """\
                 <li><b>Number of total packages:</b> <em>%d</em></li>
                 <li><b>Number of new packages:</b> <em>%d</em></li>
                 <li><b>Number of updated packages:</b> <em>%d</em></li>
-                <li><b>Download page:</b> <a href=\"http://www.pardus.org.tr/pardus/indir\" target=\"_blank\">Click here</a></li>
+                <li><b>Download page:</b> <a href=\"http://www.pardus.org.tr/en/pardus/indir\" target=\"_blank\">Click here</a></li>
             </ul>
         </li>
 

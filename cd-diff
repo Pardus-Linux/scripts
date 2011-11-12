@@ -44,7 +44,7 @@ output = """\
 <body>
 
     <h1><a name=\"top\">%s Statistics</a></h1>
-    <a href=\"http://www.pardus.org.tr/eng\">http://www.pardus.org.tr/eng</a><br />
+    <a href=\"http://www.pardus.org.tr\">http://www.pardus.org.tr</a><br />
     <em>Generated on %s</em>
 
     <h2>Introduction</h2>
@@ -85,7 +85,7 @@ output = """\
                 <li><b>Number of total packages:</b> <em>%d</em></li>
                 <li><b>Number of new packages:</b> <em>%d</em></li>
                 <li><b>Number of updated packages:</b> <em>%d</em></li>
-                <li><b>Download page:</b> <a href=\"http://www.pardus.org.tr/eng/download.html\" target=\"_blank\">Click here</a></li>
+                <li><b>Download page:</b> <a href=\"http://www.pardus.org.tr/pardus/indir\" target=\"_blank\">Click here</a></li>
             </ul>
         </li>
 

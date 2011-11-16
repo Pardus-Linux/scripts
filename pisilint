@@ -26,7 +26,7 @@ import ConfigParser
     # * Add a verbose mode that prints more details when -v parameter is passed
     # * If the dependency is in system.base and its strict, then remove that
     #    dependency from alread_in_sys_base list
-
+    # * Check for archive attributes if they are in right order
 
 class CheckActions:
     """ Check actions.py if it has unused imports or system() usage """
@@ -157,7 +157,7 @@ class CheckPspec:
         if len(use_devel_pkg) == 1:
             self.issues["M"].append('This package has "-devel" counterpart in repo to be written as build dependencies:\n   %s' % use_devel_pkg)
         elif len(use_devel_pkg) > 1:
-            self.issues["M"].append('These packages have "-devel" counterparts in repo to be written as build dependencies:\n   %s' % use_devel_pkg)
+            self.issues["M"].append('These packages have "-devel" counterparts in repo to be written as build dependencies:\n\t%s' % '\n\t'.join(use_devel_pkg))
 
     def check_runtime_deps(self):
         """ Check if the RuntimeDependencies tag has system.base dependencies and
@@ -197,9 +197,6 @@ class CheckPspec:
 
     def check_archive(self):
         """ Check archive tag to see if the packager is using mirrors:// support """
-
-        # TODO:
-        # - Check for archive attributes if they are in right order
 
         # There is no clean way to detect if the archive is supported by mirrors,
         # So just check for Sourceforge since it is the most common mistake that packagers do.
@@ -290,7 +287,7 @@ class CheckPspec:
         if len(unused_patches) == 1:
             self.issues["C"].append('There is an unapplied patch: %s' % unused_patches)
         elif len(unused_patches) > 1:
-            self.issues["C"].append('There are unapplied patches: %s' % unused_patches)
+            self.issues["M"].append('These are unapplied patches:\n\t%s' % '\n\t'.join(unused_patches))
 
     def check_description(self):
         """ Many checks for Description such as leading/trailing whitespaces etc. """
@@ -658,9 +655,10 @@ class CheckPackage:
                 self.ftypes["desktop_files"][0].append(_file.path)
 
             # Header files
-            if _file.path.endswith(".h") or \
+            if not _file.path.startswith("usr/share/doc") and \
+               (_file.path.endswith(".h") or \
                _file.path.endswith(".hpp") or \
-               _file.path.endswith(".x"):
+               _file.path.endswith(".x")):
                 self.ftypes["header_files"][0].append(_file.path)
 
                 if _file.type != "header":
